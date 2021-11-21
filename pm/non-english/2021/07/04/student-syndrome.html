@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     The Student Syndrome: Hiệu Ứng Sinh Viên "Lười" &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">The Student Syndrome: Hiệu Ứng Sinh Viên "Lười"</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">04 Jul 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/non-english/2021/07/04/student-syndrome.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=The Student Syndrome: Hiệu Ứng Sinh Viên "Lười"&url=https://wanted2.github.io/pm/non-english/2021/07/04/student-syndrome.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/non-english/2021/07/04/student-syndrome.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    4 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#nguyên-nhân">Nguyên nhân</a></li>
+<li class="toc-entry toc-h1"><a href="#thuốc-trị">Thuốc trị</a></li>
+<li class="toc-entry toc-h1"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Student_syndrome.png" alt="" /></p>
+
+<p>Hiệu ứng <strong>Sinh Viên “lười”</strong> là hiện tượng sinh viên hoặc nhân viên khi đến thời hạn nội bài, nộp hàng thì mới bắt đầu “chạy”, và nếu không kịp thì xin trì hoãn và yêu cầu quản lý dự án cũng như khách hàng đợi thêm một thời gian (1-2 ngày, có khi 1-2 tuần).
+Đây là một vấn đề không mới, nhưng là “bệnh nan y” mà quản lý dự án phải đối mặt theo cách này hay cách khác.
+Hậu quả của hiệu ứng này là khiến cho dự án “muộn” hơn so với kế hoạch và hầu hết trong các giáo trình quản lý dự án (như cuốn của Meredith <em>et al.</em> [1, trang 415]) đều coi việc quản lý hiệu ứng này như một phần của quản trị rủi ro.</p>
+
+<!--more-->
+
+<h1 id="nguyên-nhân">Nguyên nhân</h1>
+
+<p>Có nhiều nguyên nhân dẫn tới hiệu ứng <strong>Sinh Viên “lười”</strong> như sau:</p>
+
+<ul>
+  <li>
+    <p><strong>Quản lý dự án yếu kém</strong>: PM thiếu tổ chức và thiếu trách nhiệm, trốn tránh việc giao tiếp thường xuyên với team dự án có thể là nguyên nhân dẫn đến hiệu ứng này.
+Khi team dự án bị “bỏ bê” nhiều, các bạn trở nên mất phương hướng, thụ động, ngại hành động, dẫn đến tiến độ chậm.
+Thế rồi, quản lý dự án đột nhiên xuất hiện và yêu cầu các bạn nộp bài để cho stakeholders xem, mà không hướng dẫn kịp vì bỏ bê lâu ngày, thì … toang!</p>
+  </li>
+  <li>
+    <p><strong>Yêu cầu dự án không rõ ràng</strong>: Dự án chứa nhiều yêu cầu không rõ ràng để tạo ra một “big picture” có độ phân giải cao. Các bạn thử tưởng tượng khi xem một bức ảnh có độ phân giải thấp, thì những vùng khó nhìn trên ảnh sẽ có thể hiểu nổi không? Nếu không thể hiểu được thì bạn có xem vùng đó nữa không? Tất nhiên là không! và thành viên dự án cũng vậy. Khi có một nhiệm vụ không rõ ràng, các bạn sẽ có xu hướng tránh nhận nhiệm vụ đó. Và dự án trì trệ theo chiều hướng đó thôi!</p>
+  </li>
+  <li>
+    <p><strong>Chạy song song nhiều dự án, thiếu tập trung</strong>: Cùng 1 team dự án phải care nhiều dự án quá cùng lúc dẫn tới dàn trải sức và kết cục sẽ phải ưu tiên 1 dự án nào đó hơn các dự án khác. Các dự án còn lại sẽ rơi vào “stagination mode” mà nói chung sẽ phải chờ!</p>
+  </li>
+  <li>
+    <p><strong>Bản tính con người là “lười”</strong>: <em>“Nhân chi sơ, tính bản thiện”</em> nhưng ai cũng <em>“lười”</em>.</p>
+  </li>
+</ul>
+
+<p>Hậu quả của hiệu ứng Sinh Viên “lười” là giảm chất lượng sản phẩm, khiến cho scope có nhiều chỗ không kịp làm, giảm niềm tin của stakeholders, team dự án thì lúc nào cũng rơi vào tình trạng “áp lực”, và rủi ro cho kế hoạch thì gia tăng.</p>
+
+<h1 id="thuốc-trị">Thuốc trị</h1>
+
+<ul>
+  <li>
+    <p><strong>Định kỳ thường xuyên theo dõi, giám sát team dự án</strong>: Không bao giờ bỏ bê các bạn. Phải hỏi ngay khi có dấu hiệu không hiểu, phải chỉnh lại ngay khi có dấu hiệu “lạc lối”.</p>
+  </li>
+  <li>
+    <p><strong>Định kỳ thường xuyên báo cáo và liên lạc với stakeholders</strong>: báo cáo tiến độ kịp thời và nhận feedback kịp thời khi có vấn đề.</p>
+  </li>
+  <li>
+    <p><strong>Theo dõi sát sao thời gian rảnh của team (“slack”) và lên cảnh báo ngay khi có dấu hiệu thời gian rảnh nhiều hoặc khi tiến độ chậm lại.</strong></p>
+  </li>
+  <li>
+    <p><strong>Chia nhỏ đầu việc, đến mức có thể nắm được</strong>: Tránh giao 1 đầu việc to vì như vậy rủi ro chậm dự án là rất lớn. Lý do bởi vì thời gian để detect được hiệu ứng SInh Viên “lười” luôn không vượt quá thời gian công số của task. Vì vậy nếu để đầu việc công số lớn thì thời gian để phát hiện ra hiệu ứng cũng lớn theo. <strong>Do vậy, không nên để đầu việc nào có thời gian dài quá 1 ngày, hoặc vài giờ, tùy theo dự án</strong>.</p>
+  </li>
+</ul>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="meredith2017project">Meredith, J. R., Shafer, S. M., &amp; Mantel Jr, S. J. (2017). <i>Project management: a strategic managerial approach</i>. John Wiley &amp; Sons.</span></li>
+<li><span id="OracleCr38:online"><i>Oracle Crystal Ball Downloads</i>. https://www.oracle.com/middleware/technologies/crystalball/downloads.html.</span></li>
+<li><span id="fisher1983getting">Fisher, R., &amp; Ury, W. (1983). <i>Getting to Yes: Negotiating Agreement Without Giving In</i>. New York: Penguin Books.</span></li>
+<li><span id="hamburger1986three">Hamburger, D. H. (1986). Three perceptions of project cost. <i>Project Management Journal</i>, 372–378.</span></li>
+<li><span id="GanttPro32:online"><i>GanttProject - Free Project Management Application</i>. https://www.ganttproject.biz/.</span></li>
+<li><span id="ProjectM44:online"><i>Project Management Software | Microsoft Project</i>. https://www.microsoft.com/en-us/microsoft-365/project/project-management-software.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#pmi">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">pmi</span>
+    </a>
+  
+    
+    <a href="/tags.html#startup">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">startup</span>
+    </a>
+  
+    
+    <a href="/tags.html#risk-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">risk management</span>
+    </a>
+  
+    
+    <a href="/tags.html#student-syndrome">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">student syndrome</span>
+    </a>
+  
+    
+    <a href="/tags.html#schedule-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">schedule management</span>
+    </a>
+  
+    
+    <a href="/tags.html#schedule-risk">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">schedule risk</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/non-english/2021/07/04/student-syndrome.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/non-english/2021/07/04/student-syndrome.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

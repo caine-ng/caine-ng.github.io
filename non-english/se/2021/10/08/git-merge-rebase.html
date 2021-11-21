@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     So sánh git merge và git rebase &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">So sánh git merge và git rebase</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">08 Oct 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/non-english/se/2021/10/08/git-merge-rebase.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=So sánh git merge và git rebase&url=https://wanted2.github.io/non-english/se/2021/10/08/git-merge-rebase.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/non-english/se/2021/10/08/git-merge-rebase.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    11 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#đôi-lời-mở">Đôi lời mở</a></li>
+<li class="toc-entry toc-h1"><a href="#the-devil-is-in-the-details">The devil is in the details</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#git-merge">git merge</a></li>
+<li class="toc-entry toc-h2"><a href="#git-rebase">git rebase</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#lời-kết">Lời kết</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="/assets/img/git.svg" alt="git" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">git merge</code> và <code class="language-plaintext highlighter-rouge">git rebase</code> là 2 câu lệnh quen thuộc với lập trình viên chỉ để giải quyết cùng 1 bài toán: với 2 branches được phát triển song song, nay cần migrate các tính năng của branch feature vào branch chính (<code class="language-plaintext highlighter-rouge">main</code>).
+Vấn đề là làm thế nào? Một cách chi tiết thì chỉ có 2 cách tương ứng với 2 câu lệnh ở trên tiêu đề bài viết mà chúng ta sẽ đi sâu trong bài này.
+<!--more--></p>
+
+<h1 id="đôi-lời-mở">Đôi lời mở</h1>
+
+<p>Có khá nhiều hướng dẫn về cách tích hợp 2 nhánh công việc khác nhau, với nhiều cái tên “mỹ miều” như migration, integration và những tài liệu dài hàng trang chỉ để giải thích các cách làm.
+Nhưng nếu là LTV lâu năm đều nhìn ra “tư duy” đằng sau và biết câu lệnh đơn thuần nhất để giải quyết: người mới có khi phải làm “bằng tay” cả khối công việc đó trong một vài tháng để chỉ hiểu được “tư duy” ẩn giấu, nhưng người đã biết thì chỉ cần 1 câu lệnh như <code class="language-plaintext highlighter-rouge">git merge</code> là giải quyết xong công việc.</p>
+
+<p>Bạn thử nghĩ xem, nếu chỉ cần 1 vài giây là chạy xong <code class="language-plaintext highlighter-rouge">git merge</code> nhưng nếu bạn không biết và phải làm theo nguyên tắc: tức là chi tiết hóa và làm toàn bộ chi tiết của <code class="language-plaintext highlighter-rouge">git merge</code> bằng tay thì liệu 1 tháng có đủ không?</p>
+
+<p>Vì vậy cách suy nghĩ đúng là <strong>chi tiết hóa rồi trừu tượng hóa</strong>. Chi tiết hóa giúp nhận ra vấn đề là gì, sau khi nắm rõ vấn đề, trừu tượng hóa giúp nhận ra “à với công việc này, thì sử dụng công cụ này sẽ chỉ cần 1 vài dòng lệnh là giải quyết vấn đề”.</p>
+
+<p>Chỉ chi tiết hóa thôi thì sẽ bị sa đà vào tiểu tiết, lãng phí công số.
+Chỉ trừu tượng hóa thôi thì sẽ có rủi ro là bị sai hướng vì không nắm rõ chi tiết.
+Trừu tượng hóa trước thì sẽ bị sai hướng dẫn đến chi tiết hóa hoàn toàn sai lệch.</p>
+
+<p>Vì vậy chỉ có cách suy nghĩ đúng là <strong>chi tiết hóa rồi trừu tượng hóa</strong>.</p>
+
+<h1 id="the-devil-is-in-the-details">The devil is in the details</h1>
+
+<p>Tại sao trừu tượng hóa trước thì không tốt? Đơn giản thôi: bởi để migrate tính năng, ngoài <code class="language-plaintext highlighter-rouge">merge</code> thì còn có <code class="language-plaintext highlighter-rouge">rebase</code>, nếu không chi tiết bài toán cũng như sự khác biệt giữa 2 câu lệnh thì có thể đi sai hướng và dùng sai công cụ.</p>
+
+<h2 id="git-merge"><code class="language-plaintext highlighter-rouge">git merge</code></h2>
+
+<p><img src="/assets/img/git-merge.svg" style="float: right; margin: 10px; width: 50%;" />
+Đầu tiên chúng ta sẽ tìm hiểu cách thông dụng nhất và hay được khuyến khích dùng nhất để giải bài toán của chúng ta.
+Bản chất của <code class="language-plaintext highlighter-rouge">git merge</code> thì cũng như hình vẽ bên: tạo 1 commit mới hẳn và chuyển tất cả tính năng của <code class="language-plaintext highlighter-rouge">feature/1</code> vào đó.
+Đây là lựa chọn mặc định của <code class="language-plaintext highlighter-rouge">git merge</code>, bạn có thể thay đổi bằng thêm <code class="language-plaintext highlighter-rouge">--squash</code>.
+Chi tiết câu lệnh <code class="language-plaintext highlighter-rouge">merge</code> thì như bên dưới có 2 options mặc định là <code class="language-plaintext highlighter-rouge">--ff</code> cho fast-forward và <code class="language-plaintext highlighter-rouge">--commit</code> (tức là tạo commit mới hay là merge commit).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git merge <span class="nt">-h</span>
+usage: git merge <span class="o">[</span>&lt;options&gt;] <span class="o">[</span>&lt;commit&gt;...]
+   or: git merge <span class="nt">--abort</span>
+   or: git merge <span class="nt">--continue</span>
+
+    <span class="nt">-n</span>                    <span class="k">do </span>not show a diffstat at the end of the merge
+    <span class="nt">--stat</span>                show a diffstat at the end of the merge       
+    <span class="nt">--summary</span>             <span class="o">(</span>synonym to <span class="nt">--stat</span><span class="o">)</span>
+    <span class="nt">--log</span><span class="o">[=</span>&lt;n&gt;]           add <span class="o">(</span>at most &lt;n&gt;<span class="o">)</span> entries from shortlog to merge commit message
+    <span class="nt">--squash</span>              create a single commit instead of doing a merge
+    <span class="nt">--commit</span>              perform a commit <span class="k">if </span>the merge succeeds <span class="o">(</span>default<span class="o">)</span>
+    <span class="nt">-e</span>, <span class="nt">--edit</span>            edit message before committing
+    <span class="nt">--cleanup</span> &lt;mode&gt;      how to strip spaces and <span class="c">#comments from message</span>
+    <span class="nt">--ff</span>                  allow fast-forward <span class="o">(</span>default<span class="o">)</span>
+    <span class="nt">--ff-only</span>             abort <span class="k">if </span>fast-forward is not possible
+    <span class="nt">--rerere-autoupdate</span>   update the index with reused conflict resolution <span class="k">if </span>possible
+    <span class="nt">--verify-signatures</span>   verify that the named commit has a valid GPG signature
+    <span class="nt">-s</span>, <span class="nt">--strategy</span> &lt;strategy&gt;
+                          merge strategy to use
+    <span class="nt">-X</span>, <span class="nt">--strategy-option</span> &lt;<span class="nv">option</span><span class="o">=</span>value&gt;
+                          option <span class="k">for </span>selected merge strategy
+    <span class="nt">-m</span>, <span class="nt">--message</span> &lt;message&gt;
+                          merge commit message <span class="o">(</span><span class="k">for </span>a non-fast-forward merge<span class="o">)</span>
+    <span class="nt">-F</span>, <span class="nt">--file</span> &lt;path&gt;     <span class="nb">read </span>message from file
+    <span class="nt">-v</span>, <span class="nt">--verbose</span>         be more verbose
+    <span class="nt">-q</span>, <span class="nt">--quiet</span>           be more quiet
+    <span class="nt">--abort</span>               abort the current <span class="k">in</span><span class="nt">-progress</span> merge
+    <span class="nt">--quit</span>                <span class="nt">--abort</span> but leave index and working tree alone
+    <span class="nt">--continue</span>            <span class="k">continue </span>the current <span class="k">in</span><span class="nt">-progress</span> merge
+    <span class="nt">--allow-unrelated-histories</span>
+                          allow merging unrelated histories
+    <span class="nt">--progress</span>            force progress reporting
+    <span class="nt">-S</span>, <span class="nt">--gpg-sign</span><span class="o">[=</span>&lt;key-id&gt;]
+                          GPG sign commit
+    <span class="nt">--autostash</span>           automatically stash/stash pop before and after
+    <span class="nt">--overwrite-ignore</span>    update ignored files <span class="o">(</span>default<span class="o">)</span>
+    <span class="nt">--signoff</span>             add a Signed-off-by trailer
+    <span class="nt">--no-verify</span>           bypass pre-merge-commit and commit-msg hooks
+</code></pre></div></div>
+
+<p>Vậy quá trình sẽ xảy ra suôn sẻ? Đương nhiên conflict có thể xảy ra và dev sẽ phải resolve bằng tay, sau đó thì dùng <code class="language-plaintext highlighter-rouge">git merge --continue</code> để tiếp tục merge.
+Trong trường hợp đang merge mà gặp phải tình huống conflict không thể giải quyết được thì <code class="language-plaintext highlighter-rouge">git merge --abort</code> sẽ đưa bạn về thời điểm trước khi merge.
+<code class="language-plaintext highlighter-rouge">--abort</code> đương nhiên là điều không mong muốn, mà điều mong muốn là <code class="language-plaintext highlighter-rouge">--continue</code> đến khi xong.</p>
+
+<p><code class="language-plaintext highlighter-rouge">git merge</code> nhìn chung là 1 quy trình an toàn <strong>nếu bạn chịu khó làm đến cùng</strong>. 
+Nếu mới gặp conflict đầu tiên bạn đã sợ hãi <code class="language-plaintext highlighter-rouge">--abort</code> ngay thì sẽ không bao giờ đi đến cùng được.
+Đồng thời quy trình sẽ rất tự động nếu 2 branches không conflict nhiều.
+Vì vậy, trước khi quyết định có merge hay không thì tốt nhất nên điều tra sơ xem có nhiều file trùng nhau giữa lịch sử 2 branches với base không?
+Nếu nhìn <code class="language-plaintext highlighter-rouge">git diff</code> sơ mà thấy khác nhau nhiều quá là có lẽ … không nên cho phép merge.
+Bởi như vậy không khác gì làm bằng tay (cứ tí lại gặp conflict phải resolve)!</p>
+
+<p>Tuy nhiên, so với giải pháp tiếp theo mà chúng ta giới thiệu thì <code class="language-plaintext highlighter-rouge">git merge</code> có ít rủi ro gặp conflict hơn và nhìn chung số lần resolve chỉ là $\leq 1$, nên <code class="language-plaintext highlighter-rouge">git merge</code> luôn luôn là giải pháp ưu tiên cho bài toán của chúng ta.</p>
+
+<h2 id="git-rebase"><code class="language-plaintext highlighter-rouge">git rebase</code></h2>
+
+<p><img src="/assets/img/git-rebase.svg" style="float: left; margin: 10px; width: 50%;" />
+Một lựa chọn khác cho bài toán của chúng ta là <code class="language-plaintext highlighter-rouge">git rebase</code>.
+<strong><code class="language-plaintext highlighter-rouge">git rebase</code> sẽ không tạo ra commit mới nào cả mà sẽ sửa lại lịch sử git của <code class="language-plaintext highlighter-rouge">main</code>.</strong>
+Như hình vẽ bên trái, bạn thấy rõ là các commit của <code class="language-plaintext highlighter-rouge">feature/1</code> sẽ được bố trí xen kẽ theo thứ tự thời gian vào <code class="language-plaintext highlighter-rouge">main</code>.
+Bắt đầu từ commit đầu tiên của feature branch thì thực hiện merge và nếu gặp conflict thì dev phải resolve bằng tay rồi <code class="language-plaintext highlighter-rouge">--continue</code>.
+Cũng như <code class="language-plaintext highlighter-rouge">git merge</code> bạn có thể <code class="language-plaintext highlighter-rouge">--abort</code> để quay lại trạng thái ban đầu nếu … sợ!
+Bạn cũng có thể <code class="language-plaintext highlighter-rouge">--quit</code>, nhưng nhớ là nếu <code class="language-plaintext highlighter-rouge">--abort</code> dọn dẹp để đưa branch <code class="language-plaintext highlighter-rouge">main</code> về trạng thái ban đầu thì <code class="language-plaintext highlighter-rouge">--quit</code> sẽ để lại mớ hỗn độn nguyên xi đó.</p>
+
+<p>Trong <code class="language-plaintext highlighter-rouge">git merge</code> thì dù 2 branches conflict nhiều thế nào thì cũng chỉ cần 1 merge commit để chứa tất cả.
+Nhưng bạn thấy đấy với <code class="language-plaintext highlighter-rouge">git rebase</code> số lần conflict có thể tỷ lệ thuận với số commit của hai branches.
+Và công việc sẽ không khác gì bằng tay nếu hai branches conflict nhiều!
+<strong>Nhìn chung đây là cách làm nguy hiểm hơn <code class="language-plaintext highlighter-rouge">git merge</code> rất nhiều.</strong></p>
+
+<p>Bạn có thể dùng <code class="language-plaintext highlighter-rouge">git rebase -i</code> để chọn lựa những commit muốn bỏ vào <code class="language-plaintext highlighter-rouge">main</code> nếu không phải tất cả mọi commit trên <code class="language-plaintext highlighter-rouge">feature/1</code> đều có giá trị với bạn.
+Sau khi chỉnh sửa lịch sử thì bạn có thể cập nhật branch bằng <code class="language-plaintext highlighter-rouge">git push -f</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase <span class="nt">-h</span>
+usage: git rebase <span class="o">[</span><span class="nt">-i</span><span class="o">]</span> <span class="o">[</span>options] <span class="o">[</span><span class="nt">--exec</span> &lt;cmd&gt;] <span class="o">[</span><span class="nt">--onto</span> &lt;newbase&gt; | <span class="nt">--keep-base</span><span class="o">]</span> <span class="o">[</span>&lt;upstream&gt; <span class="o">[</span>&lt;branch&gt;]]
+   or: git rebase <span class="o">[</span><span class="nt">-i</span><span class="o">]</span> <span class="o">[</span>options] <span class="o">[</span><span class="nt">--exec</span> &lt;cmd&gt;] <span class="o">[</span><span class="nt">--onto</span> &lt;newbase&gt;] <span class="nt">--root</span> <span class="o">[</span>&lt;branch&gt;]
+   or: git rebase <span class="nt">--continue</span> | <span class="nt">--abort</span> | <span class="nt">--skip</span> | <span class="nt">--edit-todo</span>
+
+    <span class="nt">--onto</span> &lt;revision&gt;     rebase onto given branch instead of upstream
+    <span class="nt">--keep-base</span>           use the merge-base of upstream and branch as the current base
+    <span class="nt">--no-verify</span>           allow pre-rebase hook to run
+    <span class="nt">-q</span>, <span class="nt">--quiet</span>           be quiet. implies <span class="nt">--no-stat</span>
+    <span class="nt">-v</span>, <span class="nt">--verbose</span>         display a diffstat of what changed upstream
+    <span class="nt">-n</span>, <span class="nt">--no-stat</span>         <span class="k">do </span>not show diffstat of what changed upstream
+    <span class="nt">--signoff</span>             add a Signed-off-by trailer to each commit
+    <span class="nt">--committer-date-is-author-date</span>
+                          make committer <span class="nb">date </span>match author <span class="nb">date</span>
+    <span class="nt">--reset-author-date</span>   ignore author <span class="nb">date </span>and use current <span class="nb">date</span>
+    <span class="nt">-C</span> &lt;n&gt;                passed to <span class="s1">'git apply'</span>
+    <span class="nt">--ignore-whitespace</span>   ignore changes <span class="k">in </span>whitespace
+    <span class="nt">--whitespace</span> &lt;action&gt;
+                          passed to <span class="s1">'git apply'</span>
+    <span class="nt">-f</span>, <span class="nt">--force-rebase</span>    cherry-pick all commits, even <span class="k">if </span>unchanged
+    <span class="nt">--no-ff</span>               cherry-pick all commits, even <span class="k">if </span>unchanged
+    <span class="nt">--continue</span>            <span class="k">continue</span>
+    <span class="nt">--skip</span>                skip current patch and <span class="k">continue</span>
+    <span class="nt">--abort</span>               abort and check out the original branch
+    <span class="nt">--quit</span>                abort but keep HEAD where it is
+    <span class="nt">--edit-todo</span>           edit the todo list during an interactive rebase
+    <span class="nt">--show-current-patch</span>  show the patch file being applied or merged
+    <span class="nt">--apply</span>               use apply strategies to rebase
+    <span class="nt">-m</span>, <span class="nt">--merge</span>           use merging strategies to rebase
+    <span class="nt">-i</span>, <span class="nt">--interactive</span>     <span class="nb">let </span>the user edit the list of commits to rebase
+    <span class="nt">--rerere-autoupdate</span>   update the index with reused conflict resolution <span class="k">if </span>possible
+    <span class="nt">--empty</span> &lt;<span class="o">{</span>drop,keep,ask<span class="o">}&gt;</span>
+                          how to handle commits that become empty
+    <span class="nt">--autosquash</span>          move commits that begin with squash!/fixup! under <span class="nt">-i</span>
+    <span class="nt">-S</span>, <span class="nt">--gpg-sign</span><span class="o">[=</span>&lt;key-id&gt;]
+                          GPG-sign commits
+    <span class="nt">--autostash</span>           automatically stash/stash pop before and after
+    <span class="nt">-x</span>, <span class="nt">--exec</span> &lt;<span class="nb">exec</span><span class="o">&gt;</span>     add <span class="nb">exec </span>lines after each commit of the editable list
+    <span class="nt">-r</span>, <span class="nt">--rebase-merges</span><span class="o">[=</span>&lt;mode&gt;]
+                          try to rebase merges instead of skipping them
+    <span class="nt">--fork-point</span>          use <span class="s1">'merge-base --fork-point'</span> to refine upstream
+    <span class="nt">-s</span>, <span class="nt">--strategy</span> &lt;strategy&gt;
+                          use the given merge strategy
+    <span class="nt">-X</span>, <span class="nt">--strategy-option</span> &lt;option&gt;
+                          pass the argument through to the merge strategy
+    <span class="nt">--root</span>                rebase all reachable commits up to the root<span class="o">(</span>s<span class="o">)</span>
+    <span class="nt">--reschedule-failed-exec</span>
+                          automatically re-schedule any <span class="sb">`</span><span class="nb">exec</span><span class="sb">`</span> that fails
+    <span class="nt">--reapply-cherry-picks</span>
+                          apply all changes, even those already present upstream
+</code></pre></div></div>
+
+<p>Nói chung chỉnh sửa lịch sử là quá trình rất nguy hiểm!
+Vì vậy cần chi tiết hóa trước để tránh đi theo những cách bất thường, sau đó trừu tượng hóa để tìm ra công cụ tối ưu.</p>
+
+<h1 id="lời-kết">Lời kết</h1>
+
+<p>Bài viết lấy ví dụ về bài toán migrate tính năng từ <code class="language-plaintext highlighter-rouge">feature/1</code> vào <code class="language-plaintext highlighter-rouge">main</code>.
+Bạn nên nhớ những Gitflow thực tế sẽ còn phức tạp hơn với những quy tắc như chỉ <code class="language-plaintext highlighter-rouge">develop</code> mới được merge vào <code class="language-plaintext highlighter-rouge">main</code>, tuy nhiên đó là chủ đề khác.
+Ngoài ra, nếu bài toán của bạn là bất thường, đòi hỏi phải edit history thì có thể bạn phải dùng rebase.
+Nhưng nhìn chung trong các trường hợp <strong>bình thường</strong>, tôi thấy hầu như đều dùng <code class="language-plaintext highlighter-rouge">git merge</code> tức là tạo ra merge <strong>commit mới hẳn</strong> và chuyển hết tính năng cần thiết vào.
+Thêm nữa, đây là migrate <strong>tính năng</strong> chứ không chỉ là files hay tài nguyên, tức là các tính năng được implement trên <code class="language-plaintext highlighter-rouge">feature/1</code> phải tái hiện như thế trên <code class="language-plaintext highlighter-rouge">main</code>.</p>
+
+<blockquote>
+  <p><strong>Nói chung tạo cái mới thì tốt hơn!</strong></p>
+</blockquote>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#git">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">git</span>
+    </a>
+  
+    
+    <a href="/tags.html#gitflow">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">gitflow</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/non-english/se/2021/10/08/git-merge-rebase.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/non-english/se/2021/10/08/git-merge-rebase.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

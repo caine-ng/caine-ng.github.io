@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     C4 diagrams for software architecture visualization - Context, Containers, Components, and Code - &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">C4 diagrams for software architecture visualization - Context, Containers, Components, and Code -</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">03 Sep 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=C4 diagrams for software architecture visualization - Context, Containers, Components, and Code -&url=https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    9 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#the-c4-model">The C4 model</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#the-cure-of-representation">The cure of representation</a></li>
+<li class="toc-entry toc-h2"><a href="#metamodel-and-notations">Metamodel and notations</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#elements-and-relationships">Elements and relationships</a></li>
+<li class="toc-entry toc-h3"><a href="#views">Views</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#supplementary-diagrams">Supplementary diagrams</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#examples">Examples</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#tools">Tools</a></li>
+<li class="toc-entry toc-h2"><a href="#a-tutorial">A tutorial</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#conclusion">Conclusion</a></li>
+<li class="toc-entry toc-h1"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://res.infoq.com/articles/C4-architecture-model/en/resources/c4-1-1529934729133.jpg" alt="" />
+<em>Source: InfoQ</em></p>
+
+<p>Using MS Word and Excel, an engineer can describe the system in language and visuals.
+Such conventional methodologies can be sufficient for small architecture with few components.
+When the software system scales and changes frequently, maintaining records of the architecture by documents can be tedious.
+Hence, the lack of interaction in conventional document methods may present a stiff learning curve for a new member to the project team.
+To cope with these challenges, the <strong>C4 diagram model [1, 2, 3]</strong> was created to give interactive views of the software architectures.
+Systems are modeled at four different levels: system context, containers, components, and code.
+These levels are represented by diagrams.
+Intuitively, we can see the C4 diagrams as large visualization systems in which engineers can zoom in and out to see the details and the big picture.</p>
+
+<!--more-->
+
+<h1 id="the-c4-model">The C4 model</h1>
+
+<h2 id="the-cure-of-representation">The cure of representation</h2>
+<p><strong>Knowledge sharing</strong> is important in software projects.
+Using representations like documents and diagrams, teams can keep the understanding of the product identically among team members.
+Also, having such powerful representations can keep stakeholders motivated.
+A good representation of the software projects, especially the architectures, helps audiences to capture the mechanism of the project at a glance.</p>
+
+<blockquote>
+  <p>A good representation should be lightweight but doesn’t omit any aspects of the software product. It should contain as many details as possible but also must be compact and fast.</p>
+</blockquote>
+
+<p>I had experiences in several projects where knowledge sharing is important.
+People realized the need, and they tried to share by different means: verbal conversations (i. e., meetings or discussions), visual communications (presentations and diagrams), and textual things (documents by MS Office, notes, …).
+However, things will be like “a ton of documents” have been produced, and new members need to read all when joining the project.
+Then when a business staff wants to have a <code class="language-plaintext highlighter-rouge">short and compact description</code> to put in presentations (and will give the presentation to the clients or investors), someone will need to do the <strong>summarization</strong> after reading the whole bundle.
+Such textual summary was a good means for knowledge sharing, but the compression ratio was not quite good: several sentences can capture only some aspects of the projects, and then QA sections always come for clients and members to understand more.</p>
+
+<div style="width: 40%; float: right; margin: 15px;">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/1913_Piqua_Ohio_Advertisement_-_One_Look_Is_Worth_a_Thousand_Words.jpg" />
+<p>1913 Piqua Ohio Advertisement - One Look Is Worth a Thousand Words. Source: <a href="https://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words#/media/File:1913_Piqua_Ohio_Advertisement_-_One_Look_Is_Worth_a_Thousand_Words.jpg">Wikipedia</a></p>
+</div>
+
+<p>Another direction to find a compact representation is using visual information.</p>
+
+<blockquote>
+  <p>A picture is worth a thousand words.</p>
+</blockquote>
+
+<p>Diagrams and interactions are always good things. Some studies have shown that children will learn faster by visual representations like pictures and interesting pictures.
+Finding such a compact and meaningful visual representation also needs to compress the whole architecture into small diagrams which are organized hierarchically.
+In other words, architects who find such representations also need to refine, prune and search for compact architectures to put into the compact diagrams.</p>
+
+<div style="width: 60%; float: left; margin: 15px;">
+<img src="https://c4model.com/img/c4-overview.png" />
+<p>Source: <a href="https://c4model.com/">c4model.com</a></p>
+</div>
+<p>Therefore, the search for good representations faces the tradeoff between the learning cost and the compactness of representations.
+<strong>What C4 model provides is a compact, interactive and hierarchical representation of any software architecture.</strong>
+The model divides the architectural diagrams into four levels: context, containers, components, and code.
+Low-level representations such as code and components represent details for implementations and maintenance.
+Thus, they should be used by developers.
+High-level representations such as context and containers represent an overview of the architecture such as system diagrams and container architecture (container here is not Docker!).</p>
+
+<p>Another aspect of a good representation is <strong>handling of changes</strong>.
+Projects always change: requirements change, designs change, people change, code change, architectures change, .etc.
+Then the representations will change.
+Having a <strong>general model</strong> which is valid for many software architectures is a challenge.
+Neither searching for such an architecture can be done soon, but for the short-term thinking, we need a representation that needs to change only a little even when the architectures change a lot.</p>
+
+<blockquote>
+  <p>A good representation must be not only robust to changes in micro-level details (code and components designs) but also persistent to changes at macro-level architectures and management.</p>
+</blockquote>
+
+<h2 id="metamodel-and-notations">Metamodel and notations</h2>
+
+<p>The author of C4 model <strong>Simon Brown</strong> once talked about the invention as follows.</p>
+
+<blockquote>
+  <p>The C4 model was created as a way to help software development teams describe and communicate software architecture, both during up-front design sessions and when retrospectively documenting an existing codebase. 
+It’s a way to create maps of your code, at various levels of detail, in the same ways you would use something like Google Maps to zoom in and out of an area you are interested in.</p>
+</blockquote>
+
+<blockquote>
+  <p>Although primarily aimed at software architects and developers, the C4 model provides a way for software development teams to efficiently and effectively communicate their software architecture at different levels of detail, telling different stories to different types of audiences when doing up-front design or retrospectively documenting an existing codebase.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>The C4 model consists of a hierarchical set of software architecture diagrams for context, containers, components, and code.</strong></p>
+</blockquote>
+
+<h3 id="elements-and-relationships">Elements and relationships</h3>
+<p>The following elements and relationships form the diagrams in C4.
+Notations and metamodel are described.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Terms</th>
+      <th>Description</th>
+      <th>Notation</th>
+      <th>Parent</th>
+      <th>Properties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Person</td>
+      <td>A person represents one of the human users of your software system (e. g., roles, personas, etc.).</td>
+      <td><img src="https://c4model.com/img/notation-person.png" alt="" /></td>
+      <td>-</td>
+      <td>Name, Description, Location (Internal or External)</td>
+    </tr>
+    <tr>
+      <td>Software system</td>
+      <td>A software system is the highest level of abstraction and describes something that delivers value to its users, whether they are human or not. It should be something large, contains all smaller levels of abstractions such as software containers.</td>
+      <td><img src="https://c4model.com/img/notation-software-system.png" alt="" /></td>
+      <td>-</td>
+      <td>Name, Description, Location (Internal or External), The set of containers that make up the software system</td>
+    </tr>
+    <tr>
+      <td>Container</td>
+      <td>An application or data store. A container is essentially a context or boundary inside which some code or some data is stored.</td>
+      <td><img src="https://c4model.com/img/notation-container.png" alt="" /></td>
+      <td>A software system</td>
+      <td>Name, Description, Technology, The set of components within the container</td>
+    </tr>
+    <tr>
+      <td>Component</td>
+      <td>A component is a grouping of related functionality encapsulated behind a well-defined interface.</td>
+      <td><img src="https://c4model.com/img/notation-component.png" alt="" /></td>
+      <td>A container</td>
+      <td>Name, Description, Technology, The set of code elements (e. g. classes, interfaces, etc.) that the component is implemented by</td>
+    </tr>
+    <tr>
+      <td>Code</td>
+      <td>This is the lowest level in C4. The diagrams here show the details of code elements (e. g., classes, interfaces, objects, functions, etc.).</td>
+      <td>-</td>
+      <td>A component</td>
+      <td>Name, Description, Fully qualified type</td>
+    </tr>
+    <tr>
+      <td>Relationship</td>
+      <td>Relationships are permitted between any elements in the model in either direction.</td>
+      <td><img src="https://c4model.com/img/notation-relationship.png" alt="" /></td>
+      <td>-</td>
+      <td>Description and Technology</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="views">Views</h3>
+
+<p>The C4 model consists of 4 basic views with respect to 4 levels of diagrams.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>View type</th>
+      <th>Scope</th>
+      <th>Permitted elements</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1. System Context</td>
+      <td>A software system.</td>
+      <td>Software systems, People</td>
+      <td><img src="https://c4model.com/img/bigbankplc-SystemContext.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td>2. Container</td>
+      <td>A software system</td>
+      <td>Software systems, People, Containers within the software system in scope</td>
+      <td><img src="https://c4model.com/img/bigbankplc-Containers.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td>3. Component</td>
+      <td>A container</td>
+      <td>Software systems, People, Other containers within the parent software system of the container in scope, Components within the container in scope</td>
+      <td><img src="https://c4model.com/img/bigbankplc-Components.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td>4. Code</td>
+      <td>A component</td>
+      <td>Code elements (e. g., classes, interfaces, etc.) that are used to implement the component in scope</td>
+      <td><img src="https://c4model.com/img/bigbankplc-Classes.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>System Context diagrams</strong> describe <strong>business usecases</strong> in which the interaction between users (people) and the software system is visualized. By seeing system context, stakeholders catch the key use-cases of the system, how end-users will use the system, and so on.</li>
+  <li><strong>Container diagrams</strong> visualize the architecture of each container.
+Formally, it is a diagram of users and containers.</li>
+  <li><strong>Component diagrams</strong> visualize the internal architecture of a container with components are atomic elements.</li>
+  <li><strong>Code diagrams</strong> show classes, interfaces, objects, and relationships. One can use UML diagrams to visualize. The class diagram or the ER diagram can be examples.</li>
+</ul>
+
+<h2 id="supplementary-diagrams">Supplementary diagrams</h2>
+
+<p>Besides four basic views, there are several supplementary views for the C4 model to capture the dynamic and the big picture of software systems.</p>
+
+<ul>
+  <li>The <strong>System Landscape diagram</strong> shows the target software systems in a landscape with other related systems.
+For example, the target system is an Internet Banking System.
+It needs to interact with other systems in the banks like Email Systems, Mainframe Banking Systems, and other roles like Customer Service Staff and Back Office Staff.
+To do this, add another diagram that sits “on top” of the C4 diagrams to show the system landscape from an IT perspective.</li>
+</ul>
+
+<div style="width: 50%; float: left; margin: 15px;">
+<img src="https://c4model.com/img/bigbankplc-SignIn.png" />
+<p>Source: <a href="https://c4model.com/">c4model.com</a></p>
+</div>
+
+<ul>
+  <li>
+    <p>The <strong>Dynamic diagram</strong> considers how elements in a static model collaborate at runtime to implement a user story, use case, feature, etc.
+One can reuse the UML communication diagram to show it.</p>
+  </li>
+  <li>
+    <p>The <strong>Deployment diagram</strong> is based on the UML deployment diagram.
+It illustrates how software systems and/or containers in the static model are mapped to infrastructure.</p>
+  </li>
+</ul>
+
+<h1 id="examples">Examples</h1>
+
+<h2 id="tools">Tools</h2>
+
+<p>Tools for diagramming can be <a href="https://c4model.com/">a lot</a>.
+For only diagramming, I would like to recommend the <a href="https://www.diagrams.net/">Diagrams.net</a>, which is very convenient for drawing system architecture.
+It has many toolboxes for drawing deployment diagrams, AWS/GCP/Azure Cloud architectures, etc.</p>
+
+<p>For modeling the software architectures with diagramming, one can refer to Archi [2].</p>
+
+<h2 id="a-tutorial">A tutorial</h2>
+
+<p>One way to learn to draw is through the tutorial video.
+The following tutorial introduces all about C4 model by the author with a part of PlantUML use-case with C4.</p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/x2-rSnhpw0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>The C4 model solved the problem of a compact representation for software architectures without disregarding any aspects of the product.
+The model was designed for Agile projects and to keep the team communicates better with team members as well as stakeholders.</p>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="TheC4mod76:online"><i>The C4 model for visualising software architecture</i>. https://c4model.com/.</span></li>
+<li><span id="ArchiOp50:online"><i>Archi – Open Source ArchiMate Modelling</i>. https://www.archimatetool.com/.</span></li>
+<li><span id="brown2013software">Brown, S. (2013). Software architecture for developers. <i>Coding the Architecture</i>.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#programming">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">programming</span>
+    </a>
+  
+    
+    <a href="/tags.html#software-architecture">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">software architecture</span>
+    </a>
+  
+    
+    <a href="/tags.html#visualization">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">visualization</span>
+    </a>
+  
+    
+    <a href="/tags.html#c4-diagrams">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">c4 diagrams</span>
+    </a>
+  
+    
+    <a href="/tags.html#diagrams">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">diagrams</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

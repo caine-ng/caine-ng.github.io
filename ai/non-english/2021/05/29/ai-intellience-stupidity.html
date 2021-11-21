@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Máy móc thông minh hay ngu ngốc: Hiện trạng và kỳ vọng năm 2021 &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Máy móc thông minh hay ngu ngốc: Hiện trạng và kỳ vọng năm 2021</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">29 May 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/ai.html">
+          Artificial Intelligence
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/ai/non-english/2021/05/29/ai-intellience-stupidity.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Máy móc thông minh hay ngu ngốc: Hiện trạng và kỳ vọng năm 2021&url=https://wanted2.github.io/ai/non-english/2021/05/29/ai-intellience-stupidity.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/ai/non-english/2021/05/29/ai-intellience-stupidity.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    9 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#cái-sự-lập-lờ-giữa-ngu-khôn-và-cái-gọi-là-common-sense-kiến-thức-sống">Cái sự “lập lờ” giữa ngu-khôn và cái gọi là “common sense” (kiến thức sống)</a></li>
+<li class="toc-entry toc-h2"><a href="#bài-kiểm-tra-turing-và-cách-phân-biệt-giữa-ai-ngu-dốt-với-ai-thông-minh">Bài kiểm tra Turing và cách phân biệt giữa AI ngu dốt với AI thông minh</a></li>
+<li class="toc-entry toc-h2"><a href="#kết-luận">Kết luận</a></li>
+<li class="toc-entry toc-h2"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://images.takeshape.io/fd194db7-7b25-4b5a-8cc7-da7f31fab475/dev/506ce9ea-6dd8-4f26-a38d-1699371ea39a/alex-knight-199368-unsplash.jpg?auto=compress%2Cformat&amp;crop=faces&amp;fit=crop&amp;fm=jpg&amp;h=1600&amp;q=70&amp;w=2400" alt="" />
+<em>Ảnh bởi Alex Knight trên tuần san Unsplash</em></p>
+
+<blockquote>
+  <p>Biết, nhưng nói không biết … ấy là biết. (Lão Tử)</p>
+</blockquote>
+
+<blockquote>
+  <p>Ta dại, ta về nơi vắng vẻ;
+Người khôn, người đến chốn lao xao. (Ngạn ngữ cổ Việt Nam)</p>
+</blockquote>
+
+<blockquote>
+  <p>Machines are still very, very stupid. The smartest AI systems today have less common sense than a house cat.
+(Yann Lecun, Turing Award 2019 winner)
+<!--more--></p>
+</blockquote>
+
+<h2 id="cái-sự-lập-lờ-giữa-ngu-khôn-và-cái-gọi-là-common-sense-kiến-thức-sống">Cái sự “lập lờ” giữa ngu-khôn và cái gọi là “common sense” (kiến thức sống)</h2>
+
+<p>Các cụ ta ngày xưa “khiêm tốn” nhận mình ngu bằng câu “Ta dại, ta về nơi vắng vẻ. Người khôn, người đến chỗ lao xao”.
+Tuy nhiên, thực ra câu này hàm ý mỉa mai sự đời, tức là chúng chửi các cụ ngu thì các cụ “chuồn” về nơi thanh tịnh các cụ sống, còn kệ chúng nó xô bồ bon chen.
+Thế các cụ có thực sự là “ngu” không?
+Chắc là không, mà câu này chỉ hàm ý mỉa mai, vì các cụ đã trải qua hết các đắng cay ngọt bùi của sự đời, kinh nghiệm còn thiếu gì mà các cụ phải nhận dại.</p>
+
+<p>Cái sự “lập lờ” (ambiguity) này không chỉ có trong văn hóa Việt Nam mà có trong phần lớn văn hóa của người Á Đông.
+Lão Tử ở Trung Quốc có câu “Biết, nhưng nói là không biết … ấy là biết”.
+Điều này thể hiện một bộ phận không nhỏ trong xã hội đương thời của Lão Tử có hiện tượng “biết, nhưng cứ nói là không biết” (known but pretend to be unknown), và Lão Tử hàm ý cũng mỉa mai, có lẽ những người đó mới thực sự là người “biết”.</p>
+
+<p>Suy nghĩ của người Á Đông là như vậy, chỉ cần nhìn thấy được sự lập lờ để né tránh, còn chấp nhận cho nó tồn tại.
+Tuy nhiên, người phương Tây thì thường có khuynh hướng làm rõ ràng ra.
+Như giáo sư Yann Lecun, người nhận giải Turing năm 2019, một giải tương đương giải Nobel cho ngành khoa học máy tính, đã thẳng thắn phê “kém, ngu” cho ứng dụng máy móc hiện tại [1].
+Tôi xin tạm dịch nguyên văn lời phát biểu của ông trong lễ nhận giải cách đây 2 năm có lẻ:</p>
+
+<blockquote>
+  <p>Máy móc (hiện tại năm 2019) vẫn rất, rất ngu. Hệ thống AI thông minh nhất ngày nay còn yếu kiến thức sống hơn cả một chú mèo nhà.</p>
+</blockquote>
+
+<p>Cái <code class="language-plaintext highlighter-rouge">kiến thức sống</code>, tiếng Anh là <code class="language-plaintext highlighter-rouge">common sense</code> mà giáo sư Lecun nói đến thực ra cũng phải là điều xa lạ với trí tuệ con người.
+Trong mảng video game, khi chơi game Montezuma’s Revenge, việc gặp phải một cánh cửa bị khóa thì bước tiếp theo cần làm theo kiến thức sống thông thường (common sense) đó chính là <code class="language-plaintext highlighter-rouge">nếu cửa không mở  -&gt; đi tìm chìa khóa để mở</code>.
+Nhưng cái suy luận đơn giản này (reasoning) lại không có trong AI nếu không có người chỉ dẫn.
+Hoặc như trong ứng dụng xe tự hành, một kiểm chứng gần đây cho thấy nếu đặt một ký hiệu phù hợp trên đường, người ta có thể khiến xe tự hành đi vào làn không cho phép [2].
+Con người với hệ suy luận đơn giản có thể biết để không bao giờ đi vào làn không cho phép cho dù có bất cứ ám hiệu nào đặt trên đường.</p>
+
+<p>Như vậy, AI vẫn còn rất nhiều việc phía trước, với những nhiệm vụ cấp thấp như định hướng cho xe tự hành hoặc đưa quyết định về hành động tiếp theo.
+Còn những suy luận cấp cao như nhìn nhận phân biệt ngu-khôn trong những nền văn hóa Á Đông, có lẽ còn ở một tương lai xa hơn.
+Trí tuệ nhân tạo vẫn cần giải quyết vấn đề <code class="language-plaintext highlighter-rouge">common sense (kiến thức sống)</code> trước khi tiến tới những vấn đề sâu xa hơn.
+Ví dụ như đơn giản trong bài toán game, mà để mở được cửa là một bài kiểm tra đưa ra quyết định có nên di chuyển nhà máy rời khỏi thành phố để về nông thôn mở trang trại hay không, thì có lẽ AI sẽ không thể tái hiện được hết các khả năng.
+Lý do cũng giống hệt như việc phân biệt ngu-khôn ở trên, giả dụ ở lại thành phố là <code class="language-plaintext highlighter-rouge">ngu</code>, còn mang về nông thôn là <code class="language-plaintext highlighter-rouge">khôn</code>, nhưng nó sẽ dẫn đến tương lai là người ta sẽ tìm cách hạ thu nhập cơ bản ở nông thôn xuống, thế là quyết định trước được đánh nhãn là <code class="language-plaintext highlighter-rouge">khôn</code>, giờ lại trở thành <code class="language-plaintext highlighter-rouge">ngu</code>.
+AI hiện trạng năm 2021, dù của bất cứ tập đoàn công ty nào trên thế giới, thiếu sự hỗ trợ sau lưng của con người thì vẫn chỉ là một cỗ máy vô hại, dễ bị đánh lừa.</p>
+
+<h2 id="bài-kiểm-tra-turing-và-cách-phân-biệt-giữa-ai-ngu-dốt-với-ai-thông-minh">Bài kiểm tra Turing và cách phân biệt giữa AI ngu dốt với AI thông minh</h2>
+
+<p>Bài kiểm tra Turing [3] là một phần không thể thiếu của lịch sử AI.
+Alan Turing là một nhà khoa học máy tính vĩ đại trong lịch sử với kỳ công phá giải mật mã của phát xít Đức.
+Sau thể chiến II, ông đã dành khá nhiều công sức để phát triển lên cỗ máy tính thông minh, mà đó chính là nền móng của trí tuệ nhân tạo hiện đại (chủ yếu thuật toán).
+Đương nhiên với tư cách một nhà khoa học máy tính và cũng là một kỹ sư hệ thống, Turing không chỉ phát triển (develop) thuật toán và mã chương trình, ông còn phải thiết kế về mặt quản lý chất lượng sản phẩm, và đương nhiên một câu hỏi đã xoáy vào tâm trí ông khi nghĩ đến sự an toàn của người dùng khi sử dụng AI: <strong>Làm thế nào để đánh giá sự thông minh của AI?</strong></p>
+
+<p>Sau một thời gian dày công đào sâu vấn đề, ông đi đến kết luận trong luận văn nổi tiếng “Computing Machinery and Intellignce” [4], đó là cái cần kiểm tra chính là “AI có thực sự đang suy nghĩ?”.
+Các bạn đều biết, việc không suy nghĩ mà vẫn trả lời được bài kiểm tra chỉ có 2 khả năng: một là may mắn, hai là <strong>ngu nhưng copy giỏi</strong>.
+Khả năng hai tức là cỗ máy không suy nghĩ, nhưng nó đơn giản copy lại câu trả lời từ đâu đó.
+Turing thì vẫn là người phương Tây, nên có thể vì thế ông không chấp nhận sự “lập lờ” ngu-khôn mà người Á Đông thường chấp nhận (tức là ngu nhưng bắt chước giỏi thì cứ tính là khôn vì vẫn được việc, và lại rẻ nữa chứ, vì mức giá của công việc AI ở phương Đông hiện tại chắc chỉ bằng 1/10 tới 1/5 của Silicon Valley), và sâu hơn, ông không tính cái trường hợp hai là trí tuệ thông minh.</p>
+
+<p>Tất nhiên, với suy nghĩ của phương Tây, Turing cũng đúng. Vì ngày nay chúng ta đang phải đối phó với nguy cơ DeepFake [5] chẳng hạn.
+Đó chính ví dụ rõ ràng của trường hợp 2, mà Turing muốn loại.
+Và bài kiểm tra Turing chính là để AI thực hiện phỏng vấn với con người và con người sẽ tìm cách hỏi đáp theo một kịch bản mở (chứ không phải lời thoại soạn trước), để thử thách AI.
+Sau đó, dựa vào sự xác nhận của con người đã tương tác với AI để đánh giá độ hoàn hảo của AI.
+Và quay lại vấn đề ở mục 1., vấn đề thử thách nhất với AI trong màn phỏng vấn này chính là làm sao đánh giá được những quyết định của chính AI đưa ra là <code class="language-plaintext highlighter-rouge">ngu hay khôn</code>, là <code class="language-plaintext highlighter-rouge">biết hay chưa biết</code> về lâu dài.
+Vì những quyết định đó sẽ ảnh hưởng tới lợi ích về sau, như vị trí làm việc tương lai, đãi ngộ, …
+Còn về phía người thực hiện phỏng vấn, thì họ cũng như nhà tuyển dụng, chuyện ngu hay khôn, biết hay không cũng không quan trọng bằng việc tìm ra AI tốt <strong>có khả năng tự suy nghĩ</strong>, chứ không phải <strong>ngu nhưng bắt chước giỏi</strong>.</p>
+
+<p>Đó chính là ý nguyện của Alan Turing!</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Qua bài tiểu luận nhỏ, hy vọng đã có thể đưa đến các bạn một cái nhìn đúng về sự thông minh của AI hiện tại.
+Thực ra cái quan trọng nhất của công việc AI, là đảm bảo di chúc của Alan Turing được thực hiện, tức là, <strong>AI phải có khả năng tự suy nghĩ</strong>, cái đó thì thông qua conversation là bài kiểm tra Turing (mà thực ra là phỏng vấn).</p>
+
+<p>Một việc chắc chắn không thể tránh khỏi đó là hiện tại các phát triển AI chỉ mang tính cấp thấp như nhận dạng, tracking, phát hiện, cảnh báo có điều kiện, … trong tương lai, cùng với Deep Learning (thuật toán học dựa trên hoạt động của não người, để cho mô hình AI học từ hàng ngàn, hàng triệu thậm chí hàng tỷ nơ rôn não), thì chúng ta sẽ nhanh chóng đưa AI xử lý hết các nhiệm vụ cấp thấp, để tiến tới những nhiệm vụ cấp cao hơn, như quyết định có lợi cho tương lai, phân biệt ngu-khôn, biết-chưa biết, …</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="Artifici92:online"><i>Artificial intelligence isn’t very intelligent and won’t be any time soon</i>. https://massivesci.com/articles/artificial-intelligence-deep-learning-self-driving-car/.</span></li>
+<li><span id="Hackersu80:online"><i>Hackers used stickers to fool a Tesla, highlighting the risks of AI - Vox</i>. https://www.vox.com/future-perfect/2019/4/8/18297410/ai-tesla-self-driving-cars-adversarial-machine-learning.</span></li>
+<li><span id="UntoldHi12:online"><i>Untold History of AI: Why Alan Turing Wanted AI Agents to Make Mistakes - IEEE Spectrum</i>. https://spectrum.ieee.org/tech-talk/tech-history/dawn-of-electronics/untold-history-of-ai-why-alan-turing-wanted-ai-to-make-mistakes.</span></li>
+<li><span id="machinery1950computing">Turing, A. (1950). Computing machinery and intelligence. <i>Mind</i>, <i>49</i>(236), 433.</span></li>
+<li><span id="Khôngchỉ46:online"><i>Không chỉ là video khiêu dâm bóng ma Deepfake đang khiến cả thế giới lo sợ vì ngày càng khó kiểm soát</i>. https://vnexpress.net/deepfake-bong-ma-trong-the-gioi-internet-4034159.html.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#ai">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">ai</span>
+    </a>
+  
+    
+    <a href="/tags.html#self-driving-car">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">self-driving car</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/ai/non-english/2021/05/29/ai-intellience-stupidity.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/ai/non-english/2021/05/29/ai-intellience-stupidity.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

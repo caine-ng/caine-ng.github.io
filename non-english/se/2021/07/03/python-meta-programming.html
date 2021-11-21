@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Pythonによるメタプログラミングーmetaclassについてー &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Pythonによるメタプログラミングーmetaclassについてー</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">03 Jul 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/non-english/se/2021/07/03/python-meta-programming.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Pythonによるメタプログラミングーmetaclassについてー&url=https://wanted2.github.io/non-english/se/2021/07/03/python-meta-programming.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/non-english/se/2021/07/03/python-meta-programming.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    7 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#メタプログラミングとは">メタプログラミングとは</a></li>
+<li class="toc-entry toc-h2"><a href="#python言語のメタプログラミングについて">Python言語のメタプログラミングについて</a></li>
+<li class="toc-entry toc-h2"><a href="#metaclassについて">metaclassについて</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#__prepare__">__prepare__</a></li>
+<li class="toc-entry toc-h3"><a href="#__new__と__init__">__new__と__init__</a></li>
+<li class="toc-entry toc-h3"><a href="#__call__">__call__</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#結論">結論</a></li>
+<li class="toc-entry toc-h1"><a href="#参考文献">参考文献</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Floral_matryoshka_set_2_smallest_doll_nested.JPG" alt="" />
+<strong>Source: <a href="https://upload.wikimedia.org/wikipedia/commons/4/41/Floral_matryoshka_set_2_smallest_doll_nested.JPG">Matryoska doll</a></strong></p>
+
+<p>日々でPythonコードを書いています。
+根拠なくコードを書くことが絶対良くないのです。
+自信を持って根拠強いコードを書くとハイクオリティを保証できます。
+メタプログラミングはPythonのクラスとメソッドの生成過程を制御できるので、その自信を確保できます。
+今回はメタプログラミングのデザインパターンの中に強力なメタクラス（metaclass）について解説します。</p>
+
+<!--more-->
+<h2 id="メタプログラミングとは">メタプログラミングとは</h2>
+
+<p>プログラミングはコードでロジックを実装します。
+メタプログラミングは<strong>そのロジックをプログラミング</strong>します。
+つまり、<strong>高次ロジックを制御する</strong>ことになります。</p>
+
+<p>例えば、シンプルな例ですが、プロジェクトの実行フェーズに入ると、各行を監視したいですね。
+インスタンスが稼働する時にクラスのコードにロガーを追加することで、運用時の挙動を監視することができます。
+しかし、例えば、毎回再起動時にクラスが再生成されるが、クラス生成過程も監視したい場合、クラスよりメタ段階で生成過程を定めてログ処理を記述することで、プロジェクトの監視が一貫で行えます。</p>
+
+<h2 id="python言語のメタプログラミングについて">Python言語のメタプログラミングについて</h2>
+<p>Python言語では、メタプログラミングを行う道は主に2つあります。
+一つ目は、ｍetaclassを利用することで、2つ目は、decoratorsを利用することです。</p>
+
+<p>クラスはオブジェクトを生成するが、metaclassはクラスを生成します。
+例えばｍ、下記のクラスを監視したいとしましょう。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Sigmoid</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+  <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+  <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">sigmoid</span> <span class="o">=</span> <span class="n">Sigmoid</span><span class="p">()</span>
+<span class="n">sigmoid</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># 0.5
+</span></code></pre></div></div>
+
+<p>このようなクラスだと、そのクラスの生成過程は隠蔽されますので、クラス生成過程を監視できません。
+次に、<code class="language-plaintext highlighter-rouge">preprocess</code>と<code class="language-plaintext highlighter-rouge">postprocess</code>を抽象化して隠蔽したいです。
+つまり、前処理と後処理はメタクラスで隠蔽して、動的に変更できるようにしたいです。</p>
+
+<p>Python3では、クラスの定義でtypeを継承すればメタクラスを定義できます。
+新クラスの生成過程を定義でき、自由に監視ロガーを追加できます。
+また、前処理や後処理を属性として管理できます。
+例えば、シグモイドクラスの場合、<code class="language-plaintext highlighter-rouge">preprocess</code>と<code class="language-plaintext highlighter-rouge">postprocess</code>関数を利用しますが、線形クラスの場合、<code class="language-plaintext highlighter-rouge">identity</code>関数を利用すると条件文で指定できます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span><span class="p">,</span> <span class="n">logging</span>
+
+<span class="k">def</span> <span class="nf">setup_logger</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">):</span>
+  <span class="s">"""
+  ロガーを設定し、インスタンスを返す。
+  """</span>
+  <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+  <span class="n">logger</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">)</span>
+  <span class="n">ch</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+  <span class="n">ch</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+  <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">Formatter</span><span class="p">(</span>
+      <span class="s">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span><span class="p">)</span>
+  <span class="n">ch</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+  <span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">logger</span>
+
+<span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="s">"""
+  前処理
+  """</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="s">"""
+  後処理（中身はシグモイド関数）
+  """</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">math</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="s">"""
+  線形アクティベーション関数
+  """</span>
+  <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">class</span> <span class="nc">MetaActivation</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+  <span class="s">"""
+  メタクラス
+  """</span>
+  <span class="o">@</span><span class="nb">classmethod</span>
+  <span class="k">def</span> <span class="nf">__prepare__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="s">"""
+    新クラス生成の前処理
+    クラスの種類で、前処理関数と後処理関数を動的に定める。
+    """</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'MetaActivation.__prepare__(</span><span class="si">{</span><span class="n">cls</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">bases</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s">)'</span><span class="p">)</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">attrs</span><span class="p">[</span><span class="s">'preprocess'</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocess</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'Sigmoid'</span> <span class="k">else</span> <span class="n">identity</span>
+    <span class="n">attrs</span><span class="p">[</span><span class="s">'postprocess'</span><span class="p">]</span> <span class="o">=</span> <span class="n">postprocess</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">'Sigmoid'</span> <span class="k">else</span> <span class="n">identity</span>
+    <span class="k">return</span> <span class="n">attrs</span>
+
+  <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="s">"""
+    ここでも属性を見直すことができます。
+    今回はロガーを設定する処理を追加します。
+    """</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'MetaActivation.__new__(</span><span class="si">{</span><span class="n">cls</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">bases</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">attrs</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s">)'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s">'logger'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">attrs</span><span class="p">:</span>
+      <span class="n">attrs</span><span class="p">[</span><span class="s">'logger'</span><span class="p">]</span> <span class="o">=</span> <span class="n">setup_logger</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">().</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="s">"""
+    あまり意味ない設定関数です。
+    通常一般クラスで__init__する。
+    """</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'MetaActivation.__init__(</span><span class="si">{</span><span class="n">cls</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">bases</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">attrs</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s">)'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="s">"""
+    インスタンス生成時で呼び出されます。
+    ここで、引数を見直すことができます。
+    """</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'MetaActivation.__call__(</span><span class="si">{</span><span class="n">cls</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s">)'</span><span class="p">)</span>
+    <span class="c1"># 引数を渡すとエラーを返す
+</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"The class must have no variable constructor"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">().</span><span class="n">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1"># サンプルクラス
+</span><span class="k">class</span> <span class="nc">Sigmoid</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">MetaActivation</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">'Main run started with x = {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">'Main run finished with x = {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">class</span> <span class="nc">Linear</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">MetaActivation</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">'Main run started with x = {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">'Main run finished with x = {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># 実行
+</span><span class="k">print</span><span class="p">(</span><span class="s">"...................................................................."</span><span class="p">)</span>
+<span class="n">sigmoid</span> <span class="o">=</span> <span class="n">Sigmoid</span><span class="p">()</span> <span class="c1"># Sigmoid(x=1)などでエラーが発生する。
+</span><span class="k">print</span><span class="p">(</span><span class="n">sigmoid</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"...................................................................."</span><span class="p">)</span>
+<span class="n">linear</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">linear</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>出力は下記になります。
+この出力からわかるように、実行だけではなくクラス生成過程も監視できます。
+モニタリングとオーディティングは簡易になれます。</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MetaActivation.__prepare__(&lt;class '__main__.MetaActivation'&gt;, Sigmoid, (), {})
+MetaActivation.__new__(&lt;class '__main__.MetaActivation'&gt;, Sigmoid, (), {'preprocess': &lt;function preprocess at 0x000001784EC26160&gt;, 'postprocess': &lt;function postprocess at 0x000001784EC261F0&gt;, '__module__': '__main__', '__qualname__': 'Sigmoid', '__call__': &lt;function Sigmoid.__call__ at 0x000001784EC265E0&gt;}, {})
+MetaActivation.__init__(&lt;class '__main__.Sigmoid'&gt;, Sigmoid, (), {'preprocess': &lt;function preprocess at 0x000001784EC26160&gt;, 'postprocess': &lt;function postprocess at 0x000001784EC261F0&gt;, '__module__': '__main__', '__qualname__': 'Sigmoid', '__call__': &lt;function Sigmoid.__call__ at 0x000001784EC265E0&gt;, 'logger': &lt;Logger Sigmoid (DEBUG)&gt;}, {})
+MetaActivation.__prepare__(&lt;class '__main__.MetaActivation'&gt;, Linear, (), {})
+MetaActivation.__new__(&lt;class '__main__.MetaActivation'&gt;, Linear, (), {'preprocess': &lt;function identity at 0x000001784EC26280&gt;, 'postprocess': &lt;function identity at 0x000001784EC26280&gt;, '__module__': '__main__', '__qualname__': 'Linear', '__call__': &lt;function Linear.__call__ at 0x000001784EC26670&gt;}, {})
+MetaActivation.__init__(&lt;class '__main__.Linear'&gt;, Linear, (), {'preprocess': &lt;function identity at 0x000001784EC26280&gt;, 'postprocess': &lt;function identity at 0x000001784EC26280&gt;, '__module__': '__main__', '__qualname__': 'Linear', '__call__': &lt;function Linear.__call__ at 0x000001784EC26670&gt;, 'logger': &lt;Logger Linear (DEBUG)&gt;}, {})
+....................................................................
+MetaActivation.__call__(&lt;class '__main__.Sigmoid'&gt;, (), {})
+2021-07-04 03:23:51,474 - Sigmoid - DEBUG - Main run started with x = -1
+2021-07-04 03:23:51,474 - Sigmoid - DEBUG - Main run finished with x = 0.5
+0.5
+....................................................................
+MetaActivation.__call__(&lt;class '__main__.Linear'&gt;, (), {})
+2021-07-04 03:23:51,476 - Linear - DEBUG - Main run started with x = -1
+2021-07-04 03:23:51,476 - Linear - DEBUG - Main run finished with x = -1
+-1
+</code></pre></div></div>
+
+<p>属性を自動的に追加したり管理したりすることもメタプログラミングで行えます。
+例えば、ロガーやデータ準備・整理・正則化などを属性としてメタクラスで追加できます。
+これにより、動的クラスや動的関数を作成できます。
+運用に未知のクラスを動的に生成できるので、未知物体がある場合、静的クラスのアプローチと比べるとより柔軟な対応ができます。</p>
+<h2 id="metaclassについて">metaclassについて</h2>
+<p>上記の例の生成フローは下図に示します。
+<img src="/assets/img/class-gen.png" alt="" /></p>
+
+<h3 id="__prepare__"><code class="language-plaintext highlighter-rouge">__prepare__</code></h3>
+<p>クラス生成の最初に実行される関数です。
+記述される場合、クラス生成の準備処理を行えます。
+属性配列を返す関数なので、自動的に属性を追加したり管理したりすることができます。
+今回の例では、前処理などを隠蔽しました。
+メタプログラミングのコードを読むときに、下記のクラスだけを読むと<code class="language-plaintext highlighter-rouge">preprocess</code>や<code class="language-plaintext highlighter-rouge">logger</code>はどこに定義するか新人にとっては不思議ですが、フレームワークなどのコードではよくあるパターンであろう。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Sigmoid</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">MetaActivation</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">'Main run started with x = {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">'Main run finished with x = {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<h3 id="__new__と__init__"><code class="language-plaintext highlighter-rouge">__new__</code>と<code class="language-plaintext highlighter-rouge">__init__</code></h3>
+<p><code class="language-plaintext highlighter-rouge">__new__</code>はクラスを生成するが、未初期化の状態です。
+ここで、属性の見直すのもできます。
+<code class="language-plaintext highlighter-rouge">__prepare__</code>が返したものが属性の辞書とみなされクラスを生成します。
+<code class="language-plaintext highlighter-rouge">__init__</code>は<code class="language-plaintext highlighter-rouge">__new__</code>のクラスを初期化します。</p>
+
+<h3 id="__call__"><code class="language-plaintext highlighter-rouge">__call__</code></h3>
+<p>この関数はインスタンス作成時に呼び出されます。
+例えば、<code class="language-plaintext highlighter-rouge">sigmoid = Sigmoid(引数)</code>で呼び出されるので、クラスのコンストラクタの引数を制限するなど行えます。</p>
+<h2 id="結論">結論</h2>
+<p>インスタンスのイベントではなく、クラスのイベントを容易に管理できるようにメタクラスの概念を紹介しました。
+Pythonのmetaclassでクラス生成を制御する事例も紹介しました。
+<code class="language-plaintext highlighter-rouge">__prepare__</code>, <code class="language-plaintext highlighter-rouge">__new__</code>, <code class="language-plaintext highlighter-rouge">__init</code>, <code class="language-plaintext highlighter-rouge">__call__</code>などで属性を自由に管理できるので、動的に新クラスを定義できるため、実際にいろいろな条件に応じて新クラスを生成できます。
+メタプログラミングをよく知って、使いこなせると強い武器になると思われます。</p>
+
+<p>特に、新クラス、未知クラス、珍クラスなどをメタクラスで制御できるときたいできるのであろう？</p>
+
+<h1 id="参考文献">参考文献</h1>
+
+<ol class="bibliography"><li><span id="3Datamod65:online"><i>3. Data model — Python 3.9.6 documentation - Metaclasses</i>. https://docs.python.org/3/reference/datamodel.html#metaclasses.</span></li>
+<li><span id="Decorato8:online"><i>Decorator</i>. https://refactoring.guru/design-patterns/decorator.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#メタプログラミング">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">メタプログラミング</span>
+    </a>
+  
+    
+    <a href="/tags.html#metaprogramming">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">metaprogramming</span>
+    </a>
+  
+    
+    <a href="/tags.html#metaclass">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">metaclass</span>
+    </a>
+  
+    
+    <a href="/tags.html#python">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">python</span>
+    </a>
+  
+    
+    <a href="/tags.html#メタクラス">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">メタクラス</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/non-english/se/2021/07/03/python-meta-programming.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/non-english/se/2021/07/03/python-meta-programming.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

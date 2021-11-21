@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現 &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">24 Jul 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/ai.html">
+          Artificial Intelligence
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/ai/non-english/2021/07/24/python-amazon-lex-chatbot-elasticsearch.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現&url=https://wanted2.github.io/ai/non-english/2021/07/24/python-amazon-lex-chatbot-elasticsearch.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/ai/non-english/2021/07/24/python-amazon-lex-chatbot-elasticsearch.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    8 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#はじめに">はじめに</a></li>
+<li class="toc-entry toc-h1"><a href="#既製部品">既製部品</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#アマゾンlexによる音声チャットボット">アマゾンLexによる音声チャットボット</a></li>
+<li class="toc-entry toc-h2"><a href="#elasticsearchによる連想検索">Elasticsearchによる連想検索</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#実現と結果">実現と結果</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#文書データベース索引の作成フローの自動化">文書データベース索引の作成フローの自動化</a></li>
+<li class="toc-entry toc-h2"><a href="#チャットボットへのインテグレーション">チャットボットへのインテグレーション</a></li>
+<li class="toc-entry toc-h2"><a href="#考察">考察</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#メリット">メリット</a></li>
+<li class="toc-entry toc-h3"><a href="#デメリット">デメリット</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#おわりに">おわりに</a></li>
+<li class="toc-entry toc-h1"><a href="#参考文献">参考文献</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="/assets/img/rensou1.png" alt="" /></p>
+
+<p><strong>音声認識による文章連想検索システム</strong>は、ユーザの音声入力に対して、決まった言葉で検索エンジンを起動して、関連する文章の一覧を返すシステムです。
+本稿では、アマゾンLexやElasticsearchなどの既製部品を使ってシステムを構築する話題を挙げます。
+<!--more--></p>
+
+<h1 id="はじめに">はじめに</h1>
+
+<p>SlackやTwilioなどで音声認識チャットボットを想定します。</p>
+
+<ol>
+  <li>1万冊以上論文を保管する時、「音声認識」に関する文献を検索したいです。
+その1万冊は別でアマゾンS3にアップロードして保管します。
+検索エンジンにデータの索引を作る。</li>
+  <li>ユーザが「私は音声認識について知りたいです。」を音声で入力すると、ボットが「音声認識」を理解して、検索を稼働させる。</li>
+  <li>入力キーワード「音声認識」に対して検索を行い、結果一覧を返す。</li>
+</ol>
+
+<p>1.と3.はアマゾンElasticsearchとS3で実現できます。
+索引作成処理と検索処理はラムダで実現できます。
+2.はアマゾンLexで作れます。</p>
+
+<h1 id="既製部品">既製部品</h1>
+
+<h2 id="アマゾンlexによる音声チャットボット">アマゾンLexによる音声チャットボット</h2>
+
+<p><img src="/assets/img/lex1.png" style="float: right; margin: 10px; width: 50%" /></p>
+
+<p>アマゾンLexは会話チャットボットを作る支援プラットフォームです。
+開発者は会話のスクリプトを考えて、そのスクリプトを実現するために、Lexの<strong>インテント</strong>を使います。
+チャットボットの作成だけではなく、テストや他のプラットフォームへのインテグレーションもサポートします。
+英語だけではなく、日本語やスペイン語などの英語以外の言語も対応します。
+また、音声以外にテキストで入力することも可能です。</p>
+
+<p>ここで、インテグレーションのために重要な概念を説明します。
+インテントはスクリプトのことですが、インテントの構成と作成方法です。
+Pythonでコーディングするなら、<code class="language-plaintext highlighter-rouge">boto3</code>ライブラリ[1]の<a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot"><code class="language-plaintext highlighter-rouge">create_bot</code>メソッド</a>を参考すれば良いでしょう。
+会話フローを実現するために、重要な要素は<strong>コンテキスト、サンプル、プロムプト、スロットとフック</strong>です。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>要素</th>
+      <th>説明</th>
+      <th>例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>コンテキスト</td>
+      <td>入力と出力の時に、状態制御変数のこと。入力コンテキストが有効でない場合、応答インテントをしないなどの制御を実現できる。</td>
+      <td>―</td>
+    </tr>
+    <tr>
+      <td>サンプル</td>
+      <td>インテントを起動する言葉。</td>
+      <td>「こんにちは」、「ピザを注文したいです。」</td>
+    </tr>
+    <tr>
+      <td>プロムプト</td>
+      <td>「はい・いいえ」だけの質問。回答後、終了を確認するか、ユーザが満足できたか確認質問。</td>
+      <td>「いかがでしょうか」、「回答に満足できましたか。」、「○○ピザを注文しました。いかがでしょうか。」</td>
+    </tr>
+    <tr>
+      <td>終了レスポンス</td>
+      <td>終了時、最後に出す言葉。または、別のインテントを起動する質問を出すことも可能。</td>
+      <td>「ご注文どうもありがとうございました。今○○製品にキャンペーンを実現していますけれども、追加注文しませんか。」</td>
+    </tr>
+    <tr>
+      <td>スロット</td>
+      <td>インテントを実行するときに必要な既定変数。</td>
+      <td>―</td>
+    </tr>
+    <tr>
+      <td>フック</td>
+      <td>インテントの実行関数、あるいは、入力バリデーションなどを設定できる。</td>
+      <td>ラムダのARN</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>これだけの情報を入力することで、インテントを作成できます。
+実は、音声で入力するが、アマゾンの既製音声認識でやっています。
+特に、音声認識の中身に触れることなく、システム構築できますので、音声認識の知識がなくても安心してください。</p>
+
+<h2 id="elasticsearchによる連想検索">Elasticsearchによる連想検索</h2>
+
+<p><img src="/assets/img/elasticsearch1.png" alt="" /></p>
+
+<blockquote>
+  <p>Amazon Elasticsearch Service は、Elasticsearch を大規模かつ簡単でコスト効率の良い方法を使用してデプロイ、保護、実行する完全マネージド型サービスです。好きなツールを使用して、必要な規模でアプリケーションを構築、監視、およびトラブルシューティングできます。このサービスは、オープンソースの Elasticsearch API、マネージド Kibana、Logstash とその他の AWS サービスとの統合、組み込みのアラートと SQL クエリのサポートを提供します。Amazon Elasticsearch Service は従量課金制です。前払い費用や最低料金はありません。Amazon Elasticsearch Service では、必要なだけの ELK スタックをランニングコストなしで入手できます。
+出典：<a href="https://aws.amazon.com/jp/elasticsearch-service/?nc1=h_ls">Amazon Elasticsearch</a></p>
+</blockquote>
+
+<p>大規模の文章データの高速検索を実現するためのプラットフォームです。
+Elasticsearch本番では<strong>全文検索</strong>など、キーワードを連想する検索も実現されています。
+図で説明するとネットで調べてみたが、<a href="https://itdepends.hateblo.jp/entry/2019/01/31/191552#%E6%A4%9C%E7%B4%A2%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%AE%E8%A6%8B%E6%A5%B5%E3%82%81">はてなBlog</a>を引用しています。
+これはElasticsearchのクエリ検索の仕組みを良く表現できたと思います。
+クエリビルダーでは、ANDとOR演算子でキーワード配列を連想して、強力なクエリを新たに定義します。
+事前に作った索引と<code class="language-plaintext highlighter-rouge">multi_match</code>で検索します。
+0件という結果が帰ると、救済処理などを行えますが、それが今回のスコープに入りません。</p>
+
+<p>このようにすると、Lexで認識したインテントをElasticsearchで<strong>文章連想検索</strong>を実現できます。</p>
+
+<h1 id="実現と結果">実現と結果</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>部品</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Amazon Lex</td>
+      <td>音声認識と会話フローを実現する</td>
+    </tr>
+    <tr>
+      <td>Fulfilment Lambda</td>
+      <td>「○○について知りたいです。」というクエリが来ると、実行する処理を記述するラムダ関数。その処理は、Elasticsearchのエンドポイントにクエリを投げ、結果が返るのを待機する。</td>
+    </tr>
+    <tr>
+      <td>Elasticsearch service</td>
+      <td>文章データの索引と連想検索を行う。</td>
+    </tr>
+    <tr>
+      <td>Indexing Lambda</td>
+      <td>文章データがアップされると、トリガー処理を行う。データをElasticsearchのエンドポイントに送る処理を行う。</td>
+    </tr>
+    <tr>
+      <td>Document Storage S3</td>
+      <td>文章データが保管されるストレージ。手動でアップする。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="文書データベース索引の作成フローの自動化">文書データベース索引の作成フローの自動化</h2>
+
+<p>PDFデータやOfficeデータをS3にアップして、Elasticsearchのエンドポイントへ送信するフローを自動化したいです。
+つまり、<code class="language-plaintext highlighter-rouge">Document Storage S3 ---&gt; Indexing Lambda ---&gt; Elasticsearch Service</code>のフローを自動化します。</p>
+
+<p>この部分の設計は下記になります[2]。</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">ESNS3Access</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">AWS::IAM::Policy'</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">PolicyName</span><span class="pi">:</span> <span class="s">ESNS3Access</span>
+      <span class="na">PolicyDocument</span><span class="pi">:</span>
+        <span class="na">Version</span><span class="pi">:</span> <span class="s">2012-10-17</span>
+        <span class="na">Statement</span><span class="pi">:</span>
+          <span class="pi">-</span> 
+            <span class="na">Effect</span><span class="pi">:</span> <span class="s">Allow</span>
+            <span class="na">Action</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="s">es:ESHttpGet</span>
+              <span class="pi">-</span> <span class="s">es:ESHttpPost</span>
+              <span class="pi">-</span> <span class="s">es:ESHttpPut</span>
+            <span class="na">Resource</span><span class="pi">:</span>
+              <span class="kt">!Join</span>
+              <span class="pi">-</span> <span class="s1">'</span><span class="s">'</span>
+              <span class="pi">-</span> <span class="pi">-</span> <span class="kt">!GetAtt</span> <span class="s">ElasticsearchDomain.Arn</span>
+                <span class="pi">-</span> <span class="s2">"</span><span class="s">/*"</span>
+          <span class="pi">-</span>
+            <span class="na">Effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Allow"</span>
+            <span class="na">Action</span><span class="pi">:</span> <span class="s2">"</span><span class="s">s3:GetObject*"</span>
+            <span class="na">Resource</span><span class="pi">:</span> <span class="kt">!Sub</span> <span class="s2">"</span><span class="s">arn:aws:s3:::${AWS::StackName}-${AWS::AccountId}-documentstore/*"</span>
+      <span class="na">Roles</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="kt">!Ref</span> <span class="s">IndexDocumentLambdaExecutionRole</span>
+
+  <span class="na">IndexDocumentLambdaExecutionRole</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">AWS::IAM::Role"</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">AssumeRolePolicyDocument</span><span class="pi">:</span>
+        <span class="na">Version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2012-10-17"</span>
+        <span class="na">Statement</span><span class="pi">:</span>
+          <span class="pi">-</span>
+            <span class="na">Effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Allow"</span>
+            <span class="na">Principal</span><span class="pi">:</span>
+              <span class="na">Service</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="s2">"</span><span class="s">lambda.amazonaws.com"</span>
+            <span class="na">Action</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="s2">"</span><span class="s">sts:AssumeRole"</span>
+      <span class="na">Path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+      <span class="na">ManagedPolicyArns</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"</span>
+
+  <span class="na">IndexDocumentLambda</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">AWS::Lambda::Function"</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">Code</span><span class="pi">:</span>
+        <span class="na">S3Bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">aws-machine-learning-blog"</span>
+        <span class="na">S3Key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">artifacts/document-search-bot/es-index.zip"</span>
+      <span class="na">Description</span><span class="pi">:</span> <span class="s">This function is used to convert documents to base64 and upload index it in Elasticsearch</span>
+      <span class="na">FunctionName</span><span class="pi">:</span> <span class="kt">!Sub</span> <span class="s2">"</span><span class="s">${AWS::StackName}-IndexDocumentLambda"</span>
+      <span class="na">Handler</span><span class="pi">:</span> <span class="s">index.handler</span>
+      <span class="na">MemorySize</span><span class="pi">:</span> <span class="m">256</span>
+      <span class="na">Role</span><span class="pi">:</span> <span class="kt">!GetAtt</span> <span class="s">IndexDocumentLambdaExecutionRole.Arn</span>
+      <span class="na">Runtime</span><span class="pi">:</span> <span class="s2">"</span><span class="s">nodejs12.x"</span>
+      <span class="na">Timeout</span><span class="pi">:</span> <span class="m">25</span>
+      <span class="na">Environment</span><span class="pi">:</span>
+        <span class="na">Variables</span><span class="pi">:</span>
+            <span class="na">ESENDPOINT</span><span class="pi">:</span>
+              <span class="kt">!Join</span>
+                <span class="pi">-</span> <span class="s1">'</span><span class="s">'</span>
+                <span class="pi">-</span> <span class="pi">-</span> <span class="s2">"</span><span class="s">https://"</span>
+                  <span class="pi">-</span> <span class="kt">!GetAtt</span> <span class="s">ElasticsearchDomain.DomainEndpoint</span>
+            <span class="na">AWSREGION</span><span class="pi">:</span> <span class="kt">!Ref</span> <span class="s">AWS::Region</span>
+
+  <span class="na">ElasticsearchDomain</span><span class="pi">:</span>
+      <span class="na">Type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">AWS::Elasticsearch::Domain"</span>
+      <span class="na">Properties</span><span class="pi">:</span>
+        <span class="na">ElasticsearchClusterConfig</span><span class="pi">:</span>
+          <span class="na">DedicatedMasterEnabled</span><span class="pi">:</span> <span class="no">false</span>
+          <span class="na">InstanceCount</span><span class="pi">:</span> <span class="m">1</span>
+          <span class="na">InstanceType</span><span class="pi">:</span> <span class="s">t2.small.elasticsearch</span>
+          <span class="na">ZoneAwarenessEnabled</span><span class="pi">:</span> <span class="s1">'</span><span class="s">false'</span>
+        <span class="na">EBSOptions</span><span class="pi">:</span>
+          <span class="na">EBSEnabled</span><span class="pi">:</span> <span class="no">true</span>
+          <span class="na">Iops</span><span class="pi">:</span> <span class="m">0</span>
+          <span class="na">VolumeSize</span><span class="pi">:</span> <span class="m">10</span>
+          <span class="na">VolumeType</span><span class="pi">:</span> <span class="s2">"</span><span class="s">gp2"</span>
+        <span class="na">ElasticsearchVersion</span><span class="pi">:</span> <span class="s2">"</span><span class="s">6.2"</span>
+        <span class="na">SnapshotOptions</span><span class="pi">:</span>
+          <span class="na">AutomatedSnapshotStartHour</span><span class="pi">:</span> <span class="s2">"</span><span class="s">0"</span>
+        <span class="na">AdvancedOptions</span><span class="pi">:</span>
+          <span class="na">rest.action.multi.allow_explicit_index</span><span class="pi">:</span> <span class="s1">'</span><span class="s">true'</span>
+        <span class="na">AccessPolicies</span><span class="pi">:</span>
+          <span class="na">Version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2012-10-17"</span>
+          <span class="na">Statement</span><span class="pi">:</span>
+            <span class="pi">-</span>
+              <span class="na">Effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Allow"</span>
+              <span class="na">Principal</span><span class="pi">:</span>
+                <span class="na">AWS</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="kt">!Sub</span> <span class="s2">"</span><span class="s">arn:aws:iam::${AWS::AccountId}:root"</span>
+              <span class="na">Action</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="s2">"</span><span class="s">es:*"</span>
+              <span class="na">Resource</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*'</span>
+
+  <span class="na">S3DocumentStoreBucket</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s">AWS::S3::Bucket</span>
+    <span class="na">DependsOn</span><span class="pi">:</span> <span class="s">PermissionForS3ToInvokeLambda</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">BucketName</span><span class="pi">:</span> <span class="kt">!Sub</span> <span class="s2">"</span><span class="s">${AWS::StackName}-${AWS::AccountId}-documentstore"</span>
+      <span class="na">NotificationConfiguration</span><span class="pi">:</span>
+        <span class="na">LambdaConfigurations</span><span class="pi">:</span>
+        <span class="pi">-</span>
+          <span class="na">Event</span><span class="pi">:</span> <span class="s2">"</span><span class="s">s3:ObjectCreated:*"</span>
+          <span class="na">Function</span><span class="pi">:</span> <span class="kt">!GetAtt</span> <span class="s">IndexDocumentLambda.Arn</span>
+  
+  <span class="na">PermissionForS3ToInvokeLambda</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">AWS::Lambda::Permission'</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">Action</span><span class="pi">:</span> <span class="s1">'</span><span class="s">lambda:InvokeFunction'</span>
+      <span class="na">FunctionName</span><span class="pi">:</span> <span class="kt">!GetAtt</span> <span class="s">IndexDocumentLambda.Arn</span>
+      <span class="na">Principal</span><span class="pi">:</span> <span class="s1">'</span><span class="s">s3.amazonaws.com'</span>
+      <span class="na">SourceAccount </span><span class="pi">:</span> <span class="kt">!Ref</span> <span class="s">AWS::AccountId</span>
+      <span class="na">SourceArn</span><span class="pi">:</span>
+        <span class="kt">!Join</span>
+        <span class="pi">-</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="pi">-</span> <span class="pi">-</span> <span class="s2">"</span><span class="s">arn:aws:s3:::"</span>
+          <span class="pi">-</span> <span class="kt">!Join</span>
+                <span class="pi">-</span> <span class="s2">"</span><span class="s">-"</span>
+                <span class="pi">-</span> <span class="pi">-</span> <span class="kt">!Ref</span> <span class="s">AWS::StackName</span>
+                  <span class="pi">-</span> <span class="kt">!Ref</span> <span class="s">AWS::AccountId</span>
+                  <span class="pi">-</span> <span class="s2">"</span><span class="s">documentstore"</span>
+</code></pre></div></div>
+<p>リソースアクセスのためのロールとポリシーも記述されていますが、大まかに<code class="language-plaintext highlighter-rouge">Document Storage S3 ---&gt; Indexing Lambda ---&gt; Elasticsearch Service</code>の処理を記述します。
+毎回PDF文章データが<code class="language-plaintext highlighter-rouge">S3DocumentStoreBucket</code>にアップされると、<code class="language-plaintext highlighter-rouge">IndexDocumentLambda</code>というラムダ関数が起動されます。</p>
+
+<p>索引作成処理にはElasticsearchのエンドポイントにドキュメントを送信する処理ですが、下記になります[2]。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">putDocumentToES</span><span class="p">(</span><span class="nx">doc</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">objURL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Url </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">objURL</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">endpoint </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">esDomain</span><span class="p">.</span><span class="nx">endpoint</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">req</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">HttpRequest</span><span class="p">(</span><span class="nx">endpoint</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">attachKey</span> <span class="o">=</span> <span class="nx">key</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">?pipeline=attachment</span><span class="dl">'</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">bodyString</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+        <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="nx">doc</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">filePath</span><span class="dl">"</span> <span class="p">:</span> <span class="nx">objURL</span>
+    <span class="p">});</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bodyString</span><span class="p">);</span>
+
+    <span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">PUT</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">path</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="nx">esDomain</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span> <span class="nx">esDomain</span><span class="p">.</span><span class="nx">doctype</span><span class="p">,</span> <span class="nx">attachKey</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">reqPath </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">req</span><span class="p">.</span><span class="nx">path</span><span class="p">);</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">region</span> <span class="o">=</span> <span class="nx">esDomain</span><span class="p">.</span><span class="nx">region</span><span class="p">;</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="nx">bodyString</span><span class="p">;</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="dl">'</span><span class="s1">presigned-expires</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="dl">'</span><span class="s1">Host</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">endpoint</span><span class="p">.</span><span class="nx">host</span><span class="p">;</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="dl">'</span><span class="s1">content-type</span><span class="dl">'</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">;</span>
+
+    <span class="c1">// Sign the request (Sigv4)</span>
+    <span class="kd">var</span> <span class="nx">signer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">Signers</span><span class="p">.</span><span class="nx">V4</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="dl">'</span><span class="s1">es</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">signer</span><span class="p">.</span><span class="nx">addAuthorization</span><span class="p">(</span><span class="nx">creds</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+
+    <span class="c1">// Post document to ES</span>
+    <span class="kd">var</span> <span class="nx">send</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">NodeHttpClient</span><span class="p">();</span>
+    <span class="nx">send</span><span class="p">.</span><span class="nx">handleRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">httpResp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+        
+        <span class="nx">httpResp</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+            
+            <span class="nx">body</span> <span class="o">+=</span> <span class="nx">chunk</span><span class="p">;</span>
+        <span class="p">});</span>
+        <span class="nx">httpResp</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">end</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">completed</span><span class="dl">'</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">body</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">httpResp</span><span class="p">.</span><span class="nx">statusCode</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">err</span><span class="p">);</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">fail</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="チャットボットへのインテグレーション">チャットボットへのインテグレーション</h2>
+<p>LexへElasticsearchのをインテグレーションするために、ラムダ関数<code class="language-plaintext highlighter-rouge">BotFullfilmentLambda</code>を使います。</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="na">ESAccess</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">AWS::IAM::Policy'</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">PolicyName</span><span class="pi">:</span> <span class="s">ESAccess</span>
+      <span class="na">PolicyDocument</span><span class="pi">:</span>
+        <span class="na">Version</span><span class="pi">:</span> <span class="s">2012-10-17</span>
+        <span class="na">Statement</span><span class="pi">:</span>
+          <span class="pi">-</span> 
+            <span class="na">Effect</span><span class="pi">:</span> <span class="s">Allow</span>
+            <span class="na">Action</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="s">es:ESHttpGet</span>
+              <span class="pi">-</span> <span class="s">es:ESHttpPost</span>
+            <span class="na">Resource</span><span class="pi">:</span>
+              <span class="kt">!Join</span>
+              <span class="pi">-</span> <span class="s1">'</span><span class="s">'</span>
+              <span class="pi">-</span> <span class="pi">-</span> <span class="kt">!GetAtt</span> <span class="s">ElasticsearchDomain.Arn</span>
+                <span class="pi">-</span> <span class="s2">"</span><span class="s">/*"</span>
+      <span class="na">Roles</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="kt">!Ref</span> <span class="s">BotFullfilmentLambdaExecutionRole</span>
+  
+  <span class="na">BotFullfilmentLambdaExecutionRole</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">AWS::IAM::Role"</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">AssumeRolePolicyDocument</span><span class="pi">:</span>
+        <span class="na">Version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2012-10-17"</span>
+        <span class="na">Statement</span><span class="pi">:</span>
+          <span class="pi">-</span>
+            <span class="na">Effect</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Allow"</span>
+            <span class="na">Principal</span><span class="pi">:</span>
+              <span class="na">Service</span><span class="pi">:</span>
+                <span class="pi">-</span> <span class="s2">"</span><span class="s">lambda.amazonaws.com"</span>
+            <span class="na">Action</span><span class="pi">:</span>
+              <span class="pi">-</span> <span class="s2">"</span><span class="s">sts:AssumeRole"</span>
+      <span class="na">Path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+      <span class="na">ManagedPolicyArns</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"</span>
+
+  <span class="na">BotFullfilmentLambda</span><span class="pi">:</span>
+    <span class="na">Type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">AWS::Lambda::Function"</span>
+    <span class="na">Properties</span><span class="pi">:</span>
+      <span class="na">Code</span><span class="pi">:</span>
+        <span class="na">S3Bucket</span><span class="pi">:</span> <span class="s2">"</span><span class="s">aws-machine-learning-blog"</span>
+        <span class="na">S3Key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">artifacts/document-search-bot/lex-index.zip"</span>
+      <span class="na">Description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">This</span><span class="nv"> </span><span class="s">function</span><span class="nv"> </span><span class="s">will</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">fullfillment</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">search</span><span class="nv"> </span><span class="s">bot"</span>
+      <span class="na">FunctionName</span><span class="pi">:</span> <span class="kt">!Sub</span> <span class="s2">"</span><span class="s">${AWS::StackName}-DocumentSearchBotFullfilment"</span>
+      <span class="na">Handler</span><span class="pi">:</span> <span class="s">index.handler</span>
+      <span class="na">MemorySize</span><span class="pi">:</span> <span class="m">256</span>
+      <span class="na">Role</span><span class="pi">:</span> <span class="kt">!GetAtt</span> <span class="s">BotFullfilmentLambdaExecutionRole.Arn</span>
+      <span class="na">Runtime</span><span class="pi">:</span> <span class="s2">"</span><span class="s">nodejs12.x"</span>
+      <span class="na">Timeout</span><span class="pi">:</span> <span class="m">25</span>
+      <span class="na">Environment</span><span class="pi">:</span>
+        <span class="na">Variables</span><span class="pi">:</span>
+            <span class="na">ESENDPOINT</span><span class="pi">:</span>
+              <span class="kt">!Join</span>
+                <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+                <span class="pi">-</span> <span class="pi">-</span> <span class="s2">"</span><span class="s">https://"</span>
+                  <span class="pi">-</span> <span class="kt">!GetAtt</span> <span class="s">ElasticsearchDomain.DomainEndpoint</span>
+            <span class="na">AWSREGION</span><span class="pi">:</span> <span class="kt">!Ref</span> <span class="s">AWS::Region</span>
+</code></pre></div></div>
+
+<p>インテグレーションの手順は下記になります。</p>
+
+<ol>
+  <li>Lexコンソール画面では、新しいチャットボットを作成する。</li>
+  <li>言語を英語に設定する。</li>
+  <li>英語言語でインテントを作成する。</li>
+  <li>インテントの設定画面で「Codehooks」の項目に、<code class="language-plaintext highlighter-rouge">BotFullfilmentLambda</code>のARNを設定する。</li>
+</ol>
+
+<h2 id="考察">考察</h2>
+
+<p>試すためには、数十冊の英文PDFをアップしました。
+Lexコンソール画面からインテントの設定画面に移すと、「構築」ボタンを押し、「テスト」が可能になりました。
+speech recognitionの要望を示すとボットは結果とダウンロードURLが返ります。</p>
+
+<h3 id="メリット">メリット</h3>
+<p>LexとElasticsearchのアプローチで音声による文章連想検索システムの構築は素早く終わらせました。
+決まったインテントで音声認識したので、あまり誤差を拡大せず、正確に検索できました。
+また、連想検索は検証されたElasticsearchのアプローチなので、正確な検索結果を取得でき、ユーザの満足感を向上できます。
+なお、すべてサーバーレス形式なので、課金制度も柔軟になります。</p>
+
+<h3 id="デメリット">デメリット</h3>
+<p>一番目のデメリットは、アマゾンの内臓音声認識エンジンに好奇心を持っているのに、内臓エンジンに触れたいなら、エンジニアとしてアマゾンに入社するしかありません。
+二番目は価格です。柔軟な課金制度ですが、しっかり強いシステムを構築するとどれぐらいかかるかみてみましょう。
+今回のシステムの見積もりを作成しました。
+Lex以外のサービスの見積は<a href="https://calculator.aws/#/estimate?nc2=pr&amp;id=4795298f02e0ff6301354c6582b451fe4e3b67c2">ここで</a>確認できます。
+前提は、毎月1万冊程度、10万リクエストと想定しています。
+ですので、Lexの単価は1音声リクエストあたり0.004ドルなので、毎月400ドルが課金されます。
+上記の見積と合わせると、毎月1286ドルの課金量が発生します。
+ElasticsearchとLexの課金量はかなりかかります。また、UltraWarmという大規模処理を補う機能を使うと、必ず毎月20万円以上が消費されると思います。</p>
+<h1 id="おわりに">おわりに</h1>
+
+<p>本稿では、アマゾンElasticsearchやLexなどを使ってすべてクラウドで<strong>音声認識による文書連想検索システム</strong>を実現しました。
+1万文献かつ10万音声リクエスト規模のシステムです。</p>
+
+<p>今回のデモは、コアの部分を実現したが、実に稼働するために、システムにセキュリティ機能、ログ処理、CloudWatch設定、例外処理などを追加するとなお良いです。
+ユーザ認証はCognitoなどで実現すれば結構です。</p>
+
+<h1 id="参考文献">参考文献</h1>
+
+<ol class="bibliography"><li><span id="LexModel37:online"><i>LexModelsV2 — Boto3 Docs 1.18.6 documentation</i>. https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html.</span></li>
+<li><span id="Buildado59:online">Jain, A., &amp; Kulkarni, R. <i>Build a document search bot using Amazon Lex and Amazon Elasticsearch Service | AWS Machine Learning Blog</i>. https://aws.amazon.com/jp/blogs/machine-learning/build-a-document-search-bot-using-amazon-lex-and-amazon-elasticsearch-service/.</span></li>
+<li><span id="DeployaW32:online">Atoa, O., &amp; Strahan, B. <i>Deploy a Web UI for Your Chatbot  | AWS Machine Learning Blog</i>. https://aws.amazon.com/jp/blogs/machine-learning/deploy-a-web-ui-for-your-chatbot/.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#cloud">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">cloud</span>
+    </a>
+  
+    
+    <a href="/tags.html#ai">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">ai</span>
+    </a>
+  
+    
+    <a href="/tags.html#amazon-lex">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">amazon lex</span>
+    </a>
+  
+    
+    <a href="/tags.html#amazon-elasticsearch">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">amazon elasticsearch</span>
+    </a>
+  
+    
+    <a href="/tags.html#amazon-lambda">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">amazon lambda</span>
+    </a>
+  
+    
+    <a href="/tags.html#amazon-s3">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">amazon s3</span>
+    </a>
+  
+    
+    <a href="/tags.html#semantic-search">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">semantic search</span>
+    </a>
+  
+    
+    <a href="/tags.html#python">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">python</span>
+    </a>
+  
+    
+    <a href="/tags.html#文章連想検索">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">文章連想検索</span>
+    </a>
+  
+    
+    <a href="/tags.html#音声認識">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">音声認識</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/ai/non-english/2021/07/24/python-amazon-lex-chatbot-elasticsearch.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/ai/non-english/2021/07/24/python-amazon-lex-chatbot-elasticsearch.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

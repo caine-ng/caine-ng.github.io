@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">07 Nov 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials&url=https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    7 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#define-of-done-extension-the-perfectionist-for-software">Define-of-Done extension: The perfectionist for software</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#are-you-really-understanding-the-role-of-managers-in-a-software-project">Are you really understanding the role of managers in a software project?</a></li>
+<li class="toc-entry toc-h2"><a href="#dod-and-acceptance-criteria-ac">DoD and Acceptance Criteria (AC)</a></li>
+<li class="toc-entry toc-h2"><a href="#dod-extension-in-ab">DoD extension in AB</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#product-vision-to-know-what-you-are-working-for-in-long-term">Product Vision: To know what you are working for in long-term</a></li>
+<li class="toc-entry toc-h1"><a href="#backlog-essentials-bringing-jira-back-to-azure-devops">Backlog essentials: Bringing JIRA back to Azure DevOps</a></li>
+<li class="toc-entry toc-h1"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/d3560903-f638-4528-b9ba-8cbf6a015a8d.png" alt="Azure Boards" />
+<em>Source: <a href="http://ilikesqldata.com/deep-dive-into-azure-boards/">ILikeSQLData</a></em></p>
+
+<p><strong>Azure Boards (AB)</strong> [1] is an essential tool for Project Management [2] in software development projects.
+It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team.
+Linking commits and PRs to working items in Azure Repos [3], Azure Pipelines [4], and Azure Artifacts [5], Azure Boards also supports enhanced code analytics.
+By integrating with Azure Test Plans [6] (however, it is not free [7], 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams.
+Some recent features like Analytics views also give the PM more confidence in making decisions.
+However, the Azure Boards also lacks several important features of a perfect backlog:</p>
+
+<ul>
+  <li>First, there is no <strong>Define-of-Done (DoD)</strong> checklist in AB by default.</li>
+  <li>Second, there is not a clear feature to demonstrate the <strong>Product Vision</strong> to teams. (There is a Delivery Plan to show the roadmap towards a specific release goal).</li>
+  <li>Finally, if users are already familiar with other tools like JIRA, then AB has a poor backlog view.</li>
+</ul>
+
+<p>This post introduces several extensions to solve these problems: <strong>Define-of-Done</strong> [8], <strong>Product Vision</strong> [9], and <strong>Backlog Essentials</strong> [10].
+<!--more--></p>
+
+<h1 id="define-of-done-extension-the-perfectionist-for-software">Define-of-Done extension: The perfectionist for software</h1>
+
+<p><img src="https://agile-extensions.gallerycdn.vsassets.io/extensions/agile-extensions/dod/3.0.40/1599210825590/dist/images/screenshot-dod.png" style="float: right; margin: 10px; width: 50%;" /></p>
+
+<h2 id="are-you-really-understanding-the-role-of-managers-in-a-software-project">Are you really understanding the role of managers in a software project?</h2>
+
+<p><strong>Define-of-Done (DoD)</strong> perfects software!
+Development teams will not acknowledge a bug if there is no feedback or tests.
+Testers and QA helps to ensure technical bugs don’t happen.
+However, logical bugs (wrong business flows, unfriendly or difficult-to-use UX, …) can be found only by users and product owners (PO).
+PO must feedback development teams about logical bugs, and customer support (CS) teams must feedback development teams about claims from end-users.</p>
+
+<p>Many wrong perceptions that PO, SM, and Product Managers (PdM) are close to testers and QA!
+It is completely wrong!
+Testers and QAs are bug finders, although they only find and report technical bugs.
+PO/SM/PM don’t find bugs (please remember this).
+What they actually do are <strong>APPROVE GOOD PRODUCTS</strong> and <strong>DENY DEFECTIVE PRODUCTS</strong>.
+They don’t find bugs because they already have a <strong>checklist</strong> to classify what is a good product and what is a defective product!</p>
+
+<p>So the right actions in a perfect development team are like Testers/QA <strong>report</strong> bugs, Developers <strong>develop products and fix bugs</strong>, but the product won’t launch without <strong>approval</strong> from PO/SM/PM.
+If PO/SM/PM <strong>deny</strong> a thing, don’t even think about launching!</p>
+
+<p>Then the checklist PO/SM/PdM needs to consult when deciding the launching is a part of DoD.
+Perhaps it contains a list of features that must be completed, a check of flow, UI/UX, …</p>
+
+<p>But remember that this is only one of the missions that PO/SM/PdM must complete.
+There are many other things to make the development smoothly that they need to do.</p>
+
+<p><em>In many software projects, developers and testers miss the task of reporting and obtaining approvals from managers, and <strong>such incidents often lead to serious consequences</strong>!</em>
+<em>I observed several young developers in my experience: they were overconfident about their code and sometimes skipped the approval processes when deploying and launching.</em>
+<em>These behaviors are classified as <strong>bad behaviors (thái độ kém)</strong> in all software projects!</em></p>
+
+<h2 id="dod-and-acceptance-criteria-ac">DoD and Acceptance Criteria (AC)</h2>
+
+<p>If you’re beginning to wonder why this is a product management issue and not a quality control topic for the technical team, that’s in part due to the difference between a general Definition of Done and the specific acceptance criteria for a particular user story.</p>
+
+<p>DoD is universally applied (with a few exceptions) to everything the engineering organization is attempting to ship.
+While a product management <code class="language-plaintext highlighter-rouge">OK</code> might be one of the items on the checklist, it’s a fairly generic definition.</p>
+
+<p><strong>Acceptance criteria</strong>, however, are unique to the user story or feature in question. 
+These criteria should be defined by product management, with input from the technical team on any specific use cases or parameters that must be met to green light this item before it’s considered done.</p>
+
+<p>Since DoD is considered for everything, product management should review the definition and make sure they agree that it is comprehensive enough. 
+However, the ownership and management of the definition doesn’t necessarily need to be the responsibility of product management. 
+As long as product is satisfied that <code class="language-plaintext highlighter-rouge">done</code> items pass the tests spelled out in the DoD, they can largely leave it be.</p>
+
+<p>But a shipped product or feature can hardly be considered done in the eyes of product, either.</p>
+
+<p><code class="language-plaintext highlighter-rouge">For a product manager, you're not done with a product (or feature) until you've put it out to pasture,</code> says Adam Sigel of Hometap [11]. 
+<code class="language-plaintext highlighter-rouge">Once it's launched, you begin the long tail of customer support, price changes, bug fixes, and compatibility updates. Once you're done supporting it, it's time to sunset it. Then, and only then, are you done with a product.</code></p>
+
+<h2 id="dod-extension-in-ab">DoD extension in AB</h2>
+
+<p>So for a specific user story, testers, developers and QA must ensure that specific AC are implemented.
+But managers need to ensure that members DONE the AC correcly, at least in terms of workflow.
+A typical DoD checklist is as follows:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Code is peer-reviewed</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Code is checked in</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Code is deployed to test environment</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Code/feature passes regression testing</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Code/feature passes smoke testing</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Code is documented</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Help documentation is updated</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Feature is OK’d by stakeholders</li>
+</ul>
+
+<p>Without a fulfilled DoD, then the product was launch without a correct workflow and there might be bugs inside.
+A perfect DoD is ensured and a continuous delivery is possible!</p>
+
+<p><strong>AB</strong> by default doesn’t provide a checklist feature, however, user can use a items list like <strong>Define-of-Done</strong> [8].
+It helps a lot in ensuring the quality of a product.</p>
+
+<h1 id="product-vision-to-know-what-you-are-working-for-in-long-term">Product Vision: To know what you are working for in long-term</h1>
+
+<p><img src="https://agile-extensions.gallerycdn.vsassets.io/extensions/agile-extensions/product-vision/2.0.26/1588400179018/assets/images/screenshot-product-vision-workhub.png" style="float: left; margin: 10px; width: 50%;" /></p>
+
+<p><strong>Product Vision (PV)</strong> is a slogan or motto of a product which describes the value that the product will give to end-users.
+In Agile development, for a short-term, you will hear sprint goals, task descriptions, acceptance criteria, .etc.
+All of them are for short durations, and you will see a part of the <code class="language-plaintext highlighter-rouge">big picture</code>.
+Such a <code class="language-plaintext highlighter-rouge">big picture</code> can be huge, and the owner may need to survey for a long time to give.
+However, once the vision is clear, the owner can describe it in a short sentence, or a photo, a video, or anything which can represents the vision compactly.</p>
+
+<p>The Product Vision sheds light on the direction the development will working towards.
+Let’s see the PV of SpaceX:</p>
+
+<blockquote>
+  <p>SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not.
+<a href="https://www.spacex.com/careers/index.html?department=Food%2520Services">Elon Musk</a></p>
+</blockquote>
+
+<h1 id="backlog-essentials-bringing-jira-back-to-azure-devops">Backlog essentials: Bringing JIRA back to Azure DevOps</h1>
+
+<iframe style="float: right; margin: 10px; width: 50%;" src="https://www.youtube-nocookie.com/embed/q6n6nb7w3kU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>If you are familiar with JIRA, some of the following features may comfort you:</p>
+
+<ul>
+  <li>Quick editting in backlog</li>
+  <li>Progressbar in issue views</li>
+  <li>Dynamic backlog charts (Insights)</li>
+</ul>
+
+<p>And when you switch to AB, you find that those features are not there.
+<strong>Backlog essentials (BE, [10])</strong> add them back to AB.
+One downside is that it is not free, with a price of €288 per year!</p>
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="AzureBoa68:online"><i>Azure Boards | Microsoft Azure</i>. https://azure.microsoft.com/en-us/services/devops/boards/</span></li>
+<li><span id="meredith2017project">Meredith, J. R., Shafer, S. M., &amp; Mantel Jr, S. J. (2017). <i>Project management: a strategic managerial approach</i>. John Wiley &amp; Sons.</span></li>
+<li><span id="AzureRep87:online"><i>Azure Repos – Git Repositories | Microsoft Azure</i>. https://azure.microsoft.com/en-us/services/devops/repos/</span></li>
+<li><span id="AzurePip74:online"><i>Azure Pipelines | Microsoft Azure</i>. https://azure.microsoft.com/en-us/services/devops/pipelines/</span></li>
+<li><span id="AzureArt12:online"><i>Azure Artifacts | Microsoft Azure</i>. https://azure.microsoft.com/en-us/services/devops/artifacts/</span></li>
+<li><span id="AzureTes7:online"><i>Azure Test Plans | Microsoft Azure</i>. https://azure.microsoft.com/en-us/services/devops/test-plans/</span></li>
+<li><span id="AzureDev1:online"><i>Azure DevOps Services Pricing | Microsoft Azure</i>. https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/</span></li>
+<li><span id="Definiti31:online"><i>Definition of Done - Visual Studio Marketplace</i>. https://marketplace.visualstudio.com/items?itemName=agile-extensions.dod&amp;ssr=false#overview</span></li>
+<li><span id="ProductV55:online"><i>Product Vision - Visual Studio Marketplace</i>. https://marketplace.visualstudio.com/items?itemName=agile-extensions.product-vision</span></li>
+<li><span id="BacklogE28:online"><i>Backlog Essentials - Visual Studio Marketplace</i>. https://marketplace.visualstudio.com/items?itemName=agile-extensions.backlog-essentials&amp;ssr=false#overview</span></li>
+<li><span id="mediumco31:online"><i>medium.com</i>. https://medium.com/boston-product/the-true-definition-of-done-c6c254a0ff3e</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#programming">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">programming</span>
+    </a>
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#dod">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">dod</span>
+    </a>
+  
+    
+    <a href="/tags.html#define-of-done">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">define-of-done</span>
+    </a>
+  
+    
+    <a href="/tags.html#backlog">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">backlog</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/non-english/se/pm/2021/10/23/rd-pj-lifecycle.html">
+            構想フェーズから終了までの研究開発サイクル
+            <small>23 Oct 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Hệ thống chấm công AttendanceBot tích hợp vào công cụ chat Microsoft Teams để quản lý và theo dõi nhân sự dự án &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Hệ thống chấm công AttendanceBot tích hợp vào công cụ chat Microsoft Teams để quản lý và theo dõi nhân sự dự án</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">10 Jul 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/non-english/2021/07/10/attendance-bot-microsoft-teams.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Hệ thống chấm công AttendanceBot tích hợp vào công cụ chat Microsoft Teams để quản lý và theo dõi nhân sự dự án&url=https://wanted2.github.io/pm/non-english/2021/07/10/attendance-bot-microsoft-teams.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/non-english/2021/07/10/attendance-bot-microsoft-teams.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    7 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#dịch-vụ-attendancebot">Dịch vụ AttendanceBot</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#chức-năng-chính">Chức năng chính</a></li>
+<li class="toc-entry toc-h2"><a href="#đơn-giá">Đơn giá</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#sử-dụng-cùng-microsoft-teams">Sử dụng cùng Microsoft Teams</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#đăng-ký-lịch-nghỉ">Đăng ký lịch nghỉ</a></li>
+<li class="toc-entry toc-h2"><a href="#check-incheck-out">Check in/check out</a></li>
+<li class="toc-entry toc-h2"><a href="#quản-lý-báo-cáo">Quản lý báo cáo</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
+<li class="toc-entry toc-h1"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://d2d2z0vqdha3nx.cloudfront.net/static/assets/img/ab_v3/Absence-Management%402x.png" alt="" /></p>
+
+<p><em>Source: AttendanceBot.com</em></p>
+
+<p>Quy trình thực thi dự án luôn đòi hỏi phân tích real-time các dữ liệu dự án như <strong>nhân sự</strong> và <strong>communication</strong> trong team và với khách hàng (Meredith <em>et al.</em> [1]).
+Việc theo dõi, phân tích, thậm chí lên cảnh báo này hỗ trợ các thành viên team được giữ “tỉnh táo” ở mức độ cao ví dụ như thông tin hôm nay nhân viên nào nghỉ và cần bổ sung nhân lực làm thay.
+AttendanceBot là một hệ thống chấm công thông minh sử dụng phân tích dữ liệu ngôn ngữ tự nhiên để đăng ký tự động các kỳ nghỉ cũng như thời gian in/out hàng ngày của thành viên, qua đó giảm tải cho quản lý dự án.
+Hệ thống tích hợp vào luồng quản lý dự án thông qua các ứng dụng chat như Slack, Microsoft Teams và Google Chat.</p>
+
+<!--more-->
+
+<h1 id="dịch-vụ-attendancebot">Dịch vụ AttendanceBot</h1>
+
+<h2 id="chức-năng-chính">Chức năng chính</h2>
+
+<p><img src="https://d2d2z0vqdha3nx.cloudfront.net/static/assets/img/ab_v3/Simple-Time-Tracking-Software%402x.png" style="float: right; margin-left: 20px; width: 50%;" />
+<strong>Quản lý thời gian lao động (timesheet)</strong>.
+Nhân viên thực hiện chat với AttendanceBot bằng cụm từ quy định <code class="language-plaintext highlighter-rouge">in</code> để check in.
+Thời gian checkin được tính từ thời điểm này và được lưu trữ vào bảng timesheet của AttendanceBot.
+Bằng việc nhập lệnh <code class="language-plaintext highlighter-rouge">out</code> vào cửa sổ chat, nhân viên thực hiện checkout và cập nhật timesheet.
+Nhân viên có thể xem timesheet của chính mình trực tiếp trên công cụ chat bằng lệnh <code class="language-plaintext highlighter-rouge">timesheet</code>.
+Để tải timesheet của bản thân mình, nhân viên nhập lệnh <code class="language-plaintext highlighter-rouge">timesheet report</code> và AttendanceBot sẽ trả về đường link tới file timesheet CSV.
+Đồng thời hành vi check in/out của nhân viên cũng được thông báo trên channel của team, do đó PM có thể nhanh chóng nắm bắt nhân sự và nhận cảnh báo.
+Với quyền quản lý, PMs còn có thể truy cập và quản lý timesheet của các nhân viên.</p>
+
+<p><img src="https://d2d2z0vqdha3nx.cloudfront.net/static/assets/img/ab_v3/Absence-and-leave-management-for-teams%402x.png" style="float: left; margin-right: 20px; width: 50%;" />
+<strong>Quản lý kỳ nghỉ</strong>.
+Nhân viên có thể đăng ký lịch nghỉ dài hạn hoặc ngắn hạn, hoặc Work From Home (WFH) từ cửa sổ chat.
+PM và các quản lý cấp cao có thể nhận cảnh báo ngay lập tức với các kỳ nghỉ của nhân viên.
+Mẫu câu để đăng ký nghỉ có thể phong phú hơn từ khóa <code class="language-plaintext highlighter-rouge">in/out</code>, ví dụ, nhân viên có thể nhập <code class="language-plaintext highlighter-rouge">WFH on next Monday</code>, và AttendanceBot có thể nhận ra thời gian là thứ 2 tới ngày 12/7 và nội dung là Work from home.</p>
+
+<p><img src="https://d2d2z0vqdha3nx.cloudfront.net/static/assets/img/ab_v3/ShiftCal%402x.png" style="float: right; margin-left: 20px; width: 50%;" />
+<strong>Quản lý phiên làm việc</strong>.
+Lên kế hoạch làm việc cho nhân viên trong cả tuần tiếp theo là một việc làm thường xuyên của PM.
+PM sẽ thực hiện lên kế hoạch trên công cụ lịch của AttendanceBot và từ đó, AttendanceBot sẽ lên schedule để gửi thông báo (notification) cho nhân viên về time shift.
+Khi gần tới phiên làm việc sẽ có cảnh báo/thông báo gửi về từng nhân viên để làm việc.</p>
+
+<h2 id="đơn-giá">Đơn giá</h2>
+
+<p>Báo giá của AttendanceBot có thể tìm thấy tại <a href="https://www.attendancebot.com/pricing/">https://www.attendancebot.com/pricing/</a>.
+Có 2 phiên bản là bản AttendanceBot và AttendanceBot Pro.
+Mức giá tính theo user và theo tháng là 4 đô và 6 đô tương ứng.</p>
+
+<h1 id="sử-dụng-cùng-microsoft-teams">Sử dụng cùng Microsoft Teams</h1>
+
+<p><img src="/assets/img/attendancebot-teams.PNG" alt="" /></p>
+
+<p>Một điểm hay của AttendanceBot là ngoài việc dùng trực tiếp dịch vụ tại trang chủ attendancebot.com thì các nhà phát triển <strong>chủ động một cách thông minh</strong> tích hợp dịch vụ dưới dạng chatbot tự động vào các nền tảng communication cho dự án nổi tiếng như Slack, Teams và Google Chat.
+Chính sự chủ động này đã khiến cho việc tích hợp AttendanceBot vào dự án đang chạy vô cùng dễ dàng cho người dùng.</p>
+
+<p>Để cài đặt bạn chỉ cần mở tab App và gõ tên app <code class="language-plaintext highlighter-rouge">AttendanceBot</code> vào khung tìm kiếm để lọc ra app.
+Sau đó theo các hướng dẫn để cài đặt vào thư mục dự án.</p>
+<h2 id="đăng-ký-lịch-nghỉ">Đăng ký lịch nghỉ</h2>
+<p><img src="/assets/img/attendancebot-teams-1.PNG" alt="" /></p>
+
+<p>Sau khi cài đặt, AttendanceBot sẽ chủ động chat với bạn về cách sử dụng app.
+Có hai cách để tương tác với AttendanceBot:</p>
+
+<ul>
+  <li>
+    <p>Trong thư mục của team dự án, bạn có thể gửi tin lên <code class="language-plaintext highlighter-rouge">@AttendanceBot Vacation from 12 December to 14 December</code>.</p>
+  </li>
+  <li>
+    <p>Bạn mở một chat trực tiếp với AttendanceBot với nội dung <code class="language-plaintext highlighter-rouge">Vacation from 12 December to 14 December</code>.</p>
+  </li>
+</ul>
+
+<p>Dù làm theo cách nào, thì AttendanceBot cũng sẽ chat lại cho bạn với nội dung như trên.
+Cú pháp xin nghỉ khá đa dạng nhưng phần lớn tuân theo một số kiểu câu:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Loại nghỉ&gt; from &lt;ngày bắt đầu&gt; to &lt;ngày kết thúc&gt;
+
+Ví dụ:
+Vacation from 12 December to 14 December
+WFH from 12 December to 14 December
+</code></pre></div></div>
+
+<p>Những mẫu câu về ngày nhất định như <code class="language-plaintext highlighter-rouge">Vacation today</code> hoặc <code class="language-plaintext highlighter-rouge">WFH tommorrow</code> cũng được bot hiểu.</p>
+<h2 id="check-incheck-out">Check in/check out</h2>
+
+<p>Quản lý check in/out có thể được thực hiện khá đơn giản bằng các câu lệnh sau:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">in</code>: nhân viên bạn quản lý phải nhập câu lệnh này để checkin.</li>
+  <li><code class="language-plaintext highlighter-rouge">out</code>: khi ra về nhân viên phải nhập lệnh này để checkout và cập nhật timesheet. Nếu bạn là quản lý trực tiếp của nhân viên, thông tin timesheet sẽ được thông báo để bạn quản lý và theo dõi.</li>
+  <li><code class="language-plaintext highlighter-rouge">timesheet</code>: nhân viên có thể dùng lệnh này để tự xem timesheet của mình.</li>
+  <li><code class="language-plaintext highlighter-rouge">timesheet report</code>: nhân viên có thể dùng lệnh này để tải CSV của timesheet về máy.</li>
+</ul>
+
+<p><img src="/assets/img/attendancebot-teams-2.PNG" alt="" /></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">change manager</code>: lần đầu đăng ký timesheet (<code class="language-plaintext highlighter-rouge">in/out</code>), nhân viên sẽ bị hỏi nhập thông tin quản lý trực tiếp.
+Trong quá trình dự án, nếu có thay đổi quản lý trực tiếp, nhân viên dùng lệnh này chat cập nhật quản lý.
+Chức năng này giúp luồng báo cáo của nhân viên tới quản lý dự án được tự động hóa và thông suốt.</li>
+  <li><code class="language-plaintext highlighter-rouge">my manager</code>: nhân viên có thể xem tên quản lý trực tiếp của mình bằng lệnh này.
+    <h2 id="quản-lý-báo-cáo">Quản lý báo cáo</h2>
+  </li>
+</ul>
+
+<p><img src="https://d2d2z0vqdha3nx.cloudfront.net/static/assets/img/ab_v3/DashElements%402x.png" alt="" /></p>
+
+<p><em>Source: AttendanceBot.com</em></p>
+
+<p>Công cụ hữu ích cuối cùng là dashboard để quản trị thông tin nhân sự.
+Với công cụ này, quản lý dự án có được cái nhìn tổng thể mà chi tiết (<code class="language-plaintext highlighter-rouge">big picture</code>) của dự án.</p>
+
+<h1 id="kết-luận">Kết luận</h1>
+
+<p>AttendanceBot là công cụ tự động hóa (RPA) hữu ích, đồng thời cũng là công cụ có tích hợp trí tuệ nhân tạo.
+Mặc dù các xử lý ngôn ngữ tự nhiên bên trong khá đơn giản như quyết định bằng rule gắn với keyword (<code class="language-plaintext highlighter-rouge">in/out</code>) hay phân tích mẫu câu có sẵn template đơn giản như <code class="language-plaintext highlighter-rouge">vacation from ... to ...</code>, đây là một công cụ hữu ích và trong tương lai có thể kỳ vọng vào những bước tiến xa hơn.</p>
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="meredith2017project">Meredith, J. R., Shafer, S. M., &amp; Mantel Jr, S. J. (2017). <i>Project management: a strategic managerial approach</i>. John Wiley &amp; Sons.</span></li>
+<li><span id="OracleCr38:online"><i>Oracle Crystal Ball Downloads</i>. https://www.oracle.com/middleware/technologies/crystalball/downloads.html.</span></li>
+<li><span id="fisher1983getting">Fisher, R., &amp; Ury, W. (1983). <i>Getting to Yes: Negotiating Agreement Without Giving In</i>. New York: Penguin Books.</span></li>
+<li><span id="hamburger1986three">Hamburger, D. H. (1986). Three perceptions of project cost. <i>Project Management Journal</i>, 372–378.</span></li>
+<li><span id="GanttPro32:online"><i>GanttProject - Free Project Management Application</i>. https://www.ganttproject.biz/.</span></li>
+<li><span id="ProjectM44:online"><i>Project Management Software | Microsoft Project</i>. https://www.microsoft.com/en-us/microsoft-365/project/project-management-software.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#pmi">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">pmi</span>
+    </a>
+  
+    
+    <a href="/tags.html#startup">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">startup</span>
+    </a>
+  
+    
+    <a href="/tags.html#risk-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">risk management</span>
+    </a>
+  
+    
+    <a href="/tags.html#attendance-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">attendance management</span>
+    </a>
+  
+    
+    <a href="/tags.html#schedule-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">schedule management</span>
+    </a>
+  
+    
+    <a href="/tags.html#attendance-bot">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">attendance bot</span>
+    </a>
+  
+    
+    <a href="/tags.html#microsoft-teams">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">microsoft teams</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/non-english/2021/07/10/attendance-bot-microsoft-teams.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/non-english/2021/07/10/attendance-bot-microsoft-teams.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

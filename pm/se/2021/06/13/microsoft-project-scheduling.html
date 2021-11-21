@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Planning Waterfall Project Schedule and Resources with Microsoft Project 2019 &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Planning Waterfall Project Schedule and Resources with Microsoft Project 2019</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">13 Jun 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/se/2021/06/13/microsoft-project-scheduling.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Planning Waterfall Project Schedule and Resources with Microsoft Project 2019&url=https://wanted2.github.io/pm/se/2021/06/13/microsoft-project-scheduling.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/se/2021/06/13/microsoft-project-scheduling.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    9 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#scheduling">Scheduling</a></li>
+<li class="toc-entry toc-h3"><a href="#resource-allocation">Resource allocation</a></li>
+<li class="toc-entry toc-h3"><a href="#microsoft-project">Microsoft Project</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#preparation">Preparation</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#sample-data">Sample data</a></li>
+<li class="toc-entry toc-h3"><a href="#register-for-an-evaluation-version-of-project">Register for an evaluation version of Project</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#run">Run</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#register-tasks">Register tasks</a></li>
+<li class="toc-entry toc-h3"><a href="#register-resources">Register resources</a></li>
+<li class="toc-entry toc-h3"><a href="#view-critical-paths">View Critical Paths</a></li>
+<li class="toc-entry toc-h3"><a href="#pert-analysis">PERT Analysis</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+<li class="toc-entry toc-h2"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="/assets/img/msp7.png" alt="" /></p>
+
+<p>Scheduling is the conversion of a project action plan to actionable timetables.
+Resource utilization and availability are needed to keep the schedule on time and sometimes help to shorten the runs.
+Networks techniques such as Activity-on-Arrow (PERT analysis) and Activity-on-Node (Critical Path Model, or CPM) help establish the schedule.
+Resource allocation considers labor, material, facilities, and equipment to achieve the action plan.
+Resource allocation requires adjusting the loading and leveling, while constrained planning can be solved using heuristic methods or optimization methods such as linear programming.
+While computer-aided scheduling and resource allocation are popular, <strong>Microsoft Project</strong> is among the best choices for project management software because it supports all the above techniques.
+<!--more--></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p><img src="/assets/img/msp5.png" style="float: right; margin-left: 20px; margin-bottom: 10px; margin-top: 10px;" width="70%" /></p>
+
+<h3 id="scheduling">Scheduling</h3>
+
+<p>Given a Work-Breakdown Structure (WBS), project scheduling concerns the timeline of all activities and events that must be speculated to ensure the delivery to customers is on time and with high quality.
+Formal methods for this task establish a network of activities and events, which also highlights the critical events in the network.
+The critical activities and events delay the completion of a project if they are delayed.
+The order of tasks and dependencies between tasks can be seen in the schedule.
+The probability of various completion dates can be estimated then the schedule can be re-evaluated and reworked.</p>
+
+<p><img src="/assets/img/msp6.png" style="float: left; margin-right: 20px; margin-bottom: 10px; margin-top: 10px;" width="50%" />
+A simple form of the network is the Gantt charts which can be seen in the above figure.
+The Gantt chart shows planned and actual progress for a number of tasks displayed as bars against a horizontal time scale.
+Program Evaluation and Review Technique (PERT) and Critical Path Model (CPM) are two different networking methods for estimate a project schedule.
+With preliminary knowledge from WBS, CPM constructs an Activity-on-Node (AON) network where each node represents an action.
+From a start node, with source nodes are predecessors, and target nodes are given tasks, we can construct a graph of tasks.
+Each task is assigned an expected time $t_e$.
+The longest path $\mathcal{L}$ in the network (with sum of time $T_e=\sum_{e\in\mathcal{L}} t_e$) show the shortest time needed to complete the project.
+$\mathcal{L}$ is the <em>critical path</em> and $T_e$ is the <em>critical time</em> of a project.
+The right-hand-side figure shows the CPM of 5 tasks with assigned resources (workers and equipment).</p>
+
+<p>Each activity can have some uncertainty in estimating durations; therefore, a stable predictor can be made using a three-point analysis: <em>optimistic estimates ($a$), pessimistic estimates ($b$), and most likely estimates ($m$)</em>.
+The expected time can be estimated as follows.</p>
+
+<p>$t_e=\frac{a+4m+b}{6}$</p>
+
+<p>The estimates $a,b,m$ can be found when the distribution of duration for an activity is known as a priori.
+Then the most likely time $m$ is the mode of the distribution.
+PMs select $a$ at the actual time required by the activity will be $a$ or greater about 99 percent of the time.
+Similarly, PMs select $b$ at the actual time required is $b$ or less for 99% of the time.
+The standard deviation of $t_e$ can be estimated as $\sigma_e=\frac{b-a}{6}$.
+For an activity, the slack is the difference between the latest possible start date (LS) and the earliest possible start date (ES), i. e., slack = LS - ES.</p>
+
+<p>With these statistics, the PM can determine the uncertainty of the completion date.
+For example, the PM promised that a project finishes in $D$ days.
+Then we model the uncertainty by a normal distribution</p>
+
+<p>$Z=\frac{D-T_e}{\sigma_e}\sim \mathcal{N}(0, 1)$</p>
+
+<p>For example, $D=50$ days, $T_e=39$ days, and $\sigma_e=6.15$ days, then the likelihood that the PM can keep the promise is</p>
+
+<p>$\mathcal{N}^{-1}(Z)=\mathcal{N}^{-1}\left(\frac{50-39}{6.15}\right)=\mathcal{N}^{-1}(1.79)\approx 96\%$</p>
+
+<p>In other words, the probability of lateness is only 4%.
+The risk assessment, another aspect of the schedules, will be addressed in another article.</p>
+
+<h3 id="resource-allocation">Resource allocation</h3>
+<p>CPM can be used for resources as well.
+However, to accelerate the speed, introducing more resources (or crashing with resources) can be useful.
+It is equal to trading time with cost, and this is the essence of <strong>resource allocation problem</strong>.
+Resource loading is the amount of a specific resource to finish an activity in a duration.
+For example, to finish a task, we need 2 labor-hour, then that is the resource loading.
+In reality, the resource loading can be uneven during the project lifetime.
+Resource leveling concerns making the loading even throughout the project time.
+It is done by shifting the tasks within their slack allowances.
+In other words, leveling helps to <strong>stabilize the workloads</strong> over time.</p>
+
+<p>One concern for the PMs is how many workers should be hired for a given workload?
+If the workload is uneven, then the number of workers and other resources must be sufficient to handle the peak.
+In other time, when the workload is much lower than the peak workload, the worker pool size can be adjusted to avoid waste.</p>
+
+<h3 id="microsoft-project">Microsoft Project</h3>
+
+<p>MSP is a multi-scale project management software that handles from small projects to large ones.
+It supports multiple views such as grid view and board view for better reporting.
+Statistical analyses like CPM and PERT are supported.
+Gantt charts are supported in both cloud and desktop solutions.</p>
+
+<p>In this practice, we use MSP for scheduling and resource allocation with analytics.
+We use the priority rule of <strong>As Soon as Possible (ASAP)</strong>.</p>
+
+<h2 id="preparation">Preparation</h2>
+
+<h3 id="sample-data">Sample data</h3>
+
+<p>In this practice, we use the sample project WBS is from a typical software development project. Please download the data from the following resource.</p>
+
+<ul>
+  <li>Software development project WBS (from University of Ohio): <a href="http://regents.ohio.gov/obrpmcop/forms/examples/ex_wbs_sd.doc">download</a></li>
+</ul>
+
+<p>The sample project consists of 6 phases:</p>
+
+<ul>
+  <li>Phase 1: Requirements Definition</li>
+  <li>Phase 2: Logical Design</li>
+  <li>Phase 3: Physical Design</li>
+  <li>Phase 4: Programming and Unit Testing</li>
+  <li>Phase 5: System Testing</li>
+  <li>Phase 6: Installation</li>
+</ul>
+
+<p>For simplicity, we only take a subset for example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1	Requirements Definition (Phase 1)
+  1.01	Requirements funding
+    1.01.01	Review project request
+    1.01.02	Establish preliminary justification
+    1.01.03	Fund Phase 1
+    1.01.04	Prioritize project
+    1.01.05	Establish project team
+
+</code></pre></div></div>
+<h3 id="register-for-an-evaluation-version-of-project">Register for an evaluation version of Project</h3>
+<p>Unfortunately, Microsoft Project is non-free.
+Price for monthly users starts from 10$/user.
+Fortunately, they provide us an evaluation version for 30 days.</p>
+
+<p>Please visit <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-project">https://www.microsoft.com/en-us/evalcenter/evaluate-project</a> and choose <strong>Project Plan 3</strong> and click <strong>Continue</strong> button.</p>
+
+<p><img src="/assets/img/msp1.png" alt="" /></p>
+
+<p>Follow the step-by-step instructions to have an account set up.
+Visit <a href="https://portal.office.com/account/?ref=MeControl#subscriptions">https://portal.office.com/account/?ref=MeControl#subscriptions</a> you can see as follows.</p>
+
+<p><img src="/assets/img/msp2.png" alt="" /></p>
+
+<p>Visit <a href="https://portal.office.com/account/?ref=MeControl#installs">https://portal.office.com/account/?ref=MeControl#installs</a> and click <strong>Install Project</strong> button to get the download file.
+After downloading, please double-click and follow the guides to install.
+After installation, you may need to log in to your Microsoft account registered in the previous steps.</p>
+
+<p><img src="/assets/img/msp3.png" alt="" /></p>
+<h2 id="run">Run</h2>
+
+<p>From the <strong>Start screen</strong> of MSP, please select <strong>Waterfall project</strong>.
+Although <strong>Sprint project</strong> is available, we will explain it in another article.</p>
+
+<p><img src="/assets/img/msp7.png" alt="" /></p>
+
+<h3 id="register-tasks">Register tasks</h3>
+
+<p>In the Waterfall project, the default view is the <strong>Gantt chart</strong>.
+Now, we need to input by hands the WBS tasks.
+Note that the default unit for Waterfall projects works is days. 
+Then workers will be awarded daily.
+<strong>Is this a good cost performance?</strong></p>
+
+<p><img src="/assets/img/msp8.png" style="float: left; margin-right: 20px; margin-bottom: 10px; margin-top: 10px;" width="50%" /></p>
+
+<p>In reality, it is better to make payrolls by precisely to hours and even by minutes.
+For example, worker A registers a task S for 1 working day.
+But in fact, nobody spends all 8 working hours for work!
+A study has shown that about 12% of working hours have been spent on other things like <em>personal time</em>.
+Estimating task durations by minutes or hours helps to reduce such uncertainty.
+MSP supports measurements by minutes, but hourly payment is good enough.
+Select <strong>Options &gt; Schedule &gt; Input worktime unit</strong> to <strong>minutes</strong>.</p>
+
+<p>To view the state of distributed tasks, you can switch the view</p>
+
+<p><img src="/assets/img/msp9.PNG" alt="" /></p>
+
+<p>Assigned workers and resources can be shown, too.</p>
+
+<h3 id="register-resources">Register resources</h3>
+
+<p>Please switch to <strong>Resource Sheet</strong> view.</p>
+
+<p><img src="/assets/img/msp10.PNG" alt="" /></p>
+
+<p>There are two kinds of resources: noncurrent assets like equipment which price is fixed with one-time payments, and other resources which must be paid by hourly or monthly payments such as labors of office rental fees.
+, office rental fees aren’t counted in many cases, especially for remote workers.</p>
+
+<p>In this case, we have one worker and one PC (laptop) that are assigned to the tasks.
+For this case, we assign the price of 2,000 JPY per hour (tax included) to the payment.
+Overtime is paid by 2,500 JPY per hour.
+<strong>Note that when the tasks of the same person are run parallel, the total time is a sum!</strong>
+Then the working time is doubled, and any hours exceed 8 hours per day will be counted as overtime.</p>
+
+<p>To avoid payments for such <strong>concurrency caused overtime</strong>, the PMs should:</p>
+
+<ul>
+  <li><strong>Break down the tasks smaller and make them run sequentially within the 8-hour frame</strong>.</li>
+  <li>Pay by hours or minutes for non-contract workers.</li>
+</ul>
+
+<p><img src="/assets/img/msp6.png" style="float: right; margin-left: 20px; margin-bottom: 10px; margin-top: 10px;" width="50%" />
+<strong>If they are contract workers, PMs don’t need to care about the units but need to break down tasks</strong>.
+After registering the resources, switch back to the <strong>Gantt chart</strong> view, and assign the resources to tasks.</p>
+
+<p>Under the <strong>Report</strong> tab, there are many other views that are useful.
+Readers are recommended to explore by themselves.</p>
+
+<p><img src="/assets/img/msp4.png" alt="" /></p>
+
+<h3 id="view-critical-paths">View Critical Paths</h3>
+<p><img src="/assets/img/msp11.PNG" style="float: left; margin-right: 20px; margin-bottom: 10px; margin-top: 10px;" width="50%" />
+Switch to the <strong>Gantt chart</strong> view, and from the <strong>View</strong> tab in the ribbon, choose <strong>Critical</strong> as the filter.
+We will observe the Critical Paths automatically as follows.</p>
+
+<p><img src="/assets/img/msp12.PNG" alt="" /></p>
+<h3 id="pert-analysis">PERT Analysis</h3>
+
+<p>We use the macro from <a href="https://github.com/flametron/MSProject-2019-PERT">https://github.com/flametron/MSProject-2019-PERT</a>.
+With the weight combinations $(1,4,1)$ we have the estimates of <strong>Duration</strong>:</p>
+
+<p><img src="/assets/img/msp13.PNG" alt="" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>We explained several concepts in project scheduling and resource allocations.
+We also experienced with the Microsoft Project 2019 to handle scheduling problems and resource assignments.
+We applied some tips to reduce project costs.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="meredith2017project">Meredith, J. R., Shafer, S. M., &amp; Mantel Jr, S. J. (2017). <i>Project management: a strategic managerial approach</i>. John Wiley &amp; Sons.</span></li>
+<li><span id="OracleCr38:online"><i>Oracle Crystal Ball Downloads</i>. https://www.oracle.com/middleware/technologies/crystalball/downloads.html.</span></li>
+<li><span id="fisher1983getting">Fisher, R., &amp; Ury, W. (1983). <i>Getting to Yes: Negotiating Agreement Without Giving In</i>. New York: Penguin Books.</span></li>
+<li><span id="hamburger1986three">Hamburger, D. H. (1986). Three perceptions of project cost. <i>Project Management Journal</i>, 372–378.</span></li>
+<li><span id="GanttPro32:online"><i>GanttProject - Free Project Management Application</i>. https://www.ganttproject.biz/.</span></li>
+<li><span id="ProjectM44:online"><i>Project Management Software | Microsoft Project</i>. https://www.microsoft.com/en-us/microsoft-365/project/project-management-software.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#pmi">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">pmi</span>
+    </a>
+  
+    
+    <a href="/tags.html#startup">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">startup</span>
+    </a>
+  
+    
+    <a href="/tags.html#finance">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">finance</span>
+    </a>
+  
+    
+    <a href="/tags.html#project-manager">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project manager</span>
+    </a>
+  
+    
+    <a href="/tags.html#schedule">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">schedule</span>
+    </a>
+  
+    
+    <a href="/tags.html#microsoft-project">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">microsoft project</span>
+    </a>
+  
+    
+    <a href="/tags.html#gantt-chart">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">gantt chart</span>
+    </a>
+  
+    
+    <a href="/tags.html#critical-path-model">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">critical path model</span>
+    </a>
+  
+    
+    <a href="/tags.html#pert-analysis">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">pert analysis</span>
+    </a>
+  
+    
+    <a href="/tags.html#waterfall">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">waterfall</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/se/2021/06/13/microsoft-project-scheduling.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/se/2021/06/13/microsoft-project-scheduling.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

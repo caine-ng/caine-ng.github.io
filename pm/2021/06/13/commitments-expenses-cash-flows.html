@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Commitments, Expenses, and Cash Outflows - Three Perceptions of Project Costs &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Commitments, Expenses, and Cash Outflows - Three Perceptions of Project Costs</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">13 Jun 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/2021/06/13/commitments-expenses-cash-flows.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Commitments, Expenses, and Cash Outflows - Three Perceptions of Project Costs&url=https://wanted2.github.io/pm/2021/06/13/commitments-expenses-cash-flows.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/2021/06/13/commitments-expenses-cash-flows.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    5 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#three-perceptions-of-project-cost">Three perceptions of project cost</a></li>
+<li class="toc-entry toc-h2"><a href="#the-bill">The bill</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#project-cost-cost-of-goods-sold">Project cost (cost of goods sold)</a></li>
+<li class="toc-entry toc-h3"><a href="#finance-expenses-and-taxes">Finance expenses and taxes</a></li>
+<li class="toc-entry toc-h3"><a href="#defer-when-possible-but-dont-delay-the-termination">Defer when possible but don’t delay the termination</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+<li class="toc-entry toc-h2"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><a href="https://vi.wikipedia.org/wiki/Hamburger#/media/T%E1%BA%ADp_tin:NCI_Visuals_Food_Hamburger.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/NCI_Visuals_Food_Hamburger.jpg" alt="" /></a></p>
+
+<p>Different roles in a project can have different perceptions about cost.
+Commitments, expenses, and the organization’s cash flows are vital to consider about the cost.
+Losses incurred in the projects include finance expenses and taxes, too.
+Project managers can use their understanding of these perceptions to impact the cost of the project.
+Deferring and delaying are techniques the PMs can use to enhance their contributions to improve project expenditures.</p>
+
+<!--more-->
+
+<h2 id="three-perceptions-of-project-cost">Three perceptions of project cost</h2>
+
+<p><img src="https://www.pmi.org/kasimage/e59fca7f-56e2-45da-9597-ba50d908d786/J86JUN51-3.jpg" style="float: left; margin-right: 20px; margin-bottom: 10px; margin-top: 10px;" width="50%" /></p>
+
+<p>Each key person in a project cares about different aspects of cost.
+To the project managers, <strong>commitments</strong> must be high to prove efficiency.
+However, accountants implemented their accounting systems that do not identify commitments.
+Accountants care more about <strong>expenses</strong> for labor cost, materials, and equipment.
+Senior and top managers care more about the <strong>cash outflows</strong> of the organization.
+If the project does not terminate on time, another tax term may start, and more money for taxes must be spent.</p>
+
+<p><strong>Usually, a project should reduce all these factors, but the relationships of these costs often take the form in this figure</strong>.
+Commitment leads, cash outflow lags, and expenses fall in the middle.</p>
+
+<h2 id="the-bill">The bill</h2>
+
+<p>A typical bill of the project (profit and loss terms) is as follows.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Revenue (project sell price)</strong></td>
+      <td><strong>+$1,000,000</strong></td>
+    </tr>
+    <tr>
+      <td>Cost of goods sold (project costs)</td>
+      <td>-$750,000</td>
+    </tr>
+    <tr>
+      <td><strong>Gross-margin</strong></td>
+      <td><strong>+$ 250,000</strong></td>
+    </tr>
+    <tr>
+      <td>Selling, general &amp; administrative expenses</td>
+      <td>-$180,000</td>
+    </tr>
+    <tr>
+      <td><strong>Profit before interest and taxes</strong></td>
+      <td><strong>+$ 70,000</strong></td>
+    </tr>
+    <tr>
+      <td>Financial expense</td>
+      <td>-$ 30,000</td>
+    </tr>
+    <tr>
+      <td><strong>Profit before taxes</strong></td>
+      <td><strong>+$ 40,000</strong></td>
+    </tr>
+    <tr>
+      <td>Taxes</td>
+      <td>-$ 20,000</td>
+    </tr>
+    <tr>
+      <td><strong>Net profit</strong></td>
+      <td><strong>+$ 20,000</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="project-cost-cost-of-goods-sold">Project cost (cost of goods sold)</h3>
+
+<p>In the exemplar bill, they sold the project at 1M dollars, but the actual cost of goods sold was about 75% of the selling price.
+Then the gross-margin (includes sales/GA costs, financial expenses, and taxes) was about $250,000.
+The net profit after tax was 20,000 dollars.
+While the cost for Sales and GA is almost fixed in many companies, the cost of goods sold can be reduced by the actions of PMs.
+An effective PM can reduce it by carefully making the choices:</p>
+
+<ul>
+  <li>Considering <strong>alternatives</strong> for design concepts and taking “trade-offs” can reduce the cost.</li>
+  <li><strong>QA is expensive</strong>: QA or any safety factors can enhance the quality but also makes the product more expensive.
+Then PMs must be careful when thinking about doing <strong>excessive QA</strong> in their projects.
+Usually, after having safety at standard, it is possible to stop doing QA to prevent the cost go higher.</li>
+  <li><strong>Control work</strong>: developers and technicians can require excessive time for development and testing.
+This only increases the cost of the project.
+PMs must control the cost of development by setting deadlines for any tasks and tests.</li>
+  <li><strong>Cost of changes</strong>: changes are often in projects.
+The PMs must be aware of the contingency budget.
+Unexpected problems ultimately arise, at which time the funds are needed.
+Uses of this budget to finance a scope change is neither advantageous to the project manager nor to management.</li>
+  <li><strong>Changes must be made under client or management approval</strong></li>
+  <li><strong>Procurement of material, equipment, and services should be planned in the project schedule. The procurement that bases on incomplete requirements should be avoided.</strong></li>
+  <li><strong>Economy phenomena like inflation can impact the project negatively</strong>.
+The PMs must handle such impacts effectively.</li>
+</ul>
+
+<h3 id="finance-expenses-and-taxes">Finance expenses and taxes</h3>
+
+<p>Finance expenses include the order placements during the project’s life cycle, withheld funds, financial supports from vendors.
+Internal projects may not experience outside pressures like client’s payment considerations.
+However, they live with the pressure to shorten the lifetime and to pay back faster to the organization.
+In both cases, PMs need to care about delivering the outcomes faster to keep profits and reduce costs.
+In other words, it always means to stop early.</p>
+
+<p>Taxes are also another aspect for the top management to “kill” a project earlier.
+Sometimes, it can be an order to reduce the lifetime to a half.
+The reason behind the order can be the risk they feel about not meet a tax term deadline.
+In some cases, PMs can insist company’s top managers by changing the schedule to shift benefits and expenses from a tax term to the next.</p>
+
+<h3 id="defer-when-possible-but-dont-delay-the-termination">Defer when possible but don’t delay the termination</h3>
+
+<p>When thinking about the timing to place purchase orders, the PMs can use deferring techniques to avoid buying equipment and material when the price is high.
+The work of placing orders can be deferred until the price becomes low.
+However, this technique comes with risks: if the price does not go lower or if the item goes unavailable, it becomes a backfire to the project.</p>
+
+<p>Deferring order placements can be helpful, but delaying the termination of a project can be dangerous.
+Many organizations expect a project finishes on time to meet a tax deadline.
+Delaying the termination for only a few days can result in a new tax term starts, and lots of money will be spent.
+<strong>Indeed, a PM should insist the organization by shortening the lifetime of the project when it is possible and do not delay the end.</strong></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>An effective project manager can help the organization reducing project costs, expenses, and cash outflows a lot by the techniques described in this article.
+Financial expenses and taxes can be other factors for the top managers to shorten project lifetime.
+PMs must be aware of these risks and use techniques like deferring and delaying at the right time to mitigate.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="meredith2017project">Meredith, J. R., Shafer, S. M., &amp; Mantel Jr, S. J. (2017). <i>Project management: a strategic managerial approach</i>. John Wiley &amp; Sons.</span></li>
+<li><span id="OracleCr38:online"><i>Oracle Crystal Ball Downloads</i>. https://www.oracle.com/middleware/technologies/crystalball/downloads.html.</span></li>
+<li><span id="fisher1983getting">Fisher, R., &amp; Ury, W. (1983). <i>Getting to Yes: Negotiating Agreement Without Giving In</i>. New York: Penguin Books.</span></li>
+<li><span id="hamburger1986three">Hamburger, D. H. (1986). Three perceptions of project cost. <i>Project Management Journal</i>, 372–378.</span></li>
+<li><span id="GanttPro32:online"><i>GanttProject - Free Project Management Application</i>. https://www.ganttproject.biz/.</span></li>
+<li><span id="ProjectM44:online"><i>Project Management Software | Microsoft Project</i>. https://www.microsoft.com/en-us/microsoft-365/project/project-management-software.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#pmi">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">pmi</span>
+    </a>
+  
+    
+    <a href="/tags.html#startup">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">startup</span>
+    </a>
+  
+    
+    <a href="/tags.html#finance">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">finance</span>
+    </a>
+  
+    
+    <a href="/tags.html#project-manager">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project manager</span>
+    </a>
+  
+    
+    <a href="/tags.html#cost">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">cost</span>
+    </a>
+  
+    
+    <a href="/tags.html#budget">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">budget</span>
+    </a>
+  
+    
+    <a href="/tags.html#project-costs">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project costs</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/2021/06/13/commitments-expenses-cash-flows.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/2021/06/13/commitments-expenses-cash-flows.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

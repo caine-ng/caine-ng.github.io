@@ -18,6 +18,16 @@
   </title>
 
   
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
 
 
   <!-- CSS -->
@@ -93,30 +103,6 @@
   
 
   
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
     
   
 
@@ -134,6 +120,83 @@
 
   
 
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
 
   
 
@@ -142,6 +205,8 @@
     
   
 
+  
+    
   
 
   
@@ -173,6 +238,24 @@
 
   
     
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
   
 
   
@@ -187,6 +270,12 @@
   
 
   
+
+  
+    
+  
+
+  
     
   
 
@@ -194,6 +283,36 @@
     
   
 
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
   
 
 
@@ -266,380 +385,12 @@
   
   <article class="post-body">
     <h2 class="post-title">
-      <a href="/cv/ai/2021/05/22/on-limitation-mediapipe.html">
-        On Limitation of MediaPipe Holistic Face Detection Module
+      <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+        A Tutorial on Amazon OpenSearch Service and Kibana
       </a>
     </h2>
     <div class="post-meta">
-  <span class="post-date">22 May 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/cv.html">
-          Computer Vision
-        </a>
-      
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/ai.html">
-          Artificial Intelligence
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <style>
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
-
-<p><img src="/assets/img/annotated_image1.png" alt="" />
-<em><a href="https://www.neowin.net/news/microsoft-sets-a-new-world-record-for-most-people-in-a-selfie/">Source 1</a>, <a href="https://github.com/peiyunh/tiny/blob/master/data/demo/selfie.jpg">Source 2</a>, <strong>Credit: Microsoft</strong></em></p>
-
-<p>Google AI announced MediaPipe Holistic [1] as a simultaneous face, hand, and pose inference engine for on-device AI.
-As we knew, on-device AI works in a specialized environment such as Edge devices (Arduino, Raspberry Pi, Jetson Nano) and mobile devices (Android/iOS/…).
-These environments are characterized by limited computing power (except Jetson Nano, all are low-end CPUs), often no Internet (wifi modules maybe not embedded).
-Then MediaPipe is a great offer.
-It provides a consistent interface for working with deep learning models and computer vision models in various programming languages (Java, Swift, Python, Javascript, …).
-The solution is also end-to-end, so the code can be done by calling ready-to-use functions. <strong>But wait, such a big deal?</strong>
-This post provides a fairer view of the MediaPipe library for on-device face detection.
-<strong>The result is that, although MediaPipe is fast, however, the accuracy is limited for crowded scenes.</strong>
-<strong>It works best when there is only one person in the frame.</strong></p>
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/cv/ai/2021/05/22/on-limitation-mediapipe.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/cv/ai/2021/05/20/understanding-object-detection-nms.html">
-        Understanding Object Detection Algorithms: the Non-maximum-suppression (NMS)
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">20 May 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/cv.html">
-          Computer Vision
-        </a>
-      
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/ai.html">
-          Artificial Intelligence
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <p><img src="/assets/img/nms1.svg" alt="" /></p>
-
-<p>The non-maximum-suppression (NMS) is one of the most common parts of object detection methods.
-The idea is to remove the overlapping bounding boxes and keep only the separated boxes in the detection result.
-Given a threshold and starting from a particular box, any other boxes which have the overlappings with the reference larger than the threshold will be opted out.
-The process is repeated until all boxes are visited.</p>
-
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/cv/ai/2021/05/20/understanding-object-detection-nms.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/non-english/2021/04/24/chon-de-tai-nghien-cuu-non-english.html">
-        Làm thế nào chọn đề tài nghiên cứu phù hợp với lựa chọn nghề nghiệp trong ngành trí tuệ nhân tạo?
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">24 Apr 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/non-english.html">
-          Tiếng Việt, 日本語
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <style> /* set the CSS */
-
-.tooltip {	
-    position: absolute;			
-    text-align: left;			
-    width: auto;					
-    height: 75px;					
-    padding: 2px;	
-    margin: 2px			
-    font: 10px sans-serif;		
-    background: green;
-    opacity: 0.6;	
-    border: 1px;		
-    border-radius: 5px;			
-    pointer-events: none;			
-}
-
-</style>
-
-<div id="chart"></div>
-
-<script>
-
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 50},
-    width = 800 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
-// Append tooltips
-var div = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
-    .style("opacity", 0);
-// append the svg object to the body of the page
-var svg = d3.select("#chart")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-var x = d3.scaleTime().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
-var paddingForText = 10;
-  // gridlines in x axis function
-  function make_x_gridlines() {		
-      return d3.axisBottom(x)
-          .ticks(3)
-  }
-
-  // gridlines in y axis function
-  function make_y_gridlines() {		
-      return d3.axisLeft(y)
-          .ticks(5)
-  }
-//Read the data
-d3.csv("/assets/coco_perf.csv",
-
-  // When reading the csv, I must format variables:
-  function(d){
-    return { year : d3.timeParse("%Y-%m-%d")(d.year), map : d.map, name: d.name }
-  },
-
-  // Now I can use this dataset:
-  function(data) {
-
-    // Add X axis --> it is a date format
-    var x = d3.scaleTime()
-      .domain(d3.extent(data, function(d) { return d.year; }))
-      .range([ 0, width]);
-    svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-    svg.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 20) + ")")
-      .style("text-anchor", "middle")
-      .text("Released Year");
-       // text label for the y axis
-  svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Box mAP [%]"); 
-    // add the X gridlines
-    svg.append("g")			
-        .attr("class", "grid")
-        .attr("transform", "translate(0," + height + ")")
-        .call(make_x_gridlines()
-            .tickSize(-height)
-            .tickFormat("")
-        )
-
-    // add the Y gridlines
-    svg.append("g")			
-        .attr("class", "grid")
-        .call(make_y_gridlines()
-            .tickSize(-width)
-            .tickFormat("")
-        )
-
-    // Add Y axis
-    var y = d3.scaleLinear()
-      .domain([25, 60])
-      .range([ height, 0]);
-    svg.append("g")
-      .call(d3.axisLeft(y));
-
-    // Add the line
-    svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "green")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.year) })
-        .y(function(d) { return y(d.map) })
-        )
-
-    svg.append("g").selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-    .attr("r", 4)
-    .attr("cx", function(d) {
-        return x(d.year)
-    })
-    .attr("cy", function(d) {
-        return y(d.map)
-    })
-    .attr("fill", "red")
-    .attr("stroke", "red")
-    .on("mouseover", function(d) {		
-            div.transition()		
-                .duration(200)		
-                .style("opacity", .9);		
-            div	.html(d.name + "<br/>"  + d.map + "%")	
-                .style("left", (d3.event.pageX) + "px")		
-                .style("top", (d3.event.pageY - 28) + "px");	
-            })					
-        .on("mouseout", function(d) {		
-            div.transition()		
-                .duration(500)		
-                .style("opacity", 0);	
-        });
-
-svg.append("g").selectAll("text")
-    .data(data)
-    .enter()
-    .append("text")
-    .attr("x", function(d) {
-        return x(d.year) - paddingForText
-    })
-    .attr("y", function(d) {
-        return y(d.map) - paddingForText
-    })
-    .attr("fill", "green")
-    .style("font-size", "12px")
-    .text(function(d) {
-        return d.map
-    });
-
-})
-
-</script>
-
-<p><em><strong>Ví dụ về sự phát triển của một lĩnh vực nghiên cứu trong vòng 5 năm (01/2016-01/2021) trên 1 bộ dữ liệu chuẩn công nghiệp [1]. Có thể dễ dàng thấy trong 5 năm, trên bộ dữ liệu với số lượng đối tượng hàng triệu (do vậy đạt tiêu chuẩn công nghiệp), nhưng độ chính xác chỉ tăng 30%, từ 28.8% (SSD512, [2]) lên 58.7% (Swin-L, [3]). So với nhiều mảng khác mà model tốt nhất đã lên trên 99.9% [4,5], mảng này có nhiều khả năng mất đến 5 năm nữa để đến được level tương tự để ra sản phẩm thị trường.</strong></em></p>
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/non-english/2021/04/24/chon-de-tai-nghien-cuu-non-english.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/sre/ai/2021/04/03/aws-lambda-spacy-mxnet-possible-but-shouldnt.html">
-        Implementing a complex system in AWS Lambda: Should or shouldn't?
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">03 Apr 2021</span>
+  <span class="post-date">13 Nov 2021</span>
   <span class="post-categories">
     
       &bull;
@@ -661,6 +412,18 @@ svg.append("g").selectAll("text")
       
 
       
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
         <a href="/category/ai.html">
           Artificial Intelligence
         </a>
@@ -669,6 +432,7 @@ svg.append("g").selectAll("text")
   </span>
   <span class="share-page">
     &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/" target="_blank"><i class="fa fa-linkedin"></i></a>
     <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
@@ -677,36 +441,36 @@ svg.append("g").selectAll("text")
 
 
     
-      <p><img src="/assets/img/mxnet.png" alt="" /></p>
+      <p><img src="/assets/img/os-kibana.svg" alt="os" /></p>
 
-<p>Amazon Web Services Lambda [1] is a convenient serverless building block, can have hidden power.
-Surprisingly, it seems like that there is no official document explaining what should be a good Lambda function for a programming language.
-The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes.
-Furthermore, parallelism can be limited with some supports to AVX2 [2] and multiprocessing [3].
-Although anything can be implemented in Lambda, should we try to put a <code class="language-plaintext highlighter-rouge">cumbersome</code> architecture on it?
-It is an open question, and this post is to explore a possible answer.</p>
-
-    
+<p>Our problem at hand is quite predictable!
+A client has their staff submitting reports by CSV files every single day.
+One hundred files per day, but one file may have more than $10,000$ rows.
+The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports.
+Data’s growing day by day, and they want a scalable and automated solution.
+In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster.</p>
 
     
+
+    
       
       
       
 
       
-        <a href="/sre/ai/2021/04/03/aws-lambda-spacy-mxnet-possible-but-shouldnt.html">More &hellip;</a>
+        <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">More &hellip;</a>
       
     
   </article>
   
   <article class="post-body">
     <h2 class="post-title">
-      <a href="/sre/non-english/2021/03/13/ban-ve-thiet-ke-he-thong-co-quan-ly-user-non-english.html">
-        Bàn về thiết kế hệ thống có quản lý users: Cây nhà lá vườn hay ăn sẵn?
+      <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+        Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
       </a>
     </h2>
     <div class="post-meta">
-  <span class="post-date">13 Mar 2021</span>
+  <span class="post-date">07 Nov 2021</span>
   <span class="post-categories">
     
       &bull;
@@ -716,8 +480,73 @@ It is an open question, and this post is to explore a possible answer.</p>
       
 
       
-        <a href="/category/sre.html">
-          Site Reliability Engineering
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/d3560903-f638-4528-b9ba-8cbf6a015a8d.png" alt="Azure Boards" />
+<em>Source: <a href="http://ilikesqldata.com/deep-dive-into-azure-boards/">ILikeSQLData</a></em></p>
+
+<p><strong>Azure Boards (AB)</strong> [1] is an essential tool for Project Management [2] in software development projects.
+It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team.
+Linking commits and PRs to working items in Azure Repos [3], Azure Pipelines [4], and Azure Artifacts [5], Azure Boards also supports enhanced code analytics.
+By integrating with Azure Test Plans [6] (however, it is not free [7], 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams.
+Some recent features like Analytics views also give the PM more confidence in making decisions.
+However, the Azure Boards also lacks several important features of a perfect backlog:</p>
+
+<ul>
+  <li>First, there is no <strong>Define-of-Done (DoD)</strong> checklist in AB by default.</li>
+  <li>Second, there is not a clear feature to demonstrate the <strong>Product Vision</strong> to teams. (There is a Delivery Plan to show the roadmap towards a specific release goal).</li>
+  <li>Finally, if users are already familiar with other tools like JIRA, then AB has a poor backlog view.</li>
+</ul>
+
+<p>This post introduces several extensions to solve these problems: <strong>Define-of-Done</strong> [8], <strong>Product Vision</strong> [9], and <strong>Backlog Essentials</strong> [10].</p>
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/pm/non-english/2021/11/01/integromat.html">
+        Integromat: An integration platform for workflow automation
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">01 Nov 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
         </a>
       
     
@@ -736,6 +565,7 @@ It is an open question, and this post is to explore a possible answer.</p>
   </span>
   <span class="share-page">
     &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/" target="_blank"><i class="fa fa-linkedin"></i></a>
     <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
@@ -744,15 +574,29 @@ It is an open question, and this post is to explore a possible answer.</p>
 
 
     
-      <p><img src="https://images.ctfassets.net/kbkgmx9upatd/6kbL4HCOIufohPQq4dLuUg/b703a314b88daa939d62d7b0bf3e54fc/User_Profiles__1_.png" alt="" /></p>
+      <p><img src="/assets/img/integromat01.png" alt="integromat" /></p>
 
-<p><em>Nguồn: [1]</em></p>
+<p>Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm.
+Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt.
+Hôm ấy, có giao cho 1 nhiệm vụ như thế này:</p>
 
-<p><strong>Quản lý người dùng (Identity and Access Management, IAM hay user management)</strong> luôn là một mục quan trọng trong mọi thiết kế hệ thống.
-Vấn đề bảo vệ dữ liệu riêng tư người dùng, quản lý phân quyền và quản lý truy cập, đều là các vấn đề có thể nói là đau đầu không khác gì “bệnh ung thư”.
-Tuy vậy, cần chú ý rằng việc quyết định lựa chọn giải pháp tự build lấy (tôi xin dùng thuật ngữ “cây nhà lá vườn” của hội nông dân để chỉ giải pháp này) và giải pháp sử dụng nhà cung cấp có sẵn, thì cái nào hơn?
-Câu trả lời là tùy thuộc vào bài toán business của bạn, nhưng theo ý kiến cá nhân thì nhìn chung, với các khởi nghiệp nhỏ và các business mà bạn muốn tập trung vào chuyên môn hơn là lo những vấn đề không phải chuyên môn mà lại dễ tạo ra “bệnh ung thư” trong cả tổ chức như quản lý người dùng, thì giải pháp sử dụng nhà cung cấp có sẵn đôi khi rất fair.
-Bạn vẫn quản lý được người dùng với quy trình chất lượng thỏa mãn các tiêu chuẩn của IETF (1 tổ chức kiểu ISO dành cho Internet và bảo mật) nhưng vẫn không phải tốn thời gian cho những thứ ngoài chuyên môn.</p>
+<blockquote>
+  <p><strong>Sếp (S)</strong>: Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là <a href="https://vnexpress.net/rss/so-hoa.rss">https://vnexpress.net/rss/so-hoa.rss</a> mà bọn anh muốn thực hiện 1 workflow như sau:</p>
+  <ul class="task-list">
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Đầu tiên lấy dữ liệu từ <a href="https://vnexpress.net/rss/so-hoa.rss">https://vnexpress.net/rss/so-hoa.rss</a> và parse thành 1 list các bài báo.
+      <ul class="task-list">
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về <code class="language-plaintext highlighter-rouge">AI</code>.</li>
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được.</li>
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Upload file CSV lên OneDrive của team.</li>
+      </ul>
+    </li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p><strong>S</strong>: <strong>Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?</strong></p>
+</blockquote>
 
 
     
@@ -763,7 +607,168 @@ Bạn vẫn quản lý được người dùng với quy trình chất lượng 
       
 
       
-        <a href="/sre/non-english/2021/03/13/ban-ve-thiet-ke-he-thong-co-quan-ly-user-non-english.html">More &hellip;</a>
+        <a href="/pm/non-english/2021/11/01/integromat.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/non-english/se/pm/2021/10/23/rd-pj-lifecycle.html">
+        構想フェーズから終了までの研究開発サイクル
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">23 Oct 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Cycle_of_Research_and_Development.svg" alt="rd" />
+<em>Source: Wikipedia</em></p>
+
+<blockquote>
+  <p>研究開発は大別すると基本的な原理や性質を知るための純粋基礎研究、特定の実際的目的のために行われる目的基礎研究、特定の要請に答えるための応用研究、新製品を導入するための研究に分かれる。
+Source: wikipedia.com</p>
+</blockquote>
+
+<p><strong>Hoạt động nghiên cứu và phát triển (R&amp;D)</strong> là hoạt động do các công ty tổ chức thực hiện nhằm đổi mới sáng tạo dẫn đến <strong>tri thức, sản phẩm và dịch vụ mới</strong>.
+Phân loại dự án R&amp;D thì tùy vào mục đích có thể phân thành: R&amp;D cơ bản “thuần” (phát hiện định luật, định lý, tính chất mới mang tính <strong>tổng quát</strong>), R&amp;D cơ bản “có mục đích cụ thể” (phát hiện định luật, định lý và tính chất mới trong 1 ngành hẹp, không cần tổng quát), và R&amp;D ứng dụng (sử dụng kết quả của R&amp;D cơ bản để tạo ra sản phẩm mới, dịch vụ mới).
+Dù là cơ bản thuần, cơ bản hẹp hay ứng dụng thì nhìn chung dự án R&amp;D đều là dự án và là đối tượng của ngành Project Management.
+Tuy nhiên, vì là đi tìm cái mới nên dù cái mới là mang tính lý thuyết (cơ bản thuần và cơ bản hẹp) hay ứng dụng, thì dự án R&amp;D có những đặc điểm riêng khác với dự án thông thường: outcome của dự án nghiên cứu thường khó định hình ngay từ đầu và đôi khi hơi mơ hồ với những người làm kỹ thuật (<em>bởi vì nếu cái mới mà mình đã biết từ đầu thì nó đâu còn là cái mới nữa đúng không các bạn?</em>)
+Thi thoảng dự án nghiên cứu sẽ không có outcome, nhưng đột nhiên một vài tuần sau lại output ra tới tấp!</p>
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/non-english/se/pm/2021/10/23/rd-pj-lifecycle.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/non-english/pm/2021/10/23/kanji.html">
+        日本流【幹事】について
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">23 Oct 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://www.insource.co.jp/common/img/column/column_project-management-top.jpg" alt="幹事さん" />
+<em>出典： <a href="https://www.insource.co.jp/contents/column_project-management.html">insource.jp</a></em></p>
+
+<p>昔数回「幹事をしろう」と言われたことがあるけど、よく幹事のお仕事について少し知識不足でした。
+ホッとするともう2012年2013年ごろだったので、今だと8年か9年前の話でした。</p>
+
+<blockquote>
+  <p><strong><a href="https://www.insource.co.jp/contents/column_project-management.html">プロジェクト・マネージャーには幹事力があった方がいい。</a></strong></p>
+</blockquote>
+
+<p>月日が経ってPM職にはなぜ【幹事力】が必要か少し理解できるようになりました。
+日本語の中に【カンジ】というと【漢字】と書けるし、【幹事】と【監事】とも書けます。
+もちろん、PMには字を読めないといけないので、【漢字力】が必要ですし、
+日々でプロジェクトの品質や正常な状態を保つためには、監査作業を行うのも重要で、その監査を行うには【監事力】も必要になりますが、
+総合的にPJをちゃんと稼働させるためには、【幹事力】は大事だなと思っています。</p>
+
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/non-english/pm/2021/10/23/kanji.html">More &hellip;</a>
       
     
   </article>
@@ -772,7 +777,7 @@ Bạn vẫn quản lý được người dùng với quy trình chất lượng 
   
 <div class="pagination">
   <a class="pagination-item older"
-     href="/page2">
+     href="/page2/index.html">
     Older
   </a>
 </div>

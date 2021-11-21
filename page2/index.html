@@ -18,6 +18,16 @@
   </title>
 
   
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
 
 
   <!-- CSS -->
@@ -98,30 +108,6 @@
   
 
   
-
-  
-    
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-    
-  
-
-  
     
   
 
@@ -140,6 +126,83 @@
   
 
   
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
 
 
   
@@ -149,6 +212,8 @@
     
   
 
+  
+    
   
 
   
@@ -180,6 +245,24 @@
 
   
     
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
   
 
   
@@ -194,6 +277,12 @@
   
 
   
+
+  
+    
+  
+
+  
     
   
 
@@ -201,6 +290,36 @@
     
   
 
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
   
 
   
@@ -270,7 +389,7 @@
   
 <div class="pagination">
   <a class="pagination-item newer"
-     href="/">
+     href="//index.html">
     Newer
   </a>
 </div>
@@ -282,12 +401,12 @@
   
   <article class="post-body">
     <h2 class="post-title">
-      <a href="/cv/ai/2021/03/06/animal-vision-series-part-1.html">
-        Animal Vision Part 1: Course Introduction
+      <a href="/non-english/se/2021/10/10/parallelism-clients-developer-business.html">
+        Lập trình song song với đối ứng khách hàng: khách hàng business và khách hàng developer
       </a>
     </h2>
     <div class="post-meta">
-  <span class="post-date">06 Mar 2021</span>
+  <span class="post-date">10 Oct 2021</span>
   <span class="post-categories">
     
       &bull;
@@ -297,8 +416,8 @@
       
 
       
-        <a href="/category/cv.html">
-          Computer Vision
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
         </a>
       
     
@@ -309,14 +428,15 @@
       
 
       
-        <a href="/category/ai.html">
-          Artificial Intelligence
+        <a href="/category/se.html">
+          Software Engineering
         </a>
       
     
   </span>
   <span class="share-page">
     &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page2/" target="_blank"><i class="fa fa-linkedin"></i></a>
     <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page2/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page2/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
@@ -325,19 +445,23 @@
 
 
     
-      <p><img src="/assets/img/dogs.PNG" alt="" /></p>
+      <p><img src="https://cdn.stocksnap.io/img-thumbs/960w/meeting-booth_7FLAARLMPI.jpg" alt="b2d" />
+<em>Source: StockSnap.io</em></p>
 
-<p>The purpose of this <code class="language-plaintext highlighter-rouge">learning-by-doing</code> course is to get familiar with a cross-discipline topic: Computer Vision for Agriculture.
-Specifically, we introduce Animal Vision (AniV), targeting canine animals.
-Learners get through several useful applications of Computer Vision (CV) into Animal Farming:</p>
-
-<ul>
-  <li>Object Recognition, Detection and Segmentation (including class, instance and panoptic segmentation [1])</li>
-  <li>Methods to adapt to new domains in farming such as Transfer Learning and Domain Adaptation.</li>
-  <li>Image enhancement methods such as de-raining, super-resolution, .etc.</li>
-  <li>Applications such as Dog counting, animal crowd density estimation, anomaly detection.
-The objective of this course is to build a proper Animal Vision system below.</li>
-</ul>
+<p><strong>Khách hàng business (non-dev)</strong> là những người không có chức năng tham gia trực tiếp vào quy trình phát triển.
+Bản thân họ có thể thuê thêm tư vấn/QA bên ngoài hoặc bên trong công ty họ để đảm bảo khâu chất lượng sản phẩm.
+Tuy nhiên, nhìn chung cái họ quan tâm là kết quả sản phẩm (bao gồm cả deadline, resources) hơn là quy trình.
+Cũng có một số khách hàng business cũng sẽ đòi hỏi về mặt quy trình, nhưng đó thường là để đảm bảo chất lượng.
+Vì mối quan tâm lớn nhất của họ là sản phẩm nên việc QA đảm bảo chất lượng cao là việc không thể tránh khỏi (bởi bản thân có biết dev đâu thì đương nhiên phải quan tâm QA).
+Bên cạnh đó, <strong>khách hàng developer</strong> là những khách hàng mà bản thân họ cũng sẽ là dev trong sản phẩm.
+Khác với khách hàng business là những người sẽ không trực tiếp tham gia vào quy trình tạo ra sản phẩm, khách hàng dev lại là những người tham gia cùng đội dev vào quá trình đó.
+Họ sẽ quan tâm việc <strong>có cùng code được với nhau (quy trình) không</strong> hơn là sản phẩm cuối cùng.
+Vì sao? Vì họ cũng chịu trách nhiệm làm ra sản phẩm, và họ hiểu là kết quả là do cả team cùng làm ra nên kết quả do team quyết định.
+Vì vậy để ra một kết quả tốt thì yếu tố quan trọng nhất chính là <strong>có làm việc được với nhau không</strong> và làm việc $=$ code đấy nhé!
+Chỉ cần code thôi với những khách hàng này! Nên phần lớn những vị trí không tham gia trực tiếp vào code là đa phần biến thành “người thừa” trong mắt họ.
+Khách hàng business (không thể dev) thì trong mắt họ quan trọng nhất là quản lý để đảm bảo tiến độ cho họ và các vị trí bảo đảm chất lượng cho họ như PM, tester, QA.
+Còn với khách hàng developer (có thể dev và là dev xịn) thì trong mắt họ lại chỉ quan trọng những vị trí tạo ra code (và phải là code xịn), QA, tester, quản lý có khi họ đảm nhiệm hết vì họ cũng là dev lâu năm trong nghề (<em>có lần tôi bị phân vào dự án mà khách phủ đầu ngay là mọi việc liên quan tới những mảng kia họ sẽ làm hết, chúng tôi chỉ được phép <strong>code</strong> thôi</em>).
+Cách đối đãi thì có nhiều góc nhìn, tôi thì cũng chủ yếu làm kỹ thuật nên sẽ cung cấp cách nhìn về định hướng quy trình từ đầu với từng loại khách theo hệ quy chiếu của lập trình đa luồng.</p>
 
 
     
@@ -348,20 +472,168 @@ The objective of this course is to build a proper Animal Vision system below.</l
       
 
       
-        <a href="/cv/ai/2021/03/06/animal-vision-series-part-1.html">More &hellip;</a>
+        <a href="/non-english/se/2021/10/10/parallelism-clients-developer-business.html">More &hellip;</a>
       
     
   </article>
   
   <article class="post-body">
     <h2 class="post-title">
-      <a href="/sre/2021/02/15/aws-vpc-aurora-postgresql-odoo-crm-deployment.html">
-        Deploy Odoo to AWS EC2 and Aurora with best practices
+      <a href="/non-english/se/2021/10/08/git-merge-rebase.html">
+        So sánh git merge và git rebase
       </a>
     </h2>
     <div class="post-meta">
-  <span class="post-date">15 Feb 2021</span>
+  <span class="post-date">08 Oct 2021</span>
   <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page2/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page2/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page2/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="/assets/img/git.svg" alt="git" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">git merge</code> và <code class="language-plaintext highlighter-rouge">git rebase</code> là 2 câu lệnh quen thuộc với lập trình viên chỉ để giải quyết cùng 1 bài toán: với 2 branches được phát triển song song, nay cần migrate các tính năng của branch feature vào branch chính (<code class="language-plaintext highlighter-rouge">main</code>).
+Vấn đề là làm thế nào? Một cách chi tiết thì chỉ có 2 cách tương ứng với 2 câu lệnh ở trên tiêu đề bài viết mà chúng ta sẽ đi sâu trong bài này.</p>
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/non-english/se/2021/10/08/git-merge-rebase.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/non-english/se/2021/09/27/agile-feature.html">
+        アジャイル開発でタスクにアサインされる場合、直ぐにやるかどうかどうやって判定するか？
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">27 Sep 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page2/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page2/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page2/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://docs.microsoft.com/en-us/learn/azure-devops/get-started-with-devops/media/2-vsm-whiteboard1.png" alt="Agile" />
+<em>Source: Microsoft</em></p>
+
+<p>アジャイル開発現場では、看板に乗っているタスクをメンバーに割り当てる際に、そのメンバーは直ぐにそのタスクをやるかどうか見てみます。
+時々、<strong>どうやってやるかどうかを決める方法について教えてください</strong>とよく言われています。
+まずは、<strong>優先順位</strong>を決めて、一番優先の高いタスクを取ってやるから、依頼したタスクはその優先順位トップに入らない場合、断ります。
+トップに入るとやります。
+しかし、ここで微妙にどうやってその優先順位を早く決めるか方法論を考えたいですが、やはり<code class="language-plaintext highlighter-rouge">PriorityQueue</code>を使いたいです。
+第一優先のタスクを$O(1)$時間量で計算できます。
+次に、<strong>決定木</strong>を使うべきです。
+優先順位がつかない場合、いくつかの<code class="language-plaintext highlighter-rouge">Yes/No</code>質疑でやるかどうかを決めることもできます。</p>
+
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/non-english/se/2021/09/27/agile-feature.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/pm/sre/non-english/2021/09/09/secure-browser.html">
+        セキュアブラウザについて
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">09 Sep 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
     
       &bull;
 
@@ -375,9 +647,22 @@ The objective of this course is to build a proper Animal Vision system below.</l
         </a>
       
     
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
   </span>
   <span class="share-page">
     &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page2/" target="_blank"><i class="fa fa-linkedin"></i></a>
     <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page2/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page2/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
@@ -386,38 +671,38 @@ The objective of this course is to build a proper Animal Vision system below.</l
 
 
     
-      <p><img src="https://odoocdn.com/openerp_website/static/src/img/2020/home/market_position_update.svg" alt="Odoo perf" />
-<em>Source: <a href="https://odoocdn.com/openerp_website/static/src/img/2020/home/market_position_update.svg">Odoo website</a></em></p>
+      <p><img src="/assets/img/secure-browser.png" alt="secure-browser" /></p>
 
-<h1 id="introduction">Introduction</h1>
+<p>中小企業向け<a href="https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00111.html">テレワークセキュリティガイドライン（第5版）</a> [1]が令和3年5月には公表されました。
+無料で直ぐに点検できますので、結構貴重な資料であろう。
+その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。
+普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？
+さらに、一般のブラウザと比べると付加価値とは何か？
+ひょっとしたら調べていきます。
+専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。</p>
 
-<h2 id="what-is-odoo">What is Odoo?</h2>
-<p><a href="https://www.odoo.com/">Odoo</a> is an open-source software platform and eco-system for business apps that cover all your company needs: CRM, e-commerce, accounting, inventory, point-of-sale, project management, so on.
-The suite of open source apps is very easy-to-use and fully integrated: the customers deploy the base Odoo distribution in the Odoo cloud with few clicks or their on-premises server/cloud, and integration of the apps is without pains.
-Because every app needed for business as CRM and point-of-sale are available in the eco-system, installing can be done in some single steps.</p>
-
-
-    
 
     
+
+    
       
       
       
 
       
-        <a href="/sre/2021/02/15/aws-vpc-aurora-postgresql-odoo-crm-deployment.html">More &hellip;</a>
+        <a href="/pm/sre/non-english/2021/09/09/secure-browser.html">More &hellip;</a>
       
     
   </article>
   
   <article class="post-body">
     <h2 class="post-title">
-      <a href="/sre/2021/02/14/hybrid-cloud-vmware-on-aws.html">
-        On Hybrid Clouds: VMware Cloud on AWS
+      <a href="/pm/se/2021/09/03/c4-diagrams-software-design.html">
+        C4 diagrams for software architecture visualization - Context, Containers, Components, and Code -
       </a>
     </h2>
     <div class="post-meta">
-  <span class="post-date">14 Feb 2021</span>
+  <span class="post-date">03 Sep 2021</span>
   <span class="post-categories">
     
       &bull;
@@ -427,52 +712,10 @@ Because every app needed for business as CRM and point-of-sale are available in 
       
 
       
-        <a href="/category/sre.html">
-          Site Reliability Engineering
+        <a href="/category/pm.html">
+          Project Management
         </a>
       
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page2/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page2/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <p><em>Note: this post is about building Customer Data Center (CDC) for enterprise, not about applications for end-users.</em></p>
-
-<p><img src="/assets/img/vmcaws.png" alt="" /></p>
-
-<p>For many years, enterprise customers have been deployed their infrastructure into VMware cloud with powerful and secure virtualization technologies like <a href="https://www.vmware.com/products/vsphere.html">vSphere</a> for computing resources (VMs, .etc.), <a href="https://www.vmware.com/products/vsan.html">vSAN</a> (storage) and <a href="https://www.vmware.com/products/nsx.html">NSX</a> (networking). 
-While new and leading public cloud solutions like Amazon Web Services (AWS) offer lower cost tiers, with greater opportunities in building innovative solutions, transforming from the existing VMware cloud to AWS is a trade-off between reliability (on existing solutions) with better business offers.
-Building a hybrid cloud using <a href="https://cloud.vmware.com/vmc-aws">VMware Cloud on AWS</a> is a way to achieve both goals: maintaining customers’ trust while migrating to novel solutions.</p>
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/sre/2021/02/14/hybrid-cloud-vmware-on-aws.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/sre/2021/02/12/oracle-cloud-infra.html">
-        About Oracle Cloud Infrastructure (OCI)
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">12 Feb 2021</span>
-  <span class="post-categories">
     
       &bull;
 
@@ -481,14 +724,15 @@ Building a hybrid cloud using <a href="https://cloud.vmware.com/vmc-aws">VMware 
       
 
       
-        <a href="/category/sre.html">
-          Site Reliability Engineering
+        <a href="/category/se.html">
+          Software Engineering
         </a>
       
     
   </span>
   <span class="share-page">
     &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page2/" target="_blank"><i class="fa fa-linkedin"></i></a>
     <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page2/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page2/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
@@ -497,60 +741,17 @@ Building a hybrid cloud using <a href="https://cloud.vmware.com/vmc-aws">VMware 
 
 
     
-      <p><img src="/assets/img/oci.png" alt="" /></p>
+      <p><img src="https://res.infoq.com/articles/C4-architecture-model/en/resources/c4-1-1529934729133.jpg" alt="" />
+<em>Source: InfoQ</em></p>
 
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/sre/2021/02/12/oracle-cloud-infra.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/ai/2021/02/04/copynet.html">
-        Understanding CopyNet
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">04 Feb 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/ai.html">
-          Artificial Intelligence
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page2/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page2/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <p>CopyNet [1] is built upon the Seq2Seq framework [2] which improve accuracy by repeated patterns during conversations.
-First time hearing the name, I was confused because copying some parts of friend’s sentences is not technically interesting.
-However, I found that this <code class="language-plaintext highlighter-rouge">copying mechanism</code> is somewhat realistic: we are often copying each other even what other people are saying.
-For example, when your friend tell you that <code class="language-plaintext highlighter-rouge">Hi, my name is Jessy!</code>, then a popular response would be <code class="language-plaintext highlighter-rouge">Hi, Jessy!</code>. You should copy the name <code class="language-plaintext highlighter-rouge">Jessy</code> as a quite normal reaction.
-In contrast, if you are too imaginative and instead of <code class="language-plaintext highlighter-rouge">copying</code>, you <code class="language-plaintext highlighter-rouge">generate</code> a response like <code class="language-plaintext highlighter-rouge">Hi, Michael</code> to Jessy, this would be ridiculous.
-Then by incorporating the <code class="language-plaintext highlighter-rouge">copying behavior</code> into RNN Encoder-Decoder framework [2], it would make the question-answering goes smoothly.</p>
+<p>Using MS Word and Excel, an engineer can describe the system in language and visuals.
+Such conventional methodologies can be sufficient for small architecture with few components.
+When the software system scales and changes frequently, maintaining records of the architecture by documents can be tedious.
+Hence, the lack of interaction in conventional document methods may present a stiff learning curve for a new member to the project team.
+To cope with these challenges, the <strong>C4 diagram model [1, 2, 3]</strong> was created to give interactive views of the software architectures.
+Systems are modeled at four different levels: system context, containers, components, and code.
+These levels are represented by diagrams.
+Intuitively, we can see the C4 diagrams as large visualization systems in which engineers can zoom in and out to see the details and the big picture.</p>
 
 
     
@@ -561,7 +762,7 @@ Then by incorporating the <code class="language-plaintext highlighter-rouge">cop
       
 
       
-        <a href="/ai/2021/02/04/copynet.html">More &hellip;</a>
+        <a href="/pm/se/2021/09/03/c4-diagrams-software-design.html">More &hellip;</a>
       
     
   </article>
@@ -570,7 +771,7 @@ Then by incorporating the <code class="language-plaintext highlighter-rouge">cop
   
 <div class="pagination">
   <a class="pagination-item older"
-     href="/page3">
+     href="/page3/index.html">
     Older
   </a>
 </div>

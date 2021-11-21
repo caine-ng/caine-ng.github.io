@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     日本流【幹事】について &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">日本流【幹事】について</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">23 Oct 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/non-english/pm/2021/10/23/kanji.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=日本流【幹事】について&url=https://wanted2.github.io/non-english/pm/2021/10/23/kanji.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/non-english/pm/2021/10/23/kanji.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    1 min
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#幹事とは">幹事とは</a></li>
+<li class="toc-entry toc-h1"><a href="#幹事力を身につく">幹事力を身につく</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#ワークフローを稼働する前に">ワークフローを稼働する前に</a></li>
+<li class="toc-entry toc-h2"><a href="#定義">定義</a></li>
+<li class="toc-entry toc-h2"><a href="#事前準備">事前準備</a></li>
+<li class="toc-entry toc-h2"><a href="#実施">実施</a></li>
+<li class="toc-entry toc-h2"><a href="#事後報告">事後報告</a></li>
+<li class="toc-entry toc-h2"><a href="#ツール">ツール</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#なぜそれが重要か幹事に学ぶプロジェクトマネジメント">なぜそれが重要か：幹事に学ぶプロジェクトマネジメント</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#チームワークを良くする">チームワークを良くする</a></li>
+<li class="toc-entry toc-h2"><a href="#チームワークの効率の改善">チームワークの効率の改善</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#結論">結論</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://www.insource.co.jp/common/img/column/column_project-management-top.jpg" alt="幹事さん" />
+<em>出典： <a href="https://www.insource.co.jp/contents/column_project-management.html">insource.jp</a></em></p>
+
+<p>昔数回「幹事をしろう」と言われたことがあるけど、よく幹事のお仕事について少し知識不足でした。
+ホッとするともう2012年2013年ごろだったので、今だと8年か9年前の話でした。</p>
+
+<blockquote>
+  <p><strong><a href="https://www.insource.co.jp/contents/column_project-management.html">プロジェクト・マネージャーには幹事力があった方がいい。</a></strong></p>
+</blockquote>
+
+<p>月日が経ってPM職にはなぜ【幹事力】が必要か少し理解できるようになりました。
+日本語の中に【カンジ】というと【漢字】と書けるし、【幹事】と【監事】とも書けます。
+もちろん、PMには字を読めないといけないので、【漢字力】が必要ですし、
+日々でプロジェクトの品質や正常な状態を保つためには、監査作業を行うのも重要で、その監査を行うには【監事力】も必要になりますが、
+総合的にPJをちゃんと稼働させるためには、【幹事力】は大事だなと思っています。</p>
+
+<!--more-->
+
+<h1 id="幹事とは">幹事とは</h1>
+
+<p>日本語にはよくある現象ですが、読み方が同じものでも、書き方が違って意味が違うものがちらほらあります。
+【カンジ】もそのシャドウ現象の一例です。
+日本語学校に通った時で、2千文字以上の漢字を学んだことがあるけど、日本語能力試験には【漢字力】が必要なためです。
+プロジェクトマネジメントの側面に近いけれども、PJはちゃんとしているか監査作業が必要になり、監査を行った後には、監査報告書を書くことになり、【監事力】が必要な場合も珍しくありません。
+しかし、この二つのカンジと重なって、【幹事】というものもあります。
+主に飲み会の幹事などよく見られています。
+飲み会だろうから、PMには関係ないじゃないか。
+業務外の話じゃないかと思うかもしれませんが、実際にはよくPMの話と重なっています。</p>
+
+<blockquote>
+  <p>「自分がプロジェクトリーダーになる際不安なことはなんですか？」という質問への回答として、以下のようなお悩みをよく伺います。</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>目的やゴールの設定が苦手</li>
+    <li>スケジュールや計画の立て方がわからない</li>
+    <li>関係部署と綿密な連携（コミュニケーション）が取れるか不安</li>
+    <li>重視するリスクがわからない</li>
+  </ul>
+</blockquote>
+
+<p>これも幹事さんの悩みと良く重なっています。
+<strong>幹事力を持っている方はPM力も鍛えます。</strong></p>
+
+<p>幹事をやるとPMの仕組み、【定義】、【計画・事前準備】、【実施】、【終結】などのステップを鍛えることができるメリットがあります。
+しかし、それだけではなく、メンバー間の関係を密にさせたり、チームを盛り上げて生産力を向上したりするために、行事を催すことも大事です。
+その行事をうまく開催するためには、もちろん幹事さんは必要で監事力もある場面で不可欠な要素です。</p>
+
+<h1 id="幹事力を身につく">幹事力を身につく</h1>
+
+<h2 id="ワークフローを稼働する前に">ワークフローを稼働する前に</h2>
+
+<p>幹事さんのお仕事、特にチームワークの時のイベントの幹事さんのお仕事は、仕事ですので、決まったフローがあります。</p>
+
+<p><img src="/assets/img/kanji-workflow.svg" alt="workflow" /></p>
+
+<p>飲み会を催すことなんだけれども、プロジェクト管理に近いですね。</p>
+
+<h2 id="定義">定義</h2>
+
+<p>まず、PMの【要件定義】と同様に、幹事職に就く時には、</p>
+
+<ul>
+  <li><strong>目的</strong>：なんのためにこの会を行うか
+↓</li>
+  <li><strong>主役決め</strong>: 誰が何を担当するか。諸段階では、数人のPIを読んで構成を作ることもPMではよくあるシナリオで、幹事の場合、幹事さんが連絡担当や注文担当などを決めて進める。
+↓</li>
+  <li><strong>工夫</strong>: 主役メンバーの会議でどの工夫を行って主役も参加メンバーも会を楽しめるか一緒に決めといた方が良い。</li>
+</ul>
+
+<p>目的や開催テーマを決めない場合、話しづらいという会はよくありますので、事前に主役メンバーで決めて、参加メンバーの間の会話を促進すると良いでしょう。
+テーマを決めないでそのまま進めてしまうというありがちなミスは若手幹事にはよくあります。</p>
+
+<h2 id="事前準備">事前準備</h2>
+
+<p>【要件定義】はある程度出来たら、次にようやく計画段階に入れます。
+スケジュール管理やリソース管理は先に行い、リスク管理を考えて、上長の承認とメンバーへの通知をするという流れはPM職にはよくあります。
+偶然にも幹事のお仕事にも同じワークフローがあります。</p>
+
+<p><img src="/assets/img/kanji-plan.svg" alt="planning" /></p>
+
+<p>まず、決めたテーマはチームのニーズに合うかどうか<strong>ニーズ調査</strong>を行ってテーマを調整した方がいいです。
+チームのニーズにあったテーマが出来上がったら、参加者を絞って、<strong>参加者名簿</strong>を作ればいいです。
+後で連絡やリマインドを送るためにはメーリングリスト（ML）を作ったらいいでしょう。
+その次に、平行に行えると思うが、<strong>日程調整</strong>と<strong>場所調整</strong>をメンバー間で話せます。
+日程調整の際に、メンバーの出欠確認も同時に行えることがあります。
+開催時間も事前にチームで合意をとった方がよいでしょう。
+長すぎて拘束時間は大幅になると若者が飽きてしまうため、2時間程度で良いと思われます。
+場所、つまり、お店を選択する際に、メンバーのこだわりを聞いた方が良いが、事前に可能なお店のリストを作って、皆の投票で決める手段も良いです。
+アレルギーがあるメンバーもいるかもしれないため、場所を選択する時、考慮した方が無事です。
+また、すべての決断をチームで行うことも第一原則で、チームの中には<strong>透明性</strong>があげられます。</p>
+
+<p>メンバーと日程と場所が決まったら、計画はほぼ完了したが、ここで一旦リスクを見直した方がいいです。
+<strong>リスク管理</strong>を行うときに、プロジェクトがうまくいかない原因に、「事前の下調べが足りておらず、プロジェクト進行中や後日トラブルが発生することになった」というものを気づけた方が無難です。
+幹事の場合、お店の選定にリスクが潜んでいます。最近は、検索サイトで便利にお店を探すことができますが、リスクマネジメントの観点から下見をおすすめします。
+上級者を目指すならお店の責任者と名刺交換し、会の趣旨を伝えておくと万全です。
+お店のホスピタリティもわかって安心ですね。
+あとは、資金調達もやったらいいです。
+支払方法を皆の都合に合わせばいいんで、終了後でも決められます。
+あとは、二次会が出て、遅くなるとどうするか、気配ったら良い計画になるであろう。</p>
+
+<p>リスクをちゃんと管理できれば、次に、予約する前に、一回上長と相談し、経験のある方に意見をもらって<strong>承認</strong>をいただくと無難でしょう。
+<strong>予約</strong>が出来たら、案内状をチームに告知する必要があります。
+これも<strong>進捗報告</strong>という義務です。
+最後に、<strong>出欠確認</strong>も忘れずに行きましょう。</p>
+
+<h2 id="実施">実施</h2>
+
+<p>ようやく実施に入ります。</p>
+
+<p><img src="/assets/img/kanji-implement.svg" alt="implementation" /></p>
+
+<p>多忙で忘れてしまうメンバーもいるので、開催当日の朝礼や前日には一回<strong>リマインド</strong>をした方がよいです。
+メールで連絡するとわからない人もいるので、チャットや口頭で確認したらいいです。
+会の前にお店へ<strong>移動</strong>します。
+予約時間にするときにアクセスも重要なポイントで、できるだけ皆はすぐにアクセスできるお店を選びます。
+予約時間に遅れそうな場合、お店に連絡します。
+会計の方法と時間も確認します。
+<strong>開始</strong>の際には、席へメンバーを誘導し、注文を始めます。
+<strong>進行中</strong>には、乾杯や挨拶、遅れたメンバーの追加注文などのイベントも忘れずにやっていきましょう。
+<strong>会話を盛り上げる</strong>ためには、司会役も工夫を行いましょう。
+会の<strong>後半</strong>になると、スピーチなどで会を盛り上げます。
+<strong>終了時</strong>に忘れ物がないように、注意の声をかけ、会計もちゃんとしましょう。</p>
+
+<h2 id="事後報告">事後報告</h2>
+
+<p>実施終了はPJの終了ではない。
+同様に会の実施終了後にも幹事さんがやる仕事があります。</p>
+
+<ul>
+  <li><strong>安否確認</strong>でメンバーがちゃんと帰宅できたかやった方が無難です。人というリソースを大事にするためです。</li>
+  <li><strong>報告書</strong>を書いた方がいいです。上長が実施状況がわかるように、メンバーも今後の実施の改善になる要素です。</li>
+  <li><strong>振り返り</strong>は主役メンバーで行い、今後改善する可能性を開けます。参加メンバーを誘っても良いです。</li>
+</ul>
+
+<h2 id="ツール">ツール</h2>
+
+<p>私は昔幹事さんをサポートするツールの開発にもかかわった経験があったが、それが10年前の話でした。
+現在、世の中に幹事さんの業務フロー全体をサポートするツールはたくさんあります。</p>
+
+<ul>
+  <li>定義や計画を書きコミュニケーションを補足するためには、GoogleのMeetやOfficeやSlackなど充実しています。</li>
+  <li>日程調整は、<a href="https://chouseisan.com/">調整さん</a>や<a href="https://www.polly.ai/">Polly</a>などのツールがあります。PollyはチャットツールのSlackやTeamsにも連携できます。</li>
+  <li>場所調整のために、<a href="https://tabelog.com/">食べログ</a>などを使えばいいでしょう。</li>
+</ul>
+
+<p>一つの場所にまとまっていないが、コンボで利用できるので、幹事さんもPMさんもコンボ利用を使っているのであろう。
+今後、すべて一つの場所に集中する基盤があるといいかもしれません。</p>
+
+<h1 id="なぜそれが重要か幹事に学ぶプロジェクトマネジメント">なぜそれが重要か：幹事に学ぶプロジェクトマネジメント</h1>
+
+<h2 id="チームワークを良くする">チームワークを良くする</h2>
+
+<p>行事は飲み会だけではなく、PJ内で情報を共有し、透明性をあげ効率を向上する勉強会などの開催もしばしば必要になります。
+これらの会を行うおかげで、チームワークをスムーズに活性化できます。
+信頼関係を構築できるし、楽しく働けます。</p>
+
+<h2 id="チームワークの効率の改善">チームワークの効率の改善</h2>
+<p>長時間でコードを書いて、飽きてしまって、効率も悪くなるし、モチベーションも下がってしまうため、さぼることは避けられません。
+これは開発現場の実践でした。
+もう10年前の話だったが、幹事さんの立場を大事にしなければなりません。
+PMも幹事力を身に付きましょう。</p>
+
+<h1 id="結論">結論</h1>
+
+<p><img src="/assets/img/chouseisan.png" alt="implementation" />
+<em>出典： <a href="https://chouseisan.com/">調整さん</a></em></p>
+
+<p>偶然にも、幹事さんもPMさんも似ているワークフローでチームワークを向上しています。
+行事は飲み会だけではなく、勉強会などでも幹事力を身についた方が良いです。
+例えば、↑の図で<a href="https://chouseisan.com/">調整さん</a>の対象行事の一覧を引用しますが、飲み会以外にも同窓会や忘年会なども対象です。</p>
+
+<blockquote>
+  <p><strong>最後に確かに、PMさんもその幹事力を身につきましょう。</strong></p>
+</blockquote>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#kanji">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">kanji</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/non-english/pm/2021/10/23/kanji.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/non-english/pm/2021/10/23/kanji.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

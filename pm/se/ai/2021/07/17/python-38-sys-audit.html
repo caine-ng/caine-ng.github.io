@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Code audit processes and the new feature of Python 3.8 - sys.audit &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Code audit processes and the new feature of Python 3.8 - sys.audit</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">17 Jul 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/ai.html">
+          Artificial Intelligence
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/se/ai/2021/07/17/python-38-sys-audit.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Code audit processes and the new feature of Python 3.8 - sys.audit&url=https://wanted2.github.io/pm/se/ai/2021/07/17/python-38-sys-audit.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/se/ai/2021/07/17/python-38-sys-audit.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    11 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#overview-of-technical-audits">Overview of technical audits</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#code-review-vs-code-audit">Code review vs. code audit</a></li>
+<li class="toc-entry toc-h2"><a href="#general-audit-aspects-and-tools">General audit aspects and tools</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#code-management">Code management</a></li>
+<li class="toc-entry toc-h3"><a href="#architectures">Architectures</a>
+<ol>
+<li class="toc-entry toc-h4"><a href="#integrability">Integrability</a></li>
+<li class="toc-entry toc-h4"><a href="#deployment-and-delivery">Deployment and delivery</a></li>
+<li class="toc-entry toc-h4"><a href="#maintenance-and-incident-responses">Maintenance and incident responses</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h3"><a href="#coding-best-practices">Coding best practices</a>
+<ol>
+<li class="toc-entry toc-h4"><a href="#using-code-analysis-tools">Using code analysis tools</a></li>
+<li class="toc-entry toc-h4"><a href="#tips-to-improve-code-quality">Tips to improve code quality</a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#python-audit-tools">Python audit tools</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#proposals-pep-578-and-pep-551">Proposals PEP 578 and PEP 551</a></li>
+<li class="toc-entry toc-h2"><a href="#sysaudit-and-sysaddaudithook">sys.audit and sys.addaudithook</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#native-c-interface">Native C interface</a></li>
+<li class="toc-entry toc-h3"><a href="#standard-interface">Standard interface</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#conclusion">Conclusion</a></li>
+<li class="toc-entry toc-h1"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png" alt="" />
+<em>Source: <a href="https://commons.wikimedia.org/wiki/File:Python_logo_and_wordmark.svg">Wikimedia</a></em></p>
+
+<p><strong>Auditing</strong> is actually a quality assurance feature.
+The purpose of audits is to identify and report problems, not to respond, prevent or act on them.
+If you are using Python 2.x or even Python 3.7, this feature may not be available.
+Calls like <code class="language-plaintext highlighter-rouge">sys.audit</code> and <code class="language-plaintext highlighter-rouge">sys.addaudithook</code> are only available from version 3.8.
+The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running.
+Two proposals that made this available are PEP 578 [1] and PEP 551 [2].
+<!--more--></p>
+
+<h1 id="overview-of-technical-audits">Overview of technical audits</h1>
+
+<h2 id="code-review-vs-code-audit">Code review vs. code audit</h2>
+
+<p>First of all, <strong>code audit</strong> differs from code reviews.
+First, while code reviews can be done by internal teams, each member reviews code of and focus on the specific part of the project, <strong>code audit</strong> is relevant to the whole project, a <code class="language-plaintext highlighter-rouge">big picture</code> and <strong>must be done objectively (often done by an outsider who is not a member of the project, or even from another company)</strong>.
+Second, code reviews can be done by only reading and find suspicious pieces in the code, but <strong>code audit requires to see the product running in actions</strong>.
+Therefore, to support the audit, language tools, and utilities to ascertain the changes made by the programs during the run is helpful.</p>
+
+<h2 id="general-audit-aspects-and-tools">General audit aspects and tools</h2>
+
+<p>There are several aspects to assess when auditing a software project.</p>
+
+<h3 id="code-management">Code management</h3>
+
+<p>Most software projects adopt some kinds of code management tools like Git and Mercurial to reduce operation mistakes.</p>
+
+<p>Check your target projects if they have their own code repositories and governance policies for code management.
+Some items to include in the checklist:</p>
+
+<ul>
+  <li>Branch naming convention</li>
+  <li>Workflow like <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow</a> to determine the process of creating PR, merging, .etc.</li>
+  <li>Release management: Git <a href="https://docs.github.com/en/rest/reference/git#tags">tags</a> systems may help to version different releases in project lifetime.</li>
+  <li>and any recommendations that help to improve code management.</li>
+</ul>
+
+<h3 id="architectures">Architectures</h3>
+
+<p>Software products take many forms: desktop applications, mobile apps, websites, infrastructures, and even combinations to make a far complicated system.
+But whatever the forms they take, they will have architectural choices.</p>
+
+<h4 id="integrability">Integrability</h4>
+<p>A product can be a mixture of many components: a website written with Django framework with PostgresSQL.
+First, please pay attention to the <strong>compatibilities among components</strong>: are all versions work well together? Are all of them well-tested together (system test or integration tests are sufficient)?</p>
+
+<h4 id="deployment-and-delivery">Deployment and delivery</h4>
+<p><em>How is the product (system) deployed and delivered to the customer?</em></p>
+
+<p>Please pay attention to the deployment process.
+If the project has a continuous mechanism to deliver outcomes to the customer, it should make everything’s smoother.
+Especially if CI/CD processes have not been well-tested, then it should be good advice to construct such a pipeline.
+Container systems like Docker or Kubernetes are helpful.</p>
+
+<p>Then, it’s time to check whether the README file contains all the necessary elements:</p>
+
+<ul>
+  <li>instructions for configuration,</li>
+  <li>instructions for installation,</li>
+  <li>a user’s manual,</li>
+  <li>a manifest file (with an attached list of files),</li>
+  <li>information on copyrights and licenses,</li>
+  <li>contact details for the distributors and developers,</li>
+  <li>known bugs and malfunctions,</li>
+  <li>a problem-solving section,</li>
+  <li>a changelog (for developers).</li>
+</ul>
+
+<h4 id="maintenance-and-incident-responses">Maintenance and incident responses</h4>
+
+<p>The system may be down for many reasons: operating mistakes, system errors, human errors, and so on.
+Does the project has such a mechanism to report and respond to the errors?
+An error tracking tool like <a href="https://www.bugsnag.com/">Bugsnag</a> is good advice.</p>
+
+<h3 id="coding-best-practices">Coding best practices</h3>
+
+<h4 id="using-code-analysis-tools">Using code analysis tools</h4>
+
+<p>Static code analyzers like linting tools are helpful to detect early bugs, bottlenecks, performance issues, security vulnerabilities, and threats connected with maintaining the application.</p>
+
+<h4 id="tips-to-improve-code-quality">Tips to improve code quality</h4>
+
+<p><strong>Code reviews</strong> between team members (developers) help to detect early problems.
+<strong>Using githooks</strong> can enforce your local development.
+<strong>Standardize the configurations and formats</strong> among team members like IDE configurations can prevent several human errors.
+Finally, remember to <strong>share knowledge</strong> among the team.</p>
+
+<h1 id="python-audit-tools">Python audit tools</h1>
+
+<h2 id="proposals-pep-578-and-pep-551">Proposals PEP 578 and PEP 551</h2>
+
+<p>Since code audit is inevitable in software development, the Python programming language also has its own tools to do the job.
+Remember that code audit differs from code reviews in the way that code audit reviews the <strong>running</strong> system!
+Then if it’s not running, this is not audit.</p>
+
+<p>In this post, we focus on the new features for runtime audit: proposals PEP 578 [1] and PEP 551 [2].
+These proposals were made available only from Python 3.8.
+PEP 578 was only a part of PEP 551, which concerns the <strong>security transparency</strong> of Python programs: the lack of internal audits leads to the fact that many threats can bypass audits.
+Python up to 3.7 in isolation could manage to audit all events in codes.
+However, no runtime events have been captured, and this was leading to a poor audit.
+Defenders have a need to audit specific uses of the Python programming language in order to detect abnormal or malicious usage. 
+With PEP 578, the Python runtime gains the ability to provide this. 
+The aim of this PEP is to assist system administrators with deploying a security-transparent version of the Python programming language that can integrate with their existing auditing and protection systems.</p>
+
+<h2 id="sysaudit-and-sysaddaudithook"><code class="language-plaintext highlighter-rouge">sys.audit</code> and <code class="language-plaintext highlighter-rouge">sys.addaudithook</code></h2>
+
+<p>Runtime audithooks [1] comes with two different APIs: CPython and standard way.
+You can use <code class="language-plaintext highlighter-rouge">sys.audit/sys.addaudithooks</code> in Python code and <code class="language-plaintext highlighter-rouge">PySys_Audit/PySys_AddAuditHook</code> in native C code [3].
+The backport to Python 3.7 and older versions can be found in a third-party <code class="language-plaintext highlighter-rouge">sysaudit</code> [4].
+A list of <strong>auditable events</strong> can be found in [5].
+Some discussions on bypassing audit features in Python 3.8 can be found in [6].</p>
+
+<h3 id="native-c-interface">Native C interface</h3>
+
+<p>If you want native audits, you may need to re-compile the <code class="language-plaintext highlighter-rouge">python</code> binary.
+An example is the <a href="https://github.com/zooba/spython/tree/master/NetworkPrompt">NetworkPromtHook example</a>.</p>
+
+<p>We will write an example <code class="language-plaintext highlighter-rouge">spython.c</code>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;Python.h&gt;
+#include &lt;opcode.h&gt;
+#include &lt;string.h&gt;
+#include &lt;locale.h&gt;
+</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="nf">my_hook</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">event</span><span class="p">,</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">args</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">userData</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* Only care about 'socket.' events */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strncmp</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="s">"socket."</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">PyObject</span><span class="o">*</span> <span class="n">msg</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+    <span class="cm">/* So yeah, I'm very lazily using PyTuple_GET_ITEM here.
+       Not best practice! PyArg_ParseTuple is much better! */</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="s">"socket.getaddrinfo"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">PyUnicode_FromFormat</span><span class="p">(</span><span class="s">"WARNING: Attempt to resolve %S:%S"</span><span class="p">,</span>
+            <span class="n">PyTuple_GET_ITEM</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">PyTuple_GET_ITEM</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="s">"socket.connect"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">PyObject</span><span class="o">*</span> <span class="n">addro</span> <span class="o">=</span> <span class="n">PyTuple_GET_ITEM</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">PyUnicode_FromFormat</span><span class="p">(</span><span class="s">"WARNING: Attempt to connect %S:%S"</span><span class="p">,</span>
+            <span class="n">PyTuple_GET_ITEM</span><span class="p">(</span><span class="n">addro</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">PyTuple_GET_ITEM</span><span class="p">(</span><span class="n">addro</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">PyUnicode_FromFormat</span><span class="p">(</span><span class="s">"WARNING: %s (event not handled)"</span><span class="p">,</span> <span class="n">event</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">msg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"%s. Continue [Y/n]</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">PyUnicode_AsUTF8</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
+    <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">'n'</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">'N'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">ch</span> <span class="o">!=</span> <span class="sc">'\n'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="cp">#ifdef MS_WINDOWS
+</span><span class="kt">int</span>
+<span class="nf">wmain</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">wchar_t</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PySys_AddAuditHook</span><span class="p">(</span><span class="n">my_hook</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">Py_Main</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">#else
+</span><span class="kt">int</span>
+<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PySys_AddAuditHook</span><span class="p">(</span><span class="n">my_hook</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">_Py_UnixMain</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">#endif
+</span></code></pre></div></div>
+
+<p>In Windows, this requires Visual Studio C, and compilation can be done:</p>
+
+<div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@setlocal
+@echo <span class="na">off</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="ow">defined</span> <span class="kd">PYTHONDIR</span> <span class="nb">echo</span> <span class="kd">PYTHONDIR</span> <span class="kd">must</span> <span class="kd">be</span> <span class="kd">set</span> <span class="kd">before</span> <span class="kd">building</span> <span class="o">&amp;&amp;</span> <span class="k">exit</span> <span class="na">/B </span><span class="m">1</span>
+<span class="k">if</span> <span class="ow">exist</span> <span class="s2">"</span><span class="nv">%PYTHONDIR%</span><span class="s2">\PCbuild"</span> <span class="o">(</span>
+    <span class="kd">set</span> _PYTHONINCLUDE<span class="o">=</span><span class="na">-I</span><span class="s2">"</span><span class="nv">%PYTHONDIR%</span><span class="s2">\PC"</span> <span class="na">-I</span><span class="s2">"</span><span class="nv">%PYTHONDIR%</span><span class="s2">\include"</span>
+    <span class="k">if</span> <span class="s2">"</span><span class="nv">%VSCMD_ARG_TGT_ARCH%</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"x86"</span> <span class="o">(</span>
+        <span class="kd">set</span> _PYTHONLIB<span class="o">=</span><span class="nv">%PYTHONDIR%</span>\PCbuild\win32
+    <span class="o">)</span> <span class="k">else</span> <span class="o">(</span>
+        <span class="kd">set</span> _PYTHONLIB<span class="o">=</span><span class="nv">%PYTHONDIR%</span>\PCbuild\amd64
+    <span class="o">)</span>
+<span class="o">)</span> <span class="k">else</span> <span class="o">(</span>
+    <span class="kd">set</span> _PYTHONINCLUDE<span class="o">=</span><span class="na">-I</span><span class="s2">"</span><span class="nv">%PYTHONDIR%</span><span class="s2">\include"</span>
+    <span class="kd">set</span> _PYTHONLIB<span class="o">=</span><span class="nv">%PYTHONDIR%</span>\libs
+<span class="o">)</span>
+
+<span class="k">if</span> <span class="ow">exist</span> <span class="s2">"</span><span class="nv">%_PYTHONLIB%</span><span class="s2">\python_d.exe"</span> <span class="o">(</span>
+    <span class="kd">set</span> _MD<span class="o">=</span><span class="na">-MDd
+</span><span class="o">)</span> <span class="k">else</span> <span class="o">(</span>
+    <span class="kd">set</span> _MD<span class="o">=</span><span class="na">-MD
+</span><span class="o">)</span>
+
+@echo <span class="na">on</span>
+@if <span class="ow">not</span> <span class="ow">exist</span> <span class="kd">obj</span> <span class="nb">mkdir</span> <span class="kd">obj</span>
+<span class="kd">cl</span> <span class="na">-nologo </span><span class="nv">%_MD%</span> <span class="na">-c </span><span class="kd">spython</span>.c <span class="na">-Foobj</span>\spython.obj <span class="na">-Iobj -Zi -O</span><span class="m">2</span> <span class="nv">%_PYTHONINCLUDE%</span>
+@if <span class="ow">errorlevel</span> <span class="m">1</span> <span class="k">exit</span> <span class="na">/B </span><span class="nv">%ERRORLEVEL%</span>
+<span class="kd">link</span> <span class="na">/nologo </span><span class="kd">obj</span>\spython.obj <span class="na">/out</span><span class="nl">:spython</span>.exe <span class="na">/debug</span><span class="nl">:FULL</span> <span class="na">/pdb</span><span class="nl">:spython</span>.pdb <span class="na">/libpath</span>:<span class="s2">"</span><span class="nv">%_PYTHONLIB%</span><span class="s2">"</span>
+@if <span class="ow">errorlevel</span> <span class="m">1</span> <span class="k">exit</span> <span class="na">/B </span><span class="nv">%ERRORLEVEL%</span>
+</code></pre></div></div>
+
+<p>Save this bat script as <code class="language-plaintext highlighter-rouge">make.cmd</code> and run it in a VC console to compile <code class="language-plaintext highlighter-rouge">spython.exe</code>.
+Then we can confirm the audit is in effect:</p>
+
+<p><img src="/assets/img/spython.PNG" alt="" /></p>
+
+<h3 id="standard-interface">Standard interface</h3>
+
+<p>To do audits in pure Python language, we can use <code class="language-plaintext highlighter-rouge">sys.audit/sys.addaudithook</code> as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">my_hook</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="c1"># Only care about 'socket.' events
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">"socket."</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="s">"socket.getaddrinfo"</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">"WARNING: Attempt to resolve {}:{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">event</span> <span class="o">==</span> <span class="s">"socket.connect"</span><span class="p">:</span>
+        <span class="n">addro</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">"WARNING: Attempt to connect {}:{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">addro</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">addro</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">"WARNING: {} (event not handled)"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="n">ch</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">msg</span> <span class="o">+</span> <span class="s">". Continue [Y/n]</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ch</span> <span class="o">==</span> <span class="s">'n'</span> <span class="ow">or</span> <span class="n">ch</span> <span class="o">==</span> <span class="s">'N'</span><span class="p">:</span>
+        <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">sys</span><span class="p">.</span><span class="n">addaudithook</span><span class="p">(</span><span class="n">my_hook</span><span class="p">)</span>
+</code></pre></div></div>
+<p>, then confirm the effects similarly.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>This article introduced two important features in a software project.
+The first part showed an overview of code audit in practice.
+The second part discussed a new audit feature in the Python programming language: <code class="language-plaintext highlighter-rouge">sys.audit/PySys_Audit</code>.</p>
+
+<p>Although this feature is new in the Python programming language but the merit of capturing runtime events can be helpful.
+Benchmark in PEP 578 [1] showed that adding this audit did not change the performance or cost then it is nice to have this in your project.</p>
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="PEP578Py66:online"><i>PEP 578 – Python Runtime Audit Hooks | Python.org</i>. https://www.python.org/dev/peps/pep-0578.</span></li>
+<li><span id="PEP551Se63:online"><i>PEP 551 - Security transparency in the Python runtime - Python.org</i>. https://www.python.org/dev/peps/pep-0551/.</span></li>
+<li><span id="sysSyst75:online"><i>sys - System-specific parameters and functions - Python 3.9.6 documentation</i>. https://docs.python.org/3/library/sys.html.</span></li>
+<li><span id="sysaudit76:online"><i>sysaudit — sysaudit documentation</i>. https://sysaudit.readthedocs.io/en/latest/.</span></li>
+<li><span id="Auditeve66:online"><i>Audit events table - Python 3.9.6 documentation</i>. https://docs.python.org/3/library/audit_events.html.</span></li>
+<li><span id="Bypassin44:online"><i>Bypassing Python3.8 Audit Hooks [Part 1] · daddycocoaman</i>. https://daddycocoaman.dev/posts/bypassing-python38-audit-hooks-part-1/.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#python">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">python</span>
+    </a>
+  
+    
+    <a href="/tags.html#pep-578">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">PEP 578</span>
+    </a>
+  
+    
+    <a href="/tags.html#runtime-audit">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">runtime audit</span>
+    </a>
+  
+    
+    <a href="/tags.html#system-audit">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">system audit</span>
+    </a>
+  
+    
+    <a href="/tags.html#security-features">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">security features</span>
+    </a>
+  
+    
+    <a href="/tags.html#system-security">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">system security</span>
+    </a>
+  
+    
+    <a href="/tags.html#programming">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">programming</span>
+    </a>
+  
+    
+    <a href="/tags.html#code-audit">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">code audit</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/se/ai/2021/07/17/python-38-sys-audit.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/se/ai/2021/07/17/python-38-sys-audit.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

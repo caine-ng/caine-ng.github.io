@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Lập trình song song với đối ứng khách hàng: khách hàng business và khách hàng developer &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Lập trình song song với đối ứng khách hàng: khách hàng business và khách hàng developer</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">10 Oct 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Lập trình song song với đối ứng khách hàng: khách hàng business và khách hàng developer&url=https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    12 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#khách-hàng-developer-quan-trọng-là-anh-em-có-cùng-code-được-với-nhau-không">Khách hàng developer: Quan trọng là anh em có cùng code được với nhau không?</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#code-là-tất-cả">Code là tất cả?</a></li>
+<li class="toc-entry toc-h3"><a href="#nhưng-còn-song-song-hóa">Nhưng còn song song hóa?</a>
+<ol>
+<li class="toc-entry toc-h4"><a href="#đầu-tiên-là-không-có-người-thừa-việc-thừa">Đầu tiên là không có “người thừa, việc thừa”</a></li>
+<li class="toc-entry toc-h4"><a href="#cuối-cùng-vẫn-là-phải-nhanh-lên">Cuối cùng vẫn là phải nhanh lên</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h3"><a href="#anh-em">Anh em</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#khách-hàng-business-khoán-trọn-gói-thì-các-anhchị-làm-sao-thì-làm-đến-lúc-nộp-hàng-xịn-là-ok">Khách hàng business: Khoán trọn gói thì các anh/chị làm sao thì làm, đến lúc nộp hàng xịn là ok.</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#vậy-còn-song-song-hóa">Vậy còn song song hóa?</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#kết-chung">Kết chung</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://cdn.stocksnap.io/img-thumbs/960w/meeting-booth_7FLAARLMPI.jpg" alt="b2d" />
+<em>Source: StockSnap.io</em></p>
+
+<p><strong>Khách hàng business (non-dev)</strong> là những người không có chức năng tham gia trực tiếp vào quy trình phát triển.
+Bản thân họ có thể thuê thêm tư vấn/QA bên ngoài hoặc bên trong công ty họ để đảm bảo khâu chất lượng sản phẩm.
+Tuy nhiên, nhìn chung cái họ quan tâm là kết quả sản phẩm (bao gồm cả deadline, resources) hơn là quy trình.
+Cũng có một số khách hàng business cũng sẽ đòi hỏi về mặt quy trình, nhưng đó thường là để đảm bảo chất lượng.
+Vì mối quan tâm lớn nhất của họ là sản phẩm nên việc QA đảm bảo chất lượng cao là việc không thể tránh khỏi (bởi bản thân có biết dev đâu thì đương nhiên phải quan tâm QA).
+Bên cạnh đó, <strong>khách hàng developer</strong> là những khách hàng mà bản thân họ cũng sẽ là dev trong sản phẩm.
+Khác với khách hàng business là những người sẽ không trực tiếp tham gia vào quy trình tạo ra sản phẩm, khách hàng dev lại là những người tham gia cùng đội dev vào quá trình đó.
+Họ sẽ quan tâm việc <strong>có cùng code được với nhau (quy trình) không</strong> hơn là sản phẩm cuối cùng.
+Vì sao? Vì họ cũng chịu trách nhiệm làm ra sản phẩm, và họ hiểu là kết quả là do cả team cùng làm ra nên kết quả do team quyết định.
+Vì vậy để ra một kết quả tốt thì yếu tố quan trọng nhất chính là <strong>có làm việc được với nhau không</strong> và làm việc $=$ code đấy nhé!
+Chỉ cần code thôi với những khách hàng này! Nên phần lớn những vị trí không tham gia trực tiếp vào code là đa phần biến thành “người thừa” trong mắt họ.
+Khách hàng business (không thể dev) thì trong mắt họ quan trọng nhất là quản lý để đảm bảo tiến độ cho họ và các vị trí bảo đảm chất lượng cho họ như PM, tester, QA.
+Còn với khách hàng developer (có thể dev và là dev xịn) thì trong mắt họ lại chỉ quan trọng những vị trí tạo ra code (và phải là code xịn), QA, tester, quản lý có khi họ đảm nhiệm hết vì họ cũng là dev lâu năm trong nghề (<em>có lần tôi bị phân vào dự án mà khách phủ đầu ngay là mọi việc liên quan tới những mảng kia họ sẽ làm hết, chúng tôi chỉ được phép <strong>code</strong> thôi</em>).
+Cách đối đãi thì có nhiều góc nhìn, tôi thì cũng chủ yếu làm kỹ thuật nên sẽ cung cấp cách nhìn về định hướng quy trình từ đầu với từng loại khách theo hệ quy chiếu của lập trình đa luồng.</p>
+
+<!--more-->
+
+<h2 id="khách-hàng-developer-quan-trọng-là-anh-em-có-cùng-code-được-với-nhau-không">Khách hàng developer: Quan trọng là anh em có cùng <code class="language-plaintext highlighter-rouge">code</code> được với nhau không?</h2>
+
+<h3 id="code-là-tất-cả"><code class="language-plaintext highlighter-rouge">Code</code> là tất cả?</h3>
+
+<p>Nhưng đầu tiên cần hiểu <code class="language-plaintext highlighter-rouge">code</code> không chỉ là đâm đầu vào viết code như trâu bò.
+Code một cách chuyên nghiệp, chân chính thì có hàng tá sách vở như Clean Code, Clean Architecture mà nội dung nằm ngoài scope bài viết này.
+Anh em chủ động tìm đọc và contribute nhé!
+Code một cách có não, để được gọi là programmer (LTV) là phải đảm đương mọi khâu trong quá trình sản sinh ra code: hiểu requirements (chủ động tìm hiểu), tự thiết kế solution để giải quyết requirements, tự tay mà code lấy, tự tay test lấy ở cấp unit, và chủ động nhờ anh em code cùng test chéo ở các cấp cao hơn, nộp hàng/delivery, viết documents, tối ưu, fix bugs, …
+Ở cấp lãnh đạo thì sẽ phải thêm những nghiệp vụ khác như phân nhỏ nhiệm vụ, phân công, quản lý tiến trình/tài nguyên và truyền đạt cho anh em, định hướng cho anh em cách làm tốt nhất, kiểm tra và đôn đốc công việc của anh em thông qua feedback, …</p>
+
+<h3 id="nhưng-còn-song-song-hóa">Nhưng còn song song hóa?</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Code</code> tốt không chỉ có việc làm đúng quy trình và vai trò (roles) mà còn phải đảm bảo hiệu suất.
+Bây giờ tôi đưa ra một tình huống:</p>
+
+<p><strong>Tình huống</strong>: <em>Một nhóm khách hàng dev A gồm $M$ dev, và giờ đặt hàng cùng làm việc với $N$ dev bên bạn.</em>
+<em>Họ không quan tâm kết quả ngay từ đầu vì làm agile trong quá trình làm kế hoạch sẽ thay đổi thường xuyên.</em>
+<em>Họ chỉ quan tâm anh em 2 nhóm có làm việc trôi chảy với nhau không?</em></p>
+
+<p>Họ sẽ coi quy trình làm việc là một hệ thống đa luồng (multi-threading) mà về nguyên tắc nếu thêm $N$ dev vào mà tốc độ không tăng lên $\frac{M+N}{M}$ lần thì có vẻ là một mối hợp tác kém!
+Còn về tài nguyên thì là <strong>không được có “người thừa, việc thừa”</strong>.</p>
+
+<p>Yêu cầu là gì? Thì đấy, yêu cầu chính là</p>
+
+<ol>
+  <li>Nhanh lên tối thiểu $\frac{M+N}{M}$ lần.</li>
+  <li>Tài nguyên không phát sinh “người thừa, việc thừa”.</li>
+</ol>
+
+<h4 id="đầu-tiên-là-không-có-người-thừa-việc-thừa">Đầu tiên là không có “người thừa, việc thừa”</h4>
+
+<p>Một việc mà lặp lại 2 lần 3 lần là không được trong hệ thống song song hóa tối ưu.
+Một nhân viên mà phải cấp phát nhiều tài khoản khác nhau là cũng tiêu tốn tài nguyên hệ thống.
+Có thể dùng cách nghĩ về các hệ thống federated authentication, single sign-on để suy nghĩ ra cách làm tối ưu.
+Và tất nhiên phải có bàn bạc đồng thuận từ phía khách để tiến hành.
+Hiện tại mọi người dùng nhiều những nền tảng như Atlassian hay Backlog trong quản lý rồi, nên tự làm thêm nhiều tài liệu trùng lặp với cái có sẵn là dưới góc nhìn của khách là dev chuyên nghiệp, họ sẽ chỉ có đánh giá là … kém!</p>
+
+<p>Còn chuyện máy móc để làm việc thì không vấn đề gì, vì thêm người thêm máy là chuyện bình thường nên thêm máy không phải việc thừa, mà thậm chí còn là việc cần thiết vì không máy thì không làm việc được!</p>
+
+<h4 id="cuối-cùng-vẫn-là-phải-nhanh-lên">Cuối cùng vẫn là phải nhanh lên</h4>
+
+<p>Khi $M+N$ dev cùng chạy song song thì vấn đề là gì? Chính là conflict khi tiến hành merge các branches.
+Nên merge theo order nào để tối ưu hóa thời gian resolve conflict?</p>
+
+<p><strong>Tình huống</strong>: <em>Tôi thuê 1 nhóm dev làm chức năng X.</em>
+<em>Sáng nay, vì tôi cũng là dev nên tôi nhận làm <code class="language-plaintext highlighter-rouge">feature/1</code>, nhóm dev làm chức năng <code class="language-plaintext highlighter-rouge">feature/2</code> và cần merge vào <code class="language-plaintext highlighter-rouge">develop</code> trong tuần này nhánh <code class="language-plaintext highlighter-rouge">feature/1</code></em>.
+<em>Nhưng vì sao đó, đội kia phát triển <code class="language-plaintext highlighter-rouge">feature/2</code> nhưng cần lock <code class="language-plaintext highlighter-rouge">develop</code> lại đến khi họ làm xong mới cho các nhánh khác merge vào</em>.
+<em>Họ lock lại <code class="language-plaintext highlighter-rouge">develop</code> đến hết tuần này mới unlock, dẫn đến tôi phải OT cuối tuần để kịp release</em>.
+<em>Và tôi là khách hàng, vậy ở vị trí của tôi, tôi có thể nghĩ là <code class="language-plaintext highlighter-rouge">anh em có làm việc được với nhau không?</code> (làm việc là code nhé)</em></p>
+
+<p>Vậy đây là lỗi của ai? Đầu tiên là người nhận lead hai feature 1 và 2 đã ôm một cục quá lớn không chịu chia nhỏ ra, kết cục là xuất hiện một nhiệm vụ mất đến 5 ngày mới xong.</p>
+
+<p>Các bạn cần hiểu phát triển agile đề cao tính song song, thì nếu bạn mà dev một feature nào mất nhiều công số thì có hai khả năng:</p>
+
+<ul>
+  <li><em>Các bạn không lock target branch</em> thì vì thời gian estimate quá dài thì trong khi đó sẽ có rất nhiều branch khác phát triển song song và nếu họ merge trước và có conflict thì bạn phải resolve.</li>
+  <li><em>Các bạn lock cho đến khi xong</em> thì người khác lại không merge được phải chờ. Kết cục là chờ lâu quá là có người phải OT mà hiệu suất song song hóa lại … kém!</li>
+</ul>
+
+<p>Lock/unlock để mutual exclusive thì là khái niệm quá cơ bản trong lập trình song song hóa.
+Vấn đề ở đây là đưa ra một cục estimate những 5 ngày ($=$ 1 tuần làm việc) thì là chưa tốt.
+Phài <strong>chi tiết hóa</strong> và chia nhỏ thành những task ở đơn vị vài tiếng/task: <strong>Phải nhanh nếu không là conflict hoặc bắt người khác chờ</strong>!
+Và tốt nhất là nên commit/merge sớm ngay từ những step nhỏ, chứ đừng có tích cả cục 5 ngày rồi merge một thể là thời gian quá dài.
+Schedule merge là phải rõ ràng, và tránh conflict sau khi review kỹ codebase.</p>
+
+<p>Tại sao phải tránh conflict? Là vì nếu để conflict là lại phải ngồi resolve dẫn đến tốn thêm công cho khách.</p>
+
+<p>Về tổng thể nhanh lên $\frac{M+N}{M}$ lần, nhưng về chi tiết là nên có thêm chỉ số về thời gian idle của từng member trong từng task và tổng thể.</p>
+
+<h3 id="anh-em">Anh em</h3>
+
+<p>Cuối cùng thì với kiểu khách hàng developer thì chúng ta đều hiểu: vì họ cũng commit code như dev bình thường nên họ sẽ nhìn $N$ dev bên bạn như những “chiến hữu, anh em”.
+Và chiến hữu anh em là phải hỗ trợ nhau, cùng nhau nếm ngọt trải bùi, ngậm đắng nuốt cay, và đặc biệt là không cản trở lẫn nhau.
+Vì vậy, trong quá trình làm ngoài việc chuyên môn code, thì có thể tập hợp những anh em cùng là code để nâng cao motivation cho anh em.
+Thế nên nếu có gì mà khó làm việc là sẽ dẫn đến sự đánh giá không cao.
+Họ không cần kết quả hay nouhinbutu gì đâu, họ chỉ cần chiến binh tốt làm việc trong vòng quay của họ thôi.</p>
+
+<blockquote>
+  <p><strong>Thành tích không quan trọng, chỉ quan trọng chiến hữu!</strong></p>
+</blockquote>
+
+<p>Và đương nhiên chiến hữu giỏi thì xác xuất có sản phẩm xịn sẽ cao.</p>
+
+<h2 id="khách-hàng-business-khoán-trọn-gói-thì-các-anhchị-làm-sao-thì-làm-đến-lúc-nộp-hàng-xịn-là-ok">Khách hàng business: Khoán trọn gói thì các anh/chị làm sao thì làm, đến lúc nộp hàng xịn là ok.</h2>
+
+<p>Khách hàng business thì thường là quan hệ đối tác làm ăn, chứ không có chuyện chia ngọt sẻ bùi cùng anh em như khách developer.
+Họ không có trách nhiệm dev và cũng thường là không thể dev được, vì vậy họ thường chọn vị thế <code class="language-plaintext highlighter-rouge">người dùng</code> và khoán thẳng cho các bên vendor: ví dụ khoán cho bên A làm dev sản phẩm, bên B test và QA, bên C quản lý dự án.</p>
+
+<p>Trung tâm của cung cách làm việc này chính là <strong>sản phẩm</strong>.
+Các bên vendor muốn thắng thầu thường phải có thực tích và quy trình nghiệp vụ ổn.
+Khác với bên khách developer (vì là cùng nhau làm và cùng nhau chịu trách nhiệm) nên thường có sự thông cảm và thậm chí bên vendor nghiệp vụ kém, khách có thể sẵn sàng hỗ trợ training.
+Thì bên business, đã khoán thì chỉ có chiếu theo hợp đồng và quan hệ làm ăn để giải quyết là chính khi xảy ra vấn đề.
+Vì vậy, quản lý và bảo đảm chất lượng là những quy trình không thể không chuẩn chỉnh khi làm việc với kiểu khách này.
+Tất nhiên, khách developer cũng có đòi hỏi nhưng dẫu sao đã là anh em cùng nhau dev dự án thì vẫn có sự chia sẻ nhất định.</p>
+
+<p>Còn với khách business, thì liệu bạn có thể bắt <code class="language-plaintext highlighter-rouge">người dùng cuối</code> tự mổ xẻ phần mềm để tự chữa không?
+Trường hợp ấy thì với họ thà mua cái mới còn hơn và sản phẩm lỗi thì bị đánh giá là kém.</p>
+
+<h3 id="vậy-còn-song-song-hóa">Vậy còn song song hóa?</h3>
+
+<p>Với kiểu khách hàng này, thường là khoán thì đội dev thường sẽ tự mình đảm trách hết và chỉ communication với khách qua kênh sales.
+Sự can thiệp của khách là nhỏ, gánh nặng communication cũng trở nên định kỳ hơn.
+Vì vậy đội dev sẽ khá tập trung và có khi có thời gian chỉn chu testing/QA cẩn thận trước khi nộp hàng.
+Do đó, thường sẽ là <strong>quy trình tuần tự</strong> xong cái này mới đi đến bước tiếp theo trong quy trình.
+Chứ không có chuyện nhảy cóc hay song song và resolve conflict với khách.
+Kể cả có resolve thì đó là nghiệp vụ của bên comtor/BrSE/PM/PO/Sales, …</p>
+
+<p>Với khách developer thì nhìn chung khi chạy trong môi trường song song hóa tối ưu thì dù có làm chuẩn quy trình kiểu tuần tự thì cũng vẫn xảy ra conflict là chuyện có thể.</p>
+
+<h2 id="kết-chung">Kết chung</h2>
+
+<p>Nhìn chung, nắm bắt tâm lý khách hàng, biết rõ loại khách hàng nào và nên làm gì với họ cho đúng và khéo léo là kỹ năng mà mọi thành viên trong team đều nên có.
+Biết khách của mình là ai (biz hay dev), biết rõ môi trường đang đứng là gì (song song hay tuần tự), biết rõ mình đóng vai trò gì (dev, quản lý, QA, …) luôn là những điểm quan trọng trong <code class="language-plaintext highlighter-rouge">thực chiến</code> dự án.</p>
+
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#git">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">git</span>
+    </a>
+  
+    
+    <a href="/tags.html#threading">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">threading</span>
+    </a>
+  
+    
+    <a href="/tags.html#parallelism">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">parallelism</span>
+    </a>
+  
+    
+    <a href="/tags.html#business-clients">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">business clients</span>
+    </a>
+  
+    
+    <a href="/tags.html#developer-clients">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">developer clients</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

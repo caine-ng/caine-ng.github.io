@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     mOCR: A real-time application of OCR with Google MLKit and Android CameraX &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">mOCR: A real-time application of OCR with Google MLKit and Android CameraX</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">31 May 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/cv.html">
+          Computer Vision
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/ai.html">
+          Artificial Intelligence
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/cv/ai/2021/05/31/mOCR-mlkit-androidx-example.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=mOCR: A real-time application of OCR with Google MLKit and Android CameraX&url=https://wanted2.github.io/cv/ai/2021/05/31/mOCR-mlkit-androidx-example.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/cv/ai/2021/05/31/mOCR-mlkit-androidx-example.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    9 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#setup">Setup</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#google-mlkit-setup">Google MLKit setup</a></li>
+<li class="toc-entry toc-h3"><a href="#camerax-setup">CameraX setup</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#camera-lifecycle">Camera lifecycle</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#initializing-the-lifecycle">Initializing the lifecycle</a></li>
+<li class="toc-entry toc-h3"><a href="#image-analyzer">Image Analyzer</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#google-mlkit">Google MLKit</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+<li class="toc-entry toc-h2"><a href="#references">References</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="/assets/img/mlkit1.jpg" alt="" /></p>
+
+<p>Google MLKit [1] is a software solution for Machine Learning problems in mobile devices (Android and iOS).
+It supports computer visions and natural language applications.
+The library is optimized for mobiles and is convenient.
+In this example, we build a mobile OCR solution with Android CameraX API [2].
+The demo code can be seen at <a href="https://github.com/wanted2/mocr-mlkit-camerax-examples">my Github</a>.
+<!--more--></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<div>
+<img style="float: left; margin-right: 40px;" src="https://github.com/wanted2/mocr-mlkit-camerax-examples/raw/main/screen.gif" />
+</div>
+
+<p>We build a real-time demo shown in the left figure.</p>
+
+<ul>
+  <li>
+    <p>When a user tap on the screen, a bounding box surrounding the location being tapped is the detection area from which text characters are recognized.</p>
+  </li>
+  <li>The recognized text is detected in real-time and displayed at the bottom sheet.</li>
+  <li>CameraX API supports invocations of image analysis whenever an image is captured.</li>
+</ul>
+
+<h2 id="setup">Setup</h2>
+<h3 id="google-mlkit-setup">Google MLKit setup</h3>
+
+<p>Since Text Recognition API does not support local models, we have to make the application downloading the model weights through Play services (i. e., Firebase).
+This can be done by using the presets in <code class="language-plaintext highlighter-rouge">build.gradle</code>:</p>
+
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">implementation</span> <span class="s1">'com.google.android.gms:play-services-mlkit-text-recognition:16.2.0'</span>
+</code></pre></div></div>
+
+<h3 id="camerax-setup">CameraX setup</h3>
+<p>We also need to add presets for CameraX.
+With this API, all events such as start capturing, handling when an image’s available, stop capturing are bound automatically to the cameraX lifecycle.
+The lifecycle is initialized with a camera selector, an image analyzer, and a <code class="language-plaintext highlighter-rouge">Preview</code>.</p>
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">def</span> <span class="n">camerax_version</span> <span class="o">=</span> <span class="s2">"1.1.0-alpha04"</span>
+    <span class="n">implementation</span> <span class="s2">"androidx.camera:camera-core:${camerax_version}"</span>
+    <span class="n">implementation</span> <span class="s2">"androidx.camera:camera-camera2:${camerax_version}"</span>
+    <span class="n">implementation</span> <span class="s2">"androidx.camera:camera-lifecycle:${camerax_version}"</span>
+</code></pre></div></div>
+
+<h2 id="camera-lifecycle">Camera lifecycle</h2>
+
+<h3 id="initializing-the-lifecycle">Initializing the lifecycle</h3>
+<p>CameraX API binds all events in a camera into a lifecycle.
+To preview captured image sequence, we need to add to the main layout a <code class="language-plaintext highlighter-rouge">PreviewView</code> component:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;androidx.camera.view.PreviewView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/fs_cam_preview"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"match_parent"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+<p>The captured images will be displayed here, and in the code of the main activity, we retrieve the view:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mContentView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">fs_cam_preview</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>For concurrency, there is a <code class="language-plaintext highlighter-rouge">com.google.common.util.concurrent.ListenableFuture</code> class to wrap up the <code class="language-plaintext highlighter-rouge">ProcessCameraProvider</code> to multi-processing:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="nc">ListenableFuture</span><span class="o">&lt;</span><span class="nc">ProcessCameraProvider</span><span class="o">&gt;</span> <span class="n">cameraProviderListenableFuture</span><span class="o">;</span>
+</code></pre></div></div>
+<p>The process provider is initialized as follows (in <code class="language-plaintext highlighter-rouge">onCreate()</code>):</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="n">cameraProviderListenableFuture</span> <span class="o">=</span> <span class="nc">ProcessCameraProvider</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="n">cameraProviderListenableFuture</span><span class="o">.</span><span class="na">addListener</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="nc">ProcessCameraProvider</span> <span class="n">processCameraProvider</span> <span class="o">=</span> <span class="n">cameraProviderListenableFuture</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+                <span class="n">bindPreview</span><span class="o">(</span><span class="n">processCameraProvider</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ExecutionException</span> <span class="o">|</span> <span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">Logger</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="s">"ERROR: "</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">},</span> <span class="nc">ContextCompat</span><span class="o">.</span><span class="na">getMainExecutor</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+</code></pre></div></div>
+<p>Heavyweight resources such as image analysis, previewing, and camera selection can be bind to the lifecycle owner in the <code class="language-plaintext highlighter-rouge">bindPreview</code> function:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">bindPreview</span><span class="o">(</span><span class="nc">ProcessCameraProvider</span> <span class="n">processCameraProvider</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Preview</span> <span class="n">preview</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Preview</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+        <span class="nc">CameraSelector</span> <span class="n">cameraSelector</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CameraSelector</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">requireLensFacing</span><span class="o">(</span><span class="nc">CameraSelector</span><span class="o">.</span><span class="na">LENS_FACING_BACK</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">preview</span><span class="o">.</span><span class="na">setSurfaceProvider</span><span class="o">(</span><span class="n">mContentView</span><span class="o">.</span><span class="na">getSurfaceProvider</span><span class="o">());</span>
+        <span class="nc">Camera</span> <span class="n">camera</span> <span class="o">=</span> <span class="n">processCameraProvider</span><span class="o">.</span><span class="na">bindToLifecycle</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">cameraSelector</span><span class="o">,</span> <span class="n">imageAnalysis</span><span class="o">,</span> <span class="n">preview</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+<p>For ease of use, we initialized the back camera with <code class="language-plaintext highlighter-rouge">CameraSelector.LENS_FACING_BACK</code>.
+And the preview is bound to a view <code class="language-plaintext highlighter-rouge">mContentView</code>.</p>
+
+<p>With the <code class="language-plaintext highlighter-rouge">ProcessCameraProvider</code>, the heavyweight resources are managed efficiently by the lifecycle owner.
+Using the CameraX API, we pay less for managing the lifecycles and with more reliable processing.</p>
+
+<h3 id="image-analyzer">Image Analyzer</h3>
+
+<p>A useful tool in CameraX API is the <code class="language-plaintext highlighter-rouge">ImageAnalyzer</code> interface, which is used to define custom Image Processing pipelines.
+Here, whenever an image capture is returned in the form of <code class="language-plaintext highlighter-rouge">ImageProxy</code> instances, we need to get the image, crop the region of interest and do real-time text recognition.
+Such a pipeline can be done in <code class="language-plaintext highlighter-rouge">ImageAnalysis.Analyzer.analyze</code>’s body.
+To keep track of the location user touched in the screen, we have a <code class="language-plaintext highlighter-rouge">posisition</code>:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="nc">Point</span> <span class="n">position</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>And the custom image analysis pipeline:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">MLKitAnalyzer</span> <span class="kd">implements</span> <span class="nc">ImageAnalysis</span><span class="o">.</span><span class="na">Analyzer</span> <span class="o">{</span>
+        <span class="nc">TextRecognizer</span> <span class="n">textRecognizer</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="nf">MLKitAnalyzer</span><span class="o">()</span> <span class="o">{</span>
+            <span class="n">textRecognizer</span> <span class="o">=</span> <span class="nc">TextRecognition</span><span class="o">.</span><span class="na">getClient</span><span class="o">(</span><span class="nc">TextRecognizerOptions</span><span class="o">.</span><span class="na">DEFAULT_OPTIONS</span><span class="o">);</span>
+            <span class="nc">Logger</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"Loaded text recognition models!"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">analyze</span><span class="o">(</span><span class="nd">@NonNull</span> <span class="nc">ImageProxy</span> <span class="n">image</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nd">@SuppressLint</span><span class="o">(</span><span class="s">"UnsafeOptInUsageError"</span><span class="o">)</span> <span class="nc">Image</span> <span class="n">image1</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="na">getImage</span><span class="o">();</span>
+            <span class="nc">Logger</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="n">position</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+            <span class="nc">Logger</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"Canvas size: "</span> <span class="o">+</span> <span class="n">overlayView</span><span class="o">.</span><span class="na">getWidth</span><span class="o">()</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">overlayView</span><span class="o">.</span><span class="na">getHeight</span><span class="o">());</span>
+            <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">overlayView</span><span class="o">.</span><span class="na">getWidth</span><span class="o">();</span>
+            <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">overlayView</span><span class="o">.</span><span class="na">getHeight</span><span class="o">();</span>
+            <span class="kt">int</span> <span class="n">mx</span> <span class="o">=</span> <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">)</span> <span class="o">/</span> <span class="mi">4</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">my</span> <span class="o">=</span> <span class="n">mx</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="na">x</span> <span class="o">-</span> <span class="n">mx</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">top</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="na">y</span> <span class="o">-</span> <span class="n">my</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="na">x</span> <span class="o">+</span> <span class="n">mx</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">position</span><span class="o">.</span><span class="na">y</span> <span class="o">+</span> <span class="n">my</span><span class="o">;</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">image1</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">ImageConvertUtils</span> <span class="n">convertUtils</span> <span class="o">=</span> <span class="nc">ImageConvertUtils</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+                <span class="nc">InputImage</span> <span class="n">inputImage</span> <span class="o">=</span> <span class="nc">InputImage</span><span class="o">.</span><span class="na">fromMediaImage</span><span class="o">(</span><span class="n">image1</span><span class="o">,</span> <span class="n">image</span><span class="o">.</span><span class="na">getImageInfo</span><span class="o">().</span><span class="na">getRotationDegrees</span><span class="o">());</span>
+                <span class="nc">Bitmap</span> <span class="n">bitmap</span><span class="o">;</span>
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">bitmap</span> <span class="o">=</span> <span class="n">convertUtils</span><span class="o">.</span><span class="na">convertToUpRightBitmap</span><span class="o">(</span><span class="n">inputImage</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">MlKitException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="nc">Logger</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="s">"ERROR"</span><span class="o">);</span>
+                    <span class="k">return</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="nc">Rect</span> <span class="n">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Rect</span><span class="o">(</span><span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">left</span> <span class="o">*</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">getWidth</span><span class="o">()</span> <span class="o">/</span> <span class="n">width</span><span class="o">),</span>
+                        <span class="nc">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">top</span> <span class="o">*</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">getHeight</span><span class="o">()</span> <span class="o">/</span> <span class="n">height</span><span class="o">),</span>
+                        <span class="n">right</span> <span class="o">*</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">getWidth</span><span class="o">()</span> <span class="o">/</span> <span class="n">width</span><span class="o">,</span>
+                        <span class="n">bottom</span> <span class="o">*</span> <span class="n">bitmap</span><span class="o">.</span><span class="na">getHeight</span><span class="o">()</span> <span class="o">/</span> <span class="n">height</span><span class="o">);</span>
+                <span class="nc">Bitmap</span> <span class="n">crop</span> <span class="o">=</span> <span class="nc">Bitmap</span><span class="o">.</span><span class="na">createBitmap</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">rect</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">rect</span><span class="o">.</span><span class="na">top</span><span class="o">,</span>
+                        <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">bitmap</span><span class="o">.</span><span class="na">getWidth</span><span class="o">(),</span> <span class="n">rect</span><span class="o">.</span><span class="na">right</span><span class="o">)</span> <span class="o">-</span> <span class="n">rect</span><span class="o">.</span><span class="na">left</span><span class="o">,</span>
+                        <span class="nc">Math</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">bitmap</span><span class="o">.</span><span class="na">getHeight</span><span class="o">(),</span> <span class="n">rect</span><span class="o">.</span><span class="na">bottom</span><span class="o">)</span> <span class="o">-</span> <span class="n">rect</span><span class="o">.</span><span class="na">top</span><span class="o">);</span>
+                <span class="n">inputImage</span> <span class="o">=</span> <span class="nc">InputImage</span><span class="o">.</span><span class="na">fromBitmap</span><span class="o">(</span><span class="n">crop</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+                <span class="nc">Logger</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"Image size: "</span> <span class="o">+</span> <span class="n">inputImage</span><span class="o">.</span><span class="na">getWidth</span><span class="o">()</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">inputImage</span><span class="o">.</span><span class="na">getHeight</span><span class="o">());</span>
+                <span class="nc">Task</span><span class="o">&lt;</span><span class="nc">Text</span><span class="o">&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="n">textRecognizer</span><span class="o">.</span><span class="na">process</span><span class="o">(</span><span class="n">inputImage</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">addOnSuccessListener</span><span class="o">(</span><span class="n">text</span> <span class="o">-&gt;</span> <span class="o">{</span>
+<span class="c1">//                            overlayView.setLatestText(text);</span>
+                            <span class="n">overlayView</span><span class="o">.</span><span class="na">setPosistion</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+                            <span class="nc">Logger</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"Found text:"</span> <span class="o">+</span> <span class="n">text</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
+                            <span class="n">overlayView</span><span class="o">.</span><span class="na">invalidate</span><span class="o">();</span>
+                            <span class="nc">TextView</span> <span class="n">txtDetected</span> <span class="o">=</span> <span class="n">sheetView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">txt_detected</span><span class="o">);</span>
+                            <span class="n">txtDetected</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">getText</span><span class="o">());</span>
+                        <span class="o">})</span>
+                        <span class="o">.</span><span class="na">addOnFailureListener</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                            <span class="nc">Logger</span><span class="o">.</span><span class="na">e</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="s">"ERROR"</span><span class="o">);</span>
+                        <span class="o">})</span>
+                        <span class="o">.</span><span class="na">addOnCompleteListener</span><span class="o">(</span><span class="n">task</span> <span class="o">-&gt;</span> <span class="n">image</span><span class="o">.</span><span class="na">close</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>The recognizer is initialized in the constructor, and it will take some seconds for the first time since the model needs to be downloaded from Firebase.</p>
+
+<p>After the text blocks are detected, we will display the results in a bottom sheet.
+A green rectangle with an aspect ratio of 2:1 is drawn around the touched location after passing the <code class="language-plaintext highlighter-rouge">position</code> to the <code class="language-plaintext highlighter-rouge">OverlayView</code> class.</p>
+
+<h2 id="google-mlkit">Google MLKit</h2>
+<p><img style="float: right; margin-left: 40px;" width="50%" src="/assets/img/mlkit2.jpg" />
+The Machine Learning pipeline running in the Image Analyzer is real-time, and the precision is quite good.
+By limiting the search region to a <code class="language-plaintext highlighter-rouge">256 x 128</code> rectangle with the center is the touched location seems to be helpful to reduce the false alarms (noisy text).
+It can be a good interaction since apps like searching for words in English often need to focus only on one compound word.
+For example, foreign tourists (people who don’t use English), when looking for unknown words, may only need to adjust the rectangle to the word they don’t know.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I used Google MLKit and Android CameraX API to build a lightweight mobile OCR application, the <code class="language-plaintext highlighter-rouge">mOCR</code>.
+The result is a real-time recognition achieved by CameraX and MLKit.
+The accuracy is good with a focused design in human user interaction.
+A promising application should look into dictionaries for signs in metro stations or airports, and it is helpful in the Olympics.</p>
+
+<p>The next step is to add the dictionary lookup to <code class="language-plaintext highlighter-rouge">mOCR</code>.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="MLKitGoo18:online"><i>ML Kit  |  Google Developers</i>. https://developers.google.com/ml-kit.</span></li>
+<li><span id="CameraXA49:online"><i>CameraX  |  Android デベロッパー  |  Android Developers</i>. https://developer.android.com/jetpack/androidx/releases/camera.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#on-device-ai">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">on-device AI</span>
+    </a>
+  
+    
+    <a href="/tags.html#mlkit">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">mlkit</span>
+    </a>
+  
+    
+    <a href="/tags.html#google-mlkit">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">google mlkit</span>
+    </a>
+  
+    
+    <a href="/tags.html#optical-character-recognition">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">optical character recognition</span>
+    </a>
+  
+    
+    <a href="/tags.html#ocr">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">ocr</span>
+    </a>
+  
+    
+    <a href="/tags.html#google-ai">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">google ai</span>
+    </a>
+  
+    
+    <a href="/tags.html#google-android">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">google android</span>
+    </a>
+  
+    
+    <a href="/tags.html#android">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">android</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/cv/ai/2021/05/31/mOCR-mlkit-androidx-example.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/cv/ai/2021/05/31/mOCR-mlkit-androidx-example.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Pythonによるメタプログラミングーデコレーター・パターンについてー &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Pythonによるメタプログラミングーデコレーター・パターンについてー</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">10 Jul 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/se/non-english/2021/07/10/python-decorator.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Pythonによるメタプログラミングーデコレーター・パターンについてー&url=https://wanted2.github.io/pm/se/non-english/2021/07/10/python-decorator.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/se/non-english/2021/07/10/python-decorator.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    5 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#デコレーターパターン">デコレーター・パターン</a></li>
+<li class="toc-entry toc-h1"><a href="#事例">事例</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#複数デコレーター">複数デコレーター</a></li>
+<li class="toc-entry toc-h2"><a href="#プロジェクトコントローラー">プロジェクト・コントローラー</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#課題">課題</a></li>
+<li class="toc-entry toc-h1"><a href="#結論">結論</a></li>
+<li class="toc-entry toc-h1"><a href="#参考文献">参考文献</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="https://refactoring.guru/images/patterns/content/decorator/decorator-2x.png?id=736ab07b1d8920ab2c7a" alt="" />
+<em>Source: https://refactoring.guru</em></p>
+
+<p>関数を実行するときに、実行時間とリソース管理を監視し、レポートすることは不可欠です。
+さらに、異常や例外が検知された時に、実行を制御できるとなお嬉しくなります。
+例えば、途中経過時間が長くなると、スレッド数を増やし、実行時間を短縮させるとか、リソースが足りないとか、コミュニケーションがうまくいかないなどの不具合が発生するときの対応を行う方法が必要となります。
+単に、関数毎に処理を記述すると、制御を組織のすべての関数に正則化できないといった問題があるため、メタプログラミングで制御の論理をすべての関数で対応できます。
+前回で紹介したメタクラス [1]について、クラスの初期化で一つのパターンを記述すると、実行時に条件に応じて複数のパターンのクラスを生成できますが、今回で実行時の制御処理にもひとつのメタパターンを紹介します。
+それ<strong>デコレーターパターン</strong> [2]です。</p>
+
+<!--more-->
+
+<h1 id="デコレーターパターン">デコレーター・パターン</h1>
+
+<p>単に　<strong>「関数を戻り値として返す関数」</strong>と解釈すれば良いですが、具体的にPython言語でみてみます。
+ある関数fを実行する時に、関数の中身に記述せずに監視や認証・制御などの別の処理を行ってから関数fを実行するようなパターンです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">y</span>
+</code></pre></div></div>
+
+<p>この関数の実行時間を測定したい場合、下記に2案あります。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">y</span>
+
+<span class="c1"># 案1：関数の中身を変更し、実行時間を測定するロジックを記述
+</span><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"実行時間：</span><span class="si">{</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">:.</span><span class="mi">5</span><span class="n">f</span><span class="si">}</span><span class="s">秒"</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">y</span>
+
+<span class="c1"># 案2：デコレーター・パターンを利用
+</span><span class="k">def</span> <span class="nf">measure_time</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"実行時間：</span><span class="si">{</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">:.</span><span class="mi">5</span><span class="n">f</span><span class="si">}</span><span class="s">秒"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
+  <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">@</span><span class="n">measure_time</span>
+<span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">y</span>
+
+<span class="c1"># 下記の3パターンは同じ結果になります。
+</span><span class="n">f2</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 内部を変えてしまう
+</span><span class="n">measure_time</span><span class="p">(</span><span class="n">f</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># デコレーターを展開すると同等の記述
+</span><span class="n">f3</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># pythonのデコレーター
+</span></code></pre></div></div>
+
+<p>上記の案1だと、外部要件に対して内部組織を変えてしまう感じですね。
+悪くもないけれども、毎回毎関数をこんなに内部変更を行ういくつかの問題が発生します。</p>
+
+<ul>
+  <li><strong>品質の低下</strong>。修正工夫が大きくなり、コードが「スパゲッティ」になりうる。</li>
+  <li><strong>コード管理が難しくなります</strong>。実行関数に外部による微細修正が加えたので、問題発生時、毎関数を見ないといけない。</li>
+  <li><strong>スコープ管理が緩和された</strong>。外部要件によって変更しやすいので、スコープも良く変わってしまう。</li>
+  <li><strong>内部修正は危険</strong>。プロジェクト内に関数は1つの場所に使用されない場合、その関数を内部修正するとほかの場所にも影響を与えてしまう。</li>
+</ul>
+
+<h1 id="事例">事例</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">solve_double</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>監視と制御を行うと、</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">solve_double</code>の各ステップの実行時間を計測したいです。ベンチマークや監視に使われます。</li>
+  <li><code class="language-plaintext highlighter-rouge">y</code>の実行時間が長くなると、<code class="language-plaintext highlighter-rouge">solve(A, y, b)</code>の実行時間を短縮できるように制御したいです。</li>
+</ul>
+
+<p>といった単純な関数実行の制御の要件を実現したいです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="k">class</span> <span class="nc">Controller</span><span class="p">:</span>
+  <span class="n">reports</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_trigger_threshold</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">action_trigger_threshold</span> <span class="o">=</span> <span class="n">action_trigger_threshold</span>
+
+  <span class="k">def</span> <span class="nf">receive_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">reports</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">is_slow</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">reports</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> \
+      <span class="bp">self</span><span class="p">.</span><span class="n">reports</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="p">.</span><span class="n">action_trigger_threshold</span>
+
+<span class="c1"># コントローラー記述
+</span><span class="n">project_controller</span> <span class="o">=</span> <span class="n">Controller</span><span class="p">(</span><span class="n">action_trigger_threshold</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Decorator</span><span class="p">:</span> 
+
+  <span class="o">@</span><span class="nb">staticmethod</span>
+  <span class="k">def</span> <span class="nf">on_slow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="s">"""
+    遅いタスクが発見された場合、制御するデコレーターパターン。
+    """</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">project_controller</span><span class="p">.</span><span class="n">is_slow</span><span class="p">():</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">"遅い実行が発見。次の実行をよくするためにポストコントロールしてください。"</span><span class="p">)</span>
+                <span class="c1"># 高速化するために工夫を記述する
+</span>                <span class="c1"># 入力のサイズを縮小するか、環境変数を調整するか、スレッド数を増えるか
+</span>                <span class="k">pass</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+ 
+  <span class="o">@</span><span class="nb">staticmethod</span>
+  <span class="k">def</span> <span class="nf">measure_time</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+            <span class="c1"># 実行時間を測定
+</span>            <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="c1"># ログを残す
+</span>            <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'実行時間は</span><span class="si">{</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">:.</span><span class="mi">5</span><span class="n">f</span><span class="si">}</span><span class="s">秒です。'</span><span class="p">)</span>
+            <span class="c1"># 制御インスタンスに実行時間をレポートする
+</span>            <span class="n">project_controller</span><span class="p">.</span><span class="n">receive_report</span><span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+<span class="c1"># デコレーターパターンを追加
+</span><span class="o">@</span><span class="n">Decorator</span><span class="p">.</span><span class="n">measure_time</span><span class="p">()</span>
+<span class="o">@</span><span class="n">Decorator</span><span class="p">.</span><span class="n">on_slow</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">solve_double</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">solve_double</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">project_controller</span><span class="p">.</span><span class="n">reports</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>実行結果はこんなになります。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python decorator.py
+実行時間は0.00900秒です。
+遅い実行が発見。次の実行をよくするためにポストコントロールしてください。
+実行時間は0.00900秒です。
+<span class="o">[</span>0.008999109268188477, 0.009003400802612305]
+</code></pre></div></div>
+
+<h2 id="複数デコレーター">複数デコレーター</h2>
+
+<p>上記のコードには下記のデコレーターパターンを利用しています。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">Decorator</span><span class="p">.</span><span class="n">measure_time</span><span class="p">()</span>
+<span class="o">@</span><span class="n">Decorator</span><span class="p">.</span><span class="n">on_slow</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>実行順序は下記になります。</p>
+
+<ol>
+  <li>プロジェクトコントローラー<code class="language-plaintext highlighter-rouge">project_controller</code>に問い合わせ<code class="language-plaintext highlighter-rouge">is_slow</code>で実行歴には、最終実行で遅くなったことがあるか確認する。遅くなった場合、ログも残し、プロジェクトの内容に応じてそれぞれの制御を行う。</li>
+  <li>実行時間を測定し、ログを残し、プロジェクトコントローラー<code class="language-plaintext highlighter-rouge">project_controller</code>に実行記録を更新する。</li>
+  <li><code class="language-plaintext highlighter-rouge">solve</code>本体を実行する。</li>
+</ol>
+
+<h2 id="プロジェクトコントローラー">プロジェクト・コントローラー</h2>
+
+<p><code class="language-plaintext highlighter-rouge">project_controller</code>の重要性は、プロジェクトによって変わるけど、今回の要件では、重要だと仮定しましょう。
+その制御変数は、実行時間をキープしたり遅いプロセスを発見したりしますので関数を監視するために役立つ情報を管理しています。</p>
+
+<h1 id="課題">課題</h1>
+
+<p>よく使うと良い武器になるが、悪く使うと制御できない武器になりえます。
+メタプログラミングは勢いため、悪用はもちろんあります。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">plus_one</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">@</span><span class="n">plus_one</span>
+<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># 別のファイルで
+</span><span class="n">identity</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># 出力
+# 2
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">identity</code>を呼ぶのに1を足した結果になります。
+出力、あるいは、レスポンスを変えてしまう利用になりますので、スコープが変更されてしまうという課題です。</p>
+
+<p>コードを難読化するために、利用すると良い場面もあります。
+ですが、実用であまりこの「出力を変更してしまうパターン」を利用しない方がいいかもしれません。</p>
+
+<h1 id="結論">結論</h1>
+
+<p>勢いパターンであるデコレーター・パターンを紹介しました。
+実行時の制御や監視などに役に立します。
+内部変更を防ぎ、スコープ管理やコード管理をよくするパターンです。
+しかし、出力を変更してしまう場合、気をつけて利用しましょう。
+Pythonのフレームワークにはこのパターンはよく使われます。
+DjangoやFlaskのフレームワーク・コードをよく見ると必ず出会うパターンですので、悪用せずによく利用するとメリットばかりです。</p>
+
+<h1 id="参考文献">参考文献</h1>
+
+<ol class="bibliography"><li><span id="3Datamod65:online"><i>3. Data model — Python 3.9.6 documentation - Metaclasses</i>. https://docs.python.org/3/reference/datamodel.html#metaclasses.</span></li>
+<li><span id="Decorato8:online"><i>Decorator</i>. https://refactoring.guru/design-patterns/decorator.</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#メタプログラミング">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">メタプログラミング</span>
+    </a>
+  
+    
+    <a href="/tags.html#metaprogramming">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">metaprogramming</span>
+    </a>
+  
+    
+    <a href="/tags.html#decorator">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">decorator</span>
+    </a>
+  
+    
+    <a href="/tags.html#python">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">python</span>
+    </a>
+  
+    
+    <a href="/tags.html#デコレーター-パターン">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">デコレーター・パターン</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/pm/se/non-english/2021/07/10/python-decorator.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/pm/se/non-english/2021/07/10/python-decorator.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>
