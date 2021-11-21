@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">20 Nov 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/ai.html">
+          Artificial Intelligence
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động&url=https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    8 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#granger-verification">Granger verification</a></li>
+<li class="toc-entry toc-h1"><a href="#trứng-và-gà">Trứng và Gà</a></li>
+<li class="toc-entry toc-h1"><a href="#productivity-pay-gap">Productivity-Pay Gap</a></li>
+<li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
+<li class="toc-entry toc-h1"><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <iframe width="100%" height="680" src="https://www.epi.org?p=235212&amp;view=embed&amp;embed_template=charts_v2013_08_21&amp;embed_date=20211121&amp;onp=91701&amp;utm_source=epi_press&amp;utm_medium=chart_embed&amp;utm_campaign=charts_v2" frameborder="0"></iframe>
+
+<p><strong>Con gà và quả trứng</strong> là một bài toán kinh điển trong thống kê học cổ điển liên quan tới <strong>nhân quả (causality)</strong> và <strong>luân hồi (feedback)</strong> của các chuỗi thời gian (time series).
+Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series).
+Việc kiểm tra nhân quả và luân hồi giữa các chuỗi thời gian được định tính và định lượng thông qua <strong>Granger verification</strong>.
+Năm 1979, Feige và Pearce [2] nghiên cứu về mối quan hệ luân hồi giữa tiền tệ và thu nhập, có sử dụng Granger verification.
+Năm 1988, Thurman và Fisher [3] nghiên cứu chuỗi thời gian về sản lượng trứng cũng như chuỗi dữ liệu về số lượng gà trên toàn nước Mỹ để tìm ra quan hệ nhân quả giữa trứng và gà.
+Họ sử dụng công thức của Granger và lần đầu tiên kết luận mang tính thống kê rằng <strong>trứng có trước và là nguyên nhân sinh ra gà</strong>.
+Phân tích các chuỗi sự kiện thời gian (time series analysis) và nhân quả/luân hồi giữa các chuỗi là một chủ đề truyền thống của thống kê và kinh tế học.
+Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa <strong>sản lượng lao động và bất bình đăng thu nhập</strong> hay bài toán <strong>Productivity-Pay Gap</strong> [4].
+Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).
+<!--more--></p>
+
+<h1 id="granger-verification">Granger verification</h1>
+
+<p>Con gà và quả trứng [3], cũng như Productivity-Pay gap [4] là hai ứng dụng cơ bản của Granger method [1].
+Giả sử ta có chuỗi thời gian $\mathbf{X}=\{X_t\}_{t=-\infty}^{+\infty}$ với thời điểm $t=0$ là thời điểm bắt đầu quan sát.</p>
+
+<p>Ta kí hiệu chuỗi tín hiệu quá khứ của thời điểm $t$ là $\overline{\mathbf{X_t}}=\{X_{t-i}\}_{i=1}^{+\infty}$.</p>
+
+<p>Ngoài ra, chuỗi tín hiệu quá khứ và hiện tại của thời điểm $t$ là $\overline{\overline{\mathbf{X_t}}}=\{X_{t-i}\}_{i=0}^{+\infty}$.</p>
+
+<p>Ta cũng ký hiệu giá trị ước đoán điều kiện của $A_t$ trong một chuỗi $\mathbf{A}$ theo least-square errors khi có quan sát là chuỗi $\mathbf{B}$ là $P_t(\mathbf{A}\mid\mathbf{B})$.</p>
+
+<p>Chuỗi giá trị lỗi của một dự đoán là $\epsilon_t(\mathbf{A}\mid\mathbf{B})=A_t-P_t(\mathbf{A}\mid\mathbf{B})$.</p>
+
+<p>Ta hãy gọi $\sigma^2_t(\mathbf{A}\mid\mathbf{B})$ là phương sai của chuỗi giá trị lỗi $\epsilon_t(\mathbf{A}\mid\mathbf{B})$.</p>
+
+<p>Trong trường hợp này ta hãy giả sử tất cả các chuỗi đều là <strong>sóng dừng</strong>.
+Bây giờ, ta có thể thêm ký hiệu $\mathbf{U}$ là chuỗi thông tin vũ trụ (universe time series) mô tả mọi trạng thái trong quá khứ, hiện tại và tương lai của thế giới.
+Thì ứng với một chuỗi sự kiện cụ thể $\mathbf{Y}$ thì $\mathbf{U}-\mathbf{Y}$ là chuỗi thông tin toàn cầu mà bỏ đi thông tin của $\mathbf{Y}$.</p>
+
+<ul>
+  <li>
+    <p><strong>Định nghĩa nhân quả</strong>: Nếu $\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}})\leq\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}-\mathbf{Y}})$ thì $\mathbf{Y}$ là <em>nguyên nhân</em> gây ra $\mathbf{X}$.
+Định nghĩa này của Granger khá là trực quan, nói nôm na là nếu xóa thông tin của $\mathbf{Y}$ khỏi hệ thống thông tin toàn cầu thì dự đoán sẽ có sai lệch lớn hơn, thì rõ ràng $\mathbf{Y}$ là 1 trong các <em>nguyên nhân</em> gây ra $\mathbf{X}$</p>
+  </li>
+  <li>
+    <p><strong>Định nghĩa luân hồi</strong>: Nếu đồng thời $\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}})\leq\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}-\mathbf{Y}})$ và $\sigma^2(\mathbf{Y}\mid\overline{\mathbf{U}})\leq\sigma^2(\mathbf{Y}\mid\overline{\mathbf{U}-\mathbf{X}})$ thì $\mathbf{Y}$ là <em>luân hồi</em> $\mathbf{X}$.
+Định nghĩa này của Granger cũng khá là trực quan, nói nôm na là nếu $\mathbf{Y}$ là nguyên nhân của $\mathbf{X}$ mà $\mathbf{X}$ cũng là nguyên nhân của $\mathbf{Y}$, thì hai chuỗi có luân hồi nghiệp quả.</p>
+  </li>
+  <li>
+    <p><strong>Nghiệp quả xa</strong>: ta nói $\mathbf{Y}$ là <em>nghiệp quả xa</em> của $\mathbf{X}$ nếu có thêm thông tin quá khứ và hiện tại của $\mathbf{Y}$ thì kết quả dự đoán trở nên chính xác hơn: $P(\mathbf{X}\mid\overline{\mathbf{U}},\overline{\overline{\mathbf{Y}}})\leq P(\mathbf{X}\mid\overline{\mathbf{U}})$.</p>
+  </li>
+  <li>
+    <p><strong>Độ lệch của nghiệp quả</strong>: là giá trị số nguyên dương nhỏ nhất thỏa mãn</p>
+  </li>
+</ul>
+
+<p>$m={\arg\min}_k\{\sigma^2(\mathbf{X}\mid\mathbf{U}-\mathbf{Y}(k))\leq\sigma^2(\mathbf{X}\mid\mathbf{U}-\mathbf{Y}(k+1))\}$,</p>
+
+<p>tức là chỉ cần biết tối đa $m$ giá trị gần nhất trong chuỗi quá khứ và hiện tại là đủ để dự đoán.</p>
+
+<p>Xem xét hai chuỗi theo mô hình white-noise như sau:</p>
+
+<p>$X_t=\sum_{j=1}^ma_jX_{t-j}+\sum_{j=1}^mb_jY_{t-j}+\epsilon_t,$</p>
+
+<p>$Y_t=\sum_{j=1}^mc_jY_{t-j}+\sum_{j=1}^md_jX_{t-j}+\eta_t,$</p>
+
+<p>Theo định nghĩa của <strong>nhân quả</strong>, nếu $\exists j~\mbox{s.t.}~b_j\neq 0$ thì $\mathbf{Y}$ là <em>nguyên nhân</em> của $\mathbf{X}$.
+Và ngược lại $\exists j~\mbox{s.t.}~d_j\neq 0$ thì $\mathbf{X}$ là <em>nguyên nhân</em> của $\mathbf{Y}$.
+Nếu đồng thời hai điều kiện trên xảy ra thì chúng là <em>luân hồi</em> của nhau.
+Kiểm tra giả thuyết $H_0: b_j=0\forall j$ chính là <strong>Granger verification</strong>.</p>
+
+<h1 id="trứng-và-gà">Trứng và Gà</h1>
+
+<p>Năm 1988, Thurman và Fisher [3] đã thực hiện Granger verification trên bộ dữ liệu chứa hai chuỗi dữ liệu: sản lượng trứng hàng năm $\mathbf{X}$và số lượng gà hàng năm $\mathbf{Y}$ trên nước Mỹ từ 1930–1983.</p>
+
+<p>Vì cả 2 chuỗi trên đều có thể giả định là iid, nên ta có thể viết lại mô hình nhân quả như sau:</p>
+
+<p>$X_t=\sum_{j=1}^mb_jY_{t-j}+\epsilon_t,$</p>
+
+<p>$Y_t=\sum_{j=1}^md_jX_{t-j}+\eta_t,$</p>
+
+<p>Chúng ta kiểm định hai giả thiết null như sau:</p>
+
+<p>$H_{0x}: b_j=0\forall j$</p>
+
+<p>$H_{0y}: d_j=0\forall j$</p>
+
+<p>Giả thiết $H_{0x}$ chính là <em>trứng không là nguyên nhân của gà</em>.
+Giả thiết $H_{0y}$ chính là <em>gà không là nguyên nhân của trứng</em>.</p>
+
+<p>Trên bộ dữ liệu trứng Mỹ và gà Mỹ, có thể bác bỏ giả thuyết đầu, nhưng không thể bác bỏ giả thuyết sau.
+Tựu chung lại là <em>trứng Mỹ có trước và sinh ra gà Mỹ</em>.</p>
+
+<h1 id="productivity-pay-gap">Productivity-Pay Gap</h1>
+
+<p>Hầu hết người Mỹ đều tin rằng <strong>kinh tế phát triển thì người lao động sẽ nhận được reward</strong>.
+Nhưng theo 1 nghiên cứu gần đây [4] thì có vẻ tình hình thu nhập của người lao động Mỹ không phải như vậy.
+Từ năm 1979, nước Mỹ đã có những thay đổi lớn về chính sách kinh tế, trong đó có nhiều chính sách phục vụ cho người giàu:</p>
+
+<blockquote>
+  <p>Starting in the late 1970s, policymakers began dismantling all the policy bulwarks helping to ensure that typical workers’ wages grew with productivity. Excess unemployment was tolerated to keep any chance of inflation in check. Raises in the federal minimum wage became smaller and rarer. Labor law failed to keep pace with growing employer hostility toward unions. Tax rates on top incomes were lowered. And anti-worker deregulatory pushes—from the deregulation of the trucking and airline industries to the retreat of anti-trust policy to the dismantling of financial regulations and more—succeeded again and again.</p>
+</blockquote>
+
+<p>Những chính sách như giảm thuế cho những người thu nhập cao, … đã khoét sâu “hố ngăn” thu nhập giữa tầng lớp giàu và nghèo.
+Lấy mốc 1979 là 100% cho cả tổng sản lượng quốc nội $\mathbf{X}$ lẫn thu nhập bình quân của tầng lớp lao động $\mathbf{Y}$.
+Tức là $X_{1979}=Y_{1979}=1$.
+Thì rõ ràng là từ năm 1948 tới 1979, lương và sản lượng quốc nội đều cùng chiều tăng.
+Nhưng từ mốc 1979 với sự thay đổi về chính sách, tổng sản lượng quốc nội vẫn tăng tuyến tính nhưng lương của tầng lớp lao động đã chững lại.
+Nên nhớ tầng lớp lao động nói đến trong nghiên cứu này chiếm tới 80% dân số lao động của Mỹ (production and unsupervisory workers).
+Cũng nhưu ví dụ trứng và gà, cả 2 chuỗi trên đều có thể giả định là iid, nên ta có thể viết lại mô hình nhân quả như sau:</p>
+
+<p>$X_t=\sum_{j=1}^mb_jY_{t-j}+\epsilon_t,$</p>
+
+<p>$Y_t=\sum_{j=1}^md_jX_{t-j}+\eta_t,$</p>
+
+<p>Tuy nhiên, <strong>điểm mốc 1979</strong> gần như là mốc thay đổi tất cả.
+Trước 1979, hai chuỗi song song tuyến tính phát triển và quan hệ nhân quả theo phép thử Granger sẽ cho kết quả chấp nhận (không bác bỏ).
+Từ 1979, chuỗi thu nhập của người lao động chững lại, do đó quan hệ nhân quả luân hồi giảm đi.
+Đây là một ví dụ cho thấy chính sách đủ mạnh có thể thay đổi quan hệ giữa hai chuỗi, khiến cho nhân quả luân hồi biến mất.
+Hai bên đi theo hai hướng độc lập riêng biệt, một bên tiếp tục phát triển lên cao, còn một bên chững lại và phát triển chậm.</p>
+
+<h1 id="kết-luận">Kết luận</h1>
+
+<p>Granger verification là một câu chuyện thú vị.
+Hai ứng dụng cơ bản là trứng và gà đã được các nhà khoa học Mỹ phát kiến ra trong thế kỷ 20: <em>trứng Mỹ sinh ra gà Mỹ</em> (chứ không phải ngược lại).
+Và hầu như không có luân hồi trong quan hệ giữa trứng và gà trên đất Mỹ.
+Câu chuyện thứ hai là về sự thay đổi của chính sách đủ mạnh để làm mất nhân quả: năm 1979 là năm cột mốc với những người lao động Mỹ, khi bắt đầu từ đó, sản lượng quốc nội vẫn tăng tuyến tính nhưng tiền lương của người lao động tăng chậm.
+Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Granger đều là sóng dừng nhưng gần đây có những nghiên cứu tổng quát cho mọi loại sóng.</p>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="granger1969investigating">Granger, C. W. J. (1969). Investigating causal relations by econometric models and cross-spectral methods. <i>Econometrica: Journal of the Econometric Society</i>, 424–438.</span></li>
+<li><span id="feige1979casual">Feige, E. L., &amp; Pearce, D. K. (1979). The casual causal relationship between money and income: Some caveats for time series analysis. <i>The Review of Economics and Statistics</i>, 521–533.</span></li>
+<li><span id="thurman1988chickens">Thurman, W. N., Fisher, M. E., &amp; others. (1988). Chickens, eggs, and causality, or which came first. <i>American Journal of Agricultural Economics</i>, <i>70</i>(2), 237–238.</span></li>
+<li><span id="TheProdu24:online"><i>The Productivity–Pay Gap | Economic Policy Institute</i>. https://www.epi.org/productivity-pay-gap/</span></li></ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#project-management">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project management</span>
+    </a>
+  
+    
+    <a href="/tags.html#project-lifecycle">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">project lifecycle</span>
+    </a>
+  
+    
+    <a href="/tags.html#software-development">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">software development</span>
+    </a>
+  
+    
+    <a href="/tags.html#chicken-and-egg">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">chicken and egg</span>
+    </a>
+  
+    
+    <a href="/tags.html#causal-relations">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">causal relations</span>
+    </a>
+  
+    
+    <a href="/tags.html#granger-model">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">Granger model</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/2021/11/07/azure-boards-pm-extensions.html">
+            Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials
+            <small>07 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pm/non-english/2021/11/01/integromat.html">
+            Integromat: An integration platform for workflow automation
+            <small>01 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>

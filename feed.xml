@@ -1,4 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-21T16:16:44+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">A Tutorial on Amazon OpenSearch Service and Kibana</title><link href="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html" rel="alternate" type="text/html" title="A Tutorial on Amazon OpenSearch Service and Kibana" /><published>2021-11-13T00:00:00+09:00</published><updated>2021-11-13T00:00:00+09:00</updated><id>https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1</id><content type="html" xml:base="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana.svg&quot; alt=&quot;os&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-21T23:07:55+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</title><link href="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html" rel="alternate" type="text/html" title="Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động" /><published>2021-11-20T00:00:00+09:00</published><updated>2021-11-20T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html">&lt;iframe width=&quot;100%&quot; height=&quot;680&quot; src=&quot;https://www.epi.org?p=235212&amp;amp;view=embed&amp;amp;embed_template=charts_v2013_08_21&amp;amp;embed_date=20211121&amp;amp;onp=91701&amp;amp;utm_source=epi_press&amp;amp;utm_medium=chart_embed&amp;amp;utm_campaign=charts_v2&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;strong&gt;Con gà và quả trứng&lt;/strong&gt; là một bài toán kinh điển trong thống kê học cổ điển liên quan tới &lt;strong&gt;nhân quả (causality)&lt;/strong&gt; và &lt;strong&gt;luân hồi (feedback)&lt;/strong&gt; của các chuỗi thời gian (time series).
+Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series).
+Việc kiểm tra nhân quả và luân hồi giữa các chuỗi thời gian được định tính và định lượng thông qua &lt;strong&gt;Granger verification&lt;/strong&gt;.
+Năm 1979, Feige và Pearce [2] nghiên cứu về mối quan hệ luân hồi giữa tiền tệ và thu nhập, có sử dụng Granger verification.
+Năm 1988, Thurman và Fisher [3] nghiên cứu chuỗi thời gian về sản lượng trứng cũng như chuỗi dữ liệu về số lượng gà trên toàn nước Mỹ để tìm ra quan hệ nhân quả giữa trứng và gà.
+Họ sử dụng công thức của Granger và lần đầu tiên kết luận mang tính thống kê rằng &lt;strong&gt;trứng có trước và là nguyên nhân sinh ra gà&lt;/strong&gt;.
+Phân tích các chuỗi sự kiện thời gian (time series analysis) và nhân quả/luân hồi giữa các chuỗi là một chủ đề truyền thống của thống kê và kinh tế học.
+Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa &lt;strong&gt;sản lượng lao động và bất bình đăng thu nhập&lt;/strong&gt; hay bài toán &lt;strong&gt;Productivity-Pay Gap&lt;/strong&gt; [4].
+Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;granger-verification&quot;&gt;Granger verification&lt;/h1&gt;
+
+&lt;p&gt;Con gà và quả trứng [3], cũng như Productivity-Pay gap [4] là hai ứng dụng cơ bản của Granger method [1].
+Giả sử ta có chuỗi thời gian $\mathbf{X}=\{X_t\}_{t=-\infty}^{+\infty}$ với thời điểm $t=0$ là thời điểm bắt đầu quan sát.&lt;/p&gt;
+
+&lt;p&gt;Ta kí hiệu chuỗi tín hiệu quá khứ của thời điểm $t$ là $\overline{\mathbf{X_t}}=\{X_{t-i}\}_{i=1}^{+\infty}$.&lt;/p&gt;
+
+&lt;p&gt;Ngoài ra, chuỗi tín hiệu quá khứ và hiện tại của thời điểm $t$ là $\overline{\overline{\mathbf{X_t}}}=\{X_{t-i}\}_{i=0}^{+\infty}$.&lt;/p&gt;
+
+&lt;p&gt;Ta cũng ký hiệu giá trị ước đoán điều kiện của $A_t$ trong một chuỗi $\mathbf{A}$ theo least-square errors khi có quan sát là chuỗi $\mathbf{B}$ là $P_t(\mathbf{A}\mid\mathbf{B})$.&lt;/p&gt;
+
+&lt;p&gt;Chuỗi giá trị lỗi của một dự đoán là $\epsilon_t(\mathbf{A}\mid\mathbf{B})=A_t-P_t(\mathbf{A}\mid\mathbf{B})$.&lt;/p&gt;
+
+&lt;p&gt;Ta hãy gọi $\sigma^2_t(\mathbf{A}\mid\mathbf{B})$ là phương sai của chuỗi giá trị lỗi $\epsilon_t(\mathbf{A}\mid\mathbf{B})$.&lt;/p&gt;
+
+&lt;p&gt;Trong trường hợp này ta hãy giả sử tất cả các chuỗi đều là &lt;strong&gt;sóng dừng&lt;/strong&gt;.
+Bây giờ, ta có thể thêm ký hiệu $\mathbf{U}$ là chuỗi thông tin vũ trụ (universe time series) mô tả mọi trạng thái trong quá khứ, hiện tại và tương lai của thế giới.
+Thì ứng với một chuỗi sự kiện cụ thể $\mathbf{Y}$ thì $\mathbf{U}-\mathbf{Y}$ là chuỗi thông tin toàn cầu mà bỏ đi thông tin của $\mathbf{Y}$.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Định nghĩa nhân quả&lt;/strong&gt;: Nếu $\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}})\leq\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}-\mathbf{Y}})$ thì $\mathbf{Y}$ là &lt;em&gt;nguyên nhân&lt;/em&gt; gây ra $\mathbf{X}$.
+Định nghĩa này của Granger khá là trực quan, nói nôm na là nếu xóa thông tin của $\mathbf{Y}$ khỏi hệ thống thông tin toàn cầu thì dự đoán sẽ có sai lệch lớn hơn, thì rõ ràng $\mathbf{Y}$ là 1 trong các &lt;em&gt;nguyên nhân&lt;/em&gt; gây ra $\mathbf{X}$&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Định nghĩa luân hồi&lt;/strong&gt;: Nếu đồng thời $\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}})\leq\sigma^2(\mathbf{X}\mid\overline{\mathbf{U}-\mathbf{Y}})$ và $\sigma^2(\mathbf{Y}\mid\overline{\mathbf{U}})\leq\sigma^2(\mathbf{Y}\mid\overline{\mathbf{U}-\mathbf{X}})$ thì $\mathbf{Y}$ là &lt;em&gt;luân hồi&lt;/em&gt; $\mathbf{X}$.
+Định nghĩa này của Granger cũng khá là trực quan, nói nôm na là nếu $\mathbf{Y}$ là nguyên nhân của $\mathbf{X}$ mà $\mathbf{X}$ cũng là nguyên nhân của $\mathbf{Y}$, thì hai chuỗi có luân hồi nghiệp quả.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Nghiệp quả xa&lt;/strong&gt;: ta nói $\mathbf{Y}$ là &lt;em&gt;nghiệp quả xa&lt;/em&gt; của $\mathbf{X}$ nếu có thêm thông tin quá khứ và hiện tại của $\mathbf{Y}$ thì kết quả dự đoán trở nên chính xác hơn: $P(\mathbf{X}\mid\overline{\mathbf{U}},\overline{\overline{\mathbf{Y}}})\leq P(\mathbf{X}\mid\overline{\mathbf{U}})$.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Độ lệch của nghiệp quả&lt;/strong&gt;: là giá trị số nguyên dương nhỏ nhất thỏa mãn&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;$m={\arg\min}_k\{\sigma^2(\mathbf{X}\mid\mathbf{U}-\mathbf{Y}(k))\leq\sigma^2(\mathbf{X}\mid\mathbf{U}-\mathbf{Y}(k+1))\}$,&lt;/p&gt;
+
+&lt;p&gt;tức là chỉ cần biết tối đa $m$ giá trị gần nhất trong chuỗi quá khứ và hiện tại là đủ để dự đoán.&lt;/p&gt;
+
+&lt;p&gt;Xem xét hai chuỗi theo mô hình white-noise như sau:&lt;/p&gt;
+
+&lt;p&gt;$X_t=\sum_{j=1}^ma_jX_{t-j}+\sum_{j=1}^mb_jY_{t-j}+\epsilon_t,$&lt;/p&gt;
+
+&lt;p&gt;$Y_t=\sum_{j=1}^mc_jY_{t-j}+\sum_{j=1}^md_jX_{t-j}+\eta_t,$&lt;/p&gt;
+
+&lt;p&gt;Theo định nghĩa của &lt;strong&gt;nhân quả&lt;/strong&gt;, nếu $\exists j~\mbox{s.t.}~b_j\neq 0$ thì $\mathbf{Y}$ là &lt;em&gt;nguyên nhân&lt;/em&gt; của $\mathbf{X}$.
+Và ngược lại $\exists j~\mbox{s.t.}~d_j\neq 0$ thì $\mathbf{X}$ là &lt;em&gt;nguyên nhân&lt;/em&gt; của $\mathbf{Y}$.
+Nếu đồng thời hai điều kiện trên xảy ra thì chúng là &lt;em&gt;luân hồi&lt;/em&gt; của nhau.
+Kiểm tra giả thuyết $H_0: b_j=0\forall j$ chính là &lt;strong&gt;Granger verification&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;trứng-và-gà&quot;&gt;Trứng và Gà&lt;/h1&gt;
+
+&lt;p&gt;Năm 1988, Thurman và Fisher [3] đã thực hiện Granger verification trên bộ dữ liệu chứa hai chuỗi dữ liệu: sản lượng trứng hàng năm $\mathbf{X}$và số lượng gà hàng năm $\mathbf{Y}$ trên nước Mỹ từ 1930–1983.&lt;/p&gt;
+
+&lt;p&gt;Vì cả 2 chuỗi trên đều có thể giả định là iid, nên ta có thể viết lại mô hình nhân quả như sau:&lt;/p&gt;
+
+&lt;p&gt;$X_t=\sum_{j=1}^mb_jY_{t-j}+\epsilon_t,$&lt;/p&gt;
+
+&lt;p&gt;$Y_t=\sum_{j=1}^md_jX_{t-j}+\eta_t,$&lt;/p&gt;
+
+&lt;p&gt;Chúng ta kiểm định hai giả thiết null như sau:&lt;/p&gt;
+
+&lt;p&gt;$H_{0x}: b_j=0\forall j$&lt;/p&gt;
+
+&lt;p&gt;$H_{0y}: d_j=0\forall j$&lt;/p&gt;
+
+&lt;p&gt;Giả thiết $H_{0x}$ chính là &lt;em&gt;trứng không là nguyên nhân của gà&lt;/em&gt;.
+Giả thiết $H_{0y}$ chính là &lt;em&gt;gà không là nguyên nhân của trứng&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Trên bộ dữ liệu trứng Mỹ và gà Mỹ, có thể bác bỏ giả thuyết đầu, nhưng không thể bác bỏ giả thuyết sau.
+Tựu chung lại là &lt;em&gt;trứng Mỹ có trước và sinh ra gà Mỹ&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;productivity-pay-gap&quot;&gt;Productivity-Pay Gap&lt;/h1&gt;
+
+&lt;p&gt;Hầu hết người Mỹ đều tin rằng &lt;strong&gt;kinh tế phát triển thì người lao động sẽ nhận được reward&lt;/strong&gt;.
+Nhưng theo 1 nghiên cứu gần đây [4] thì có vẻ tình hình thu nhập của người lao động Mỹ không phải như vậy.
+Từ năm 1979, nước Mỹ đã có những thay đổi lớn về chính sách kinh tế, trong đó có nhiều chính sách phục vụ cho người giàu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Starting in the late 1970s, policymakers began dismantling all the policy bulwarks helping to ensure that typical workers’ wages grew with productivity. Excess unemployment was tolerated to keep any chance of inflation in check. Raises in the federal minimum wage became smaller and rarer. Labor law failed to keep pace with growing employer hostility toward unions. Tax rates on top incomes were lowered. And anti-worker deregulatory pushes—from the deregulation of the trucking and airline industries to the retreat of anti-trust policy to the dismantling of financial regulations and more—succeeded again and again.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Những chính sách như giảm thuế cho những người thu nhập cao, … đã khoét sâu “hố ngăn” thu nhập giữa tầng lớp giàu và nghèo.
+Lấy mốc 1979 là 100% cho cả tổng sản lượng quốc nội $\mathbf{X}$ lẫn thu nhập bình quân của tầng lớp lao động $\mathbf{Y}$.
+Tức là $X_{1979}=Y_{1979}=1$.
+Thì rõ ràng là từ năm 1948 tới 1979, lương và sản lượng quốc nội đều cùng chiều tăng.
+Nhưng từ mốc 1979 với sự thay đổi về chính sách, tổng sản lượng quốc nội vẫn tăng tuyến tính nhưng lương của tầng lớp lao động đã chững lại.
+Nên nhớ tầng lớp lao động nói đến trong nghiên cứu này chiếm tới 80% dân số lao động của Mỹ (production and unsupervisory workers).
+Cũng nhưu ví dụ trứng và gà, cả 2 chuỗi trên đều có thể giả định là iid, nên ta có thể viết lại mô hình nhân quả như sau:&lt;/p&gt;
+
+&lt;p&gt;$X_t=\sum_{j=1}^mb_jY_{t-j}+\epsilon_t,$&lt;/p&gt;
+
+&lt;p&gt;$Y_t=\sum_{j=1}^md_jX_{t-j}+\eta_t,$&lt;/p&gt;
+
+&lt;p&gt;Tuy nhiên, &lt;strong&gt;điểm mốc 1979&lt;/strong&gt; gần như là mốc thay đổi tất cả.
+Trước 1979, hai chuỗi song song tuyến tính phát triển và quan hệ nhân quả theo phép thử Granger sẽ cho kết quả chấp nhận (không bác bỏ).
+Từ 1979, chuỗi thu nhập của người lao động chững lại, do đó quan hệ nhân quả luân hồi giảm đi.
+Đây là một ví dụ cho thấy chính sách đủ mạnh có thể thay đổi quan hệ giữa hai chuỗi, khiến cho nhân quả luân hồi biến mất.
+Hai bên đi theo hai hướng độc lập riêng biệt, một bên tiếp tục phát triển lên cao, còn một bên chững lại và phát triển chậm.&lt;/p&gt;
+
+&lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+
+&lt;p&gt;Granger verification là một câu chuyện thú vị.
+Hai ứng dụng cơ bản là trứng và gà đã được các nhà khoa học Mỹ phát kiến ra trong thế kỷ 20: &lt;em&gt;trứng Mỹ sinh ra gà Mỹ&lt;/em&gt; (chứ không phải ngược lại).
+Và hầu như không có luân hồi trong quan hệ giữa trứng và gà trên đất Mỹ.
+Câu chuyện thứ hai là về sự thay đổi của chính sách đủ mạnh để làm mất nhân quả: năm 1979 là năm cột mốc với những người lao động Mỹ, khi bắt đầu từ đó, sản lượng quốc nội vẫn tăng tuyến tính nhưng tiền lương của người lao động tăng chậm.
+Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Granger đều là sóng dừng nhưng gần đây có những nghiên cứu tổng quát cho mọi loại sóng.&lt;/p&gt;
+
+&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;granger1969investigating&quot;&gt;Granger, C. W. J. (1969). Investigating causal relations by econometric models and cross-spectral methods. &lt;i&gt;Econometrica: Journal of the Econometric Society&lt;/i&gt;, 424–438.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;feige1979casual&quot;&gt;Feige, E. L., &amp;amp; Pearce, D. K. (1979). The casual causal relationship between money and income: Some caveats for time series analysis. &lt;i&gt;The Review of Economics and Statistics&lt;/i&gt;, 521–533.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;thurman1988chickens&quot;&gt;Thurman, W. N., Fisher, M. E., &amp;amp; others. (1988). Chickens, eggs, and causality, or which came first. &lt;i&gt;American Journal of Agricultural Economics&lt;/i&gt;, &lt;i&gt;70&lt;/i&gt;(2), 237–238.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;TheProdu24:online&quot;&gt;&lt;i&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/i&gt;. https://www.epi.org/productivity-pay-gap/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="ai" /><category term="project management" /><category term="project lifecycle" /><category term="software development" /><category term="chicken and egg" /><category term="causal relations" /><category term="Granger model" /><summary type="html">Con gà và quả trứng là một bài toán kinh điển trong thống kê học cổ điển liên quan tới nhân quả (causality) và luân hồi (feedback) của các chuỗi thời gian (time series). Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series). Việc kiểm tra nhân quả và luân hồi giữa các chuỗi thời gian được định tính và định lượng thông qua Granger verification. Năm 1979, Feige và Pearce [2] nghiên cứu về mối quan hệ luân hồi giữa tiền tệ và thu nhập, có sử dụng Granger verification. Năm 1988, Thurman và Fisher [3] nghiên cứu chuỗi thời gian về sản lượng trứng cũng như chuỗi dữ liệu về số lượng gà trên toàn nước Mỹ để tìm ra quan hệ nhân quả giữa trứng và gà. Họ sử dụng công thức của Granger và lần đầu tiên kết luận mang tính thống kê rằng trứng có trước và là nguyên nhân sinh ra gà. Phân tích các chuỗi sự kiện thời gian (time series analysis) và nhân quả/luân hồi giữa các chuỗi là một chủ đề truyền thống của thống kê và kinh tế học. Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa sản lượng lao động và bất bình đăng thu nhập hay bài toán Productivity-Pay Gap [4]. Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).</summary></entry><entry><title type="html">A Tutorial on Amazon OpenSearch Service and Kibana</title><link href="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html" rel="alternate" type="text/html" title="A Tutorial on Amazon OpenSearch Service and Kibana" /><published>2021-11-13T00:00:00+09:00</published><updated>2021-11-13T00:00:00+09:00</updated><id>https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1</id><content type="html" xml:base="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana.svg&quot; alt=&quot;os&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Our problem at hand is quite predictable!
 A client has their staff submitting reports by CSV files every single day.
@@ -2021,251 +2148,4 @@ PCとともにモバイルにも導入しましょう。&lt;/p&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;soumushou46online&quot;&gt;&lt;i&gt;総務省｜報道資料｜「テレワークセキュリティガイドライン（第5版）」（案）に対する意見募集の結果及び当該ガイドラインの公表&lt;/i&gt;. https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00111.html.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;avastsecurebrowser64online&quot;&gt;&lt;i&gt;追跡なしのプライベート ブラウザ | アバスト セキュア ブラウザ&lt;/i&gt;. https://www.avast.co.jp/secure-browser#pc.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;bankmode1online&quot;&gt;&lt;i&gt;アバスト セキュア ブラウザでバンク モードを開く方法 | アバスト&lt;/i&gt;. https://support.avast.com/ja-jp/article/Use-Bank-Mode/.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="sre" /><category term="non-english" /><category term="セキュアブラウザ" /><category term="ブラウザ" /><category term="セキュリティ" /><category term="プライバシー" /><summary type="html">中小企業向けテレワークセキュリティガイドライン（第5版） [1]が令和3年5月には公表されました。 無料で直ぐに点検できますので、結構貴重な資料であろう。 その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。 普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？ さらに、一般のブラウザと比べると付加価値とは何か？ ひょっとしたら調べていきます。 専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。</summary></entry><entry><title type="html">C4 diagrams for software architecture visualization - Context, Containers, Components, and Code -</title><link href="https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design.html" rel="alternate" type="text/html" title="C4 diagrams for software architecture visualization - Context, Containers, Components, and Code -" /><published>2021-09-03T00:00:00+09:00</published><updated>2021-09-03T00:00:00+09:00</updated><id>https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design</id><content type="html" xml:base="https://wanted2.github.io/pm/se/2021/09/03/c4-diagrams-software-design.html">&lt;p&gt;&lt;img src=&quot;https://res.infoq.com/articles/C4-architecture-model/en/resources/c4-1-1529934729133.jpg&quot; alt=&quot;&quot; /&gt;
-&lt;em&gt;Source: InfoQ&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Using MS Word and Excel, an engineer can describe the system in language and visuals.
-Such conventional methodologies can be sufficient for small architecture with few components.
-When the software system scales and changes frequently, maintaining records of the architecture by documents can be tedious.
-Hence, the lack of interaction in conventional document methods may present a stiff learning curve for a new member to the project team.
-To cope with these challenges, the &lt;strong&gt;C4 diagram model [1, 2, 3]&lt;/strong&gt; was created to give interactive views of the software architectures.
-Systems are modeled at four different levels: system context, containers, components, and code.
-These levels are represented by diagrams.
-Intuitively, we can see the C4 diagrams as large visualization systems in which engineers can zoom in and out to see the details and the big picture.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h1 id=&quot;the-c4-model&quot;&gt;The C4 model&lt;/h1&gt;
-
-&lt;h2 id=&quot;the-cure-of-representation&quot;&gt;The cure of representation&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Knowledge sharing&lt;/strong&gt; is important in software projects.
-Using representations like documents and diagrams, teams can keep the understanding of the product identically among team members.
-Also, having such powerful representations can keep stakeholders motivated.
-A good representation of the software projects, especially the architectures, helps audiences to capture the mechanism of the project at a glance.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A good representation should be lightweight but doesn’t omit any aspects of the software product. It should contain as many details as possible but also must be compact and fast.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I had experiences in several projects where knowledge sharing is important.
-People realized the need, and they tried to share by different means: verbal conversations (i. e., meetings or discussions), visual communications (presentations and diagrams), and textual things (documents by MS Office, notes, …).
-However, things will be like “a ton of documents” have been produced, and new members need to read all when joining the project.
-Then when a business staff wants to have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;short and compact description&lt;/code&gt; to put in presentations (and will give the presentation to the clients or investors), someone will need to do the &lt;strong&gt;summarization&lt;/strong&gt; after reading the whole bundle.
-Such textual summary was a good means for knowledge sharing, but the compression ratio was not quite good: several sentences can capture only some aspects of the projects, and then QA sections always come for clients and members to understand more.&lt;/p&gt;
-
-&lt;div style=&quot;width: 40%; float: right; margin: 15px;&quot;&gt;
-&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/0/0b/1913_Piqua_Ohio_Advertisement_-_One_Look_Is_Worth_a_Thousand_Words.jpg&quot; /&gt;
-&lt;p&gt;1913 Piqua Ohio Advertisement - One Look Is Worth a Thousand Words. Source: &lt;a href=&quot;https://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words#/media/File:1913_Piqua_Ohio_Advertisement_-_One_Look_Is_Worth_a_Thousand_Words.jpg&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Another direction to find a compact representation is using visual information.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A picture is worth a thousand words.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Diagrams and interactions are always good things. Some studies have shown that children will learn faster by visual representations like pictures and interesting pictures.
-Finding such a compact and meaningful visual representation also needs to compress the whole architecture into small diagrams which are organized hierarchically.
-In other words, architects who find such representations also need to refine, prune and search for compact architectures to put into the compact diagrams.&lt;/p&gt;
-
-&lt;div style=&quot;width: 60%; float: left; margin: 15px;&quot;&gt;
-&lt;img src=&quot;https://c4model.com/img/c4-overview.png&quot; /&gt;
-&lt;p&gt;Source: &lt;a href=&quot;https://c4model.com/&quot;&gt;c4model.com&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Therefore, the search for good representations faces the tradeoff between the learning cost and the compactness of representations.
-&lt;strong&gt;What C4 model provides is a compact, interactive and hierarchical representation of any software architecture.&lt;/strong&gt;
-The model divides the architectural diagrams into four levels: context, containers, components, and code.
-Low-level representations such as code and components represent details for implementations and maintenance.
-Thus, they should be used by developers.
-High-level representations such as context and containers represent an overview of the architecture such as system diagrams and container architecture (container here is not Docker!).&lt;/p&gt;
-
-&lt;p&gt;Another aspect of a good representation is &lt;strong&gt;handling of changes&lt;/strong&gt;.
-Projects always change: requirements change, designs change, people change, code change, architectures change, .etc.
-Then the representations will change.
-Having a &lt;strong&gt;general model&lt;/strong&gt; which is valid for many software architectures is a challenge.
-Neither searching for such an architecture can be done soon, but for the short-term thinking, we need a representation that needs to change only a little even when the architectures change a lot.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A good representation must be not only robust to changes in micro-level details (code and components designs) but also persistent to changes at macro-level architectures and management.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;metamodel-and-notations&quot;&gt;Metamodel and notations&lt;/h2&gt;
-
-&lt;p&gt;The author of C4 model &lt;strong&gt;Simon Brown&lt;/strong&gt; once talked about the invention as follows.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The C4 model was created as a way to help software development teams describe and communicate software architecture, both during up-front design sessions and when retrospectively documenting an existing codebase. 
-It’s a way to create maps of your code, at various levels of detail, in the same ways you would use something like Google Maps to zoom in and out of an area you are interested in.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Although primarily aimed at software architects and developers, the C4 model provides a way for software development teams to efficiently and effectively communicate their software architecture at different levels of detail, telling different stories to different types of audiences when doing up-front design or retrospectively documenting an existing codebase.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;The C4 model consists of a hierarchical set of software architecture diagrams for context, containers, components, and code.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;elements-and-relationships&quot;&gt;Elements and relationships&lt;/h3&gt;
-&lt;p&gt;The following elements and relationships form the diagrams in C4.
-Notations and metamodel are described.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Terms&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Notation&lt;/th&gt;
-      &lt;th&gt;Parent&lt;/th&gt;
-      &lt;th&gt;Properties&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Person&lt;/td&gt;
-      &lt;td&gt;A person represents one of the human users of your software system (e. g., roles, personas, etc.).&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/notation-person.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Name, Description, Location (Internal or External)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Software system&lt;/td&gt;
-      &lt;td&gt;A software system is the highest level of abstraction and describes something that delivers value to its users, whether they are human or not. It should be something large, contains all smaller levels of abstractions such as software containers.&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/notation-software-system.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Name, Description, Location (Internal or External), The set of containers that make up the software system&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Container&lt;/td&gt;
-      &lt;td&gt;An application or data store. A container is essentially a context or boundary inside which some code or some data is stored.&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/notation-container.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;A software system&lt;/td&gt;
-      &lt;td&gt;Name, Description, Technology, The set of components within the container&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Component&lt;/td&gt;
-      &lt;td&gt;A component is a grouping of related functionality encapsulated behind a well-defined interface.&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/notation-component.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;A container&lt;/td&gt;
-      &lt;td&gt;Name, Description, Technology, The set of code elements (e. g. classes, interfaces, etc.) that the component is implemented by&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Code&lt;/td&gt;
-      &lt;td&gt;This is the lowest level in C4. The diagrams here show the details of code elements (e. g., classes, interfaces, objects, functions, etc.).&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;A component&lt;/td&gt;
-      &lt;td&gt;Name, Description, Fully qualified type&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Relationship&lt;/td&gt;
-      &lt;td&gt;Relationships are permitted between any elements in the model in either direction.&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/notation-relationship.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Description and Technology&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;views&quot;&gt;Views&lt;/h3&gt;
-
-&lt;p&gt;The C4 model consists of 4 basic views with respect to 4 levels of diagrams.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;View type&lt;/th&gt;
-      &lt;th&gt;Scope&lt;/th&gt;
-      &lt;th&gt;Permitted elements&lt;/th&gt;
-      &lt;th&gt;Examples&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1. System Context&lt;/td&gt;
-      &lt;td&gt;A software system.&lt;/td&gt;
-      &lt;td&gt;Software systems, People&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/bigbankplc-SystemContext.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;2. Container&lt;/td&gt;
-      &lt;td&gt;A software system&lt;/td&gt;
-      &lt;td&gt;Software systems, People, Containers within the software system in scope&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/bigbankplc-Containers.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3. Component&lt;/td&gt;
-      &lt;td&gt;A container&lt;/td&gt;
-      &lt;td&gt;Software systems, People, Other containers within the parent software system of the container in scope, Components within the container in scope&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/bigbankplc-Components.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;4. Code&lt;/td&gt;
-      &lt;td&gt;A component&lt;/td&gt;
-      &lt;td&gt;Code elements (e. g., classes, interfaces, etc.) that are used to implement the component in scope&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://c4model.com/img/bigbankplc-Classes.png&quot; alt=&quot;&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;System Context diagrams&lt;/strong&gt; describe &lt;strong&gt;business usecases&lt;/strong&gt; in which the interaction between users (people) and the software system is visualized. By seeing system context, stakeholders catch the key use-cases of the system, how end-users will use the system, and so on.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Container diagrams&lt;/strong&gt; visualize the architecture of each container.
-Formally, it is a diagram of users and containers.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Component diagrams&lt;/strong&gt; visualize the internal architecture of a container with components are atomic elements.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Code diagrams&lt;/strong&gt; show classes, interfaces, objects, and relationships. One can use UML diagrams to visualize. The class diagram or the ER diagram can be examples.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;supplementary-diagrams&quot;&gt;Supplementary diagrams&lt;/h2&gt;
-
-&lt;p&gt;Besides four basic views, there are several supplementary views for the C4 model to capture the dynamic and the big picture of software systems.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The &lt;strong&gt;System Landscape diagram&lt;/strong&gt; shows the target software systems in a landscape with other related systems.
-For example, the target system is an Internet Banking System.
-It needs to interact with other systems in the banks like Email Systems, Mainframe Banking Systems, and other roles like Customer Service Staff and Back Office Staff.
-To do this, add another diagram that sits “on top” of the C4 diagrams to show the system landscape from an IT perspective.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div style=&quot;width: 50%; float: left; margin: 15px;&quot;&gt;
-&lt;img src=&quot;https://c4model.com/img/bigbankplc-SignIn.png&quot; /&gt;
-&lt;p&gt;Source: &lt;a href=&quot;https://c4model.com/&quot;&gt;c4model.com&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The &lt;strong&gt;Dynamic diagram&lt;/strong&gt; considers how elements in a static model collaborate at runtime to implement a user story, use case, feature, etc.
-One can reuse the UML communication diagram to show it.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The &lt;strong&gt;Deployment diagram&lt;/strong&gt; is based on the UML deployment diagram.
-It illustrates how software systems and/or containers in the static model are mapped to infrastructure.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;examples&quot;&gt;Examples&lt;/h1&gt;
-
-&lt;h2 id=&quot;tools&quot;&gt;Tools&lt;/h2&gt;
-
-&lt;p&gt;Tools for diagramming can be &lt;a href=&quot;https://c4model.com/&quot;&gt;a lot&lt;/a&gt;.
-For only diagramming, I would like to recommend the &lt;a href=&quot;https://www.diagrams.net/&quot;&gt;Diagrams.net&lt;/a&gt;, which is very convenient for drawing system architecture.
-It has many toolboxes for drawing deployment diagrams, AWS/GCP/Azure Cloud architectures, etc.&lt;/p&gt;
-
-&lt;p&gt;For modeling the software architectures with diagramming, one can refer to Archi [2].&lt;/p&gt;
-
-&lt;h2 id=&quot;a-tutorial&quot;&gt;A tutorial&lt;/h2&gt;
-
-&lt;p&gt;One way to learn to draw is through the tutorial video.
-The following tutorial introduces all about C4 model by the author with a part of PlantUML use-case with C4.&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/x2-rSnhpw0g&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;The C4 model solved the problem of a compact representation for software architectures without disregarding any aspects of the product.
-The model was designed for Agile projects and to keep the team communicates better with team members as well as stakeholders.&lt;/p&gt;
-
-&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;TheC4mod76:online&quot;&gt;&lt;i&gt;The C4 model for visualising software architecture&lt;/i&gt;. https://c4model.com/.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ArchiOp50:online&quot;&gt;&lt;i&gt;Archi – Open Source ArchiMate Modelling&lt;/i&gt;. https://www.archimatetool.com/.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;brown2013software&quot;&gt;Brown, S. (2013). Software architecture for developers. &lt;i&gt;Coding the Architecture&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="se" /><category term="programming" /><category term="software architecture" /><category term="visualization" /><category term="c4 diagrams" /><category term="diagrams" /><summary type="html">Source: InfoQ Using MS Word and Excel, an engineer can describe the system in language and visuals. Such conventional methodologies can be sufficient for small architecture with few components. When the software system scales and changes frequently, maintaining records of the architecture by documents can be tedious. Hence, the lack of interaction in conventional document methods may present a stiff learning curve for a new member to the project team. To cope with these challenges, the C4 diagram model [1, 2, 3] was created to give interactive views of the software architectures. Systems are modeled at four different levels: system context, containers, components, and code. These levels are represented by diagrams. Intuitively, we can see the C4 diagrams as large visualization systems in which engineers can zoom in and out to see the details and the big picture.</summary></entry></feed>
+&lt;li&gt;&lt;span id=&quot;bankmode1online&quot;&gt;&lt;i&gt;アバスト セキュア ブラウザでバンク モードを開く方法 | アバスト&lt;/i&gt;. https://support.avast.com/ja-jp/article/Use-Bank-Mode/.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="sre" /><category term="non-english" /><category term="セキュアブラウザ" /><category term="ブラウザ" /><category term="セキュリティ" /><category term="プライバシー" /><summary type="html">中小企業向けテレワークセキュリティガイドライン（第5版） [1]が令和3年5月には公表されました。 無料で直ぐに点検できますので、結構貴重な資料であろう。 その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。 普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？ さらに、一般のブラウザと比べると付加価値とは何か？ ひょっとしたら調べていきます。 専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。</summary></entry></feed>
