@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T10:55:14+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</title><link href="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html" rel="alternate" type="text/html" title="Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động" /><published>2021-11-20T00:00:00+09:00</published><updated>2021-11-20T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html">&lt;iframe width=&quot;100%&quot; height=&quot;680&quot; src=&quot;https://www.epi.org?p=235212&amp;amp;view=embed&amp;amp;embed_template=charts_v2013_08_21&amp;amp;embed_date=20211121&amp;amp;onp=91701&amp;amp;utm_source=epi_press&amp;amp;utm_medium=chart_embed&amp;amp;utm_campaign=charts_v2&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T11:42:12+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
+&lt;em&gt;Source &lt;a href=&quot;https://vertical-innovation.com&quot;&gt;Vertical Innovation&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ThisisLe25:online&quot;&gt;&lt;i&gt;This is Lean |&lt;/i&gt;. https://thisislean.com/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="project management" /><category term="project lifecycle" /><category term="software development" /><category term="lean stratup" /><category term="this is lean" /><category term="fullstack engineer" /><summary type="html">Source Vertical Innovation</summary></entry><entry><title type="html">Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</title><link href="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html" rel="alternate" type="text/html" title="Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động" /><published>2021-11-20T00:00:00+09:00</published><updated>2021-11-20T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html">&lt;iframe width=&quot;100%&quot; height=&quot;680&quot; src=&quot;https://www.epi.org?p=235212&amp;amp;view=embed&amp;amp;embed_template=charts_v2013_08_21&amp;amp;embed_date=20211121&amp;amp;onp=91701&amp;amp;utm_source=epi_press&amp;amp;utm_medium=chart_embed&amp;amp;utm_campaign=charts_v2&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;&lt;strong&gt;Con gà và quả trứng&lt;/strong&gt; là một bài toán kinh điển trong thống kê học cổ điển liên quan tới &lt;strong&gt;nhân quả (causality)&lt;/strong&gt; và &lt;strong&gt;luân hồi (feedback)&lt;/strong&gt; của các chuỗi thời gian (time series).
 Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series).
@@ -2027,125 +2034,4 @@ Previous max priority: 10, 25
 &lt;p&gt;2分木の形を取っています。
 これは、「やるかどうかを決定する」というよりも、「次に何をやるか」を決定するデータ構造です。
 いくつかの切口とする質問をおいて、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Yes/No&lt;/code&gt;で２派に分けて、実装パスを定める方法です。
-やはり、優先度で決めた方がいいですね。&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="algorithm" /><category term="agile" /><category term="priority queue" /><summary type="html">Source: Microsoft アジャイル開発現場では、看板に乗っているタスクをメンバーに割り当てる際に、そのメンバーは直ぐにそのタスクをやるかどうか見てみます。 時々、どうやってやるかどうかを決める方法について教えてくださいとよく言われています。 まずは、優先順位を決めて、一番優先の高いタスクを取ってやるから、依頼したタスクはその優先順位トップに入らない場合、断ります。 トップに入るとやります。 しかし、ここで微妙にどうやってその優先順位を早く決めるか方法論を考えたいですが、やはりPriorityQueueを使いたいです。 第一優先のタスクを$O(1)$時間量で計算できます。 次に、決定木を使うべきです。 優先順位がつかない場合、いくつかのYes/No質疑でやるかどうかを決めることもできます。</summary></entry><entry><title type="html">セキュアブラウザについて</title><link href="https://wanted2.github.io/pm/sre/non-english/2021/09/09/secure-browser.html" rel="alternate" type="text/html" title="セキュアブラウザについて" /><published>2021-09-09T00:00:00+09:00</published><updated>2021-09-09T00:00:00+09:00</updated><id>https://wanted2.github.io/pm/sre/non-english/2021/09/09/secure-browser</id><content type="html" xml:base="https://wanted2.github.io/pm/sre/non-english/2021/09/09/secure-browser.html">&lt;p&gt;&lt;img src=&quot;/assets/img/secure-browser.png&quot; alt=&quot;secure-browser&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;中小企業向け&lt;a href=&quot;https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00111.html&quot;&gt;テレワークセキュリティガイドライン（第5版）&lt;/a&gt; [1]が令和3年5月には公表されました。
-無料で直ぐに点検できますので、結構貴重な資料であろう。
-その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。
-普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？
-さらに、一般のブラウザと比べると付加価値とは何か？
-ひょっとしたら調べていきます。
-専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h1 id=&quot;皆はセキュアブラウザだ&quot;&gt;皆はセキュアブラウザだ&lt;/h1&gt;
-
-&lt;p&gt;なかなか、Firefox、Chrome、IEのホームページで見ると皆はセキュアだと主張しています。
-「ウエブサイトの&lt;strong&gt;コンテンツ&lt;/strong&gt;を視聴できるブラウザに、&lt;strong&gt;セキュリティ&lt;/strong&gt;と&lt;strong&gt;プライバシー保護&lt;/strong&gt;の機能組を十分に実装されている」ものはセキュアブラウザであるみたいです。
-コンテンツ視聴には、見る、聴く、話す、情報共有だけではなく、検索、フィルターなどの操作もできるが、一応、コンテンツの知識で、ここではネット上でユーザがデータをやり取りする操作のすべてを指すとしましょう。
-これらの機能は「ブラウザ」の基礎機能となり、最低限で実装すべきの機能でしょう。&lt;/p&gt;
-
-&lt;p&gt;それに加えて、&lt;strong&gt;セキュリティ&lt;/strong&gt;と&lt;strong&gt;プライバシー保護&lt;/strong&gt;の機能組はなぜ必要になるか？&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;セキュリティ&lt;/strong&gt;: 悪意のあるユーザが誠実ユーザや組織から情報を盗んだり、攻撃に利用したりする恐れもあります。ブラウザの領域だと、組織よりもエンドユーザの情報の盗聴の可能性があります。もちろん、そのエンドユーザが会社の従業員である場合、組織の機密情報レベルに関係します。ですので、システムレベルでポリシーを設定し、ブラウザの挙動を制限する政策も企業のガバナンスの立場になります。しかし、それだけでは足りず、ブラウザ自体にも対策を備えないとインシデントが多発する可能性もあります。要するに、&lt;strong&gt;ブラウザ自体にはどれぐらいエンドユーザをネット上の機器から守れるかセキュア性を評価する指標になります&lt;/strong&gt;。ちなみに、システムレベルで設定する方法は受動的であり、接続先のIPなどのコネクションの情報を見てブロックするというルール化するプロセスも有効な方法です。ここで、セキュアブラウザには受動ではなく、エンドユーザ自身の能動的に活動させる方法もあります。戦争で、相手軍の動きを待たずに、先に主導権をとって、有利地を確保する手です。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;プライバシー保護&lt;/strong&gt;: 先に説明した盗聴の話と少し違います。業務での機密情報ではなく&lt;strong&gt;個人情報&lt;/strong&gt;の話かと思います。エンドユーザはネット上で活動し、活動履歴が出てきます。名前、メールアドレス、住所といった真の個人情報だけではなく、活動履歴も個人情報です。また、金融機関が発行するクレジットカードの番号や明細なども個人情報として扱われるべきであろう。福祉サービスや行政サービスと連携する個人番号、保険情報、住民票、住民移動履歴なども個人情報として扱います。機密情報がバレルと会社の利益に損害が発生する恐れがわかりやすいが、個人情報が盗聴すると何が起きるか？例えば、不注意でクレジットカードの番号が怪しい人に見せて、そのあとに講座から大金額が引き落としたなどエンドユーザ側で情報漏洩が発生するインシデントもあります。サービス経営側でユーザの個人情報を漏洩してしまうインシデントもあります。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;ベルシステム24事件&lt;/strong&gt;: クレジットカード会社の派遣社員による悪用が原因の情報漏えい&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;クレジットカード会社のコールセンター「ベルシステム」に勤める契約社員が、顧客の情報を不正に使用する犯罪もありました。コールセンターの業務で知り得た顧客のクレジットカード番号とセキュリティコードなどを、悪用目的で盗み出したというものです。顧客のクレジットカードにより購入した商品の額は900万円近くにのぼりました。情報セキュリティ部門に関連する部署の職員犯行により、社会的にも大きく騒がれました。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;セキュアブラウザはもちろんサービス運営側よりもエンドユーザ側に主導的なアプローチを適用し、セキュリティとプライバシー保護の両方を充実します。
-金融機関には不正送金やクレジット窃盗などの詐欺（Fraud）を検出する受動的なアプローチも多く実施されるが、今回のセキュアブラウザはエンドユーザ側の対策になります。&lt;/p&gt;
-
-&lt;h1 id=&quot;主要機能アバストセキュアブラウザの例&quot;&gt;主要機能：アバストセキュアブラウザの例&lt;/h1&gt;
-
-&lt;p&gt;前節で説明したように、コンテンツ視聴機能組には、十分にセキュリティとプライバシーを守る機能組を足してセキュアブラウザになりますが、情報漏洩をエンドユーザ側で対策を備えることになります。&lt;strong&gt;どんな機能が実装されるか見てみましょう&lt;/strong&gt;。
-今回は&lt;strong&gt;アバストセキュアブラウザ&lt;/strong&gt;を例にして解析します。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;アンチウィルスと連携&lt;/strong&gt;: マルウエアやランサムウェアによる攻撃が増え続けています。ハッカーが対象のデバイスに情報がなくてもそのデバイスをコントロールし、攻撃に利用する恐れもあります。セキュアブラウザはアバストアンチウィルスに連携し、ウエブページ閲覧の時にマルウエアとランサムウェアをブロックすることでより安全なブラウジング体験を提供します。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;バンクモード&lt;/strong&gt; [3]: オンラインでショッピングやバンキングをするときに、金融情報を求めたり、フォームに入力したりすることがあります。
-バンクモードは、実際のPCの内部で安全かつクリーンなPCとしての役割を果たす&lt;strong&gt;仮想デスクトップ&lt;/strong&gt;を提供します。
-バンクモード仮想デスクトップは、悪意のあるスクリプトの挿入、キーストロークロギング、サードパーティアプリによるスクリーンショットの試行からユーザーを保護します。
-オンラインバンキングのサイトにアクセスするときや、オンライン決済を行うときは毎回、バンクモードを使用することをおすすめします。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;VPN&lt;/strong&gt;: 仮想プライベートネットワークの略語です。下記に述べるプライベートモードとは違い、エンドユーザの活動をすべての第三者の侵入者から守れます。
-第三者の侵入者はハッカーというだけではなく、インターネットプロバイダーや政府からも保護します。
-アバストセキュアブラウザにはVPN機能が実装されていますので、そのまま使うとインターネット上でより安全な体験ができます。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn-resprivacy.pressidium.com/wp-content/uploads/2021/08/private-and-secure-browser-with-a-VPN.png&quot; alt=&quot;vpn&quot; /&gt;
-&lt;em&gt;Source: &lt;a href=&quot;https://restoreprivacy.com/browser/secure/&quot;&gt;Restore Privacy&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;アドブロック&lt;/strong&gt;: 余計な広告をブロックする話です。3つのレベルで設定できます。
-「最小限」レベルでは、バナーやポップアップ、音声付き自動再生動画をブロックするなどできます。
-「バランス」レベルでは、ウエブ閲覧を低速化するとされた広告をすべてブロックします。これはデフォルトレベルと設定されます。
-「厳格」レベルでは、ほぼすべての広告をブロックします。一部のウエブサイトへのアクセスができなくなり、読み込めないなどもあります。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;指紋採取対策&lt;/strong&gt;: ネット上での活動経歴も個人情報です。サービス運営側と広告ネットワークがユーザの活動経歴を求めたいです。なぜなら、その履歴で最適な体験、広告をユーザに提供します。CookieやIPアドレスでユーザを特定する手法も古くて、ユーザ固有のブラウザ設定でユーザを監視できます。しかし、活動経歴をウエブサイトと広告ネットワークから守りたい場合、ユーザ固有のブラウザ指紋（ブラウザバージョンやインストールした拡張機能など）を隠す必要があります。&lt;strong&gt;できるだけ、VPNをオンにしてからこの機能もオンにすることで追加プライバシー保護レイヤーを設定できます&lt;/strong&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;モバイル保護&lt;/strong&gt;: 近年、モバイルデバイスの普及により、携帯モバイルでのインシデントも多発しています。よって、PC版ではなく、モバイルでコンテンツ視聴を守る必要あります。アバストセキュアブラウザはAndroid版とiOS版も提供しています。
-PCとともにモバイルにも導入しましょう。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;フィッシング対策&lt;/strong&gt;: 訪問先のウエブサイトを危険なリストに照合してチェックすることでフィッシングのような詐欺サイトへのアクセスを防止できます。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;トラッキング対策&lt;/strong&gt;: 訪問先でトラッキングスクリプトをスキャンし、それらユーザーの活動経歴をトラッキングする行為を発見します。この機能により、ユーザの訪問経歴を広告会社と分析会社から守れます。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;プライベートモード&lt;/strong&gt;: プライバシー保護のために、活動経歴を保存せずに、サクション終了時にCookieやウエブキャッシュ、セクションデータをすべて破棄します。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;パスワードマネージャー&lt;/strong&gt;: オンラインで安全にウエブサイトを閲覧できるために、かならず異なるサイトで異なるパスワードを設定することが必要です。それに伴い、設定パスワードが多発しているので、パスワードを忘れずに保管して管理する手法も必要となります。
-エンドユーザは自らパスワードを記憶することが不要で、付箋や紙媒体にパスワードを記録することも不要です。
-さらに、入力時に、パスワードを打たずに、ワンクリックで素早く入力できることで、再入力で漏れることもないでしょう。
-アバストセキュアブラウザにはパスワードマネージャーが常にオンにしましょう。
-ブラウザ（デフォルト）のものを使っても良くて、外部のパスワードマネージャーへの連携も可能となります。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;拡張機能ガード&lt;/strong&gt;: 拡張機能が役に立ちますが、同時にエンドユーザを悪意のあるハッカーとエクスプロイトにさらされるため、拡張機能をチェックする必要があります。
-アバストセキュアブラウザの拡張機能ガードをオンにすると、拡張機能の身元を確認し、信頼できない拡張機能のインストールを防止できます。
-自分で信頼できると判断したが、拡張機能ガードによりブロックされた場合、設定で例外を追加できますが、例外を追加する前に信頼性を必ず確保してください。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;プライバシークリーナー&lt;/strong&gt;: この機能で閲覧セクションで貯蓄された不要なデータを一括削除できます。
-閲覧履歴やキャッシュされた画像やCookieやダウンロード履歴などを削除できます。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;ハックチェック&lt;/strong&gt;: メールアドレスを入力することで、そのメールアドレスにリンクされたすべてのオンラインアカウントを監視し、個人情報が漏洩された場合、アラートを上げることになります。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;まとめ&quot;&gt;まとめ&lt;/h1&gt;
-&lt;p&gt;セキュアブラウザの機能についてアバストセキュアブラウザの例でわかりました。
-コンテンツ視聴だけではなく、安全に閲覧できるために、セキュリティとプライバシー保護の機能組を十分に実装する必要があります。
-セキュアブラウザはあくまでもエンドユーザ側を保護するための手法であり、テレワークでは不十分である可能性もありますが、チェックリストをキチンとさらされてポリシー化し、受動的手法も能動的手法もいろいろと活用しましょう。&lt;/p&gt;
-
-&lt;p&gt;上記の機能組では、VPNはアバストセキュアブラウザで有料機能になるが、Pro版にアップグレードするか、外部の無償VPNを利用する手法が必要です。&lt;/p&gt;
-
-&lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;soumushou46online&quot;&gt;&lt;i&gt;総務省｜報道資料｜「テレワークセキュリティガイドライン（第5版）」（案）に対する意見募集の結果及び当該ガイドラインの公表&lt;/i&gt;. https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00111.html.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;avastsecurebrowser64online&quot;&gt;&lt;i&gt;追跡なしのプライベート ブラウザ | アバスト セキュア ブラウザ&lt;/i&gt;. https://www.avast.co.jp/secure-browser#pc.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;bankmode1online&quot;&gt;&lt;i&gt;アバスト セキュア ブラウザでバンク モードを開く方法 | アバスト&lt;/i&gt;. https://support.avast.com/ja-jp/article/Use-Bank-Mode/.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="sre" /><category term="non-english" /><category term="セキュアブラウザ" /><category term="ブラウザ" /><category term="セキュリティ" /><category term="プライバシー" /><summary type="html">中小企業向けテレワークセキュリティガイドライン（第5版） [1]が令和3年5月には公表されました。 無料で直ぐに点検できますので、結構貴重な資料であろう。 その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。 普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？ さらに、一般のブラウザと比べると付加価値とは何か？ ひょっとしたら調べていきます。 専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。</summary></entry></feed>
+やはり、優先度で決めた方がいいですね。&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="algorithm" /><category term="agile" /><category term="priority queue" /><summary type="html">Source: Microsoft アジャイル開発現場では、看板に乗っているタスクをメンバーに割り当てる際に、そのメンバーは直ぐにそのタスクをやるかどうか見てみます。 時々、どうやってやるかどうかを決める方法について教えてくださいとよく言われています。 まずは、優先順位を決めて、一番優先の高いタスクを取ってやるから、依頼したタスクはその優先順位トップに入らない場合、断ります。 トップに入るとやります。 しかし、ここで微妙にどうやってその優先順位を早く決めるか方法論を考えたいですが、やはりPriorityQueueを使いたいです。 第一優先のタスクを$O(1)$時間量で計算できます。 次に、決定木を使うべきです。 優先順位がつかない場合、いくつかのYes/No質疑でやるかどうかを決めることもできます。</summary></entry></feed>
