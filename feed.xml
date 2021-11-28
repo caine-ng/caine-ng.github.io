@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T16:44:54+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T17:20:21+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
 &lt;em&gt;Source &lt;a href=&quot;https://vertical-innovation.com&quot;&gt;Vertical Innovation&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -119,6 +119,17 @@ Do đó khi làm việc với các KH mà kiểu họ hướng vào Lean, là th
 Chứ giờ có bảo thay đổi chế độ, thay đổi cả quốc tính dân tộc, … những chuyện &lt;strong&gt;to tát phức tạp&lt;/strong&gt; như thế thì không làm được đâu!&lt;/p&gt;
 
 &lt;h1 id=&quot;fullstack-engineers-và-cross-functional-teams&quot;&gt;Fullstack engineers và cross-functional teams&lt;/h1&gt;
+
+&lt;p&gt;Một đặc điểm quan trọng của các chiến binh trong dream team của Lean startup đó chính là &lt;strong&gt;cross-functional team&lt;/strong&gt;, tức là các member phải đa năng: việc gì cũng biết, kể từ code backend/frontend, đến cấu hình infra, thiết kế hệ thống các cái, đến thậm chí những công việc ngoài luồng kỹ thuật như kế toán, sổ sách, làm thiết kế hệ thống basic/detail designs, quản lý, tuyển dụng phỏng vấn, …&lt;/p&gt;
+
+&lt;p&gt;Điểm này khác với các tập đoàn công ty lớn, đòi hỏi các bộ phận phải có sự chuyên môn hóa: ông nào frontend thì cả đời cứ chạy frontend cho tôi.
+&lt;strong&gt;Anh cứ kệ em, em chỉ code thôi còn những việc khác em không biết&lt;/strong&gt;.
+Thì những cái kiểu như thế chắc chắn không phù hợp với Lean startups.&lt;/p&gt;
+
+&lt;p&gt;Các team Lean thường rất nhỏ, nhưng các member thì như biệt đội Avengers vậy, mỗi người đều có thể làm mọi khâu trong quy trình thậm chí thay thế khi đồng đội đang đảm nhiệm khâu đó nghỉ.&lt;/p&gt;
+
+&lt;p&gt;Vì vậy, nếu có một member kiểu fullstack mà lại chơi được mọi “súng” thì không việc gì phải bàn.
+Ngược lại những member chỉ kiểu tròn vai thì về nguyên tắc của Lean startups là … không ổn.&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
