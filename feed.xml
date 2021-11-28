@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T12:54:29+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T13:53:12+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
 &lt;em&gt;Source &lt;a href=&quot;https://vertical-innovation.com&quot;&gt;Vertical Innovation&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -28,13 +28,32 @@ Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần
 &lt;p&gt;Triệu chứng bệnh của efficiency paradox thì không chỉ có mỗi triệu chứng bận mà chả làm ra cái gì như đã nói ở trên.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Triệu chứng 1&lt;/strong&gt;: &lt;strong&gt;Bận mà chả release được cái gì?&lt;/strong&gt; Tức là hiệu suất resource cao gần 100% nhưng lead time (thời gian từ ideas tới release) lại dài mà đôi khi là infinite!&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Triệu chứng 1&lt;/strong&gt;: &lt;strong&gt;Bận mà chả release được cái gì?&lt;/strong&gt; Tức là hiệu suất resource cao gần 100% nhưng lead time (thời gian từ ideas tới release) lại dài mà đôi khi là infinite! Tức là có thể có release nhưng nhìn chung là lead time rất lớn.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Triệu chứng 2&lt;/strong&gt;: &lt;strong&gt;Release nhanh nhưng có nhiều người không có việc.&lt;/strong&gt; Tức là team chia việc và hoàn thiện nhanh, nhưng có nhiều ムダ (tiếng Nhật nghĩa là lãng phí) tức là nhiều bạn chả có việc gì làm, mà nếu cho các bạn ấy làm việc khác thì lại phải ngồi điều tra lại từ đầu, nó lưng chừng dở dang.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Dù là triệu chứng 1 hay 2 thì chắc chắn khởi nghiệp đang ở chỗ loay hoay giải quyết bài toán cân bằng hiệu suất sử dụng (tăng hiệu suất sử dụng nhân lực) và tỷ lệ hoàn thiện (rút ngắn thời gian release).&lt;/p&gt;
 
 &lt;h1 id=&quot;lean-startups&quot;&gt;Lean startups&lt;/h1&gt;
+
+&lt;p&gt;Và để giải quyết bài toán hiệu suất, phương pháp cải tiến của Eric Ries bắt đầu từ những năm 2011 mang tên &lt;strong&gt;Lean startups&lt;/strong&gt; là một phương pháp được ưa chuộng gần đây.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ưu điểm lớn nhất của Lean chính là vòng tuần hoàn liên tục &lt;strong&gt;Build-Measure-Learn&lt;/strong&gt; khiến cho team dần trưởng thành và hiệu suất gia tăng.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Teams có thể chưa hoàn chỉnh trong vòng thứ nhất nhưng sẽ &lt;em&gt;learn&lt;/em&gt; và lặp lại quá trình &lt;em&gt;build&lt;/em&gt;, &lt;em&gt;measure&lt;/em&gt; đển khi hoàn thiện.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Nhược điểm lớn nhất là việc phụ thuộc quá lớn vào skill của mỗi members: thợ học việc cỡ sinh viên, những nhân viên chỉ biết làm đúng 1 việc frontend hoặc backend, hoặc chỉ biết code mà không làm những quy trình báo cáo, tuyển dụng, … sẽ là chướng ngại mà sớm muộn cũng bị đào thải.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Thiếu tập trung&lt;/strong&gt; là tử địa của Lean. Nếu 1 members trong Lean startups không toàn tâm toàn ý 100% cho startup mà lại phân tâm sang 1 dự án khác 50-50 hoặc 1 cty khác 50-50, Lean chắc chắn fail!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tại sao? Bởi vì vòng quay của Lean đòi hỏi mọi members trong teams phải toàn tâm toàn ý cho việc cải tiến, theo dõi, và đối ứng.
+&lt;strong&gt;Chính việc phải toàn tâm toàn ý khiến cho việc cùng lúc chạy 2 dự án là vô vùng khó khăn nếu 1 trong 2 cái là Lean.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;fullstack-engineers-và-cross-functional-teams&quot;&gt;Fullstack engineers và cross-functional teams&lt;/h1&gt;
 
