@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T14:04:34+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T14:12:52+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
 &lt;em&gt;Source &lt;a href=&quot;https://vertical-innovation.com&quot;&gt;Vertical Innovation&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -36,6 +36,8 @@ Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần
 
 &lt;h1 id=&quot;lean-startups&quot;&gt;Lean startups&lt;/h1&gt;
 
+&lt;h2 id=&quot;nhận-xét-về-lean&quot;&gt;Nhận xét về Lean&lt;/h2&gt;
+
 &lt;p&gt;Và để giải quyết bài toán hiệu suất, phương pháp cải tiến của Eric Ries bắt đầu từ những năm 2011 mang tên &lt;strong&gt;Lean startups&lt;/strong&gt; là một phương pháp được ưa chuộng gần đây.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -57,8 +59,29 @@ Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần
 
 &lt;blockquote&gt;
   &lt;p&gt;Nuôi Lean như nuôi Thánh Gióng: cứ phải nuôi nó từ từ, và trong quá trình nuôi là phải theo dõi chăm chút từng ly từng tý. Nhưng khi hữu sự, thì phải cho nó ăn hàng gánh cơm, hàng nong đậu phụ thì nó lại lớn nhanh như thổi, một phát đánh đuổi quân ngoại xâm. Nuôi Lean chính là nuôi một đứa trẻ như vậy!&lt;/p&gt;
-  &lt;h1 id=&quot;fullstack-engineers-và-cross-functional-teams&quot;&gt;Fullstack engineers và cross-functional teams&lt;/h1&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;Mà bà mẹ trong chuyện cổ tích &lt;strong&gt;Thánh Gióng&lt;/strong&gt; là cứ phải nuôi nó đến lúc thành công, mới gọi là gặt hái.
+Với Lean, đó chính là lúc mà vòng quay vừa nhanh, teams luôn có việc mà tốc độ release cũng flash.&lt;/p&gt;
+
+&lt;h2 id=&quot;lợi-ích-của-lean&quot;&gt;Lợi ích của Lean&lt;/h2&gt;
+
+&lt;p&gt;Nếu bạn nuôi được startup Lean đến lúc trưởng thành thì quả ngọt vô số.
+Lean startup khi trưởng thành thì vô vàn lợi ích mà người chăn nuôi có thể nhận được:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Improving the quality of work processes hay &lt;strong&gt;Cải tiến chất lượng quy trình&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Reducing errors or defects in work processes hay &lt;strong&gt;Giảm thiểu lỗi quy trình&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Reducing costs hay &lt;strong&gt;Giảm thiểu giá thành&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Improving flow of the process hay &lt;strong&gt;Cải tiến flow làm việc&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Simplifying complex processes hay &lt;strong&gt;Đơn giản hóa quy trình&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Reducing lead time hay &lt;strong&gt;Đẩy nhanh thời điểm release&lt;/strong&gt;&lt;/li&gt;
+    &lt;li&gt;Improving employee morale hay &lt;strong&gt;Tăng động lực làm việc cho nhân viên&lt;/strong&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;fullstack-engineers-và-cross-functional-teams&quot;&gt;Fullstack engineers và cross-functional teams&lt;/h1&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
