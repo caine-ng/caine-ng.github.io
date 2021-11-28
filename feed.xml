@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T16:06:51+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-11-28T16:44:54+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
 &lt;em&gt;Source &lt;a href=&quot;https://vertical-innovation.com&quot;&gt;Vertical Innovation&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -66,7 +66,7 @@ Với Lean, đó chính là lúc mà vòng quay vừa nhanh, teams luôn có vi�
 
 &lt;p&gt;Tất nhiên, thực ra trong đời thực, có những người vẫn có 2-3 đứa con, mà đứa nào cũng là “Lean”, tức là kiểu trẻ phải được kèm cặp từ nhỏ.
 Điều đó dẫn đến chuyện ôm cùng lúc 3 ông con, mà ông nào cũng là Lean cũng là chuyện bình thường.
-Nhưng sẽ rất mệt, mà nhìn chung là sẽ phải đến lúc nào đó kệ chúng nó tự lớn.&lt;/p&gt;
+Nhưng sẽ rất mệt, mà nhìn chung là sẽ phải đến lúc nào đó bắt buộc phải kệ chúng nó tự lớn.&lt;/p&gt;
 
 &lt;h2 id=&quot;lợi-ích-của-lean&quot;&gt;Lợi ích của Lean&lt;/h2&gt;
 
@@ -84,6 +84,39 @@ Lean startup khi trưởng thành thì vô vàn lợi ích mà người chăn nu
     &lt;li&gt;Improving employee morale hay &lt;strong&gt;Tăng động lực làm việc cho nhân viên&lt;/strong&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
+
+&lt;h2 id=&quot;ứng-dụng-lean&quot;&gt;Ứng dụng Lean&lt;/h2&gt;
+
+&lt;p&gt;Để áp dụng Lean vào quy trình phần mềm (software development), việc triển khai các hạng mục trong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Build-Measure-Learn&lt;/code&gt; là cần thiết, nhưng cũng phải tùy vào tình hình của team.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Đầu tiên, phải xác định vấn đề&lt;/strong&gt;: Muda phát sinh từ đâu? Nguyên nhân là do vấn đề gì?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Xây dựng quy trình tiêu chuẩn&lt;/strong&gt;: mọi hoạt động của team cần được chuẩn hóa và tốt nhất nên dùng tự động hóa.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CI/CD&lt;/strong&gt; là sống còn, chất lượng phải được cải tiến và trực quan hóa cho mọi cấp quản lý cũng như members.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nên có quy trình “kéo”&lt;/strong&gt; tức là trigger của quy trình này phải đến từ nhu cầu của quy trình tiếp theo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nếu như nhìn vào biểu đồ trên, bạn thấy ngay luồng chạy của Lean startups là liên tục không gián đoạn, nhưng dữ liệu thu thập được dùng để trực quan hóa sẽ chuyển biến thành các bài học để cải tiến team.&lt;/p&gt;
+
+&lt;p&gt;Rất tiếc, trong thực tế mặc dù Lean startups được bảo đảm sẽ hội tụ, nhưng quy trình sẽ có thể rất lâu tùy vào xuất phát điểm của teams:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Chất lượng members&lt;/strong&gt;: các bạn đã nhiều năm kinh nghiệm dev chưa hay chỉ là sinh viên? Đã quen thực chiến, đa dzi năng chưa hay chỉ biết gán cho các mác frontend là ông suốt ngày chỉ làm frontend?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Sự đa năng&lt;/strong&gt;: Gán cho cái mác coder thì suốt ngày chỉ biết code mà chả biết làm báo cáo, chả biết quy trình team, chả biết gì đến các nghiệp vụ quản lý, tuyển dụng khác, …&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tốc độ học của teams&lt;/strong&gt;: nếu teams chậm tiếp thu, tốc độ xử lý point thấp (chỉ vài điểm một tuần) thì sẽ càng lâu đến trưởng thành.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chất lượng chia việc&lt;/strong&gt;: tôi gặp khá nhiều chứ không phải 1-2 trường hợp, là cứ đẩy việc cho member chất lượng thấp, nhưng lại bắt một cái worker năng lực thấp phải tính toán một khối công việc rất lớn mà lúc nó tính lâu mất thời gian thì lại sốt ruột, giục, …
+&lt;strong&gt;Muốn nhanh thì phải chia nhỏ, đơn giản hóa (đúng theo tinh thần của Lean nhé)&lt;/strong&gt;, chứ phức tạp to tát mà giao cho workers cấp thấp là … hỏng việc đấy!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Đôi khi cũng là kinh nghiệm làm việc bên giới outsource thôi, là các bạn outsource chưa làm quen nhiều với mô hình Lean startups.
+Do đó khi ốp các bạn vào khung Lean, các bạn thường sẽ hiệu suất rất kém, thậm chí cảm thấy tự ti vì mô hình Lean đòi hỏi các bạn phải &lt;strong&gt;chủ động&lt;/strong&gt;, &lt;strong&gt;quyết chiến&lt;/strong&gt;, &lt;strong&gt;năng động&lt;/strong&gt;, &lt;strong&gt;học hỏi nhanh&lt;/strong&gt;, &lt;strong&gt;chịu áp lực tốt&lt;/strong&gt;, …
+Nhưng sinh viên mình kể từ khi ngồi trên ghế nhà trường, tự học thì không có khả năng, năng động chủ động là không có nên hầu như thụ động tiếp thu theo kiểu &lt;strong&gt;Anh phải lead bọn em mới đi&lt;/strong&gt;.
+&lt;strong&gt;Thế thì còn Lean cái nỗi gì hả em?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Đây là vấn đề vô cùng đau đầu với sinh viên người Việt mà nhìn chung, mắng chửi thì bảo anh ác, nhưng mà không nện cho thì thôi còn Lean làm gì nữa? Chất lượng member nó chỉ được như thế thôi, mà rồi còn bao nhiêu vấn đề khác như đãi ngộ mặt bằng chung xã hội thấp, chế độ không tốt, …
+Nên nói chung đem Lean về VN là cũng có thể nhưng phải chấp nhận mất thời gian và phải hiểu là &lt;strong&gt;mất rất nhiều thời gian&lt;/strong&gt;.
+Do đó khi làm việc với các KH mà kiểu họ hướng vào Lean, là theo kinh nghiệm của tôi là phải đánh chặn luôn: “&lt;strong&gt;Đây tình hình outsource VN nó chỉ được thế này thôi? Có đòi hỏi thì cũng rất mất thời gian. Các ông hiểu rồi thì nhảy vào chiến với anh em, còn không thì tôi nghĩ cũng không có giải pháp nào đâu với cái tình hình như thế này!&lt;/strong&gt;.
+Chứ giờ có bảo thay đổi chế độ, thay đổi cả quốc tính dân tộc, … những chuyện &lt;strong&gt;to tát phức tạp&lt;/strong&gt; như thế thì không làm được đâu!&lt;/p&gt;
 
 &lt;h1 id=&quot;fullstack-engineers-và-cross-functional-teams&quot;&gt;Fullstack engineers và cross-functional teams&lt;/h1&gt;
 
