@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="https://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Animal Vision Part 2: Image Processing for Noise Analytics &middot; AiFi 
+  </title>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2CDTCF0EP6');
+  </script>
+
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
+  <!-- Additional head bits without overriding original head -->
+  <style>
+    div.chart {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title">
+      <a href="/">
+        
+          <span class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></span>
+        
+        AiFi
+      </a>
+    </div>
+    <p class="lead">The official AiFi</p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">Home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/projects.html">Projects and Demos</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/ai.html">Artificial Intelligence</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/cv.html">Computer Vision</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/non-english.html">Tiếng Việt, 日本語</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/pm.html">Project Management</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/se.html">Software Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/sre.html">Site Reliability Engineering</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+  <a href="/about.html">About</a>
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <p>
+  &copy; 2021.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>
+
+</div>
+
+    <main class="container">
+      <header>
+  <h1 class="post-title">Animal Vision Part 2: Image Processing for Noise Analytics</h1>
+</header>
+<div class="content">
+  <div class="post-meta">
+  <span class="post-date">04 Apr 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/cv.html">
+          Computer Vision
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/ai.html">
+          Artificial Intelligence
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/cv/ai/2021/04/04/animal-vision-part-2-image-processing-techniques.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Animal Vision Part 2: Image Processing for Noise Analytics&url=https://wanted2.github.io/cv/ai/2021/04/04/animal-vision-part-2-image-processing-techniques.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/cv/ai/2021/04/04/animal-vision-part-2-image-processing-techniques.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+<span title="Estimated read time">
+  
+  
+    7 mins
+  
+</span>
+
+</div>
+
+  <div id="table-of-contents">
+  <h2>Index</h2>
+    <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#image-filtering-and-frequency-filters">Image Filtering and Frequency Filters</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#2-d-fourier-transforms">2-D Fourier Transforms</a></li>
+<li class="toc-entry toc-h3"><a href="#low-pass-filter-high-pass-filter-and-band-pass-filter">Low-pass filter, high-pass filter, and band-pass filter</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#image-restoration">Image Restoration</a></li>
+<li class="toc-entry toc-h2"><a href="#reference">Reference</a></li>
+<li class="toc-entry toc-h2"><a href="#posts">Posts</a></li>
+</ol>
+  </div>
+
+  <div class="post-body">
+    <p><img src="/assets/img/boss-dog-2.jpg" alt="" />
+<em>Source: <a href="https://burst.shopify.com/photos/dog-running-in-fall-leaves?c=dog">Burst Free Photo Stock</a></em>
+<!--more--></p>
+<h2 id="image-filtering-and-frequency-filters">Image Filtering and Frequency Filters</h2>
+
+<h3 id="2-d-fourier-transforms">2-D Fourier Transforms</h3>
+
+<p>The analogue Fourier Transform (FT) converts a spatial function $f(x,y)$ to frequency function $F(u,v)$ as follows:</p>
+
+\[F(u,v)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)e^{-2\omega\pi (ux+vy)}dxdy\]
+
+<p>It is known that there are some conveniences for performing filter operations in frequency space $(u,v)$ rather than in input space $(x,y)$.
+For example, when we want to cut off low-frequency components in image $f(x,y)$, it is easier to do it in $F(u,v)$.</p>
+
+<p>Since images are digital signals, we should focus on the discrete version, Discrete Fourier Transform (DFT), which is defined on the input image $I$ as follows.</p>
+
+\[X_{k,l}=\sum_{i=0}^{W-1}\sum_{j=0}^{H-1}I_{i,j}e^{-2\omega\pi (\frac{ki}{W}+\frac{lj}{H})}, 0\leq k &lt; W, 0\leq l &lt; H\]
+
+<p>where, we substituted $di=\frac{1}{W}, dj=\frac{1}{H}$, $I_{i,j}$ be the pixel value at row $i$ and column $j$.
+We can see that a Fourier function $X_{k,l}$ is a periodic function in both horizontal and vertical dimensions.
+In other words,</p>
+
+\[X_{k+W,l}=X_{k,l+H}=X_{k,l}\]
+
+<p>The complexity of DFT is an order of squares, i. e., $O(W\times H)$.
+To accelerate the computation, Fast Fourier Transform (FFT) has been proposed.</p>
+
+<h3 id="low-pass-filter-high-pass-filter-and-band-pass-filter">Low-pass filter, high-pass filter, and band-pass filter</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">low_pass_filter</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="c1"># Fast Fourier Transform
+</span>    <span class="n">Xsrc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="c1"># exchange 1st&lt;-&gt;3rd quarter and 2nd&lt;-&gt;4th quarter
+</span>    <span class="n">Xsrc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">Xsrc</span><span class="p">)</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">shape</span>
+    <span class="n">cy</span><span class="p">,</span> <span class="n">cx</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">cx</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">cy</span><span class="p">)</span>
+    <span class="n">Xdest</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">img</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="c1"># cut off low frequencies
+</span>    <span class="n">Xdest</span><span class="p">[</span><span class="n">cy</span><span class="o">-</span><span class="n">ay</span><span class="p">:</span><span class="n">cy</span><span class="o">+</span><span class="n">ay</span><span class="p">,</span> <span class="n">cx</span><span class="o">-</span><span class="n">ax</span><span class="p">:</span><span class="n">cx</span><span class="o">+</span><span class="n">ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xsrc</span><span class="p">[</span><span class="n">cy</span><span class="o">-</span><span class="n">ay</span><span class="p">:</span><span class="n">cy</span><span class="o">+</span><span class="n">ay</span><span class="p">,</span> <span class="n">cx</span><span class="o">-</span><span class="n">ax</span><span class="p">:</span><span class="n">cx</span><span class="o">+</span><span class="n">ax</span><span class="p">]</span>
+    <span class="c1"># Inverse Fast Fourier Transform
+</span>    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">Xdest</span><span class="p">)</span>
+    <span class="c1"># exchange 1st&lt;-&gt;3rd quarter and 2nd&lt;-&gt;4th quarter
+</span>    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">spectrum</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">Xdest</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">real</span><span class="p">(</span><span class="n">out</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">imag</span><span class="p">(</span><span class="n">out</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">spectrum</span>
+
+<span class="k">def</span> <span class="nf">high_pass_filter</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="c1"># Fast Fourier Transform
+</span>    <span class="n">Xsrc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="c1"># exchange 1st&lt;-&gt;3rd quarter and 2nd&lt;-&gt;4th quarter
+</span>    <span class="n">Xsrc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">Xsrc</span><span class="p">)</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">shape</span>
+    <span class="n">cy</span><span class="p">,</span> <span class="n">cx</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">cx</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">cy</span><span class="p">)</span>
+    <span class="n">Xdest</span> <span class="o">=</span> <span class="n">Xsrc</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">Xdest</span><span class="p">[</span><span class="n">cy</span><span class="o">-</span><span class="n">ay</span><span class="p">:</span><span class="n">cy</span><span class="o">+</span><span class="n">ay</span><span class="p">,</span> <span class="n">cx</span><span class="o">-</span><span class="n">ax</span><span class="p">:</span><span class="n">cx</span><span class="o">+</span><span class="n">ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Xsrc</span><span class="p">[</span><span class="n">cy</span><span class="o">-</span><span class="n">ay</span><span class="p">:</span><span class="n">cy</span><span class="o">+</span><span class="n">ay</span><span class="p">,</span> <span class="n">cx</span><span class="o">-</span><span class="n">ax</span><span class="p">:</span><span class="n">cx</span><span class="o">+</span><span class="n">ax</span><span class="p">].</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">Xdest</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">spectrum</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">Xdest</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">real</span><span class="p">(</span><span class="n">out</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">imag</span><span class="p">(</span><span class="n">out</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">spectrum</span>
+
+<span class="k">def</span> <span class="nf">band_pass_filter</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+    <span class="c1"># Fast Fourier Transform
+</span>    <span class="n">Xsrc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fft2</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="c1"># exchange 1st&lt;-&gt;3rd quarter and 2nd&lt;-&gt;4th quarter
+</span>    <span class="n">Xsrc</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">Xsrc</span><span class="p">)</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">shape</span>
+    <span class="n">cy</span><span class="p">,</span> <span class="n">cx</span><span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">cx</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">cy</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="p">,</span> <span class="n">ay2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="n">cx</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="n">cy</span><span class="p">)</span>
+    <span class="n">Xdest</span> <span class="o">=</span> <span class="n">Xsrc</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">Xdest</span><span class="p">[</span><span class="n">cy</span><span class="o">-</span><span class="n">ay</span><span class="p">:</span><span class="n">cy</span><span class="o">+</span><span class="n">ay</span><span class="p">,</span> <span class="n">cx</span><span class="o">-</span><span class="n">ax</span><span class="p">:</span><span class="n">cx</span><span class="o">+</span><span class="n">ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">ay</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">ax</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="n">Xdest</span><span class="p">[</span><span class="n">cy</span><span class="o">-</span><span class="n">ay2</span><span class="p">:</span><span class="n">cy</span><span class="o">+</span><span class="n">ay2</span><span class="p">,</span> <span class="n">cx</span><span class="o">-</span><span class="n">ax2</span><span class="p">:</span><span class="n">cx</span><span class="o">+</span><span class="n">ax2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xsrc</span><span class="p">[</span><span class="n">cy</span><span class="o">-</span><span class="n">ay2</span><span class="p">:</span><span class="n">cy</span><span class="o">+</span><span class="n">ay2</span><span class="p">,</span> <span class="n">cx</span><span class="o">-</span><span class="n">ax2</span><span class="p">:</span><span class="n">cx</span><span class="o">+</span><span class="n">ax2</span><span class="p">]</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">Xdest</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">spectrum</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">Xdest</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">real</span><span class="p">(</span><span class="n">out</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">imag</span><span class="p">(</span><span class="n">out</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">spectrum</span>
+</code></pre></div></div>
+<h2 id="image-restoration">Image Restoration</h2>
+
+<h2 id="reference">Reference</h2>
+
+<ol class="bibliography"><li><span id="scikitim32:online"><i>scikit-image 0.18.0 docs — skimage v0.18.0 docs</i>. https://scikit-image.org/docs/stable/index.html.</span></li>
+<li><span id="OpenCVOp36:online"><i>OpenCV: OpenCV modules</i>. https://docs.opencv.org/master/.</span></li>
+<li><span id="szeliski2011computer">Szeliski, R. (2011). <i>Computer vision algorithms and applications</i>. Springer. http://link.springer.com/book/10.1007%2F978-1-84882-935-0</span></li></ol>
+
+<h2 id="posts">Posts</h2>
+
+<ol class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><a href="/cv/ai/2021/03/06/animal-vision-series-part-1.html"><strong>Introduction</strong></a></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" /><strong>Introduction about Computer Vision (using <code class="language-plaintext highlighter-rouge">scikit-image</code> and <code class="language-plaintext highlighter-rouge">opencv</code>) (this post)</strong>
+    <ul>
+      <li>Image filters, edge detection, calibration, artifact removals, .etc.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Object detection, classification and segmentation</strong>
+    <ul>
+      <li>Image features</li>
+      <li>Conventional object detection methods like the Viola-Jones cascade method.</li>
+      <li>Convolutional neural networks, convolutional/pooling/upscaling/dilated operations, etc.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Advanced problems in image enhancement (1)</strong>
+    <ul>
+      <li>Generative Adversarial Networks, Auto-Encoders</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Advanced problems in image enhancement (2)</strong>
+    <ul>
+      <li>Haze removal, artifact removal, reconstruction</li>
+      <li>Super-resolution, de-raining methods.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Machine learning (1)</strong>
+    <ul>
+      <li>The role of data augmentation</li>
+      <li>Common learning problems: over-fitting/under-fitting</li>
+      <li>Over-confidence problems: Open-world recognition</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Machine learning (2)</strong>
+    <ul>
+      <li>Learning in new domains</li>
+      <li>Transfer learning vs. Domain Adaptation</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Machine learning (3)</strong>
+    <ul>
+      <li>One-vs-rest learning</li>
+      <li>Limited-domain learners (experts) vs. Wide-domain learners (generalists) and over-confidence problems.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Machine learning (4)</strong>
+    <ul>
+      <li>Anomaly Detection</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Animal Vision (1)</strong>
+    <ul>
+      <li>Object counting</li>
+      <li>Density Estimation</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Animal Vision (2)</strong>
+    <ul>
+      <li>Attribute detection: weight estimation and anomalous individual detection</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><strong>Conclusion</strong>
+    <ul>
+      <li>The whole system</li>
+    </ul>
+  </li>
+</ol>
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#ai">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">ai</span>
+    </a>
+  
+    
+    <a href="/tags.html#animal-vision">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">animal vision</span>
+    </a>
+  
+    
+    <a href="/tags.html#computer-vision">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">computer vision</span>
+    </a>
+  
+    
+    <a href="/tags.html#artificial-intelligence">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">artificial intelligence</span>
+    </a>
+  
+    
+    <a href="/tags.html#image-processing">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">image processing</span>
+    </a>
+  
+    
+    <a href="/tags.html#noise-reduction">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">noise reduction</span>
+    </a>
+  
+    
+    <a href="/tags.html#noise-analysis">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">noise analysis</span>
+    </a>
+  
+    
+    <a href="/tags.html#image-restoration">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">image restoration</span>
+    </a>
+  
+    
+    <a href="/tags.html#spatial-filters">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">spatial filters</span>
+    </a>
+  
+    
+    <a href="/tags.html#image-filters">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">image filters</span>
+    </a>
+  
+    
+    <a href="/tags.html#frequency-filters">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">frequency filters</span>
+    </a>
+  
+    
+    <a href="/tags.html#fourier-transform">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">fourier transform</span>
+    </a>
+  
+</div>
+  </div>
+
+  
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <div id="disqus_thread">
+    <button class="disqus-load" onClick="loadDisqusComments()">
+      Load Comments
+    </button>
+  </div>
+  <script>
+
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW
+  *  TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT:s
+  *  https://disqus.com/admin/universalcode/#configuration-variables
+  */
+  var disqus_config = function () {
+    this.page.url = "https://wanted2.github.io/cv/ai/2021/04/04/animal-vision-part-2-image-processing-techniques.html";
+    this.page.identifier = "" ||
+                           "https://wanted2.github.io/cv/ai/2021/04/04/animal-vision-part-2-image-processing-techniques.html";
+  }
+  function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//caineng.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  </script>
+  <noscript>
+    Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus</a>.
+  </noscript>
+
+
+
+  </section>
+
+  <section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">
+            Why lean startups love fullstack engineers?
+            <small>27 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html">
+            Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động
+            <small>20 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">
+            A Tutorial on Amazon OpenSearch Service and Kibana
+            <small>13 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+    <script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </body>
+</html>
