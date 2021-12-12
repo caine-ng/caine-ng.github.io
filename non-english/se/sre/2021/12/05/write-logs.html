@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    24 mins
+    26 mins
   
 </span>
 
@@ -914,8 +914,46 @@ Như Python thì dùng logging của STL cho yên tâm về nguồn gốc xuất
 Còn quản lý log tập trung thì anh em lại CLoudWatch hoặc Logs Analytics mà tương thôi!</p>
 
 <h2 id="lên-kế-hoạch-vận-hành">Lên kế hoạch vận hành</h2>
+<p>Có 4 việc nên làm:</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Cấu hình các log sources, bao gồm cả log generation, storage, và security
+    <ul>
+      <li>Cái này thì anh em dùng <code class="language-plaintext highlighter-rouge">logging</code> của Python, để rotate thì nhớ dùng cái <code class="language-plaintext highlighter-rouge">RotatingFileHnadler</code> hoặc <code class="language-plaintext highlighter-rouge">TimeRotatingFileHandler</code>.</li>
+      <li>Để quản lý tập trung thì nên gửi vào Azure App Insights, hoặc deploy thẳng lên Azure WebApps thì nó lên thẳng luôn, nhớ enable chức năng App Insights là ổn.</li>
+      <li>Storage thì đã dùng nền tảng Azure Monitoring thì nó bill bạn theo GB/tháng.</li>
+      <li>Về security thì chính là security cho Azure account của bạn. Đọc thêm hướng dẫn của M$ để biết.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Phân tích log data
+    <ul>
+      <li>Cái này thì khuyên nên dùng những cái board kiểu như App Insights, bắn log là nó lên, ngồi tương tác chỉ trỏ rồi xem dữ liệu thôi.</li>
+      <li>Bạn có thể dùng query logs.</li>
+      <li>Bạn có thể làm thêm dashboard nếu cấu hình vào Power BI.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Initiate appropriate responses to identified events
+    <ul>
+      <li>Playbooks không lằng nhằng.</li>
+      <li>Nên quyết định rule ứng phó và chia ca để các em nó thay nhau trực.</li>
+      <li>Nhớ để các em nó testing và validation.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Manage the long-term storage of log data
+    <ul>
+      <li>Nhớ archive log đều đặn.</li>
+      <li>Nhớ tạo format chung cho toàn bộ log được lưu trữ.</li>
+      <li>Nhớ tạo message digest cho log records để đảm bảo integrity.</li>
+      <li>Nhớ mã hóa ổ đĩa nhé.</li>
+    </ul>
+  </li>
+</ul>
 
 <h1 id="kết-luận">Kết luận</h1>
+
+<p>Chúng ta đã điểm qua cách xây dựng và vận hành một hệ thống quản lý logs theo tiêu chuẩn liên bang Hoa Kỳ.
+Tài liệu giới thiệu ở đây có sẵn file PDF tầm trăm trang, các bạn nên dành thời gian đọc kỹ và thực hành để hiểu thêm nếu cần.
+Nói chung cũng tùy tình hình mà có những trường hợp phải dành ra một dự án vài năm cũng chỉ để học cách viết log cho nghiêm chỉnh.
+Thế nên có cơ hội các bạn nên trau dồi, vì thực sự cái tổng thời gian cấu hình chắc chỉ vài tiếng!</p>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
