@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-12T20:27:08+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-12T20:31:23+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
 Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư &lt;em&gt;học cách viết log cho nó OK em&lt;/em&gt;.
 Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công.
 Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ &lt;strong&gt;cần thiết nhưng ít thì tốt hơn&lt;/strong&gt;.
@@ -84,6 +84,53 @@ Và nếu bây giờ mà tự dưng phát sinh ra dự án thu thập dữ liệ
 &lt;blockquote&gt;
   &lt;p&gt;Ứng dụng log management chính là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TẤT CẢ VÌ MỘT NGƯỜI&lt;/code&gt;: chỉ vì 10 ông mà phải huy động hết tinh anh ra trận.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h2 id=&quot;các-cấp-độ-quản-lý-log&quot;&gt;Các cấp độ quản lý log&lt;/h2&gt;
+
+&lt;p&gt;Theo &lt;strong&gt;Bản ghi nhớ &lt;a href=&quot;https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf&quot;&gt;M-21-31&lt;/a&gt; Improving the Federal Government’s Investigative and Remediation Capabilities Related to Cybersecurity Incidents [2]&lt;/strong&gt; giữa các lãnh đạo cấp cao các cơ quan chính phủ Hoa Kỳ liên quan tới điều tra và nâng cấp khả năng ứng phó liên quan tới các sự cố an ninh mạng, các cấp độ quản lý log được chia làm 4 cấp độ từ &lt;strong&gt;không hiệu quả&lt;/strong&gt; tới cấp &lt;strong&gt;advanced&lt;/strong&gt; như sau:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Cấp độ&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Hạng&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Mô tả&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;EL0&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Không hiệu quả&lt;/td&gt;
+      &lt;td&gt;Ở cấp này, các thông tin cần thiết ứng với các sự cố nguy hiểm (highest criticality) không được quản lý log hoặc chỉ được quản lý một phần không đầy đủ.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;EL1&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Basic&lt;/td&gt;
+      &lt;td&gt;Các sự kiện ở cấp highest criticality được log đầy đủ và quản lý hoàn chỉnh.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;EL2&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Intermediate&lt;/td&gt;
+      &lt;td&gt;Không chỉ các sự kiện cấp highest mà kể cả cấp intermediate cũng được quản lý log đầy đủ.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;EL3&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Advanced&lt;/td&gt;
+      &lt;td&gt;Mọi sự kiện criticality đều được quản lý log.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Trong bản ghi nhớ nói trên, cũng đã thể hiện sự đồng thuận giữa các cơ quan chủ quản rằng ở cấp chính phủ (bao gồm cả quân sự) của Hoa Kỳ thì phải đạt đến cấp &lt;em&gt;EL3&lt;/em&gt;.
+Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thống nhất như sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Trong vòng 60 ngày kể từ ngày ký phải thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản.&lt;/li&gt;
+  &lt;li&gt;Trong vòng 1 năm kể từ ngày ký, các cơ quan có liên quan phải đạt đến level &lt;em&gt;EL1&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Trong vòng 18 tháng kể từ ngày ký, các cơ quan có liên quan phải đạt chuẩn &lt;em&gt;EL2&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Trong vòng 2 năm kể từ ngày ký, các cơ quan liên quan phải đạt đến cấp &lt;em&gt;EL3&lt;/em&gt;, cấp cao nhất thể hiện 1 hệ thống log management hoàn chỉnh.&lt;/li&gt;
+  &lt;li&gt;Log được quản lý phải được cung cấp chia sẻ cho các cơ quan điều tra như CISA hay FBI để phục vụ ứng phó với các nguy cơ đến từ không gian mạng.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh&quot;&gt;Yêu cầu của một hệ thống log hoàn chỉnh&lt;/h1&gt;
 
