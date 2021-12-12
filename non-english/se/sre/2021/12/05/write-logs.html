@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    22 mins
+    23 mins
   
 </span>
 
@@ -715,7 +715,7 @@ to begin leveraging other options.</p>
 <p>Nhưng nhìn chung là cứ deploy hết lên Cloud rồi cấu hình timezone cho đỡ đau đầu.
 Nhớ là nếu tự build thì đừng dùng mấy cái NTP server khả nghi là ok!</p>
 
-<p><strong>Event forwarding</strong>: một tình huống hay gặp nữa là một agent được cài vào máy đối tượng thu thập logs, và sẽ forward toàn bộ log về server xử lý trung tâm. Event forwarding cũng là 1 yêu cầu trong <em>El1</em>.</p>
+<p><strong>Event forwarding</strong>: một tình huống hay gặp nữa là một agent được cài vào máy đối tượng thu thập logs, và sẽ forward toàn bộ log về server xử lý trung tâm. Event forwarding cũng là 1 yêu cầu trong <em>EL1</em>.</p>
 
 <p><strong>Bảo vệ và xác thực logs</strong>: ở cấp này yêu cầu hạn chế truy cập vào logs với đối tượng nhất định (phân quyền), phải mã hóa logs để tránh rò rỉ thông tin người dùng. Việc bảo vệ logs là 1 thử thách lớn trong log management vì đôi khi có lưu thông tin người dùng vào logs.
 Phải định kỳ check logs xem có bị mất, hỏng gì không.
@@ -767,15 +767,42 @@ Một số sự kiện nên bắt với hành vi người dùng:</p>
   <li>Privileged-user compromise</li>
   <li>Improper asset access</li>
   <li>Compromised system/host/device</li>
-  <li>Lateral movement of threat actor
-Cuối cùng là ưu tiên sử dụng thành thục SIEM, và hệ thống phân tích xử lý logs tập trung.</li>
+  <li>Lateral movement of threat actor</li>
 </ul>
+
+<p>Cuối cùng là ưu tiên sử dụng thành thục SIEM, và hệ thống phân tích xử lý logs tập trung.</p>
 
 <h2 id="thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</h2>
 
 <h3 id="kiến-trúc-tổng-quan">Kiến trúc tổng quan</h3>
+<p>Kiến trúc tổng quan của 1 hệ thống quản lý logs thường bao gồm:</p>
+
+<ul>
+  <li>
+    <p><strong>Log Generation</strong>: những cái hosts sinh ra logs. Chúng có thể bao gồm backend apps, frontend apps hoặc bất kỳ thể loại apps nào mà có hoạt động trong hệ thống như send emails, … Các hosts này có thể gửi log cho các components khác của hệ thống (collectors và aggregators) để xử lý, hoặc chúng cho phép các components khác truy cập vào và copy logs từ host generation ra.</p>
+  </li>
+  <li>
+    <p><strong>Log Analysis and Storage</strong>: Nếu dùng AWS bạn có thể xài Watchlogs, còn Azure thì Logs Analytics hoặc App Insights, … Nhìn chung là bộ phận nhận dữ liệu từ Log Generation và phân tích lưu trữ.</p>
+  </li>
+  <li>
+    <p><strong>Log Monitoring</strong>: Có 1 cái dashboard để monitor (near-)real-time logs và review log events.</p>
+  </li>
+</ul>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>------------------        ----------------        ------------------
+| Log Generation |  ====&gt; | Log Analysis |  ====&gt; | Log Monitoring |
+|                |        ----------------        ------------------
+|                |               /\                         /\
+|                |               ||                         ||
+|                |               \/                         ||
+|                |        ----------------                  ||
+|                |  ====&gt; | Log Storage  |  =================
+|                |        ----------------
+------------------
+</code></pre></div></div>
 
 <h3 id="các-chức-năng-chính">Các chức năng chính</h3>
+<p>Nhìn chung một hệ thống log management hoàn chỉnh nên có tối thiểu các chức năng sau:</p>
 
 <table>
   <thead>

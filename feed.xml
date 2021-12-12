@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T03:00:44+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T03:03:16+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
 &lt;em&gt;Source: SIEM&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
@@ -237,7 +237,7 @@ to begin leveraging other options.&lt;/p&gt;
 &lt;p&gt;Nhưng nhìn chung là cứ deploy hết lên Cloud rồi cấu hình timezone cho đỡ đau đầu.
 Nhớ là nếu tự build thì đừng dùng mấy cái NTP server khả nghi là ok!&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Event forwarding&lt;/strong&gt;: một tình huống hay gặp nữa là một agent được cài vào máy đối tượng thu thập logs, và sẽ forward toàn bộ log về server xử lý trung tâm. Event forwarding cũng là 1 yêu cầu trong &lt;em&gt;El1&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Event forwarding&lt;/strong&gt;: một tình huống hay gặp nữa là một agent được cài vào máy đối tượng thu thập logs, và sẽ forward toàn bộ log về server xử lý trung tâm. Event forwarding cũng là 1 yêu cầu trong &lt;em&gt;EL1&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Bảo vệ và xác thực logs&lt;/strong&gt;: ở cấp này yêu cầu hạn chế truy cập vào logs với đối tượng nhất định (phân quyền), phải mã hóa logs để tránh rò rỉ thông tin người dùng. Việc bảo vệ logs là 1 thử thách lớn trong log management vì đôi khi có lưu thông tin người dùng vào logs.
 Phải định kỳ check logs xem có bị mất, hỏng gì không.
@@ -289,15 +289,42 @@ Một số sự kiện nên bắt với hành vi người dùng:&lt;/p&gt;
   &lt;li&gt;Privileged-user compromise&lt;/li&gt;
   &lt;li&gt;Improper asset access&lt;/li&gt;
   &lt;li&gt;Compromised system/host/device&lt;/li&gt;
-  &lt;li&gt;Lateral movement of threat actor
-Cuối cùng là ưu tiên sử dụng thành thục SIEM, và hệ thống phân tích xử lý logs tập trung.&lt;/li&gt;
+  &lt;li&gt;Lateral movement of threat actor&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Cuối cùng là ưu tiên sử dụng thành thục SIEM, và hệ thống phân tích xử lý logs tập trung.&lt;/p&gt;
 
 &lt;h2 id=&quot;thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh&quot;&gt;Thiết kế một hệ thống quản lý log nghiêm chỉnh&lt;/h2&gt;
 
 &lt;h3 id=&quot;kiến-trúc-tổng-quan&quot;&gt;Kiến trúc tổng quan&lt;/h3&gt;
+&lt;p&gt;Kiến trúc tổng quan của 1 hệ thống quản lý logs thường bao gồm:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Log Generation&lt;/strong&gt;: những cái hosts sinh ra logs. Chúng có thể bao gồm backend apps, frontend apps hoặc bất kỳ thể loại apps nào mà có hoạt động trong hệ thống như send emails, … Các hosts này có thể gửi log cho các components khác của hệ thống (collectors và aggregators) để xử lý, hoặc chúng cho phép các components khác truy cập vào và copy logs từ host generation ra.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Log Analysis and Storage&lt;/strong&gt;: Nếu dùng AWS bạn có thể xài Watchlogs, còn Azure thì Logs Analytics hoặc App Insights, … Nhìn chung là bộ phận nhận dữ liệu từ Log Generation và phân tích lưu trữ.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Log Monitoring&lt;/strong&gt;: Có 1 cái dashboard để monitor (near-)real-time logs và review log events.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;------------------        ----------------        ------------------
+| Log Generation |  ====&amp;gt; | Log Analysis |  ====&amp;gt; | Log Monitoring |
+|                |        ----------------        ------------------
+|                |               /\                         /\
+|                |               ||                         ||
+|                |               \/                         ||
+|                |        ----------------                  ||
+|                |  ====&amp;gt; | Log Storage  |  =================
+|                |        ----------------
+------------------
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;các-chức-năng-chính&quot;&gt;Các chức năng chính&lt;/h3&gt;
+&lt;p&gt;Nhìn chung một hệ thống log management hoàn chỉnh nên có tối thiểu các chức năng sau:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
