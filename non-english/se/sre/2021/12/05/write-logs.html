@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    17 mins
+    19 mins
   
 </span>
 
@@ -680,6 +680,33 @@ Tuy nhiên, ngoài ra vẫn còn 1 đống các tiêu chí cần phải thỏa m
 
 <p>Đấy các trường cần có trong logs <strong>ít ra cũng phải được như trên</strong>.</p>
 
+<p><strong>Timestamps</strong> cũng là một vấn đề đau đầu của log.
+Tôi từng gặp khá nhiều hệ thống log sử dụng Date/DateTime nhưng nhìn chung không hợp lý.
+Theo khuyến cáo của NIST chính phủ Hoa Kỳ thì tất cả Internet đều là <code class="language-plaintext highlighter-rouge">Timestamps</code>.
+Bạn có thể tham khảo thêm RFC3339.
+Có 2 dạng sau hay được dùng:</p>
+
+<ul>
+  <li>YYYY-MM-DDThh:mm:ss.mmmZ (Zulu time, UTC+0) và</li>
+  <li>YYYY-MM-DDThh:mm:ss.mmm+04:00 (UTC+4)</li>
+</ul>
+
+<p>Nếu bạn nào chưa biết UTC hay chữ Z trên có ý nghĩa gì thì nó đơn giản là <code class="language-plaintext highlighter-rouge">Zulu time</code> thôi.</p>
+
+<p>Trong trường hợp các bạn tự thuê server mà build service thì NIST cũng cẩn thận khuyến cáo trong việc đồng bộ timestamps:</p>
+
+<blockquote>
+  <p>Agencies shall use a GPS master station clock as a baseline reference 
+for timestamps used for logs and systems producing logs. If GPS 
+reference is not possible, agencies shall use NIST’s authenticated time 
+service. Public, unauthenticated, and unencrypted NTP pools shall 
+only be used as an option of last resort, and only for as long as needed 
+to begin leveraging other options.</p>
+</blockquote>
+
+<p>Nhưng nhìn chung là cứ deploy hết lên Cloud rồi cấu hình timezone cho đỡ đau đầu.
+Nhớ là nếu tự build thì đừng dùng mấy cái NTP server khả nghi là ok!</p>
+
 <h2 id="thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</h2>
 
 <h3 id="kiến-trúc-tổng-quan">Kiến trúc tổng quan</h3>
@@ -775,8 +802,8 @@ Tuy nhiên, ngoài ra vẫn còn 1 đống các tiêu chí cần phải thỏa m
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
 <ol class="bibliography"><li><span id="LogManag44:online">US Department of Commerce, Technology Administration, National Institute of Standards and Technology. <i>Log Management | CSRC</i>. https://csrc.nist.gov/Projects/log-management</span></li>
-<li><span id="kent2006guide">Kent, K. A., &amp; Souppaya, M. (2006). <i>Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology</i>. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.</span></li>
-<li><span id="M213156:online">EXECUTIVE OFFICE OF THE PRESIDENT OFFICE OF MANAGEMENT AND BUDGET. (2021). <i>M-21-31: MEMORANDUM FOR THE HEADS OF EXECUTIVE DEPARTMENTS AND AGENCIES</i>. https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf</span></li></ol>
+<li><span id="M213156:online">Executive Office of the President Office of Management and Budget. (2021). <i>M-21-31: Memorandum for the Heads of Executive Departments and Agencies</i>. https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf</span></li>
+<li><span id="kent2006guide">Kent, K. A., &amp; Souppaya, M. (2006). <i>Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology</i>. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.</span></li></ol>
 
     
 
