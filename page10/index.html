@@ -19,13 +19,13 @@
 
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '');
+    gtag('config', 'G-2CDTCF0EP6');
   </script>
 
 
@@ -401,6 +401,63 @@
   
   <article class="post-body">
     <h2 class="post-title">
+      <a href="/pm/2021/06/01/discounted-cash-flow.html">
+        Discounted Cash Flow and The Hiring of a Postdoc
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">01 Jun 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page10/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page10/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page10/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/US_one_dollar_bill%2C_obverse%2C_series_2009.jpg" alt="" />
+<em>Source: Wikipedia</em></p>
+
+<p>In the winter of 20xx, a professor was asked to evaluate a postdoc profile for hiring.
+The offer is about 4.2 million per year (currency is not revealed).
+An average postdoc lifetime is about 5 years (and then moving towards tenure or perish).
+The inflation rate is about 3% per year.
+The sponsors of the professor’s project can give 50 million for five years.
+<strong>What is the hurdle rate</strong> that makes the profile (together with the project) is acceptable?</p>
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/pm/2021/06/01/discounted-cash-flow.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
       <a href="/cv/ai/2021/05/31/mOCR-mlkit-androidx-example.html">
         mOCR: A real-time application of OCR with Google MLKit and Android CameraX
       </a>
@@ -693,222 +750,6 @@ The process is repeated until all boxes are visited.</p>
 
       
         <a href="/cv/ai/2021/05/20/understanding-object-detection-nms.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/non-english/2021/04/24/chon-de-tai-nghien-cuu-non-english.html">
-        Làm thế nào chọn đề tài nghiên cứu phù hợp với lựa chọn nghề nghiệp trong ngành trí tuệ nhân tạo?
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">24 Apr 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/non-english.html">
-          Tiếng Việt, 日本語
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page10/" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page10/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page10/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <style> /* set the CSS */
-
-.tooltip {	
-    position: absolute;			
-    text-align: left;			
-    width: auto;					
-    height: 75px;					
-    padding: 2px;	
-    margin: 2px			
-    font: 10px sans-serif;		
-    background: green;
-    opacity: 0.6;	
-    border: 1px;		
-    border-radius: 5px;			
-    pointer-events: none;			
-}
-
-</style>
-
-<div id="chart"></div>
-
-<script>
-
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 50},
-    width = 800 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
-// Append tooltips
-var div = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
-    .style("opacity", 0);
-// append the svg object to the body of the page
-var svg = d3.select("#chart")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-var x = d3.scaleTime().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
-var paddingForText = 10;
-  // gridlines in x axis function
-  function make_x_gridlines() {		
-      return d3.axisBottom(x)
-          .ticks(3)
-  }
-
-  // gridlines in y axis function
-  function make_y_gridlines() {		
-      return d3.axisLeft(y)
-          .ticks(5)
-  }
-//Read the data
-d3.csv("/assets/coco_perf.csv",
-
-  // When reading the csv, I must format variables:
-  function(d){
-    return { year : d3.timeParse("%Y-%m-%d")(d.year), map : d.map, name: d.name }
-  },
-
-  // Now I can use this dataset:
-  function(data) {
-
-    // Add X axis --> it is a date format
-    var x = d3.scaleTime()
-      .domain(d3.extent(data, function(d) { return d.year; }))
-      .range([ 0, width]);
-    svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-    svg.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 20) + ")")
-      .style("text-anchor", "middle")
-      .text("Released Year");
-       // text label for the y axis
-  svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Box mAP [%]"); 
-    // add the X gridlines
-    svg.append("g")			
-        .attr("class", "grid")
-        .attr("transform", "translate(0," + height + ")")
-        .call(make_x_gridlines()
-            .tickSize(-height)
-            .tickFormat("")
-        )
-
-    // add the Y gridlines
-    svg.append("g")			
-        .attr("class", "grid")
-        .call(make_y_gridlines()
-            .tickSize(-width)
-            .tickFormat("")
-        )
-
-    // Add Y axis
-    var y = d3.scaleLinear()
-      .domain([25, 60])
-      .range([ height, 0]);
-    svg.append("g")
-      .call(d3.axisLeft(y));
-
-    // Add the line
-    svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "green")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.year) })
-        .y(function(d) { return y(d.map) })
-        )
-
-    svg.append("g").selectAll("circle")
-    .data(data)
-    .enter()
-    .append("circle")
-    .attr("r", 4)
-    .attr("cx", function(d) {
-        return x(d.year)
-    })
-    .attr("cy", function(d) {
-        return y(d.map)
-    })
-    .attr("fill", "red")
-    .attr("stroke", "red")
-    .on("mouseover", function(d) {		
-            div.transition()		
-                .duration(200)		
-                .style("opacity", .9);		
-            div	.html(d.name + "<br/>"  + d.map + "%")	
-                .style("left", (d3.event.pageX) + "px")		
-                .style("top", (d3.event.pageY - 28) + "px");	
-            })					
-        .on("mouseout", function(d) {		
-            div.transition()		
-                .duration(500)		
-                .style("opacity", 0);	
-        });
-
-svg.append("g").selectAll("text")
-    .data(data)
-    .enter()
-    .append("text")
-    .attr("x", function(d) {
-        return x(d.year) - paddingForText
-    })
-    .attr("y", function(d) {
-        return y(d.map) - paddingForText
-    })
-    .attr("fill", "green")
-    .style("font-size", "12px")
-    .text(function(d) {
-        return d.map
-    });
-
-})
-
-</script>
-
-<p><em><strong>Ví dụ về sự phát triển của một lĩnh vực nghiên cứu trong vòng 5 năm (01/2016-01/2021) trên 1 bộ dữ liệu chuẩn công nghiệp [1]. Có thể dễ dàng thấy trong 5 năm, trên bộ dữ liệu với số lượng đối tượng hàng triệu (do vậy đạt tiêu chuẩn công nghiệp), nhưng độ chính xác chỉ tăng 30%, từ 28.8% (SSD512, [2]) lên 58.7% (Swin-L, [3]). So với nhiều mảng khác mà model tốt nhất đã lên trên 99.9% [4,5], mảng này có nhiều khả năng mất đến 5 năm nữa để đến được level tương tự để ra sản phẩm thị trường.</strong></em></p>
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/non-english/2021/04/24/chon-de-tai-nghien-cuu-non-english.html">More &hellip;</a>
       
     
   </article>

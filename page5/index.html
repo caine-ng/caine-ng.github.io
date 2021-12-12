@@ -19,13 +19,13 @@
 
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '');
+    gtag('config', 'G-2CDTCF0EP6');
   </script>
 
 
@@ -401,6 +401,74 @@
   
   <article class="post-body">
     <h2 class="post-title">
+      <a href="/non-english/se/2021/08/09/unit-tests-clean.html">
+        Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">09 Aug 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page5/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page5/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page5/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg" alt="" />
+<em>Source: <a href="https://vi.m.wikipedia.org/wiki/T%E1%BA%ADp_tin:Programmer_writing_code_with_Unit_Tests.jpg">Wikipedia</a></em></p>
+
+<p><strong>Unit Tests [3, chương 9; 4; 5]</strong> là đơn vị tests gần gũi nhất với lập trình viên.
+Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì?
+Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng <em>Clean Code [3]</em> đồng tác giả, để phần nào trả lời những câu hỏi này.
+Bài báo học thuật có thể được đọc miễn phí tại: <a href="https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf">https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf</a></p>
+
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/non-english/se/2021/08/09/unit-tests-clean.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
       <a href="/sre/non-english/se/2021/08/07/srp-ccp.html">
         Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất
       </a>
@@ -678,75 +746,6 @@ As the need for such platforms is growing [3, 4], I review such a solution in th
 
       
         <a href="/ai/sre/2021/07/31/algorithmia.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/pm/se/2021/07/25/python38-sys-exit.html">
-        Termination in Python
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">25 Jul 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/pm.html">
-          Project Management
-        </a>
-      
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/se.html">
-          Software Engineering
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page5/" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page5/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page5/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Cython-logo.svg/800px-Cython-logo.svg.png" alt="" />
-<em>Source: <a href="https://en.wikipedia.org/wiki/File:Cython-logo.svg">Wikipedia</a></em></p>
-
-<p>Every program will come to its end!</p>
-
-<p>The termination of a Python process can be the result of “murder” by the system (<code class="language-plaintext highlighter-rouge">SIGTERM/SIGKILL</code>), or controlled by the program (using <code class="language-plaintext highlighter-rouge">quit(), exit(), os._exit()</code> or <code class="language-plaintext highlighter-rouge">sys.exit()</code>), or by reducing budget.
-When writing code, programmers may need to determine whether to put a line of code to terminate the process.
-The termination process itself is complex.
-And before terminating, we should remember to make a report, an audit log to summarize the life of the Python process.</p>
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/pm/se/2021/07/25/python38-sys-exit.html">More &hellip;</a>
       
     
   </article>

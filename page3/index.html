@@ -19,13 +19,13 @@
 
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '');
+    gtag('config', 'G-2CDTCF0EP6');
   </script>
 
 
@@ -401,6 +401,78 @@
   
   <article class="post-body">
     <h2 class="post-title">
+      <a href="/non-english/se/2021/09/27/agile-feature.html">
+        アジャイル開発でタスクにアサインされる場合、直ぐにやるかどうかどうやって判定するか？
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">27 Sep 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page3/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page3/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page3/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://docs.microsoft.com/en-us/learn/azure-devops/get-started-with-devops/media/2-vsm-whiteboard1.png" alt="Agile" />
+<em>Source: Microsoft</em></p>
+
+<p>アジャイル開発現場では、看板に乗っているタスクをメンバーに割り当てる際に、そのメンバーは直ぐにそのタスクをやるかどうか見てみます。
+時々、<strong>どうやってやるかどうかを決める方法について教えてください</strong>とよく言われています。
+まずは、<strong>優先順位</strong>を決めて、一番優先の高いタスクを取ってやるから、依頼したタスクはその優先順位トップに入らない場合、断ります。
+トップに入るとやります。
+しかし、ここで微妙にどうやってその優先順位を早く決めるか方法論を考えたいですが、やはり<code class="language-plaintext highlighter-rouge">PriorityQueue</code>を使いたいです。
+第一優先のタスクを$O(1)$時間量で計算できます。
+次に、<strong>決定木</strong>を使うべきです。
+優先順位がつかない場合、いくつかの<code class="language-plaintext highlighter-rouge">Yes/No</code>質疑でやるかどうかを決めることもできます。</p>
+
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/non-english/se/2021/09/27/agile-feature.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
       <a href="/pm/sre/non-english/2021/09/09/secure-browser.html">
         セキュアブラウザについて
       </a>
@@ -689,67 +761,6 @@ When other features change, the current feature is not affected, and the user se
 
       
         <a href="/pm/se/2021/08/28/aggregation-segregation.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/non-english/2021/08/26/mobile-and-web.html">
-        Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">26 Aug 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/non-english.html">
-          Tiếng Việt, 日本語
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page3/" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page3/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page3/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <p><img src="https://jp.techcrunch.com/wp-content/uploads/2020/05/clubhouse-voice-chat-social-network.jpg?w=738" alt="Clubhouse" />
-<em>Source: TechCrunch Japan</em></p>
-
-<p>Cũng phải 9-10 năm trước đây, khi mới bắt đầu làm các nền tảng với mong muốn xây dựng “một phút huy hoàng rồi vụt tắt”, tôi hay thấy các nhà phát triển lựa chọn cùng lúc phát triển 3 phiên bản: Web, mobile (Android/iOS) và một bản có thể desktop.
-Đó là những năm 2012 và việc đó chủ yếu để tăng độ phủ của dịch vụ.
-Nhưng năm nay là năm 2021, và chúng ta không thể hướng dẫn các em trẻ bằng bộ não của những “ông già” mà thời huy hoàng từ những năm 2012.
-Năm 2021, chúng ta cũng cần cập nhật và nhìn lại những ứng dụng thành công trong 2 năm qua của kỷ nguyên COVID, tôi chợt nhận ra:
-ứng dụng ClubHouse thành công gọi vốn vòng C tương đương 100 triệu đô lẻ nhưng không hề cung cấp giao diện web, chỉ toàn ứng dụng mobile.
-Ứng dụng na ná thế của Việt Nam là onMic cũng không thèm chơi với web luôn!
-Ồ, chúng ta đã già rồi với giới trẻ có lẽ đã không còn mặn mà với việc xây một phiên bản cho desktop browser nữa.
-<strong>Năm 2021 phải là thời đại của mobile</strong>.
-Chúng ta có lẽ đã sai, và cũng nên nhìn nhận lại khả năng của mobile apps (native chứ không phải nhúng mấy cái Javascript vớ vẩn)!</p>
-
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/non-english/2021/08/26/mobile-and-web.html">More &hellip;</a>
       
     
   </article>
