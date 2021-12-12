@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T02:25:02+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T02:31:22+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
 &lt;em&gt;Source: SIEM&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
@@ -183,6 +183,8 @@ Và Log ở đây &lt;strong&gt;không chỉ là log generation, mà còn là l�
 
 &lt;p&gt;Nói chung ở mọi cấp thì yêu cầu cơ bản nhất là phải thực thi các quy tắc log và thu thập log về 1 điểm tập trung duy nhất (&lt;strong&gt;Centralized logging system&lt;/strong&gt;).&lt;/p&gt;
 
+&lt;h3 id=&quot;el1&quot;&gt;&lt;em&gt;EL1&lt;/em&gt;&lt;/h3&gt;
+
 &lt;p&gt;Ở cấp &lt;em&gt;EL1&lt;/em&gt; những yêu cầu ở mức chỉ cần đối ứng với các nguy cơ cấp &lt;em&gt;Criticality 0&lt;/em&gt;.
 Tuy nhiên, ngoài ra vẫn còn 1 đống các tiêu chí cần phải thỏa mãn.
 Đầu tiên là &lt;strong&gt;log cái gì?&lt;/strong&gt; thì tối thiểu phải log những thông tin sau:&lt;/p&gt;
@@ -234,6 +236,30 @@ to begin leveraging other options.&lt;/p&gt;
 
 &lt;p&gt;Nhưng nhìn chung là cứ deploy hết lên Cloud rồi cấu hình timezone cho đỡ đau đầu.
 Nhớ là nếu tự build thì đừng dùng mấy cái NTP server khả nghi là ok!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Event forwarding&lt;/strong&gt;: một tình huống hay gặp nữa là một agent được cài vào máy đối tượng thu thập logs, và sẽ forward toàn bộ log về server xử lý trung tâm. Event forwarding cũng là 1 yêu cầu trong &lt;em&gt;El1&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bảo vệ và xác thực logs&lt;/strong&gt;: ở cấp này yêu cầu hạn chế truy cập vào logs với đối tượng nhất định (phân quyền), phải mã hóa logs để tránh rò rỉ thông tin người dùng. Việc bảo vệ logs là 1 thử thách lớn trong log management vì đôi khi có lưu thông tin người dùng vào logs.
+Phải định kỳ check logs xem có bị mất, hỏng gì không.
+Phải monitor liên tục và khi tự nhiên log dừng là phải có 1 đội phản ứng nhanh nhảy vào đối ứng kiểm tra ngay.&lt;/p&gt;
+
+&lt;p&gt;Các tổ chức chính phủ hay quân sự thì nên log cả &lt;strong&gt;DNS requests&lt;/strong&gt;.
+Điều này là cần thiết cho FBI và CISA tiện trong việc điều tra.&lt;/p&gt;
+
+&lt;p&gt;Các tổ chức điều tra cảnh sát cấp liên bang như CISA hay FBI nên có quyền truy cập gần như lập tức vào dữ liệu log để tiện việc điều tra truy tìm tội phạm.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Playbooks&lt;/strong&gt; là công cụ tuyệt vời để thực hiện tự động hóa đối phó sự cố, như với SOAR.&lt;/p&gt;
+
+&lt;p&gt;Ở cấp &lt;em&gt;EL1&lt;/em&gt; tổ chức nên có kế hoạch theo dõi hành vi người dùng.
+Và đương nhiên, logs nên được quản lý tập trung:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Logs should be centrally aggregated by an agency component-level 
+Enterprise Log Manager (ELM). Traps for detecting data-stream 
+disruption should be monitored by the component-level SOC. The DNS 
+logging system and accompanying analytics shall be monitored and 
+triaged by the component-level SOC.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh&quot;&gt;Thiết kế một hệ thống quản lý log nghiêm chỉnh&lt;/h2&gt;
 

@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    19 mins
+    20 mins
   
 </span>
 
@@ -454,7 +454,11 @@
 <li class="toc-entry toc-h1"><a href="#yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh">Yêu cầu của một hệ thống log hoàn chỉnh</a>
 <ol>
 <li class="toc-entry toc-h2"><a href="#phân-loại-nguy-cơ">Phân loại nguy cơ</a></li>
-<li class="toc-entry toc-h2"><a href="#yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</a></li>
+<li class="toc-entry toc-h2"><a href="#yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#el1">EL1</a></li>
+</ol>
+</li>
 <li class="toc-entry toc-h2"><a href="#thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</a>
 <ol>
 <li class="toc-entry toc-h3"><a href="#kiến-trúc-tổng-quan">Kiến trúc tổng quan</a></li>
@@ -655,6 +659,8 @@ Và Log ở đây <strong>không chỉ là log generation, mà còn là lưu tr�
 
 <p>Nói chung ở mọi cấp thì yêu cầu cơ bản nhất là phải thực thi các quy tắc log và thu thập log về 1 điểm tập trung duy nhất (<strong>Centralized logging system</strong>).</p>
 
+<h3 id="el1"><em>EL1</em></h3>
+
 <p>Ở cấp <em>EL1</em> những yêu cầu ở mức chỉ cần đối ứng với các nguy cơ cấp <em>Criticality 0</em>.
 Tuy nhiên, ngoài ra vẫn còn 1 đống các tiêu chí cần phải thỏa mãn.
 Đầu tiên là <strong>log cái gì?</strong> thì tối thiểu phải log những thông tin sau:</p>
@@ -706,6 +712,30 @@ to begin leveraging other options.</p>
 
 <p>Nhưng nhìn chung là cứ deploy hết lên Cloud rồi cấu hình timezone cho đỡ đau đầu.
 Nhớ là nếu tự build thì đừng dùng mấy cái NTP server khả nghi là ok!</p>
+
+<p><strong>Event forwarding</strong>: một tình huống hay gặp nữa là một agent được cài vào máy đối tượng thu thập logs, và sẽ forward toàn bộ log về server xử lý trung tâm. Event forwarding cũng là 1 yêu cầu trong <em>El1</em>.</p>
+
+<p><strong>Bảo vệ và xác thực logs</strong>: ở cấp này yêu cầu hạn chế truy cập vào logs với đối tượng nhất định (phân quyền), phải mã hóa logs để tránh rò rỉ thông tin người dùng. Việc bảo vệ logs là 1 thử thách lớn trong log management vì đôi khi có lưu thông tin người dùng vào logs.
+Phải định kỳ check logs xem có bị mất, hỏng gì không.
+Phải monitor liên tục và khi tự nhiên log dừng là phải có 1 đội phản ứng nhanh nhảy vào đối ứng kiểm tra ngay.</p>
+
+<p>Các tổ chức chính phủ hay quân sự thì nên log cả <strong>DNS requests</strong>.
+Điều này là cần thiết cho FBI và CISA tiện trong việc điều tra.</p>
+
+<p>Các tổ chức điều tra cảnh sát cấp liên bang như CISA hay FBI nên có quyền truy cập gần như lập tức vào dữ liệu log để tiện việc điều tra truy tìm tội phạm.</p>
+
+<p><strong>Playbooks</strong> là công cụ tuyệt vời để thực hiện tự động hóa đối phó sự cố, như với SOAR.</p>
+
+<p>Ở cấp <em>EL1</em> tổ chức nên có kế hoạch theo dõi hành vi người dùng.
+Và đương nhiên, logs nên được quản lý tập trung:</p>
+
+<blockquote>
+  <p>Logs should be centrally aggregated by an agency component-level 
+Enterprise Log Manager (ELM). Traps for detecting data-stream 
+disruption should be monitored by the component-level SOC. The DNS 
+logging system and accompanying analytics shall be monitored and 
+triaged by the component-level SOC.</p>
+</blockquote>
 
 <h2 id="thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</h2>
 
