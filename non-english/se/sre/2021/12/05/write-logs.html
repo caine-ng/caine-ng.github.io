@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    13 mins
+    17 mins
   
 </span>
 
@@ -455,6 +455,12 @@
 <ol>
 <li class="toc-entry toc-h2"><a href="#phân-loại-nguy-cơ">Phân loại nguy cơ</a></li>
 <li class="toc-entry toc-h2"><a href="#yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</a></li>
+<li class="toc-entry toc-h2"><a href="#thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#kiến-trúc-tổng-quan">Kiến trúc tổng quan</a></li>
+<li class="toc-entry toc-h3"><a href="#các-chức-năng-chính">Các chức năng chính</a></li>
+</ol>
+</li>
 </ol>
 </li>
 <li class="toc-entry toc-h1"><a href="#usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</a></li>
@@ -594,7 +600,7 @@ Và nếu bây giờ mà tự dưng phát sinh ra dự án thu thập dữ liệ
 Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thống nhất như sau:</p>
 
 <ul>
-  <li>Trong vòng 60 ngày kể từ ngày ký phải bắt đầu thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản. Việc này thể hiện qua việc chuẩn bị resources, lên kế hoạch và phải nộp cả bản kế hoạch thực hiện cho RMo và OFCIO.</li>
+  <li>Trong vòng 60 ngày kể từ ngày ký phải bắt đầu thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản. Việc này thể hiện qua việc chuẩn bị resources, lên kế hoạch và phải nộp cả bản kế hoạch thực hiện cho RMO và OFCIO.</li>
   <li>Trong vòng 1 năm kể từ ngày ký, các cơ quan có liên quan phải đạt đến level <em>EL1</em>.</li>
   <li>Trong vòng 18 tháng kể từ ngày ký, các cơ quan có liên quan phải đạt chuẩn <em>EL2</em>.</li>
   <li>Trong vòng 2 năm kể từ ngày ký, các cơ quan liên quan phải đạt đến cấp <em>EL3</em>, cấp cao nhất thể hiện 1 hệ thống log management hoàn chỉnh.</li>
@@ -638,7 +644,7 @@ Có 2 ngoại lệ nhỏ:</p>
 Với ứng dụng thì nên log lại mọi events như API logs, authentication, authorization, .etc.</p>
 
 <p>Ngoài cấp <em>Criticality 0</em> thì các cấp thấp hơn là <em>Criticality 1, 2, và 3</em>.
-Ở cấp <em>EL1</em> đòi hỏi phải chấn chỉnh toàn bộ việc quản lý log ở cáp 0 (highest).
+Ở cấp <em>EL1</em> đòi hỏi phải chấn chỉnh toàn bộ việc quản lý log ở cấp 0 (highest).
 Đến cấp <em>EL2</em> doanh nghiệp tổ chức buộc phải thực hiện quản lý mọi log ở cấp 0 và 1.
 Còn đến cấp <em>EL3</em> mặc định là mọi criticality phải được log.
 Và Log ở đây <strong>không chỉ là log generation, mà còn là lưu trữ, phân tích, tìm kiếm ở mức đủ để đối ứng sự cố hoặc lên chiến lược</strong>.</p>
@@ -646,6 +652,121 @@ Và Log ở đây <strong>không chỉ là log generation, mà còn là lưu tr�
 <p>Nhìn chung khuyến khích các bạn nên tìm đọc thêm tài liệu hướng dẫn tiêu chuẩn quân sự hoặc chính phủ của NIST hoặc FBI.</p>
 
 <h2 id="yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</h2>
+
+<p>Nói chung ở mọi cấp thì yêu cầu cơ bản nhất là phải thực thi các quy tắc log và thu thập log về 1 điểm tập trung duy nhất (<strong>Centralized logging system</strong>).</p>
+
+<p>Ở cấp <em>EL1</em> những yêu cầu ở mức chỉ cần đối ứng với các nguy cơ cấp <em>Criticality 0</em>.
+Tuy nhiên, ngoài ra vẫn còn 1 đống các tiêu chí cần phải thỏa mãn.
+Đầu tiên là <strong>log cái gì?</strong> thì tối thiểu phải log những thông tin sau:</p>
+
+<ul>
+  <li>Log phải được định dạng sẵn và timestamps phải được đồng bộ về cùng dạng biểu diễn.</li>
+  <li>Mã trạng thái của sự kiện (mã lỗi chẳng hạn).</li>
+  <li>ID của thiết bị như địa chỉ MAC.</li>
+  <li>Session / Transaction ID</li>
+  <li>Autonomous System Number</li>
+  <li>Source IP (IPv4)</li>
+  <li>Source IP (IPv6)</li>
+  <li>Destination IP (IPv4)</li>
+  <li>Destination IP (IPv6)</li>
+  <li>Status Code</li>
+  <li>Response Time</li>
+  <li>Các headers bổ sung (i.e., HTTP headers)</li>
+  <li>Khi thích hợp, có thể log username/userID nhưng cần chú ý về tính an toàn dữ liệu người dùng.</li>
+  <li>Khi thích hợp, nên log cả command đã thực hiện ra. Như SQL statement cũng nên log ra.</li>
+  <li>Nên log ở dạng key-value cho anh em dễ xử lý nhá :-)</li>
+  <li>Nếu được nhớ bỏ event ID để anh em correlation về sau!</li>
+</ul>
+
+<p>Đấy các trường cần có trong logs <strong>ít ra cũng phải được như trên</strong>.</p>
+
+<h2 id="thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</h2>
+
+<h3 id="kiến-trúc-tổng-quan">Kiến trúc tổng quan</h3>
+
+<h3 id="các-chức-năng-chính">Các chức năng chính</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Nhóm chức năng</strong></th>
+      <th><strong>Chức năng</strong></th>
+      <th><strong>Mô tả</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>General</strong></td>
+      <td><em>Log parsing</em></td>
+      <td>Extract data from a log so that the parsed values can be used as input for another logging process.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Event filtering</em></td>
+      <td>Suppression of log entries from analysis, reporting, or long-term storage because their characteristics indicate that they are unlikely to contain information of interest.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Event aggregation</em></td>
+      <td>Similar entries are consolidated into a single entry containing a count of the number of occurrences of the event.</td>
+    </tr>
+    <tr>
+      <td><strong>Storage</strong></td>
+      <td><em>Log rotation</em></td>
+      <td>Close a log file and opening a new log file when the first file is considered to be complete. Log rotation is typically performed according to a schedule (e.g., hourly, daily, weekly) or when a log file reaches a certain size. The primary benefits of log rotation are preserving log entries and keeping the size of log files manageable. When a log file is rotated, the preserved log file can be compressed to save space.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log archival</em></td>
+      <td>Retain logs for an extended period of time, typically on removable media, a storage area network (SAN), or a specialized log archival appliance or server. Logs often need to be preserved to meet legal or regulatory requirements.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log compression</em></td>
+      <td>Store a log file in a way that reduces the amount of storage space needed for the file without altering the meaning of its contents. Log compression is often performed when logs are rotated or archived.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log reduction</em></td>
+      <td>Remove unneeded entries from a log to create a new log that is smaller. A similar process is <em>event reduction</em>, which removes unneeded data fields from all log entries.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log conversion</em></td>
+      <td>Parsing a log in one format and storing its entries in a second format.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log normalization</em></td>
+      <td>Each log data field is converted to a particular data representation and categorized consistently. One of the most common uses of normalization is storing dates and times in a single format.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log file integrity checking</em></td>
+      <td>Calculate a message digest for each file and storing the message digest securely to ensure that changes to archived logs are detected.</td>
+    </tr>
+    <tr>
+      <td><strong>Analysis</strong></td>
+      <td><em>Event correlation</em></td>
+      <td>Find relationships between two or more log entries. The most common form of event correlation is rule-based correlation, which matches multiple log entries from a single source or multiple sources based on logged values, such as timestamps, IP addresses, and event types. Event correlation can also be performed in other ways, such as using statistical methods or visualization tools.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log viewing</em></td>
+      <td>Display log entries in a human-readable format.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log reporting</em></td>
+      <td>Display the results of log analysis. Log reporting is often performed to summarize significant activity over a particular period of time or to record detailed information related to a particular event or series of events.</td>
+    </tr>
+    <tr>
+      <td><strong>Disposal</strong></td>
+      <td><em>Log clearing</em></td>
+      <td>Remove all entries from a log that precede a certain date and time. Log clearing is often performed to remove old log data that is no longer needed on a system because it is not of importance or it has been archived.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</h1>
 

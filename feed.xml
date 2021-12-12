@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T00:44:20+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T02:03:11+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
 &lt;em&gt;Source: SIEM&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
@@ -128,7 +128,7 @@ Và nếu bây giờ mà tự dưng phát sinh ra dự án thu thập dữ liệ
 Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thống nhất như sau:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Trong vòng 60 ngày kể từ ngày ký phải bắt đầu thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản. Việc này thể hiện qua việc chuẩn bị resources, lên kế hoạch và phải nộp cả bản kế hoạch thực hiện cho RMo và OFCIO.&lt;/li&gt;
+  &lt;li&gt;Trong vòng 60 ngày kể từ ngày ký phải bắt đầu thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản. Việc này thể hiện qua việc chuẩn bị resources, lên kế hoạch và phải nộp cả bản kế hoạch thực hiện cho RMO và OFCIO.&lt;/li&gt;
   &lt;li&gt;Trong vòng 1 năm kể từ ngày ký, các cơ quan có liên quan phải đạt đến level &lt;em&gt;EL1&lt;/em&gt;.&lt;/li&gt;
   &lt;li&gt;Trong vòng 18 tháng kể từ ngày ký, các cơ quan có liên quan phải đạt chuẩn &lt;em&gt;EL2&lt;/em&gt;.&lt;/li&gt;
   &lt;li&gt;Trong vòng 2 năm kể từ ngày ký, các cơ quan liên quan phải đạt đến cấp &lt;em&gt;EL3&lt;/em&gt;, cấp cao nhất thể hiện 1 hệ thống log management hoàn chỉnh.&lt;/li&gt;
@@ -172,7 +172,7 @@ Có 2 ngoại lệ nhỏ:&lt;/p&gt;
 Với ứng dụng thì nên log lại mọi events như API logs, authentication, authorization, .etc.&lt;/p&gt;
 
 &lt;p&gt;Ngoài cấp &lt;em&gt;Criticality 0&lt;/em&gt; thì các cấp thấp hơn là &lt;em&gt;Criticality 1, 2, và 3&lt;/em&gt;.
-Ở cấp &lt;em&gt;EL1&lt;/em&gt; đòi hỏi phải chấn chỉnh toàn bộ việc quản lý log ở cáp 0 (highest).
+Ở cấp &lt;em&gt;EL1&lt;/em&gt; đòi hỏi phải chấn chỉnh toàn bộ việc quản lý log ở cấp 0 (highest).
 Đến cấp &lt;em&gt;EL2&lt;/em&gt; doanh nghiệp tổ chức buộc phải thực hiện quản lý mọi log ở cấp 0 và 1.
 Còn đến cấp &lt;em&gt;EL3&lt;/em&gt; mặc định là mọi criticality phải được log.
 Và Log ở đây &lt;strong&gt;không chỉ là log generation, mà còn là lưu trữ, phân tích, tìm kiếm ở mức đủ để đối ứng sự cố hoặc lên chiến lược&lt;/strong&gt;.&lt;/p&gt;
@@ -180,6 +180,121 @@ Và Log ở đây &lt;strong&gt;không chỉ là log generation, mà còn là l�
 &lt;p&gt;Nhìn chung khuyến khích các bạn nên tìm đọc thêm tài liệu hướng dẫn tiêu chuẩn quân sự hoặc chính phủ của NIST hoặc FBI.&lt;/p&gt;
 
 &lt;h2 id=&quot;yêu-cầu-thực-thi-ở-các-cấp-el&quot;&gt;Yêu cầu thực thi ở các cấp EL&lt;/h2&gt;
+
+&lt;p&gt;Nói chung ở mọi cấp thì yêu cầu cơ bản nhất là phải thực thi các quy tắc log và thu thập log về 1 điểm tập trung duy nhất (&lt;strong&gt;Centralized logging system&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;Ở cấp &lt;em&gt;EL1&lt;/em&gt; những yêu cầu ở mức chỉ cần đối ứng với các nguy cơ cấp &lt;em&gt;Criticality 0&lt;/em&gt;.
+Tuy nhiên, ngoài ra vẫn còn 1 đống các tiêu chí cần phải thỏa mãn.
+Đầu tiên là &lt;strong&gt;log cái gì?&lt;/strong&gt; thì tối thiểu phải log những thông tin sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Log phải được định dạng sẵn và timestamps phải được đồng bộ về cùng dạng biểu diễn.&lt;/li&gt;
+  &lt;li&gt;Mã trạng thái của sự kiện (mã lỗi chẳng hạn).&lt;/li&gt;
+  &lt;li&gt;ID của thiết bị như địa chỉ MAC.&lt;/li&gt;
+  &lt;li&gt;Session / Transaction ID&lt;/li&gt;
+  &lt;li&gt;Autonomous System Number&lt;/li&gt;
+  &lt;li&gt;Source IP (IPv4)&lt;/li&gt;
+  &lt;li&gt;Source IP (IPv6)&lt;/li&gt;
+  &lt;li&gt;Destination IP (IPv4)&lt;/li&gt;
+  &lt;li&gt;Destination IP (IPv6)&lt;/li&gt;
+  &lt;li&gt;Status Code&lt;/li&gt;
+  &lt;li&gt;Response Time&lt;/li&gt;
+  &lt;li&gt;Các headers bổ sung (i.e., HTTP headers)&lt;/li&gt;
+  &lt;li&gt;Khi thích hợp, có thể log username/userID nhưng cần chú ý về tính an toàn dữ liệu người dùng.&lt;/li&gt;
+  &lt;li&gt;Khi thích hợp, nên log cả command đã thực hiện ra. Như SQL statement cũng nên log ra.&lt;/li&gt;
+  &lt;li&gt;Nên log ở dạng key-value cho anh em dễ xử lý nhá :-)&lt;/li&gt;
+  &lt;li&gt;Nếu được nhớ bỏ event ID để anh em correlation về sau!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Đấy các trường cần có trong logs &lt;strong&gt;ít ra cũng phải được như trên&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh&quot;&gt;Thiết kế một hệ thống quản lý log nghiêm chỉnh&lt;/h2&gt;
+
+&lt;h3 id=&quot;kiến-trúc-tổng-quan&quot;&gt;Kiến trúc tổng quan&lt;/h3&gt;
+
+&lt;h3 id=&quot;các-chức-năng-chính&quot;&gt;Các chức năng chính&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Nhóm chức năng&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Chức năng&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Mô tả&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;General&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log parsing&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Extract data from a log so that the parsed values can be used as input for another logging process.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Event filtering&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Suppression of log entries from analysis, reporting, or long-term storage because their characteristics indicate that they are unlikely to contain information of interest.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Event aggregation&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Similar entries are consolidated into a single entry containing a count of the number of occurrences of the event.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Storage&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log rotation&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Close a log file and opening a new log file when the first file is considered to be complete. Log rotation is typically performed according to a schedule (e.g., hourly, daily, weekly) or when a log file reaches a certain size. The primary benefits of log rotation are preserving log entries and keeping the size of log files manageable. When a log file is rotated, the preserved log file can be compressed to save space.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log archival&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Retain logs for an extended period of time, typically on removable media, a storage area network (SAN), or a specialized log archival appliance or server. Logs often need to be preserved to meet legal or regulatory requirements.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log compression&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Store a log file in a way that reduces the amount of storage space needed for the file without altering the meaning of its contents. Log compression is often performed when logs are rotated or archived.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log reduction&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Remove unneeded entries from a log to create a new log that is smaller. A similar process is &lt;em&gt;event reduction&lt;/em&gt;, which removes unneeded data fields from all log entries.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log conversion&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Parsing a log in one format and storing its entries in a second format.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log normalization&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Each log data field is converted to a particular data representation and categorized consistently. One of the most common uses of normalization is storing dates and times in a single format.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log file integrity checking&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Calculate a message digest for each file and storing the message digest securely to ensure that changes to archived logs are detected.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Analysis&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Event correlation&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Find relationships between two or more log entries. The most common form of event correlation is rule-based correlation, which matches multiple log entries from a single source or multiple sources based on logged values, such as timestamps, IP addresses, and event types. Event correlation can also be performed in other ways, such as using statistical methods or visualization tools.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log viewing&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Display log entries in a human-readable format.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log reporting&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Display the results of log analysis. Log reporting is often performed to summarize significant activity over a particular period of time or to record detailed information related to a particular event or series of events.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Disposal&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Log clearing&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Remove all entries from a log that precede a certain date and time. Log clearing is often performed to remove old log data that is no longer needed on a system because it is not of importance or it has been archived.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python&quot;&gt;Usecase: Cấu hình hệ thống log với một website viết bằng Python&lt;/h1&gt;
 
