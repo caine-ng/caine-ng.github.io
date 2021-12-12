@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    20 mins
+    21 mins
   
 </span>
 
@@ -457,6 +457,7 @@
 <li class="toc-entry toc-h2"><a href="#yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</a>
 <ol>
 <li class="toc-entry toc-h3"><a href="#el1">EL1</a></li>
+<li class="toc-entry toc-h3"><a href="#el2">EL2</a></li>
 </ol>
 </li>
 <li class="toc-entry toc-h2"><a href="#thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</a>
@@ -736,6 +737,23 @@ disruption should be monitored by the component-level SOC. The DNS
 logging system and accompanying analytics shall be monitored and 
 triaged by the component-level SOC.</p>
 </blockquote>
+
+<h3 id="el2"><em>EL2</em></h3>
+
+<p>Về cơ bản, tổ chức được yêu cầu thực hiện đầy đủ các yêu cầu với <em>EL1</em> cho cả <em>Criticality 0, 1 và 2</em>.
+Ngoài ra, tổ chức nên xuất bản 1 hướng dẫn về cách thức tổ chức cũng như định dạng của logs.</p>
+
+<blockquote>
+  <p>Federal agencies shall provide a document detailing the structure (schema) for those logs to CISA.</p>
+</blockquote>
+
+<p>Thêm nữa là tổ chức nên có những biện pháp để kiểm tra những encrypted package.</p>
+
+<blockquote>
+  <p>Federal agencies shall retain and store in cleartext form the data or metadata from Appendix C that is collected in their environment. If agencies perform full traffic inspection through active proxies, they should log additional available fields as described in Appendix C and can work with CISA to implement these capabilities. If agencies do not perform full traffic inspection, they should log the metadata available to them. In general, agencies are expected to follow zero-trust principles concerning least privilege and reduced attack surface, and relevant guidance from OMB and CISA relating to zero-trust architecture.</p>
+</blockquote>
+
+<p>Cuối cùng là top manager của SOCs nên có quyền truy cập vào mọi thành phần của quản lý logs.</p>
 
 <h2 id="thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</h2>
 

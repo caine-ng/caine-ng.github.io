@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T02:31:22+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T02:34:48+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
 &lt;em&gt;Source: SIEM&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
@@ -260,6 +260,23 @@ disruption should be monitored by the component-level SOC. The DNS
 logging system and accompanying analytics shall be monitored and 
 triaged by the component-level SOC.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h3 id=&quot;el2&quot;&gt;&lt;em&gt;EL2&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;Về cơ bản, tổ chức được yêu cầu thực hiện đầy đủ các yêu cầu với &lt;em&gt;EL1&lt;/em&gt; cho cả &lt;em&gt;Criticality 0, 1 và 2&lt;/em&gt;.
+Ngoài ra, tổ chức nên xuất bản 1 hướng dẫn về cách thức tổ chức cũng như định dạng của logs.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Federal agencies shall provide a document detailing the structure (schema) for those logs to CISA.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Thêm nữa là tổ chức nên có những biện pháp để kiểm tra những encrypted package.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Federal agencies shall retain and store in cleartext form the data or metadata from Appendix C that is collected in their environment. If agencies perform full traffic inspection through active proxies, they should log additional available fields as described in Appendix C and can work with CISA to implement these capabilities. If agencies do not perform full traffic inspection, they should log the metadata available to them. In general, agencies are expected to follow zero-trust principles concerning least privilege and reduced attack surface, and relevant guidance from OMB and CISA relating to zero-trust architecture.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cuối cùng là top manager của SOCs nên có quyền truy cập vào mọi thành phần của quản lý logs.&lt;/p&gt;
 
 &lt;h2 id=&quot;thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh&quot;&gt;Thiết kế một hệ thống quản lý log nghiêm chỉnh&lt;/h2&gt;
 
