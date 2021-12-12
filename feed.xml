@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-12T20:31:23+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-12T21:16:47+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
 Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư &lt;em&gt;học cách viết log cho nó OK em&lt;/em&gt;.
 Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công.
 Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ &lt;strong&gt;cần thiết nhưng ít thì tốt hơn&lt;/strong&gt;.
@@ -125,7 +125,7 @@ Và nếu bây giờ mà tự dưng phát sinh ra dự án thu thập dữ liệ
 Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thống nhất như sau:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Trong vòng 60 ngày kể từ ngày ký phải thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản.&lt;/li&gt;
+  &lt;li&gt;Trong vòng 60 ngày kể từ ngày ký phải bắt đầu thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản. Việc này thể hiện qua việc chuẩn bị resources, lên kế hoạch và phải nộp cả bản kế hoạch thực hiện cho RMo và OFCIO.&lt;/li&gt;
   &lt;li&gt;Trong vòng 1 năm kể từ ngày ký, các cơ quan có liên quan phải đạt đến level &lt;em&gt;EL1&lt;/em&gt;.&lt;/li&gt;
   &lt;li&gt;Trong vòng 18 tháng kể từ ngày ký, các cơ quan có liên quan phải đạt chuẩn &lt;em&gt;EL2&lt;/em&gt;.&lt;/li&gt;
   &lt;li&gt;Trong vòng 2 năm kể từ ngày ký, các cơ quan liên quan phải đạt đến cấp &lt;em&gt;EL3&lt;/em&gt;, cấp cao nhất thể hiện 1 hệ thống log management hoàn chỉnh.&lt;/li&gt;
@@ -133,6 +133,29 @@ Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thốn
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh&quot;&gt;Yêu cầu của một hệ thống log hoàn chỉnh&lt;/h1&gt;
+
+&lt;h2 id=&quot;phân-loại-nguy-cơ&quot;&gt;Phân loại nguy cơ&lt;/h2&gt;
+
+&lt;p&gt;Trong tài liệu tiêu chuẩn của NIST [3] và thậm chí trong bản ghi nhớ [2] thì ít nhất ở cấp &lt;em&gt;EL1&lt;/em&gt; là phải quản lý log &lt;strong&gt;đầy đủ&lt;/strong&gt; với mọi nguy cơ ở cấp (highest criticality) hay &lt;em&gt;Criticality 0&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Những thông tin ở các cấp như sau:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Criticality&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Log data&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tần suất lưu trữ&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Identity and Credential Management&lt;/em&gt;, &lt;em&gt;Privileged Identity and Credential Management&lt;/em&gt;, &lt;em&gt;IP and DOmain Reputation (As Indicated by Mail Server Connection)&lt;/em&gt;, &lt;em&gt;DNS - Source IP and Port, Destination IP/Port, Date and Time&lt;/em&gt;, &lt;em&gt;Passive DNS Log&lt;/em&gt;, &lt;em&gt;DNS/DHCP/Wifi&lt;/em&gt;, &lt;em&gt;Routers and Switches&lt;/em&gt;, &lt;em&gt;Load Balancer/Reverse Proxy&lt;/em&gt;, &lt;em&gt;Proxies and Web Content Filters&lt;/em&gt;, &lt;em&gt;General Information, OS events, OS audit records&lt;/em&gt;, &lt;em&gt;App Account Information&lt;/em&gt;, &lt;em&gt;Application Operations&lt;/em&gt;, &lt;em&gt;Access to OS components and apps&lt;/em&gt;, &lt;em&gt;System performance and operation characteristics&lt;/em&gt;, &lt;em&gt;system configs&lt;/em&gt;, &lt;em&gt;file access&lt;/em&gt;, &lt;em&gt;host network communications, powershell execution history, WMI events, Registry Access, CLI, BIOS, UEFI, and other firmware&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;6 tháng đến 12 tháng với Active STorage và 18 tháng với Cold Storage&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python&quot;&gt;Usecase: Cấu hình hệ thống log với một website viết bằng Python&lt;/h1&gt;
 

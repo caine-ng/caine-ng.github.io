@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    11 mins
+    12 mins
   
 </span>
 
@@ -451,7 +451,11 @@
 <li class="toc-entry toc-h2"><a href="#các-cấp-độ-quản-lý-log">Các cấp độ quản lý log</a></li>
 </ol>
 </li>
-<li class="toc-entry toc-h1"><a href="#yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh">Yêu cầu của một hệ thống log hoàn chỉnh</a></li>
+<li class="toc-entry toc-h1"><a href="#yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh">Yêu cầu của một hệ thống log hoàn chỉnh</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#phân-loại-nguy-cơ">Phân loại nguy cơ</a></li>
+</ol>
+</li>
 <li class="toc-entry toc-h1"><a href="#usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</a></li>
 <li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
 <li class="toc-entry toc-h1"><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
@@ -586,7 +590,7 @@ Và nếu bây giờ mà tự dưng phát sinh ra dự án thu thập dữ liệ
 Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thống nhất như sau:</p>
 
 <ul>
-  <li>Trong vòng 60 ngày kể từ ngày ký phải thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản.</li>
+  <li>Trong vòng 60 ngày kể từ ngày ký phải bắt đầu thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản. Việc này thể hiện qua việc chuẩn bị resources, lên kế hoạch và phải nộp cả bản kế hoạch thực hiện cho RMo và OFCIO.</li>
   <li>Trong vòng 1 năm kể từ ngày ký, các cơ quan có liên quan phải đạt đến level <em>EL1</em>.</li>
   <li>Trong vòng 18 tháng kể từ ngày ký, các cơ quan có liên quan phải đạt chuẩn <em>EL2</em>.</li>
   <li>Trong vòng 2 năm kể từ ngày ký, các cơ quan liên quan phải đạt đến cấp <em>EL3</em>, cấp cao nhất thể hiện 1 hệ thống log management hoàn chỉnh.</li>
@@ -594,6 +598,29 @@ Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thốn
 </ul>
 
 <h1 id="yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh">Yêu cầu của một hệ thống log hoàn chỉnh</h1>
+
+<h2 id="phân-loại-nguy-cơ">Phân loại nguy cơ</h2>
+
+<p>Trong tài liệu tiêu chuẩn của NIST [3] và thậm chí trong bản ghi nhớ [2] thì ít nhất ở cấp <em>EL1</em> là phải quản lý log <strong>đầy đủ</strong> với mọi nguy cơ ở cấp (highest criticality) hay <em>Criticality 0</em>.</p>
+
+<p>Những thông tin ở các cấp như sau:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Criticality</strong></th>
+      <th><strong>Log data</strong></th>
+      <th><strong>Tần suất lưu trữ</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td><em>Identity and Credential Management</em>, <em>Privileged Identity and Credential Management</em>, <em>IP and DOmain Reputation (As Indicated by Mail Server Connection)</em>, <em>DNS - Source IP and Port, Destination IP/Port, Date and Time</em>, <em>Passive DNS Log</em>, <em>DNS/DHCP/Wifi</em>, <em>Routers and Switches</em>, <em>Load Balancer/Reverse Proxy</em>, <em>Proxies and Web Content Filters</em>, <em>General Information, OS events, OS audit records</em>, <em>App Account Information</em>, <em>Application Operations</em>, <em>Access to OS components and apps</em>, <em>System performance and operation characteristics</em>, <em>system configs</em>, <em>file access</em>, <em>host network communications, powershell execution history, WMI events, Registry Access, CLI, BIOS, UEFI, and other firmware</em></td>
+      <td>6 tháng đến 12 tháng với Active STorage và 18 tháng với Cold Storage</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</h1>
 
