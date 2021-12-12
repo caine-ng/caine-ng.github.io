@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    12 mins
+    13 mins
   
 </span>
 
@@ -454,6 +454,7 @@
 <li class="toc-entry toc-h1"><a href="#yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh">Yêu cầu của một hệ thống log hoàn chỉnh</a>
 <ol>
 <li class="toc-entry toc-h2"><a href="#phân-loại-nguy-cơ">Phân loại nguy cơ</a></li>
+<li class="toc-entry toc-h2"><a href="#yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</a></li>
 </ol>
 </li>
 <li class="toc-entry toc-h1"><a href="#usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</a></li>
@@ -463,7 +464,10 @@
   </div>
 
   <div class="post-body">
-    <p><strong>Viết log</strong> nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
+    <p><img src="https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png" alt="log management" />
+<em>Source: SIEM</em></p>
+
+<p><strong>Viết log</strong> nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
 Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư <em>học cách viết log cho nó OK em</em>.
 Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công.
 Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ <strong>cần thiết nhưng ít thì tốt hơn</strong>.
@@ -621,6 +625,27 @@ Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thốn
     </tr>
   </tbody>
 </table>
+
+<p><img src="/assets/img/log-01.png" style="float: right; margin: 10px; width: 50%;" />
+Cấp 0 này có 1 điểm thú vị là những log tập trung trên cloud cũng phải được lưu trữ tối thiểu 12 tháng trên Active Storage.
+Có 2 ngoại lệ nhỏ:</p>
+<ul>
+  <li>Dữ liệu IP package data thì chỉ cần lưu 72h.</li>
+  <li>Dữ liệu log của Google Cloud Platform thì chỉ cần lưu 6 tháng nếu dùng Active Storage.</li>
+</ul>
+
+<p>Nhìn chung bây giờ các bạn cũng sử dụng cloud là chính nên những recommendations từ bên chính phủ Hoa Kỳ tôi cho là rất phù hợp và nên được xem xét.
+Với ứng dụng thì nên log lại mọi events như API logs, authentication, authorization, .etc.</p>
+
+<p>Ngoài cấp <em>Criticality 0</em> thì các cấp thấp hơn là <em>Criticality 1, 2, và 3</em>.
+Ở cấp <em>EL1</em> đòi hỏi phải chấn chỉnh toàn bộ việc quản lý log ở cáp 0 (highest).
+Đến cấp <em>EL2</em> doanh nghiệp tổ chức buộc phải thực hiện quản lý mọi log ở cấp 0 và 1.
+Còn đến cấp <em>EL3</em> mặc định là mọi criticality phải được log.
+Và Log ở đây <strong>không chỉ là log generation, mà còn là lưu trữ, phân tích, tìm kiếm ở mức đủ để đối ứng sự cố hoặc lên chiến lược</strong>.</p>
+
+<p>Nhìn chung khuyến khích các bạn nên tìm đọc thêm tài liệu hướng dẫn tiêu chuẩn quân sự hoặc chính phủ của NIST hoặc FBI.</p>
+
+<h2 id="yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</h2>
 
 <h1 id="usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</h1>
 
