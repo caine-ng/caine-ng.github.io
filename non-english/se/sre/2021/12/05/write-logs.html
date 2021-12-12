@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    23 mins
+    24 mins
   
 </span>
 
@@ -469,7 +469,12 @@
 </li>
 </ol>
 </li>
-<li class="toc-entry toc-h1"><a href="#usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</a></li>
+<li class="toc-entry toc-h1"><a href="#usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#lên-kế-hoạch-thực-thi">Lên kế hoạch thực thi</a></li>
+<li class="toc-entry toc-h2"><a href="#lên-kế-hoạch-vận-hành">Lên kế hoạch vận hành</a></li>
+</ol>
+</li>
 <li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
 <li class="toc-entry toc-h1"><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ol>
@@ -887,6 +892,28 @@ Một số sự kiện nên bắt với hành vi người dùng:</p>
 </table>
 
 <h1 id="usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</h1>
+
+<h2 id="lên-kế-hoạch-thực-thi">Lên kế hoạch thực thi</h2>
+
+<p>Bước thiết kế như đã nói ở trên là theo tiêu chuẩn rồi.
+Giờ tiến hành làm ta cần lên kế hoạch, làm rõ các tham số như:</p>
+<ul>
+  <li>Thời gian lưu trữ logs là bao lâu?</li>
+  <li>Tần suất rotate là bao lâu một lần?</li>
+  <li>Tần suất gửi log về Log Management System (LMS)</li>
+  <li>Tần suất xử lý log ở local</li>
+  <li>Có cần validate logs trước khi rotate?</li>
+  <li>Có cần mã hóa log ở local hay không?</li>
+  <li>Khi gửi log về LMS có cần mã hóa đường truyền hay dùng đường truyền riêng biệt để gửi hay không?</li>
+</ul>
+
+<p>Bạn cần phải đánh giá impact của hệ thống từ low, medium và high impact để quyết định tham số.</p>
+
+<p>Tất nhiên, implement thì vẫn là dùng công cụ có sẵn thôi.
+Như Python thì dùng logging của STL cho yên tâm về nguồn gốc xuất xứ (dùng third-party thì lại lo xuất xứ).
+Còn quản lý log tập trung thì anh em lại CLoudWatch hoặc Logs Analytics mà tương thôi!</p>
+
+<h2 id="lên-kế-hoạch-vận-hành">Lên kế hoạch vận hành</h2>
 
 <h1 id="kết-luận">Kết luận</h1>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T03:03:16+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-13T03:25:20+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
 &lt;em&gt;Source: SIEM&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
@@ -409,6 +409,28 @@ Một số sự kiện nên bắt với hành vi người dùng:&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;h1 id=&quot;usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python&quot;&gt;Usecase: Cấu hình hệ thống log với một website viết bằng Python&lt;/h1&gt;
+
+&lt;h2 id=&quot;lên-kế-hoạch-thực-thi&quot;&gt;Lên kế hoạch thực thi&lt;/h2&gt;
+
+&lt;p&gt;Bước thiết kế như đã nói ở trên là theo tiêu chuẩn rồi.
+Giờ tiến hành làm ta cần lên kế hoạch, làm rõ các tham số như:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Thời gian lưu trữ logs là bao lâu?&lt;/li&gt;
+  &lt;li&gt;Tần suất rotate là bao lâu một lần?&lt;/li&gt;
+  &lt;li&gt;Tần suất gửi log về Log Management System (LMS)&lt;/li&gt;
+  &lt;li&gt;Tần suất xử lý log ở local&lt;/li&gt;
+  &lt;li&gt;Có cần validate logs trước khi rotate?&lt;/li&gt;
+  &lt;li&gt;Có cần mã hóa log ở local hay không?&lt;/li&gt;
+  &lt;li&gt;Khi gửi log về LMS có cần mã hóa đường truyền hay dùng đường truyền riêng biệt để gửi hay không?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bạn cần phải đánh giá impact của hệ thống từ low, medium và high impact để quyết định tham số.&lt;/p&gt;
+
+&lt;p&gt;Tất nhiên, implement thì vẫn là dùng công cụ có sẵn thôi.
+Như Python thì dùng logging của STL cho yên tâm về nguồn gốc xuất xứ (dùng third-party thì lại lo xuất xứ).
+Còn quản lý log tập trung thì anh em lại CLoudWatch hoặc Logs Analytics mà tương thôi!&lt;/p&gt;
+
+&lt;h2 id=&quot;lên-kế-hoạch-vận-hành&quot;&gt;Lên kế hoạch vận hành&lt;/h2&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 
