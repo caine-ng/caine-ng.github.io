@@ -435,7 +435,7 @@
 <span title="Estimated read time">
   
   
-    21 mins
+    22 mins
   
 </span>
 
@@ -458,6 +458,7 @@
 <ol>
 <li class="toc-entry toc-h3"><a href="#el1">EL1</a></li>
 <li class="toc-entry toc-h3"><a href="#el2">EL2</a></li>
+<li class="toc-entry toc-h3"><a href="#el3">EL3</a></li>
 </ol>
 </li>
 <li class="toc-entry toc-h2"><a href="#thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</a>
@@ -754,6 +755,21 @@ Ngoài ra, tổ chức nên xuất bản 1 hướng dẫn về cách thức tổ
 </blockquote>
 
 <p>Cuối cùng là top manager của SOCs nên có quyền truy cập vào mọi thành phần của quản lý logs.</p>
+
+<h3 id="el3"><em>EL3</em></h3>
+
+<p>Ở cấp này thì khỏi phải nói, mọi criticality phải được ứng phó!
+Việc hunting threats và sử dụng incident response playbooks là phải hoàn chỉnh và thành thục.
+Việc monitor user behavior để phát hiện sớm nguy cơ là bắt buộc.
+Một số sự kiện nên bắt với hành vi người dùng:</p>
+<ul>
+  <li>Compromised user credentials</li>
+  <li>Privileged-user compromise</li>
+  <li>Improper asset access</li>
+  <li>Compromised system/host/device</li>
+  <li>Lateral movement of threat actor
+Cuối cùng là ưu tiên sử dụng thành thục SIEM, và hệ thống phân tích xử lý logs tập trung.</li>
+</ul>
 
 <h2 id="thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</h2>
 
