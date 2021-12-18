@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-18T22:46:24+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-18T23:06:42+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
 Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
@@ -99,6 +99,28 @@ Thì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bài to�
 &lt;strong&gt;Đặc biệt, vì số lượng biến trạng thái là $n+1$ nên khi $n$ càng lớn việc quản lý trạng thái càng khó khăn, dễ xảy ra bug, mistakes, …&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;cách-làm-2-làm-bằng-svelte&quot;&gt;Cách làm 2: Làm bằng Svelte&lt;/h1&gt;
+
+&lt;p&gt;Với &lt;strong&gt;Svelte’s &lt;a href=&quot;https://svelte.dev/tutorial/checkbox-inputs&quot;&gt;binding&lt;/a&gt;&lt;/strong&gt;, việc quản lý trạng thái trở nên dễ dàng và ít mistakes hơn.
+Bạn chỉ cần định nghĩa biến trạng thái của checkboxes và bind chúng vào định nghĩa của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;input type=&quot;checkbox&quot;&amp;gt;&lt;/code&gt; nhờ từ khóa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bind:checked={}&lt;/code&gt;.
+Ví dụ như sau:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-svelte&quot;&gt;&amp;lt;input
+    type=&quot;checkbox&quot;
+    class=&quot;form-check-input&quot;
+    aria-checked=&quot;false&quot;
+    bind:checked={checkedAll}
+    on:click={onCheckedAll}
+/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Như trên biến &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checkedAll&lt;/code&gt; đã được bind vào checkbox.
+Thậm chí cũng chả cần định nghĩa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id&lt;/code&gt; cho textbox (tức là đánh nhãn) làm gì, bạn chỉ cần quản lý biến trạng thái &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checkedAll&lt;/code&gt; trong code của mình.
+&lt;strong&gt;Mà thao tác ấy chắc chắn sẽ tự động và ít bugs hơn đánh nhãn bằng tay kiểu JS thuần.&lt;/strong&gt;
+Khi biến trạng thái thay đổi, hiển thị checkbox sẽ &lt;strong&gt;tự động&lt;/strong&gt; thay đổi theo và bạn chẳng phải làm mấy cái thao tác set props hay gì mất thời gian mà lại dễ lỗi.
+Ví dụ bạn để set prop nhầm chỗ hoặc assign nhầm label một phát vì cách đặt tên của lập trình viên cũ quá tồi thì ôi thôi có mà … toang nặng.&lt;/p&gt;
+
+&lt;p&gt;Đến đây, việc còn lại quá nhẹ nhàng với vài dòng code chơi: bạn định nghĩa một mảng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checked&lt;/code&gt; cho trạng thái của $n$ biến trạng thái còn lại và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bind:checked={}&lt;/code&gt; vào các checkbox ở từng dòng.
+Để thực hiện logic chuyển trạng thái, bạn chỉ cần lo viết code tương tác giữa biến $C$ và $c_i, i=1,n$ chứ chả phải lo ngồi set prop, hoặc set text làm gì mất công và dễ bug.&lt;/p&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 

@@ -423,7 +423,7 @@
 <span title="Estimated read time">
   
   
-    7 mins
+    8 mins
   
 </span>
 
@@ -547,6 +547,28 @@ Thì <code class="language-plaintext highlighter-rouge">bài toán đồng bộ 
 <strong>Đặc biệt, vì số lượng biến trạng thái là $n+1$ nên khi $n$ càng lớn việc quản lý trạng thái càng khó khăn, dễ xảy ra bug, mistakes, …</strong></p>
 
 <h1 id="cách-làm-2-làm-bằng-svelte">Cách làm 2: Làm bằng Svelte</h1>
+
+<p>Với <strong>Svelte’s <a href="https://svelte.dev/tutorial/checkbox-inputs">binding</a></strong>, việc quản lý trạng thái trở nên dễ dàng và ít mistakes hơn.
+Bạn chỉ cần định nghĩa biến trạng thái của checkboxes và bind chúng vào định nghĩa của <code class="language-plaintext highlighter-rouge">&lt;input type="checkbox"&gt;</code> nhờ từ khóa <code class="language-plaintext highlighter-rouge">bind:checked={}</code>.
+Ví dụ như sau:</p>
+
+<pre><code class="language-svelte">&lt;input
+    type="checkbox"
+    class="form-check-input"
+    aria-checked="false"
+    bind:checked={checkedAll}
+    on:click={onCheckedAll}
+/&gt;
+</code></pre>
+
+<p>Như trên biến <code class="language-plaintext highlighter-rouge">checkedAll</code> đã được bind vào checkbox.
+Thậm chí cũng chả cần định nghĩa <code class="language-plaintext highlighter-rouge">id</code> cho textbox (tức là đánh nhãn) làm gì, bạn chỉ cần quản lý biến trạng thái <code class="language-plaintext highlighter-rouge">checkedAll</code> trong code của mình.
+<strong>Mà thao tác ấy chắc chắn sẽ tự động và ít bugs hơn đánh nhãn bằng tay kiểu JS thuần.</strong>
+Khi biến trạng thái thay đổi, hiển thị checkbox sẽ <strong>tự động</strong> thay đổi theo và bạn chẳng phải làm mấy cái thao tác set props hay gì mất thời gian mà lại dễ lỗi.
+Ví dụ bạn để set prop nhầm chỗ hoặc assign nhầm label một phát vì cách đặt tên của lập trình viên cũ quá tồi thì ôi thôi có mà … toang nặng.</p>
+
+<p>Đến đây, việc còn lại quá nhẹ nhàng với vài dòng code chơi: bạn định nghĩa một mảng <code class="language-plaintext highlighter-rouge">checked</code> cho trạng thái của $n$ biến trạng thái còn lại và <code class="language-plaintext highlighter-rouge">bind:checked={}</code> vào các checkbox ở từng dòng.
+Để thực hiện logic chuyển trạng thái, bạn chỉ cần lo viết code tương tác giữa biến $C$ và $c_i, i=1,n$ chứ chả phải lo ngồi set prop, hoặc set text làm gì mất công và dễ bug.</p>
 
 <h1 id="kết-luận">Kết luận</h1>
 
