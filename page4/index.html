@@ -203,6 +203,10 @@
   
 
   
+    
+  
+
+  
 
 
   
@@ -276,6 +280,10 @@
     
   
 
+  
+
+  
+    
   
 
   
@@ -398,6 +406,79 @@
 
   
 
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/pm/se/2021/08/29/liskov-substisution-principle.html">
+        The Last Pillar: The Liskov Substitution Principle
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">29 Aug 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/pm.html">
+          Project Management
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page4/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page4/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page4/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Argentina_substitute_bench_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%281%29.jpg/1920px-Argentina_substitute_bench_%E2%80%93_Portugal_vs._Argentina%2C_9th_February_2011_%281%29.jpg" alt="" />
+<em>Source: <a href="https://en.wikipedia.org/wiki/Substitute_(association_football)">Wikipedia</a></em></p>
+
+<p>In 1988, Barbara Liskov [6] wrote about the substitutions of software modules:</p>
+
+<blockquote>
+  <p>What is wanted here is something like the following substitution property: If for each object $o_1$ of type $S$ there is an object $o_2$ of type $T$ such that for all programs $P$ defined in terms of $T$, the behavior of $P$ is unchanged when $o_1$ is substituted for $o_2$ then $S$ is a subtype of $T$.</p>
+</blockquote>
+
+<p>The <strong>Liskov Substitution Principle (LSP, [2, 6])</strong> states that a software module should be built up from interchangeable parts.
+Any violations of the principle lead to confusion and horrible mistakes in production.
+In object-oriented designs, if different classes and modules behave differently, then one should not be the abstraction of the others.
+The principle is helpful for designs of inheritance and REST API.</p>
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/pm/se/2021/08/29/liskov-substisution-principle.html">More &hellip;</a>
+      
+    
+  </article>
   
   <article class="post-body">
     <h2 class="post-title">
@@ -657,74 +738,6 @@ Mỗi khái niệm đều có tầm ảnh hưởng và ứng dụng riêng và k
 
       
         <a href="/non-english/se/2021/08/22/synchronized-and-diversity-detail-and-abstract.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/ai/sre/2021/08/19/idle-time-pricing-models.html">
-        Idle Time Pricing Models in the Cloud
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">19 Aug 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/ai.html">
-          Artificial Intelligence
-        </a>
-      
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/sre.html">
-          Site Reliability Engineering
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page4/" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page4/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page4/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <p><img src="/assets/img/batch.png" alt="" /></p>
-
-<p><strong>Batch processing (JP: バッチ処理, VI: Xu Lý Lô)</strong> is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit.
-A program that reads a large file and generates a report, for example, is considered to be a batch job.
-Services such as Azure Batch [1] and AWS Batch [2, 3] support runs of batch jobs with VMs/EC2 instances and serverless container backend.
-However, running batch jobs requires VMs and instances to run continuously in production with almost <strong>zero downtime</strong>.
-It also means that there will be <strong>idle time</strong> to keep batch jobs running in the background.
-We review and estimate the idle time pricing of several cloud-based batch processing services.</p>
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/ai/sre/2021/08/19/idle-time-pricing-models.html">More &hellip;</a>
       
     
   </article>

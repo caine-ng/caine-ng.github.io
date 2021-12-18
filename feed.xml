@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-18T23:17:05+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-19T02:22:47+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
+これはSEにとってなかなか回答できるが興味深い質問です．
+「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？
+実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります．
+これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです．
+ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます．
+お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です．
+私は昼休憩は取らないですが，なぜなら，このせいです．
+お昼はファストフードばかりで離席せずに対応を続けています．
+帰宅は19時～で大丈夫でしょう．&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ipa01&quot;&gt;松田 晃一, 村岡 恭昭, &amp;amp; 齋藤 毅. (2019). &lt;i&gt;情報システムの障害状況 - 2019 年後半データ&lt;/i&gt;. IPA社会基盤センター.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="残業" /><category term="OT" /><category term="電気を消す" /><category term="電気利用" /><category term="障害対応" /><summary type="html">あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．</summary></entry><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
 Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
@@ -2124,136 +2141,4 @@ Giáo sẵn sàng bỏ sức ra giúp các bạn làm cho xong đề tài, nhưn
 Còn postdoc thì bắt đầu thành thục hơn ở cấp trợ tá cho giáo trong quản lý dự án rồi.&lt;/p&gt;
 
 &lt;p&gt;Nói chung một lợi thế khi làm ở các lab đẳng cấp thế giới là các bạn dù làm nghiên cứu cơ bản thuần, cơ bản hẹp hay ứng dụng thì cũng sẽ được hướng dẫn để làm chỉn chu từ bước định nghĩa.
-Đó là một điều đáng quý và nếu có cơ hội nên chú ý học hỏi!&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="R&amp;D" /><category term="research and development" /><category term="project lifecycle" /><summary type="html">Source: Wikipedia 研究開発は大別すると基本的な原理や性質を知るための純粋基礎研究、特定の実際的目的のために行われる目的基礎研究、特定の要請に答えるための応用研究、新製品を導入するための研究に分かれる。 Source: wikipedia.com Hoạt động nghiên cứu và phát triển (R&amp;amp;D) là hoạt động do các công ty tổ chức thực hiện nhằm đổi mới sáng tạo dẫn đến tri thức, sản phẩm và dịch vụ mới. Phân loại dự án R&amp;amp;D thì tùy vào mục đích có thể phân thành: R&amp;amp;D cơ bản “thuần” (phát hiện định luật, định lý, tính chất mới mang tính tổng quát), R&amp;amp;D cơ bản “có mục đích cụ thể” (phát hiện định luật, định lý và tính chất mới trong 1 ngành hẹp, không cần tổng quát), và R&amp;amp;D ứng dụng (sử dụng kết quả của R&amp;amp;D cơ bản để tạo ra sản phẩm mới, dịch vụ mới). Dù là cơ bản thuần, cơ bản hẹp hay ứng dụng thì nhìn chung dự án R&amp;amp;D đều là dự án và là đối tượng của ngành Project Management. Tuy nhiên, vì là đi tìm cái mới nên dù cái mới là mang tính lý thuyết (cơ bản thuần và cơ bản hẹp) hay ứng dụng, thì dự án R&amp;amp;D có những đặc điểm riêng khác với dự án thông thường: outcome của dự án nghiên cứu thường khó định hình ngay từ đầu và đôi khi hơi mơ hồ với những người làm kỹ thuật (bởi vì nếu cái mới mà mình đã biết từ đầu thì nó đâu còn là cái mới nữa đúng không các bạn?) Thi thoảng dự án nghiên cứu sẽ không có outcome, nhưng đột nhiên một vài tuần sau lại output ra tới tấp!</summary></entry><entry><title type="html">Lập trình song song với đối ứng khách hàng: khách hàng business và khách hàng developer</title><link href="https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business.html" rel="alternate" type="text/html" title="Lập trình song song với đối ứng khách hàng: khách hàng business và khách hàng developer" /><published>2021-10-10T00:00:00+09:00</published><updated>2021-10-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/10/10/parallelism-clients-developer-business.html">&lt;p&gt;&lt;img src=&quot;https://cdn.stocksnap.io/img-thumbs/960w/meeting-booth_7FLAARLMPI.jpg&quot; alt=&quot;b2d&quot; /&gt;
-&lt;em&gt;Source: StockSnap.io&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Khách hàng business (non-dev)&lt;/strong&gt; là những người không có chức năng tham gia trực tiếp vào quy trình phát triển.
-Bản thân họ có thể thuê thêm tư vấn/QA bên ngoài hoặc bên trong công ty họ để đảm bảo khâu chất lượng sản phẩm.
-Tuy nhiên, nhìn chung cái họ quan tâm là kết quả sản phẩm (bao gồm cả deadline, resources) hơn là quy trình.
-Cũng có một số khách hàng business cũng sẽ đòi hỏi về mặt quy trình, nhưng đó thường là để đảm bảo chất lượng.
-Vì mối quan tâm lớn nhất của họ là sản phẩm nên việc QA đảm bảo chất lượng cao là việc không thể tránh khỏi (bởi bản thân có biết dev đâu thì đương nhiên phải quan tâm QA).
-Bên cạnh đó, &lt;strong&gt;khách hàng developer&lt;/strong&gt; là những khách hàng mà bản thân họ cũng sẽ là dev trong sản phẩm.
-Khác với khách hàng business là những người sẽ không trực tiếp tham gia vào quy trình tạo ra sản phẩm, khách hàng dev lại là những người tham gia cùng đội dev vào quá trình đó.
-Họ sẽ quan tâm việc &lt;strong&gt;có cùng code được với nhau (quy trình) không&lt;/strong&gt; hơn là sản phẩm cuối cùng.
-Vì sao? Vì họ cũng chịu trách nhiệm làm ra sản phẩm, và họ hiểu là kết quả là do cả team cùng làm ra nên kết quả do team quyết định.
-Vì vậy để ra một kết quả tốt thì yếu tố quan trọng nhất chính là &lt;strong&gt;có làm việc được với nhau không&lt;/strong&gt; và làm việc $=$ code đấy nhé!
-Chỉ cần code thôi với những khách hàng này! Nên phần lớn những vị trí không tham gia trực tiếp vào code là đa phần biến thành “người thừa” trong mắt họ.
-Khách hàng business (không thể dev) thì trong mắt họ quan trọng nhất là quản lý để đảm bảo tiến độ cho họ và các vị trí bảo đảm chất lượng cho họ như PM, tester, QA.
-Còn với khách hàng developer (có thể dev và là dev xịn) thì trong mắt họ lại chỉ quan trọng những vị trí tạo ra code (và phải là code xịn), QA, tester, quản lý có khi họ đảm nhiệm hết vì họ cũng là dev lâu năm trong nghề (&lt;em&gt;có lần tôi bị phân vào dự án mà khách phủ đầu ngay là mọi việc liên quan tới những mảng kia họ sẽ làm hết, chúng tôi chỉ được phép &lt;strong&gt;code&lt;/strong&gt; thôi&lt;/em&gt;).
-Cách đối đãi thì có nhiều góc nhìn, tôi thì cũng chủ yếu làm kỹ thuật nên sẽ cung cấp cách nhìn về định hướng quy trình từ đầu với từng loại khách theo hệ quy chiếu của lập trình đa luồng.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;khách-hàng-developer-quan-trọng-là-anh-em-có-cùng-code-được-với-nhau-không&quot;&gt;Khách hàng developer: Quan trọng là anh em có cùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code&lt;/code&gt; được với nhau không?&lt;/h2&gt;
-
-&lt;h3 id=&quot;code-là-tất-cả&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Code&lt;/code&gt; là tất cả?&lt;/h3&gt;
-
-&lt;p&gt;Nhưng đầu tiên cần hiểu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code&lt;/code&gt; không chỉ là đâm đầu vào viết code như trâu bò.
-Code một cách chuyên nghiệp, chân chính thì có hàng tá sách vở như Clean Code, Clean Architecture mà nội dung nằm ngoài scope bài viết này.
-Anh em chủ động tìm đọc và contribute nhé!
-Code một cách có não, để được gọi là programmer (LTV) là phải đảm đương mọi khâu trong quá trình sản sinh ra code: hiểu requirements (chủ động tìm hiểu), tự thiết kế solution để giải quyết requirements, tự tay mà code lấy, tự tay test lấy ở cấp unit, và chủ động nhờ anh em code cùng test chéo ở các cấp cao hơn, nộp hàng/delivery, viết documents, tối ưu, fix bugs, …
-Ở cấp lãnh đạo thì sẽ phải thêm những nghiệp vụ khác như phân nhỏ nhiệm vụ, phân công, quản lý tiến trình/tài nguyên và truyền đạt cho anh em, định hướng cho anh em cách làm tốt nhất, kiểm tra và đôn đốc công việc của anh em thông qua feedback, …&lt;/p&gt;
-
-&lt;h3 id=&quot;nhưng-còn-song-song-hóa&quot;&gt;Nhưng còn song song hóa?&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Code&lt;/code&gt; tốt không chỉ có việc làm đúng quy trình và vai trò (roles) mà còn phải đảm bảo hiệu suất.
-Bây giờ tôi đưa ra một tình huống:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tình huống&lt;/strong&gt;: &lt;em&gt;Một nhóm khách hàng dev A gồm $M$ dev, và giờ đặt hàng cùng làm việc với $N$ dev bên bạn.&lt;/em&gt;
-&lt;em&gt;Họ không quan tâm kết quả ngay từ đầu vì làm agile trong quá trình làm kế hoạch sẽ thay đổi thường xuyên.&lt;/em&gt;
-&lt;em&gt;Họ chỉ quan tâm anh em 2 nhóm có làm việc trôi chảy với nhau không?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Họ sẽ coi quy trình làm việc là một hệ thống đa luồng (multi-threading) mà về nguyên tắc nếu thêm $N$ dev vào mà tốc độ không tăng lên $\frac{M+N}{M}$ lần thì có vẻ là một mối hợp tác kém!
-Còn về tài nguyên thì là &lt;strong&gt;không được có “người thừa, việc thừa”&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Yêu cầu là gì? Thì đấy, yêu cầu chính là&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Nhanh lên tối thiểu $\frac{M+N}{M}$ lần.&lt;/li&gt;
-  &lt;li&gt;Tài nguyên không phát sinh “người thừa, việc thừa”.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;đầu-tiên-là-không-có-người-thừa-việc-thừa&quot;&gt;Đầu tiên là không có “người thừa, việc thừa”&lt;/h4&gt;
-
-&lt;p&gt;Một việc mà lặp lại 2 lần 3 lần là không được trong hệ thống song song hóa tối ưu.
-Một nhân viên mà phải cấp phát nhiều tài khoản khác nhau là cũng tiêu tốn tài nguyên hệ thống.
-Có thể dùng cách nghĩ về các hệ thống federated authentication, single sign-on để suy nghĩ ra cách làm tối ưu.
-Và tất nhiên phải có bàn bạc đồng thuận từ phía khách để tiến hành.
-Hiện tại mọi người dùng nhiều những nền tảng như Atlassian hay Backlog trong quản lý rồi, nên tự làm thêm nhiều tài liệu trùng lặp với cái có sẵn là dưới góc nhìn của khách là dev chuyên nghiệp, họ sẽ chỉ có đánh giá là … kém!&lt;/p&gt;
-
-&lt;p&gt;Còn chuyện máy móc để làm việc thì không vấn đề gì, vì thêm người thêm máy là chuyện bình thường nên thêm máy không phải việc thừa, mà thậm chí còn là việc cần thiết vì không máy thì không làm việc được!&lt;/p&gt;
-
-&lt;h4 id=&quot;cuối-cùng-vẫn-là-phải-nhanh-lên&quot;&gt;Cuối cùng vẫn là phải nhanh lên&lt;/h4&gt;
-
-&lt;p&gt;Khi $M+N$ dev cùng chạy song song thì vấn đề là gì? Chính là conflict khi tiến hành merge các branches.
-Nên merge theo order nào để tối ưu hóa thời gian resolve conflict?&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tình huống&lt;/strong&gt;: &lt;em&gt;Tôi thuê 1 nhóm dev làm chức năng X.&lt;/em&gt;
-&lt;em&gt;Sáng nay, vì tôi cũng là dev nên tôi nhận làm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/1&lt;/code&gt;, nhóm dev làm chức năng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/2&lt;/code&gt; và cần merge vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;develop&lt;/code&gt; trong tuần này nhánh &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/1&lt;/code&gt;&lt;/em&gt;.
-&lt;em&gt;Nhưng vì sao đó, đội kia phát triển &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/2&lt;/code&gt; nhưng cần lock &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;develop&lt;/code&gt; lại đến khi họ làm xong mới cho các nhánh khác merge vào&lt;/em&gt;.
-&lt;em&gt;Họ lock lại &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;develop&lt;/code&gt; đến hết tuần này mới unlock, dẫn đến tôi phải OT cuối tuần để kịp release&lt;/em&gt;.
-&lt;em&gt;Và tôi là khách hàng, vậy ở vị trí của tôi, tôi có thể nghĩ là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;anh em có làm việc được với nhau không?&lt;/code&gt; (làm việc là code nhé)&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Vậy đây là lỗi của ai? Đầu tiên là người nhận lead hai feature 1 và 2 đã ôm một cục quá lớn không chịu chia nhỏ ra, kết cục là xuất hiện một nhiệm vụ mất đến 5 ngày mới xong.&lt;/p&gt;
-
-&lt;p&gt;Các bạn cần hiểu phát triển agile đề cao tính song song, thì nếu bạn mà dev một feature nào mất nhiều công số thì có hai khả năng:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;Các bạn không lock target branch&lt;/em&gt; thì vì thời gian estimate quá dài thì trong khi đó sẽ có rất nhiều branch khác phát triển song song và nếu họ merge trước và có conflict thì bạn phải resolve.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Các bạn lock cho đến khi xong&lt;/em&gt; thì người khác lại không merge được phải chờ. Kết cục là chờ lâu quá là có người phải OT mà hiệu suất song song hóa lại … kém!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Lock/unlock để mutual exclusive thì là khái niệm quá cơ bản trong lập trình song song hóa.
-Vấn đề ở đây là đưa ra một cục estimate những 5 ngày ($=$ 1 tuần làm việc) thì là chưa tốt.
-Phài &lt;strong&gt;chi tiết hóa&lt;/strong&gt; và chia nhỏ thành những task ở đơn vị vài tiếng/task: &lt;strong&gt;Phải nhanh nếu không là conflict hoặc bắt người khác chờ&lt;/strong&gt;!
-Và tốt nhất là nên commit/merge sớm ngay từ những step nhỏ, chứ đừng có tích cả cục 5 ngày rồi merge một thể là thời gian quá dài.
-Schedule merge là phải rõ ràng, và tránh conflict sau khi review kỹ codebase.&lt;/p&gt;
-
-&lt;p&gt;Tại sao phải tránh conflict? Là vì nếu để conflict là lại phải ngồi resolve dẫn đến tốn thêm công cho khách.&lt;/p&gt;
-
-&lt;p&gt;Về tổng thể nhanh lên $\frac{M+N}{M}$ lần, nhưng về chi tiết là nên có thêm chỉ số về thời gian idle của từng member trong từng task và tổng thể.&lt;/p&gt;
-
-&lt;h3 id=&quot;anh-em&quot;&gt;Anh em&lt;/h3&gt;
-
-&lt;p&gt;Cuối cùng thì với kiểu khách hàng developer thì chúng ta đều hiểu: vì họ cũng commit code như dev bình thường nên họ sẽ nhìn $N$ dev bên bạn như những “chiến hữu, anh em”.
-Và chiến hữu anh em là phải hỗ trợ nhau, cùng nhau nếm ngọt trải bùi, ngậm đắng nuốt cay, và đặc biệt là không cản trở lẫn nhau.
-Vì vậy, trong quá trình làm ngoài việc chuyên môn code, thì có thể tập hợp những anh em cùng là code để nâng cao motivation cho anh em.
-Thế nên nếu có gì mà khó làm việc là sẽ dẫn đến sự đánh giá không cao.
-Họ không cần kết quả hay nouhinbutu gì đâu, họ chỉ cần chiến binh tốt làm việc trong vòng quay của họ thôi.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Thành tích không quan trọng, chỉ quan trọng chiến hữu!&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Và đương nhiên chiến hữu giỏi thì xác xuất có sản phẩm xịn sẽ cao.&lt;/p&gt;
-
-&lt;h2 id=&quot;khách-hàng-business-khoán-trọn-gói-thì-các-anhchị-làm-sao-thì-làm-đến-lúc-nộp-hàng-xịn-là-ok&quot;&gt;Khách hàng business: Khoán trọn gói thì các anh/chị làm sao thì làm, đến lúc nộp hàng xịn là ok.&lt;/h2&gt;
-
-&lt;p&gt;Khách hàng business thì thường là quan hệ đối tác làm ăn, chứ không có chuyện chia ngọt sẻ bùi cùng anh em như khách developer.
-Họ không có trách nhiệm dev và cũng thường là không thể dev được, vì vậy họ thường chọn vị thế &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;người dùng&lt;/code&gt; và khoán thẳng cho các bên vendor: ví dụ khoán cho bên A làm dev sản phẩm, bên B test và QA, bên C quản lý dự án.&lt;/p&gt;
-
-&lt;p&gt;Trung tâm của cung cách làm việc này chính là &lt;strong&gt;sản phẩm&lt;/strong&gt;.
-Các bên vendor muốn thắng thầu thường phải có thực tích và quy trình nghiệp vụ ổn.
-Khác với bên khách developer (vì là cùng nhau làm và cùng nhau chịu trách nhiệm) nên thường có sự thông cảm và thậm chí bên vendor nghiệp vụ kém, khách có thể sẵn sàng hỗ trợ training.
-Thì bên business, đã khoán thì chỉ có chiếu theo hợp đồng và quan hệ làm ăn để giải quyết là chính khi xảy ra vấn đề.
-Vì vậy, quản lý và bảo đảm chất lượng là những quy trình không thể không chuẩn chỉnh khi làm việc với kiểu khách này.
-Tất nhiên, khách developer cũng có đòi hỏi nhưng dẫu sao đã là anh em cùng nhau dev dự án thì vẫn có sự chia sẻ nhất định.&lt;/p&gt;
-
-&lt;p&gt;Còn với khách business, thì liệu bạn có thể bắt &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;người dùng cuối&lt;/code&gt; tự mổ xẻ phần mềm để tự chữa không?
-Trường hợp ấy thì với họ thà mua cái mới còn hơn và sản phẩm lỗi thì bị đánh giá là kém.&lt;/p&gt;
-
-&lt;h3 id=&quot;vậy-còn-song-song-hóa&quot;&gt;Vậy còn song song hóa?&lt;/h3&gt;
-
-&lt;p&gt;Với kiểu khách hàng này, thường là khoán thì đội dev thường sẽ tự mình đảm trách hết và chỉ communication với khách qua kênh sales.
-Sự can thiệp của khách là nhỏ, gánh nặng communication cũng trở nên định kỳ hơn.
-Vì vậy đội dev sẽ khá tập trung và có khi có thời gian chỉn chu testing/QA cẩn thận trước khi nộp hàng.
-Do đó, thường sẽ là &lt;strong&gt;quy trình tuần tự&lt;/strong&gt; xong cái này mới đi đến bước tiếp theo trong quy trình.
-Chứ không có chuyện nhảy cóc hay song song và resolve conflict với khách.
-Kể cả có resolve thì đó là nghiệp vụ của bên comtor/BrSE/PM/PO/Sales, …&lt;/p&gt;
-
-&lt;p&gt;Với khách developer thì nhìn chung khi chạy trong môi trường song song hóa tối ưu thì dù có làm chuẩn quy trình kiểu tuần tự thì cũng vẫn xảy ra conflict là chuyện có thể.&lt;/p&gt;
-
-&lt;h2 id=&quot;kết-chung&quot;&gt;Kết chung&lt;/h2&gt;
-
-&lt;p&gt;Nhìn chung, nắm bắt tâm lý khách hàng, biết rõ loại khách hàng nào và nên làm gì với họ cho đúng và khéo léo là kỹ năng mà mọi thành viên trong team đều nên có.
-Biết khách của mình là ai (biz hay dev), biết rõ môi trường đang đứng là gì (song song hay tuần tự), biết rõ mình đóng vai trò gì (dev, quản lý, QA, …) luôn là những điểm quan trọng trong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thực chiến&lt;/code&gt; dự án.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="git" /><category term="threading" /><category term="parallelism" /><category term="business clients" /><category term="developer clients" /><summary type="html">Source: StockSnap.io Khách hàng business (non-dev) là những người không có chức năng tham gia trực tiếp vào quy trình phát triển. Bản thân họ có thể thuê thêm tư vấn/QA bên ngoài hoặc bên trong công ty họ để đảm bảo khâu chất lượng sản phẩm. Tuy nhiên, nhìn chung cái họ quan tâm là kết quả sản phẩm (bao gồm cả deadline, resources) hơn là quy trình. Cũng có một số khách hàng business cũng sẽ đòi hỏi về mặt quy trình, nhưng đó thường là để đảm bảo chất lượng. Vì mối quan tâm lớn nhất của họ là sản phẩm nên việc QA đảm bảo chất lượng cao là việc không thể tránh khỏi (bởi bản thân có biết dev đâu thì đương nhiên phải quan tâm QA). Bên cạnh đó, khách hàng developer là những khách hàng mà bản thân họ cũng sẽ là dev trong sản phẩm. Khác với khách hàng business là những người sẽ không trực tiếp tham gia vào quy trình tạo ra sản phẩm, khách hàng dev lại là những người tham gia cùng đội dev vào quá trình đó. Họ sẽ quan tâm việc có cùng code được với nhau (quy trình) không hơn là sản phẩm cuối cùng. Vì sao? Vì họ cũng chịu trách nhiệm làm ra sản phẩm, và họ hiểu là kết quả là do cả team cùng làm ra nên kết quả do team quyết định. Vì vậy để ra một kết quả tốt thì yếu tố quan trọng nhất chính là có làm việc được với nhau không và làm việc $=$ code đấy nhé! Chỉ cần code thôi với những khách hàng này! Nên phần lớn những vị trí không tham gia trực tiếp vào code là đa phần biến thành “người thừa” trong mắt họ. Khách hàng business (không thể dev) thì trong mắt họ quan trọng nhất là quản lý để đảm bảo tiến độ cho họ và các vị trí bảo đảm chất lượng cho họ như PM, tester, QA. Còn với khách hàng developer (có thể dev và là dev xịn) thì trong mắt họ lại chỉ quan trọng những vị trí tạo ra code (và phải là code xịn), QA, tester, quản lý có khi họ đảm nhiệm hết vì họ cũng là dev lâu năm trong nghề (có lần tôi bị phân vào dự án mà khách phủ đầu ngay là mọi việc liên quan tới những mảng kia họ sẽ làm hết, chúng tôi chỉ được phép code thôi). Cách đối đãi thì có nhiều góc nhìn, tôi thì cũng chủ yếu làm kỹ thuật nên sẽ cung cấp cách nhìn về định hướng quy trình từ đầu với từng loại khách theo hệ quy chiếu của lập trình đa luồng.</summary></entry></feed>
+Đó là một điều đáng quý và nếu có cơ hội nên chú ý học hỏi!&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="R&amp;D" /><category term="research and development" /><category term="project lifecycle" /><summary type="html">Source: Wikipedia 研究開発は大別すると基本的な原理や性質を知るための純粋基礎研究、特定の実際的目的のために行われる目的基礎研究、特定の要請に答えるための応用研究、新製品を導入するための研究に分かれる。 Source: wikipedia.com Hoạt động nghiên cứu và phát triển (R&amp;amp;D) là hoạt động do các công ty tổ chức thực hiện nhằm đổi mới sáng tạo dẫn đến tri thức, sản phẩm và dịch vụ mới. Phân loại dự án R&amp;amp;D thì tùy vào mục đích có thể phân thành: R&amp;amp;D cơ bản “thuần” (phát hiện định luật, định lý, tính chất mới mang tính tổng quát), R&amp;amp;D cơ bản “có mục đích cụ thể” (phát hiện định luật, định lý và tính chất mới trong 1 ngành hẹp, không cần tổng quát), và R&amp;amp;D ứng dụng (sử dụng kết quả của R&amp;amp;D cơ bản để tạo ra sản phẩm mới, dịch vụ mới). Dù là cơ bản thuần, cơ bản hẹp hay ứng dụng thì nhìn chung dự án R&amp;amp;D đều là dự án và là đối tượng của ngành Project Management. Tuy nhiên, vì là đi tìm cái mới nên dù cái mới là mang tính lý thuyết (cơ bản thuần và cơ bản hẹp) hay ứng dụng, thì dự án R&amp;amp;D có những đặc điểm riêng khác với dự án thông thường: outcome của dự án nghiên cứu thường khó định hình ngay từ đầu và đôi khi hơi mơ hồ với những người làm kỹ thuật (bởi vì nếu cái mới mà mình đã biết từ đầu thì nó đâu còn là cái mới nữa đúng không các bạn?) Thi thoảng dự án nghiên cứu sẽ không có outcome, nhưng đột nhiên một vài tuần sau lại output ra tới tấp!</summary></entry></feed>
