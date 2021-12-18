@@ -423,7 +423,7 @@
 <span title="Estimated read time">
   
   
-    3 mins
+    5 mins
   
 </span>
 
@@ -432,7 +432,12 @@
   <div id="table-of-contents">
   <h2>Index</h2>
     <ol id="toc" class="section-nav">
-<li class="toc-entry toc-h1"><a href="#một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox Check All/Uncheck All và bài toán reset hiển thị đúng cách</a></li>
+<li class="toc-entry toc-h1"><a href="#một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox Check All/Uncheck All và bài toán reset hiển thị đúng cách</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#một-ngày-đẹp-trời-năm-2012-một-yêu-cầu-khách-hàng-tới">Một ngày đẹp trời năm 2012, một yêu cầu khách hàng tới</a></li>
+<li class="toc-entry toc-h2"><a href="#lời-giải-10-năm-trước">Lời giải 10 năm trước</a></li>
+</ol>
+</li>
 <li class="toc-entry toc-h1"><a href="#giả-định-1-làm-bằng-js-thuần">Giả định 1: Làm bằng JS thuần</a></li>
 <li class="toc-entry toc-h1"><a href="#giả-định-2-làm-bằng-svelte">Giả định 2: Làm bằng Svelte</a></li>
 <li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
@@ -463,6 +468,8 @@ Sau đó gần đây là <code class="language-plaintext highlighter-rouge">Svel
 
 <h1 id="một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> và bài toán reset hiển thị đúng cách</h1>
 
+<h2 id="một-ngày-đẹp-trời-năm-2012-một-yêu-cầu-khách-hàng-tới">Một ngày đẹp trời năm 2012, một yêu cầu khách hàng tới</h2>
+
 <p>Hồi ấy có 1 câu chuyện là thế này.
 Nói thì dài dòng nhưng chủ yếu là làm chức năng <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> mà bạn có thể nhìn thấy ở hình ảnh bên trên.
 Nó là chức năng bổ trợ cho <code class="language-plaintext highlighter-rouge">Datatables</code> mà chúng tôi có dùng.
@@ -475,7 +482,37 @@ Nó là chức năng bổ trợ cho <code class="language-plaintext highlighter-
   <li>Nút <code class="language-plaintext highlighter-rouge">Check All</code> và <code class="language-plaintext highlighter-rouge">Uncheck All</code> có thể làm một để tối ưu trải nghiệm người dùng.</li>
 </ul>
 
-<p><strong>Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm</strong>.</p>
+<p><strong>Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm</strong>.
+Tức là phải <code class="language-plaintext highlighter-rouge">reset</code> chuẩn, không được để chọn <code class="language-plaintext highlighter-rouge">Check All</code> nhưng lại có dòng nào không được check (dù đã check rồi).
+Không được để check dòng này nhưng dòng khác lại bị ảnh hưởng.</p>
+
+<h2 id="lời-giải-10-năm-trước">Lời giải 10 năm trước</h2>
+
+<p>Scope cũng khá nhẹ nhàng, nhưng lúc đó anh em lại chọn dùng JQuery và code thuần luôn.</p>
+
+<p>Đó quả thực là một bước đi <code class="language-plaintext highlighter-rouge">gian khổ</code>: thứ nhất, là vấn đề <code class="language-plaintext highlighter-rouge">data binding</code>, chuyện bind checkbox từng dòng vào hiển thị từng dòng mà lại làm bằng JS thuần thì đòi hỏi phải chơi trò <code class="language-plaintext highlighter-rouge">gắn nhãn và selector</code>.
+Tức là với dòng thứ <code class="language-plaintext highlighter-rouge">n</code> gắn nhãn <code class="language-plaintext highlighter-rouge">id="row-n"</code> chẳng hạn, sau đó dùng selector của JS hoặc JQuery như <code class="language-plaintext highlighter-rouge">var el = document.querySelector("#row-n");</code> hoặc như JQuery thì đơn giản hơn <code class="language-plaintext highlighter-rouge">$('#row-n')</code>, để switch hiển thị.</p>
+
+<blockquote>
+  <p><strong>Bạn nghĩ sao?</strong></p>
+</blockquote>
+
+<blockquote>
+  <p><em>Thế tức là gắn nhãn bằng tay còn gì?</em></p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Vâng, đúng thế. Gắn nhãn bằng tay và select nhãn theo tên đã đặt.</strong></p>
+</blockquote>
+
+<blockquote>
+  <p><em>Thế nếu miss một phát là toang, select nhầm nhãn là hiển nhiên có khả năng vì là con người làm. Rồi còn đặt tên mà không có quy tắc gây nhầm lẫn lúc select là TOANG nặng!</em></p>
+</blockquote>
+
+<p>Vâng, thú thực là lúc ấy mấy công nghệ <strong>MVVM frameworks như AngularJS/ReactJS</strong> vẫn đang trong vòng thai nghén của Google và Facebook, anh em cũng chưa có điều kiện tiếp cận, mới bắt buộc phải dùng JS thuần mà code.
+Chuyện 10 năm trước cơ mà!
+(Chứ còn năm 2021 này mà còn dùng là … đấm! <strong>Phải MVVM hết</strong>.).</p>
+
 <h1 id="giả-định-1-làm-bằng-js-thuần">Giả định 1: Làm bằng JS thuần</h1>
 
 <h1 id="giả-định-2-làm-bằng-svelte">Giả định 2: Làm bằng Svelte</h1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-18T19:36:23+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-18T19:41:08+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
 Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
@@ -20,6 +20,8 @@ Sau đó gần đây là &lt;code class=&quot;language-plaintext highlighter-rou
 
 &lt;h1 id=&quot;một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách&quot;&gt;Một ví dụ: hộp checkbox &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All/Uncheck All&lt;/code&gt; và bài toán reset hiển thị đúng cách&lt;/h1&gt;
 
+&lt;h2 id=&quot;một-ngày-đẹp-trời-năm-2012-một-yêu-cầu-khách-hàng-tới&quot;&gt;Một ngày đẹp trời năm 2012, một yêu cầu khách hàng tới&lt;/h2&gt;
+
 &lt;p&gt;Hồi ấy có 1 câu chuyện là thế này.
 Nói thì dài dòng nhưng chủ yếu là làm chức năng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All/Uncheck All&lt;/code&gt; mà bạn có thể nhìn thấy ở hình ảnh bên trên.
 Nó là chức năng bổ trợ cho &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Datatables&lt;/code&gt; mà chúng tôi có dùng.
@@ -32,7 +34,37 @@ Nó là chức năng bổ trợ cho &lt;code class=&quot;language-plaintext high
   &lt;li&gt;Nút &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Uncheck All&lt;/code&gt; có thể làm một để tối ưu trải nghiệm người dùng.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm&lt;/strong&gt;.
+Tức là phải &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; chuẩn, không được để chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All&lt;/code&gt; nhưng lại có dòng nào không được check (dù đã check rồi).
+Không được để check dòng này nhưng dòng khác lại bị ảnh hưởng.&lt;/p&gt;
+
+&lt;h2 id=&quot;lời-giải-10-năm-trước&quot;&gt;Lời giải 10 năm trước&lt;/h2&gt;
+
+&lt;p&gt;Scope cũng khá nhẹ nhàng, nhưng lúc đó anh em lại chọn dùng JQuery và code thuần luôn.&lt;/p&gt;
+
+&lt;p&gt;Đó quả thực là một bước đi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gian khổ&lt;/code&gt;: thứ nhất, là vấn đề &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data binding&lt;/code&gt;, chuyện bind checkbox từng dòng vào hiển thị từng dòng mà lại làm bằng JS thuần thì đòi hỏi phải chơi trò &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gắn nhãn và selector&lt;/code&gt;.
+Tức là với dòng thứ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt; gắn nhãn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id=&quot;row-n&quot;&lt;/code&gt; chẳng hạn, sau đó dùng selector của JS hoặc JQuery như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;var el = document.querySelector(&quot;#row-n&quot;);&lt;/code&gt; hoặc như JQuery thì đơn giản hơn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(&apos;#row-n&apos;)&lt;/code&gt;, để switch hiển thị.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Bạn nghĩ sao?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Thế tức là gắn nhãn bằng tay còn gì?&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Vâng, đúng thế. Gắn nhãn bằng tay và select nhãn theo tên đã đặt.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Thế nếu miss một phát là toang, select nhầm nhãn là hiển nhiên có khả năng vì là con người làm. Rồi còn đặt tên mà không có quy tắc gây nhầm lẫn lúc select là TOANG nặng!&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vâng, thú thực là lúc ấy mấy công nghệ &lt;strong&gt;MVVM frameworks như AngularJS/ReactJS&lt;/strong&gt; vẫn đang trong vòng thai nghén của Google và Facebook, anh em cũng chưa có điều kiện tiếp cận, mới bắt buộc phải dùng JS thuần mà code.
+Chuyện 10 năm trước cơ mà!
+(Chứ còn năm 2021 này mà còn dùng là … đấm! &lt;strong&gt;Phải MVVM hết&lt;/strong&gt;.).&lt;/p&gt;
+
 &lt;h1 id=&quot;giả-định-1-làm-bằng-js-thuần&quot;&gt;Giả định 1: Làm bằng JS thuần&lt;/h1&gt;
 
 &lt;h1 id=&quot;giả-định-2-làm-bằng-svelte&quot;&gt;Giả định 2: Làm bằng Svelte&lt;/h1&gt;
