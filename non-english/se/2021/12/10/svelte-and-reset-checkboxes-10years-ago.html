@@ -423,7 +423,7 @@
 <span title="Estimated read time">
   
   
-    1 min
+    2 mins
   
 </span>
 
@@ -432,6 +432,10 @@
   <div id="table-of-contents">
   <h2>Index</h2>
     <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox Check All/Uncheck All và bài toán reset hiển thị đúng cách</a></li>
+<li class="toc-entry toc-h1"><a href="#giả-định-1-làm-bằng-js-thuần">Giả định 1: Làm bằng JS thuần</a></li>
+<li class="toc-entry toc-h1"><a href="#giả-định-2-làm-bằng-svelte">Giả định 2: Làm bằng Svelte</a></li>
+<li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
 <li class="toc-entry toc-h1"><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ol>
   </div>
@@ -439,7 +443,31 @@
   <div class="post-body">
     <p><img src="/assets/img/svelte-checkall-uncheckall.gif" alt="svelte" /></p>
 
-<!--more-->
+<p><strong>Svelte</strong> là một framework của ngôn ngữ Javascript, với mô hình <strong>bi-direction data binding</strong> (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
+Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
+Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML.
+Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend.
+Cách làm này nhìn chung là thủ công, và rất nhiều lập trình viên JS đã hiểu rằng đây là con đường code thuần và hầu như là <strong>buggy</strong> (rất nhiều bug có thể phát sinh)!
+Lịch sử sang trang mới vào những năm 2010-2011, cùng với sự ra đời của hàng loạt trào lưu mới như Lean startups, Agile development, … với những <strong>JS framework theo luồng MVVM (Model-View-ViewModel)</strong>.
+<code class="language-plaintext highlighter-rouge">Backbone</code> và <code class="language-plaintext highlighter-rouge">AngularJS</code> hầu như ra đời trong giai đoạn này đã mở ra kỷ nguyên mới, khi dữ liệu và hiển thị được <strong>binding</strong> với nhau khiến cho sự đồng bộ thống nhất trên frontend được đảm bảo.
+Công ty tôi thời đó khởi đầu cũng làm JQuery thuần, code vô cùng nhiều bugs, mà kỹ sư OT ngày đêm lo sửa.
+Nhưng đó là chuyện của hơn 10 năm trước các bạn ạ.
+Sau đó nhiều kỹ sư trong công ty đã cực lực phản đối việc tiếp tục dùng JQuery và đề xuất dùng những con đường bug-free hơn như <strong>AngularJS</strong>.
+Đó là những chuyện xảy ra vào năm 2013.
+Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu “o bế” khá nhiều công nghệ Web mới như ngôn ngữ lập trình Hack (hậu duệ của PHP) và <code class="language-plaintext highlighter-rouge">Meteor</code> một kiểu JS framework cũng thực hiện MVVM, data binding để đồng bộ hiển thị và dữ liệu tại frontend.
+Và cùng năm 2013, <code class="language-plaintext highlighter-rouge">ReactJS</code>, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió.
+Hồi đó cũng có tranh luận là lên tiếp tục <strong>chịu đựng JQuery</strong> hay chuyển sang data binding là <code class="language-plaintext highlighter-rouge">AngularJS</code> hoặc <code class="language-plaintext highlighter-rouge">ReactJS</code> mà cuối cùng có vẻ là <code class="language-plaintext highlighter-rouge">AngularJS</code> đã được chọn.
+Bẵng đi ít lâu, 2013, <code class="language-plaintext highlighter-rouge">VueJS</code> ra đời và nhanh chóng được chào đón.
+Sau đó gần đây là <code class="language-plaintext highlighter-rouge">Svelte</code>.
+<!--more--></p>
+
+<h1 id="một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> và bài toán reset hiển thị đúng cách</h1>
+
+<h1 id="giả-định-1-làm-bằng-js-thuần">Giả định 1: Làm bằng JS thuần</h1>
+
+<h1 id="giả-định-2-làm-bằng-svelte">Giả định 2: Làm bằng Svelte</h1>
+
+<h1 id="kết-luận">Kết luận</h1>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
