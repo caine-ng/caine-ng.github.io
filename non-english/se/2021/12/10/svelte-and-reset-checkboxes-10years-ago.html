@@ -13,7 +13,7 @@
   />
 
   <title>
-     Controlling Creative Activities &middot; AiFi 
+     Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều &middot; AiFi 
   </title>
 
   
@@ -381,11 +381,11 @@
 
     <main class="container">
       <header>
-  <h1 class="post-title">Controlling Creative Activities</h1>
+  <h1 class="post-title">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều</h1>
 </header>
 <div class="content">
   <div class="post-meta">
-  <span class="post-date">11 Jul 2021</span>
+  <span class="post-date">10 Dec 2021</span>
   <span class="post-categories">
     
       &bull;
@@ -395,20 +395,8 @@
       
 
       
-        <a href="/category/pm.html">
-          Project Management
-        </a>
-      
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/ai.html">
-          Artificial Intelligence
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
         </a>
       
     
@@ -427,15 +415,15 @@
   </span>
   <span class="share-page">
     &bull;
-    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/pm/ai/se/2021/07/11/controlling-creative-activities.html" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Controlling Creative Activities&url=https://wanted2.github.io/pm/ai/se/2021/07/11/controlling-creative-activities.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/pm/ai/se/2021/07/11/controlling-creative-activities.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều&url=https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
 
 <span title="Estimated read time">
   
   
-    3 mins
+    1 min
   
 </span>
 
@@ -444,87 +432,19 @@
   <div id="table-of-contents">
   <h2>Index</h2>
     <ol id="toc" class="section-nav">
-<li class="toc-entry toc-h1"><a href="#process-review">Process Review</a>
-<ol>
-<li class="toc-entry toc-h2"><a href="#process-review-vs-result-review">Process Review vs. Result Review</a></li>
-<li class="toc-entry toc-h2"><a href="#phase-gate-control">Phase-Gate Control</a></li>
-</ol>
-</li>
-<li class="toc-entry toc-h1"><a href="#personnel-reassignment">Personnel Reassignment</a></li>
-<li class="toc-entry toc-h1"><a href="#control-of-input-resources">Control of Input Resources</a></li>
-<li class="toc-entry toc-h1"><a href="#references">References</a></li>
+<li class="toc-entry toc-h1"><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ol>
   </div>
 
   <div class="post-body">
-    <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Creative_independence.jpg/800px-Creative_independence.jpg" alt="" />
-<em>Source: <a href="https://commons.wikimedia.org/wiki/File:Creative_independence.jpg">Wikipedia</a>, License: CC <a href="https://creativecommons.org/licenses/by/2.0/deed.en">Attribution 2.0</a></em></p>
+    <p><img src="/assets/img/svelte-checkall-uncheckall.gif" alt="svelte" /></p>
 
-<blockquote>
-  <p>Control is not necessarily the enemy of creativity; nor, popular myth to the contrary, do creative activity imply complete uncertainty.
-Source: Meredith <em>et al.</em> [1]</p>
-</blockquote>
+<!--more-->
 
-<p><strong>Creative Activities</strong> like research and development projects, design projects, and similar processes depend strongly on the creativity of individuals and teams.
-Controlling such activities is quite sensitive: <em>creative activities involve a high degree of uncertainty, but tight controlling inhibits the creativity</em>.
-Such a dilemma can be controlled by looking carefully at processes, payoff, and risk management.
-<!--more--></p>
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<h1 id="process-review">Process Review</h1>
-
-<h2 id="process-review-vs-result-review">Process Review vs. Result Review</h2>
-<p>In creative activities, <em>processes are often more certain than the results</em> (Meredith <em>et al.</em> [1]).
-Therefore, controlling the processes is more realistic than controlling the outcomes.
-In contrast, outsource projects often certain enough then PMs only need to care about the results, and processes are not reviewed in those projects.
-The contract in an outsourcing request often takes the form:</p>
-
-<blockquote>
-  <p>In outsourcing, we provided a given input and desired outputs. The deliverable should be a software module that transforms the input into the outputs, and <strong>that’s all</strong>!</p>
-</blockquote>
-
-<p>Yes, that’s all, and any further requests can be filtered by the contract terms.
-<strong>However, creative projects don’t have such certain requirements</strong>.
-The outcomes can be <strong>undetermined or vaguely determined</strong>.
-Therefore, controlling creative activities often review the processes rather than the final deliverable: we know the process to produce the deliverables, but we cannot know what deliverables are at the contract time.</p>
-
-<blockquote>
-  <p>Even when we know the methods, we don’t know what the final results are.</p>
-</blockquote>
-
-<h2 id="phase-gate-control">Phase-Gate Control</h2>
-
-<p>Because processes are more reliable to control in creative projects, there is a need to divide the process in these creative activities into measurable milestones.
-Assessments at each milestone should care about the progress so far, the potential value that can be achieved in the next step, and the desirability to change the research designs.
-That is the <em>phase-gate control</em>.</p>
-
-<h1 id="personnel-reassignment">Personnel Reassignment</h1>
-
-<p>For such an uncertain type of project, it is valuable to reassign people: productive personnel are kept, while the rest is reassigned to other projects or other organizations.
-It is not difficult to perform this control, but there are several issues:</p>
-
-<ul>
-  <li>
-    <p>If the favored personnel doesn’t change, then there is a possibility to create an elite group: new personnel becomes demotivated when joining, while old personnel is already highly motivated for further achievements.</p>
-  </li>
-  <li>
-    <p>It is difficult to rank the middle quartile.</p>
-  </li>
-</ul>
-
-<h1 id="control-of-input-resources">Control of Input Resources</h1>
-
-<p>Creativity does not equal the generosity of resources.
-Resource controlling helps to enhance the efficiency of creative projects.
-Outcomes in R&amp;D projects often come in <strong>batches</strong>: sometimes, there are no visible results, but suddenly many outcomes can be delivered.</p>
-
-<h1 id="references">References</h1>
-
-<ol class="bibliography"><li><span id="meredith2017project">Meredith, J. R., Shafer, S. M., &amp; Mantel Jr, S. J. (2017). <i>Project management: a strategic managerial approach</i>. John Wiley &amp; Sons.</span></li>
-<li><span id="OracleCr38:online"><i>Oracle Crystal Ball Downloads</i>. https://www.oracle.com/middleware/technologies/crystalball/downloads.html.</span></li>
-<li><span id="fisher1983getting">Fisher, R., &amp; Ury, W. (1983). <i>Getting to Yes: Negotiating Agreement Without Giving In</i>. New York: Penguin Books.</span></li>
-<li><span id="hamburger1986three">Hamburger, D. H. (1986). Three perceptions of project cost. <i>Project Management Journal</i>, 372–378.</span></li>
-<li><span id="GanttPro32:online"><i>GanttProject - Free Project Management Application</i>. https://www.ganttproject.biz/.</span></li>
-<li><span id="ProjectM44:online"><i>Project Management Software | Microsoft Project</i>. https://www.microsoft.com/en-us/microsoft-365/project/project-management-software.</span></li></ol>
+<ol class="bibliography"><li><span id="LogicEls13:online"><i>Logic / Else-if blocks • Svelte Tutorial</i>. https://svelte.dev/tutorial/else-if-blocks</span></li>
+<li><span id="DocsSve0:online"><i>Docs • SvelteKit</i>. https://kit.svelte.dev/docs</span></li></ol>
 
     
 
@@ -533,80 +453,69 @@ Outcomes in R&amp;D projects often come in <strong>batches</strong>: sometimes, 
 <div class="post-tags">
   
     
-    <a href="/tags.html#pmi">
+    <a href="/tags.html#svelte-framework">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">pmi</span>
+      </span>&nbsp;<span class="tag-name">svelte framework</span>
     </a>
   
     
-    <a href="/tags.html#project-management">
+    <a href="/tags.html#svelte">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">project management</span>
+      </span>&nbsp;<span class="tag-name">svelte</span>
     </a>
   
     
-    <a href="/tags.html#project-manager">
+    <a href="/tags.html#vuejs">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">project manager</span>
+      </span>&nbsp;<span class="tag-name">vuejs</span>
     </a>
   
     
-    <a href="/tags.html#project-controlling">
+    <a href="/tags.html#reactjs">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">project controlling</span>
+      </span>&nbsp;<span class="tag-name">reactjs</span>
     </a>
   
     
-    <a href="/tags.html#project-controller">
+    <a href="/tags.html#angularjs">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">project controller</span>
+      </span>&nbsp;<span class="tag-name">angularjs</span>
     </a>
   
     
-    <a href="/tags.html#creative-activities">
+    <a href="/tags.html#frontend">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">creative activities</span>
-    </a>
-  
-    
-    <a href="/tags.html#r-d-projects">
-    
-      <span class="icon">
-        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
-</svg>
-      </span>&nbsp;<span class="tag-name">R&D projects</span>
+      </span>&nbsp;<span class="tag-name">frontend</span>
     </a>
   
 </div>
@@ -630,9 +539,9 @@ Outcomes in R&amp;D projects often come in <strong>batches</strong>: sometimes, 
   *  https://disqus.com/admin/universalcode/#configuration-variables
   */
   var disqus_config = function () {
-    this.page.url = "https://wanted2.github.io/pm/ai/se/2021/07/11/controlling-creative-activities.html";
+    this.page.url = "https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html";
     this.page.identifier = "" ||
-                           "https://wanted2.github.io/pm/ai/se/2021/07/11/controlling-creative-activities.html";
+                           "https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html";
   }
   function loadDisqusComments() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
@@ -656,15 +565,6 @@ Outcomes in R&amp;D projects often come in <strong>batches</strong>: sometimes, 
     
       <li>
         <h3>
-          <a href="/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">
-            Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều
-            <small>10 Dec 2021</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/non-english/se/sre/2021/12/05/write-logs.html">
             Học cách viết log nghiêm chỉnh
             <small>05 Dec 2021</small>
@@ -677,6 +577,15 @@ Outcomes in R&amp;D projects often come in <strong>batches</strong>: sometimes, 
           <a href="/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">
             Why lean startups love fullstack engineers?
             <small>27 Nov 2021</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html">
+            Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động
+            <small>20 Nov 2021</small>
           </a>
         </h3>
       </li>
