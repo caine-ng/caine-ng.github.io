@@ -423,7 +423,7 @@
 <span title="Estimated read time">
   
   
-    2 mins
+    3 mins
   
 </span>
 
@@ -463,6 +463,19 @@ Sau đó gần đây là <code class="language-plaintext highlighter-rouge">Svel
 
 <h1 id="một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> và bài toán reset hiển thị đúng cách</h1>
 
+<p>Hồi ấy có 1 câu chuyện là thế này.
+Nói thì dài dòng nhưng chủ yếu là làm chức năng <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> mà bạn có thể nhìn thấy ở hình ảnh bên trên.
+Nó là chức năng bổ trợ cho <code class="language-plaintext highlighter-rouge">Datatables</code> mà chúng tôi có dùng.
+<strong>Cũng 10 năm rồi, tôi thú thực là cũng chả nhớ chi tiết lắm</strong>, nhưng đại để là có yêu cầu thế này:</p>
+
+<ul>
+  <li>Mỗi dòng phải có 1 checkbox, và mỗi checkbox là riêng nhau, không có chuyện click checkbox ở dòng 1 mà lại thay đổi hiển thị của dòng 2 là … giải tán.</li>
+  <li>Có nút <code class="language-plaintext highlighter-rouge">Check All</code> mà khi click vào thì tất cả các checkbox con chuyển thành ON hết.</li>
+  <li>Có nút <code class="language-plaintext highlighter-rouge">Uncheck All</code> mà khi chọn thì tất cả các checkbox con của mỗi dùng đều OFF hết.</li>
+  <li>Nút <code class="language-plaintext highlighter-rouge">Check All</code> và <code class="language-plaintext highlighter-rouge">Uncheck All</code> có thể làm một để tối ưu trải nghiệm người dùng.</li>
+</ul>
+
+<p><strong>Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm</strong>.</p>
 <h1 id="giả-định-1-làm-bằng-js-thuần">Giả định 1: Làm bằng JS thuần</h1>
 
 <h1 id="giả-định-2-làm-bằng-svelte">Giả định 2: Làm bằng Svelte</h1>
