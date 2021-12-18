@@ -13,7 +13,7 @@
   />
 
   <title>
-     Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều &middot; AiFi 
+     Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước &middot; AiFi 
   </title>
 
   
@@ -381,7 +381,7 @@
 
     <main class="container">
       <header>
-  <h1 class="post-title">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều</h1>
+  <h1 class="post-title">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</h1>
 </header>
 <div class="content">
   <div class="post-meta">
@@ -416,14 +416,14 @@
   <span class="share-page">
     &bull;
     <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước: Lý do nên code có bài bản và theo framework/patterns có sẵn chứ không nên code thuần nhiều&url=https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước&url=https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
     <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
 
 <span title="Estimated read time">
   
   
-    5 mins
+    7 mins
   
 </span>
 
@@ -438,8 +438,8 @@
 <li class="toc-entry toc-h2"><a href="#lời-giải-10-năm-trước">Lời giải 10 năm trước</a></li>
 </ol>
 </li>
-<li class="toc-entry toc-h1"><a href="#giả-định-1-làm-bằng-js-thuần">Giả định 1: Làm bằng JS thuần</a></li>
-<li class="toc-entry toc-h1"><a href="#giả-định-2-làm-bằng-svelte">Giả định 2: Làm bằng Svelte</a></li>
+<li class="toc-entry toc-h1"><a href="#cách-làm-1-làm-bằng-js-thuần">Cách làm 1: Làm bằng JS thuần</a></li>
+<li class="toc-entry toc-h1"><a href="#cách-làm-2-làm-bằng-svelte">Cách làm 2: Làm bằng Svelte</a></li>
 <li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
 <li class="toc-entry toc-h1"><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ol>
@@ -480,7 +480,12 @@ Nó là chức năng bổ trợ cho <code class="language-plaintext highlighter-
   <li>Có nút <code class="language-plaintext highlighter-rouge">Check All</code> mà khi click vào thì tất cả các checkbox con chuyển thành ON hết.</li>
   <li>Có nút <code class="language-plaintext highlighter-rouge">Uncheck All</code> mà khi chọn thì tất cả các checkbox con của mỗi dùng đều OFF hết.</li>
   <li>Nút <code class="language-plaintext highlighter-rouge">Check All</code> và <code class="language-plaintext highlighter-rouge">Uncheck All</code> có thể làm một để tối ưu trải nghiệm người dùng.</li>
+  <li>Nếu tất cả các nút con đều ON thì <code class="language-plaintext highlighter-rouge">CheckAll</code> cũng phải ON.</li>
+  <li>Nếu có ít nhất 1 nút con là OFF thì <code class="language-plaintext highlighter-rouge">CheckAll</code> phải OFF.</li>
+  <li>Ngược lại với <code class="language-plaintext highlighter-rouge">Uncheck ALL</code> (nếu tách hai hộp check ra).</li>
 </ul>
+
+<p><img src="/assets/img/svelte-checkall-uncheckall-2.gif" alt="svelte" /></p>
 
 <p><strong>Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm</strong>.
 Tức là phải <code class="language-plaintext highlighter-rouge">reset</code> chuẩn, không được để chọn <code class="language-plaintext highlighter-rouge">Check All</code> nhưng lại có dòng nào không được check (dù đã check rồi).
@@ -511,11 +516,37 @@ Tức là với dòng thứ <code class="language-plaintext highlighter-rouge">n
 
 <p>Vâng, thú thực là lúc ấy mấy công nghệ <strong>MVVM frameworks như AngularJS/ReactJS</strong> vẫn đang trong vòng thai nghén của Google và Facebook, anh em cũng chưa có điều kiện tiếp cận, mới bắt buộc phải dùng JS thuần mà code.
 Chuyện 10 năm trước cơ mà!
-(Chứ còn năm 2021 này mà còn dùng là … đấm! <strong>Phải MVVM hết</strong>.).</p>
+(Chứ còn năm 2021 này mà còn dùng là … không nên! <strong>Phải MVVM hết</strong>.).</p>
 
-<h1 id="giả-định-1-làm-bằng-js-thuần">Giả định 1: Làm bằng JS thuần</h1>
+<h1 id="cách-làm-1-làm-bằng-js-thuần">Cách làm 1: Làm bằng JS thuần</h1>
 
-<h1 id="giả-định-2-làm-bằng-svelte">Giả định 2: Làm bằng Svelte</h1>
+<p>Đánh nhãn bằng tay đương nhiên là không tốt.
+Để hiểu được lý do tại sao nên dùng framework và patterns có sẵn, chúng ta nên bắt đầu từ việc định tính hóa bài toán.</p>
+
+<p><strong>Bài toán</strong>: Giả sử có $n$ dòng trong bảng.
+Mỗi dòng có một checkbox $c_i\in\{0,1\}$ (ở đây 0 là OFF còn 1 là ON).
+Trạng thái của <code class="language-plaintext highlighter-rouge">Check All</code> là $C\in\{0,1\}$ và tương ứng của <code class="language-plaintext highlighter-rouge">Uncheck all</code> là $\overline{C}=1-C$.
+Thì <code class="language-plaintext highlighter-rouge">bài toán đồng bộ trạng thái</code> ở đây là đảm bảo rằng ở mọi thời điểm:</p>
+
+<blockquote>
+  <p>$C=\bigcap_{i=1}^n c_i$                                          (1)</p>
+</blockquote>
+
+<p>Điều này khá thú vị, việc đảm bảo phương trình (1) luôn xảy ra đòi hỏi phải <strong>quản lý trạng thái</strong> một cách chính xác.</p>
+
+<p>Để làm được điều này với JS thuần, đòi hỏi</p>
+
+<ul>
+  <li>Đánh nhãn chính xác, khó nhầm lẫn.</li>
+  <li>Không select nhầm nhãn.</li>
+  <li>Quản lý trạng thái ON/OFF phải đồng bộ.</li>
+  <li>Phải set checked ngay khi có <code class="language-plaintext highlighter-rouge">onclick</code>.</li>
+</ul>
+
+<p>Nhìn chung là một cách làm khá <code class="language-plaintext highlighter-rouge">tồi tệ</code>.
+<strong>Đặc biệt, vì số lượng biến trạng thái là $n+1$ nên khi $n$ càng lớn việc quản lý trạng thái càng khó khăn, dễ xảy ra bug, mistakes, …</strong></p>
+
+<h1 id="cách-làm-2-làm-bằng-svelte">Cách làm 2: Làm bằng Svelte</h1>
 
 <h1 id="kết-luận">Kết luận</h1>
 
