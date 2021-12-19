@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-19T10:36:20+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-19T11:23:46+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
@@ -18,7 +18,7 @@
 &lt;p&gt;上で説明したが，朝8時から対応しないといけない障害も起きうるため，SEの場合，朝寝坊は禁則ですね．
 「ITだから，徹夜してプログラミングをしたので朝寝坊してしまった」という説明もちらほら聞かれていますが，ダメです！
 プログラミングが勤務時間内でやれぇ．
-朝で遅れないようにきちんと出勤した方がいいです．&lt;/p&gt;
+朝で遅れなくきちんと出勤した方がいいです．&lt;/p&gt;
 
 &lt;h1 id=&quot;帰宅時&quot;&gt;帰宅時&lt;/h1&gt;
 
@@ -28,11 +28,47 @@
 じゃ，例えば，深夜に出勤して何か不審な作業をやっている作業員がいると，異常でしょうか？
 これは障害の種であるため，いったん深夜に作業するPCなど機器を起動しないように電気を必ず消しましょう．
 また，例えば，深夜に障害につながる異常が発生すると，出勤できる作業員がお休み中の場合もあるから，対応も大変です．
-なので，19時～翌日7時までの間に，電気を重要インフラ以外きちんと使用されないように規定したほうがいいでしょう．
+なので，19時～翌日7時までの間に，重要インフラ以外電気をきちんと使用されないように規定したほうがいいでしょう．
 「お金がかかっちゃう」という理由もよく聞かれたが，SEの分野では，多分それが本当の理由ではないと思います．
 実際の理由は障害対応の都合であろう．&lt;/p&gt;
 
 &lt;h1 id=&quot;物品を使用したとき&quot;&gt;物品を使用したとき&lt;/h1&gt;
+
+&lt;p&gt;上記の「帰宅時」の説明と同じように，物品の使用が終わったらリソースをクリアしましょう．
+「物品」とは，物理的にある会議室やサーバー部屋や機器などの施設だけではなく，&lt;strong&gt;仮想的に存在するサーバーやクラウドサービスの使用も含まれています&lt;/strong&gt;．
+19時～ではなく，勤務時間内に一時使用するサーバーもあります．
+離席している最中に作業PCはONのままにしている可能性もあり，画面ロックをしない場合，セキュリティインシデントが起きうるのです．&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;離席時，必ず__画面ロック__でなど資産をロックしましょう．再度着席したら，ロック解除で大丈夫です．&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;じゃ，使用が終わったときに，電気を消さないで，リソースをクリアしないでそのままにすると何が問題かな？
+以下は千葉銀行からお客様にお願いする事項[4]ですが，興味深いですね．&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;ログアウト等の励行&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;お客さまのパソコンを遠隔で操作し、正当な契約者が操作したように装う事例が発生しております。
+&lt;strong&gt;パソコンの外部からの不正操作を防止するため、Web-EBをご利用にならない時や、インターネット接続が必要ない時は、ご利用のパソコンをネットワークから遮断したり、無線LANを切断するなど、パソコンをインターネット環境から隔離し、常時接続をさけてください。&lt;/strong&gt;
+また、&lt;strong&gt;パソコンをご利用にならない場合は、パソコンの電源を落とすよう徹底&lt;/strong&gt;をお願いいたします。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;電源を落とし，インターネット接続も遮断するというお願いですね．
+もうちょっとわかりやすいマンガで説明した投稿もあります．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.chibabank.co.jp/safety/netbank/comic06/comic03.html&quot;&gt;マンガでわかる！インターネットバンキングのセキュリティ対策 &amp;gt; パソコンの電源を入れたままにしていませんか？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近，クラウド基盤へ移すサービスも少なくないので，物理的ではなく仮想的な資産も存在します．
+例えば，AWSのサーバーやサービスなどですね．
+それらは電源を落としても稼働できるため，リソース管理をきちんとしないといけないです．
+つまり，各資産の稼働時間を把握する必要があります．
+それ以外の時間はなんとかの方法でクリアして，再度必要になったら再度立ち上げるように仕組みを規定する必要があります．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;まあ，ややこしいけど，とりあえず，物理リソースの場合，上記のマンガのように電源を落としましょう．&lt;/strong&gt;
+&lt;strong&gt;仮想リソースの場合，使用のワークフローを自動化し，心配がないようにしましょう．&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;残業&quot;&gt;残業&lt;/h1&gt;
 
@@ -40,7 +76,8 @@
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ipa01&quot;&gt;松田 晃一, 村岡 恭昭, &amp;amp; 齋藤 毅. (2019). &lt;i&gt;情報システムの障害状況 - 2019 年後半データ&lt;/i&gt;. IPA社会基盤センター.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ipa02&quot;&gt;情報処理推進機構. &lt;i&gt;情報システムの障害状況一覧：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/sec/system/system_fault.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ipa03&quot;&gt;情報処理推進機構. &lt;i&gt;プレス発表　重要インフラを支えるシステムの障害情報や対策を分析した2種類の教訓集を公開：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/about/press/20140513.html&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="残業" /><category term="OT" /><category term="電気を消す" /><category term="電気利用" /><category term="障害対応" /><summary type="html">あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．</summary></entry><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
+&lt;li&gt;&lt;span id=&quot;ipa03&quot;&gt;情報処理推進機構. &lt;i&gt;プレス発表　重要インフラを支えるシステムの障害情報や対策を分析した2種類の教訓集を公開：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/about/press/20140513.html&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行. &lt;i&gt;セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行&lt;/i&gt;. https://www.chibabank.co.jp/webeb/security/internet/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="残業" /><category term="OT" /><category term="電気を消す" /><category term="電気利用" /><category term="障害対応" /><summary type="html">あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．</summary></entry><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
 Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
