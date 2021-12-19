@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-19T11:23:46+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-19T11:27:49+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
@@ -17,7 +17,7 @@
 
 &lt;p&gt;上で説明したが，朝8時から対応しないといけない障害も起きうるため，SEの場合，朝寝坊は禁則ですね．
 「ITだから，徹夜してプログラミングをしたので朝寝坊してしまった」という説明もちらほら聞かれていますが，ダメです！
-プログラミングが勤務時間内でやれぇ．
+プログラミングは勤務時間内でやれぇ．
 朝で遅れなくきちんと出勤した方がいいです．&lt;/p&gt;
 
 &lt;h1 id=&quot;帰宅時&quot;&gt;帰宅時&lt;/h1&gt;
@@ -40,7 +40,7 @@
 離席している最中に作業PCはONのままにしている可能性もあり，画面ロックをしない場合，セキュリティインシデントが起きうるのです．&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;離席時，必ず__画面ロック__でなど資産をロックしましょう．再度着席したら，ロック解除で大丈夫です．&lt;/p&gt;
+  &lt;p&gt;離席時，必ず&lt;strong&gt;画面ロック&lt;/strong&gt;などで資産をロックしましょう．再度着席したら，ロック解除で大丈夫です．&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;じゃ，使用が終わったときに，電気を消さないで，リソースをクリアしないでそのままにすると何が問題かな？
@@ -61,8 +61,8 @@
 
 &lt;p&gt;&lt;a href=&quot;https://www.chibabank.co.jp/safety/netbank/comic06/comic03.html&quot;&gt;マンガでわかる！インターネットバンキングのセキュリティ対策 &amp;gt; パソコンの電源を入れたままにしていませんか？&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;最近，クラウド基盤へ移すサービスも少なくないので，物理的ではなく仮想的な資産も存在します．
-例えば，AWSのサーバーやサービスなどですね．
+&lt;p&gt;最近，クラウド基盤へ移すサービスも少なくないので，物理ではなく仮想的な資産も存在します．
+例えば，AWSの仮想サーバーやサービスなどですね．
 それらは電源を落としても稼働できるため，リソース管理をきちんとしないといけないです．
 つまり，各資産の稼働時間を把握する必要があります．
 それ以外の時間はなんとかの方法でクリアして，再度必要になったら再度立ち上げるように仕組みを規定する必要があります．&lt;/p&gt;
@@ -71,6 +71,29 @@
 &lt;strong&gt;仮想リソースの場合，使用のワークフローを自動化し，心配がないようにしましょう．&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;残業&quot;&gt;残業&lt;/h1&gt;
+
+&lt;p&gt;毎日19時～帰宅した方がよいという話をしました．
+ですので，19時以降の「残業」はダメですね．
+といっても，時々仕事のためにしないといけないこともあるでしょう．
+しかし，それが異常程度の確率にしないと大きな問題であろう．
+会社100人で皆残業すると，逆に皆で合意したので体制を決めて残業することは問題ないです．
+しかし，体制も決めず，上司の許可も得ず勝手に残業するということはダメです．&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ですので，障害を減らしたい意志で考えると，会社の体制に従うべきです．
+で，一般的に，&lt;strong&gt;残業しない&lt;/strong&gt;ことにしましょう．&lt;/li&gt;
+  &lt;li&gt;仕事を自宅まで持ち帰っても，&lt;strong&gt;勤務時間外，つまり責任者が常駐しない時に仕事をしない&lt;/strong&gt;ことにしましょう．
+    &lt;ul&gt;
+      &lt;li&gt;WFHの場合でも，仕事を自宅でやっても責任者の許可を得ないまま仕事はしません．&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;仕事が途中半端で19時までに終わらせない場合でも，事前に見通して，&lt;strong&gt;切りのよいタイミングでリソースをクリアして，電源を落として帰宅しましょう&lt;/strong&gt;．
+    &lt;ul&gt;
+      &lt;li&gt;効率というよりも，障害の課題です．&lt;/li&gt;
+      &lt;li&gt;効率の考え方は勤務時間外で考えないで，勤務時間内のみで効率を考えるべきであろう．&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
 
