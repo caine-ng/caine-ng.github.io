@@ -1,38 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-19T18:42:31+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-graphics-design.png&quot; alt=&quot;adobe&quot; /&gt;
-Adobe provides three different clouds for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud.
-Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families, and the power to collaborate with anyone, anywhere. 
-Many things can be done with this solution.
-We take a look at the features and seek OSS alternatives for comparisons.
-&lt;!--more--&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Acrobat Pro&lt;/li&gt;
-  &lt;li&gt;Photoshop&lt;/li&gt;
-  &lt;li&gt;Illustrator&lt;/li&gt;
-  &lt;li&gt;InDesign&lt;/li&gt;
-  &lt;li&gt;Premiere Pro&lt;/li&gt;
-  &lt;li&gt;After Effects&lt;/li&gt;
-  &lt;li&gt;Lightroom&lt;/li&gt;
-  &lt;li&gt;XD&lt;/li&gt;
-  &lt;li&gt;Animate&lt;/li&gt;
-  &lt;li&gt;Lightroom Classic&lt;/li&gt;
-  &lt;li&gt;Dreamweaver&lt;/li&gt;
-  &lt;li&gt;Dimension&lt;/li&gt;
-  &lt;li&gt;Audition&lt;/li&gt;
-  &lt;li&gt;InCopy&lt;/li&gt;
-  &lt;li&gt;Character Animator&lt;/li&gt;
-  &lt;li&gt;Capture&lt;/li&gt;
-  &lt;li&gt;Fresco&lt;/li&gt;
-  &lt;li&gt;Bridge&lt;/li&gt;
-  &lt;li&gt;Premiere Rush&lt;/li&gt;
-  &lt;li&gt;Photoshop Express&lt;/li&gt;
-  &lt;li&gt;Photoshop Camera&lt;/li&gt;
-  &lt;li&gt;Media Encoder&lt;/li&gt;
-  &lt;li&gt;Aero&lt;/li&gt;
-  &lt;li&gt;Lightroom Web&lt;/li&gt;
-  &lt;li&gt;Adobe Scan&lt;/li&gt;
-  &lt;li&gt;Fill &amp;amp; Sign&lt;/li&gt;
-  &lt;li&gt;Acrobat&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="se" /><category term="sre" /><category term="adobe acrobat" /><category term="adobe creative cloud" /><category term="design" /><category term="illustrator" /><summary type="html">Adobe provides three different clouds for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud. Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families, and the power to collaborate with anyone, anywhere. Many things can be done with this solution. We take a look at the features and seek OSS alternatives for comparisons.</summary></entry><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-20T20:39:51+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
@@ -2074,4 +2040,199 @@ PMも幹事力を身に付きましょう。&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;最後に確かに、PMさんもその幹事力を身につきましょう。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="pm" /><category term="project management" /><category term="kanji" /><summary type="html">出典： insource.jp 昔数回「幹事をしろう」と言われたことがあるけど、よく幹事のお仕事について少し知識不足でした。 ホッとするともう2012年2013年ごろだったので、今だと8年か9年前の話でした。 プロジェクト・マネージャーには幹事力があった方がいい。 月日が経ってPM職にはなぜ【幹事力】が必要か少し理解できるようになりました。 日本語の中に【カンジ】というと【漢字】と書けるし、【幹事】と【監事】とも書けます。 もちろん、PMには字を読めないといけないので、【漢字力】が必要ですし、 日々でプロジェクトの品質や正常な状態を保つためには、監査作業を行うのも重要で、その監査を行うには【監事力】も必要になりますが、 総合的にPJをちゃんと稼働させるためには、【幹事力】は大事だなと思っています。</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="pm" /><category term="project management" /><category term="kanji" /><summary type="html">出典： insource.jp 昔数回「幹事をしろう」と言われたことがあるけど、よく幹事のお仕事について少し知識不足でした。 ホッとするともう2012年2013年ごろだったので、今だと8年か9年前の話でした。 プロジェクト・マネージャーには幹事力があった方がいい。 月日が経ってPM職にはなぜ【幹事力】が必要か少し理解できるようになりました。 日本語の中に【カンジ】というと【漢字】と書けるし、【幹事】と【監事】とも書けます。 もちろん、PMには字を読めないといけないので、【漢字力】が必要ですし、 日々でプロジェクトの品質や正常な状態を保つためには、監査作業を行うのも重要で、その監査を行うには【監事力】も必要になりますが、 総合的にPJをちゃんと稼働させるためには、【幹事力】は大事だなと思っています。</summary></entry><entry><title type="html">構想フェーズから終了までの研究開発サイクル</title><link href="https://wanted2.github.io/non-english/se/pm/2021/10/23/rd-pj-lifecycle.html" rel="alternate" type="text/html" title="構想フェーズから終了までの研究開発サイクル" /><published>2021-10-23T00:00:00+09:00</published><updated>2021-10-23T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/10/23/rd-pj-lifecycle</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/10/23/rd-pj-lifecycle.html">&lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/8/81/Cycle_of_Research_and_Development.svg&quot; alt=&quot;rd&quot; /&gt;
+&lt;em&gt;Source: Wikipedia&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;研究開発は大別すると基本的な原理や性質を知るための純粋基礎研究、特定の実際的目的のために行われる目的基礎研究、特定の要請に答えるための応用研究、新製品を導入するための研究に分かれる。
+Source: wikipedia.com&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Hoạt động nghiên cứu và phát triển (R&amp;amp;D)&lt;/strong&gt; là hoạt động do các công ty tổ chức thực hiện nhằm đổi mới sáng tạo dẫn đến &lt;strong&gt;tri thức, sản phẩm và dịch vụ mới&lt;/strong&gt;.
+Phân loại dự án R&amp;amp;D thì tùy vào mục đích có thể phân thành: R&amp;amp;D cơ bản “thuần” (phát hiện định luật, định lý, tính chất mới mang tính &lt;strong&gt;tổng quát&lt;/strong&gt;), R&amp;amp;D cơ bản “có mục đích cụ thể” (phát hiện định luật, định lý và tính chất mới trong 1 ngành hẹp, không cần tổng quát), và R&amp;amp;D ứng dụng (sử dụng kết quả của R&amp;amp;D cơ bản để tạo ra sản phẩm mới, dịch vụ mới).
+Dù là cơ bản thuần, cơ bản hẹp hay ứng dụng thì nhìn chung dự án R&amp;amp;D đều là dự án và là đối tượng của ngành Project Management.
+Tuy nhiên, vì là đi tìm cái mới nên dù cái mới là mang tính lý thuyết (cơ bản thuần và cơ bản hẹp) hay ứng dụng, thì dự án R&amp;amp;D có những đặc điểm riêng khác với dự án thông thường: outcome của dự án nghiên cứu thường khó định hình ngay từ đầu và đôi khi hơi mơ hồ với những người làm kỹ thuật (&lt;em&gt;bởi vì nếu cái mới mà mình đã biết từ đầu thì nó đâu còn là cái mới nữa đúng không các bạn?&lt;/em&gt;)
+Thi thoảng dự án nghiên cứu sẽ không có outcome, nhưng đột nhiên một vài tuần sau lại output ra tới tấp!
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;vòng-đời-dự-án-và-ví-dụ-về-dự-án-nghiên-cứu-thiết-kế-hệ-thống-quản-lý-sân-bay&quot;&gt;Vòng đời dự án và ví dụ về dự án nghiên cứu thiết kế hệ thống quản lý sân bay&lt;/h1&gt;
+
+&lt;h2 id=&quot;vòng-đời-dự-án-rd&quot;&gt;Vòng đời dự án R&amp;amp;D&lt;/h2&gt;
+&lt;p&gt;Dự án nghiên cứu thường hình thành từ một quá trình là một nhà đầu tư (cá nhân hoặc tổ chức cung cấp kinh phí như NSF hay DARPA) công bố một lĩnh vực hay chủ đề nghiên cứu và kêu gọi các nhóm nghiên cứu trong toàn quốc hoặc thậm chí trên thế giới gửi proposal lên phê duyệt kinh phí (grant).
+Các nhóm nghiên cứu có thể ở trường đại học hay trong công nghiệp đều được.
+Các nhóm có thể proposal độc lập hoặc hợp tác nghiên cứu.
+Trong trường hợp hợp tác nghiên cứu, yếu tố như việc không để xảy ra conflicts, phân chia công việc, communication để đảm bảo việc collaborate diễn ra trơn chu sẽ được xem xét cẩn thận.
+Khi kêu gọi này được công bố, các viện hoặc các trường, tổ chức sẽ nhận thông báo và gửi đến từng nhóm nghiên cứu dưới quyền.
+Các nhóm sẽ bắt đầu thực hiện quá trình proposal để nhận grant.
+Các Project Investigators (PI) sẽ được bầu lên để thực hiện quá trình này.
+Trong quản lý dự án, nó sẽ ứng với quá trình Định nghĩa (要件定義).
+Sau khi có bản proposal nêu đầy đủ mục đích và giá trị nghiên cứu, những stakeholders sẽ tham gia và quan trọng nhất là tầm nhìn về cái &lt;strong&gt;mới&lt;/strong&gt; mà dự án sẽ output ra, thì nhóm PIs sẽ trình bày kết quả điều tra lên hội đồng cấp duyệt kinh phí.&lt;/p&gt;
+
+&lt;p&gt;Sau khi được phê duyệt (承認済み) thì các nhóm nghiên cứu được cấp grant sẽ tiến hành thiết kế tỷ mỷ, lên action plan mà sẽ ở dạng WBS, lên kế hoạch tỷ mỷ về cả schedule lần resource (con người và thiết bị), …&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Các bạn sẽ thấy lạ là tại sao có thể phê duyệt cấp grant khi mà chỉ có 1 bản proposal sơ khai chứ chưa triển khai gì hết?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Thì thực ra tính bất định của dự án nghiên cứu như đã nói ở trên: nếu cái mới mà đã biết từ đầu thì lại không phải cái mới! Do đó, theo tôi hiểu sẽ chủ yếu dựa vào cái gọi là “uy tín và kình nghiệm” của PIs dự án là chính.
+PI có nhiều kinh nghiệm sẽ viết ra 1 bản proposal chi tiết mà qua đó thể hiện hết &lt;strong&gt;khả năng thực thi&lt;/strong&gt; của nhóm.
+Thì đúng rồi, có khả năng thực thi thì là điều kiện tiên quyết, chứ không có khả năng thực thi thì out ngay!
+Thế nên vị trí PI ở những tổ chức cấp grant danh giá, thường là các giáo sư có bề dày thành tích cả về nghiên cứu lần hướng dẫn sinh viên.
+Các thành phần trẻ hơn thì cũng có nhưng hiếm và thường là như các cụ gọi là “con ông cháu cha” (không có ý xấu nhé!).
+&lt;strong&gt;Tức là nhìn chung là sẽ ít rủi ro và không biết ra được cái gì nhưng có độ chắc chắn sẽ ra được một cái gì đó cao!&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sau khi lên kế hoạch tỷ mỷ thì việc &lt;strong&gt;thực thi&lt;/strong&gt; là bắt buộc. Trong quá trình thực thi việc audit dự án sẽ thường xuyên xảy ra để đảm bảo các giáo sư và nhóm nghiên cứu sử dụng kinh phí và resource hợp lý, đồng thời tiến độ diễn ra chuẩn.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Vậy nếu không biết cái mới là gì từ đầu thì dự án có deadline không?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A: Nhìn chung là không, mà sẽ chạy cho đến khi hết tiền hoặc hết hạn (tổ chức có thể cấp dạng hợp đồng 1 triệu đô trong 5 năm) thì thôi.&lt;/strong&gt; Tuy nhiên tùy vào tổ chức cấp grant, việc audit và đòi báo cáo hàng năm hoặc hàng quý là có. Đến quý đến năm mà không có gì thì việc cấp tiếp là có thể sẽ bị xem xét lại.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cuối cùng, là sau một thời gian dài vô cùng áp lực (bởi ngay cả người xin tiền cũng không biết là mình sẽ output ra cái gì, lúc nào cũng nơm nớp bị cắt grant) thì nếu có được thành quả đáng kể đúng hạn báo cáo năm thì dự án sẽ đóng lại với &lt;strong&gt;tổng kết và báo cáo&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Tôi thấy có nhiều nhóm nghiên cứu đơn giản là publish xong paper lên hội nghị lớn hoặc tạp chí danh tiếng là kết thúc. Vậy việc thực thi lên sản phẩm thì thế nào?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Nhìn chung thì những nghiên cứu ứng dụng như vậy thì phần publish paper sẽ không output ra sản phẩm mà để có thể lên sản phẩm thì nhóm sẽ phải kết hợp với bên các cty để thực hiện nghiên cứu cộng tác.
+Ở dạng này thì sự phân công sẽ là nhóm nghiên cứu của đại học làm những phần điều tra kỹ thuật, pilot study là cùng.
+Sau đó thì khi có output ở dạng paper thì chuyển lại cho bên nghiên cứu công nghiệp triển khai sản phẩm.
+Tuy nhiên, có nhiều nghiên cứu công nghiệp mang tính tuyệt mật, chuyện publish paper bị chặn luôn mà bên cty công nghiệp có thể yêu cầu chỉ nộp patent thôi chả hạn.
+Nhưng nếu grant là của NSF hoặc các tổ chức phi lợi nhuận thì nhóm bạn có thể yên tâm ngồi viết paper.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;ví-dụ-về-dự-án-hệ-thống-quản-lý-sân-bay&quot;&gt;Ví dụ về dự án hệ thống quản lý sân bay&lt;/h2&gt;
+
+&lt;p&gt;Để cho gần với thực tiễn ngành trí tuệ nhân tạo, chúng ta cùng nhìn vào 1 dự án thực tế giấu tên.
+&lt;strong&gt;Hệ thống quản lý sân bay (Airport Management System, hay viết tắt là AMS)&lt;/strong&gt; là một phần không thể thiếu trong tối ưu hóa hoạt động của sân bay, đặc biệt là các sân bay lớn như JFK airport.
+Năm nay tổ chức Foundation X lại tự dưng xuất fund nghiên cứu cho lĩnh vực tự động hóa sân bay, chủ đề tuyệt vời cho các nhóm nghiên cứu trong hầu hết các lĩnh vực của trí tuệ nhân tạo như tối ưu hóa nguồn lực, bảo mật hệ thống, logistic, tính toán song song, …
+Grant tạm tính sơ là 1 triệu đô trong 5 năm đi chẳng hạn hoặc tùy vào estimate của các proposals.&lt;/p&gt;
+
+&lt;p&gt;10 nhóm nghiên cứu từ các trường đại học khác nhau trong toàn quốc nhận thấy năng lực thực thi phù hợp và muốn cùng nhau viết grant để giành fund này.
+10 giáo sư đứng đầu các nhóm đứng tên làm PI và phân chia mỗi người mỗi mảng ứng với 10 mảng được công bố trong thư mời nộp proposal.
+Trong đó có 2 nhóm nghiên cứu của giáo sư A và giáo sư B muốn hợp tác cùng nhau.
+Nhóm A làm về tối ưu hóa nhân lực và lên kế hoạch di chuyển trong hệ thống.
+Nhóm B làm về hệ thống theo dõi và bảo mật.
+Tại sao 2 nhóm này muốn cộng tác bởi vì tiền đề để thực hiện các nghiệp vụ tương ứng trong mảng của họ thì đều dựa trên thu thập observations từ sensors.
+Sau khi tracking, classifying, detecting, analysing flows của các observations thì họ aggregate kết quả và output ra những cảnh báo real-time (nghiệp vụ của giáo sư B) hoặc tích lũy vào data warehouse và rồi xử lý analytics dạng batch (nghiệp vụ của giáo sư A).
+Với xuất phát điểm chung từ điểm phân tích dữ liệu nên 2 giáo sư và cũng là 2 PIs quyết định hợp tác nghiên cứu.
+Đầu tiên là họ sẽ dành ra 6 tháng để làm proposal và họ sẽ thuê 1 postdoc làm trợ tá để làm hộ thí nghiệm pilot study (deadline của proposal là tháng 8, nhưng các giáo sư đã phong phanh nghe tin và rục rịch chuẩn bị từ tháng 2 lúc call for proposals còn đang ở dạng draft).&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-1-định-nghĩa&quot;&gt;Giai đoạn 1: Định nghĩa&lt;/h1&gt;
+
+&lt;p&gt;Giai đoạn này, có thể từ vài tháng, nhưng thường khoảng 6 tháng và output là 1 bản proposal có thể giành grant để anh em cùng nhau chiến tiếp.
+Thì có khi sản phẩm là cả 1 hệ thống warehouse lớn, nhưng trong giai đoạn này chỉ làm những demo, PoC hoặc pilot study nhỏ.
+Hoặc cùng lắm tạo ra bộ khung.
+Và người hiểu rõ nhất chỉ có PI.
+Còn kể postdoc hay Phd student hay associate thì nhìn chung cũng chỉ nhận task và làm báo cáo cho giáo sư đọc.
+Big picture vẫn nằm trong tay PI.&lt;/p&gt;
+
+&lt;p&gt;Nay có 1 postdoc C có background đúng về mảng tracking, analytics như vậy thì đương nhiên 2 giáo sư sẽ phải xâu xé để giành lấy.
+Nhưng sẽ tốt hơn về mặt phân chia nguồn lực nếu 2 giáo sư cùng dùng chung postdoc.&lt;/p&gt;
+
+&lt;p&gt;Thì giáo sư A chủ yếu về mảng quản lý dự án dạng big data (xử lý cũng ko cần real-time) mà có thể tích lũy và xử lý theo batch trên server trung tâm.
+Giáo sư là PI mảng Resource Allocation and Schedule Planning.
+Ví dụ như sân bay JFK thì bên trong phải có một số lượng lớn lao công hoạt động trong ngày.
+Nếu phân bổ nguồn tài nguyên này hợp lý có thể tiết kiệm việc sử dụng ngân sách cho việc lau dọn.
+Ví dụ như nếu track được 1 nhân viên lao công Y đang gần khu vực hành khách Z thì có thể tính điểm assign Y vào lau dọn Z ngay nếu trạng thái của Z đang là bẩn.
+Tuy nhiên khi scale bài toán lên vài trăm khu vực và vài trăm lao công chia thành nhiều ca thì bài toán không còn nhỏ nhưu vậy.&lt;/p&gt;
+
+&lt;p&gt;Giáo sư B thì lại chuyên về Security.
+Ví dụ như từ camera mà phát hiện ra người khả nghi và track được người đó trong nhiều frame tiếp theo đang thực hiện hành vi phạm tội thì có thể lên cảnh báo theo ngưỡng.
+Ngoài cảnh báo realtime thì giáo sư còn làm early detection và prediction để dự báo những nguy cơ và ngăn chặn chúng khi chưa xảy ra trong thì tương lai gần.&lt;/p&gt;
+
+&lt;p&gt;Các bạn thấy đấy, phần chung thì vẫn là những xử lý như vậy, sau đó thì phần riêng tuy khác nhau nhưng nếu phải thuê 2 postdocs thì hơi lãng phí nên có thể thuê 1 postdoc rồi các giáo sư thay phiên nhau dùng.&lt;/p&gt;
+
+&lt;p&gt;Nhiệm vụ của postdoc C được thuê sẽ là phải thực hiện phân tích pilot trên dữ liệu sân bay đã.
+Khi được cả 2 giáo sư thông qua thì move sang phần analytics của giáo sư A trước rồi làm phần real-time của giáo sư B.
+Hoặc song song luôn cũng OK.
+Tuy nhiên, hàng tuần nên book lịch họp weekly với cả 2 giáo sư và tốt nhất lời khuyên của tôi là sớm nắm bắt cái big picture và cái phần Resource Management and Schedule Management của giáo sư A đã.
+Mình có 6 tháng thôi nên chủ động là không thừa!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Chủ động book lịch với GS nhưng xong em cũng chả biết nói gì anh ạ.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; (“Đụt” thế thì anh cũng chịu!) Nói chung là communicate với giáo sư cũng như là bắt sóng ăng ten ấy mà. Sóng của PI luôn là sóng tần cao (high frequency signal) mà ăng ten của em hơi kém thì cứ nói thẳng vấn đề ra để giáo sư nâng cấp cho.
+Chủ đề nói chuyện em nên quyết định trước khi book. Nhưng trường hợp của dự án này thì chắc chắn là liên quan tới việc xin grant.
+Em có thể nói thẳng cảm nghĩ ra vì giáo sư rất là open.
+Ví dụ em điều tra thấy độ khả thi thấp em cứ thằng thắn “Tôi thấy cái dự án này như sh&lt;strong&gt;. Tôi nghĩ không xin được grant đâu.” thì giáo sư là người open ông cũng sẽ lắng nghe em thôi.
+Không nên để muộn quá vì bản thân PI cũng đang muốn dùng em để kiểm tra xem cái đề tài này có phải sh&lt;/strong&gt; thật không?
+nên tốt nhất ngồi điều tra 1-2 hôm thấy bế tắc là phải báo ngay để PI dừng lại hoặc phân bổ em vào dự án khác cho đỡ lãng phí resource.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Giai đoạn này có nên nộp paper không?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; ôi tuyệt quá. Em cần hiểu PI cũng đang muốn dùng 6 tháng này để kiểm tra độ khả thi của proposal.
+Nếu nộp paper bị reject thì cũng là tín hiệu để họ biết nên dừng lại, đổi đề tài.
+Còn accept thì cứ thế thẳng tiến. Vì paper cũng sẽ là luận cứ để tiếp tục nên em nhớ nếu định nộp paper thì nên nộp ngay 1-2 tháng đầu.
+Vì chẳng may độ khả thi thấp (dự án đề tài kém) thì người ta sớm điều chỉnh lại resource hoặc revise lại proposal của grant.
+Chứ đừng để đến cuối giai đoạn mới nộp là không trở tay kịp.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nhìn chung thì các bạn cần hiểu là paper thì với các giáo sư nó chỉ mang tính chất xác nhận một cái grant nào đó và cái grant đó mới là cái đem lại tiền chứ paper thì chả đem lại đồng nào dù là hội nghị danh tiếng như CVPR/ICCV/ECCV/… hay tạp chí Q1 (đã ko đem lại tiền lại còn tiêu tiền đi dự hội nghị, phí đăng bài, …).
+Nên cố gắng nộp theo chủ để grant của giáo là tốt nhất, thì giáo còn thấy có &lt;strong&gt;lợi ích&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-2-thiết-kế-và-lên-kế-hoạch&quot;&gt;Giai đoạn 2: Thiết kế và lên kế hoạch&lt;/h1&gt;
+
+&lt;p&gt;Sau khi proposal được phê duyệt lần đầu, có thể sẽ phải dành thêm 1 thời gian ngắn để lên kế hoạch tỷ mỷ những việc cần làm.
+PI sẽ phải tìm và chỉ định các chức danh dự án như PM, PO, developers, research associates, …
+Sau khi có danh sách members, thì việc tiếp theo là mua sắm trang bị, rồi lên action plan.
+Lúc này có thể tạo ra Work Breakdown Structure (WBS), nhưng nhìn chung do đi tìm cái mới nên sẽ dừng ở mức assign mỗi member một chủ đề và coi mỗi chủ đề như 1 PJ nhỏ (sub-PJ).
+Và giáo sư sẽ như là supervisor trong việc lên kế hoạch cũng như thực thi.
+Tuy nhiên khi đã trở thành chủ nhân của 1 sub-PJ thì mỗi bạn sẽ đóng vai trò như 1 leader hoặc sub-PM.
+Đây sẽ là các bạn PhD hoặc postdoc có đề tài cụ thể, và tạo sub-WBS cho từng sub-PJ và assign tasks cho các bạn master BS bên dưới.
+Các nghiệp vụ dự án như quản lý nhân lực tài nguyên, schedule, tiến độ, communication, setup họp hành sự kiện cũng phải có xác nhận của PI và báo cáo nên đều đặn.&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-3-thực-hiện-và-kiểm-chứng&quot;&gt;Giai đoạn 3: Thực hiện và kiểm chứng&lt;/h1&gt;
+
+&lt;p&gt;Giai đoạn này là giai đoạn nóng nhất vì nó sẽ tạo ra output cho các sub-PJ nói riêng và PJ lớn nói chung.
+Tại sao phải chia nhỏ ra nhiều mảng thành nhiều sub-PJ bởi vì nếu để cả cục lớn thì nếu cục ấy ko có output là dự án chết luôn.
+Nhưng khi chia nhỏ thì sub-PJ này chưa có output “mới” thì sub-PJ khác có output “mới” mà mỗi lần báo cáo chỉ cần có 1 cái mới là đủ OK!
+Việc tiến hành vẫn phải đảm bảo tính minh bạch thông qua nghiệp vụ audit từ bên cấp fund.
+Ngoài ra các hoạt động báo cáo tiến độ, tố chức xử lý sự cố, vấn đề, họp hành, chia sẻ tri thức trong dự án cũng không nên coi nhẹ.&lt;/p&gt;
+
+&lt;p&gt;Dự án nghiên cứu nên cứ chạy cho tới khi hết tiền hoặc hết hạn.
+Do vậy sau mỗi kỳ báo cáo năm, có thể các PI sẽ tổ chức hoạch định lại để nâng cao chất lượng output.
+Cũng vì thế việc thay đổi WBS có thể diễn ra theo năm hoặc nửa năm.
+Tốt nhất mỗi sub-PJ nên nhận một mảng và thiết lập WBS của công việc đủ chạy trong nửa năm/1 năm hoặc đến kỳ báo cáo kết quả dự án của PI với tổ chức cấp grant.&lt;/p&gt;
+
+&lt;p&gt;Tùy đặc điểm dự án mà quá trình thực hiện và kiểm chứng có những điểm chết riêng.
+Ví dụ như dự án sân bay thì phải hợp tác với bên sân bay mới có thể lấy dữ liệu và chạy PoC hiện trường được.
+Thế nên lại xuất hiện bài toán phải collaboration mà PI phải nhìn thấu từ giai đoạn định nghĩa.
+Nhưng trong giai đoạn này thì việc collaboration cần nên được thực hiện rõ ràng trách nhiệm và phân công.
+Tránh việc nhóm nghiên cứu thực hiện task lấn sân của bên khác.
+Ví dụ bên sân bay phải thực hiện thu thập dữ liệu nhưng nhóm nghiên cứu sẽ chỉ đóng vai trò tư vấn giám sát trong nghiệp vụ đó.
+Hoặc việc lắp đặt thiết bị có phần mềm thì bên nhóm nghiên cứu sẽ làm trên nền tảng sân bay nhưng sẽ có giám sát và hỗ trợ thế nào đó từ bên sân bay.&lt;/p&gt;
+
+&lt;p&gt;Một vấn đề hay xảy ra ở cấp quản lý resource ở đây là các bạn phải resolve conflicts giữa các thành phần công việc trong PJ lẫn sub-PJ.
+Các bạn ở cấp postdoc và PhD sẽ phải quản lý các bạn ở cấp dưới.
+Các bạn master student và BS thì sẽ tham gia với vai trò dev là chính.
+Nhưng đôi khi có conflict ko có tiến độ báo cáo thì cấp trên phải ra tay xử lý.&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-4-tổng-kết-và-báo-cáo&quot;&gt;Giai đoạn 4: Tổng kết và báo cáo&lt;/h1&gt;
+&lt;p&gt;Cuối cùng thì sau một thời gian vài năm các sub-PJ chạy và mỗi năm có báo cáo output mới, thì cái mới tích lũy lại đủ to thì cũng có thể close.
+Nhưng nhìn chung sẽ close khi gần hết hạn hoặc hết tiền. Chứ còn tiền còn hạn thì nghĩ thêm bài toán mà chạy chứ close làm gì vội cho mất công đi xin lại.
+Lúc kết thúc thì cũng lại có những buổi họp đúc kết kinh nghiệm, báo cáo đề tài, chia tay và allocate/assign lại tài nguyên sang đâu đó.
+Nói chuyện tương lai công việc của các postdoc, PhD ai giữ lại ai cho đi, …&lt;/p&gt;
+
+&lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+
+&lt;p&gt;Trên đây là khái lược big picture của dự án nghiên cứu theo mô hình lab mà chắc là nhắm vào đối tượng từ PhD student trở lên.
+Với các bạn master và BS thì có thể các vẫn tham gia ở mức DEV, tức là nhận task cụ thể rồi các bạn làm, chứ chưa nhìn ở tầm người làm quản lý.
+Từ PhD Student (chưa phải PhD nhé) thì đã bắt đầu nắm trọng trách trong 1 sub-PJ nhỏ của giáo mà sẽ phải làm từ định nghĩa.
+Giáo sẵn sàng bỏ sức ra giúp các bạn làm cho xong đề tài, nhưng về phía các bạn làm PhD là cũng phải chủ động giữ tư thế owner thường xuyên tạo ra cái mới cho giáo.
+Còn postdoc thì bắt đầu thành thục hơn ở cấp trợ tá cho giáo trong quản lý dự án rồi.&lt;/p&gt;
+
+&lt;p&gt;Nói chung một lợi thế khi làm ở các lab đẳng cấp thế giới là các bạn dù làm nghiên cứu cơ bản thuần, cơ bản hẹp hay ứng dụng thì cũng sẽ được hướng dẫn để làm chỉn chu từ bước định nghĩa.
+Đó là một điều đáng quý và nếu có cơ hội nên chú ý học hỏi!&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="R&amp;D" /><category term="research and development" /><category term="project lifecycle" /><summary type="html">Source: Wikipedia 研究開発は大別すると基本的な原理や性質を知るための純粋基礎研究、特定の実際的目的のために行われる目的基礎研究、特定の要請に答えるための応用研究、新製品を導入するための研究に分かれる。 Source: wikipedia.com Hoạt động nghiên cứu và phát triển (R&amp;amp;D) là hoạt động do các công ty tổ chức thực hiện nhằm đổi mới sáng tạo dẫn đến tri thức, sản phẩm và dịch vụ mới. Phân loại dự án R&amp;amp;D thì tùy vào mục đích có thể phân thành: R&amp;amp;D cơ bản “thuần” (phát hiện định luật, định lý, tính chất mới mang tính tổng quát), R&amp;amp;D cơ bản “có mục đích cụ thể” (phát hiện định luật, định lý và tính chất mới trong 1 ngành hẹp, không cần tổng quát), và R&amp;amp;D ứng dụng (sử dụng kết quả của R&amp;amp;D cơ bản để tạo ra sản phẩm mới, dịch vụ mới). Dù là cơ bản thuần, cơ bản hẹp hay ứng dụng thì nhìn chung dự án R&amp;amp;D đều là dự án và là đối tượng của ngành Project Management. Tuy nhiên, vì là đi tìm cái mới nên dù cái mới là mang tính lý thuyết (cơ bản thuần và cơ bản hẹp) hay ứng dụng, thì dự án R&amp;amp;D có những đặc điểm riêng khác với dự án thông thường: outcome của dự án nghiên cứu thường khó định hình ngay từ đầu và đôi khi hơi mơ hồ với những người làm kỹ thuật (bởi vì nếu cái mới mà mình đã biết từ đầu thì nó đâu còn là cái mới nữa đúng không các bạn?) Thi thoảng dự án nghiên cứu sẽ không có outcome, nhưng đột nhiên một vài tuần sau lại output ra tới tấp!</summary></entry></feed>

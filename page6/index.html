@@ -19,13 +19,13 @@
 
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-2CDTCF0EP6');
+    gtag('config', '');
   </script>
 
 
@@ -409,73 +409,6 @@
   
   <article class="post-body">
     <h2 class="post-title">
-      <a href="/pm/se/2021/08/05/the-dip.html">
-        The Abstract Factory
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">05 Aug 2021</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/pm.html">
-          Project Management
-        </a>
-      
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/se.html">
-          Software Engineering
-        </a>
-      
-    
-  </span>
-  <span class="share-page">
-    &bull;
-    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page6/" target="_blank"><i class="fa fa-linkedin"></i></a>
-    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page6/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
-    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page6/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
-</span>
-
-</div>
-
-
-    
-      <p><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Ty%C3%B6p%C3%A4iv%C3%A4_p%C3%A4%C3%A4ttyy_Tampellassa.jpg" width="100%" />
-<em>Source: <a href="https://en.wikipedia.org/wiki/Factory#/media/File:Ty%C3%B6p%C3%A4iv%C3%A4_p%C3%A4%C3%A4ttyy_Tampellassa.jpg">Wikipedia</a></em></p>
-
-<p><strong>The Dependency Inversion Principle (DIP)</strong> is the last principle in SOLID [2].
-It implies that successful software modules should rely on abstract classes and interfaces, not on concrete implementations.
-<strong>The Abstract Factory</strong> implements the DIP to reduce unexpected dependencies on concrete classes.</p>
-
-
-    
-
-    
-      
-      
-      
-
-      
-        <a href="/pm/se/2021/08/05/the-dip.html">More &hellip;</a>
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
       <a href="/pm/se/2021/08/04/the-humble-object.html">
         The Humble Object Pattern
       </a>
@@ -745,6 +678,87 @@ And before terminating, we should remember to make a report, an audit log to sum
 
       
         <a href="/ai/non-english/2021/07/24/python-amazon-lex-chatbot-elasticsearch.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/sre/non-english/se/2021/07/23/bitbucket-pipelines-runners.html">
+        Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">23 Jul 2021</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/sre.html">
+          Site Reliability Engineering
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/non-english.html">
+          Tiếng Việt, 日本語
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/se.html">
+          Software Engineering
+        </a>
+      
+    
+  </span>
+  <span class="share-page">
+    &bull;
+    <a href="https://linkedin.com/shareArticle?url=https://wanted2.github.io/page6/" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <a href="https://twitter.com/intent/tweet?text=Home&url=https://wanted2.github.io/page6/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://facebook.com/sharer.php?u=https://wanted2.github.io/page6/" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook-square"></i></a>
+</span>
+
+</div>
+
+
+    
+      <p><img src="/assets/img/cicd.png" alt="" /></p>
+
+<p><strong>Bitbucket.org</strong> là nền tảng để hợp tác (collaboration) trong phát triển phần mềm.
+Xây dựng chu trình cung ứng phần mềm mang tính liên tục (continuous integration and delivery/deployment) đòi hỏi sử dụng những nền tảng như Bitbucket để nâng cao năng suất.
+Hiện nay, việc sử dụng Bitbucket đã khá phổ biến ngay cả với các <strong>team nhỏ</strong> (xung quanh 5 người, và thường chưa tới 10 người).
+Tuy nhiên, team nhỏ có những đặc điểm rất khác biệt: giới hạn về tài nguyên, nhân lực, cả utilization rate (tỷ lệ sử dụng).
+Bài toán kinh tế với Bitbucket quay trở lại điểm trade-off quen thuộc: <strong>tiền ít mà muốn chất lượng cao</strong> (cũng không hẳn cao quá, chỉ cần tốt hơn hiện tại) thì làm thế nào?
+Nói đến chất lượng là vì bản thân mục đích của chu trình CI/CD chính là nâng cao chất lượng phần mềm nhờ chuyên nghiệp hóa quy trình.
+Chúng ta sẽ đi sâu vào vấn đề này trong việc sử dụng Bitbucket, mà cuối cùng như tựa đề sẽ là so sánh hai lựa chọn khả thi nhất: dùng có sẵn (Bitbucket Cloud) và tự dựng (self-hosted Bitbucket runners).</p>
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/sre/non-english/se/2021/07/23/bitbucket-pipelines-runners.html">More &hellip;</a>
       
     
   </article>
