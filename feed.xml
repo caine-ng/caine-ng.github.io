@@ -1,40 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-22T23:26:21+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
-&lt;em&gt;A category and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-23T02:13:33+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+&lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud.
+&lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
 Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families, and the power to collaborate with anyone, anywhere. 
 Many things can be done with this solution.
-We take a look at the features and seek OSS alternatives for comparisons.
+We take a look at the features.
 &lt;!--more--&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Acrobat Pro&lt;/li&gt;
-  &lt;li&gt;Photoshop&lt;/li&gt;
-  &lt;li&gt;Illustrator&lt;/li&gt;
-  &lt;li&gt;InDesign&lt;/li&gt;
-  &lt;li&gt;Premiere Pro&lt;/li&gt;
-  &lt;li&gt;After Effects&lt;/li&gt;
-  &lt;li&gt;Lightroom&lt;/li&gt;
-  &lt;li&gt;XD&lt;/li&gt;
-  &lt;li&gt;Animate&lt;/li&gt;
-  &lt;li&gt;Lightroom Classic&lt;/li&gt;
-  &lt;li&gt;Dreamweaver&lt;/li&gt;
-  &lt;li&gt;Dimension&lt;/li&gt;
-  &lt;li&gt;Audition&lt;/li&gt;
-  &lt;li&gt;InCopy&lt;/li&gt;
-  &lt;li&gt;Character Animator&lt;/li&gt;
-  &lt;li&gt;Capture&lt;/li&gt;
-  &lt;li&gt;Fresco&lt;/li&gt;
-  &lt;li&gt;Bridge&lt;/li&gt;
-  &lt;li&gt;Premiere Rush&lt;/li&gt;
-  &lt;li&gt;Photoshop Express&lt;/li&gt;
-  &lt;li&gt;Photoshop Camera&lt;/li&gt;
-  &lt;li&gt;Media Encoder&lt;/li&gt;
-  &lt;li&gt;Aero&lt;/li&gt;
-  &lt;li&gt;Lightroom Web&lt;/li&gt;
-  &lt;li&gt;Adobe Scan&lt;/li&gt;
-  &lt;li&gt;Fill &amp;amp; Sign&lt;/li&gt;
-  &lt;li&gt;Acrobat&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="se" /><category term="sre" /><category term="adobe acrobat" /><category term="adobe creative cloud" /><category term="design" /><category term="illustrator" /><summary type="html">A category and a diagram of Adobe Creative Cloud Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud. Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families, and the power to collaborate with anyone, anywhere. Many things can be done with this solution. We take a look at the features and seek OSS alternatives for comparisons.</summary></entry><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;adobe-creative-cloud&quot;&gt;Adobe Creative Cloud&lt;/h1&gt;
+
+&lt;p&gt;Adobe Creative Cloud is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all-in-one&lt;/code&gt; platform for creators, marketers and designers.&lt;/p&gt;
+
+&lt;h1 id=&quot;toolsets&quot;&gt;Toolsets&lt;/h1&gt;
+
+&lt;h2 id=&quot;image-editting&quot;&gt;Image editting&lt;/h2&gt;
+
+&lt;h3 id=&quot;photoshop-vs-lightroom-lightroom-classic&quot;&gt;Photoshop vs. Lightroom (Lightroom classic)&lt;/h3&gt;
+
+&lt;h3 id=&quot;illustrator&quot;&gt;Illustrator&lt;/h3&gt;
+
+&lt;h3 id=&quot;fresco-for-fun-drawing&quot;&gt;Fresco for fun drawing&lt;/h3&gt;
+
+&lt;h3 id=&quot;dimension-for-3d-photography&quot;&gt;Dimension for 3D photography&lt;/h3&gt;
+
+&lt;h2 id=&quot;video-editing&quot;&gt;Video editing&lt;/h2&gt;
+
+&lt;h3 id=&quot;premier-pro-and-rush&quot;&gt;Premier Pro and Rush&lt;/h3&gt;
+
+&lt;h3 id=&quot;after-effects&quot;&gt;After Effects&lt;/h3&gt;
+
+&lt;h2 id=&quot;audio-editing&quot;&gt;Audio editing&lt;/h2&gt;
+
+&lt;h2 id=&quot;storage-and-management&quot;&gt;Storage and Management&lt;/h2&gt;
+
+&lt;h3 id=&quot;adobe-stock-and-adobe-bridge&quot;&gt;Adobe Stock and Adobe Bridge&lt;/h3&gt;
+
+&lt;h3 id=&quot;media-encoder&quot;&gt;Media Encoder&lt;/h3&gt;
+
+&lt;h2 id=&quot;animation&quot;&gt;Animation&lt;/h2&gt;
+
+&lt;h2 id=&quot;web-design-tools&quot;&gt;Web design tools&lt;/h2&gt;
+
+&lt;h2 id=&quot;miscellaous&quot;&gt;Miscellaous&lt;/h2&gt;
+
+&lt;h3 id=&quot;acrobat&quot;&gt;Acrobat&lt;/h3&gt;
+
+&lt;h3 id=&quot;aero&quot;&gt;Aero&lt;/h3&gt;
+
+&lt;h1 id=&quot;mobile-and-free-web-apps&quot;&gt;Mobile and free web apps&lt;/h1&gt;
+
+&lt;h2 id=&quot;adobe-scan-fill--sign&quot;&gt;Adobe Scan, Fill &amp;amp; Sign&lt;/h2&gt;
+
+&lt;h2 id=&quot;photoshop-express&quot;&gt;Photoshop Express&lt;/h2&gt;
+
+&lt;h1 id=&quot;adobe-sensei-the-graphical-ai&quot;&gt;Adobe Sensei: the graphical AI&lt;/h1&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="se" /><category term="sre" /><category term="adobe acrobat" /><category term="adobe creative cloud" /><category term="design" /><category term="illustrator" /><category term="adobe sensei" /><category term="adobe photoshop" /><category term="adobe lightroom" /><category term="adobe premier pro" /><category term="premier rush" /><category term="charactor animation" /><summary type="html">A categorization and a diagram of Adobe Creative Cloud Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business. Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families, and the power to collaborate with anyone, anywhere. Many things can be done with this solution. We take a look at the features.</summary></entry><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
