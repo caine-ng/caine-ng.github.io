@@ -1,19 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-23T02:13:33+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-23T02:33:05+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
 &lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
-Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families, and the power to collaborate with anyone, anywhere. 
+Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families and the power to collaborate with anyone, anywhere. 
 Many things can be done with this solution.
 We take a look at the features.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;adobe-creative-cloud&quot;&gt;Adobe Creative Cloud&lt;/h1&gt;
 
-&lt;p&gt;Adobe Creative Cloud is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all-in-one&lt;/code&gt; platform for creators, marketers and designers.&lt;/p&gt;
+&lt;p&gt;Adobe Creative Cloud (ACC) is an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all-in-one&lt;/code&gt; platform for creators, marketers, visual artists and designers.
+Let’s hear words about the roadmap of ACC from Scott Belsky.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/watch?v=BzFY4pzb8cA&amp;amp;t=729&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h1 id=&quot;toolsets&quot;&gt;Toolsets&lt;/h1&gt;
 
-&lt;h2 id=&quot;image-editting&quot;&gt;Image editting&lt;/h2&gt;
+&lt;h2 id=&quot;image-editing&quot;&gt;Image editing&lt;/h2&gt;
 
 &lt;h3 id=&quot;photoshop-vs-lightroom-lightroom-classic&quot;&gt;Photoshop vs. Lightroom (Lightroom classic)&lt;/h3&gt;
 
@@ -41,7 +44,7 @@ We take a look at the features.
 
 &lt;h2 id=&quot;web-design-tools&quot;&gt;Web design tools&lt;/h2&gt;
 
-&lt;h2 id=&quot;miscellaous&quot;&gt;Miscellaous&lt;/h2&gt;
+&lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
 
 &lt;h3 id=&quot;acrobat&quot;&gt;Acrobat&lt;/h3&gt;
 
@@ -55,7 +58,7 @@ We take a look at the features.
 
 &lt;h1 id=&quot;adobe-sensei-the-graphical-ai&quot;&gt;Adobe Sensei: the graphical AI&lt;/h1&gt;
 
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="se" /><category term="sre" /><category term="adobe acrobat" /><category term="adobe creative cloud" /><category term="design" /><category term="illustrator" /><category term="adobe sensei" /><category term="adobe photoshop" /><category term="adobe lightroom" /><category term="adobe premier pro" /><category term="premier rush" /><category term="charactor animation" /><summary type="html">A categorization and a diagram of Adobe Creative Cloud Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business. Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families, and the power to collaborate with anyone, anywhere. Many things can be done with this solution. We take a look at the features.</summary></entry><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="se" /><category term="sre" /><category term="adobe acrobat" /><category term="adobe creative cloud" /><category term="design" /><category term="illustrator" /><category term="adobe sensei" /><category term="adobe photoshop" /><category term="adobe lightroom" /><category term="adobe premiere pro" /><category term="premiere rush" /><category term="charactor animation" /><summary type="html">A categorization and a diagram of Adobe Creative Cloud Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business. Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families and the power to collaborate with anyone, anywhere. Many things can be done with this solution. We take a look at the features.</summary></entry><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
