@@ -1,11 +1,3 @@
-Aero
-Dreamweaver
-InCopy
-InDesign
-Lightroom
-OSS
-Photoshop
-XD
 ai
 TOC
 toc
