@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -268,7 +268,7 @@ When other features change, the current feature is not affected, and the user se
 
 <h1 id="aggregation">Aggregation</h1>
 
-<p><img src="/assets/img/isp1.svg" style="float: left; margin: 10px; width: 50%;" />
+<p><img src="/assets/images/isp1.svg" style="float: left; margin: 10px; width: 50%;" />
 Let’s consider the following interface.
 There is a <code class="language-plaintext highlighter-rouge">HumanInst</code> class which has three operations <code class="language-plaintext highlighter-rouge">calculate</code> to calculate money, <code class="language-plaintext highlighter-rouge">walk</code> for walking, and <code class="language-plaintext highlighter-rouge">ride</code> for riding.
 A <code class="language-plaintext highlighter-rouge">Police</code> class only needs <code class="language-plaintext highlighter-rouge">calculate</code> operation to calculate the money they collected from criminals.
@@ -432,7 +432,7 @@ Riding ...
 
 <h1 id="segregation">Segregation</h1>
 
-<p><img src="/assets/img/isp2.svg" style="float: right; margin: 10px; width: 50%;" />
+<p><img src="/assets/images/isp2.svg" style="float: right; margin: 10px; width: 50%;" />
 The <strong>Interface Segregation Principle (ISP, [2])</strong> states that the aggregated <code class="language-plaintext highlighter-rouge">HumanInst</code> class in the previous section was not good enough:
 whenever changes happen in one function, it will force the whole to be re-compiled, and then affect all other functions and actors.
 The ISP guides us that the following design will be better.

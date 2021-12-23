@@ -17,14 +17,14 @@
 <meta name="description" content="Google MLKit [1] is a software solution for Machine Learning problems in mobile devices (Android and iOS). It supports computer visions and natural language applications. The library is optimized for mobiles and is convenient. In this example, we build a mobile OCR solution with Android CameraX API [2]. The demo code can be seen at my Github." />
 <meta property="og:description" content="Google MLKit [1] is a software solution for Machine Learning problems in mobile devices (Android and iOS). It supports computer visions and natural language applications. The library is optimized for mobiles and is convenient. In this example, we build a mobile OCR solution with Android CameraX API [2]. The demo code can be seen at my Github." />
 <meta property="og:site_name" content="AiFi" />
-<meta property="og:image" content="/assets/img/mlkit1.jpg" />
+<meta property="og:image" content="/assets/images/mlkit1.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-05-31T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="/assets/img/mlkit1.jpg" />
+<meta property="twitter:image" content="/assets/images/mlkit1.jpg" />
 <meta property="twitter:title" content="mOCR: A real-time application of OCR with Google MLKit and Android CameraX" />
 <script type="application/ld+json">
-{"description":"Google MLKit [1] is a software solution for Machine Learning problems in mobile devices (Android and iOS). It supports computer visions and natural language applications. The library is optimized for mobiles and is convenient. In this example, we build a mobile OCR solution with Android CameraX API [2]. The demo code can be seen at my Github.","image":"/assets/img/mlkit1.jpg","headline":"mOCR: A real-time application of OCR with Google MLKit and Android CameraX","dateModified":"2021-05-31T00:00:00+09:00","datePublished":"2021-05-31T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/mOCR-mlkit-androidx-example/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/mOCR-mlkit-androidx-example/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"Google MLKit [1] is a software solution for Machine Learning problems in mobile devices (Android and iOS). It supports computer visions and natural language applications. The library is optimized for mobiles and is convenient. In this example, we build a mobile OCR solution with Android CameraX API [2]. The demo code can be seen at my Github.","image":"/assets/images/mlkit1.jpg","headline":"mOCR: A real-time application of OCR with Google MLKit and Android CameraX","dateModified":"2021-05-31T00:00:00+09:00","datePublished":"2021-05-31T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/mOCR-mlkit-androidx-example/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/mOCR-mlkit-androidx-example/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -239,7 +239,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/mlkit1.jpg" alt="mOCR: A real-time application of OCR with Google MLKit and Android CameraX">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/mlkit1.jpg" alt="mOCR: A real-time application of OCR with Google MLKit and Android CameraX">
             
 
             
@@ -523,7 +523,7 @@ To keep track of the location user touched in the screen, we have a <code class=
 A green rectangle with an aspect ratio of 2:1 is drawn around the touched location after passing the <code class="language-plaintext highlighter-rouge">position</code> to the <code class="language-plaintext highlighter-rouge">OverlayView</code> class.</p>
 
 <h2 id="google-mlkit">Google MLKit</h2>
-<p><img style="float: right; margin-left: 40px;" width="50%" src="/assets/img/mlkit2.jpg" />
+<p><img style="float: right; margin-left: 40px;" width="50%" src="/assets/images/mlkit2.jpg" />
 The Machine Learning pipeline running in the Image Analyzer is real-time, and the precision is quite good.
 By limiting the search region to a <code class="language-plaintext highlighter-rouge">256 x 128</code> rectangle with the center is the touched location seems to be helpful to reduce the false alarms (noisy text).
 It can be a good interaction since apps like searching for words in English often need to focus only on one compound word.

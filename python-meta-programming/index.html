@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -601,7 +601,7 @@ MetaActivation.__call__(&lt;class '__main__.Linear'&gt;, (), {})
 運用に未知のクラスを動的に生成できるので、未知物体がある場合、静的クラスのアプローチと比べるとより柔軟な対応ができます。</p>
 <h2 id="metaclassについて">metaclassについて</h2>
 <p>上記の例の生成フローは下図に示します。
-<img src="/assets/img/class-gen.png" alt="" /></p>
+<img src="/assets/images/class-gen.png" alt="" /></p>
 
 <h3 id="__prepare__"><code class="language-plaintext highlighter-rouge">__prepare__</code></h3>
 <p>クラス生成の最初に実行される関数です。

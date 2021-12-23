@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Dec 2021 01:23:51 +0900</pubDate>
-    <lastBuildDate>Fri, 24 Dec 2021 01:23:51 +0900</lastBuildDate>
+    <pubDate>Fri, 24 Dec 2021 01:42:03 +0900</pubDate>
+    <lastBuildDate>Fri, 24 Dec 2021 01:42:03 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -274,7 +274,7 @@ Nó là chức năng bổ trợ cho &lt;code class=&quot;language-plaintext high
   &lt;li&gt;Ngược lại với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Uncheck ALL&lt;/code&gt; (nếu tách hai hộp check ra).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall-2.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/svelte-checkall-uncheckall-2.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm&lt;/strong&gt;.
 Tức là phải &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; chuẩn, không được để chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All&lt;/code&gt; nhưng lại có dòng nào không được check (dù đã check rồi).
@@ -554,7 +554,7 @@ Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thốn
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/log-01.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/log-01.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
 Cấp 0 này có 1 điểm thú vị là những log tập trung trên cloud cũng phải được lưu trữ tối thiểu 12 tháng trên Active Storage.
 Có 2 ngoại lệ nhỏ:&lt;/p&gt;
 &lt;ul&gt;
@@ -1359,13 +1359,13 @@ Let’s explore the manual for end-users:&lt;/p&gt;
   &lt;li&gt;For the first time, you will be prompted to a confirmation:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-02.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-02.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;To explore the dashboards and visualizations, you need to index data first and then go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stack Management &amp;gt; Index Patterns&lt;/code&gt; to select the index.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-03.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-03.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To put a new document into the indices from your local, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pybuilder&lt;/code&gt;:&lt;/p&gt;
 
@@ -1466,13 +1466,13 @@ Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;sp
   &lt;li&gt;Now you have indexed 1 document into OpenSearch, we can be back to Kibana to create an index pattern.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-04.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-04.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Click into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Next step&lt;/code&gt; then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create index pattern&lt;/code&gt; to go to the field lists screen.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-05.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-05.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;sql-query-workbench&quot;&gt;SQL Query Workbench&lt;/h2&gt;
 
@@ -1482,7 +1482,7 @@ Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;sp
   &lt;li&gt;Open the left sidebar, select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenSearch Plugins &amp;gt; Query Workbench&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-06.png&quot; alt=&quot;workbench&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-06.png&quot; alt=&quot;workbench&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Document for SQL in OpenSearch can be found &lt;a href=&quot;https://opensearch.org/docs/latest/search-plugins/sql/index/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -1491,7 +1491,7 @@ Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;sp
 &lt;p&gt;This is also a valuable feature in OpenSearch dashboard.
 You can add visualization blocks or code blocks (SQL/PPL).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-07.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-07.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this example, we used the following SQL query for full-text search:&lt;/p&gt;
 
@@ -1503,7 +1503,7 @@ You can add visualization blocks or code blocks (SQL/PPL).&lt;/p&gt;
 
 &lt;h2 id=&quot;anomaly-detection&quot;&gt;Anomaly Detection&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-08.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-08.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;From this view, we can create an Anomaly Detector with a specific rule like&lt;/p&gt;
 
@@ -1637,7 +1637,7 @@ SAML based authentication and Amazon Cognito are all supported.&lt;/p&gt;
 &lt;p&gt;We have walked through a tutorial on configurations of an OpenSearch cluster with logging options, encryption at rest, .etc.
 In the next steps, we will implement the following two stories:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-stories.svg&quot; alt=&quot;next stories&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-stories.svg&quot; alt=&quot;next stories&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;story-1-csv-upload-to-s3-for-streaming&quot;&gt;Story 1: CSV upload to S3 for streaming&lt;/h2&gt;
 
@@ -2054,7 +2054,7 @@ Integormat sẽ gửi link verify vào email đăng ký, và bạn phải click 
 
 &lt;p&gt;Khi bắt đầu thì sẽ có một nút bấm trong trang MyPage để guide bạn onboarding nhanh chóng:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat02.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat02.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;thiết-kế-hệ-thống&quot;&gt;Thiết kế hệ thống&lt;/h2&gt;
 
 &lt;p&gt;Bạn sẽ cần 1 trigger để theo dõi nguồn cấp RSS, một module để chuyển XML sang CSV, và một module để upload lên OneDrive.
@@ -2067,12 +2067,12 @@ Bạn không nên quên &lt;strong&gt;xử lý lỗi&lt;/strong&gt; vì mọi mo
 &lt;p&gt;Đầu tiên bạn cần ấn nút &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Creat a scenario&lt;/code&gt; để tạo ra một kịch bản thực thi cho nhiệm vụ.
 Mọi xử lý sẽ bắt đầu từ 1 &lt;strong&gt;trigger&lt;/strong&gt; mà bạn sẽ dùng RSS để bắt đầu.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat03.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat03.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hãy chọn &lt;strong&gt;Watch RSS feed items&lt;/strong&gt;.
 Trong cửa sổ tiếp theo hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Show advanced settings&lt;/code&gt;, nhập nguồn RSS và click OK.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat04.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat04.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Trong cửa sổ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Choose where to start&lt;/code&gt; thì cứ chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;From now on&lt;/code&gt; cũng ok.
 Thế là bạn đã có 1 trigger mà cứ mỗi khi có thay đổi trên nguồn cấp đã cho (tần suất kiểm tra sẽ cấu hình sau), thì lập tức trigger sẽ chạy luồng mà bạn sẽ cấu hình tiếp theo.&lt;/p&gt;
@@ -2081,15 +2081,15 @@ Thế là bạn đã có 1 trigger mà cứ mỗi khi có thay đổi trên ngu�
 
 &lt;p&gt;Nhấn vào nút &lt;strong&gt;Add a module&lt;/strong&gt; như hình dưới:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat05.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat05.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó chọn module &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CSV&lt;/code&gt; từ danh sách:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat06.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat06.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó bạn có thể nhập chọn những trường sẽ lấy từ nguồn RSS để tạo ra file CSV:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat07.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat07.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Bạn có thể chọn GROUP BY bằng trường tùy thích.
 Trên đây tôi chọn theo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updated_at&lt;/code&gt;.&lt;/p&gt;
@@ -2098,20 +2098,20 @@ Trên đây tôi chọn theo &lt;code class=&quot;language-plaintext highlighter
 
 &lt;p&gt;Để upload CSV lên OneDrive, bạn cần add thêm module OneDrive:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integormat08.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integormat08.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upload file&lt;/code&gt; ở cửa sổ chọn chức năng:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat09.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat09.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt; để authenticate vào OneDrive:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat10.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat10.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó một pop-up sẽ mở ra để bạn xác nhận quyền truy cập của ứng dụng integromat vào OneDrive.
 Khi xong bước này bạn sẽ quay lại thiết lập &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Folder&lt;/code&gt; thành &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;, tên file thành &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xml&lt;/code&gt; và dữ liệu là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;text&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat11.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat11.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Để tránh lỗi bạn nên chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rename existing files&lt;/code&gt;.&lt;/p&gt;
 
@@ -2120,24 +2120,24 @@ Khi xong bước này bạn sẽ quay lại thiết lập &lt;code class=&quot;l
 &lt;p&gt;Vậy là bạn đã xong luồng thứ nhất mà chưa mất đến 5 phút đâu.
 Trước khi add luồng thứ 2, chúng ta cần có 1 module để song song hóa, kiểu như &lt;strong&gt;Router&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat12.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat12.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau khi thêm router thì thiết kế của bạn sẽ như sau:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat13.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat13.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;post-news-to-chat-room&quot;&gt;Post news to Chat room&lt;/h3&gt;
 
 &lt;p&gt;Từ Router hãy tạo thêm 1 luồng mới và tìm module Gitter:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat14.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat14.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Send a mesage to a room&lt;/code&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat15.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat15.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Bạn sẽ phải đăng nhập và cấp quyền truy cập cho integromat vào Gitter.im.
 Một cửa sổ popup sẽ mửo ra sau khi bạn nhấn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt;.
-&lt;img src=&quot;/assets/img/integromat16.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/integromat16.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Chú ý là Gitter chỉ chấp nhận đăng nhập qua Gitlab, Github và Twitter.
 Đây là kênh chat dành riêng cho developer.
@@ -2146,13 +2146,13 @@ Tôi chọn twitter thôi.&lt;/p&gt;
 &lt;p&gt;Sau khi cấp quyền thành công, bạn sẽ quay lại integromat, và cấu hình tin nhắn sẽ lên Gitter.
 Bạn có thể dùng định dạng mẫu markdown để post bài.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat17.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat17.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Vậy đấy luồng số 2 đã xong trong chưa đầy 1 phút.&lt;/p&gt;
 
 &lt;h3 id=&quot;error-handling&quot;&gt;Error handling&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat18.png&quot; style=&quot;width:50%; margin: 10px; float: right;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat18.png&quot; style=&quot;width:50%; margin: 10px; float: right;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Xử lý lỗi luôn là một phần quan trọng của lập trình phần mềm.
 Lỗi luôn xảy ra và cách handle lỗi rất quan trọng.
@@ -2160,7 +2160,7 @@ Bạn click chuột phải vào module cần xử lý lỗi và chọn &lt;code 
 Đó là tất cả việc bạn sẽ cần làm để bắt đầu xử lý lỗi trên integromat.
 &lt;strong&gt;Tiện quá đúng không?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat19.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat19.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Vậy nội dung hàm xử lý lỗi sẽ như thế nào?&lt;/strong&gt;
 Bạn có thể dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;directives (điều hướng)&lt;/code&gt; hoặc chạy một module nào đó.
@@ -2181,31 +2181,31 @@ Với module CSV convert thì tôi chọn &lt;code class=&quot;language-plaintex
 
 &lt;p&gt;Mô hình thực thi cuối cùng như sau:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat20.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat20.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;filters&quot;&gt;Filters&lt;/h3&gt;
 
 &lt;p&gt;Để thực hiện điều kiện filter những tin có liên quan tới &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;, bạn có thể dùng chức năng filter của integromat như sau.
 Click vào link giữa trigger và router:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat21.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat21.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;test&quot;&gt;Test&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat22.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat22.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
 Testing là phần cần thiết trong phát triển phần mềm.
 Các module đã được phát triển có SLA khá cao và unit testing cẩn thận nên ta sẽ skip UT lần này.
 API testing cũng không cần vì các module đã được test cẩn thận và có SLA rồi.
 Vậy ta cần test tích hợp (IT) thì sẽ có nút bấm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Run once&lt;/code&gt;.
 Tuy nhiên, bạn sẽ phải cần cấu hình Scenario như bên dưới:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat23.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat23.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó thì bạn sẽ thực hiện testing nhiều lần, cứ có bugs thì lại fix cho đến khi thấy mỹ mãn thì chuyển tới mục tiếp theo để vận hành thôi.&lt;/p&gt;
 
 &lt;h2 id=&quot;vận-hành&quot;&gt;Vận hành&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat24.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat24.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
 Trước khi triển khai vận hành, bạn phải cấu hình một chút về tần suất fetch news.
 Như đã nói tần suất tầm 60 phút cũng ổn.&lt;/p&gt;
 

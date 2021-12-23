@@ -17,14 +17,14 @@
 <meta name="description" content="Quy tắc trách nhiệm đơn (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng." />
 <meta property="og:description" content="Quy tắc trách nhiệm đơn (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng." />
 <meta property="og:site_name" content="AiFi" />
-<meta property="og:image" content="/assets/img/srp-and-ccp.jpeg" />
+<meta property="og:image" content="/assets/images/srp-and-ccp.jpeg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-08-07T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="/assets/img/srp-and-ccp.jpeg" />
+<meta property="twitter:image" content="/assets/images/srp-and-ccp.jpeg" />
 <meta property="twitter:title" content="Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất" />
 <script type="application/ld+json">
-{"description":"Quy tắc trách nhiệm đơn (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng.","image":"/assets/img/srp-and-ccp.jpeg","headline":"Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất","dateModified":"2021-08-07T00:00:00+09:00","datePublished":"2021-08-07T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/srp-ccp/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/srp-ccp/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"Quy tắc trách nhiệm đơn (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng.","image":"/assets/images/srp-and-ccp.jpeg","headline":"Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất","dateModified":"2021-08-07T00:00:00+09:00","datePublished":"2021-08-07T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/srp-ccp/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/srp-ccp/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -239,7 +239,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/srp-and-ccp.jpeg" alt="Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/srp-and-ccp.jpeg" alt="Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất">
             
 
             
@@ -290,7 +290,7 @@ Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng s
 Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng.</p>
 </blockquote>
 
-<p><img src="/assets/img/srp.svg" style="width: 40%; float:left; margin:20pt;" />
+<p><img src="/assets/images/srp.svg" style="width: 40%; float:left; margin:20pt;" />
 Hình vẽ bên thể hiện design một class <code class="language-plaintext highlighter-rouge">Employee</code> vi phạm SRP: nó phục vụ cùng lúc 4 đối tượng khác nhau là quản lý dự án (PM), kỹ sư cầu nối (BrSE), backend dev và frontend dev.
 PM có thể cần dùng <code class="language-plaintext highlighter-rouge">manageAttendance()</code> để quản lý hoạt động của team.
 BrSE có thể cần <code class="language-plaintext highlighter-rouge">callClient()</code> để liên lạc khách hàng.

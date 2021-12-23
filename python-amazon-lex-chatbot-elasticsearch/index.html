@@ -17,14 +17,14 @@
 <meta name="description" content="音声認識による文章連想検索システムは、ユーザの音声入力に対して、決まった言葉で検索エンジンを起動して、関連する文章の一覧を返すシステムです。 本稿では、アマゾンLexやElasticsearchなどの既製部品を使ってシステムを構築する話題を挙げます。" />
 <meta property="og:description" content="音声認識による文章連想検索システムは、ユーザの音声入力に対して、決まった言葉で検索エンジンを起動して、関連する文章の一覧を返すシステムです。 本稿では、アマゾンLexやElasticsearchなどの既製部品を使ってシステムを構築する話題を挙げます。" />
 <meta property="og:site_name" content="AiFi" />
-<meta property="og:image" content="/assets/img/rensou1.png" />
+<meta property="og:image" content="/assets/images/rensou1.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-07-24T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="/assets/img/rensou1.png" />
+<meta property="twitter:image" content="/assets/images/rensou1.png" />
 <meta property="twitter:title" content="Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現" />
 <script type="application/ld+json">
-{"description":"音声認識による文章連想検索システムは、ユーザの音声入力に対して、決まった言葉で検索エンジンを起動して、関連する文章の一覧を返すシステムです。 本稿では、アマゾンLexやElasticsearchなどの既製部品を使ってシステムを構築する話題を挙げます。","image":"/assets/img/rensou1.png","headline":"Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現","dateModified":"2021-07-24T00:00:00+09:00","datePublished":"2021-07-24T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/python-amazon-lex-chatbot-elasticsearch/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/python-amazon-lex-chatbot-elasticsearch/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"音声認識による文章連想検索システムは、ユーザの音声入力に対して、決まった言葉で検索エンジンを起動して、関連する文章の一覧を返すシステムです。 本稿では、アマゾンLexやElasticsearchなどの既製部品を使ってシステムを構築する話題を挙げます。","image":"/assets/images/rensou1.png","headline":"Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現","dateModified":"2021-07-24T00:00:00+09:00","datePublished":"2021-07-24T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/python-amazon-lex-chatbot-elasticsearch/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/python-amazon-lex-chatbot-elasticsearch/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -239,7 +239,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/rensou1.png" alt="Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/rensou1.png" alt="Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現">
             
 
             
@@ -302,7 +302,7 @@
 
 <h2 id="アマゾンlexによる音声チャットボット">アマゾンLexによる音声チャットボット</h2>
 
-<p><img src="/assets/img/lex1.png" style="float: right; margin: 10px; width: 50%" /></p>
+<p><img src="/assets/images/lex1.png" style="float: right; margin: 10px; width: 50%" /></p>
 
 <p>アマゾンLexは会話チャットボットを作る支援プラットフォームです。
 開発者は会話のスクリプトを考えて、そのスクリプトを実現するために、Lexの<strong>インテント</strong>を使います。
@@ -363,7 +363,7 @@ Pythonでコーディングするなら、<code class="language-plaintext highli
 
 <h2 id="elasticsearchによる連想検索">Elasticsearchによる連想検索</h2>
 
-<p><img src="/assets/img/elasticsearch1.png" alt="" /></p>
+<p><img src="/assets/images/elasticsearch1.png" alt="" /></p>
 
 <blockquote>
   <p>Amazon Elasticsearch Service は、Elasticsearch を大規模かつ簡単でコスト効率の良い方法を使用してデプロイ、保護、実行する完全マネージド型サービスです。好きなツールを使用して、必要な規模でアプリケーションを構築、監視、およびトラブルシューティングできます。このサービスは、オープンソースの Elasticsearch API、マネージド Kibana、Logstash とその他の AWS サービスとの統合、組み込みのアラートと SQL クエリのサポートを提供します。Amazon Elasticsearch Service は従量課金制です。前払い費用や最低料金はありません。Amazon Elasticsearch Service では、必要なだけの ELK スタックをランニングコストなしで入手できます。

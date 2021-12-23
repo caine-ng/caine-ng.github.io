@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -284,7 +284,7 @@ Although <code class="language-plaintext highlighter-rouge">BusinessLicense</cod
 Therefore, these implementations are interchangeable as <code class="language-plaintext highlighter-rouge">License</code>.
 They are subtypes of <code class="language-plaintext highlighter-rouge">License</code>.</p>
 
-<p><img src="/assets/img/lsp1.svg" alt="Billing" /></p>
+<p><img src="/assets/images/lsp1.svg" alt="Billing" /></p>
 
 <p>The <code class="language-plaintext highlighter-rouge">Billing</code> class does not depend on the concrete implementations of the interface <code class="language-plaintext highlighter-rouge">License</code>, and this is one of the benefits of LSP.
 Both are substitutable to <code class="language-plaintext highlighter-rouge">License</code>.</p>
@@ -300,7 +300,7 @@ In this section, we will learn <strong>negative</strong> examples where LSP is v
 
 <h2 id="ducks-and-toys">Ducks and Toys</h2>
 
-<p><img src="/assets/img/lsp2.svg" style="float: left; width: 60%; margin: 15px;" /></p>
+<p><img src="/assets/images/lsp2.svg" style="float: left; width: 60%; margin: 15px;" /></p>
 
 <p>The following design violates the LSP.
 In this design, a <code class="language-plaintext highlighter-rouge">DuckToy</code> can <code class="language-plaintext highlighter-rouge">quack()</code> like a <code class="language-plaintext highlighter-rouge">Duck</code>.

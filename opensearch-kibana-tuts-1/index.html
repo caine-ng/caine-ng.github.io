@@ -17,14 +17,14 @@
 <meta name="description" content="Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster." />
 <meta property="og:description" content="Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster." />
 <meta property="og:site_name" content="AiFi" />
-<meta property="og:image" content="/assets/img/os-kibana.svg" />
+<meta property="og:image" content="/assets/images/os-kibana.svg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-11-13T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="/assets/img/os-kibana.svg" />
+<meta property="twitter:image" content="/assets/images/os-kibana.svg" />
 <meta property="twitter:title" content="A Tutorial on Amazon OpenSearch Service and Kibana" />
 <script type="application/ld+json">
-{"description":"Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster.","image":"/assets/img/os-kibana.svg","headline":"A Tutorial on Amazon OpenSearch Service and Kibana","dateModified":"2021-11-13T00:00:00+09:00","datePublished":"2021-11-13T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/opensearch-kibana-tuts-1/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/opensearch-kibana-tuts-1/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster.","image":"/assets/images/os-kibana.svg","headline":"A Tutorial on Amazon OpenSearch Service and Kibana","dateModified":"2021-11-13T00:00:00+09:00","datePublished":"2021-11-13T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/opensearch-kibana-tuts-1/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/opensearch-kibana-tuts-1/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -239,7 +239,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/os-kibana.svg" alt="A Tutorial on Amazon OpenSearch Service and Kibana">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/os-kibana.svg" alt="A Tutorial on Amazon OpenSearch Service and Kibana">
             
 
             
@@ -427,13 +427,13 @@ Let’s explore the manual for end-users:</p>
   <li>For the first time, you will be prompted to a confirmation:</li>
 </ul>
 
-<p><img src="/assets/img/os-kibana-02.png" alt="confirm" /></p>
+<p><img src="/assets/images/os-kibana-02.png" alt="confirm" /></p>
 
 <ul>
   <li>To explore the dashboards and visualizations, you need to index data first and then go to <code class="language-plaintext highlighter-rouge">Stack Management &gt; Index Patterns</code> to select the index.</li>
 </ul>
 
-<p><img src="/assets/img/os-kibana-03.png" alt="confirm" /></p>
+<p><img src="/assets/images/os-kibana-03.png" alt="confirm" /></p>
 
 <p>To put a new document into the indices from your local, you can use <code class="language-plaintext highlighter-rouge">pybuilder</code>:</p>
 
@@ -534,13 +534,13 @@ Build took 7 seconds <span class="o">(</span>7631 ms<span class="o">)</span>
   <li>Now you have indexed 1 document into OpenSearch, we can be back to Kibana to create an index pattern.</li>
 </ul>
 
-<p><img src="/assets/img/os-kibana-04.png" alt="confirm" /></p>
+<p><img src="/assets/images/os-kibana-04.png" alt="confirm" /></p>
 
 <ul>
   <li>Click into <code class="language-plaintext highlighter-rouge">Next step</code> then <code class="language-plaintext highlighter-rouge">Create index pattern</code> to go to the field lists screen.</li>
 </ul>
 
-<p><img src="/assets/img/os-kibana-05.png" alt="confirm" /></p>
+<p><img src="/assets/images/os-kibana-05.png" alt="confirm" /></p>
 
 <h2 id="sql-query-workbench">SQL Query Workbench</h2>
 
@@ -550,7 +550,7 @@ Build took 7 seconds <span class="o">(</span>7631 ms<span class="o">)</span>
   <li>Open the left sidebar, select <code class="language-plaintext highlighter-rouge">OpenSearch Plugins &gt; Query Workbench</code>.</li>
 </ul>
 
-<p><img src="/assets/img/os-kibana-06.png" alt="workbench" /></p>
+<p><img src="/assets/images/os-kibana-06.png" alt="workbench" /></p>
 
 <p>Document for SQL in OpenSearch can be found <a href="https://opensearch.org/docs/latest/search-plugins/sql/index/">here</a>.</p>
 
@@ -559,7 +559,7 @@ Build took 7 seconds <span class="o">(</span>7631 ms<span class="o">)</span>
 <p>This is also a valuable feature in OpenSearch dashboard.
 You can add visualization blocks or code blocks (SQL/PPL).</p>
 
-<p><img src="/assets/img/os-kibana-07.png" alt="notebook" /></p>
+<p><img src="/assets/images/os-kibana-07.png" alt="notebook" /></p>
 
 <p>In this example, we used the following SQL query for full-text search:</p>
 
@@ -571,7 +571,7 @@ You can add visualization blocks or code blocks (SQL/PPL).</p>
 
 <h2 id="anomaly-detection">Anomaly Detection</h2>
 
-<p><img src="/assets/img/os-kibana-08.png" alt="notebook" /></p>
+<p><img src="/assets/images/os-kibana-08.png" alt="notebook" /></p>
 
 <p>From this view, we can create an Anomaly Detector with a specific rule like</p>
 
@@ -705,7 +705,7 @@ SAML based authentication and Amazon Cognito are all supported.</p>
 <p>We have walked through a tutorial on configurations of an OpenSearch cluster with logging options, encryption at rest, .etc.
 In the next steps, we will implement the following two stories:</p>
 
-<p><img src="/assets/img/os-kibana-stories.svg" alt="next stories" /></p>
+<p><img src="/assets/images/os-kibana-stories.svg" alt="next stories" /></p>
 
 <h2 id="story-1-csv-upload-to-s3-for-streaming">Story 1: CSV upload to S3 for streaming</h2>
 

@@ -17,14 +17,14 @@
 <meta name="description" content="Source 1, Source 2, Credit: Microsoft Google AI announced MediaPipe Holistic [1] as a simultaneous face, hand, and pose inference engine for on-device AI. As we knew, on-device AI works in a specialized environment such as Edge devices (Arduino, Raspberry Pi, Jetson Nano) and mobile devices (Android/iOS/…). These environments are characterized by limited computing power (except Jetson Nano, all are low-end CPUs), often no Internet (wifi modules maybe not embedded). Then MediaPipe is a great offer. It provides a consistent interface for working with deep learning models and computer vision models in various programming languages (Java, Swift, Python, Javascript, …). The solution is also end-to-end, so the code can be done by calling ready-to-use functions. But wait, such a big deal? This post provides a fairer view of the MediaPipe library for on-device face detection. The result is that, although MediaPipe is fast, however, the accuracy is limited for crowded scenes. It works best when there is only one person in the frame." />
 <meta property="og:description" content="Source 1, Source 2, Credit: Microsoft Google AI announced MediaPipe Holistic [1] as a simultaneous face, hand, and pose inference engine for on-device AI. As we knew, on-device AI works in a specialized environment such as Edge devices (Arduino, Raspberry Pi, Jetson Nano) and mobile devices (Android/iOS/…). These environments are characterized by limited computing power (except Jetson Nano, all are low-end CPUs), often no Internet (wifi modules maybe not embedded). Then MediaPipe is a great offer. It provides a consistent interface for working with deep learning models and computer vision models in various programming languages (Java, Swift, Python, Javascript, …). The solution is also end-to-end, so the code can be done by calling ready-to-use functions. But wait, such a big deal? This post provides a fairer view of the MediaPipe library for on-device face detection. The result is that, although MediaPipe is fast, however, the accuracy is limited for crowded scenes. It works best when there is only one person in the frame." />
 <meta property="og:site_name" content="AiFi" />
-<meta property="og:image" content="/assets/img/annotated_image1.png" />
+<meta property="og:image" content="/assets/images/annotated_image1.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-05-22T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="/assets/img/annotated_image1.png" />
+<meta property="twitter:image" content="/assets/images/annotated_image1.png" />
 <meta property="twitter:title" content="On Limitation of MediaPipe Holistic Face Detection Module" />
 <script type="application/ld+json">
-{"description":"Source 1, Source 2, Credit: Microsoft Google AI announced MediaPipe Holistic [1] as a simultaneous face, hand, and pose inference engine for on-device AI. As we knew, on-device AI works in a specialized environment such as Edge devices (Arduino, Raspberry Pi, Jetson Nano) and mobile devices (Android/iOS/…). These environments are characterized by limited computing power (except Jetson Nano, all are low-end CPUs), often no Internet (wifi modules maybe not embedded). Then MediaPipe is a great offer. It provides a consistent interface for working with deep learning models and computer vision models in various programming languages (Java, Swift, Python, Javascript, …). The solution is also end-to-end, so the code can be done by calling ready-to-use functions. But wait, such a big deal? This post provides a fairer view of the MediaPipe library for on-device face detection. The result is that, although MediaPipe is fast, however, the accuracy is limited for crowded scenes. It works best when there is only one person in the frame.","image":"/assets/img/annotated_image1.png","headline":"On Limitation of MediaPipe Holistic Face Detection Module","dateModified":"2021-05-22T00:00:00+09:00","datePublished":"2021-05-22T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/on-limitation-mediapipe/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/on-limitation-mediapipe/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"Source 1, Source 2, Credit: Microsoft Google AI announced MediaPipe Holistic [1] as a simultaneous face, hand, and pose inference engine for on-device AI. As we knew, on-device AI works in a specialized environment such as Edge devices (Arduino, Raspberry Pi, Jetson Nano) and mobile devices (Android/iOS/…). These environments are characterized by limited computing power (except Jetson Nano, all are low-end CPUs), often no Internet (wifi modules maybe not embedded). Then MediaPipe is a great offer. It provides a consistent interface for working with deep learning models and computer vision models in various programming languages (Java, Swift, Python, Javascript, …). The solution is also end-to-end, so the code can be done by calling ready-to-use functions. But wait, such a big deal? This post provides a fairer view of the MediaPipe library for on-device face detection. The result is that, although MediaPipe is fast, however, the accuracy is limited for crowded scenes. It works best when there is only one person in the frame.","image":"/assets/images/annotated_image1.png","headline":"On Limitation of MediaPipe Holistic Face Detection Module","dateModified":"2021-05-22T00:00:00+09:00","datePublished":"2021-05-22T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/on-limitation-mediapipe/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/on-limitation-mediapipe/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -239,7 +239,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/annotated_image1.png" alt="On Limitation of MediaPipe Holistic Face Detection Module">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/annotated_image1.png" alt="On Limitation of MediaPipe Holistic Face Detection Module">
             
 
             
@@ -422,7 +422,7 @@ Processed selfie-small.jpg in 0.00852 second(s)
 
 <p>What this means is that, MediaPipe did not detect any faces in the original scenario (1,000 faces) and second scenario (about 100 faces).
 But when there are 3 big faces, the result is promising (no miss in the 3 faces I wanted to detect).
-<img src="/assets/img/annotated_image1.png" alt="" /></p>
+<img src="/assets/images/annotated_image1.png" alt="" /></p>
 
 <p>Then for on-device AI, we cannot expect too much.
 The limits of them which I obtained from this example:</p>

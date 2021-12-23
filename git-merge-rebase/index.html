@@ -17,14 +17,14 @@
 <meta name="description" content="git merge và git rebase là 2 câu lệnh quen thuộc với lập trình viên chỉ để giải quyết cùng 1 bài toán: với 2 branches được phát triển song song, nay cần migrate các tính năng của branch feature vào branch chính (main). Vấn đề là làm thế nào? Một cách chi tiết thì chỉ có 2 cách tương ứng với 2 câu lệnh ở trên tiêu đề bài viết mà chúng ta sẽ đi sâu trong bài này." />
 <meta property="og:description" content="git merge và git rebase là 2 câu lệnh quen thuộc với lập trình viên chỉ để giải quyết cùng 1 bài toán: với 2 branches được phát triển song song, nay cần migrate các tính năng của branch feature vào branch chính (main). Vấn đề là làm thế nào? Một cách chi tiết thì chỉ có 2 cách tương ứng với 2 câu lệnh ở trên tiêu đề bài viết mà chúng ta sẽ đi sâu trong bài này." />
 <meta property="og:site_name" content="AiFi" />
-<meta property="og:image" content="/assets/img/git.svg" />
+<meta property="og:image" content="/assets/images/git.svg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-10-08T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="/assets/img/git.svg" />
+<meta property="twitter:image" content="/assets/images/git.svg" />
 <meta property="twitter:title" content="So sánh git merge và git rebase" />
 <script type="application/ld+json">
-{"description":"git merge và git rebase là 2 câu lệnh quen thuộc với lập trình viên chỉ để giải quyết cùng 1 bài toán: với 2 branches được phát triển song song, nay cần migrate các tính năng của branch feature vào branch chính (main). Vấn đề là làm thế nào? Một cách chi tiết thì chỉ có 2 cách tương ứng với 2 câu lệnh ở trên tiêu đề bài viết mà chúng ta sẽ đi sâu trong bài này.","image":"/assets/img/git.svg","headline":"So sánh git merge và git rebase","dateModified":"2021-10-08T00:00:00+09:00","datePublished":"2021-10-08T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/git-merge-rebase/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/git-merge-rebase/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"git merge và git rebase là 2 câu lệnh quen thuộc với lập trình viên chỉ để giải quyết cùng 1 bài toán: với 2 branches được phát triển song song, nay cần migrate các tính năng của branch feature vào branch chính (main). Vấn đề là làm thế nào? Một cách chi tiết thì chỉ có 2 cách tương ứng với 2 câu lệnh ở trên tiêu đề bài viết mà chúng ta sẽ đi sâu trong bài này.","image":"/assets/images/git.svg","headline":"So sánh git merge và git rebase","dateModified":"2021-10-08T00:00:00+09:00","datePublished":"2021-10-08T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/git-merge-rebase/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/git-merge-rebase/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -45,8 +45,8 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -239,7 +239,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/git.svg" alt="So sánh git merge và git rebase">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/images/git.svg" alt="So sánh git merge và git rebase">
             
 
             
@@ -290,7 +290,7 @@ Trừu tượng hóa trước thì sẽ bị sai hướng dẫn đến chi tiế
 
 <h2 id="git-merge"><code class="language-plaintext highlighter-rouge">git merge</code></h2>
 
-<p><img src="/assets/img/git-merge.svg" style="float: right; margin: 10px; width: 50%;" />
+<p><img src="/assets/images/git-merge.svg" style="float: right; margin: 10px; width: 50%;" />
 Đầu tiên chúng ta sẽ tìm hiểu cách thông dụng nhất và hay được khuyến khích dùng nhất để giải bài toán của chúng ta.
 Bản chất của <code class="language-plaintext highlighter-rouge">git merge</code> thì cũng như hình vẽ bên: tạo 1 commit mới hẳn và chuyển tất cả tính năng của <code class="language-plaintext highlighter-rouge">feature/1</code> vào đó.
 Đây là lựa chọn mặc định của <code class="language-plaintext highlighter-rouge">git merge</code>, bạn có thể thay đổi bằng thêm <code class="language-plaintext highlighter-rouge">--squash</code>.
@@ -389,7 +389,7 @@ Bởi như vậy không khác gì làm bằng tay (cứ tí lại gặp conflict
 
 <h2 id="git-rebase"><code class="language-plaintext highlighter-rouge">git rebase</code></h2>
 
-<p><img src="/assets/img/git-rebase.svg" style="float: left; margin: 10px; width: 50%;" />
+<p><img src="/assets/images/git-rebase.svg" style="float: left; margin: 10px; width: 50%;" />
 Một lựa chọn khác cho bài toán của chúng ta là <code class="language-plaintext highlighter-rouge">git rebase</code>.
 <strong><code class="language-plaintext highlighter-rouge">git rebase</code> sẽ không tạo ra commit mới nào cả mà sẽ sửa lại lịch sử git của <code class="language-plaintext highlighter-rouge">main</code>.</strong>
 Như hình vẽ bên trái, bạn thấy rõ là các commit của <code class="language-plaintext highlighter-rouge">feature/1</code> sẽ được bố trí xen kẽ theo thứ tự thời gian vào <code class="language-plaintext highlighter-rouge">main</code>.
