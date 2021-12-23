@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Học cách viết log nghiêm chỉnh | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Học cách viết log nghiêm chỉnh | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Học cách viết log nghiêm chỉnh" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Viết log nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ. Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư học cách viết log cho nó OK em. Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công. Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ cần thiết nhưng ít thì tốt hơn. Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”. Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi. Và như vậy đòi hỏi phải có chuẩn (standard) cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh. Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!" />
+<meta property="og:description" content="Viết log nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ. Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư học cách viết log cho nó OK em. Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công. Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ cần thiết nhưng ít thì tốt hơn. Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”. Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi. Và như vậy đòi hỏi phải có chuẩn (standard) cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh. Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-05T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png" />
+<meta property="twitter:title" content="Học cách viết log nghiêm chỉnh" />
+<script type="application/ld+json">
+{"description":"Viết log nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ. Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư học cách viết log cho nó OK em. Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công. Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ cần thiết nhưng ít thì tốt hơn. Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”. Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi. Và như vậy đòi hỏi phải có chuẩn (standard) cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh. Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!","image":"https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png","headline":"Học cách viết log nghiêm chỉnh","dateModified":"2021-12-05T00:00:00+09:00","datePublished":"2021-12-05T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/write-logs/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/write-logs/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Học cách viết log nghiêm chỉnh&url=/write-logs/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/write-logs/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/write-logs/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Học cách viết log nghiêm chỉnh</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png" alt="Học cách viết log nghiêm chỉnh">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#vai-trò-và-nhiệm-vụ-của-log-auditting-and-incident-response">Vai trò và nhiệm vụ của log: auditting and incident response</a>
+    <ul>
+      <li><a href="#tại-sao-phải-viết-log">Tại sao phải viết log?</a></li>
+      <li><a href="#ai-sẽ-đọc-log">Ai sẽ đọc log?</a></li>
+      <li><a href="#các-cấp-độ-quản-lý-log">Các cấp độ quản lý log</a></li>
+    </ul>
+  </li>
+  <li><a href="#yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh">Yêu cầu của một hệ thống log hoàn chỉnh</a>
+    <ul>
+      <li><a href="#phân-loại-nguy-cơ">Phân loại nguy cơ</a></li>
+      <li><a href="#yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</a>
+        <ul>
+          <li><a href="#el1"><em>EL1</em></a></li>
+          <li><a href="#el2"><em>EL2</em></a></li>
+          <li><a href="#el3"><em>EL3</em></a></li>
+        </ul>
+      </li>
+      <li><a href="#thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</a>
+        <ul>
+          <li><a href="#kiến-trúc-tổng-quan">Kiến trúc tổng quan</a></li>
+          <li><a href="#các-chức-năng-chính">Các chức năng chính</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</a>
+    <ul>
+      <li><a href="#lên-kế-hoạch-thực-thi">Lên kế hoạch thực thi</a></li>
+      <li><a href="#lên-kế-hoạch-vận-hành">Lên kế hoạch vận hành</a></li>
+    </ul>
+  </li>
+  <li><a href="#kết-luận">Kết luận</a></li>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><strong>Viết log</strong> nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
+Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư <em>học cách viết log cho nó OK em</em>.
+Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công.
+Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ <strong>cần thiết nhưng ít thì tốt hơn</strong>.
+Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”.
+Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi.
+Và như vậy đòi hỏi phải có <strong>chuẩn (standard)</strong> cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh.
+Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!
+<!--more--></p>
+
+<h1 id="vai-trò-và-nhiệm-vụ-của-log-auditting-and-incident-response">Vai trò và nhiệm vụ của log: auditting and incident response</h1>
+
+<blockquote>
+  <p>Một nhân vật mà không ai yêu quý vì chẳng tạo ra giá trị gì mới, nhưng lại tiêu tốn tài nguyên và khiến những người khác phải chạy theo làm vừa lòng.</p>
+</blockquote>
+
+<p>Trước khi thảo luận xem nên viết log ra sao, thì có lẽ chúng ta cũng cần phải hiểu xem tại sao lại phải viết log? Ai sẽ đọc log? và các hình thái quản lý log.</p>
+
+<h2 id="tại-sao-phải-viết-log">Tại sao phải viết log?</h2>
+
+<p>Mà đúng hơn là <code class="language-plaintext highlighter-rouge">tại sao phải viết, lưu trữ và quản lý log?</code>
+Log đã trở thành 1 phần không thể thiếu của mọi hệ thống phần mềm.</p>
+
+<ul>
+  <li><strong>Lịch sử và đối ứng sự cố</strong>: Log lưu trữ các thông tin về các sự kiện đã từng xảy ra trong dự án và là căn cứ để điều tra cũng như phản ứng khi có sự cố xảy ra.</li>
+  <li><strong>Phân tích (analytics)</strong>: Ngoài ra, định kỳ kiểm tra và phân tích log có thể giúp người quản lý dự án nắm rõ bức tranh lớn của dự án. Những ứng dụng Log analytics trên các nền tảng Big Data như Azure App Insights dần thể hiện vai trò quan trọng trong nhiều tổ chức.</li>
+</ul>
+
+<p>Trên đây là 2 nhánh quan trọng nhất trong các hệ thống ứng dụng có liên quan tới Log Management.
+Một dự án của Cơ quan Tiêu chuẩn Kỹ thuật Hoa Kỳ (NIST) có liên quan tới Log Management [1] cũng đang cố gắng cải thiện nền tảng phân tích log tập trung trong các cơ quan thuộc khối chính phủ Hoa Kỳ.</p>
+
+<p>Nhìn như trên chúng ta có thể thấy ở cấp <strong>quân sự và chính phủ, hoặc các tập đoàn kinh tế lớn</strong> việc lưu trữ và quản lý log quan trọng đến chừng nào.
+Dựa trên đó mà các khối này đang cải tiến và xây dựng nền tảng quản lý dữ liệu của chính phủ Hoa Kỳ ngày càng hoàn thiện và tiên tiến hơn.
+Hàng loạt sự cố như rò rỉ dữ liệu người dùng với khối lượng lớn, đột nhập tấn công nền tảng, … đã và đang xảy ra trên quy mô toàn cầu, đòi hỏi các cơ quan và tổ chức càng ngày phải nâng cao ý thức và trách nhiệm với các sự cố <em>cybersecurity</em> và một trong số những biện pháp đầu tiên chính là làm cho nghiêm chỉnh việc quản lý log (log management).</p>
+
+<p><strong>Vậy với các tổ chức dân sự cấp vừa và nhỏ (中小企業), hoặc người dùng cá nhân thì sao?</strong>
+<strong>Họ có nên áp dụng tiêu chuẩn quản lý log cấp chính phủ và quân sự vào việc kinh doanh của mình?</strong>
+Câu trả lời là điều đó tùy thuộc vào nguồn lực.
+Nếu các tập đoàn lớn, cơ quan chính phủ hoặc quân sự có nguồn lực dồi dào, có thể đòi hỏi kỹ sư hàng tháng trời chỉ ngồi học viết mấy dòng log cho nghiêm chỉnh (nói vui vậy thôi chứ phía sau thì còn nhiều thứ, sẽ giải thích ở các section tiếp theo).
+Thì các tổ chức dân sự vừa và nhỏ lại không hẳn như vậy, họ ít nguồn lực hơn và nếu không có lợi ích gì lớn thì có lẽ họ sẽ không làm.
+Hoặc các tập đoàn đặt hàng họ làm (khách hàng) sẽ phải làm những bước log management này.</p>
+
+<h2 id="ai-sẽ-đọc-log">Ai sẽ đọc log?</h2>
+
+<p>Một sự thật khá đau lòng ở đây là, mặc dù log rất quan trọng cho quá trình sửa chữa bảo trì hệ thống, khắc phục sự cố, nhưng <strong>end-user hầu không bao giờ đọc log</strong>.
+Bạn là người dùng FaceBook nhưng đã bao giờ được đọc 1 dòng log do kỹ sư FaceBook viết còn “vương vãi” trên giao diện Facebook (viết chủ yếu bằng JS) chưa?
+Nếu kỹ sư FB mà để lọt dòng log nào vào mắt bạn thì đó đúng là 1 sự cố to lớn.
+Có nhiều lý do cho việc này: thứ nhất, người dùng cuối <em>không cần phải biết về chi tiết trong hệ thống</em>.
+Họ có trả tiền để phải ngồi đọc log khi có sự cố không?
+Thường là không.</p>
+
+<p>Vậy <strong>developer có cần phải đọc log không?</strong>
+Câu trả lời là nên, nhưng developer thì còn phải viết code, làm các nghiệp vụ dự án, và nhiều việc ưu tiên hơn.
+Họ có thể sẽ ngồi cấu hình để sinh ra log, để viết ra log, nhưng có lẽ họ sẽ ít khi đọc.
+Vì sao? vì trong hàng đợi thì <strong>đọc log</strong> chính là nhiệm vụ ít giá trị nhất:</p>
+
+<ul>
+  <li>theo nghĩa nó không tạo ra giá trị mới</li>
+  <li>đọc để điều tra fix lỗi thì bản thân cái lỗi nó đã là minus rồi, thì điều tra cũng chỉ là để “cứu lại” thôi, chứ đâu có tạo ra giá trị mới.
+Nhưng chúng ta cũng cần hiểu: “ít giá trị nhất” hiểu theo nghĩa lợi ích trước mắt.
+Còn về lâu dài, nếu chịu khó đọc và lưu thành các bài học kinh nghiệm để ngăn chặn sự cố tương tự xảy ra trong tương lai thì nó cũng có 1 chút giá trị.</li>
+</ul>
+
+<p>Tuy nhiên, bạn thấy đấy: với developer khi hàng đợi đang còn nhiều việc implementation chức năng mới thì mấy cái việc monitor, audit logs, đọc logs, phân tích logs chắc chắn sẽ bị biến thành nhiệm vụ thứ yếu.
+Mà nhìn chung theo kinh nghiệm của tôi thì thường sẽ là như vậy.</p>
+
+<p><strong>Tester hay QA</strong> thì cũng <strong>chả bao giờ phải đọc log</strong>. 
+Vì sao? Vì họ chủ yếu là dựa trên spec có sẵn để chỉ ra lỗi, chứ không phải điều tra, phân tích và đối ứng sự cố.
+Role này chỉ cần chỉ lỗi so với spec và thế là xong.</p>
+
+<p><strong>Vậy cuối cùng ai sẽ là người hay phải đọc log nhất?</strong></p>
+<blockquote>
+  <ul>
+    <li>Quản lý dự án thực hiện nghiệp vụ audit.</li>
+    <li>Điều tra viên, kiểm toán cấp cao do bên trên cử xuống theo dõi và điều tra tình hình dự án.</li>
+    <li>Các chuyên viên phân tích, lập chiến lược ngắn hạn và dài hạn, …</li>
+    <li>Các điều tra viên phải ứng phó với sự cố.</li>
+  </ul>
+</blockquote>
+
+<p><strong>Đấy có khoảng chục ông như vậy thôi.</strong>
+Và nếu bây giờ mà tự dưng phát sinh ra dự án thu thập dữ liệu log, xây dựng infrastructure và ứng dụng để phân tích theo dõi log, lên chiến lược kế hoạch thì chắc chắn <strong>số lượng end-users thực sự của ứng dụng ấy chỉ tầm $\leq 10$ ông thôi</strong>.</p>
+
+<blockquote>
+  <p>Ứng dụng log management chính là <code class="language-plaintext highlighter-rouge">TẤT CẢ VÌ MỘT NGƯỜI</code>: chỉ vì 10 ông mà phải huy động hết tinh anh ra trận.</p>
+</blockquote>
+
+<h2 id="các-cấp-độ-quản-lý-log">Các cấp độ quản lý log</h2>
+
+<p>Theo <strong>Bản ghi nhớ <a href="https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf">M-21-31</a> Improving the Federal Government’s Investigative and Remediation Capabilities Related to Cybersecurity Incidents [2]</strong> giữa các lãnh đạo cấp cao các cơ quan chính phủ Hoa Kỳ liên quan tới điều tra và nâng cấp khả năng ứng phó liên quan tới các sự cố an ninh mạng, các cấp độ quản lý log được chia làm 4 cấp độ từ <strong>không hiệu quả</strong> tới cấp <strong>advanced</strong> như sau:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Cấp độ</strong></th>
+      <th><strong>Hạng</strong></th>
+      <th><strong>Mô tả</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>EL0</em></td>
+      <td>Không hiệu quả</td>
+      <td>Ở cấp này, các thông tin cần thiết ứng với các sự cố nguy hiểm (highest criticality) không được quản lý log hoặc chỉ được quản lý một phần không đầy đủ.</td>
+    </tr>
+    <tr>
+      <td><em>EL1</em></td>
+      <td>Basic</td>
+      <td>Các sự kiện ở cấp highest criticality được log đầy đủ và quản lý hoàn chỉnh.</td>
+    </tr>
+    <tr>
+      <td><em>EL2</em></td>
+      <td>Intermediate</td>
+      <td>Không chỉ các sự kiện cấp highest mà kể cả cấp intermediate cũng được quản lý log đầy đủ.</td>
+    </tr>
+    <tr>
+      <td><em>EL3</em></td>
+      <td>Advanced</td>
+      <td>Mọi sự kiện criticality đều được quản lý log.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Trong bản ghi nhớ nói trên, cũng đã thể hiện sự đồng thuận giữa các cơ quan chủ quản rằng ở cấp chính phủ (bao gồm cả quân sự) của Hoa Kỳ thì phải đạt đến cấp <em>EL3</em>.
+Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thống nhất như sau:</p>
+
+<ul>
+  <li>Trong vòng 60 ngày kể từ ngày ký phải bắt đầu thực hiện các biện pháp cải thiện hệ thống quản lý log trong cơ quan chủ quản. Việc này thể hiện qua việc chuẩn bị resources, lên kế hoạch và phải nộp cả bản kế hoạch thực hiện cho RMO và OFCIO.</li>
+  <li>Trong vòng 1 năm kể từ ngày ký, các cơ quan có liên quan phải đạt đến level <em>EL1</em>.</li>
+  <li>Trong vòng 18 tháng kể từ ngày ký, các cơ quan có liên quan phải đạt chuẩn <em>EL2</em>.</li>
+  <li>Trong vòng 2 năm kể từ ngày ký, các cơ quan liên quan phải đạt đến cấp <em>EL3</em>, cấp cao nhất thể hiện 1 hệ thống log management hoàn chỉnh.</li>
+  <li>Log được quản lý phải được cung cấp chia sẻ cho các cơ quan điều tra như CISA hay FBI để phục vụ ứng phó với các nguy cơ đến từ không gian mạng.</li>
+</ul>
+
+<h1 id="yêu-cầu-của-một-hệ-thống-log-hoàn-chỉnh">Yêu cầu của một hệ thống log hoàn chỉnh</h1>
+
+<h2 id="phân-loại-nguy-cơ">Phân loại nguy cơ</h2>
+
+<p>Trong tài liệu tiêu chuẩn của NIST [3] và thậm chí trong bản ghi nhớ [2] thì ít nhất ở cấp <em>EL1</em> là phải quản lý log <strong>đầy đủ</strong> với mọi nguy cơ ở cấp (highest criticality) hay <em>Criticality 0</em>.</p>
+
+<p>Những thông tin ở các cấp như sau:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Criticality</strong></th>
+      <th><strong>Log data</strong></th>
+      <th><strong>Tần suất lưu trữ</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td><em>Identity and Credential Management</em>, <em>Privileged Identity and Credential Management</em>, <em>IP and DOmain Reputation (As Indicated by Mail Server Connection)</em>, <em>DNS - Source IP and Port, Destination IP/Port, Date and Time</em>, <em>Passive DNS Log</em>, <em>DNS/DHCP/Wifi</em>, <em>Routers and Switches</em>, <em>Load Balancer/Reverse Proxy</em>, <em>Proxies and Web Content Filters</em>, <em>General Information, OS events, OS audit records</em>, <em>App Account Information</em>, <em>Application Operations</em>, <em>Access to OS components and apps</em>, <em>System performance and operation characteristics</em>, <em>system configs</em>, <em>file access</em>, <em>host network communications, powershell execution history, WMI events, Registry Access, CLI, BIOS, UEFI, and other firmware</em></td>
+      <td>6 tháng đến 12 tháng với Active STorage và 18 tháng với Cold Storage</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/assets/img/log-01.png" style="float: right; margin: 10px; width: 50%;" />
+Cấp 0 này có 1 điểm thú vị là những log tập trung trên cloud cũng phải được lưu trữ tối thiểu 12 tháng trên Active Storage.
+Có 2 ngoại lệ nhỏ:</p>
+<ul>
+  <li>Dữ liệu IP package data thì chỉ cần lưu 72h.</li>
+  <li>Dữ liệu log của Google Cloud Platform thì chỉ cần lưu 6 tháng nếu dùng Active Storage.</li>
+</ul>
+
+<p>Nhìn chung bây giờ các bạn cũng sử dụng cloud là chính nên những recommendations từ bên chính phủ Hoa Kỳ tôi cho là rất phù hợp và nên được xem xét.
+Với ứng dụng thì nên log lại mọi events như API logs, authentication, authorization, .etc.</p>
+
+<p>Ngoài cấp <em>Criticality 0</em> thì các cấp thấp hơn là <em>Criticality 1, 2, và 3</em>.
+Ở cấp <em>EL1</em> đòi hỏi phải chấn chỉnh toàn bộ việc quản lý log ở cấp 0 (highest).
+Đến cấp <em>EL2</em> doanh nghiệp tổ chức buộc phải thực hiện quản lý mọi log ở cấp 0 và 1.
+Còn đến cấp <em>EL3</em> mặc định là mọi criticality phải được log.
+Và Log ở đây <strong>không chỉ là log generation, mà còn là lưu trữ, phân tích, tìm kiếm ở mức đủ để đối ứng sự cố hoặc lên chiến lược</strong>.</p>
+
+<p>Nhìn chung khuyến khích các bạn nên tìm đọc thêm tài liệu hướng dẫn tiêu chuẩn quân sự hoặc chính phủ của NIST hoặc FBI.</p>
+
+<h2 id="yêu-cầu-thực-thi-ở-các-cấp-el">Yêu cầu thực thi ở các cấp EL</h2>
+
+<p>Nói chung ở mọi cấp thì yêu cầu cơ bản nhất là phải thực thi các quy tắc log và thu thập log về 1 điểm tập trung duy nhất (<strong>Centralized logging system</strong>).</p>
+
+<h3 id="el1"><em>EL1</em></h3>
+
+<p>Ở cấp <em>EL1</em> những yêu cầu ở mức chỉ cần đối ứng với các nguy cơ cấp <em>Criticality 0</em>.
+Tuy nhiên, ngoài ra vẫn còn 1 đống các tiêu chí cần phải thỏa mãn.
+Đầu tiên là <strong>log cái gì?</strong> thì tối thiểu phải log những thông tin sau:</p>
+
+<ul>
+  <li>Log phải được định dạng sẵn và timestamps phải được đồng bộ về cùng dạng biểu diễn.</li>
+  <li>Mã trạng thái của sự kiện (mã lỗi chẳng hạn).</li>
+  <li>ID của thiết bị như địa chỉ MAC.</li>
+  <li>Session / Transaction ID</li>
+  <li>Autonomous System Number</li>
+  <li>Source IP (IPv4)</li>
+  <li>Source IP (IPv6)</li>
+  <li>Destination IP (IPv4)</li>
+  <li>Destination IP (IPv6)</li>
+  <li>Status Code</li>
+  <li>Response Time</li>
+  <li>Các headers bổ sung (i.e., HTTP headers)</li>
+  <li>Khi thích hợp, có thể log username/userID nhưng cần chú ý về tính an toàn dữ liệu người dùng.</li>
+  <li>Khi thích hợp, nên log cả command đã thực hiện ra. Như SQL statement cũng nên log ra.</li>
+  <li>Nên log ở dạng key-value cho anh em dễ xử lý nhá :-)</li>
+  <li>Nếu được nhớ bỏ event ID để anh em correlation về sau!</li>
+</ul>
+
+<p>Đấy các trường cần có trong logs <strong>ít ra cũng phải được như trên</strong>.</p>
+
+<p><strong>Timestamps</strong> cũng là một vấn đề đau đầu của log.
+Tôi từng gặp khá nhiều hệ thống log sử dụng Date/DateTime nhưng nhìn chung không hợp lý.
+Theo khuyến cáo của NIST chính phủ Hoa Kỳ thì tất cả Internet đều là <code class="language-plaintext highlighter-rouge">Timestamps</code>.
+Bạn có thể tham khảo thêm RFC3339.
+Có 2 dạng sau hay được dùng:</p>
+
+<ul>
+  <li>YYYY-MM-DDThh:mm:ss.mmmZ (Zulu time, UTC+0) và</li>
+  <li>YYYY-MM-DDThh:mm:ss.mmm+04:00 (UTC+4)</li>
+</ul>
+
+<p>Nếu bạn nào chưa biết UTC hay chữ Z trên có ý nghĩa gì thì nó đơn giản là <code class="language-plaintext highlighter-rouge">Zulu time</code> thôi.</p>
+
+<p>Trong trường hợp các bạn tự thuê server mà build service thì NIST cũng cẩn thận khuyến cáo trong việc đồng bộ timestamps:</p>
+
+<blockquote>
+  <p>Agencies shall use a GPS master station clock as a baseline reference 
+for timestamps used for logs and systems producing logs. If GPS 
+reference is not possible, agencies shall use NIST’s authenticated time 
+service. Public, unauthenticated, and unencrypted NTP pools shall 
+only be used as an option of last resort, and only for as long as needed 
+to begin leveraging other options.</p>
+</blockquote>
+
+<p>Nhưng nhìn chung là cứ deploy hết lên Cloud rồi cấu hình timezone cho đỡ đau đầu.
+Nhớ là nếu tự build thì đừng dùng mấy cái NTP server khả nghi là ok!</p>
+
+<p><strong>Event forwarding</strong>: một tình huống hay gặp nữa là một agent được cài vào máy đối tượng thu thập logs, và sẽ forward toàn bộ log về server xử lý trung tâm. Event forwarding cũng là 1 yêu cầu trong <em>EL1</em>.</p>
+
+<p><strong>Bảo vệ và xác thực logs</strong>: ở cấp này yêu cầu hạn chế truy cập vào logs với đối tượng nhất định (phân quyền), phải mã hóa logs để tránh rò rỉ thông tin người dùng. Việc bảo vệ logs là 1 thử thách lớn trong log management vì đôi khi có lưu thông tin người dùng vào logs.
+Phải định kỳ check logs xem có bị mất, hỏng gì không.
+Phải monitor liên tục và khi tự nhiên log dừng là phải có 1 đội phản ứng nhanh nhảy vào đối ứng kiểm tra ngay.</p>
+
+<p>Các tổ chức chính phủ hay quân sự thì nên log cả <strong>DNS requests</strong>.
+Điều này là cần thiết cho FBI và CISA tiện trong việc điều tra.</p>
+
+<p>Các tổ chức điều tra cảnh sát cấp liên bang như CISA hay FBI nên có quyền truy cập gần như lập tức vào dữ liệu log để tiện việc điều tra truy tìm tội phạm.</p>
+
+<p><strong>Playbooks</strong> là công cụ tuyệt vời để thực hiện tự động hóa đối phó sự cố, như với SOAR.</p>
+
+<p>Ở cấp <em>EL1</em> tổ chức nên có kế hoạch theo dõi hành vi người dùng.
+Và đương nhiên, logs nên được quản lý tập trung:</p>
+
+<blockquote>
+  <p>Logs should be centrally aggregated by an agency component-level 
+Enterprise Log Manager (ELM). Traps for detecting data-stream 
+disruption should be monitored by the component-level SOC. The DNS 
+logging system and accompanying analytics shall be monitored and 
+triaged by the component-level SOC.</p>
+</blockquote>
+
+<h3 id="el2"><em>EL2</em></h3>
+
+<p>Về cơ bản, tổ chức được yêu cầu thực hiện đầy đủ các yêu cầu với <em>EL1</em> cho cả <em>Criticality 0, 1 và 2</em>.
+Ngoài ra, tổ chức nên xuất bản 1 hướng dẫn về cách thức tổ chức cũng như định dạng của logs.</p>
+
+<blockquote>
+  <p>Federal agencies shall provide a document detailing the structure (schema) for those logs to CISA.</p>
+</blockquote>
+
+<p>Thêm nữa là tổ chức nên có những biện pháp để kiểm tra những encrypted package.</p>
+
+<blockquote>
+  <p>Federal agencies shall retain and store in cleartext form the data or metadata from Appendix C that is collected in their environment. If agencies perform full traffic inspection through active proxies, they should log additional available fields as described in Appendix C and can work with CISA to implement these capabilities. If agencies do not perform full traffic inspection, they should log the metadata available to them. In general, agencies are expected to follow zero-trust principles concerning least privilege and reduced attack surface, and relevant guidance from OMB and CISA relating to zero-trust architecture.</p>
+</blockquote>
+
+<p>Cuối cùng là top manager của SOCs nên có quyền truy cập vào mọi thành phần của quản lý logs.</p>
+
+<h3 id="el3"><em>EL3</em></h3>
+
+<p>Ở cấp này thì khỏi phải nói, mọi criticality phải được ứng phó!
+Việc hunting threats và sử dụng incident response playbooks là phải hoàn chỉnh và thành thục.
+Việc monitor user behavior để phát hiện sớm nguy cơ là bắt buộc.
+Một số sự kiện nên bắt với hành vi người dùng:</p>
+<ul>
+  <li>Compromised user credentials</li>
+  <li>Privileged-user compromise</li>
+  <li>Improper asset access</li>
+  <li>Compromised system/host/device</li>
+  <li>Lateral movement of threat actor</li>
+</ul>
+
+<p>Cuối cùng là ưu tiên sử dụng thành thục SIEM, và hệ thống phân tích xử lý logs tập trung.</p>
+
+<h2 id="thiết-kế-một-hệ-thống-quản-lý-log-nghiêm-chỉnh">Thiết kế một hệ thống quản lý log nghiêm chỉnh</h2>
+
+<h3 id="kiến-trúc-tổng-quan">Kiến trúc tổng quan</h3>
+<p>Kiến trúc tổng quan của 1 hệ thống quản lý logs thường bao gồm:</p>
+
+<ul>
+  <li>
+    <p><strong>Log Generation</strong>: những cái hosts sinh ra logs. Chúng có thể bao gồm backend apps, frontend apps hoặc bất kỳ thể loại apps nào mà có hoạt động trong hệ thống như send emails, … Các hosts này có thể gửi log cho các components khác của hệ thống (collectors và aggregators) để xử lý, hoặc chúng cho phép các components khác truy cập vào và copy logs từ host generation ra.</p>
+  </li>
+  <li>
+    <p><strong>Log Analysis and Storage</strong>: Nếu dùng AWS bạn có thể xài Watchlogs, còn Azure thì Logs Analytics hoặc App Insights, … Nhìn chung là bộ phận nhận dữ liệu từ Log Generation và phân tích lưu trữ.</p>
+  </li>
+  <li>
+    <p><strong>Log Monitoring</strong>: Có 1 cái dashboard để monitor (near-)real-time logs và review log events.</p>
+  </li>
+</ul>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>------------------        ----------------        ------------------
+| Log Generation |  ====&gt; | Log Analysis |  ====&gt; | Log Monitoring |
+|                |        ----------------        ------------------
+|                |               /\                         /\
+|                |               ||                         ||
+|                |               \/                         ||
+|                |        ----------------                  ||
+|                |  ====&gt; | Log Storage  |  =================
+|                |        ----------------
+------------------
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="các-chức-năng-chính">Các chức năng chính</h3>
+<p>Nhìn chung một hệ thống log management hoàn chỉnh nên có tối thiểu các chức năng sau:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Nhóm chức năng</strong></th>
+      <th><strong>Chức năng</strong></th>
+      <th><strong>Mô tả</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>General</strong></td>
+      <td><em>Log parsing</em></td>
+      <td>Extract data from a log so that the parsed values can be used as input for another logging process.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Event filtering</em></td>
+      <td>Suppression of log entries from analysis, reporting, or long-term storage because their characteristics indicate that they are unlikely to contain information of interest.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Event aggregation</em></td>
+      <td>Similar entries are consolidated into a single entry containing a count of the number of occurrences of the event.</td>
+    </tr>
+    <tr>
+      <td><strong>Storage</strong></td>
+      <td><em>Log rotation</em></td>
+      <td>Close a log file and opening a new log file when the first file is considered to be complete. Log rotation is typically performed according to a schedule (e.g., hourly, daily, weekly) or when a log file reaches a certain size. The primary benefits of log rotation are preserving log entries and keeping the size of log files manageable. When a log file is rotated, the preserved log file can be compressed to save space.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log archival</em></td>
+      <td>Retain logs for an extended period of time, typically on removable media, a storage area network (SAN), or a specialized log archival appliance or server. Logs often need to be preserved to meet legal or regulatory requirements.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log compression</em></td>
+      <td>Store a log file in a way that reduces the amount of storage space needed for the file without altering the meaning of its contents. Log compression is often performed when logs are rotated or archived.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log reduction</em></td>
+      <td>Remove unneeded entries from a log to create a new log that is smaller. A similar process is <em>event reduction</em>, which removes unneeded data fields from all log entries.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log conversion</em></td>
+      <td>Parsing a log in one format and storing its entries in a second format.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log normalization</em></td>
+      <td>Each log data field is converted to a particular data representation and categorized consistently. One of the most common uses of normalization is storing dates and times in a single format.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log file integrity checking</em></td>
+      <td>Calculate a message digest for each file and storing the message digest securely to ensure that changes to archived logs are detected.</td>
+    </tr>
+    <tr>
+      <td><strong>Analysis</strong></td>
+      <td><em>Event correlation</em></td>
+      <td>Find relationships between two or more log entries. The most common form of event correlation is rule-based correlation, which matches multiple log entries from a single source or multiple sources based on logged values, such as timestamps, IP addresses, and event types. Event correlation can also be performed in other ways, such as using statistical methods or visualization tools.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log viewing</em></td>
+      <td>Display log entries in a human-readable format.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><em>Log reporting</em></td>
+      <td>Display the results of log analysis. Log reporting is often performed to summarize significant activity over a particular period of time or to record detailed information related to a particular event or series of events.</td>
+    </tr>
+    <tr>
+      <td><strong>Disposal</strong></td>
+      <td><em>Log clearing</em></td>
+      <td>Remove all entries from a log that precede a certain date and time. Log clearing is often performed to remove old log data that is no longer needed on a system because it is not of importance or it has been archived.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="usecase-cấu-hình-hệ-thống-log-với-một-website-viết-bằng-python">Usecase: Cấu hình hệ thống log với một website viết bằng Python</h1>
+
+<h2 id="lên-kế-hoạch-thực-thi">Lên kế hoạch thực thi</h2>
+
+<p>Bước thiết kế như đã nói ở trên là theo tiêu chuẩn rồi.
+Giờ tiến hành làm ta cần lên kế hoạch, làm rõ các tham số như:</p>
+<ul>
+  <li>Thời gian lưu trữ logs là bao lâu?</li>
+  <li>Tần suất rotate là bao lâu một lần?</li>
+  <li>Tần suất gửi log về Log Management System (LMS)</li>
+  <li>Tần suất xử lý log ở local</li>
+  <li>Có cần validate logs trước khi rotate?</li>
+  <li>Có cần mã hóa log ở local hay không?</li>
+  <li>Khi gửi log về LMS có cần mã hóa đường truyền hay dùng đường truyền riêng biệt để gửi hay không?</li>
+</ul>
+
+<p>Bạn cần phải đánh giá impact của hệ thống từ low, medium và high impact để quyết định tham số.</p>
+
+<p>Tất nhiên, implement thì vẫn là dùng công cụ có sẵn thôi.
+Như Python thì dùng logging của STL cho yên tâm về nguồn gốc xuất xứ (dùng third-party thì lại lo xuất xứ).
+Còn quản lý log tập trung thì anh em lại CLoudWatch hoặc Logs Analytics mà tương thôi!</p>
+
+<h2 id="lên-kế-hoạch-vận-hành">Lên kế hoạch vận hành</h2>
+<p>Có 4 việc nên làm:</p>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Cấu hình các log sources, bao gồm cả log generation, storage, và security
+    <ul>
+      <li>Cái này thì anh em dùng <code class="language-plaintext highlighter-rouge">logging</code> của Python, để rotate thì nhớ dùng cái <code class="language-plaintext highlighter-rouge">RotatingFileHnadler</code> hoặc <code class="language-plaintext highlighter-rouge">TimeRotatingFileHandler</code>.</li>
+      <li>Để quản lý tập trung thì nên gửi vào Azure App Insights, hoặc deploy thẳng lên Azure WebApps thì nó lên thẳng luôn, nhớ enable chức năng App Insights là ổn.</li>
+      <li>Storage thì đã dùng nền tảng Azure Monitoring thì nó bill bạn theo GB/tháng.</li>
+      <li>Về security thì chính là security cho Azure account của bạn. Đọc thêm hướng dẫn của M$ để biết.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Phân tích log data
+    <ul>
+      <li>Cái này thì khuyên nên dùng những cái board kiểu như App Insights, bắn log là nó lên, ngồi tương tác chỉ trỏ rồi xem dữ liệu thôi.</li>
+      <li>Bạn có thể dùng query logs.</li>
+      <li>Bạn có thể làm thêm dashboard nếu cấu hình vào Power BI.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Initiate appropriate responses to identified events
+    <ul>
+      <li>Playbooks không lằng nhằng.</li>
+      <li>Nên quyết định rule ứng phó và chia ca để các em nó thay nhau trực.</li>
+      <li>Nhớ để các em nó testing và validation.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />Manage the long-term storage of log data
+    <ul>
+      <li>Nhớ archive log đều đặn.</li>
+      <li>Nhớ tạo format chung cho toàn bộ log được lưu trữ.</li>
+      <li>Nhớ tạo message digest cho log records để đảm bảo integrity.</li>
+      <li>Nhớ mã hóa ổ đĩa nhé.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="kết-luận">Kết luận</h1>
+
+<p>Chúng ta đã điểm qua cách xây dựng và vận hành một hệ thống quản lý logs theo tiêu chuẩn liên bang Hoa Kỳ.
+Tài liệu giới thiệu ở đây có sẵn file PDF tầm trăm trang, các bạn nên dành thời gian đọc kỹ và thực hành để hiểu thêm nếu cần.
+Nói chung cũng tùy tình hình mà có những trường hợp phải dành ra một dự án vài năm cũng chỉ để học cách viết log cho nghiêm chỉnh.
+Thế nên có cơ hội các bạn nên trau dồi, vì thực sự cái tổng thời gian cấu hình chắc chỉ vài tiếng!</p>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="LogManag44:online">US Department of Commerce, Technology Administration, National Institute of Standards and Technology. <i>Log Management | CSRC</i>. https://csrc.nist.gov/Projects/log-management</span></li>
+<li><span id="M213156:online">Executive Office of the President Office of Management and Budget. (2021). <i>M-21-31: Memorandum for the Heads of Executive Departments and Agencies</i>. https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf</span></li>
+<li><span id="kent2006guide">Kent, K. A., &amp; Souppaya, M. (2006). <i>Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology</i>. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-12-05">05 Dec 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#log4j">#log4j</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#logging">#logging</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#python">#python</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//fullstask-engineer-and-lean-startup/"> &laquo; Why lean startups love fullstack engineers?</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//svelte-and-reset-checkboxes-10years-ago/">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>A Tutorial on Amazon OpenSearch Service and Kibana | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>A Tutorial on Amazon OpenSearch Service and Kibana | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="A Tutorial on Amazon OpenSearch Service and Kibana" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster." />
+<meta property="og:description" content="Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/os-kibana.svg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-13T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/os-kibana.svg" />
+<meta property="twitter:title" content="A Tutorial on Amazon OpenSearch Service and Kibana" />
+<script type="application/ld+json">
+{"description":"Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster.","image":"/assets/img/os-kibana.svg","headline":"A Tutorial on Amazon OpenSearch Service and Kibana","dateModified":"2021-11-13T00:00:00+09:00","datePublished":"2021-11-13T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/opensearch-kibana-tuts-1/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/opensearch-kibana-tuts-1/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=A Tutorial on Amazon OpenSearch Service and Kibana&url=/opensearch-kibana-tuts-1/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/opensearch-kibana-tuts-1/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/opensearch-kibana-tuts-1/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">A Tutorial on Amazon OpenSearch Service and Kibana</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/os-kibana.svg" alt="A Tutorial on Amazon OpenSearch Service and Kibana">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#solution-and-design">Solution and design</a></li>
+  <li><a href="#implementation">Implementation</a></li>
+  <li><a href="#testing">Testing</a>
+    <ul>
+      <li><a href="#login-and-create-index-patterns">Login and create index patterns</a></li>
+      <li><a href="#sql-query-workbench">SQL Query Workbench</a></li>
+      <li><a href="#notebooks">Notebooks</a></li>
+      <li><a href="#anomaly-detection">Anomaly Detection</a></li>
+    </ul>
+  </li>
+  <li><a href="#operation-and-maintenance">Operation and maintenance</a>
+    <ul>
+      <li><a href="#configurations">Configurations</a>
+        <ul>
+          <li><a href="#multi-region-service">Multi-region service</a></li>
+          <li><a href="#indices">Indices</a></li>
+        </ul>
+      </li>
+      <li><a href="#auditing">Auditing</a>
+        <ul>
+          <li><a href="#monitoring">Monitoring</a>
+            <ul>
+              <li><a href="#amazon-cloudwatch">Amazon CloudWatch</a></li>
+              <li><a href="#amazon-cloudwatch-logs">Amazon CloudWatch Logs</a></li>
+              <li><a href="#amazon-eventbridge">Amazon EventBridge</a></li>
+              <li><a href="#aws-cloudtrail">AWS CloudTrail</a></li>
+            </ul>
+          </li>
+          <li><a href="#notifications">Notifications</a></li>
+        </ul>
+      </li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#management">Management</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a>
+    <ul>
+      <li><a href="#story-1-csv-upload-to-s3-for-streaming">Story 1: CSV upload to S3 for streaming</a></li>
+      <li><a href="#story-2-fine-grained-privilege-control-with-admins-specialists-and-normal-users">Story 2: Fine-grained privilege control with Admins, Specialists, and Normal Users</a></li>
+      <li><a href="#pricing-estimation">Pricing estimation</a></li>
+    </ul>
+  </li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p>Our problem at hand is quite predictable!
+A client has their staff submitting reports by CSV files every single day.
+One hundred files per day, but one file may have more than $10,000$ rows.
+The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports.
+Data’s growing day by day, and they want a scalable and automated solution.
+In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster.
+<!--more--></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p><strong>Auto scale-out</strong> operations are easy because we can use some sorts of Python code like the following to update a cluster (OpenSearch service):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">boto3</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="p">.</span><span class="n">client</span><span class="p">(</span><span class="s">'opensearch'</span><span class="p">)</span>
+<span class="n">client</span><span class="p">.</span><span class="n">update_domain_config</span><span class="p">(</span>
+    <span class="n">DomainName</span><span class="o">=</span><span class="n">domainName</span><span class="p">,</span>
+    <span class="n">ClusterConfig</span><span class="o">=</span><span class="p">{</span>
+      <span class="s">'InstanceCount'</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>And the number of instances in the cluster will be 10.
+However, to know when to perform this operation, the executors must be notified by a <strong>trigger</strong>.
+The triggers are continuously watching the cluster by metrics such as CPU Utilization rate.
+About scaling up, a material <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/sizing-domains.html">here</a> is useful!</p>
+
+<p>The analytical solution in this time does not only enable <strong>indexing and searching of massive CSV files</strong> but also allows <strong>interactive exploring</strong> of data by dashboards and visualizations.
+Many features such as Anomaly Detection and Trace Analytics are desirable.
+To this end, we choose the ELK stack for this problem.
+We chose the Amazon OpenSearch that bases on Elasticsearch with Kibana dashboards.</p>
+
+<p>Another notable point in the specifications is the <strong>privilege</strong> problem.
+Here there are different user groups: administrators, specialists, and normal users.
+Admins and users are different poles of the permission spectrum, but the specialists are not.
+There are specific contents that specialists can view and not others.</p>
+
+<p>Finally, note the size of the dataset: $200$ files (each with more than 10,000 rows) or $2,000,000$ headlines are coming to our database every single day.
+For such a size, we may experience about <strong>$600–800$ million news</strong> in our database for one year.
+Note, the news is from different sources, so there will be no in-source duplicates (news in the same CSV are mostly unique).
+There might be some cross-sources duplicates (different CSV have the same news) because different newspapers are copying news from others.
+However, although different headlines share the same topic, they should include <strong>different personal opinions of writers</strong>.
+Therefore, they are different, and the portion of duplicates is quite small in this assumption.
+And the order of this problem is no smaller than $600$ million news per year.</p>
+
+<p>However, although we have many records in the database, the client will have only $10–50$ administrators and specialists.
+For such a scale, we will have at max $50\times 1000=50,000$ <code class="language-plaintext highlighter-rouge">SELECT</code> queries per day.
+Their office hour is from 8 AM to 5 PM in Pacific Time.
+Indexing operations can be done over the night (from 6 PM to 6 AM of the next day) or during the weekends.
+But it should not be done during the day.
+These end-users are non-tech.
+Ideally, they should experience less than a few seconds of waiting time for the execution of a query.
+They won’t care about the news that was over one year normally.
+However, sometimes, they will search for news in the previous ten years from now.
+So you should not rotate the news from 10 years ago, which keeps the size of the database at a regular rate of <strong>$6–8$ billion news</strong> (after ten years of deployment).</p>
+
+<h1 id="solution-and-design">Solution and design</h1>
+
+<ul>
+  <li>
+    <p>What we are going to build is a <strong>search engine</strong> which should handle a scale of billion records in a database.
+Data start from 0 but grow at a speed of million news per day.
+Although the client only requires us to handle 8 billion news at max, we should handle 125% of the requirements to avoid overhead problems.
+Therefore, our solution should be able to handle at least <strong>$10$ billion news</strong> when it is used in production.
+As data is growing, we can set the solution to grow with data, but finally, for the first year, it should not be less than 1 billion.</p>
+  </li>
+  <li>First draft of the system should be posted after a month, then we can think about CICD and more interesting stories with the service.</li>
+  <li>First draft should be operational, so it is able to be deployed and managed with less effort from end-users.</li>
+  <li>If the system can handle the rate limit of $50,000$ queries per day, the customer may think to make it to a B2C service for millions of end-users.</li>
+  <li><strong>Scratch or pre-defined solutions?</strong>: With such a short span to release of the first draft (one month), then we shouldn’t think about implementing from scratch with this client.
+We should rely on pre-defined solutions like the ELK stack or AWS OpenSearch service.</li>
+  <li>Since we want to start as data growing, we should move to a solution that is not so tedious to <strong>scale up and scale out</strong>.</li>
+  <li>We should implement a <strong>dashboard</strong> feature with <strong>notebooks</strong> like in Kibana.</li>
+  <li><strong>Privilege</strong> problem should be able to be implemented easily, but it is <strong>not important</strong> at first draft.
+Then we move it to our backlog and will implement it in a later story.
+In fact, the configuration is quite simple: <a href="https://www.eksworkshop.com/intermediate/230_logging/config_es/#mapping-roles-to-users">https://www.eksworkshop.com/intermediate/230_logging/config_es/#mapping-roles-to-users</a></li>
+  <li><strong>Testing</strong> is required if you implement from <strong>scratch</strong> (a less confident solution). 
+But if you test a <strong>pre-defined solution</strong>, then you are <strong>wasting your time</strong>! 
+Official benchmark results are already somewhere on the Internet! 
+So another reason to use a pre-defined solution.
+Just google, and you will have the test results.
+You can find some of such benchmarks below.
+    <ul>
+      <li><a href="https://aws.amazon.com/blogs/containers/introducing-cis-amazon-eks-benchmark/">https://aws.amazon.com/blogs/containers/introducing-cis-amazon-eks-benchmark/</a></li>
+      <li><a href="https://logz.io/blog/benchmark-elasticsearch/">https://logz.io/blog/benchmark-elasticsearch/</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="implementation">Implementation</h1>
+
+<p>So we don’t want to waste our time on implementing from scratch or testing a <strong>lack-of-confident</strong> solution, then we choose AWS for sure.</p>
+
+<p>The source code can be found at <a href="https://github.com/wanted2/aws-sample-opensearch-kibana">my repo</a>.</p>
+
+<h1 id="testing">Testing</h1>
+
+<p>Performance Testing what Amazon engineers have spent from hundreds to thousands of hours for verification is <strong>waste of time</strong>.
+What we might do is experiments to find the best start configuration (number of nodes).
+But it is not important with an auto-scaling solution because when there is some need to scale up or out, it should be done automatically.</p>
+
+<p>What we should test is simply checking whether if we can access the dashboard, or users can use the UI normally, or the cluster is running normally or not.
+Let’s explore the manual for end-users:</p>
+
+<h2 id="login-and-create-index-patterns">Login and create index patterns</h2>
+
+<ul>
+  <li>After you create an OpenSearch cluster, you can explore the data in the OpenSearch Dashboards, which was previously known as Kibana.</li>
+  <li>Go to the provided URL, for example, <a href="https://search-x0053-a2ej7mr6xtirqhk36utyra65c4.us-east-1.es.amazonaws.com/_dashboards/app/home">https://search-x0053-a2ej7mr6xtirqhk36utyra65c4.us-east-1.es.amazonaws.com/_dashboards/app/home</a> to login into the boards.
+    <ul>
+      <li>Remember to create a new user in your Cognito User Pool and use the username and password to log in.
+  For the first time, users will need to change the password.</li>
+    </ul>
+  </li>
+  <li>For the first time, you will be prompted to a confirmation:</li>
+</ul>
+
+<p><img src="/assets/img/os-kibana-02.png" alt="confirm" /></p>
+
+<ul>
+  <li>To explore the dashboards and visualizations, you need to index data first and then go to <code class="language-plaintext highlighter-rouge">Stack Management &gt; Index Patterns</code> to select the index.</li>
+</ul>
+
+<p><img src="/assets/img/os-kibana-03.png" alt="confirm" /></p>
+
+<p>To put a new document into the indices from your local, you can use <code class="language-plaintext highlighter-rouge">pybuilder</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>pyb index_document <span class="nt">-P</span> <span class="nv">indexName</span><span class="o">=</span>x0053
+PyBuilder version 0.13.3
+Build started at 2021-11-14 16:44:26
+<span class="nt">------------------------------------------------------------</span>
+Amazon OpenSearch Service has finished processing changes <span class="k">for </span>your domain.
+Domain description:
+<span class="o">[</span>INFO]  Found <span class="nb">hostname</span>: search-x0053-a2ej7mr6xtirqhk36utyra65c4.us-east-1.es.amazonaws.com
+<span class="o">[</span>INFO]  Building x0053 version 1.0.1a
+<span class="o">[</span>INFO]  Executing build <span class="k">in </span>c:<span class="se">\u</span>sers<span class="se">\t</span>uan<span class="se">\s</span>ource<span class="se">\r</span>epos<span class="se">\x</span>0053
+<span class="o">[</span>INFO]  Going to execute task index_document
+<span class="o">[</span>INFO]  <span class="o">{</span><span class="s1">'_index'</span>: <span class="s1">'x0053'</span>, <span class="s1">'_type'</span>: <span class="s1">'_doc'</span>, <span class="s1">'_id'</span>: <span class="s1">'1'</span>, <span class="s1">'_version'</span>: 1, <span class="s1">'result'</span>: <span class="s1">'created'</span>, <span class="s1">'forced_refresh'</span>: True, <span class="s1">'_shards'</span>: <span class="o">{</span><span class="s1">'total'</span>: 2, <span class="s1">'successful'</span>: 1, <span class="s1">'failed'</span>: 0<span class="o">}</span>, <span class="s1">'_seq_no'</span>: 0, <span class="s1">'_primary_term'</span>: 1<span class="o">}</span>
+<span class="nt">------------------------------------------------------------</span>
+BUILD SUCCESSFUL
+<span class="nt">------------------------------------------------------------</span>
+Build Summary
+             Project: x0053
+             Version: 1.0.1a
+      Base directory: c:<span class="se">\u</span>sers<span class="se">\t</span>uan<span class="se">\s</span>ource<span class="se">\r</span>epos<span class="se">\x</span>0053
+        Environments:
+               Tasks: index_document <span class="o">[</span>2056 ms]
+Build finished at 2021-11-14 16:44:37
+Build took 10 seconds <span class="o">(</span>10963 ms<span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Check if the document is already:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>pyb search <span class="nt">-P</span> <span class="nv">indexName</span><span class="o">=</span>x0053         
+PyBuilder version 0.13.3
+Build started at 2021-11-14 16:45:30
+<span class="nt">------------------------------------------------------------</span>
+Amazon OpenSearch Service has finished processing changes <span class="k">for </span>your domain.
+Domain description:
+<span class="o">[</span>INFO]  Found <span class="nb">hostname</span>: search-x0053-a2ej7mr6xtirqhk36utyra65c4.us-east-1.es.amazonaws.com
+<span class="o">[</span>INFO]  Building x0053 version 1.0.1a
+<span class="o">[</span>INFO]  Executing build <span class="k">in </span>c:<span class="se">\u</span>sers<span class="se">\t</span>uan<span class="se">\s</span>ource<span class="se">\r</span>epos<span class="se">\x</span>0053
+<span class="o">[</span>INFO]  Going to execute task search
+<span class="o">[</span>INFO]  <span class="o">{</span><span class="s1">'took'</span>: 180, <span class="s1">'timed_out'</span>: False, <span class="s1">'_shards'</span>: <span class="o">{</span><span class="s1">'total'</span>: 5, <span class="s1">'successful'</span>: 5, <span class="s1">'skipped'</span>: 0, <span class="s1">'failed'</span>: 0<span class="o">}</span>, <span class="s1">'hits'</span>: <span class="o">{</span><span class="s1">'total'</span>: <span class="o">{</span><span class="s1">'value'</span>: 1, <span class="s1">'relation'</span>: <span class="s1">'eq'</span><span class="o">}</span>, <span class="s1">'max_score'</span>: 0.56026673, <span class="s1">'hits'</span>: <span class="o">[{</span><span class="s1">'_index'</span>: <span class="s1">'x0053'</span>, <span class="s1">'_type'</span>: <span class="s1">'_doc'</span>, <span class="s1">'_id'</span>: <span class="s1">'1'</span>, <span class="s1">'_score'</span>: 0.56026673, <span class="s1">'_source'</span>: <span class="o">{</span><span class="s1">'title'</span>: <span class="s1">'9 F1 ở Hà Nội được cách ly tại nhà'</span>, <span class="s1">'description'</span>: <span class="s1">'UBND phường Trung Văn, quận Nam Từ Liêm, cho 9 F1 đủ điều kiện cách ly tại nhà theo hướng dẫn của Bộ Y tế.'</span>, <span class="s1">'body'</span>: <span class="s1">'UBND phường Trung Văn, quận Nam Từ Liêm, cho 9 F1 đủ điều kiện cách ly tại nhà theo hướng dẫn của Bộ Y tế.\nÔng Nguyễn Đắc Long, Chủ tịch UBND phường Trung Văn, quận Nam Từ Liêm, tối 13/11 cho biết 9 F1, là người già có bệnh nền, trẻ em, thuộc hai gia đình, tiếp xúc với một F0 ngày 6/11 và một F0 khác vào ngày 8/11. Họ được cách ly ngay sau khi xác định F0, theo Hướng dẫn tạm thời giám sát và phòng, chống Covid-19, Bộ Y tế ban hành vào tháng 7.\n"Quy định chung của Bộ Y tế là trường hợp người già bệnh nền, trẻ em, gia đình có đủ điều kiện phòng ốc... thì sẽ cách ly y tế tại nhà. Vì vậy, chúng tôi cách ly 9 F1 này theo đúng quy định", ông Long giải thích và nói rõ rằng "đây không phải là trường hợp thí điểm cách ly tại nhà của Sở Y tế Hà Nội". Tuy nhiên, 9 F1 là những người đầu tiên tại Hà Nội được áp dụng hình thức cách ly này.\nHiện, Hà Nội chưa có kế hoạch cách ly F0, F1 tại nhà. Trả lời VnExpress vài ngày trước, lãnh đạo Trung tâm Kiểm soát Bệnh tật (CDC) Hà Nội và đại diện Sở Y tế Hà Nội cho biết thành phố có đủ nguồn lực để cách ly, điều trị tập trung F1 và F0. Chỉ khi nào số lượng F0, F1 tăng vượt quá khả năng, thành phố mới tính đến phương án cách ly người không triệu chứng tại nhà.\nNhiều chuyên gia đề nghị thành phố nên tính tới phương án này sớm. Phó giáo sư, tiến sĩ Trần Đắc Phu, Cố vấn cao cấp Trung tâm đáp ứng khẩn cấp sự kiện y tế công cộng Việt Nam, Bộ Y tế, cho rằng Hà Nội không nên kiên trì cách ly tập trung, rút kinh nghiệm các tỉnh có dịch bùng phát mạnh thời gian vừa qua. Nguyên nhân là thành phố liên tiếp xuất hiện các ổ dịch mới, số ca nhiễm gia tăng trong một tuần trở lại đây khi thực hiện thích ứng an toàn, linh hoạt, kiểm soát hiệu quả dịch Covid-19. F1 tăng nhiều khi số F0 cao, dẫn tới cơ sở cách ly tập trung hết chỗ. Thêm vào đó, duy trì cách ly tập trung sẽ khiến các cơ sở bị quá tải, có nguy cơ lây nhiễm chéo.\n"Cách ly F1 tại nhà giúp người bị cách ly đỡ tốn kém, người cách ly không bị ảnh hưởng nặng nề về tâm lý", ông Phu nói. Nhiều nhà dân Hà Nội đủ điều kiện, đủ cơ sở vật chất để cách ly ở nhà. Hệ thống y tế cơ sở và chính quyền từ thôn, xóm, tổ dân phố đủ năng lực, có thể giám sát, theo dõi người cách ly.\nHiện, phường Trung Văn, quận Nam Từ Liêm, đang ở cấp độ 2 (nguy cơ trung bình, màu vàng). Cả thành phố chỉ có phường Phú Đô, quận Nam Từ Liêm, dịch ở cấp độ 4 (nguy cơ rất cao, màu đỏ - cấp độ dịch cao nhất). Lần gần đây nhất chỉ có tổ dân phố Ngô Sài, thị trấn Quốc Oai, huyện Quốc Oai, được đánh giá cấp 4.\nTổng số ca nhiễm tại Hà Nội từ ngày 27/4 đến tối 13/11 là 5.924, trong đó số cộng đồng 2.229, số nhiễm sau khi được cách ly 3.695 ca.\nLực lượng y tế căng mình xét nghiệm cho người dân phường Thanh Xuân Trung, quận Thanh Xuân. Ảnh: Giang Huy'</span><span class="o">}}]}}</span>
+<span class="nt">------------------------------------------------------------</span>
+BUILD SUCCESSFUL
+<span class="nt">------------------------------------------------------------</span>
+Build Summary
+             Project: x0053
+             Version: 1.0.1a
+      Base directory: c:<span class="se">\u</span>sers<span class="se">\t</span>uan<span class="se">\s</span>ource<span class="se">\r</span>epos<span class="se">\x</span>0053
+        Environments: 
+               Tasks: search <span class="o">[</span>1355 ms]
+Build finished at 2021-11-14 16:45:38
+Build took 7 seconds <span class="o">(</span>7631 ms<span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li>Now you have indexed 1 document into OpenSearch, we can be back to Kibana to create an index pattern.</li>
+</ul>
+
+<p><img src="/assets/img/os-kibana-04.png" alt="confirm" /></p>
+
+<ul>
+  <li>Click into <code class="language-plaintext highlighter-rouge">Next step</code> then <code class="language-plaintext highlighter-rouge">Create index pattern</code> to go to the field lists screen.</li>
+</ul>
+
+<p><img src="/assets/img/os-kibana-05.png" alt="confirm" /></p>
+
+<h2 id="sql-query-workbench">SQL Query Workbench</h2>
+
+<p>We can use SQL syntax in Query Workbench.</p>
+
+<ul>
+  <li>Open the left sidebar, select <code class="language-plaintext highlighter-rouge">OpenSearch Plugins &gt; Query Workbench</code>.</li>
+</ul>
+
+<p><img src="/assets/img/os-kibana-06.png" alt="workbench" /></p>
+
+<p>Document for SQL in OpenSearch can be found <a href="https://opensearch.org/docs/latest/search-plugins/sql/index/">here</a>.</p>
+
+<h2 id="notebooks">Notebooks</h2>
+
+<p>This is also a valuable feature in OpenSearch dashboard.
+You can add visualization blocks or code blocks (SQL/PPL).</p>
+
+<p><img src="/assets/img/os-kibana-07.png" alt="notebook" /></p>
+
+<p>In this example, we used the following SQL query for full-text search:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="o">%</span><span class="k">sql</span>
+<span class="k">select</span> <span class="n">title</span><span class="p">,</span> <span class="n">description</span> <span class="k">from</span> <span class="n">x0053</span> <span class="k">where</span> <span class="n">match_query</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="nv">"f1"</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="anomaly-detection">Anomaly Detection</h2>
+
+<p><img src="/assets/img/os-kibana-08.png" alt="notebook" /></p>
+
+<p>From this view, we can create an Anomaly Detector with a specific rule like</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>title contains f1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Other features like Dashboards, Visualizations, Trace Analytics are also worth exploring.</p>
+
+<h1 id="operation-and-maintenance">Operation and maintenance</h1>
+
+<p>Installing OpenSearch maybe easy but managing a cluster requires more work.</p>
+
+<h2 id="configurations">Configurations</h2>
+
+<h3 id="multi-region-service">Multi-region service</h3>
+
+<p>To prevent data loss and minimize Amazon OpenSearch Service cluster downtime in the event of a service disruption, you can distribute nodes across two or three Availability Zones in the same Region, a configuration known as <code class="language-plaintext highlighter-rouge">Multi-AZ</code>. 
+Availability Zones are isolated locations within each AWS Region.</p>
+
+<p>For domains that run production workloads, we recommend the following configuration:</p>
+<ul>
+  <li>Choose a Region that supports three Availability Zones with OpenSearch Service.</li>
+  <li>Deploy the domain across three zones.</li>
+  <li>Choose current-generation instance types for dedicated master nodes and data nodes.</li>
+  <li>Use three dedicated master nodes and at least three data nodes.</li>
+  <li>Create at least one replica for each index in your cluster.</li>
+</ul>
+
+<p><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/replication.html">Cross-cluster replication</a> in Amazon OpenSearch Service lets you replicate indices, mappings, and metadata from one OpenSearch Service domain to another.
+It follows an active-passive replication model where the follower index (where the data is replicated) pulls data from the leader index.
+Cross-cluster replication ensures high availability in the event of an outage, and allows you to replicate data across geographically distant data centers to reduce latency.</p>
+
+<h3 id="indices">Indices</h3>
+
+<p>If you need to migrate indices from a cluster to another, you can use <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/remote-reindex.html">remote reindex</a>.
+Whereas <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/rollup.html">index rollup jobs</a> let you reduce data granularity by rolling up old data into condensed indices, <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/transforms.html">transform jobs</a> let you create a different, summarized view of your data centered around certain fields, so you can visualize or analyze the data in different ways.</p>
+
+<p>One thing that is amazing about indices management is <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ism.html">Index State Management (ISM)</a> in Amazon OpenSearch Service.
+It lets you define custom management policies to automate routine tasks and apply them to indices and index patterns. You no longer need to set up and manage external processes to run your index operations.
+For example, you can setup a policy that moves an index from hot storage to <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html">UltraWarm</a>, and eventually to <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html">cold storage</a>, then deletes the index.</p>
+
+<h2 id="auditing">Auditing</h2>
+
+<h3 id="monitoring">Monitoring</h3>
+<p>Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon OpenSearch Service and your other AWS solutions. AWS provides the following tools to monitor your OpenSearch Service resources, report issues, and take automatic actions when appropriate:</p>
+
+<h4 id="amazon-cloudwatch">Amazon CloudWatch</h4>
+<p>Amazon CloudWatch monitors your OpenSearch Service resources in real time.
+You can collect and track metrics, create customized dashboards, and set alarms that notify you or take actions when a metric reaches a certain threshold.</p>
+
+<h4 id="amazon-cloudwatch-logs">Amazon CloudWatch Logs</h4>
+<p>Amazon CloudWatch Logs lets you monitor, store, and access your OpenSearch log files.
+CloudWatch Logs monitors the information in log files and can notify you when certain thresholds are met.</p>
+
+<h4 id="amazon-eventbridge">Amazon EventBridge</h4>
+<p>Amazon EventBridge delivers a near real-time stream of system events that describe changes in your OpenSearch Service domains.
+You can create rules that watch for certain events, and trigger automated actions in other AWS services when these events occur.</p>
+
+<h4 id="aws-cloudtrail">AWS CloudTrail</h4>
+<p>AWS CloudTrail captures configuration API calls made to OpenSearch Service as events.
+It can deliver these events to an Amazon S3 bucket that you specify.
+Using this information, you can identify which users and accounts made requests, the source IP address from which the requests were made, and when the requests occurred.</p>
+
+<h3 id="notifications">Notifications</h3>
+
+<p>Notifications in Amazon OpenSearch Service currently contain information about available software updates and Auto-Tune events for your domains.
+In the future, they might also include performance optimization recommendations such as moving to the correct instance type for a domain or rebalancing shards to reduce performance bottlenecks.</p>
+
+<h2 id="security">Security</h2>
+
+<p>Security is a shared responsibility between AWS and you. The shared responsibility model describes this as security of the cloud and security in the cloud:</p>
+
+<ul>
+  <li>
+    <p><strong>Security of the cloud</strong> – AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud.
+AWS also provides you with services that you can use securely.
+Third-party auditors regularly test and verify the effectiveness of our security as part of the AWS compliance programs.</p>
+  </li>
+  <li>
+    <p><strong>Security in the cloud</strong> – Your responsibility is determined by the AWS service that you use.
+You are also responsible for other factors including the sensitivity of your data, your company’s requirements, and applicable laws and regulations.</p>
+  </li>
+</ul>
+
+<p><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html">Fine-grained access control</a> helps you to define roles, access level at indices, documents and domain levels.
+You can restrict the access to your dashboard by using multi-tenancy.
+<a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/data-protection.html">Data protection</a> is enhanced with encryption at rest and node-to-node encryption.
+Data integrity comply with many standards: Third-party auditors assess the security and compliance of Amazon OpenSearch Service as part of multiple AWS compliance programs.
+These programs include SOC, PCI, and HIPAA.
+SAML based authentication and Amazon Cognito are all supported.</p>
+
+<h2 id="management">Management</h2>
+
+<p><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune</a> in Amazon OpenSearch Service uses performance and usage metrics from your OpenSearch cluster to suggest memory-related configuration changes, including queue and cache sizes and Java virtual machine (JVM) settings on your nodes. These optional changes improve cluster speed and stability.</p>
+
+<p>To enable auto-tune,</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre>POST https://es.us-east-1.amazonaws.com/2021-01-01/opensearch/domain/domain-name/config
+<span class="o">{</span>
+  <span class="s2">"AutoTuneOptions"</span>: <span class="o">{</span>
+    <span class="s2">"DesiredState"</span>: <span class="s2">"ENABLED"</span>,
+    <span class="s2">"MaintenanceSchedules"</span>: <span class="o">[{</span>
+      <span class="s2">"StartAt"</span>: 4104152288000,
+      <span class="s2">"Duration"</span>: <span class="o">{</span>
+        <span class="s2">"Value"</span>: 2,
+        <span class="s2">"Unit"</span>: <span class="s2">"HOURS"</span>
+      <span class="o">}</span>,
+    <span class="s2">"CronExpressionForRecurrence"</span>: <span class="s2">"cron(0 12 * * ? *)"</span>
+    <span class="o">}]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>We have walked through a tutorial on configurations of an OpenSearch cluster with logging options, encryption at rest, .etc.
+In the next steps, we will implement the following two stories:</p>
+
+<p><img src="/assets/img/os-kibana-stories.svg" alt="next stories" /></p>
+
+<h2 id="story-1-csv-upload-to-s3-for-streaming">Story 1: CSV upload to S3 for streaming</h2>
+
+<ul>
+  <li>Users need to upload CSV files with three fields: <code class="language-plaintext highlighter-rouge">title, body</code> and <code class="language-plaintext highlighter-rouge">description</code>.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9 F1 ở Hà Nội được cách ly tại nhà</td>
+      <td>UBND phường Trung Văn, quận Nam Từ Liêm, cho 9 F1 đủ điều kiện cách ly tại nhà theo hướng dẫn của Bộ Y tế.</td>
+      <td>UBND phường Trung Văn, quận Nam Từ Liêm, cho 9 F1 đủ điều kiện cách ly tại nhà theo hướng dẫn của Bộ Y tế.\nÔng Nguyễn Đắc Long, Chủ tịch UBND phường Trung Văn, quận Nam Từ Liêm, tối 13/11 cho biết 9 F1, là người già có bệnh nền, trẻ em, thuộc hai gia đình, tiếp xúc với một F0 ngày 6/11 và một F0 khác vào ngày 8/11. Họ được cách ly ngay sau khi xác định F0, theo Hướng dẫn tạm thời giám sát và phòng, chống Covid-19, Bộ Y tế ban hành vào tháng 7.\n"Quy định chung của Bộ Y tế là trường hợp người già bệnh nền, trẻ em, gia đình có đủ điều kiện phòng ốc… thì sẽ cách ly y tế tại nhà. Vì vậy, chúng tôi cách ly 9 F1 này theo đúng quy định", ông Long giải thích và nói rõ rằng "đây không phải là trường hợp thí điểm cách ly tại nhà của Sở Y tế Hà Nội". Tuy nhiên, 9 F1 là những người đầu tiên tại Hà Nội được áp dụng hình thức cách ly này.\nHiện, Hà Nội chưa có kế hoạch cách ly F0, F1 tại nhà. Trả lời VnExpress vài ngày trước, lãnh đạo Trung tâm Kiểm soát Bệnh tật (CDC) Hà Nội và đại diện Sở Y tế Hà Nội cho biết thành phố có đủ nguồn lực để cách ly, điều trị tập trung F1 và F0. Chỉ khi nào số lượng F0, F1 tăng vượt quá khả năng, thành phố mới tính đến phương án cách ly người không triệu chứng tại nhà.\nNhiều chuyên gia đề nghị thành phố nên tính tới phương án này sớm. Phó giáo sư, tiến sĩ Trần Đắc Phu, Cố vấn cao cấp Trung tâm đáp ứng khẩn cấp sự kiện y tế công cộng Việt Nam, Bộ Y tế, cho rằng Hà Nội không nên kiên trì cách ly tập trung, rút kinh nghiệm các tỉnh có dịch bùng phát mạnh thời gian vừa qua. Nguyên nhân là thành phố liên tiếp xuất hiện các ổ dịch mới, số ca nhiễm gia tăng trong một tuần trở lại đây khi thực hiện thích ứng an toàn, linh hoạt, kiểm soát hiệu quả dịch Covid-19. F1 tăng nhiều khi số F0 cao, dẫn tới cơ sở cách ly tập trung hết chỗ. Thêm vào đó, duy trì cách ly tập trung sẽ khiến các cơ sở bị quá tải, có nguy cơ lây nhiễm chéo.\n"Cách ly F1 tại nhà giúp người bị cách ly đỡ tốn kém, người cách ly không bị ảnh hưởng nặng nề về tâm lý", ông Phu nói. Nhiều nhà dân Hà Nội đủ điều kiện, đủ cơ sở vật chất để cách ly ở nhà. Hệ thống y tế cơ sở và chính quyền từ thôn, xóm, tổ dân phố đủ năng lực, có thể giám sát, theo dõi người cách ly.\nHiện, phường Trung Văn, quận Nam Từ Liêm, đang ở cấp độ 2 (nguy cơ trung bình, màu vàng). Cả thành phố chỉ có phường Phú Đô, quận Nam Từ Liêm, dịch ở cấp độ 4 (nguy cơ rất cao, màu đỏ - cấp độ dịch cao nhất). Lần gần đây nhất chỉ có tổ dân phố Ngô Sài, thị trấn Quốc Oai, huyện Quốc Oai, được đánh giá cấp 4.\nTổng số ca nhiễm tại Hà Nội từ ngày 27/4 đến tối 13/11 là 5.924, trong đó số cộng đồng 2.229, số nhiễm sau khi được cách ly 3.695 ca.\nLực lượng y tế căng mình xét nghiệm cho người dân phường Thanh Xuân Trung, quận Thanh Xuân. Ảnh: Giang Huy</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Source: <a href="https://vnexpress.net/nhieu-f1-o-ha-noi-duoc-cach-ly-tai-nha-4385406.html">https://vnexpress.net/nhieu-f1-o-ha-noi-duoc-cach-ly-tai-nha-4385406.html</a></em></p>
+
+<ul>
+  <li>CSV is then streamed into OpenSearch for <strong>indexing</strong>.</li>
+  <li>End-user will query through Kibana (OpenSearch Dashboards) for investigations.</li>
+</ul>
+
+<p>The following tasks will be done:</p>
+
+<ul class="task-list">
+  <li>CSV upload
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Setup S3 bucket with triggering.</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Setup indexing Lambda to handle streaming CSV.</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Setup Kibana for end-users</li>
+</ul>
+
+<h2 id="story-2-fine-grained-privilege-control-with-admins-specialists-and-normal-users">Story 2: Fine-grained privilege control with Admins, Specialists, and Normal Users</h2>
+
+<ul>
+  <li>There are three user groups in our application:
+    <ul>
+      <li><strong>Administrators group</strong> who have the highest privilege, members in this group can view/edit/delete anything in the dashboard.</li>
+      <li><strong>Specialists group</strong> who need to view the dashboard but not everything. They cannot edit/delete anything in the dashboard.</li>
+      <li><strong>Normal users group</strong> who are forbidden from viewing the dashboard.</li>
+    </ul>
+  </li>
+  <li>We need to filter out before Cognito log users in to find the type of users:
+    <ul>
+      <li>if users are admins, let them in.</li>
+      <li>if users are specialists, let them in but restrict their view. <strong>Please check whether if this is doable or not?</strong></li>
+      <li>if users are normal, don’t log in.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Tutorial about lambda triggers in Cognito</a>.</p>
+
+<ul>
+  <li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html">Triggers</a>
+    <ul>
+      <li>CreateAuthChallenge</li>
+      <li>CustomMessage</li>
+      <li>DefineAuthChallenge</li>
+      <li>PostAuthentication</li>
+      <li>PostConfirmation</li>
+      <li>PreAuthentication</li>
+      <li>PreSignUp</li>
+      <li>PreTokenGeneration</li>
+      <li>UserMigration</li>
+      <li>VerifyAuthChallengeResponse</li>
+      <li>Not need to configure all above Lambdas!</li>
+    </ul>
+  </li>
+  <li>Admins/Specialists restriction problem
+    <ul class="task-list">
+      <li>Create two groups for admins and specialists, no need of a group for normal users.
+        <ul class="task-list">
+          <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />In <code class="language-plaintext highlighter-rouge">PreSignup</code> logic, if the email is from a normal user then deny sign up.</li>
+          <li class="task-list-item"><strong>it is important here that there must be a Lambda connecting to user table to check the type of users</strong>!</li>
+        </ul>
+      </li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />In <code class="language-plaintext highlighter-rouge">PreLogin</code> function, log the groups of their login behaviors for later diagnosis.</li>
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Configure the role/policies to ensure that specialists can only view.
+        <ul class="task-list">
+          <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />If there are specific resources specialists cannot view, then can Cognito handle?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Then we need two Lambda functions:</p>
+<ul>
+  <li>One <code class="language-plaintext highlighter-rouge">PreSignup</code> Lambda that connects and verifies user types (admins/specialists or normal) before signing up a user.</li>
+  <li>Another <code class="language-plaintext highlighter-rouge">PreLogin</code> Lambda that logs user behaviors.</li>
+</ul>
+
+<h2 id="pricing-estimation">Pricing estimation</h2>
+<p>The pricing estimation of these two stories with the original story can be found <a href="https://calculator.aws/#/estimate?id=e6fb0a2e9b0d46b7b876fec8e8da02c8c1e4be60">here (152.20$ per month)</a>.</p>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-11-13">13 Nov 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Artificial-Intelligence">Artificial Intelligence</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#amazon-web-services">#amazon web services</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#aws">#aws</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#elasticsearch">#elasticsearch</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#kibana">#kibana</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#opensearch">#opensearch</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//azure-boards-pm-extensions/"> &laquo; Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//chicken-and-egg-problem/">Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

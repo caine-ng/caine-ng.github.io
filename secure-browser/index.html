@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>セキュアブラウザについて | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>セキュアブラウザについて | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="セキュアブラウザについて" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="中小企業向けテレワークセキュリティガイドライン（第5版） [1]が令和3年5月には公表されました。 無料で直ぐに点検できますので、結構貴重な資料であろう。 その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。 普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？ さらに、一般のブラウザと比べると付加価値とは何か？ ひょっとしたら調べていきます。 専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。" />
+<meta property="og:description" content="中小企業向けテレワークセキュリティガイドライン（第5版） [1]が令和3年5月には公表されました。 無料で直ぐに点検できますので、結構貴重な資料であろう。 その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。 普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？ さらに、一般のブラウザと比べると付加価値とは何か？ ひょっとしたら調べていきます。 専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/secure-browser.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-09T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/secure-browser.png" />
+<meta property="twitter:title" content="セキュアブラウザについて" />
+<script type="application/ld+json">
+{"description":"中小企業向けテレワークセキュリティガイドライン（第5版） [1]が令和3年5月には公表されました。 無料で直ぐに点検できますので、結構貴重な資料であろう。 その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。 普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？ さらに、一般のブラウザと比べると付加価値とは何か？ ひょっとしたら調べていきます。 専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。","image":"/assets/img/secure-browser.png","headline":"セキュアブラウザについて","dateModified":"2021-09-09T00:00:00+09:00","datePublished":"2021-09-09T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/secure-browser/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/secure-browser/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=セキュアブラウザについて&url=/secure-browser/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/secure-browser/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/secure-browser/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">セキュアブラウザについて</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/secure-browser.png" alt="セキュアブラウザについて">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#皆はセキュアブラウザだ">皆はセキュアブラウザだ</a></li>
+  <li><a href="#主要機能アバストセキュアブラウザの例">主要機能：アバストセキュアブラウザの例</a></li>
+  <li><a href="#まとめ">まとめ</a></li>
+  <li><a href="#参考文献">参考文献</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p>中小企業向け<a href="https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00111.html">テレワークセキュリティガイドライン（第5版）</a> [1]が令和3年5月には公表されました。
+無料で直ぐに点検できますので、結構貴重な資料であろう。
+その中で、セキュアブラウザを用いたテレワークのセキュリティガイドラインも一章ぐらいあります。
+普通にウエブサイトを閲覧するためのIEやChromeなどもブラウザですが、セキュアブラウザって何でしょうか？
+さらに、一般のブラウザと比べると付加価値とは何か？
+ひょっとしたら調べていきます。
+専門家レベルに対し豆知識かもしれないが、市民講座に参加するエンドユーザのレベルで理解できなければ、普及を妨げるし、セキュリティ向上につながらないため、頑張って調べます。</p>
+
+<!--more-->
+
+<h1 id="皆はセキュアブラウザだ">皆はセキュアブラウザだ</h1>
+
+<p>なかなか、Firefox、Chrome、IEのホームページで見ると皆はセキュアだと主張しています。
+「ウエブサイトの<strong>コンテンツ</strong>を視聴できるブラウザに、<strong>セキュリティ</strong>と<strong>プライバシー保護</strong>の機能組を十分に実装されている」ものはセキュアブラウザであるみたいです。
+コンテンツ視聴には、見る、聴く、話す、情報共有だけではなく、検索、フィルターなどの操作もできるが、一応、コンテンツの知識で、ここではネット上でユーザがデータをやり取りする操作のすべてを指すとしましょう。
+これらの機能は「ブラウザ」の基礎機能となり、最低限で実装すべきの機能でしょう。</p>
+
+<p>それに加えて、<strong>セキュリティ</strong>と<strong>プライバシー保護</strong>の機能組はなぜ必要になるか？</p>
+
+<ul>
+  <li>
+    <p><strong>セキュリティ</strong>: 悪意のあるユーザが誠実ユーザや組織から情報を盗んだり、攻撃に利用したりする恐れもあります。ブラウザの領域だと、組織よりもエンドユーザの情報の盗聴の可能性があります。もちろん、そのエンドユーザが会社の従業員である場合、組織の機密情報レベルに関係します。ですので、システムレベルでポリシーを設定し、ブラウザの挙動を制限する政策も企業のガバナンスの立場になります。しかし、それだけでは足りず、ブラウザ自体にも対策を備えないとインシデントが多発する可能性もあります。要するに、<strong>ブラウザ自体にはどれぐらいエンドユーザをネット上の機器から守れるかセキュア性を評価する指標になります</strong>。ちなみに、システムレベルで設定する方法は受動的であり、接続先のIPなどのコネクションの情報を見てブロックするというルール化するプロセスも有効な方法です。ここで、セキュアブラウザには受動ではなく、エンドユーザ自身の能動的に活動させる方法もあります。戦争で、相手軍の動きを待たずに、先に主導権をとって、有利地を確保する手です。</p>
+  </li>
+  <li>
+    <p><strong>プライバシー保護</strong>: 先に説明した盗聴の話と少し違います。業務での機密情報ではなく<strong>個人情報</strong>の話かと思います。エンドユーザはネット上で活動し、活動履歴が出てきます。名前、メールアドレス、住所といった真の個人情報だけではなく、活動履歴も個人情報です。また、金融機関が発行するクレジットカードの番号や明細なども個人情報として扱われるべきであろう。福祉サービスや行政サービスと連携する個人番号、保険情報、住民票、住民移動履歴なども個人情報として扱います。機密情報がバレルと会社の利益に損害が発生する恐れがわかりやすいが、個人情報が盗聴すると何が起きるか？例えば、不注意でクレジットカードの番号が怪しい人に見せて、そのあとに講座から大金額が引き落としたなどエンドユーザ側で情報漏洩が発生するインシデントもあります。サービス経営側でユーザの個人情報を漏洩してしまうインシデントもあります。</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>ベルシステム24事件</strong>: クレジットカード会社の派遣社員による悪用が原因の情報漏えい</p>
+</blockquote>
+
+<blockquote>
+  <p>クレジットカード会社のコールセンター「ベルシステム」に勤める契約社員が、顧客の情報を不正に使用する犯罪もありました。コールセンターの業務で知り得た顧客のクレジットカード番号とセキュリティコードなどを、悪用目的で盗み出したというものです。顧客のクレジットカードにより購入した商品の額は900万円近くにのぼりました。情報セキュリティ部門に関連する部署の職員犯行により、社会的にも大きく騒がれました。</p>
+</blockquote>
+
+<p>セキュアブラウザはもちろんサービス運営側よりもエンドユーザ側に主導的なアプローチを適用し、セキュリティとプライバシー保護の両方を充実します。
+金融機関には不正送金やクレジット窃盗などの詐欺（Fraud）を検出する受動的なアプローチも多く実施されるが、今回のセキュアブラウザはエンドユーザ側の対策になります。</p>
+
+<h1 id="主要機能アバストセキュアブラウザの例">主要機能：アバストセキュアブラウザの例</h1>
+
+<p>前節で説明したように、コンテンツ視聴機能組には、十分にセキュリティとプライバシーを守る機能組を足してセキュアブラウザになりますが、情報漏洩をエンドユーザ側で対策を備えることになります。<strong>どんな機能が実装されるか見てみましょう</strong>。
+今回は<strong>アバストセキュアブラウザ</strong>を例にして解析します。</p>
+
+<ul>
+  <li>
+    <p><strong>アンチウィルスと連携</strong>: マルウエアやランサムウェアによる攻撃が増え続けています。ハッカーが対象のデバイスに情報がなくてもそのデバイスをコントロールし、攻撃に利用する恐れもあります。セキュアブラウザはアバストアンチウィルスに連携し、ウエブページ閲覧の時にマルウエアとランサムウェアをブロックすることでより安全なブラウジング体験を提供します。</p>
+  </li>
+  <li>
+    <p><strong>バンクモード</strong> [3]: オンラインでショッピングやバンキングをするときに、金融情報を求めたり、フォームに入力したりすることがあります。
+バンクモードは、実際のPCの内部で安全かつクリーンなPCとしての役割を果たす<strong>仮想デスクトップ</strong>を提供します。
+バンクモード仮想デスクトップは、悪意のあるスクリプトの挿入、キーストロークロギング、サードパーティアプリによるスクリーンショットの試行からユーザーを保護します。
+オンラインバンキングのサイトにアクセスするときや、オンライン決済を行うときは毎回、バンクモードを使用することをおすすめします。</p>
+  </li>
+  <li>
+    <p><strong>VPN</strong>: 仮想プライベートネットワークの略語です。下記に述べるプライベートモードとは違い、エンドユーザの活動をすべての第三者の侵入者から守れます。
+第三者の侵入者はハッカーというだけではなく、インターネットプロバイダーや政府からも保護します。
+アバストセキュアブラウザにはVPN機能が実装されていますので、そのまま使うとインターネット上でより安全な体験ができます。</p>
+  </li>
+</ul>
+
+<p><img src="https://cdn-resprivacy.pressidium.com/wp-content/uploads/2021/08/private-and-secure-browser-with-a-VPN.png" alt="vpn" />
+<em>Source: <a href="https://restoreprivacy.com/browser/secure/">Restore Privacy</a></em></p>
+
+<ul>
+  <li>
+    <p><strong>アドブロック</strong>: 余計な広告をブロックする話です。3つのレベルで設定できます。
+「最小限」レベルでは、バナーやポップアップ、音声付き自動再生動画をブロックするなどできます。
+「バランス」レベルでは、ウエブ閲覧を低速化するとされた広告をすべてブロックします。これはデフォルトレベルと設定されます。
+「厳格」レベルでは、ほぼすべての広告をブロックします。一部のウエブサイトへのアクセスができなくなり、読み込めないなどもあります。</p>
+  </li>
+  <li>
+    <p><strong>指紋採取対策</strong>: ネット上での活動経歴も個人情報です。サービス運営側と広告ネットワークがユーザの活動経歴を求めたいです。なぜなら、その履歴で最適な体験、広告をユーザに提供します。CookieやIPアドレスでユーザを特定する手法も古くて、ユーザ固有のブラウザ設定でユーザを監視できます。しかし、活動経歴をウエブサイトと広告ネットワークから守りたい場合、ユーザ固有のブラウザ指紋（ブラウザバージョンやインストールした拡張機能など）を隠す必要があります。<strong>できるだけ、VPNをオンにしてからこの機能もオンにすることで追加プライバシー保護レイヤーを設定できます</strong>。</p>
+  </li>
+  <li>
+    <p><strong>モバイル保護</strong>: 近年、モバイルデバイスの普及により、携帯モバイルでのインシデントも多発しています。よって、PC版ではなく、モバイルでコンテンツ視聴を守る必要あります。アバストセキュアブラウザはAndroid版とiOS版も提供しています。
+PCとともにモバイルにも導入しましょう。</p>
+  </li>
+  <li>
+    <p><strong>フィッシング対策</strong>: 訪問先のウエブサイトを危険なリストに照合してチェックすることでフィッシングのような詐欺サイトへのアクセスを防止できます。</p>
+  </li>
+  <li>
+    <p><strong>トラッキング対策</strong>: 訪問先でトラッキングスクリプトをスキャンし、それらユーザーの活動経歴をトラッキングする行為を発見します。この機能により、ユーザの訪問経歴を広告会社と分析会社から守れます。</p>
+  </li>
+  <li>
+    <p><strong>プライベートモード</strong>: プライバシー保護のために、活動経歴を保存せずに、サクション終了時にCookieやウエブキャッシュ、セクションデータをすべて破棄します。</p>
+  </li>
+  <li>
+    <p><strong>パスワードマネージャー</strong>: オンラインで安全にウエブサイトを閲覧できるために、かならず異なるサイトで異なるパスワードを設定することが必要です。それに伴い、設定パスワードが多発しているので、パスワードを忘れずに保管して管理する手法も必要となります。
+エンドユーザは自らパスワードを記憶することが不要で、付箋や紙媒体にパスワードを記録することも不要です。
+さらに、入力時に、パスワードを打たずに、ワンクリックで素早く入力できることで、再入力で漏れることもないでしょう。
+アバストセキュアブラウザにはパスワードマネージャーが常にオンにしましょう。
+ブラウザ（デフォルト）のものを使っても良くて、外部のパスワードマネージャーへの連携も可能となります。</p>
+  </li>
+  <li>
+    <p><strong>拡張機能ガード</strong>: 拡張機能が役に立ちますが、同時にエンドユーザを悪意のあるハッカーとエクスプロイトにさらされるため、拡張機能をチェックする必要があります。
+アバストセキュアブラウザの拡張機能ガードをオンにすると、拡張機能の身元を確認し、信頼できない拡張機能のインストールを防止できます。
+自分で信頼できると判断したが、拡張機能ガードによりブロックされた場合、設定で例外を追加できますが、例外を追加する前に信頼性を必ず確保してください。</p>
+  </li>
+  <li>
+    <p><strong>プライバシークリーナー</strong>: この機能で閲覧セクションで貯蓄された不要なデータを一括削除できます。
+閲覧履歴やキャッシュされた画像やCookieやダウンロード履歴などを削除できます。</p>
+  </li>
+  <li>
+    <p><strong>ハックチェック</strong>: メールアドレスを入力することで、そのメールアドレスにリンクされたすべてのオンラインアカウントを監視し、個人情報が漏洩された場合、アラートを上げることになります。</p>
+  </li>
+</ul>
+
+<h1 id="まとめ">まとめ</h1>
+<p>セキュアブラウザの機能についてアバストセキュアブラウザの例でわかりました。
+コンテンツ視聴だけではなく、安全に閲覧できるために、セキュリティとプライバシー保護の機能組を十分に実装する必要があります。
+セキュアブラウザはあくまでもエンドユーザ側を保護するための手法であり、テレワークでは不十分である可能性もありますが、チェックリストをキチンとさらされてポリシー化し、受動的手法も能動的手法もいろいろと活用しましょう。</p>
+
+<p>上記の機能組では、VPNはアバストセキュアブラウザで有料機能になるが、Pro版にアップグレードするか、外部の無償VPNを利用する手法が必要です。</p>
+
+<h1 id="参考文献">参考文献</h1>
+
+<ol class="bibliography"><li><span id="soumushou46online"><i>総務省｜報道資料｜「テレワークセキュリティガイドライン（第5版）」（案）に対する意見募集の結果及び当該ガイドラインの公表</i>. https://www.soumu.go.jp/menu_news/s-news/01cyber01_02000001_00111.html.</span></li>
+<li><span id="avastsecurebrowser64online"><i>追跡なしのプライベート ブラウザ | アバスト セキュア ブラウザ</i>. https://www.avast.co.jp/secure-browser#pc.</span></li>
+<li><span id="bankmode1online"><i>アバスト セキュア ブラウザでバンク モードを開く方法 | アバスト</i>. https://support.avast.com/ja-jp/article/Use-Bank-Mode/.</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-09-09">09 Sep 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Project-Management">Project Management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#セキュアブラウザ">#セキュアブラウザ</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#セキュリティ">#セキュリティ</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#ブラウザ">#ブラウザ</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#プライバシー">#プライバシー</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//c4-diagrams-software-design/"> &laquo; C4 diagrams for software architecture visualization - Context, Containers, Components, and Code -</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//agile-feature/">アジャイル開発でタスクにアサインされる場合、直ぐにやるかどうかどうやって判定するか？ &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

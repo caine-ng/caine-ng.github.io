@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile? | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile? | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cũng phải 9-10 năm trước đây, khi mới bắt đầu làm các nền tảng với mong muốn xây dựng “một phút huy hoàng rồi vụt tắt”, tôi hay thấy các nhà phát triển lựa chọn cùng lúc phát triển 3 phiên bản: Web, mobile (Android/iOS) và một bản có thể desktop. Đó là những năm 2012 và việc đó chủ yếu để tăng độ phủ của dịch vụ. Nhưng năm nay là năm 2021, và chúng ta không thể hướng dẫn các em trẻ bằng bộ não của những “ông già” mà thời huy hoàng từ những năm 2012. Năm 2021, chúng ta cũng cần cập nhật và nhìn lại những ứng dụng thành công trong 2 năm qua của kỷ nguyên COVID, tôi chợt nhận ra: ứng dụng ClubHouse thành công gọi vốn vòng C tương đương 100 triệu đô lẻ nhưng không hề cung cấp giao diện web, chỉ toàn ứng dụng mobile. Ứng dụng na ná thế của Việt Nam là onMic cũng không thèm chơi với web luôn! Ồ, chúng ta đã già rồi với giới trẻ có lẽ đã không còn mặn mà với việc xây một phiên bản cho desktop browser nữa. Năm 2021 phải là thời đại của mobile. Chúng ta có lẽ đã sai, và cũng nên nhìn nhận lại khả năng của mobile apps (native chứ không phải nhúng mấy cái Javascript vớ vẩn)!" />
+<meta property="og:description" content="Cũng phải 9-10 năm trước đây, khi mới bắt đầu làm các nền tảng với mong muốn xây dựng “một phút huy hoàng rồi vụt tắt”, tôi hay thấy các nhà phát triển lựa chọn cùng lúc phát triển 3 phiên bản: Web, mobile (Android/iOS) và một bản có thể desktop. Đó là những năm 2012 và việc đó chủ yếu để tăng độ phủ của dịch vụ. Nhưng năm nay là năm 2021, và chúng ta không thể hướng dẫn các em trẻ bằng bộ não của những “ông già” mà thời huy hoàng từ những năm 2012. Năm 2021, chúng ta cũng cần cập nhật và nhìn lại những ứng dụng thành công trong 2 năm qua của kỷ nguyên COVID, tôi chợt nhận ra: ứng dụng ClubHouse thành công gọi vốn vòng C tương đương 100 triệu đô lẻ nhưng không hề cung cấp giao diện web, chỉ toàn ứng dụng mobile. Ứng dụng na ná thế của Việt Nam là onMic cũng không thèm chơi với web luôn! Ồ, chúng ta đã già rồi với giới trẻ có lẽ đã không còn mặn mà với việc xây một phiên bản cho desktop browser nữa. Năm 2021 phải là thời đại của mobile. Chúng ta có lẽ đã sai, và cũng nên nhìn nhận lại khả năng của mobile apps (native chứ không phải nhúng mấy cái Javascript vớ vẩn)!" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="https://jp.techcrunch.com/wp-content/uploads/2020/05/clubhouse-voice-chat-social-network.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-26T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://jp.techcrunch.com/wp-content/uploads/2020/05/clubhouse-voice-chat-social-network.jpg" />
+<meta property="twitter:title" content="Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?" />
+<script type="application/ld+json">
+{"description":"Cũng phải 9-10 năm trước đây, khi mới bắt đầu làm các nền tảng với mong muốn xây dựng “một phút huy hoàng rồi vụt tắt”, tôi hay thấy các nhà phát triển lựa chọn cùng lúc phát triển 3 phiên bản: Web, mobile (Android/iOS) và một bản có thể desktop. Đó là những năm 2012 và việc đó chủ yếu để tăng độ phủ của dịch vụ. Nhưng năm nay là năm 2021, và chúng ta không thể hướng dẫn các em trẻ bằng bộ não của những “ông già” mà thời huy hoàng từ những năm 2012. Năm 2021, chúng ta cũng cần cập nhật và nhìn lại những ứng dụng thành công trong 2 năm qua của kỷ nguyên COVID, tôi chợt nhận ra: ứng dụng ClubHouse thành công gọi vốn vòng C tương đương 100 triệu đô lẻ nhưng không hề cung cấp giao diện web, chỉ toàn ứng dụng mobile. Ứng dụng na ná thế của Việt Nam là onMic cũng không thèm chơi với web luôn! Ồ, chúng ta đã già rồi với giới trẻ có lẽ đã không còn mặn mà với việc xây một phiên bản cho desktop browser nữa. Năm 2021 phải là thời đại của mobile. Chúng ta có lẽ đã sai, và cũng nên nhìn nhận lại khả năng của mobile apps (native chứ không phải nhúng mấy cái Javascript vớ vẩn)!","image":"https://jp.techcrunch.com/wp-content/uploads/2020/05/clubhouse-voice-chat-social-network.jpg","headline":"Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?","dateModified":"2021-08-26T00:00:00+09:00","datePublished":"2021-08-26T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/mobile-and-web/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/mobile-and-web/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?&url=/mobile-and-web/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/mobile-and-web/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/mobile-and-web/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://jp.techcrunch.com/wp-content/uploads/2020/05/clubhouse-voice-chat-social-network.jpg" alt="Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#responsive-web-apps-và-mobile-apps">Responsive web apps và mobile apps</a>
+    <ul>
+      <li><a href="#tổng-quan">Tổng quan</a></li>
+      <li><a href="#summary">Summary</a></li>
+    </ul>
+  </li>
+  <li><a href="#giới-thiệu-ứng-dụng-voice-chat-room-clubhouse">Giới thiệu ứng dụng voice chat room ClubHouse</a>
+    <ul>
+      <li><a href="#mạng-xã-hội-âm-thanh">Mạng xã hội âm thanh</a></li>
+      <li><a href="#hiện-tượng-clubhouse">Hiện tượng ClubHouse</a></li>
+    </ul>
+  </li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p>Cũng phải 9-10 năm trước đây, khi mới bắt đầu làm các nền tảng với mong muốn xây dựng “một phút huy hoàng rồi vụt tắt”, tôi hay thấy các nhà phát triển lựa chọn cùng lúc phát triển 3 phiên bản: Web, mobile (Android/iOS) và một bản có thể desktop.
+Đó là những năm 2012 và việc đó chủ yếu để tăng độ phủ của dịch vụ.
+Nhưng năm nay là năm 2021, và chúng ta không thể hướng dẫn các em trẻ bằng bộ não của những “ông già” mà thời huy hoàng từ những năm 2012.
+Năm 2021, chúng ta cũng cần cập nhật và nhìn lại những ứng dụng thành công trong 2 năm qua của kỷ nguyên COVID, tôi chợt nhận ra:
+ứng dụng ClubHouse thành công gọi vốn vòng C tương đương 100 triệu đô lẻ nhưng không hề cung cấp giao diện web, chỉ toàn ứng dụng mobile.
+Ứng dụng na ná thế của Việt Nam là onMic cũng không thèm chơi với web luôn!
+Ồ, chúng ta đã già rồi với giới trẻ có lẽ đã không còn mặn mà với việc xây một phiên bản cho desktop browser nữa.
+<strong>Năm 2021 phải là thời đại của mobile</strong>.
+Chúng ta có lẽ đã sai, và cũng nên nhìn nhận lại khả năng của mobile apps (native chứ không phải nhúng mấy cái Javascript vớ vẩn)!</p>
+
+<!--more-->
+
+<h1 id="responsive-web-apps-và-mobile-apps">Responsive web apps và mobile apps</h1>
+
+<h2 id="tổng-quan">Tổng quan</h2>
+
+<p><img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2014/11/Smartphone_subs_ericsson.jpg" alt="" />
+<em>By 2020, 90% dân số thế giới trên 6 tuổi (6,1 tỷ người) có sử dụng điện thoại di động. Nguồn: <a href="http://thenextweb.com/insider/2014/11/18/2020-90-worlds-population-aged-6-will-mobile-phone-report/">TheNextWeb</a></em></p>
+
+<p>Chúng ta luôn tự hỏi tại sao ngày nay lại phải học làm những thứ có thể hiển thị và hoạt động được trên mobile?
+Câu trả lời là vì chỉ trong vài năm, số lượng thuê bao di động trên thế giới đã phủ khắp đến 90% dân số thế giới, tính tới 2020.
+Điện thoại di động không phải quá khứ hay tương lai mà là hiện tại ngay trước mắt.
+Giải pháp để khiến dịch vụ của bạn phủ rộng tới tất cả người dùng di động hiện tại chỉ có hai nhánh chính: <strong>responsive web apps và mobile apps</strong>.
+Những năm 2012, chúng ta, những “ông già” phải phát triển song song 3 phiên bản vì lúc đó tỷ lệ mobile chỉ tầm 1.3 tỷ/6 tỷ dân, tức là khoảng 23% hơn.</p>
+
+<p><strong>Responsive web apps</strong> thì chủ yếu là HTML5/CSS3 có những tinh chỉnh để vừa vặn vào màn hình mobile.
+Lợi thế cũng khả rõ ràng:</p>
+
+<ul>
+  <li><strong>Một phiên bản cho tất cả người dùng</strong>. cách làm web apps thì chỉ cần browser và quan trọng nhất là kết nối Internet.
+Ngắt mạng là … giải tán!</li>
+  <li><strong>Vận hành và bảo trì đơn giản hơn vì trang web dễ nâng cấp, bảo trì và fix lỗi</strong>. Người dùng thậm chí còn không nhận được thông báo khi xảy ra nâng cấp.</li>
+  <li><strong>Phiên bản web rẻ hơn</strong>. SEO cũng dễ dàng hơn, và bảo trì cũng sẽ rẻ hơn.</li>
+</ul>
+
+<p><strong>Mobile apps</strong> là những ứng dụng có thể <strong>cài đặt</strong> lên điện thoại di động và máy tính bảng.
+Ứng dụng di động ưu thế nổi trội sẽ là <strong>trải nghiệm người dùng tốt hơn</strong>.
+Nếu như trang web nhắm tới tìm kiếm người dùng mới (vì vậy không tạo barrier trong cài đặt nâng cấp), thì ứng dụng mobile tập trung vào <strong>người dùng trung thành</strong>.
+Thường không nên nghĩ ứng dụng mobile chỉ là bản clone của web app, nó sẽ là một suy nghĩ sai lầm!
+Và cuối cùng cái quan trọng là <strong>push notification</strong>, đó là ưu thế không thể từ chối của mobile apps.
+Ưu thế của mobile apps tập trung vào:</p>
+
+<ul>
+  <li>
+    <p><strong>Tập trung vào tính năng đặc biệt của nền tảng mobile</strong>. Ví dụ người dùng Instagram có thể xem ảnh trên web vô tư nhưng để upload họ phải dùng mobile apps.</p>
+  </li>
+  <li><strong>Mobile apps hoạt động trực tiếp với nền tảng, đòi hỏi cài đặt và nhận được những hỗ trợ tốt hơn về security cũng như tình năng nền tảng OS</strong></li>
+  <li><strong>Mobile apps có thể hoạt động offline</strong>. Còn nói thực, tôi cũng làm nhiều với đủ kiểu web apps, web socket, mà nói chung cứ ngắt net là phiền! Không có Internet, đám webapps chỉ để nhìn.</li>
+  <li><strong>Tối ưu hóa trải nghiệm người dùng</strong></li>
+  <li><strong>Cung cấp các component native của mobile phone như network, voice, …</strong>. Lập trình web hiện đại với Vue.JS hay reactJS có khá nhiều web component, nhưng nhìn chung cũng có giới hạn và hoạt động cũng không tốt ví dụ khi ngắt net!</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+<p>Tạo tạm một bảng so sánh tính năng giữ hai sự lựa chọn để bạn đọc tham khảo.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Perspective</strong></th>
+      <th><strong>Responsive website</strong></th>
+      <th><strong>Mobile app</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Compatibility</td>
+      <td>Mobile version of the site is equally displayed in all browsers, despite the device model.</td>
+      <td>Requires development of several applications for various platforms.</td>
+    </tr>
+    <tr>
+      <td>Audience</td>
+      <td>All devices that have access to the Internet.</td>
+      <td>Only smartphones and tablets.</td>
+    </tr>
+    <tr>
+      <td>Cost of entering the market</td>
+      <td>Payments for domain and hosting.</td>
+      <td>Developer licenses in the app stores.</td>
+    </tr>
+    <tr>
+      <td>Ease of use</td>
+      <td>Doesn’t require download and installation.</td>
+      <td>Requires downloading and installation.</td>
+    </tr>
+    <tr>
+      <td>Working offline</td>
+      <td>Not all devices support.</td>
+      <td>Possible.</td>
+    </tr>
+    <tr>
+      <td>Support, updates and bug fixing</td>
+      <td>Easy to update, maintain and fix bugs.</td>
+      <td>Difficult to update and monitor the application after it’s downloaded. Bugs will be fixed only in the next version.</td>
+    </tr>
+    <tr>
+      <td>Convenience of regular using</td>
+      <td>Average.</td>
+      <td>Good for regular using.</td>
+    </tr>
+    <tr>
+      <td>Personalization</td>
+      <td>Average. Mobile site is more focused on the service.</td>
+      <td>Good. App is more aimed at the individual user.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="giới-thiệu-ứng-dụng-voice-chat-room-clubhouse">Giới thiệu ứng dụng voice chat room ClubHouse</h1>
+
+<p>Thế giới đang chuyển dần từ service-centric sang user-centric, từ web-based sang mobile-based.
+Hiện tượng ClubHouse nổi lên từ thàng 4/2020, tức là mới hơn 1 năm.
+Chúng ta sẽ nhìn nhận lại giá trị của ClubHouse trong ngành dọc: tức là các mạng xã hội âm thanh.</p>
+
+<h2 id="mạng-xã-hội-âm-thanh">Mạng xã hội âm thanh</h2>
+
+<p>Mạng xã hội âm thanh là mạng xã hội dựa trên việc chia sẻ âm thanh chứ không phải hình ảnh hay video.
+Các mạng xã hội chia sẻ âm nhạc như Zing MP3, hay Spotify đã tồn tại từ lâu và với hình thức <strong>chia sẻ file</strong>.</p>
+
+<p>Một đặc điểm của ClubHouse chính là việc chia sẻ thông qua nói chuyện tức là âm thanh cuộc nói chuyện được chia sẻ.
+Người tham gia không nhìn thấy mặt nhau là đặc điểm khiến cho người dùng có thể tập trung vào nội dung nói chuyện hơn là nhìn sắc mặt nhau.</p>
+
+<h2 id="hiện-tượng-clubhouse">Hiện tượng ClubHouse</h2>
+<p><strong>Tại sao ClubHouse lại thành hiện tượng như vậy?</strong>
+Bạn nên nhớ khi đạt giá trị 100 triệu đô, Facebook đã sở hữu 5,5 triệu người dùng vào năm 2005.
+Nhưng cùng mức giá ấy, ClubHouse chỉ có vỏn vẹn <strong>5000 người dùng vào năm 2020</strong>.
+Thời cổ đại nếu một đội quân 5000 người dù dũng mãnh thế nào mà được xếp ngang hàng với đội quân 5,5 triệu người thì đó cũng là chuyện khá hiếm.
+Twitter khi đạt giá trị 100 triệu đô cũng có 1,2 triệu người dùng, và Instagram cũng có 1,7 triệu MAU.</p>
+
+<p><img src="/assets/img/fomo.png" alt="FOMO" /></p>
+
+<p><strong>Vậy cái gì làm nên giá trị của ClubHouse?</strong>
+ClubHouse đã thiết kế UX tức là trải nghiệm người dùng theo nguyên lý FOMO (Fear of missing out, tức là cảm giác bị lãng quên), khiến cho engagement của người dùng được nâng cao.
+Thiết kế này đòi hỏi 3 tính năng nhất quyết bị loại bỏ (không được implement) là: chức năng mời, chức năng lưu trữ archive, và chức năng nhận xét comment.
+Việc thiếu 3 chức năng, cùng với việc thiết kế room chat để chỉ có thể nghe người mình muốn nói chuyện vào lúc nửa đêm khiến người dùng càng gắn bó với app.
+Bởi vì họ luôn ở trạng thái cảm thấy bị miss mất cái gì đó nên sẽ không dám đóng app.</p>
+
+<p><strong>Vậy tiềm năng của ClubHouse có thực sự đáng giá?</strong>
+Cái này có lẽ phải để thời gian trả lời.
+Cá nhân tôi khi dùng thử phát hiện ra một điểm tuyệt vời là thiết kế UX rất đơn giả và ưu việt.
+Họ không thiết kế kiểu ôm đồm mọi tính năng, mà tất cả đều tuân theo một thiết kế UX có trọng tâm.
+FOMO là một ví dụ về việc: không phải cứ implement hết mọi tính năng thì sẽ tốt mà đôi khi bỏ đi không thèm implement một số tính năng lại đem lại trải nghiệm tuyệt vời.
+Thế nên cũng không cần làm hết đâu!
+Ví dụ họ cũng không cần web vì đúng là với chiến thuật của họ thì mấy cái Vue với React cũng chả để làm gì cả (90% dân số thế giới đã có mobile trên tay và native app thì còn lo gì ngắt mạng) :yum:</p>
+
+<p>Tại thời điểm ClubHouse gọi được 100 triệu đô vốn đầu tư thì cũng có nhiều ý kiến phản hồi là tại sao lại giá cao thể trong khi chỉ có 5000 users?
+Hãy để thời gian minh chứng cho kết cục của startup này.
+Tuy nhiên, cái chúng ta học được ở đây đó là <strong>tối ưu trải nghiệm người dùng trên mobile đang là xu hướng</strong>, và web sẽ không làm được việc đó.</p>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-08-26">26 Aug 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#business">#business</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#mobile-apps">#mobile apps</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#single-page-app">#single page app</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#web-apps">#web apps</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//open-close-principle/"> &laquo; Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//aggregation-segregation/">Aggregation and Segregation &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Why lean startups love fullstack engineers? | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Why lean startups love fullstack engineers? | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Why lean startups love fullstack engineers?" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Lean [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood. Efficiency paradox … the idea of the efficiency paradox, which claims that organisations’ understanding of “true efficiency” is incorrect. It suggests that when organisations focus too much on utilising resources efficiently – the traditional and most common form of efficiency – it tends to lead to an increase in the amount of work there is to do. Consequently, the more organisations try to be efficient (being busy), the more inefficient they will actually become (taking care of non-value adding but necessary work). This is Lean addresses +how to resolve this paradox. Bắt đầu từ gần 10 năm trước, năm 2011, bởi Eric Ries, Lean đã trở thành một phương pháp luận để cải tiến hiệu suất công việc và số lượng startups là Lean startups ngày càng gia tăng cho thấy sự yêu chuộng dành cho Lean từ cộng đồng khởi nghiệp. Nếu bạn đã từng có một giai đoạn khủng hoảng: ngày nào cũng bận bịu và phải làm tăng ca (OT) đến tận khuya, hoặc thậm chí phải mang việc về nhà làm, bạn đã rơi vào efficiency paradox: bạn luôn bận rộn, nhưng chả hoàn thành (release) cái gì cả. Thực ra vế sau chính là dấu hiệu (triệu chứng bệnh) của efficiency paradox, và khi có triệu chứng bận bịu nhưng chả done cái gì, đó chính là lúc Lean phải thể hiện value. Nếu cải tiến hiệu suất là mục tiêu của Lean, thì cách thức thực hiện lại vô vùng đòi hỏi sự tỷ mỷ chi tiết. Một trong số những tiêu chí quan trọng để build 1 team khởi nghiệp Lean, chính là sự tồn tại của cross-functional team hay tức là fullstack engineers. Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần đóng đinh thì búa sẽ dùng nhiều hơn và kìm hầu như không có việc, nhưng khi cần vặn ốc thì kìm bận bịu nhưng búa chả có việc gì: vậy tại sao không kiếm một cái vừa là kìm vừa là búa? Trong khởi nghiệp Lean, khi nói đến từ FE mà bạn hiểu là Frontend Engineer thì không có value mấy, phải hiểu là Fullstack Engineer thì mới có nhiều value." />
+<meta property="og:description" content="Lean [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood. Efficiency paradox … the idea of the efficiency paradox, which claims that organisations’ understanding of “true efficiency” is incorrect. It suggests that when organisations focus too much on utilising resources efficiently – the traditional and most common form of efficiency – it tends to lead to an increase in the amount of work there is to do. Consequently, the more organisations try to be efficient (being busy), the more inefficient they will actually become (taking care of non-value adding but necessary work). This is Lean addresses +how to resolve this paradox. Bắt đầu từ gần 10 năm trước, năm 2011, bởi Eric Ries, Lean đã trở thành một phương pháp luận để cải tiến hiệu suất công việc và số lượng startups là Lean startups ngày càng gia tăng cho thấy sự yêu chuộng dành cho Lean từ cộng đồng khởi nghiệp. Nếu bạn đã từng có một giai đoạn khủng hoảng: ngày nào cũng bận bịu và phải làm tăng ca (OT) đến tận khuya, hoặc thậm chí phải mang việc về nhà làm, bạn đã rơi vào efficiency paradox: bạn luôn bận rộn, nhưng chả hoàn thành (release) cái gì cả. Thực ra vế sau chính là dấu hiệu (triệu chứng bệnh) của efficiency paradox, và khi có triệu chứng bận bịu nhưng chả done cái gì, đó chính là lúc Lean phải thể hiện value. Nếu cải tiến hiệu suất là mục tiêu của Lean, thì cách thức thực hiện lại vô vùng đòi hỏi sự tỷ mỷ chi tiết. Một trong số những tiêu chí quan trọng để build 1 team khởi nghiệp Lean, chính là sự tồn tại của cross-functional team hay tức là fullstack engineers. Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần đóng đinh thì búa sẽ dùng nhiều hơn và kìm hầu như không có việc, nhưng khi cần vặn ốc thì kìm bận bịu nhưng búa chả có việc gì: vậy tại sao không kiếm một cái vừa là kìm vừa là búa? Trong khởi nghiệp Lean, khi nói đến từ FE mà bạn hiểu là Frontend Engineer thì không có value mấy, phải hiểu là Fullstack Engineer thì mới có nhiều value." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-27T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg" />
+<meta property="twitter:title" content="Why lean startups love fullstack engineers?" />
+<script type="application/ld+json">
+{"description":"Lean [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood. Efficiency paradox … the idea of the efficiency paradox, which claims that organisations’ understanding of “true efficiency” is incorrect. It suggests that when organisations focus too much on utilising resources efficiently – the traditional and most common form of efficiency – it tends to lead to an increase in the amount of work there is to do. Consequently, the more organisations try to be efficient (being busy), the more inefficient they will actually become (taking care of non-value adding but necessary work). This is Lean addresses +how to resolve this paradox. Bắt đầu từ gần 10 năm trước, năm 2011, bởi Eric Ries, Lean đã trở thành một phương pháp luận để cải tiến hiệu suất công việc và số lượng startups là Lean startups ngày càng gia tăng cho thấy sự yêu chuộng dành cho Lean từ cộng đồng khởi nghiệp. Nếu bạn đã từng có một giai đoạn khủng hoảng: ngày nào cũng bận bịu và phải làm tăng ca (OT) đến tận khuya, hoặc thậm chí phải mang việc về nhà làm, bạn đã rơi vào efficiency paradox: bạn luôn bận rộn, nhưng chả hoàn thành (release) cái gì cả. Thực ra vế sau chính là dấu hiệu (triệu chứng bệnh) của efficiency paradox, và khi có triệu chứng bận bịu nhưng chả done cái gì, đó chính là lúc Lean phải thể hiện value. Nếu cải tiến hiệu suất là mục tiêu của Lean, thì cách thức thực hiện lại vô vùng đòi hỏi sự tỷ mỷ chi tiết. Một trong số những tiêu chí quan trọng để build 1 team khởi nghiệp Lean, chính là sự tồn tại của cross-functional team hay tức là fullstack engineers. Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần đóng đinh thì búa sẽ dùng nhiều hơn và kìm hầu như không có việc, nhưng khi cần vặn ốc thì kìm bận bịu nhưng búa chả có việc gì: vậy tại sao không kiếm một cái vừa là kìm vừa là búa? Trong khởi nghiệp Lean, khi nói đến từ FE mà bạn hiểu là Frontend Engineer thì không có value mấy, phải hiểu là Fullstack Engineer thì mới có nhiều value.","image":"https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg","headline":"Why lean startups love fullstack engineers?","dateModified":"2021-11-27T00:00:00+09:00","datePublished":"2021-11-27T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/fullstask-engineer-and-lean-startup/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/fullstask-engineer-and-lean-startup/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Why lean startups love fullstack engineers?&url=/fullstask-engineer-and-lean-startup/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/fullstask-engineer-and-lean-startup/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/fullstask-engineer-and-lean-startup/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Why lean startups love fullstack engineers?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg" alt="Why lean startups love fullstack engineers?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#efficiency-paradox-triệu-chứng-bệnh">Efficiency Paradox: Triệu chứng bệnh</a></li>
+  <li><a href="#lean-startups">Lean startups</a>
+    <ul>
+      <li><a href="#nhận-xét-về-lean">Nhận xét về Lean</a></li>
+      <li><a href="#lợi-ích-của-lean">Lợi ích của Lean</a></li>
+      <li><a href="#ứng-dụng-lean">Ứng dụng Lean</a></li>
+    </ul>
+  </li>
+  <li><a href="#fullstack-engineers-và-cross-functional-teams">Fullstack engineers và cross-functional teams</a></li>
+  <li><a href="#kết-luận">Kết luận</a></li>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <blockquote>
+  <p><strong>Lean</strong> [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Efficiency paradox</strong> … the idea of the efficiency paradox, which claims that organisations’ understanding of “true efficiency” is incorrect. It suggests that when organisations focus too much on utilising resources efficiently – the traditional and most common form of efficiency – it tends to lead to an increase in the amount of work there is to do. Consequently, the more organisations try to be efficient (being busy), the more inefficient they will actually become (taking care of non-value adding but necessary work). This is Lean addresses +how to resolve this paradox.</p>
+</blockquote>
+
+<p>Bắt đầu từ gần 10 năm trước, năm 2011, bởi Eric Ries, Lean đã trở thành một phương pháp luận để cải tiến hiệu suất công việc và số lượng startups là Lean startups ngày càng gia tăng cho thấy sự yêu chuộng dành cho Lean từ cộng đồng khởi nghiệp.
+Nếu bạn đã từng có một giai đoạn khủng hoảng: ngày nào cũng bận bịu và phải làm tăng ca (OT) đến tận khuya, hoặc thậm chí phải mang việc về nhà làm, bạn đã rơi vào <strong>efficiency paradox</strong>: <em>bạn luôn bận rộn, nhưng chả hoàn thành (release) cái gì cả</em>.
+Thực ra vế sau chính là dấu hiệu (triệu chứng bệnh) của efficiency paradox, và khi có triệu chứng bận bịu nhưng chả done cái gì, đó chính là lúc <strong>Lean phải thể hiện value</strong>.</p>
+
+<p>Nếu cải tiến hiệu suất là mục tiêu của Lean, thì cách thức thực hiện lại vô vùng đòi hỏi sự tỷ mỷ chi tiết.
+Một trong số những tiêu chí quan trọng để build 1 team khởi nghiệp Lean, chính là sự tồn tại của <strong>cross-functional team</strong> hay tức là <strong>fullstack engineers</strong>.
+Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần đóng đinh thì búa sẽ dùng nhiều hơn và kìm hầu như không có việc, nhưng khi cần vặn ốc thì kìm bận bịu nhưng búa chả có việc gì: vậy tại sao không kiếm một cái vừa là kìm vừa là búa?</p>
+
+<blockquote>
+  <p>Trong khởi nghiệp Lean, khi nói đến từ FE mà bạn hiểu là Frontend Engineer thì không có value mấy, phải hiểu là <strong>Fullstack Engineer</strong> thì mới có nhiều value.</p>
+</blockquote>
+
+<!--more-->
+
+<h1 id="efficiency-paradox-triệu-chứng-bệnh">Efficiency Paradox: Triệu chứng bệnh</h1>
+
+<p>Triệu chứng bệnh của efficiency paradox thì không chỉ có mỗi triệu chứng bận mà chả làm ra cái gì như đã nói ở trên.</p>
+
+<ul>
+  <li><strong>Triệu chứng 1</strong>: <strong>Bận mà chả release được cái gì?</strong> Tức là hiệu suất resource cao gần 100% nhưng lead time (thời gian từ ideas tới release) lại dài mà đôi khi là infinite! Tức là có thể có release nhưng nhìn chung là lead time rất lớn.</li>
+  <li><strong>Triệu chứng 2</strong>: <strong>Release nhanh nhưng có nhiều người không có việc.</strong> Tức là team chia việc và hoàn thiện nhanh, nhưng có nhiều ムダ (tiếng Nhật nghĩa là lãng phí) tức là nhiều bạn chả có việc gì làm, mà nếu cho các bạn ấy làm việc khác thì lại phải ngồi điều tra lại từ đầu, nó lưng chừng dở dang.</li>
+</ul>
+
+<p>Dù là triệu chứng 1 hay 2 thì chắc chắn khởi nghiệp đang ở chỗ loay hoay giải quyết bài toán cân bằng hiệu suất sử dụng (tăng hiệu suất sử dụng nhân lực) và tỷ lệ hoàn thiện (rút ngắn thời gian release).</p>
+
+<h1 id="lean-startups">Lean startups</h1>
+
+<h2 id="nhận-xét-về-lean">Nhận xét về Lean</h2>
+
+<p>Và để giải quyết bài toán hiệu suất, phương pháp cải tiến của Eric Ries bắt đầu từ những năm 2011 mang tên <strong>Lean startups</strong> là một phương pháp được ưa chuộng gần đây.</p>
+
+<blockquote>
+  <p>Ưu điểm lớn nhất của Lean chính là vòng tuần hoàn liên tục <strong>Build-Measure-Learn</strong> khiến cho team dần trưởng thành và hiệu suất gia tăng.</p>
+</blockquote>
+
+<p>Teams có thể chưa hoàn chỉnh trong vòng thứ nhất nhưng sẽ <em>learn</em> và lặp lại quá trình <em>build</em>, <em>measure</em> đển khi hoàn thiện.</p>
+
+<blockquote>
+  <p>Nhược điểm lớn nhất là việc phụ thuộc quá lớn vào skill của mỗi members: thợ học việc cỡ sinh viên, những nhân viên chỉ biết làm đúng 1 việc frontend hoặc backend, hoặc chỉ biết code mà không làm những quy trình báo cáo, tuyển dụng, … sẽ là chướng ngại mà sớm muộn cũng bị đào thải.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Thiếu tập trung</strong> là tử địa của Lean. Nếu 1 members trong Lean startups không toàn tâm toàn ý 100% cho startup mà lại phân tâm sang 1 dự án khác 50-50 hoặc 1 cty khác 50-50, Lean chắc chắn fail!</p>
+</blockquote>
+
+<p>Tại sao? Bởi vì vòng quay của Lean đòi hỏi mọi members trong teams phải toàn tâm toàn ý cho việc cải tiến, theo dõi, và đối ứng.
+<strong>Chính việc phải toàn tâm toàn ý khiến cho việc cùng lúc chạy 2 dự án là vô vùng khó khăn nếu 1 trong 2 cái là Lean.</strong></p>
+
+<blockquote>
+  <p>Nuôi Lean như nuôi Thánh Gióng: cứ phải nuôi nó từ từ, và trong quá trình nuôi là phải theo dõi chăm chút từng ly từng tý. Nhưng khi hữu sự, thì phải cho nó ăn hàng gánh cơm, hàng nong đậu phụ thì nó lại lớn nhanh như thổi, một phát đánh đuổi quân ngoại xâm. Nuôi Lean chính là nuôi một đứa trẻ như vậy!</p>
+</blockquote>
+
+<p>Mà bà mẹ trong chuyện cổ tích <strong>Thánh Gióng</strong> là cứ phải nuôi nó đến lúc thành công, mới gọi là gặt hái.
+Với Lean, đó chính là lúc mà vòng quay vừa nhanh, teams luôn có việc mà tốc độ release cũng flash.</p>
+
+<p>Tất nhiên, thực ra trong đời thực, có những người vẫn có 2-3 đứa con, mà đứa nào cũng là “Lean”, tức là kiểu trẻ phải được kèm cặp từ nhỏ.
+Điều đó dẫn đến chuyện ôm cùng lúc 3 ông con, mà ông nào cũng là Lean cũng là chuyện bình thường.
+Nhưng sẽ rất mệt, mà nhìn chung là sẽ phải đến lúc nào đó bắt buộc phải kệ chúng nó tự lớn.</p>
+
+<h2 id="lợi-ích-của-lean">Lợi ích của Lean</h2>
+
+<p>Nếu bạn nuôi được startup Lean đến lúc trưởng thành thì quả ngọt vô số.
+Lean startup khi trưởng thành thì vô vàn lợi ích mà người chăn nuôi có thể nhận được:</p>
+
+<blockquote>
+  <ul>
+    <li>Improving the quality of work processes hay <strong>Cải tiến chất lượng quy trình</strong></li>
+    <li>Reducing errors or defects in work processes hay <strong>Giảm thiểu lỗi quy trình</strong></li>
+    <li>Reducing costs hay <strong>Giảm thiểu giá thành</strong></li>
+    <li>Improving flow of the process hay <strong>Cải tiến flow làm việc</strong></li>
+    <li>Simplifying complex processes hay <strong>Đơn giản hóa quy trình</strong></li>
+    <li>Reducing lead time hay <strong>Đẩy nhanh thời điểm release</strong></li>
+    <li>Improving employee morale hay <strong>Tăng động lực làm việc cho nhân viên</strong></li>
+  </ul>
+</blockquote>
+
+<h2 id="ứng-dụng-lean">Ứng dụng Lean</h2>
+
+<p>Để áp dụng Lean vào quy trình phần mềm (software development), việc triển khai các hạng mục trong <code class="language-plaintext highlighter-rouge">Build-Measure-Learn</code> là cần thiết, nhưng cũng phải tùy vào tình hình của team.</p>
+
+<ul>
+  <li><strong>Đầu tiên, phải xác định vấn đề</strong>: Muda phát sinh từ đâu? Nguyên nhân là do vấn đề gì?</li>
+  <li><strong>Xây dựng quy trình tiêu chuẩn</strong>: mọi hoạt động của team cần được chuẩn hóa và tốt nhất nên dùng tự động hóa.</li>
+  <li><strong>CI/CD</strong> là sống còn, chất lượng phải được cải tiến và trực quan hóa cho mọi cấp quản lý cũng như members.</li>
+  <li><strong>Nên có quy trình “kéo”</strong> tức là trigger của quy trình này phải đến từ nhu cầu của quy trình tiếp theo.</li>
+</ul>
+
+<p>Nếu như nhìn vào biểu đồ trên, bạn thấy ngay luồng chạy của Lean startups là liên tục không gián đoạn, nhưng dữ liệu thu thập được dùng để trực quan hóa sẽ chuyển biến thành các bài học để cải tiến team.</p>
+
+<p>Rất tiếc, trong thực tế mặc dù Lean startups được bảo đảm sẽ hội tụ, nhưng quy trình sẽ có thể rất lâu tùy vào xuất phát điểm của teams:</p>
+
+<ul>
+  <li><strong>Chất lượng members</strong>: các bạn đã nhiều năm kinh nghiệm dev chưa hay chỉ là sinh viên? Đã quen thực chiến, đa dzi năng chưa hay chỉ biết gán cho các mác frontend là ông suốt ngày chỉ làm frontend?</li>
+  <li><strong>Sự đa năng</strong>: Gán cho cái mác coder thì suốt ngày chỉ biết code mà chả biết làm báo cáo, chả biết quy trình team, chả biết gì đến các nghiệp vụ quản lý, tuyển dụng khác, …</li>
+  <li><strong>Tốc độ học của teams</strong>: nếu teams chậm tiếp thu, tốc độ xử lý point thấp (chỉ vài điểm một tuần) thì sẽ càng lâu đến trưởng thành.</li>
+  <li><strong>Chất lượng chia việc</strong>: tôi gặp khá nhiều chứ không phải 1-2 trường hợp, là cứ đẩy việc cho member chất lượng thấp, nhưng lại bắt một cái worker năng lực thấp phải tính toán một khối công việc rất lớn mà lúc nó tính lâu mất thời gian thì lại sốt ruột, giục, …
+<strong>Muốn nhanh thì phải chia nhỏ, đơn giản hóa (đúng theo tinh thần của Lean nhé)</strong>, chứ phức tạp to tát mà giao cho workers cấp thấp là … hỏng việc đấy!</li>
+</ul>
+
+<p>Đôi khi cũng là kinh nghiệm làm việc bên giới outsource thôi, là các bạn outsource chưa làm quen nhiều với mô hình Lean startups.
+Do đó khi ốp các bạn vào khung Lean, các bạn thường sẽ hiệu suất rất kém, thậm chí cảm thấy tự ti vì mô hình Lean đòi hỏi các bạn phải <strong>chủ động</strong>, <strong>quyết chiến</strong>, <strong>năng động</strong>, <strong>học hỏi nhanh</strong>, <strong>chịu áp lực tốt</strong>, …
+Nhưng sinh viên mình kể từ khi ngồi trên ghế nhà trường, tự học thì không có khả năng, năng động chủ động là không có nên hầu như thụ động tiếp thu theo kiểu <strong>Anh phải lead bọn em mới đi</strong>.
+<strong>Thế thì còn Lean cái nỗi gì hả em?</strong></p>
+
+<p>Đây là vấn đề vô cùng đau đầu với sinh viên người Việt mà nhìn chung, mắng chửi thì bảo anh ác, nhưng mà không nện cho thì thôi còn Lean làm gì nữa? Chất lượng member nó chỉ được như thế thôi, mà rồi còn bao nhiêu vấn đề khác như đãi ngộ mặt bằng chung xã hội thấp, chế độ không tốt, …
+Nên nói chung đem Lean về VN là cũng có thể nhưng phải chấp nhận mất thời gian và phải hiểu là <strong>mất rất nhiều thời gian</strong>.
+Do đó khi làm việc với các KH mà kiểu họ hướng vào Lean, là theo kinh nghiệm của tôi là phải đánh chặn luôn: “<strong>Đây tình hình outsource VN nó chỉ được thế này thôi? Có đòi hỏi thì cũng rất mất thời gian. Các ông hiểu rồi thì nhảy vào chiến với anh em, còn không thì tôi nghĩ cũng không có giải pháp nào đâu với cái tình hình như thế này!</strong>.
+Chứ giờ có bảo thay đổi chế độ, thay đổi cả quốc tính dân tộc, … những chuyện <strong>to tát phức tạp</strong> như thế thì không làm được đâu!</p>
+
+<h1 id="fullstack-engineers-và-cross-functional-teams">Fullstack engineers và cross-functional teams</h1>
+
+<p>Một đặc điểm quan trọng của các chiến binh trong dream team của Lean startup đó chính là <strong>cross-functional team</strong>, tức là các member phải đa năng: việc gì cũng biết, kể từ code backend/frontend, đến cấu hình infra, thiết kế hệ thống các cái, đến thậm chí những công việc ngoài luồng kỹ thuật như kế toán, sổ sách, làm thiết kế hệ thống basic/detail designs, quản lý, tuyển dụng phỏng vấn, …</p>
+
+<p>Điểm này khác với các tập đoàn công ty lớn, đòi hỏi các bộ phận phải có sự chuyên môn hóa: ông nào frontend thì cả đời cứ chạy frontend cho tôi.
+<strong>Anh cứ kệ em, em chỉ code thôi còn những việc khác em không biết</strong>.
+Thì những cái kiểu như thế chắc chắn không phù hợp với Lean startups.</p>
+
+<p>Các team Lean thường rất nhỏ, nhưng các member thì như biệt đội Avengers vậy, mỗi người đều có thể làm mọi khâu trong quy trình thậm chí thay thế khi đồng đội đang đảm nhiệm khâu đó nghỉ.</p>
+
+<p>Vì vậy, nếu có một member kiểu fullstack mà lại chơi được mọi “súng” thì không việc gì phải bàn.
+Ngược lại những member chỉ kiểu tròn vai thì về nguyên tắc của Lean startups là … không ổn.</p>
+
+<h1 id="kết-luận">Kết luận</h1>
+
+<p>Nói thì dài dòng, nhưng kết luận thì ngắn gọn thôi:</p>
+
+<ul>
+  <li><strong>Lean startups</strong> là một phương pháp cải tiến hiệu suất cấp team nhỏ trên thế giới, nhưng đem về Vn thì phải chấp nhận rằng <strong>“chỉ được đến thế thôi”</strong>.
+Còn muốn hơn thì tốt nhất tuyển người qua nước tư bản kiểu chọn nhặt tài năng chứ còn cái kiểu đại trà theo outsource chỉ được đến thế thôi.</li>
+  <li>Muốn xây dựng dream teams cho Lean startups thì bắt buộc phải có vị trí Fullstack.</li>
+</ul>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="ThisisLe25:online"><i>This is Lean |</i>. https://thisislean.com/</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-11-27">27 Nov 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Project-Management">Project Management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#fullstack-engineer">#fullstack engineer</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#lean-stratup">#lean stratup</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#project-lifecycle">#project lifecycle</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#project-management">#project management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#software-development">#software development</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#this-is-lean">#this is lean</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//chicken-and-egg-problem/"> &laquo; Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//write-logs/">Học cách viết log nghiêm chỉnh &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

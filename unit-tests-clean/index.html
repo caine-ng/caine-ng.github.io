@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Unit Tests [3, chương 9; 4; 5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [3] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf" />
+<meta property="og:description" content="Unit Tests [3, chương 9; 4; 5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [3] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-09T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg" />
+<meta property="twitter:title" content="Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển" />
+<script type="application/ld+json">
+{"description":"Unit Tests [3, chương 9; 4; 5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [3] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf","image":"https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg","headline":"Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển","dateModified":"2021-08-09T00:00:00+09:00","datePublished":"2021-08-09T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/unit-tests-clean/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/unit-tests-clean/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển&url=/unit-tests-clean/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/unit-tests-clean/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/unit-tests-clean/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg" alt="Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#test-driven-development-và-3-luật-cơ-bản">Test-Driven Development và 3 luật cơ bản</a>
+    <ul>
+      <li><a href="#phương-pháp-test-thủ-công-của-những-năm-1990s">Phương pháp test thủ công của những năm 1990s</a></li>
+      <li><a href="#tại-sao-nên-test-tự-động-và-nên-dùng-tdd">Tại sao nên test tự động và nên dùng TDD?</a></li>
+      <li><a href="#3-luật-của-tdd">3 luật của TDD</a></li>
+    </ul>
+  </li>
+  <li><a href="#viết-test-sạch-sẽ">Viết test “sạch sẽ”</a></li>
+  <li><a href="#quy-tắc-first">Quy tắc F.I.R.S.T</a></li>
+  <li><a href="#ví-dụ-về-state-machine-model">Ví dụ về State Machine Model</a></li>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><strong>Unit Tests [3, chương 9; 4; 5]</strong> là đơn vị tests gần gũi nhất với lập trình viên.
+Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì?
+Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng <em>Clean Code [3]</em> đồng tác giả, để phần nào trả lời những câu hỏi này.
+Bài báo học thuật có thể được đọc miễn phí tại: <a href="https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf">https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf</a></p>
+
+<!--more-->
+
+<h1 id="test-driven-development-và-3-luật-cơ-bản">Test-Driven Development và 3 luật cơ bản</h1>
+<blockquote>
+  <p>Test code is just as important as production code.</p>
+</blockquote>
+
+<h2 id="phương-pháp-test-thủ-công-của-những-năm-1990s">Phương pháp test thủ công của những năm 1990s</h2>
+
+<p>Khi TDD còn chưa ra đời thì làm thế nào để test được phần mềm?
+Ví dụ như 1 đoạn code C++ đơn giản như sau:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">inputArray</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">inputArray</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">pivotValue</span> <span class="o">=</span> <span class="n">inputArray</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">pivot</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Nội dung của đoạn code trên đơn giản chỉ là tìm số đứng giữa trong một mảng, hay chính là giá trị median.
+Như mô tả của Martin [3] thì những năm 1990s, người ta sẽ viết một chương trình có dùng đoạn mã trên với input là một mảng cụ thể và biên dịch, rồi in giá trị lên màn hình để xác nhận.
+Ví dụ, chúng ta sẽ set giá trị đầu vào là <code class="language-plaintext highlighter-rouge">auto inputArray = std::vector&lt;float&gt;({1.0, 6.0, 3.0, 5.9, 7.8});</code>.
+Và rồi khi màn hình in ra giá trị <code class="language-plaintext highlighter-rouge">pivotValue</code> là 5.9 thì test coi như xong.</p>
+<h2 id="tại-sao-nên-test-tự-động-và-nên-dùng-tdd">Tại sao nên test tự động và nên dùng TDD?</h2>
+
+<p>Các bạn chắc cũng đồng ý với Martin về định nghĩa của 1 lập trình viên chuyên nghiệp như sau chứ nhỉ?</p>
+
+<blockquote>
+  <p>Professional software developers ship clean, flexible code that works—on time.
+Một nhà phát triển phần mềm chuyên nghiệp sẽ phát hành code <strong>sạch</strong>, <strong>linh hoạt</strong> và <strong>chạy được</strong> - <strong>một cách đúng hạn</strong>.</p>
+</blockquote>
+
+<p>Lợi ích của phương pháp TDD [4] chính là đảm bảo phát hiện ra vấn đề và bắt nhà phát triển sửa ngay: không chỉ là chạy được mà còn là sạch sẽ và linh hoạt.
+Nhiều bạn từng ca thán với tôi là test tự động theo TDD thì không đảm bảo deadline được.
+Thì nguyên nhân chính là vì chưa nắm rõ TDD nên chưa đưa tối ưu hóa được quy trình theo TDD, dẫn đến estimate sai và trễ hạn.
+Còn về nguyên tắc thực hiện đúng TDD thì càng làm sẽ càng ít vấn đề và cái giá phải trả về sau sẽ nhẹ đi, nên càng về sau sẽ phải càng đúng hẹn lên.</p>
+
+<h2 id="3-luật-của-tdd">3 luật của TDD</h2>
+
+<p>Trích dẫn từ [3]:</p>
+
+<blockquote>
+  <p><strong>First Law</strong> You may not write production code until you have written a failing unit test. <strong>Luật thứ nhất</strong> Khi mà chưa viết ra được 1 unit test chứng tỏ fail, thì đừng viết thêm code sản phẩm.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Second Law</strong> You may not write more of a unit test than is sufficient to fail, and not compiling is failing. <strong>Luật thứ hai</strong> Đừng viết những unit test không chứng tỏ việc fail, chỉ viết những unit test đủ để cho thấy vấn đề.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Third Law</strong> You may not write more production code than is sufficient to pass the currently failing test. <strong>Luật thứ ba</strong> Đừng viết code sản phẩm nhiều hơn mức đủ để chữa những test fail.</p>
+</blockquote>
+
+<p>Các bạn có thể thấy 3 định luật này tạo nên một vòng lặp giữa việc viết unit test và sửa code.
+Đồng thời, 3 định luật cũng buộc chặt developer và tester phải tập trung viết code để sửa test fail và viết test code để chi ra fail.
+Chứ việc viết những code và test code không để chỉ ra fail là việc tối kỵ.
+<em>Thế nên, khi tham gia TDD, bạn lại viết một đoạn code không để chỉ ra thất bại, cũng không để sửa chữa thất bại, mà chỉ để nêu ra thành công thì về nguyên tắc là không tuân thủ luật của TDD và bản thân điều đó lại là một thất bại</em>.</p>
+
+<h1 id="viết-test-sạch-sẽ">Viết test “sạch sẽ”</h1>
+<p>Như Martin [4] đã chỉ ra, test không chỉ là test mà còn là documentation: người ta đọc test code là có thể hình dung ngay được luồng hoạt động của module phần mềm.
+Vì vậy, lười viết test code chính là việc làm giấu đi cái hướng dẫn sử dụng module phần mềm đó.
+Ngoài ra viết test “bẩn” thì lại mất đi ý nghĩa: người ta khó hình dung là test case này đang kiểm tra cái gì của module phần mềm, và module phần mềm đang làm gì!</p>
+
+<p>Để viết test thật “sạch sẽ” nên chú ý viết thật đơn giản tránh phức tạp. Mỗi test chỉ nên tầm vài dòng.
+Và nhìn chung là có hai luật kinh nghiệm sau nên được áp dụng:</p>
+
+<ul>
+  <li>
+    <p>Mỗi test case chỉ nên có 1 assert.</p>
+  </li>
+  <li>
+    <p>Mỗi test case chỉ nên kiểm chứng 1 concept.</p>
+  </li>
+</ul>
+
+<h1 id="quy-tắc-first">Quy tắc F.I.R.S.T</h1>
+
+<p>Về mặt tư tưởng của kiểm nghiệm phần mềm, có thể tìm đọc cuốn của Binder [5] tuy hơi cũ nhưng rất chi tiết về lĩnh vực này.
+Các tài liệu về kiến trúc xUnit [1] hay cách viết code và thiết kế sạch sẽ [2, 3] cũng nên tìm hiểu.
+Ở đây chúng ta sẽ điểm qua bộ quy tắc <strong>FIRST</strong> để viết test code:</p>
+
+<ul>
+  <li>
+    <p><strong>Fast</strong>: Test nên nhanh, vì nếu chậm, bạn sẽ không muốn test nhiều. Mà nếu không chạy test nhiều thì sẽ ít cơ hội <strong>phát hiện vấn đề</strong> đi.</p>
+  </li>
+  <li>
+    <p><strong>Independent</strong>: Các test không nên phụ thuộc vào nhau. Giả sử kết quả của test A lại phụ thuộc vào 1 dòng code nào đó của test B, thì việc kết quả của A bị B chi phối sẽ dẫn đến nghi vấn là thế tình huống không có B thì A có chạy được không?
+Một ví dụ về trường hợp kiểu này tôi gặp từ 7-8 năm về trước như sau: bạn lập trình viên khi test để tất cả các test dùng chung kết nối database.
+Khi chạy xong test này bạn không clear kết quả đi, mà vẫn cho test phía sau dùng lại kết nối ấy và dữ liệu như vậy bị phụ thuộc vào test trước.
+Kết cục là kết quả test trở thành một mớ hỗn độn không thể tin tưởng được!</p>
+  </li>
+  <li>
+    <p><strong>Repeatable</strong>: Test nên có thể chạy trên mọi môi trường như production, QA, thậm chí là trên máy tính cá nhân của bạn.
+Nếu không thì cứ mỗi lần vào 1 môi trường mới mà nó fail thì bạn lại phải giải thích tại sao nó fail.</p>
+  </li>
+  <li>
+    <p><strong>Self-Validating</strong>: Ví dụ đơn giản là cách test thủ công từ những năm 1990s. Có lần để test thủ công, bạn tôi bị bắt truy cập vào máy chủ để đọc cả 1 đoạn log truy cập dài hàng ngàn trang.
+<em>Thế nếu quá trình đọc hàng ngàn trang log ấy bị sót mất trang nào thì sao?</em>
+Kết quả là bản thân việc kiểm toán đã là một quy trình thủ công và sót, dẫn đến là kết quả có khi chả chỉ ra vấn đề gì, cũng chả sửa gì.
+Một test tốt nên tự động, binary output (PASS hoặc FAIL thôi).
+Tốt nhất là không nên để người test bằng tay, hay đọc rồi trả lời câu hỏi.</p>
+  </li>
+  <li>
+    <p><strong>Timely</strong>: Phải viết test nhanh, nên viết trước khi có production code.
+Cứ thử đợi lên production rồi mới viết test thì bạn thấy ngay là lúc đó production code đã bị đóng gói và rất khó test.</p>
+  </li>
+</ul>
+
+<h1 id="ví-dụ-về-state-machine-model">Ví dụ về State Machine Model</h1>
+
+<p>Một vấn để cuối cùng tôi muốn đề cập là cách suy nghĩ ra testcases.
+Theo văn hóa làm việc ngành phần mềm, thì trước khi test phải làm bản kế hoạch test mà tiếng Nhật gọi là テスト計画書.
+Nhìn chung, theo kinh nghiệm thì các bạn cũng chịu khó làm, nhưng không hiểu sao đôi khi lại cứ nảy sinh vấn đề thiếu này thừa kia.
+Thì đối với unit test, các bạn có thể tham khảo <strong>State Machine Model (SMM)</strong> là cách suy nghĩ hiệu quả và khó lọt lưới cases nhất.
+Mô hình suy nghĩ này tức là bạn phải liệt kê hết các trạng thái cần có cho đối tượng test.
+Sau đó bạn sẽ lên kế hoạch để test hết tất cả các transition giữa các trạng thái ấy.</p>
+
+<p>Đơn cử tôi xin lấy ví dụ về đối tượng test là 1 cấu trúc dữ liệu tên là <code class="language-plaintext highlighter-rouge">Stack</code>.
+Stack là một cấu trúc dữ liệu mà dữ liệu vào muộn nhất sẽ được lấy ra sớm nhất.
+(Có nhiều bạn có thể liên tưởng tới dịch vụ <code class="language-plaintext highlighter-rouge">stackoverflow</code>, nhưng mặc dù cũng là 1 nơi tập trung dữ liệu quan trọng, và cái stack ấy mà sập thì anh em cũng mất nhờ, nhưng mà nó không phải <code class="language-plaintext highlighter-rouge">Stack</code> cấu trúc dữ liệu mà mình muốn đề cập tới).</p>
+
+<p><code class="language-plaintext highlighter-rouge">Stack</code> class sẽ cần 5 hàm sau:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">new</code> để khởi tạo stack mới. Kiểu trả về là <code class="language-plaintext highlighter-rouge">Stack</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">push</code> để thêm phần tử mới vào đỉnh của stack. Kiểu trả về là <code class="language-plaintext highlighter-rouge">Stack</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">top</code> để lấy phần tử ở đỉnh (và là mới nhất) mà không xóa nó đi. Kiểu trả về là kiểu dữ liệu của phần tử mà ta sẽ lấy kiểu <code class="language-plaintext highlighter-rouge">int</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">retract</code> để lấy phần tử mới nhất ở đỉnh ra khỏi stack và trả về stack đã bị sửa. Kiểu trả về là <code class="language-plaintext highlighter-rouge">Stack</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">is_empty</code> để trả lời xem stack rỗng hay không. Kiểu trả về là <code class="language-plaintext highlighter-rouge">boolean</code>.</li>
+</ul>
+
+<p><strong>Vậy nếu ta cần làm một <code class="language-plaintext highlighter-rouge">Stack</code> có thể chứa tối đa $N$ phần tử, thì tính theo số lượng phần từ, <code class="language-plaintext highlighter-rouge">Stack</code> sẽ có bao nhiêu trạng thái?</strong></p>
+
+<p>Câu trả lời chính là $N+1$ trạng thái (tính cả rỗng).</p>
+
+<p>Dưới đây để cho dễ quan sát, tôi chỉ lấy 2 trạng thái là <strong>rỗng (empty)</strong> và <strong>không rỗng (not empty)</strong>.</p>
+
+<p><img src="/assets/img/smm.PNG" alt="" /></p>
+
+<p>Giả sử $N=1$ cho dễ hình dung, thì các bạn thấy như hình trên sẽ có 2 trạng thái ($N+1=2$).</p>
+
+<p><strong>Vậy bây giờ cần thiết kế test ra sao?</strong></p>
+
+<p>Theo nguyên lý của SMM thì bạn phải viết hết các testcases để bao trùm toàn bộ các transition giữa các trạng thái.
+Như vậy, thì khi $N=1$, các bạn sẽ phải viết như hình vẽ trên là 6 transitions, tương ứng 6 quan điểm test cơ bản nhất.
+Sau đó vào từng cái thì các bạn có thể làm rõ và test thêm tùy ý các trường hợp nhỏ lẻ.</p>
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="HumbleOb26:online"><i>Humble Object at XUnitPatterns.com</i>. http://xunitpatterns.com/Humble%20Object.html.</span></li>
+<li><span id="cleanarch">Martin, R. C. (2017). <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span></li>
+<li><span id="martin2009clean">Martin, R. C. (2009). <i>Clean code: a handbook of agile software craftsmanship</i>. Pearson Education.</span></li>
+<li><span id="martin2007professionalism">Martin, R. C. (2007). Professionalism and test-driven development. <i>IEEE Software</i>, <i>24</i>(3), 32–36.</span></li>
+<li><span id="binder2000testing">Binder, R. (2000). <i>Testing object-oriented systems: models, patterns, and tools</i>. Addison-Wesley Professional.</span></li>
+<li><span id="abstraction1988hierarchy">Liskov, B. (1988). Data Abstraction and Hierarchy. <i>SIGPLAN Notices</i>, <i>23</i>(5), 17–34.</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-08-09">09 Aug 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#programming">#programming</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#software-architecture">#software architecture</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#software-testing">#software testing</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#unit-tests">#unit tests</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#unittesting">#unittesting</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//srp-ccp/"> &laquo; Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//software-maintenance-technical-debt/">Software maintenance and technical debt - Bảo trì phần mềm và 'nợ công nghệ' &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Uncertainty is everywhere in the lifecycle of a project. The duration of activities, resources to assign to actions, and schedules are all uncertain. Project managers can manage to reduce the risks associated with uncertainties, but they cannot be eliminated. Risk analysis helps to identify and sometimes visualize the risks, not to remove risks from projects. Oracle CrystalBall (OCB) is a simulation software for risk management. It utilizes Monte Carlo Simulation to consider every possibility that can happen when calculating and predicting the outcomes of their occurrences, thereby giving you the critical part of your model in which to concentrate." />
+<meta property="og:description" content="Uncertainty is everywhere in the lifecycle of a project. The duration of activities, resources to assign to actions, and schedules are all uncertain. Project managers can manage to reduce the risks associated with uncertainties, but they cannot be eliminated. Risk analysis helps to identify and sometimes visualize the risks, not to remove risks from projects. Oracle CrystalBall (OCB) is a simulation software for risk management. It utilizes Monte Carlo Simulation to consider every possibility that can happen when calculating and predicting the outcomes of their occurrences, thereby giving you the critical part of your model in which to concentrate." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/cb02.PNG" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-17T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/cb02.PNG" />
+<meta property="twitter:title" content="Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis" />
+<script type="application/ld+json">
+{"description":"Uncertainty is everywhere in the lifecycle of a project. The duration of activities, resources to assign to actions, and schedules are all uncertain. Project managers can manage to reduce the risks associated with uncertainties, but they cannot be eliminated. Risk analysis helps to identify and sometimes visualize the risks, not to remove risks from projects. Oracle CrystalBall (OCB) is a simulation software for risk management. It utilizes Monte Carlo Simulation to consider every possibility that can happen when calculating and predicting the outcomes of their occurrences, thereby giving you the critical part of your model in which to concentrate.","image":"/assets/img/cb02.PNG","headline":"Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis","dateModified":"2021-06-17T00:00:00+09:00","datePublished":"2021-06-17T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/crystal-ball-monte-carlo-risk-analysis/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/crystal-ball-monte-carlo-risk-analysis/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis&url=/crystal-ball-monte-carlo-risk-analysis/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/crystal-ball-monte-carlo-risk-analysis/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/crystal-ball-monte-carlo-risk-analysis/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/cb02.PNG" alt="Using Oracle CrystalBall for Monte Carlo Simulation based Risk Analysis">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#introduction">Introduction</a>
+    <ul>
+      <li><a href="#risk-analysis-and-monte-carlo-simulation">Risk Analysis and Monte Carlo Simulation</a></li>
+      <li><a href="#oracle-crystalball">Oracle CrystalBall</a>
+        <ul>
+          <li><a href="#get-a-trial-version">Get a trial version</a></li>
+          <li><a href="#installation">Installation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#examples">Examples</a>
+    <ul>
+      <li><a href="#project-selection">Project Selection</a>
+        <ul>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#register-assumption-and-forecast-variables">Register assumption and forecast variables</a></li>
+          <li><a href="#simulation">Simulation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#references">References</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><strong>Uncertainty</strong> is everywhere in the lifecycle of a project.
+The duration of activities, resources to assign to actions, and schedules are all uncertain.
+Project managers can manage to reduce the risks associated with uncertainties, but they cannot be eliminated.
+<strong>Risk analysis</strong> helps to identify and sometimes visualize the risks, not to remove risks from projects.
+<strong>Oracle CrystalBall (OCB)</strong> is a simulation software for risk management.
+It utilizes Monte Carlo Simulation to consider every possibility that can happen when calculating and predicting the outcomes of their occurrences, thereby giving you the critical part of your model in which to concentrate.</p>
+
+<!--more-->
+
+<h1 id="introduction">Introduction</h1>
+
+<h2 id="risk-analysis-and-monte-carlo-simulation">Risk Analysis and Monte Carlo Simulation</h2>
+
+<p><strong>Uncertainty</strong> is everywhere in the lifecycle of a project.
+The duration of activities, resources to assign to actions, and schedules are all uncertain.
+Project managers can manage to reduce the risks associated with uncertainties, but they cannot be eliminated.
+<strong>Risk analysis</strong> helps to identify and sometimes visualize the risks, not to remove risks from projects.
+To apply risk analysis, one must make assumptions about the probability distributions that characterize key parameters and variables associated with a decision and then use these to estimate the risk profiles or probability distributions of the outcomes of the decision.</p>
+
+<p><strong>Monte Carlo Simulation (MCS)</strong> works upon an established assumption about distributions of risks and evaluating the risks by computing the values of multiple samples.
+Under statistical analysis, a range of values of interests can be selected with confidence.
+For example, let’s see when we have to estimate <em>the duration of a task</em>, which follows normal distributions with the mean is 5 days, and the standard deviation is about 1 day.
+Then MCS generates a set of 1,000 samples following the assumptions.
+We can find the worst cases and the best cases from simulated results, as the minimum values and the maximum values out of 1,000 samples.</p>
+
+<h2 id="oracle-crystalball">Oracle CrystalBall</h2>
+
+<p><strong>Oracle CrystalBall (OCB)</strong> is a simulation software for risk management.
+It utilizes Monte Carlo Simulation to consider every possibility that can happen when calculating and predicting the outcomes of their occurrences, thereby giving you the critical part of your model in which to concentrate.
+With the Monte Carlo Simulation, your working processes are simplified, including the statistics and the necessary information at its side in split-view format.
+The software is an Excel add-in and useful for Excel professionals.</p>
+
+<h3 id="get-a-trial-version">Get a trial version</h3>
+
+<p>Because a license of OCB costs nearly <a href="https://shop.oracle.com/apex/product?p1=oraclecrystalball&amp;p2=&amp;p3=&amp;p4=&amp;p5=&amp;sc=ocom_crystalball">$1,000</a>, we experience the trial version.
+Please visit <a href="https://www.oracle.com/middleware/technologies/crystalball/downloads.html#">here</a> and follow the instruction to download trial versions.
+To see the download link, you may need to register for an Oracle account.
+Oracle reviews your download request.
+In my case, it took less than 24 hours.
+Thanks to Oracle!
+The download came after the approval.
+That download content was:
+<img src="/assets/img/cb03.PNG" alt="" /></p>
+
+<h3 id="installation">Installation</h3>
+
+<p>Read the guides and then double-click on <strong>crystalballsetup-x64.exe</strong> and follow the instructions for installation.
+The CrystalBall <a href="https://docs.microsoft.com/en-us/office/dev/add-ins/excel/excel-add-ins-overview">add-in</a> is installed inside Excel and is available for every workbook.
+<img src="/assets/img/cb04.PNG" alt="" /></p>
+
+<h1 id="examples">Examples</h1>
+
+<h2 id="project-selection">Project Selection</h2>
+
+<p>Somewhere in the past, we have <a href="/pm/2021/06/01/discounted-cash-flow.html">discussed</a> about Discounted Cash Flow (or Net-Present Value).</p>
+
+<h3 id="problem">Problem</h3>
+<p>A company has been planning to develop a new product.
+The project has a hurdle rate $K=0.12$ and prospective inflation rate $p=0.03$.
+The <strong>most likely</strong> cash flows in ten years are as follows.
+<img src="/assets/img/cb05.PNG" alt="" />
+Recall that the <em>Discounted factor of $t$-th year</em> is $d_t=\frac{1}{(1+K+p)^t}$.
+Note that the above table is the most likely number.</p>
+
+<p>Now let us assume that the expenditures in this example are fixed by contract with an 
+outside vendor.
+Thus, there is no uncertainty about the outflows, but there are, uncertainties about the inflows. 
+Assume that the estimated inflows are as shown in the below table and include a most likely estimate, a minimum (pessimistic) estimate, and a maximum (optimistic) estimate.
+Both the beta and the triangular statistical distributions are well suited for modeling variables with these three parameters, but fitting a beta distribution is complicated and not particularly intuitive. 
+Therefore, we will assume that the triangular distribution will give us a reasonably good fit for the inflow variables.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Minimum Inflow</th>
+      <th>Most Likely Inflow</th>
+      <th>Maximum Inflow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2008</td>
+      <td>$35,000</td>
+      <td>$50,000</td>
+      <td>$60,000</td>
+    </tr>
+    <tr>
+      <td>2009</td>
+      <td>95,000</td>
+      <td>120,000</td>
+      <td>136,000</td>
+    </tr>
+    <tr>
+      <td>2010</td>
+      <td>100,000</td>
+      <td>115,000</td>
+      <td>125,000</td>
+    </tr>
+    <tr>
+      <td>2011</td>
+      <td>88,000</td>
+      <td>105,000</td>
+      <td>116,000</td>
+    </tr>
+    <tr>
+      <td>2012</td>
+      <td>80,000</td>
+      <td>97,000</td>
+      <td>108,000</td>
+    </tr>
+    <tr>
+      <td>2013</td>
+      <td>75,000</td>
+      <td>90,000</td>
+      <td>100,000</td>
+    </tr>
+    <tr>
+      <td>2014</td>
+      <td>67,000</td>
+      <td>82,000</td>
+      <td>91,000</td>
+    </tr>
+    <tr>
+      <td>2015</td>
+      <td>51,000</td>
+      <td>65,000</td>
+      <td>73,000</td>
+    </tr>
+    <tr>
+      <td>2016</td>
+      <td>30,000</td>
+      <td>35,000</td>
+      <td>38,000</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Total</td>
+      <td>$621,000</td>
+      <td>$759,000</td>
+      <td>$847,000</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="register-assumption-and-forecast-variables">Register assumption and forecast variables</h3>
+<p>To do Monte Carlo simulation, we must register our assumptions on the uncertainties of inflows.
+Select cell <strong>B5</strong>, and then select the <strong>Define Assumption</strong> button from the ribbon menu of CrystalBall.
+Note that the project was assumed that the project generates no profit in the first three years.
+Therefore, we start from 2008 (or cell <strong>B5</strong>).
+Then choose the <strong>three-point estimates</strong>.
+<img src="/assets/img/cb06.PNG" alt="" />
+Adjust the parameters of the triangular distribution according to the table in the previous section.
+Then click <strong>OK(O)</strong>.
+<img src="/assets/img/cb07.PNG" alt="" />
+Repeat the process for cells <strong>B6:B13</strong>.</p>
+
+<p>To run the simulation, we still need to select a forecasting goal: the total DCF the project will generate after 10 years, or the value of cell <strong>F15</strong>.
+Select cell <strong>F15</strong> and the button <strong>Define Forecast</strong> from the ribbon menu.
+Input the name and the unit as follows.
+<img src="/assets/img/cb08.PNG" alt="" /></p>
+<h3 id="simulation">Simulation</h3>
+<p>Click button <strong>Start</strong> in the ribbon menu of CrystalBall to start MCS.
+The default number of simulations is 1,000.
+After done the simulation, we observe some results like:
+<img src="/assets/img/cb09.PNG" alt="" /></p>
+
+<p>To find a robust estimation, we can see the <strong>median</strong>: 10,869 USD after 10 years is the expected DCF the project will generate.
+Not so much!</p>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="meredith2017project">Meredith, J. R., Shafer, S. M., &amp; Mantel Jr, S. J. (2017). <i>Project management: a strategic managerial approach</i>. John Wiley &amp; Sons.</span></li>
+<li><span id="OracleCr38:online"><i>Oracle Crystal Ball Downloads</i>. https://www.oracle.com/middleware/technologies/crystalball/downloads.html.</span></li>
+<li><span id="fisher1983getting">Fisher, R., &amp; Ury, W. (1983). <i>Getting to Yes: Negotiating Agreement Without Giving In</i>. New York: Penguin Books.</span></li>
+<li><span id="hamburger1986three">Hamburger, D. H. (1986). Three perceptions of project cost. <i>Project Management Journal</i>, 372–378.</span></li>
+<li><span id="GanttPro32:online"><i>GanttProject - Free Project Management Application</i>. https://www.ganttproject.biz/.</span></li>
+<li><span id="ProjectM44:online"><i>Project Management Software | Microsoft Project</i>. https://www.microsoft.com/en-us/microsoft-365/project/project-management-software.</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-06-17">17 Jun 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Project-Management">Project Management</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#finance">#finance</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#microsoft-excel">#microsoft excel</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#microsoft-office">#microsoft office</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#microsoft-office-365">#microsoft office 365</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#monte-carlo">#monte carlo</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#pmi">#pmi</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#project-management">#project management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#project-manager">#project manager</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#risk-analysis">#risk analysis</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#startup">#startup</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//microsoft-project-scheduling/"> &laquo; Planning Waterfall Project Schedule and Resources with Microsoft Project 2019</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//the-customer-interface/">The Customer Interface &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

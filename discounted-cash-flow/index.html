@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Discounted Cash Flow and The Hiring of a Postdoc | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Discounted Cash Flow and The Hiring of a Postdoc | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Discounted Cash Flow and The Hiring of a Postdoc" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In the winter of 20xx, a professor was asked to evaluate a postdoc profile for hiring. The offer is about 4.2 million per year (currency is not revealed). An average postdoc lifetime is about 5 years (and then moving towards tenure or perish). The inflation rate is about 3% per year. The sponsors of the professor’s project can give 50 million for five years. What is the hurdle rate that makes the profile (together with the project) is acceptable?" />
+<meta property="og:description" content="In the winter of 20xx, a professor was asked to evaluate a postdoc profile for hiring. The offer is about 4.2 million per year (currency is not revealed). An average postdoc lifetime is about 5 years (and then moving towards tenure or perish). The inflation rate is about 3% per year. The sponsors of the professor’s project can give 50 million for five years. What is the hurdle rate that makes the profile (together with the project) is acceptable?" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/2/23/US_one_dollar_bill,_obverse,_series_2009.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/2/23/US_one_dollar_bill,_obverse,_series_2009.jpg" />
+<meta property="twitter:title" content="Discounted Cash Flow and The Hiring of a Postdoc" />
+<script type="application/ld+json">
+{"description":"In the winter of 20xx, a professor was asked to evaluate a postdoc profile for hiring. The offer is about 4.2 million per year (currency is not revealed). An average postdoc lifetime is about 5 years (and then moving towards tenure or perish). The inflation rate is about 3% per year. The sponsors of the professor’s project can give 50 million for five years. What is the hurdle rate that makes the profile (together with the project) is acceptable?","image":"https://upload.wikimedia.org/wikipedia/commons/2/23/US_one_dollar_bill,_obverse,_series_2009.jpg","headline":"Discounted Cash Flow and The Hiring of a Postdoc","dateModified":"2021-06-01T00:00:00+09:00","datePublished":"2021-06-01T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/discounted-cash-flow/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/discounted-cash-flow/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Discounted Cash Flow and The Hiring of a Postdoc&url=/discounted-cash-flow/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/discounted-cash-flow/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/discounted-cash-flow/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Discounted Cash Flow and The Hiring of a Postdoc</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://upload.wikimedia.org/wikipedia/commons/2/23/US_one_dollar_bill%2C_obverse%2C_series_2009.jpg" alt="Discounted Cash Flow and The Hiring of a Postdoc">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#assumptions">Assumptions</a></li>
+  <li><a href="#discounted-cash-flow">Discounted Cash Flow</a></li>
+  <li><a href="#when-h15-then-how-much-the-postdoc-must-produce-every-year">When $h=15$% then how much the postdoc must produce every year?</a></li>
+  <li><a href="#when-h5-then-how-much-the-postdoc-must-produce-every-year">When $h=5$% then how much the postdoc must produce every year?</a></li>
+  <li><a href="#what-if-the-offer-is-only-35m-in-gross-income-and-the-initial-investment-is-only-175m">What if the offer is only 3.5M in gross-income and the initial investment is only 17.5M?</a></li>
+  <li><a href="#conclusion-whats-the-strategy">Conclusion: what’s the strategy?</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p>In the winter of 20xx, a professor was asked to evaluate a postdoc profile for hiring.
+The offer is about 4.2 million per year (currency is not revealed).
+An average postdoc lifetime is about 5 years (and then moving towards tenure or perish).
+The inflation rate is about 3% per year.
+The sponsors of the professor’s project can give 50 million for five years.
+<strong>What is the hurdle rate</strong> that makes the profile (together with the project) is acceptable?
+<!--more--></p>
+
+<h2 id="assumptions">Assumptions</h2>
+
+<ul>
+  <li>
+    <p>Assume that the profile is trusted that the holder can produce sufficient works in a year worths 4.2M.</p>
+  </li>
+  <li>
+    <p>Although 50M flow to the project, other stuff also needs money.
+Hence, the professor needs to pay themselves.
+Then let’s say about 21M are secured for paying the postdoc.</p>
+  </li>
+</ul>
+
+<h2 id="discounted-cash-flow">Discounted Cash Flow</h2>
+
+<p>Also referred to as the net present value (NPV) method, the discounted cash flow method determines the net present value of all cash flows by discounting them by the required rate of return (also known as the <strong>hurdle rate</strong>, cutoff rate, and similar terms) as follows:</p>
+
+<p>$\mbox{DCF} = I_0 + \sum_{t=1}^T\frac{F_0}{(1+h+p)^t},$
+where,</p>
+<ul>
+  <li>$I_0&lt;0$ is the initial investment, and in this case, $I_0=-21$M, which is a negative value</li>
+  <li>$T=5$ is the total number of phases.</li>
+  <li>$F_0$ is the net cash flow in phase $t$</li>
+  <li>$h$ is the hurdle rate, i.e., the percentage of gross-income which must be returned to the investors (project’s sponsors)</li>
+  <li>$p=0.03$ is the inflation rate.</li>
+</ul>
+
+<p>Now, by substitution in to their case,</p>
+
+<p>$\mbox{DCF} = -21 + \sum_{t=1}^5\frac{F_0}{(1+h+0.03)^t}$.</p>
+
+<p>If the DCF is non-negative then the postdoc is deemed acceptable, else rejected.</p>
+
+<h2 id="when-h15-then-how-much-the-postdoc-must-produce-every-year">When $h=15$% then how much the postdoc must produce every year?</h2>
+
+<p>Let’s say the sponsors require 15% of the gross-income made by the work of the postdoc.
+Then which $F_0$ must be to make the DCF non-negative?</p>
+
+<p>We would solve the equation:</p>
+
+<p>$DCF =-21 + F_0\sum_{t=1}^5\frac{1}{(1+0.15+0.03)^t} \geq 0$
+or,
+$-21+F_0\times 3.127 \geq 0$</p>
+
+<p>Then the money the postdoc is expected to make each year in the following 5 years is $F_0\geq \frac{21}{3.217}=6.7$M.
+In other words, if the sponsors require 15% of gross-income, the postdoc must make more 2.5M than the cash they are paid.</p>
+
+<h2 id="when-h5-then-how-much-the-postdoc-must-produce-every-year">When $h=5$% then how much the postdoc must produce every year?</h2>
+
+<p>We would solve the equation:</p>
+
+<p>$DCF =-21 + F_0\sum_{t=1}^5\frac{1}{(1+0.05+0.03)^t} \geq 0$
+or,
+$-21+F_0\times 3.993 \geq 0$</p>
+
+<p>Then the money the postdoc is expected to make each year in the following 5 years is $F_0\geq \frac{21}{3.993}=5.2$M.
+In other words, if the sponsors require only 5% of gross-income, the postdoc must make 1M than the cash they are paid every year.</p>
+
+<h2 id="what-if-the-offer-is-only-35m-in-gross-income-and-the-initial-investment-is-only-175m">What if the offer is only 3.5M in gross-income and the initial investment is only 17.5M?</h2>
+
+<p>In case of hurdle rate is 5%, then the value the postdoc must make is $\frac{17.5}{3.993}=4.4M$.
+The expectation is low, and matching the ability of the postdoc (their profile can make 4.2M per year as evaluated), then <strong>lower salary lower duty</strong>, straight life!</p>
+
+<p>In case of hurdle rate is 15%, then the value the postdoc must make is $\frac{17.5}{3.127}=5.6M$.
+The expectation is higher than the ability of the postdoc (their profile can make 4.2M per year as evaluated).</p>
+
+<h2 id="conclusion-whats-the-strategy">Conclusion: what’s the strategy?</h2>
+
+<p>The best deal for their postdoc is to negotiate with the professor and the sponsors to have:</p>
+<ul>
+  <li>hurdle rate is 5%; and</li>
+  <li>annual income is only 3.5 million.</li>
+</ul>
+
+<p>Otherwise, overtime is frequent, and their life will be destroyed.</p>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-06-01">01 Jun 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Project-Management">Project Management</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#cash-flow">#cash flow</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#finance">#finance</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#pmi">#pmi</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#project-management">#project management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#startup">#startup</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//mOCR-mlkit-androidx-example/"> &laquo; mOCR: A real-time application of OCR with Google MLKit and Android CameraX</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//weighted-score-model/">Weighted Score Models &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

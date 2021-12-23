@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>MLOps and GPU serverless computing with Algorithmia | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>MLOps and GPU serverless computing with Algorithmia | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="MLOps and GPU serverless computing with Algorithmia" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Figure 1. A traditional ML pipeline with associated roles (data engineer, data scientist, and software engineer) Machine learning doesn’t create value unless you can deliver models quickly and at scale. Source: https://algorithmia.com/product Algorithmia [1] is an MLOps platform for deployments of AI solutions, including health care, face recognition, and so on. The MLOps [2, 3] includes practices to continuous delivery of ML features to an integration software. It cares steps from data preparation, model selection, training/tuning/testing, and integration to a software system. Platforms like Algorithmia provides the ease of automatic training and inference for MLOps with GPU serverless computing. As the need for such platforms is growing [3, 4], I review such a solution in this blog." />
+<meta property="og:description" content="Figure 1. A traditional ML pipeline with associated roles (data engineer, data scientist, and software engineer) Machine learning doesn’t create value unless you can deliver models quickly and at scale. Source: https://algorithmia.com/product Algorithmia [1] is an MLOps platform for deployments of AI solutions, including health care, face recognition, and so on. The MLOps [2, 3] includes practices to continuous delivery of ML features to an integration software. It cares steps from data preparation, model selection, training/tuning/testing, and integration to a software system. Platforms like Algorithmia provides the ease of automatic training and inference for MLOps with GPU serverless computing. As the need for such platforms is growing [3, 4], I review such a solution in this blog." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/ml-workflow.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-31T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/ml-workflow.png" />
+<meta property="twitter:title" content="MLOps and GPU serverless computing with Algorithmia" />
+<script type="application/ld+json">
+{"description":"Figure 1. A traditional ML pipeline with associated roles (data engineer, data scientist, and software engineer) Machine learning doesn’t create value unless you can deliver models quickly and at scale. Source: https://algorithmia.com/product Algorithmia [1] is an MLOps platform for deployments of AI solutions, including health care, face recognition, and so on. The MLOps [2, 3] includes practices to continuous delivery of ML features to an integration software. It cares steps from data preparation, model selection, training/tuning/testing, and integration to a software system. Platforms like Algorithmia provides the ease of automatic training and inference for MLOps with GPU serverless computing. As the need for such platforms is growing [3, 4], I review such a solution in this blog.","image":"/assets/img/ml-workflow.png","headline":"MLOps and GPU serverless computing with Algorithmia","dateModified":"2021-07-31T00:00:00+09:00","datePublished":"2021-07-31T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/algorithmia/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/algorithmia/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=MLOps and GPU serverless computing with Algorithmia&url=/algorithmia/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/algorithmia/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/algorithmia/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">MLOps and GPU serverless computing with Algorithmia</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/ml-workflow.png" alt="MLOps and GPU serverless computing with Algorithmia">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#what-is-mlops">What is MLOps?</a>
+    <ul>
+      <li><a href="#mlops">MLOps</a></li>
+      <li><a href="#a-short-description-about-steps-and-roles-in-machine-learning">A short description about steps and roles in machine learning</a></li>
+    </ul>
+  </li>
+  <li><a href="#who-needs-mlops">Who needs MLOps?</a></li>
+  <li><a href="#gpu-serverless-computing">GPU serverless computing</a>
+    <ul>
+      <li><a href="#an-overview-of-serverless-computing">An overview of serverless computing</a></li>
+      <li><a href="#gpu-choices-for-machine-learning">GPU choices for Machine Learning</a></li>
+    </ul>
+  </li>
+  <li><a href="#algorithmia">Algorithmia</a>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#example-face-recognition">Example: Face Recognition</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><em>Figure 1. A traditional ML pipeline with associated roles (data engineer, data scientist, and software engineer)</em></p>
+
+<blockquote>
+  <p><em>Machine learning doesn’t create value unless you can deliver models quickly and at scale.</em></p>
+
+  <p><em>Source: <a href="https://algorithmia.com/product">https://algorithmia.com/product</a></em></p>
+</blockquote>
+
+<p>Algorithmia [1] is an MLOps platform for deployments of AI solutions, including health care, face recognition, and so on.
+The MLOps [2, 3] includes practices to continuous delivery of ML features to an integration software.
+It cares steps from data preparation, model selection, training/tuning/testing, and integration to a software system.
+Platforms like Algorithmia provides the ease of automatic training and inference for MLOps with GPU serverless computing.
+As the need for such platforms is growing [3, 4], I review such a solution in this blog.
+<!--more--></p>
+
+<h1 id="what-is-mlops">What is MLOps?</h1>
+
+<h2 id="mlops">MLOps</h2>
+
+<blockquote>
+  <p>Continuous software engineering practices, such as DevOps, have emerged in the last decades among many organizations in their operations.
+This has resulted in an ability to deploy new features to use whenever their development is completed, which in turn means that systems are updated frequently.
+Source: [3]</p>
+</blockquote>
+
+<p><strong>MLOps</strong> can be thought of same continuous process for machine learning systems.
+Because machine learning solutions which based on algorithms, not merely on software like software, introduces more actions that are specific for ML algorithms.
+These ML features are embedded into a larger software system that serves, provides access to, and monitors ML features. 
+The model is only a small part of the software, and then the interaction between the machine learning model and the rest of the system must be designed rightly.</p>
+
+<p>In fact, we often train a model in the separation of the software with many data, then pass the pre-trained model to software engineers for further <strong>deployment and integration</strong> to software systems.
+The MLOps will be the part of <strong>automatic data preparation, training, tuning and then integration into external softwares</strong>.
+It must be done <strong>continuously</strong> in all steps involving training/testing and delivering to integration software.</p>
+<h2 id="a-short-description-about-steps-and-roles-in-machine-learning">A short description about steps and roles in machine learning</h2>
+
+<p>Steps in machine learning deployment can be seen in Figure 1.
+It involves steps from collecting data from sources (Internet or given providers), data preparations, model selection, hyper-parameter tuning, training/testing, and integration into software systems.</p>
+
+<p>There are several key roles in this system:</p>
+
+<ul>
+  <li>
+    <p><strong>Software Engineer (SE)</strong> often takes responsibility in <code class="language-plaintext highlighter-rouge">model deployment</code> and <code class="language-plaintext highlighter-rouge">workflow integration</code>.
+Model deployment cares about making the inference of a pre-trained model.
+Workflow integration cares about integrating the deployment solution into the target software systems.
+Therefore, it will be difficult for data scientists or machine learning engineers who care more about data to do this job because they don’t have enough knowledge about the existed software.
+A SE who is already familiar with the target systems is then required.</p>
+  </li>
+  <li>
+    <p><strong>Data Engineer (DE)</strong> cares about data preparation, feature engineering (selecting the best features, dimensionality reduction, and so on), and pre-processing for better performance in model inference (and training).</p>
+  </li>
+  <li>
+    <p><strong>Data Scientist (DS)</strong> cares about selecting the best model for problems at hand, tuning hyper-parameters for the optimal model, and training the models.</p>
+  </li>
+</ul>
+
+<p>This team is multi-disciplinary and multi-cultural: SE follows the traditions of <strong>Software Engineering</strong> field while DE and DS follow the traditions of <strong>Machine Learning</strong>.</p>
+
+<p>What is the culture of <strong>Software Engineering</strong>?
+I cite the famous article about professionalism in software engineering of Robert Martin:</p>
+
+<blockquote>
+  <p>Professional software developers ship clean, flexible code that works—on time. [5]</p>
+</blockquote>
+
+<p>It is quite hard to object against the words from a big star in your field.
+So, a SE should ship a <strong>excellent code</strong>, and a SE must write <strong>high-quality code</strong>.
+Otherwise, <strong>you are disqualified as a Software Engineer (SE)</strong>.</p>
+
+<p>Quite strict, right?
+But SE culture is longer than ML, so it is understandable about their strictness.
+If you already chose the school of software engineering, then you must be qualified in many aspects of software development cycles:
+You must be fluent in every software development model, waterfall, agile practices, scrum, spiral, and so on.
+You must be experienced in programming languages, compilers, architectures, design patterns, object-oriented patterns, databases.
+You must have the ability to provide high-quality works in all aspects: documentations (basic designs, UML diagrams, detailed design, …), management, coding, etc.
+But finally, all of your SE skills will be built up from one thing: <strong>the code</strong>.
+If you cannot write a clean and high-quality code, and it is perhaps that you cannot do any aspect in SE rightly.
+For example, if you cannot design a system well, how do you know that you can write a performant code?
+It is quite strict, but from the ML view, we only need a SE who can integrate our solutions into the systems.
+Maybe the advisors in SE will require you to write some code following nicely written rules, but we only need SE who can integrate our ML models.</p>
+
+<p>Then, <strong>DE and DS $\neq$ SE?</strong>
+Sure, in my opinion, DE cares about data, DS cares about models, and both care about algorithms.
+Then, <strong>don’t they write code?</strong>
+Actually, one of my supervisors in my university asked me about how I think about the role of a researcher.
+When I answered that writing a high-quality code, the person concluded that I (and people like me) disqualified as a machine learning scientist.
+Now, I’m willing to learn, and I agree that the ML key roles should not be judged using SE rules and SE culture.
+If you hear about no-code and low-code solutions, you can understand the idea of the supervisor.
+Researchers often use tools like MATLAB (it is not a programming language, but a kind of tool or scientific language) to assemble the blocks into a runnable system, and then they perform experiments in the systems.</p>
+
+<p>Then if someone objects, let’s me ask you about a good architecture design in software engineering: <strong>do you think that an architecture, which blurs the boundary between the features of different roles like ML and SE is a good software design?</strong>
+Consider a design in which SE roles are affected by ML features and ML roles are affected by SE culture.
+Is it good enough?
+Would a deadlock happen when running parallel?
+The SE role in Figure 1 is a bridge between two teams in the system and must be selected carefully by both fields.</p>
+<h1 id="who-needs-mlops">Who needs MLOps?</h1>
+
+<p>An official survey titled <em>The State of ML 2020 survey</em> was conducted online in May 2020 [3].
+The participants were asked about the needs of MLOps in their software products.
+Many participants were sourced from many online sources: the Valohai community, the Data Science Weekly newsletter, and LinkedIn.
+A notable conclusion was</p>
+<blockquote>
+  <p>A tendency to have individuals who are concerned about both infrastructure and models, in contrast to only focusing on models or data as such and overlooking the delivery and deployment part.</p>
+</blockquote>
+
+<p>It might be a trend from now, where organizations who care about both models and infrastructures will care more about MLOps.
+Nearly 65% of responses also showed their interests in AutoML and production ML.</p>
+
+<h1 id="gpu-serverless-computing">GPU serverless computing</h1>
+
+<h2 id="an-overview-of-serverless-computing">An overview of serverless computing</h2>
+
+<blockquote>
+  <p>Serverless is a cloud running model that enables a simpler, more cost-effective way to build and operate cloud-native applications.
+Source: <a href="https://www.ibm.com/cloud/learn/serverless">IBM</a></p>
+</blockquote>
+
+<p>There are many players in serverless computing now.
+Amazon Web Service Lambda, Google Cloud Platform Function, and Microsoft Azure Function, to name a few.
+Serverless is a cloud computing model that provisions computing resources on-demand, and offloads all responsibility for common infrastructure management tasks (e.g., scaling, scheduling, patching, provisioning, etc.) to cloud providers and tools, allowing engineers to focus their time and effort on the business logic specific to their applications or process.</p>
+
+<p>According to IBM, there are several key distinctions between serverless computing and the conventional approaches:</p>
+
+<ul>
+  <li>The serverless model requires no management and operation of infrastructure, <strong>giving developers more time to optimize code and develop innovative new features and functionality</strong>.</li>
+  <li>Serverless computing runs code <strong>on-demand only</strong>, typically in a stateless container, on a per-request basis, and scales transparently with the number of requests being served.</li>
+  <li>Serverless computing enables end-users to pay only for resources being used, <strong>never paying for idle capacity</strong>.</li>
+</ul>
+
+<h2 id="gpu-choices-for-machine-learning">GPU choices for Machine Learning</h2>
+
+<p><strong>Graphical Processing Unit (GPU)</strong> may be the most demanded option for speeding up AI inference.
+GPU serverless computing has several options:</p>
+
+<ul>
+  <li><a href="https://azure.microsoft.com/en-us/pricing/details/container-instances/"><strong>Azure Container Instances</strong></a> supports GPU containers from March 2021.</li>
+  <li><a href="https://cloud.google.com/compute/gpus-pricing">GCP Compute Engine</a> supports GPU but not in serverless pricing models. Then you will need to run the instances for a long time, and you must pay for even not service time (no requests).</li>
+  <li><a href="https://cloud.google.com/run/pricing">Google Cloud Run</a>, which is similar to Azure Container Instances and AWS Fargate ECS, also does not have a pricing model for GPU.</li>
+  <li><a href="https://aws.amazon.com/fargate/pricing/">AWS Fargate ECS</a> does not support GPU by now (see <a href="https://github.com/aws/containers-roadmap/issues/88">AWS container roadmap issue #88</a>). You may use ECS for EC2 and select instances which support GPU like g4.</li>
+  <li>And <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> does not have GPU now. It is similar to <a href="https://cloud.google.com/functions/">Google Cloud Functions</a> and <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview">Azure Functions</a>.</li>
+</ul>
+
+<p>So an alternative to Algorithmia should be <strong>Azure Container Instances (ACI)</strong> which is similar to AWS Fargate ECS but supports GPU.</p>
+
+<h1 id="algorithmia">Algorithmia</h1>
+
+<h2 id="overview">Overview</h2>
+<p>Algorithmia resides many user algorithms at their side.
+A user creates an algorithm and uploads data to their server.
+The algorithm will be run through API calls to the selected runtime.
+Runtimes often include Python and NVIDIA GPU with several AI frameworks like Tensorflow and PyTorch. 
+To perform inference in a client device such as a PC, users need to install client libraries for corresponding client languages, including Python, Ruby, Javascript, and so on.</p>
+
+<p>To start using the service, head to [1] and register an account.
+We recommend using the Teams feature as you may need to work in a team.
+After finishing the registration, you may see a screen like this:</p>
+
+<p><img src="/assets/img/mlops/algorithmia000.png" alt="" /></p>
+
+<p>There are several tabs in the sidebar, but we pay attention to the <code class="language-plaintext highlighter-rouge">Algorithms</code> and <code class="language-plaintext highlighter-rouge">API Keys</code> tabs.
+In <code class="language-plaintext highlighter-rouge">API Keys</code> tab, you may find the API keys for your deployments.
+Coming back to <code class="language-plaintext highlighter-rouge">Algorithms</code> tab, click to <code class="language-plaintext highlighter-rouge">Create an algorithm</code> to start your journey.</p>
+
+<p><img src="/assets/img/mlops/algorithmia001.png" alt="" /></p>
+
+<p>In the next screen, you need to input information:</p>
+
+<ul>
+  <li>
+    <p><strong>Algorithm name</strong>: select an informative name that represents the intention of your algorithm.</p>
+  </li>
+  <li>
+    <p><strong>Container</strong>: select the appropriate runtime environments for your deployment. You can choose between Python or the R language, and runtimes like the <code class="language-plaintext highlighter-rouge">Python 3.8 + PyTorch 1.8.x</code>. It already comes with GPU.</p>
+  </li>
+  <li>
+    <p><strong>Internet access and pipelining</strong>: select whether your solution needs to access the Internet during runtime or call other algorithms.</p>
+  </li>
+</ul>
+
+<p>After creating the algorithm, you will be redirected to a new screen:</p>
+
+<p><img src="/assets/img/mlops/algorithmia002.png" alt="" /></p>
+
+<p>You can even clone the source code repo using Git:</p>
+
+<p><img src="/assets/img/mlops/algorithmia003.png" alt="" /></p>
+
+<p>You can also edit your code in the browser using <code class="language-plaintext highlighter-rouge">Source code</code> horizontal tab:</p>
+
+<p><img src="/assets/img/mlops/algorithmia004.png" alt="" /></p>
+
+<h2 id="example-face-recognition">Example: Face Recognition</h2>
+
+<p>Face Recognition is a high-class technology that is used in security and dating apps.
+In Algorithmia [1], we already have a ready-to-use solution <a href="https://algorithmia.com/algorithms/cv/FaceRecognition/docs"><code class="language-plaintext highlighter-rouge">cv/face_recognition</code></a> [6].
+The deployed solution is based on the OpenFace algorithm [7]. 
+The algorithm is quite famous, and explaining it in detail is out-of-scope of this blog.
+But a brief explanation is available: the algorithm is trained in a set of human facial identities, each has several images.
+Then in testing, it takes a face image and tells us who is in the picture with confidence probability.</p>
+
+<p>To do this, we will call the ready solution from a client.
+We need to go to the API tab in Algorithmia Teams Console to find the <code class="language-plaintext highlighter-rouge">API Key</code>.
+We will need it to fill a placeholder in the code.
+Since this is only an investigation for GPU serverless services, then we don’t need to write our own code.
+Then only grab some official sample code from Algorithmia (<a href="https://github.com/algorithmiaio/sample-apps/blob/develop/recipes/face_recognition/face_recognition.py">https://github.com/algorithmiaio/sample-apps/blob/develop/recipes/face_recognition/face_recognition.py</a>):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">Algorithmia</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Algorithmia</span><span class="p">.</span><span class="n">client</span><span class="p">(</span><span class="s">"YOUR_API_KEY"</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_images</span><span class="p">():</span>
+    <span class="s">"""Create labeled dataset from data collection."""</span>
+    <span class="n">image_dir</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nb">dir</span><span class="p">(</span><span class="s">"data://your_username/your_data_collection/"</span><span class="p">)</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Retrieve images from data collection.
+</span>    <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">image_dir</span><span class="p">.</span><span class="nb">list</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">image_dir</span><span class="p">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'_'</span><span class="p">)</span>
+            <span class="n">first_name</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'_'</span><span class="p">)[</span><span class="mi">2</span><span class="p">].</span><span class="n">split</span><span class="p">(</span><span class="s">'/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">last_name</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="c1"># Create label from image name.
+</span>            <span class="n">label</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">last_name</span>
+            <span class="c1"># Label image based on celebrity.
+</span>            <span class="n">images</span><span class="p">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span><span class="s">"url"</span><span class="p">:</span> <span class="s">"data://{0}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">file</span><span class="p">.</span><span class="n">path</span><span class="p">),</span> <span class="s">"person"</span><span class="p">:</span> <span class="n">label</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">image_dir</span><span class="p">.</span><span class="n">create</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">images</span>
+
+
+<span class="k">def</span> <span class="nf">facial_recognition_algorithm</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="s">"""Call Face Recognition algorithm and pipe input in."""</span>
+    <span class="n">algo</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">algo</span><span class="p">(</span><span class="s">'cv/FaceRecognition/0.2.0'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">algo</span><span class="p">.</span><span class="n">pipe</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">train_images</span><span class="p">():</span>
+    <span class="s">"""Train images from celebrity pictures."""</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">get_images</span><span class="p">()</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="p">{</span><span class="s">"action"</span><span class="p">:</span> <span class="s">"add_images"</span><span class="p">,</span>
+             <span class="s">"data_collection"</span><span class="p">:</span> <span class="s">"CelebClassifiers"</span><span class="p">,</span>
+             <span class="s">"name_space"</span><span class="p">:</span> <span class="s">"WWCelebrities"</span><span class="p">,</span>
+             <span class="s">"images"</span><span class="p">:</span> <span class="n">images</span>
+             <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">facial_recognition_algorithm</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">model_predictions</span><span class="p">():</span>
+    <span class="s">"""Predict unseen images as a celebrity the model was trained on."""</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"name_space"</span><span class="p">:</span> <span class="s">"WWCelebrities"</span><span class="p">,</span>
+        <span class="s">"data_collection"</span><span class="p">:</span> <span class="s">"CelebClassifiers"</span><span class="p">,</span>
+        <span class="s">"action"</span><span class="p">:</span> <span class="s">"predict"</span><span class="p">,</span>
+        <span class="s">"images"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s">"url"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Anna_Paquin_test.jpg"</span><span class="p">,</span>
+                <span class="s">"output"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Anna_Paquin_test_output.jpg"</span>
+            <span class="p">},</span>
+
+            <span class="p">{</span>
+                <span class="s">"url"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Diego_Oppenheimer_1.jpg"</span><span class="p">,</span>
+                <span class="s">"output"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Diego_Oppenheimer_output.jpg"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s">"url"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Kenny_Daniel_1.jpg"</span><span class="p">,</span>
+                <span class="s">"output"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Kenny_Daniel_output.jpg"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s">"url"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Jon_Peck_1.jpg"</span><span class="p">,</span>
+                <span class="s">"output"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Jon_Peck_output.jpg"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s">"url"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Nelsan_Ellis_test.jpg"</span><span class="p">,</span>
+                <span class="s">"output"</span><span class="p">:</span> <span class="s">"data://your_username/your_data_collection/Nelsan_Ellis_test_output.jpg"</span>
+            <span class="p">}</span>
+
+        <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">facial_recognition_algorithm</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">train_images</span><span class="p">()</span>
+    <span class="n">model_predictions</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Let’s explain the code.
+Function <code class="language-plaintext highlighter-rouge">get_images</code> will load images from hosted data storage [8] inside Algorithmia (then it will be fast due to I/O speed from internal storage).
+The results will be a Python dictionary with image paths and label information.
+Function <code class="language-plaintext highlighter-rouge">facial_recognition_algorithm</code> will send the input in JSON format to the server for running (then Internet connection’s a must).
+Function <code class="language-plaintext highlighter-rouge">train_images</code> and <code class="language-plaintext highlighter-rouge">model_predictions</code> will do training and testing automatically at Algorithmia side.
+To fully run this code, we need the library <code class="language-plaintext highlighter-rouge">algorithmia</code> in the client PC:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>pip3 <span class="nb">install </span>algorithmia
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>You can adonly the parameters for better predictions.
+With default parameters, I can obtain the predictions from Jimmy Carrey like:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"bb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"bottom"</span><span class="p">:</span><span class="w"> </span><span class="mi">196</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"left"</span><span class="p">:</span><span class="w"> </span><span class="mi">196</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"right"</span><span class="p">:</span><span class="w"> </span><span class="mi">325</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"top"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5740970666573434</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jim_carrey"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data://cv/face_recognition_example_data/jim_carrey_11.jpg"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>We reviewed several options for MLOps with GPU supports.
+There is a growing need for MLOps with GPU supports in deploying production Machine Learning solutions.
+We also experimented the Algorithmia, a new option for this field.
+In the future, we may think about Azure Container Instances (ACI), a more mature solution, which also supports GPU in a serverless duration-based pricing model.</p>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="Algorith20:online"><i>Algorithmia - Deploy AI at Scale</i>. https://algorithmia.com/.</span></li>
+<li><span id="alla2021mlops">Alla, S., &amp; Adari, S. K. (2021). What Is MLOps? In <i>Beginning MLOps with MLFlow</i> (pp. 79–124). Springer.</span></li>
+<li><span id="makinen2021needs">Mäkinen, S., Skogström, H., Laaksonen, E., &amp; Mikkonen, T. (2021). Who Needs MLOps: What Data Scientists Seek to Accomplish and How Can MLOps Help? <i>ArXiv Preprint ArXiv:2103.08942</i>.</span></li>
+<li><span id="raj2020edge">Raj, E. (2020). <i>Edge MLOps framework for AIoT applications</i>. Arcada University of Applied Sciences.</span></li>
+<li><span id="martin2007professionalism">Martin, R. C. (2007). Professionalism and test-driven development. <i>IEEE Software</i>, <i>24</i>(3), 32–36.</span></li>
+<li><span id="FaceReco66:online"><i>Face Recognition - Algorithm by cv - Algorithmia</i>. https://algorithmia.com/algorithms/cv/FaceRecognition/docs.</span></li>
+<li><span id="reportsa37:online">Brandon Amos, M. S., Bartosz Ludwiczuk. (2016). <i>OpenFace: A general-purpose face recognition library with mobile applications</i>. http://reports-archive.adm.cs.cmu.edu/anon/anon/2016/CMU-CS-16-118.pdf.</span></li>
+<li><span id="HostedDa90:online"><i>Hosted Data - Algorithmia Developer Center</i>. https://algorithmia.com/developers/data/hosted.</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-07-31">31 Jul 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Artificial-Intelligence">Artificial Intelligence</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#algorithmia">#algorithmia</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#gpu">#gpu</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#gpu-serverless-computing">#gpu serverless computing</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#machine-learning">#machine learning</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#mlops">#mlops</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#serverless-computing">#serverless computing</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//python38-sys-exit/"> &laquo; Termination in Python</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//the-humble-object/">The Humble Object Pattern &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

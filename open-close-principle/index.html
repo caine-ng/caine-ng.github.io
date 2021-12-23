@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Một ngày đẹp trời, khách hàng gửi yêu cầu thay đổi phần mềm để chữa lỗi hiển thị trên chức năng báo cáo tài chính. Một lập trình viên lão luyện đều sẽ hiểu ngay nguyên lý căn bản mà họ phải động đến sẽ là nguyên lý đóng mở (Open/Closed Principle hay OCP, [2]). Dù là chữa lỗi thì sửa một đoạn code có sẵn trong hệ thống cũng là hành vi sai trái so với bộ nguyên tắc SOLID của thiết kế phần mềm. Nguyên lý đóng mở (OCP) trong thiết kế phần mềm nêu rõ: “Mọi thiết kế phần mềm nên mở với thay đổi, nhưng đóng với sửa cái vốn có”. Một kỹ sư phần mềm lão luyện sẽ hiểu để chữa lỗi thì hành vi sửa cái đang code đang có do người trước viết ra (dù người đó là chính mình) đều là hành vi thiếu suy nghĩ: đúng hơn là phải thêm code mới để sửa lại tính năng bị lỗi." />
+<meta property="og:description" content="Một ngày đẹp trời, khách hàng gửi yêu cầu thay đổi phần mềm để chữa lỗi hiển thị trên chức năng báo cáo tài chính. Một lập trình viên lão luyện đều sẽ hiểu ngay nguyên lý căn bản mà họ phải động đến sẽ là nguyên lý đóng mở (Open/Closed Principle hay OCP, [2]). Dù là chữa lỗi thì sửa một đoạn code có sẵn trong hệ thống cũng là hành vi sai trái so với bộ nguyên tắc SOLID của thiết kế phần mềm. Nguyên lý đóng mở (OCP) trong thiết kế phần mềm nêu rõ: “Mọi thiết kế phần mềm nên mở với thay đổi, nhưng đóng với sửa cái vốn có”. Một kỹ sư phần mềm lão luyện sẽ hiểu để chữa lỗi thì hành vi sửa cái đang code đang có do người trước viết ra (dù người đó là chính mình) đều là hành vi thiếu suy nghĩ: đúng hơn là phải thêm code mới để sửa lại tính năng bị lỗi." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/OCP.PNG" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-25T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/OCP.PNG" />
+<meta property="twitter:title" content="Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ" />
+<script type="application/ld+json">
+{"description":"Một ngày đẹp trời, khách hàng gửi yêu cầu thay đổi phần mềm để chữa lỗi hiển thị trên chức năng báo cáo tài chính. Một lập trình viên lão luyện đều sẽ hiểu ngay nguyên lý căn bản mà họ phải động đến sẽ là nguyên lý đóng mở (Open/Closed Principle hay OCP, [2]). Dù là chữa lỗi thì sửa một đoạn code có sẵn trong hệ thống cũng là hành vi sai trái so với bộ nguyên tắc SOLID của thiết kế phần mềm. Nguyên lý đóng mở (OCP) trong thiết kế phần mềm nêu rõ: “Mọi thiết kế phần mềm nên mở với thay đổi, nhưng đóng với sửa cái vốn có”. Một kỹ sư phần mềm lão luyện sẽ hiểu để chữa lỗi thì hành vi sửa cái đang code đang có do người trước viết ra (dù người đó là chính mình) đều là hành vi thiếu suy nghĩ: đúng hơn là phải thêm code mới để sửa lại tính năng bị lỗi.","image":"/assets/img/OCP.PNG","headline":"Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ","dateModified":"2021-08-25T00:00:00+09:00","datePublished":"2021-08-25T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/open-close-principle/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/open-close-principle/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ&url=/open-close-principle/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/open-close-principle/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/open-close-principle/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/OCP.PNG" alt="Nguyên lý đóng mở: Để thay đổi hãy thêm mới chứ đừng sửa cái cũ">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#nguyên-lý-đóng-mở-trong-thiết-kế-phần-mềm">Nguyên lý đóng mở trong thiết kế phần mềm</a>
+    <ul>
+      <li><a href="#nguyên-lý">Nguyên lý</a></li>
+      <li><a href="#ví-dụ">Ví dụ</a></li>
+      <li><a href="#phân-tích">Phân tích</a>
+        <ul>
+          <li><a href="#các-dấu-hiệu-của-một-phần-mềm-đang-theo-ocp">Các dấu hiệu của một phần mềm đang theo OCP</a></li>
+          <li><a href="#các-triệu-chứng-của-hành-vi-thô-bạo">Các triệu chứng của hành vi thô bạo</a></li>
+          <li><a href="#đừng-chỉnh-sửa-thô-bạo-hệ-thống-có-sẵn">Đừng chỉnh sửa thô bạo hệ thống có sẵn</a></li>
+          <li><a href="#hãy-mở-rộng-nâng-cấp-để-thay-đổi-hãy-thêm-mới">Hãy mở rộng nâng cấp để thay đổi, hãy thêm mới</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#nguyên-lý-đóng-mở-và-đời-sống">Nguyên lý đóng mở và đời sống</a>
+    <ul>
+      <li><a href="#can-thiệp-thô-bạo-và-đầu-tư-thay-thế">Can thiệp “thô bạo” và đầu tư thay thế</a></li>
+      <li><a href="#hướng-dẫn-sinh-viên">Hướng dẫn sinh viên</a></li>
+      <li><a href="#bộ-phim-giáo-sư-cờ-bạc-và-nguyên-tắc-thêm-mới-để-thay-đổi-đôi-khi-cách-trả-nợ-duy-nhất-là-tiếp-tục-vay-thêm">Bộ phim “Giáo sư cờ bạc” và nguyên tắc thêm mới để thay đổi: đôi khi cách trả nợ duy nhất là tiếp tục vay thêm!</a></li>
+    </ul>
+  </li>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p>Một ngày đẹp trời, khách hàng gửi yêu cầu thay đổi phần mềm để chữa lỗi hiển thị trên chức năng báo cáo tài chính.
+Một lập trình viên lão luyện đều sẽ hiểu ngay nguyên lý căn bản mà họ phải động đến sẽ là <strong>nguyên lý đóng mở (Open/Closed Principle hay OCP, [2])</strong>.
+Dù là chữa lỗi thì sửa một đoạn code có sẵn trong hệ thống cũng là <strong>hành vi sai trái</strong>  so với bộ nguyên tắc SOLID của thiết kế phần mềm.
+Nguyên lý đóng mở (OCP) trong thiết kế phần mềm nêu rõ: “<em>Mọi thiết kế phần mềm nên mở với thay đổi, nhưng đóng với sửa cái vốn có</em>”.
+Một kỹ sư phần mềm lão luyện sẽ hiểu để <strong>chữa lỗi</strong> thì hành vi sửa cái đang code đang có do người trước viết ra (dù người đó là chính mình) đều là hành vi thiếu suy nghĩ: đúng hơn là phải thêm code mới để sửa lại tính năng bị lỗi.
+<!--more--></p>
+
+<h1 id="nguyên-lý-đóng-mở-trong-thiết-kế-phần-mềm">Nguyên lý đóng mở trong thiết kế phần mềm</h1>
+
+<h2 id="nguyên-lý">Nguyên lý</h2>
+
+<p>Bertrand Meyer giới thiệu nguyên lý OCP vào năm 1988 với một dạng đơn giản như sau:</p>
+
+<blockquote>
+  <p>A software artifact should be open for extension but closed for modification.</p>
+</blockquote>
+
+<blockquote>
+  <p>Một module phần mềm nên mở với nâng cấp mở rộng, nhưng đóng với chỉnh sửa (thô bạo).</p>
+</blockquote>
+
+<p>Nguyên lý này phát biểu bởi hai phần: Mở với nâng cấp mở rộng và đóng với chỉnh sửa thô bạo.
+Chúng ta sẽ bắt đầu từ một ví dụ trước.</p>
+
+<h2 id="ví-dụ">Ví dụ</h2>
+
+<p><img src="/assets/img/financial_report_ocp.PNG" alt="OCP example" /></p>
+
+<p>Ví dụ trên đây thể hiện thiết kế một module phần mềm đọc dữ liệu từ database, phân tích tính toán và hiển thị trên web cũng như in report.
+Bạn có thể thấy hai thiết kế quan trọng trong basic design ở đây là thiết kế màn (画面設計) và thiết kế bản xuất (帳票設計). 
+Tuy nhiên, scope bài viết sẽ không đề cập sâu vào những vấn đề không cần thiết đó vội.
+<strong>Thiết kế này cần đảm bảo tuân thủ OCP: cần phân chia class và component sao cho phần mềm dễ dàng nâng cấp mở rộng (thêm tính năng mới) mà không cần những chỉnh sửa thô bạo vào hệ thống đã có</strong>.</p>
+
+<p>Trong hệ thống trên đây, mũi tên mở là chỉ quan hệ <code class="language-plaintext highlighter-rouge">using</code> (ví dụ Financial Report Controller thì sử dụng interface Financial Report Presenter).
+Mũi tên đóng chỉ quan hệ <code class="language-plaintext highlighter-rouge">implement</code> hoặc <code class="language-plaintext highlighter-rouge">inheritance</code> (thừa kế).</p>
+
+<p>Thiết kế component đảm bảo những component nào dễ thay đổi thì sẽ không phụ thuộc vào những component khó thay đổi hơn.
+Ví dụ Interactor là bộ phận chứa business rules nên cần tránh để các thay đổi của Controller hay Database làm ảnh hưởng tới Interactor.
+Vì vậy, Interactor là thành phần tự do nhất trong hệ thống.
+Những thay đổi trên Controller hay Presenters sẽ không làm Interactor thay đổi.
+Nhưng thay đổi trên Interactor sẽ khiến tất cả thay đổi theo.</p>
+
+<p><strong>Thiết kế này mở với nâng cấp mở rộng</strong>: bạn có thể thêm các classes mới cho Presenters hay Controller tùy ý.
+Bạn thậm chí có thể tạo một Interactor mới và bỏ vào thay thế Interactor cũ.</p>
+
+<p><strong>Thiết kế này đóng với chỉnh sửa thô bạo</strong>: thô bạo nhất có lẽ là chỉnh sửa Interactor vì nó khiến tất cả thay đổi theo.
+Mà đôi khi còn bất khả thi theo nghĩa: nếu đã tốn công thay đổi hết thì làm luôn cả hệ thống mới có rẻ hơn không?
+Việc này xảy ra khi bạn muốn thay đổi business rule (không hẳn mới mà chỉ là sửa lại cái sai).
+Ví dụ là muốn thay đổi request/response thôi chẳng hạn.</p>
+
+<p>Nguyên lý này được áp dụng trong quá trình thiết kế phần mềm, tức là sẽ phải thiết kế một phần mềm mà “rất khó để chỉnh sửa” đặc biệt chỉnh sửa một cách thô bạo thì gần như không thể.
+Nhưng khi cần thêm mới thì rất dễ dàng và tiện lợi.
+Đây kim chỉ nam cho thiết kế phần mềm mà mọi sinh viên học nghiêm chỉnh bộ môn này sẽ hiểu.</p>
+
+<h2 id="phân-tích">Phân tích</h2>
+
+<h3 id="các-dấu-hiệu-của-một-phần-mềm-đang-theo-ocp">Các dấu hiệu của một phần mềm đang theo OCP</h3>
+
+<p>Phần mềm theo OCP thường có thiết kế lớp lang quỷ củ kỷ luật.
+Chiến lược chiến thuật phòng bị hầu như không có khuyết điểm, công khó mà thủ dễ.</p>
+
+<p>Đơn giản nhất là khi bạn thấy muốn thay đổi 1 hàm sẽ ảnh hưởng tới rất nhiều thành phần khác trong hệ thống, tức là không thể chỉnh sửa đơn giản mà phải thực hiện can thiệp “thô bạo”, thì đó có khả năng là một phần mềm theo OCP, và đó là một phần mềm tốt.</p>
+
+<h3 id="các-triệu-chứng-của-hành-vi-thô-bạo">Các triệu chứng của hành vi thô bạo</h3>
+
+<p>Và khi phần mềm được thiết kế tốt, thì việc chỉnh sửa thô bạo chính là phần sai của lập trình viên.
+Vậy dấu hiệu hành vi sai trái là gì?</p>
+
+<ul>
+  <li>
+    <p><strong>Sa lầy trong cuộc chiến “chỉnh sửa”</strong>: Bạn nhận lệnh chỉnh sửa và tổ chức đóng quân thực hiện nhiệm vụ mất vài ngày thậm chỉ vài tuần mà không sửa xong. 
+Không cần biết sửa nhiều hay ít, nhưng sa lầy lâu như vậy vừa tốn tài lực bên trong lại ảnh hưởng tới bên ngoài.
+Rõ ràng cuộc chiến đang sa lầy.</p>
+  </li>
+  <li>
+    <p><strong>Nội dung chỉnh sửa lớn</strong>: Bạn kiểm tra diff trên Git và thấy hàng ngàn dòng code bị thay đổi, hàng trăm hàm bị thay đổi nội dung, …
+Vâng, bạn đang thực hiện một cuộc can thiệp vũ trang “thô bạo”.</p>
+  </li>
+  <li>
+    <p><strong>Sửa nhiều mà không hết lỗi, sửa chỗ này lại phát sinh lỗi ở chỗ khác</strong>: Bạn tổ chức “bình định” chỉnh sửa hàm này xong, nhưng tại một component khác trong khu vực chiếm đóng lại xuất hiện lỗi mới.
+Bạn đang sa lầy trong một cuộc “chỉnh sửa thô bạo” mà chỉ tốn tài lực của phía bạn thôi.</p>
+  </li>
+</ul>
+
+<h3 id="đừng-chỉnh-sửa-thô-bạo-hệ-thống-có-sẵn">Đừng chỉnh sửa thô bạo hệ thống có sẵn</h3>
+
+<p>Không chỉ lúc thiết kế mà ngay cả lúc thực hiện sửa lỗi, nếu các bạn gặp 1 phần mềm mà bạn cảm thấy vô cùng khó để chỉnh sửa, và bạn càng “<strong>cố đấm ăn xôi</strong>”, càng tìm cách “mang kìm mang búa vào” để thay đổi cưỡng ép nó một cách thô bạo.
+Thì hành động này của bạn là thiếu suy nghĩ!
+Bởi vì như vậy kết quả sẽ là tạo ra một thay đổi mang tính “can thiệp vũ trang thô bạo”, và như vậy nhất định sẽ có cái gì đó không đúng: một là thiết kế phần mềm tuân thủ OCP thì bạn chính là kẻ thô bạo vi phạm OCP, hai là thiết kế phần mềm kém.
+Trường hợp 1 thì bạn sai vì bạn “thô bạo”.
+Trường hợp 2 thì bạn cũng sai vì nó đã kém bạn còn đề xuất sửa làm gì cho rách việc ra, và trách nhiệm của bạn còn lớn nữa nếu thêm mới lại “rẻ” hơn chỉnh sửa thô bạo, và thường như thế.</p>
+
+<p>Tóm lại nguyên lý đóng mở trong thiết kế phần mềm là kim chỉ nam không chỉ trong bước thiết kế ban đầu mà trong mọi bước thiết kế thay đổi về sau và nếu một ai tổ chức chỉnh sửa bằng “can thiệp vũ trang thô bạo”, tức là chỉnh sửa nghiêm trọng, thì người đó chắc chắn sai.
+Khi bắt đầu công tác thay đổi một cái gì đó trong một phần mềm được thiết kế ngon nghẻ theo nguyên lý OCP (mà thường là thế), việc đầu tiên là điều tra kỹ để tránh việc thực hiện can thiệp vũ trang thô bạo.</p>
+
+<h3 id="hãy-mở-rộng-nâng-cấp-để-thay-đổi-hãy-thêm-mới">Hãy mở rộng nâng cấp để thay đổi, hãy thêm mới</h3>
+
+<p>Phần mềm được thiết kế tốt nhất định sẽ theo nguyên lý OCP.
+Vì vậy bạn càng tìm cách chỉnh sửa thô bạo, bạn sẽ càng đi vào ngõ cụt trong nhiệm vụ thay đổi.
+Lúc này, bạn cần nghĩ tới việc thêm mới bởi vì cửa ngõ duy nhất khiến phần mềm OCP thay đổi theo ý bạn là thay đổi theo hướng mở rộng.</p>
+
+<p>Ý nghĩa của chiến lược thêm mới chính là <strong>thay vì trực tiếp tổ chức can thiệp thô bạo, thì gián tiếp tác động thông qua việc thêm chức năng mới (tức là đầu tư thêm)</strong>.
+Ví dụ, nếu bạn thấy một Controller có lỗi, thay vì sửa thẳng vào đấy, hãy đề xuất 1 Story mới để thêm 1 controller mới với những tính năng mới và hướng lại các presenters vào controller mới.
+Nhưng thiết kế của controller mới nên đảm bảo là đủ các tính năng của controller cũ, và như thế sau này controller cũ sẽ không còn giá trị nữa.
+Bạn không phải can thiệp vào controller cũ nữa và sau này khi người ta không cần thì thực hiện quy trình <code class="language-plaintext highlighter-rouge">deprecation</code> thôi.
+Nhờ thêm mới bạn sẽ không phải dính dáng vào những cuộc “sát phạt” vô đạo đức, vi phạm nguyên tắc của ngành.</p>
+
+<h1 id="nguyên-lý-đóng-mở-và-đời-sống">Nguyên lý đóng mở và đời sống</h1>
+
+<h2 id="can-thiệp-thô-bạo-và-đầu-tư-thay-thế">Can thiệp “thô bạo” và đầu tư thay thế</h2>
+
+<p>Những cuộc can thiệp vũ trang “thô bạo” xảy ra hàng ngày trên thế giới và đương nhiên khó có thể gọi những người đó là những <strong>kỹ sư phần mềm thực thụ</strong>.
+Những cuộc can thiệp trong thế giới thực luôn hàm chứa một lượng “chỉnh sửa lớn”, mà bạn hiểu “chỉnh sửa lớn” trong thế giới thực là gì: giết hại phụ nữ, trẻ em, người già, đốt phá đánh bom các công sở, tòa nhà, …
+Những cuộc can thiệp đó thường kết thúc với sự phản kháng của phe bị can thiệp và sa lầy của bên tổ chức can thiệp, tốn kém tiền thuế của dân chúng.
+Khi nhìn vào những sự việc như vậy và suy nghĩ dưới góc nhìn của ngành phần mềm, chúng ta thấy may mắn vì có kim chỉ nam là những nguyên lý để có thể tự tin rằng <strong>những người đó không phải là kỹ sư phần mềm chân chính</strong>.
+Tôi tán thành việc đào tạo kỹ sư phần mềm không chỉ đơn giản những người biết code mà phải thấm nhuần tư tưởng và đạo đức của ngành.
+Đơn giản là code một cách thô bạo thì các nhà quân sự, chính trị gia, những nhà hoạt động văn hóa, họ cũng làm.
+Một nguyên lý đầu tiên cần phải dạy tôi nghĩ chính là OCP.</p>
+
+<p>Bên cạnh can thiệp một cách thô bạo, thì thực ra muốn thay đổi một đối tượng có những cách gián tiếp mà nhẹ nhàng khác như tác động bên ngoài và thường là sẽ là đầu tư thêm tính năng mới.
+Như đầu tư thêm trường học, tổ chức viện trợ kinh tế, giao lưu văn hóa, …
+Cách làm này không “chỉnh sửa” cái gì mà chỉ thêm một cái gì đó và cái có sẵn mang tính hữu nghị.
+Cách làm này ít điều tiếng hơn và “cởi mở” hơn.</p>
+
+<p>Thật thú vị khi thấy các hệ thống trong thế giới thực thường sẽ phản kháng khi có can thiệp vũ trang thô bạo, nhưng lại sẵn sàng bắt tay khi có tác động gián tiếp mang tính mở.</p>
+
+<h2 id="hướng-dẫn-sinh-viên">Hướng dẫn sinh viên</h2>
+
+<p>Bạn có một nhóm sinh viên cần hướng dẫn và trong đó có sinh viên rất cứng đầu và chậm tiến.
+Bạn đứng giữa hai lựa chọn: một là can thiệp một cách thô bạo thông qua kỷ luật và tổ chức; hai là tiếp cận nhẹ nhàng thông qua bạn bè, gia đình và các thủ pháp.</p>
+
+<p>Bạn cần nhớ dù rằng bản tính con người có thể cứng đầu chậm tiến, nhưng ở mức độ nào đó khi đã vào đại học thì cũng có khả năng tiếp thu nhất định.
+Nếu bạn chọn con đường vũ trang thì sẽ vấp phải phản kháng!
+Tôi nhớ cách làm khá hay của một thày ngày xưa, đó là tổ chức nói chuyện và tìm cách thông qua bạn bè tổ chức để lôi kéo đối tượng vào các hoạt động.
+Nhưng đó mới chỉ là bước 1, bước 2 sẽ là khi đối tượng có sự cởi mở nhất định thì sẽ thực hiện giao việc.
+Chính là thêm mới tính năng, thông qua các giao việc đó, nhờ đối tượng làm thêm tính năng mới, nhưng thực chất là thông qua tính năng mới sửa đi cái lỗi của chính đối tượng.
+Đối tượng tự mình thêm tính năng mới và nhận thức được cái sai của mình.
+Quá trình diễn ra từ từ, nhưng cuối cùng đối tượng hiểu ra và đây mới là cách làm của người làm phần mềm.
+<strong>Không được giao việc ngẫu nhiên, hoặc những việc không liên quan tới đối tượng, mà phải là những việc mới hẳn nhưng bản chất là những sai lầm cũ của đối tượng</strong>.</p>
+
+<h2 id="bộ-phim-giáo-sư-cờ-bạc-và-nguyên-tắc-thêm-mới-để-thay-đổi-đôi-khi-cách-trả-nợ-duy-nhất-là-tiếp-tục-vay-thêm">Bộ phim “Giáo sư cờ bạc” và nguyên tắc thêm mới để thay đổi: đôi khi cách trả nợ duy nhất là tiếp tục vay thêm!</h2>
+
+<p>Tôi còn nhớ trong bộ phim <a href="https://en.wikipedia.org/wiki/The_Gambler_(2014_film)">“Giáo sư cờ bạc”</a> của Mỹ, nhân vật chính nợ một tay anh chị vài trăm ngàn đô, và bị tay anh chị sai đàn em đánh cho một trận tả tơi.
+Nhưng sau khi “can thiệp thô bạo” như vậy tên anh chị vẫn không đòi được một xu, thậm chí cuối cùng, khi nhân vật chính đưa ra giải pháp cuối cùng là vay thêm tương đương số tiền đã vay để anh ta tiếp tục “khởi nghiệp”, nhà đầu tư anh chị đã phải thốt lên:</p>
+
+<blockquote>
+  <p>Jim, anh định trả nợ cho tôi bằng cách vay thêm sao?</p>
+</blockquote>
+
+<p>Và cuối cùng nhà đầu tư đã phải chấp nhận đầu tư thêm và hắn đã không thất vọng khi nhận lại toàn bộ số tiền một thời gian sau.
+Nhà đầu tư cuối cùng sau khi can thiệp thô bạo không thành công, đã phải chuyển hướng sang cho vay thêm nhưng yêu cầu làm thêm tính năng mới và đạt kết quả.
+Tất nhiên, đó là 1 canh bạc, nhưng mọi khởi nghiệp đều phải sống như vậy cho đến khi thành công thực sự mà!</p>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="HumbleOb26:online"><i>Humble Object at XUnitPatterns.com</i>. http://xunitpatterns.com/Humble%20Object.html.</span></li>
+<li><span id="cleanarch">Martin, R. C. (2017). <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span></li>
+<li><span id="martin2009clean">Martin, R. C. (2009). <i>Clean code: a handbook of agile software craftsmanship</i>. Pearson Education.</span></li>
+<li><span id="martin2007professionalism">Martin, R. C. (2007). Professionalism and test-driven development. <i>IEEE Software</i>, <i>24</i>(3), 32–36.</span></li>
+<li><span id="binder2000testing">Binder, R. (2000). <i>Testing object-oriented systems: models, patterns, and tools</i>. Addison-Wesley Professional.</span></li>
+<li><span id="abstraction1988hierarchy">Liskov, B. (1988). Data Abstraction and Hierarchy. <i>SIGPLAN Notices</i>, <i>23</i>(5), 17–34.</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-08-25">25 Aug 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#SOLID">#SOLID</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#ocp">#ocp</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#open-close-principle">#open-close principle</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#programming">#programming</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#software-architecture">#software architecture</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//synchronized-and-diversity-detail-and-abstract/"> &laquo; Đồng bộ và đa dạng, cũng như chi tiết và chung chung</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//mobile-and-web/">Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile? &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

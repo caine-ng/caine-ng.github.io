@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Integromat: An integration platform for workflow automation | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Integromat: An integration platform for workflow automation | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Integromat: An integration platform for workflow automation" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm. Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt. Hôm ấy, có giao cho 1 nhiệm vụ như thế này: Sếp (S): Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là https://vnexpress.net/rss/so-hoa.rss mà bọn anh muốn thực hiện 1 workflow như sau: Đầu tiên lấy dữ liệu từ https://vnexpress.net/rss/so-hoa.rss và parse thành 1 list các bài báo. yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về AI. Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được. Upload file CSV lên OneDrive của team. Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im S: Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?" />
+<meta property="og:description" content="Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm. Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt. Hôm ấy, có giao cho 1 nhiệm vụ như thế này: Sếp (S): Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là https://vnexpress.net/rss/so-hoa.rss mà bọn anh muốn thực hiện 1 workflow như sau: Đầu tiên lấy dữ liệu từ https://vnexpress.net/rss/so-hoa.rss và parse thành 1 list các bài báo. yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về AI. Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được. Upload file CSV lên OneDrive của team. Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im S: Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/integromat01.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/integromat01.png" />
+<meta property="twitter:title" content="Integromat: An integration platform for workflow automation" />
+<script type="application/ld+json">
+{"description":"Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm. Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt. Hôm ấy, có giao cho 1 nhiệm vụ như thế này: Sếp (S): Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là https://vnexpress.net/rss/so-hoa.rss mà bọn anh muốn thực hiện 1 workflow như sau: Đầu tiên lấy dữ liệu từ https://vnexpress.net/rss/so-hoa.rss và parse thành 1 list các bài báo. yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về AI. Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được. Upload file CSV lên OneDrive của team. Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im S: Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?","image":"/assets/img/integromat01.png","headline":"Integromat: An integration platform for workflow automation","dateModified":"2021-11-01T00:00:00+09:00","datePublished":"2021-11-01T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/integromat/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/integromat/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Integromat: An integration platform for workflow automation&url=/integromat/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/integromat/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/integromat/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Integromat: An integration platform for workflow automation</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/integromat01.png" alt="Integromat: An integration platform for workflow automation">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#đề-xuất-của-nhân-viên-em-xin-làm-2-tuần-ạ">Đề xuất của nhân viên: Em xin làm 2 tuần ạ!</a></li>
+  <li><a href="#đánh-giá-thực-ra-bọn-anh-làm-tầm-5-10-phút-là-xong-em-ạ-">Đánh giá: Thực ra bọn anh làm tầm 5-10 phút là xong em ạ …</a></li>
+  <li><a href="#cấu-hình-integromat">Cấu hình integromat</a>
+    <ul>
+      <li><a href="#đăng-ký-tài-khoản">Đăng ký tài khoản</a></li>
+      <li><a href="#thiết-kế-hệ-thống">Thiết kế hệ thống</a></li>
+      <li><a href="#cấu-hình-các-modules">Cấu hình các modules</a>
+        <ul>
+          <li><a href="#triggers">Triggers</a></li>
+          <li><a href="#xml-to-csv">XML to CSV</a></li>
+          <li><a href="#upload-to-onedrive">Upload to OneDrive</a></li>
+          <li><a href="#routing">Routing</a></li>
+          <li><a href="#post-news-to-chat-room">Post news to Chat room</a></li>
+          <li><a href="#error-handling">Error handling</a></li>
+          <li><a href="#filters">Filters</a></li>
+        </ul>
+      </li>
+      <li><a href="#test">Test</a></li>
+      <li><a href="#vận-hành">Vận hành</a></li>
+    </ul>
+  </li>
+  <li><a href="#kết-luận">Kết luận</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p>Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm.
+Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt.
+Hôm ấy, có giao cho 1 nhiệm vụ như thế này:</p>
+
+<blockquote>
+  <p><strong>Sếp (S)</strong>: Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là <a href="https://vnexpress.net/rss/so-hoa.rss">https://vnexpress.net/rss/so-hoa.rss</a> mà bọn anh muốn thực hiện 1 workflow như sau:</p>
+  <ul class="task-list">
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Đầu tiên lấy dữ liệu từ <a href="https://vnexpress.net/rss/so-hoa.rss">https://vnexpress.net/rss/so-hoa.rss</a> và parse thành 1 list các bài báo.
+      <ul class="task-list">
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về <code class="language-plaintext highlighter-rouge">AI</code>.</li>
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được.</li>
+        <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Upload file CSV lên OneDrive của team.</li>
+      </ul>
+    </li>
+    <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p><strong>S</strong>: <strong>Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?</strong></p>
+</blockquote>
+
+<!--more-->
+
+<h1 id="đề-xuất-của-nhân-viên-em-xin-làm-2-tuần-ạ">Đề xuất của nhân viên: Em xin làm 2 tuần ạ!</h1>
+
+<p>Bài toán này thực ra không có gì mới mẻ cả, mà là một dạng task mà trong đó có các thành phần của xây dựng một data warehouse cơ bản: luồng ETL cơ bản, lưu trữ dữ liệu dạng bảng (mà thực ra bảng cũng như SQL, về sau có thể thay thế bằng CSDL dạng quan hệ), rồi luồng thông báo cảnh báo lên chat hoặc SNS.
+Vì hai luồng CSV và hook vào Gitter.im là song song nên có thể dính thêm tối ưu hóa đa nhiệm đa luồng.
+Nói chung là 1 bài tập vừa sức và không quá hóc búa, một bài tập cơ bản cho kỹ sư data mới vào nghề.</p>
+
+<p>Trên đây là bản chất của bài toán, còn mục tiêu của đưa bài tập này với kỹ sư data lâu năm như anh bạn tôi thì là muốn xem mindset làm việc của nhân viên để còn bồi dưỡng dần dần.</p>
+
+<p>Dưới đây là bản đề xuất của cậu nhân viên:</p>
+
+<blockquote>
+  <p><strong>Nhân viên K</strong>: Em xin đề xuất làm việc như sau ạ:</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Với luồng CSV như anh giao, em sẽ dùng stack là <code class="language-plaintext highlighter-rouge">Python</code> để lấy nguồn cấp RSS, dùng các thư viện như sau: <code class="language-plaintext highlighter-rouge">xml</code> để parse RSS tree, và <code class="language-plaintext highlighter-rouge">pandas</code> để tạo nội dung CSV, sau đó em dùng <a href="https://docs.microsoft.com/en-us/onedrive/developer/rest-api/getting-started/?view=odsp-graph-online">API</a> của M$ để upload file lên OneDrive. Luồng này em estimate mất 7 ngày (4 ngày tạo file CSV và 3 ngày để upload lên OneDrive).</li>
+    <li>Với luồng post bài lên chat thì em phải đọc hiểu <a href="https://developer.gitter.im/docs/welcome">tài liệu</a> của API của Gitter để post bài lên room, mất tầm 3 ngày nữa ạ.</li>
+    <li>Về kiến trúc để song song hóa hai luồng, em dùng <code class="language-plaintext highlighter-rouge">multiprocessing</code> và <code class="language-plaintext highlighter-rouge">threading</code> ạ.</li>
+  </ul>
+</blockquote>
+
+<p>Nhìn chung làm thế nào thì cũng được thôi.
+<strong>Kết quả</strong> mà ok thì cũng không vấn đề gì nếu quá trình có sai sót.
+Có vấn đề sai sót ở quá trình thì cứ fix rồi commit lên mà đảm bảo kết quả cuối cùng ok thì không sao.
+Tuy vậy kết quả kỳ vọng ở đây là gì?
+CÓ 3 mặt:</p>
+
+<ul>
+  <li><em>tốc độ làm việc</em>: phải nhanh, 2 tuần là đề xuất của K.</li>
+  <li>sản phẩm có tính <em>khả dụng</em> cao:
+    <ul>
+      <li><em>ít bugs ở sản phẩm đầu ra</em>, còn các sản phẩm trung gian, các quá trình thì chả ai quan tâm. Code cũng được mà no-code, low-code cũng được.</li>
+      <li><em>triển khai và vận hành được luôn và ít sự cố</em>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Danh sách chi tiết liệt kê ra thì còn dài nhưng mà tạm thời với bài tập về nhà kiểu này thì tôi nghĩ anh bạn tôi có tiêu chí đánh giá thế là ổn thỏa rồi.</p>
+
+<p>Nhìn chung, tôi và anh bạn tôi cũng không phải kiểu dò xét từng chi tiết khiến nhân viên cảm thấy <code class="language-plaintext highlighter-rouge">bị soi</code> khi làm việc, nên những chi tiết thì cứ giao các em làm, nhưng quản lý output và chất lượng.
+Tuy nhiên, là bản đề xuất này coi như 1 output trung gian thì quả thực là hơi khiến anh em <code class="language-plaintext highlighter-rouge">lăn tăn</code>.</p>
+
+<ul>
+  <li>Thứ nhất, là estimate 10 man-days tức là 2 man-weeks, 2 tuần làm việc.</li>
+  <li>Thứ hai là cách làm có vẻ hơi đòi hỏi anh em quản lý phải monitor và theo dõi từng khâu trong quy trình để đảm bảo ít bugs. Như vậy là tăng tải cho anh em quản lý.</li>
+  <li>Thứ ba là khâu triển khai và vận hành hầu như ko có ý kiến gì trong đề xuất.</li>
+</ul>
+
+<blockquote>
+  <p>Với người mới thì cũng cứ tạm cho làm rồi anh em mình uốn nắn dần Tuấn ạ.</p>
+</blockquote>
+
+<p>Đây là lời tâm huyết của anh bạn tôi lúc bắt đầu cho cậu nhân viên K làm việc này.
+Tôi lúc đó cũng không biết nói thế nào nên cứ để nó chạy thử xem.</p>
+
+<h1 id="đánh-giá-thực-ra-bọn-anh-làm-tầm-5-10-phút-là-xong-em-ạ-">Đánh giá: Thực ra bọn anh làm tầm 5-10 phút là xong em ạ …</h1>
+
+<p>Nhưng bây giờ nghĩ lại, tôi thấy đáng ra nên đánh chặn ngay từ đầu!
+Làm quản lý chả ai muốn <code class="language-plaintext highlighter-rouge">soi</code> nhân viên cả, nhưng đề xuất làm như K là anh em phải chuẩn hóa quy trình, lên kế hoạch theo dõi, lên cảnh báo, …
+trăm thứ bà rằn mà nói chung là <code class="language-plaintext highlighter-rouge">tăng tải</code> cho quản lý.</p>
+
+<blockquote>
+  <p>Kết cục là không chỉ 2 tuần mà quá trình “uốn nắn” kéo dài 6 tháng luôn mà lúc triển khai và vận hành cũng vẫn không yên tâm về sự cố bất thình lình.</p>
+</blockquote>
+
+<p>Tại sao không nên đánh chặn ngay thì vì lý do giáo dục để hướng dẫn nhân viên cho lên dần dần.
+Mình mà đánh chặn đôi khi lại gặp câu nói bất hủ:</p>
+
+<blockquote>
+  <p>Thế các anh làm đi?</p>
+</blockquote>
+
+<p>Ừ thì các anh làm thì chỉ mất tầm 5-10 phút thôi em ạ!
+Và bọn anh lấy ví dụ mẫu là nền tảng tích hợp dịch vụ <a href="https://www.integromat.com/en">integromat.com</a> cho nó nhanh nhé.</p>
+
+<h1 id="cấu-hình-integromat">Cấu hình integromat</h1>
+
+<h2 id="đăng-ký-tài-khoản">Đăng ký tài khoản</h2>
+
+<p>Đầu tiên là cũng nên có điều tra về nền tảng integration xem có gói nào phù hợp nhất.
+Tuy nhiên, theo tôi tìm hiểu thì mảng tích hợp này cũng khá bão hòa và nhiều nền tảng rồi.
+Tính năng cũng same same nhau.
+Thôi thì tạm chọn integromat nhé.</p>
+
+<p>Thì integromat cũng offer nhiều gói: <a href="https://www.integromat.com/en/pricing">https://www.integromat.com/en/pricing</a>.
+Gói Free để demo thử thì bạn sẽ chỉ tạo được tối đa 2 scenarios.
+Scenario timeout chỉ được 5 phút, minimum interval giữa hai lần chạy của scenario chỉ tối thiểu 15 phút.
+Webhook queue size (số lượng webhook được lên queue thực hiện) cũng nhỏ hơn, storage ngoài cũng chỉ được 1MB.</p>
+
+<p>Thì quay lại đầu bài thì thực ra cũng chỉ cần update ở tầm 60 phút một lần.
+Các chỉ số khác là đủ cho bản demo, và quan trọng hơn là triển khai vận hành cũng đủ để dùng trong thực tế.</p>
+
+<p>Ngoài ra gói có phí cơ bản cũng chỉ 9$/tháng.</p>
+
+<p>Đầu tiên vào trang <a href="https://www.integromat.com/en/register">Sign up</a> dịch vụ, điền thông tin và đăng ký free thôi.
+Integormat sẽ gửi link verify vào email đăng ký, và bạn phải click vào link trong email đăng ký ấy để kích hoạt tài khoản.</p>
+
+<p>Nhìn chung quá trình này mất 1-2 phút.</p>
+
+<p>Khi bắt đầu thì sẽ có một nút bấm trong trang MyPage để guide bạn onboarding nhanh chóng:</p>
+
+<p><img src="/assets/img/integromat02.png" alt="integromat" /></p>
+<h2 id="thiết-kế-hệ-thống">Thiết kế hệ thống</h2>
+
+<p>Bạn sẽ cần 1 trigger để theo dõi nguồn cấp RSS, một module để chuyển XML sang CSV, và một module để upload lên OneDrive.
+Song song với đó, bạn cần 1 module để tích hợp với Gitter.im.
+Bạn không nên quên <strong>xử lý lỗi</strong> vì mọi module đều có thể có lỗi khi fetch data.</p>
+
+<h2 id="cấu-hình-các-modules">Cấu hình các modules</h2>
+<h3 id="triggers">Triggers</h3>
+
+<p>Đầu tiên bạn cần ấn nút <code class="language-plaintext highlighter-rouge">Creat a scenario</code> để tạo ra một kịch bản thực thi cho nhiệm vụ.
+Mọi xử lý sẽ bắt đầu từ 1 <strong>trigger</strong> mà bạn sẽ dùng RSS để bắt đầu.</p>
+
+<p><img src="/assets/img/integromat03.png" alt="integromat" /></p>
+
+<p>Hãy chọn <strong>Watch RSS feed items</strong>.
+Trong cửa sổ tiếp theo hãy chọn <code class="language-plaintext highlighter-rouge">Show advanced settings</code>, nhập nguồn RSS và click OK.</p>
+
+<p><img src="/assets/img/integromat04.png" alt="integromat" /></p>
+
+<p>Trong cửa sổ <code class="language-plaintext highlighter-rouge">Choose where to start</code> thì cứ chọn <code class="language-plaintext highlighter-rouge">From now on</code> cũng ok.
+Thế là bạn đã có 1 trigger mà cứ mỗi khi có thay đổi trên nguồn cấp đã cho (tần suất kiểm tra sẽ cấu hình sau), thì lập tức trigger sẽ chạy luồng mà bạn sẽ cấu hình tiếp theo.</p>
+
+<h3 id="xml-to-csv">XML to CSV</h3>
+
+<p>Nhấn vào nút <strong>Add a module</strong> như hình dưới:</p>
+
+<p><img src="/assets/img/integromat05.png" alt="integromat" /></p>
+
+<p>Sau đó chọn module <code class="language-plaintext highlighter-rouge">CSV</code> từ danh sách:</p>
+
+<p><img src="/assets/img/integromat06.png" alt="integromat" /></p>
+
+<p>Sau đó bạn có thể nhập chọn những trường sẽ lấy từ nguồn RSS để tạo ra file CSV:</p>
+
+<p><img src="/assets/img/integromat07.png" alt="integromat" /></p>
+
+<p>Bạn có thể chọn GROUP BY bằng trường tùy thích.
+Trên đây tôi chọn theo <code class="language-plaintext highlighter-rouge">updated_at</code>.</p>
+
+<h3 id="upload-to-onedrive">Upload to OneDrive</h3>
+
+<p>Để upload CSV lên OneDrive, bạn cần add thêm module OneDrive:</p>
+
+<p><img src="/assets/img/integormat08.png" alt="integromat" /></p>
+
+<p>Hãy chọn <code class="language-plaintext highlighter-rouge">Upload file</code> ở cửa sổ chọn chức năng:</p>
+
+<p><img src="/assets/img/integromat09.png" alt="integromat" /></p>
+
+<p>Sau đó chọn <code class="language-plaintext highlighter-rouge">Add</code> để authenticate vào OneDrive:</p>
+
+<p><img src="/assets/img/integromat10.png" alt="integromat" /></p>
+
+<p>Sau đó một pop-up sẽ mở ra để bạn xác nhận quyền truy cập của ứng dụng integromat vào OneDrive.
+Khi xong bước này bạn sẽ quay lại thiết lập <code class="language-plaintext highlighter-rouge">Folder</code> thành <code class="language-plaintext highlighter-rouge">/</code>, tên file thành <code class="language-plaintext highlighter-rouge">.xml</code> và dữ liệu là <code class="language-plaintext highlighter-rouge">text</code>.</p>
+
+<p><img src="/assets/img/integromat11.png" alt="integromat" /></p>
+
+<p>Để tránh lỗi bạn nên chọn <code class="language-plaintext highlighter-rouge">Rename existing files</code>.</p>
+
+<h3 id="routing">Routing</h3>
+
+<p>Vậy là bạn đã xong luồng thứ nhất mà chưa mất đến 5 phút đâu.
+Trước khi add luồng thứ 2, chúng ta cần có 1 module để song song hóa, kiểu như <strong>Router</strong>.</p>
+
+<p><img src="/assets/img/integromat12.png" alt="integromat" /></p>
+
+<p>Sau khi thêm router thì thiết kế của bạn sẽ như sau:</p>
+
+<p><img src="/assets/img/integromat13.png" alt="integromat" /></p>
+<h3 id="post-news-to-chat-room">Post news to Chat room</h3>
+
+<p>Từ Router hãy tạo thêm 1 luồng mới và tìm module Gitter:</p>
+
+<p><img src="/assets/img/integromat14.png" alt="integromat" /></p>
+
+<p>Hãy chọn <code class="language-plaintext highlighter-rouge">Send a mesage to a room</code>:</p>
+
+<p><img src="/assets/img/integromat15.png" alt="integromat" /></p>
+
+<p>Bạn sẽ phải đăng nhập và cấp quyền truy cập cho integromat vào Gitter.im.
+Một cửa sổ popup sẽ mửo ra sau khi bạn nhấn <code class="language-plaintext highlighter-rouge">Add</code>.
+<img src="/assets/img/integromat16.png" alt="integromat" /></p>
+
+<p>Chú ý là Gitter chỉ chấp nhận đăng nhập qua Gitlab, Github và Twitter.
+Đây là kênh chat dành riêng cho developer.
+Tôi chọn twitter thôi.</p>
+
+<p>Sau khi cấp quyền thành công, bạn sẽ quay lại integromat, và cấu hình tin nhắn sẽ lên Gitter.
+Bạn có thể dùng định dạng mẫu markdown để post bài.</p>
+
+<p><img src="/assets/img/integromat17.png" alt="integromat" /></p>
+
+<p>Vậy đấy luồng số 2 đã xong trong chưa đầy 1 phút.</p>
+
+<h3 id="error-handling">Error handling</h3>
+
+<p><img src="/assets/img/integromat18.png" style="width:50%; margin: 10px; float: right;" /></p>
+
+<p>Xử lý lỗi luôn là một phần quan trọng của lập trình phần mềm.
+Lỗi luôn xảy ra và cách handle lỗi rất quan trọng.
+Bạn click chuột phải vào module cần xử lý lỗi và chọn <code class="language-plaintext highlighter-rouge">Add error handlers</code>.
+Đó là tất cả việc bạn sẽ cần làm để bắt đầu xử lý lỗi trên integromat.
+<strong>Tiện quá đúng không?</strong></p>
+
+<p><img src="/assets/img/integromat19.png" style="width:50%; margin: 10px; float: left;" /></p>
+
+<p><strong>Vậy nội dung hàm xử lý lỗi sẽ như thế nào?</strong>
+Bạn có thể dùng <code class="language-plaintext highlighter-rouge">directives (điều hướng)</code> hoặc chạy một module nào đó.
+Có vài điều hướng cơ bản:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Rollback</code>: revert lại mọi thay đổi.</li>
+  <li><code class="language-plaintext highlighter-rouge">Break</code>: dừng tại đó.</li>
+  <li><code class="language-plaintext highlighter-rouge">Resume</code> một xử lý nào đó đang bị gián đoạn.</li>
+  <li><code class="language-plaintext highlighter-rouge">Commit</code> một thay đổi hiện có.</li>
+  <li><code class="language-plaintext highlighter-rouge">Ignore</code> luôn!</li>
+</ul>
+
+<p>Trong ví dụ hiện tại, tôi tạm thời cho <code class="language-plaintext highlighter-rouge">next</code> luôn, tức là dùng <code class="language-plaintext highlighter-rouge">Ignore</code> cho upload file.</p>
+
+<p>Làm tương tự với các module khác, bạn có thể đảm bảo có xử lý lỗi trong từng trường hợp cụ thể.
+Với module CSV convert thì tôi chọn <code class="language-plaintext highlighter-rouge">Break</code>.</p>
+
+<p>Mô hình thực thi cuối cùng như sau:</p>
+
+<p><img src="/assets/img/integromat20.png" alt="integromat" /></p>
+
+<h3 id="filters">Filters</h3>
+
+<p>Để thực hiện điều kiện filter những tin có liên quan tới <code class="language-plaintext highlighter-rouge">AI</code>, bạn có thể dùng chức năng filter của integromat như sau.
+Click vào link giữa trigger và router:</p>
+
+<p><img src="/assets/img/integromat21.png" alt="integromat" /></p>
+
+<h2 id="test">Test</h2>
+
+<p><img src="/assets/img/integromat22.png" style="width:30%; margin: 10px; float: right;" />
+Testing là phần cần thiết trong phát triển phần mềm.
+Các module đã được phát triển có SLA khá cao và unit testing cẩn thận nên ta sẽ skip UT lần này.
+API testing cũng không cần vì các module đã được test cẩn thận và có SLA rồi.
+Vậy ta cần test tích hợp (IT) thì sẽ có nút bấm <code class="language-plaintext highlighter-rouge">Run once</code>.
+Tuy nhiên, bạn sẽ phải cần cấu hình Scenario như bên dưới:</p>
+
+<p><img src="/assets/img/integromat23.png" style="width:50%; margin: 10px; float: left;" /></p>
+
+<p>Sau đó thì bạn sẽ thực hiện testing nhiều lần, cứ có bugs thì lại fix cho đến khi thấy mỹ mãn thì chuyển tới mục tiếp theo để vận hành thôi.</p>
+
+<h2 id="vận-hành">Vận hành</h2>
+
+<p><img src="/assets/img/integromat24.png" style="width:30%; margin: 10px; float: right;" />
+Trước khi triển khai vận hành, bạn phải cấu hình một chút về tần suất fetch news.
+Như đã nói tần suất tầm 60 phút cũng ổn.</p>
+
+<p>Sau đó bạn ấn vào cái Switch button để chuyển sang ON/OFF là xong.</p>
+
+<h1 id="kết-luận">Kết luận</h1>
+
+<p>Chúng ta đã điểm lại cách implement một dịch vụ fetch news và parse XML-to-CSV và post bài lên OneDrive cũng như Gitter.
+Có áp dụng cả filter, router, …
+Có đủ cả testing, vận hành, xử lý lỗi, … nên nhìn chung là một luồng ổn định để chiến lâu dài.</p>
+
+<p>Nhìn chung cách làm nào cũng được, nhưng dùng nền tảng có SLA cao thì anh em yên tâm hơn về xử lý sự cố, xử lý lỗi, …
+Khi có vấn đề gì thì cứ theo luồng mà chạy thôi nên độ tự tin nó cao.</p>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-11-01">01 Nov 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Project-Management">Project Management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#cicd">#cicd</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#notifications">#notifications</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#programming">#programming</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#project-management">#project management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#workflow-automation">#workflow automation</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//rd-pj-lifecycle/"> &laquo; 構想フェーズから終了までの研究開発サイクル</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//azure-boards-pm-extensions/">Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか? | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか? | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．" />
+<meta property="og:description" content="あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/2019%E5%B9%B4%E5%BA%A6%E5%BE%8C%E5%8D%8A%E9%9A%9C%E5%AE%B3%E7%99%BA%E7%94%9F%E7%8A%B6%E6%B3%81.svg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-18T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/2019%E5%B9%B4%E5%BA%A6%E5%BE%8C%E5%8D%8A%E9%9A%9C%E5%AE%B3%E7%99%BA%E7%94%9F%E7%8A%B6%E6%B3%81.svg" />
+<meta property="twitter:title" content="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" />
+<script type="application/ld+json">
+{"description":"あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．","image":"/assets/img/2019%E5%B9%B4%E5%BA%A6%E5%BE%8C%E5%8D%8A%E9%9A%9C%E5%AE%B3%E7%99%BA%E7%94%9F%E7%8A%B6%E6%B3%81.svg","headline":"なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?","dateModified":"2021-12-18T00:00:00+09:00","datePublished":"2021-12-18T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/turn-off-electric-before-leaving-why/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/turn-off-electric-before-leaving-why/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?&url=/turn-off-electric-before-leaving-why/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/turn-off-electric-before-leaving-why/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/turn-off-electric-before-leaving-why/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/2019年度後半障害発生状況.svg" alt="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#朝寝坊はダメだぞ">朝寝坊はダメだぞ</a></li>
+  <li><a href="#帰宅時">帰宅時</a></li>
+  <li><a href="#物品を使用したとき">物品を使用したとき</a></li>
+  <li><a href="#残業">残業</a></li>
+  <li><a href="#結論">結論</a></li>
+  <li><a href="#参考文献">参考文献</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><strong>あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？</strong>
+これはSEにとってなかなか回答できるが興味深い質問です．
+「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？
+実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります．
+これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです．
+ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます．
+お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です．
+私は昼休憩は取らないですが，なぜなら，このせいです．
+お昼はファストフードばかりで離席せずに対応を続けています．
+帰宅は19時～で大丈夫でしょう．</p>
+
+<!--more-->
+
+<h1 id="朝寝坊はダメだぞ">朝寝坊はダメだぞ</h1>
+
+<p>上で説明したが，朝8時から対応しないといけない障害も起きうるため，SEの場合，朝寝坊は禁則ですね．
+「ITだから，徹夜してプログラミングをしたので朝寝坊してしまった」という説明もちらほら聞かれていますが，ダメです！
+プログラミングは勤務時間内でやれぇ．
+朝で遅れなくきちんと出勤した方がいいです．</p>
+
+<h1 id="帰宅時">帰宅時</h1>
+
+<p>19時以降翌日7時以前の間に障害の報告が少ないです[1, 2]．
+ですので，19時～で帰宅することは問題ないでしょうか．
+という常識になって，ほぼ皆はその時間で帰宅してお休み時間を取っています．
+じゃ，例えば，深夜に出勤して何か不審な作業をやっている作業員がいると，異常でしょうか？
+これは障害の種であるため，いったん深夜に作業するPCなど機器を起動しないように電気を必ず消しましょう．
+また，例えば，深夜に障害につながる異常が発生すると，出勤できる作業員がお休み中の場合もあるから，対応も大変です．
+なので，19時～翌日7時までの間に，重要インフラ以外電気をきちんと使用されないように規定したほうがいいでしょう．
+「お金がかかっちゃう」という理由もよく聞かれたが，SEの分野では，多分それが本当の理由ではないと思います．
+実際の理由は障害対応の都合であろう．</p>
+
+<h1 id="物品を使用したとき">物品を使用したとき</h1>
+
+<p>上記の「帰宅時」の説明と同じように，物品の使用が終わったらリソースをクリアしましょう．
+「物品」とは，物理的にある会議室やサーバー部屋や機器などの施設だけではなく，<strong>仮想的に存在するサーバーやクラウドサービスの使用も含まれています</strong>．
+19時～ではなく，勤務時間内に一時使用するサーバーもあります．
+離席している最中に作業PCはONのままにしている可能性もあり，画面ロックをしない場合，セキュリティインシデントが起きうるのです．</p>
+
+<blockquote>
+  <p>離席時，必ず<strong>画面ロック</strong>などで資産をロックしましょう．再度着席したら，ロック解除で大丈夫です．</p>
+</blockquote>
+
+<p>じゃ，使用が終わったときに，電気を消さないで，リソースをクリアしないでそのままにすると何が問題かな？
+以下は千葉銀行からお客様にお願いする事項[4]ですが，興味深いですね．</p>
+
+<blockquote>
+  <p><strong>ログアウト等の励行</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>お客さまのパソコンを遠隔で操作し、正当な契約者が操作したように装う事例が発生しております。
+<strong>パソコンの外部からの不正操作を防止するため、Web-EBをご利用にならない時や、インターネット接続が必要ない時は、ご利用のパソコンをネットワークから遮断したり、無線LANを切断するなど、パソコンをインターネット環境から隔離し、常時接続をさけてください。</strong>
+また、<strong>パソコンをご利用にならない場合は、パソコンの電源を落とすよう徹底</strong>をお願いいたします。</p>
+</blockquote>
+
+<p>電源を落とし，インターネット接続も遮断するというお願いですね．
+もうちょっとわかりやすいマンガで説明した投稿もあります．</p>
+
+<p><a href="https://www.chibabank.co.jp/safety/netbank/comic06/comic03.html">マンガでわかる！インターネットバンキングのセキュリティ対策 &gt; パソコンの電源を入れたままにしていませんか？</a></p>
+
+<p>最近，クラウド基盤へ移すサービスも少なくないので，物理ではなく仮想的な資産も存在します．
+例えば，AWSの仮想サーバーやサービスなどですね．
+それらは電源を落としても稼働できるため，リソース管理をきちんとしないといけないです．
+つまり，各資産の稼働時間を把握する必要があります．
+それ以外の時間はなんとかの方法でクリアして，再度必要になったら再度立ち上げるように仕組みを規定する必要があります．</p>
+
+<p><strong>まあ，ややこしいけど，とりあえず，物理リソースの場合，上記のマンガのように電源を落としましょう．</strong>
+<strong>仮想リソースの場合，使用のワークフローを自動化し，心配がないようにしましょう．</strong></p>
+
+<h1 id="残業">残業</h1>
+
+<p>毎日19時～帰宅した方がよいという話をしました．
+ですので，19時以降の「残業」はダメですね．
+といっても，時々仕事のためにしないといけないこともあるでしょう．
+しかし，それが異常程度の確率にしないと大きな問題であろう．
+会社100人で皆残業すると，逆に皆で合意したので体制を決めて残業することは問題ないです．
+しかし，体制も決めず，上司の許可も得ず勝手に残業するということはダメです．</p>
+
+<ul>
+  <li>ですので，障害を減らしたい意志で考えると，会社の体制に従うべきです．
+で，一般的に，<strong>残業しない</strong>ことにしましょう．</li>
+  <li>仕事を自宅まで持ち帰っても，<strong>勤務時間外，つまり責任者が常駐しない時に仕事をしない</strong>ことにしましょう．
+    <ul>
+      <li>WFHの場合でも，仕事を自宅でやっても責任者の許可を得ないまま仕事はしません．</li>
+    </ul>
+  </li>
+  <li>仕事が途中半端で19時までに終わらせない場合でも，事前に見通して，<strong>切りのよいタイミングでリソースをクリアして，電源を落として帰宅しましょう</strong>．
+    <ul>
+      <li>効率というよりも，障害の課題です．</li>
+      <li>効率の考え方は勤務時間外で考えないで，勤務時間内のみで効率を考えるべきであろう．</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="結論">結論</h1>
+<p>そうですね．大学時代，「成果を出せるために，研究室に常駐」，「徹夜して，明日の発表会に成果を説明する資料を作る」，「19時以降も帰宅しない，プログラミングをします」など，大学生・院生からもよく聞かれたが，懐かしいです．
+大学時代で若者はこうしていったが，社会人になって，あれは「異常」です．
+むしろダメです．</p>
+
+<p><strong>社会人になってから，初めて朝定時に出社し，午後定時に退出すれば一番いい人間だと感じました．</strong>
+障害発生が少ない働きを維持しましょう．
+これからその人生を送りたいですね．</p>
+
+<h1 id="参考文献">参考文献</h1>
+
+<ol class="bibliography"><li><span id="ipa01">松田 晃一, 村岡 恭昭, &amp; 齋藤 毅. (2019). <i>情報システムの障害状況 - 2019 年後半データ</i>. IPA社会基盤センター.</span></li>
+<li><span id="ipa02">情報処理推進機構. <i>情報システムの障害状況一覧：IPA 独立行政法人 情報処理推進機構</i>. https://www.ipa.go.jp/sec/system/system_fault.html</span></li>
+<li><span id="ipa03">情報処理推進機構. <i>プレス発表　重要インフラを支えるシステムの障害情報や対策を分析した2種類の教訓集を公開：IPA 独立行政法人 情報処理推進機構</i>. https://www.ipa.go.jp/about/press/20140513.html</span></li>
+<li><span id="chiba01">千葉銀行. <i>セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行</i>. https://www.chibabank.co.jp/webeb/security/internet/</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-12-18">18 Dec 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Project-Management">Project Management</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#OT">#OT</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#残業">#残業</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#障害対応">#障害対応</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#電気を消す">#電気を消す</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#電気利用">#電気利用</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//svelte-and-reset-checkboxes-10years-ago/"> &laquo; Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//adobe-creative-cloud/">Adobe Creative Cloud: An All-in-One Platform for Creators &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

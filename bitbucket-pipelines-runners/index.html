@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners? | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners? | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bitbucket.org là nền tảng để hợp tác (collaboration) trong phát triển phần mềm. Xây dựng chu trình cung ứng phần mềm mang tính liên tục (continuous integration and delivery/deployment) đòi hỏi sử dụng những nền tảng như Bitbucket để nâng cao năng suất. Hiện nay, việc sử dụng Bitbucket đã khá phổ biến ngay cả với các team nhỏ (xung quanh 5 người, và thường chưa tới 10 người). Tuy nhiên, team nhỏ có những đặc điểm rất khác biệt: giới hạn về tài nguyên, nhân lực, cả utilization rate (tỷ lệ sử dụng). Bài toán kinh tế với Bitbucket quay trở lại điểm trade-off quen thuộc: tiền ít mà muốn chất lượng cao (cũng không hẳn cao quá, chỉ cần tốt hơn hiện tại) thì làm thế nào? Nói đến chất lượng là vì bản thân mục đích của chu trình CI/CD chính là nâng cao chất lượng phần mềm nhờ chuyên nghiệp hóa quy trình. Chúng ta sẽ đi sâu vào vấn đề này trong việc sử dụng Bitbucket, mà cuối cùng như tựa đề sẽ là so sánh hai lựa chọn khả thi nhất: dùng có sẵn (Bitbucket Cloud) và tự dựng (self-hosted Bitbucket runners)." />
+<meta property="og:description" content="Bitbucket.org là nền tảng để hợp tác (collaboration) trong phát triển phần mềm. Xây dựng chu trình cung ứng phần mềm mang tính liên tục (continuous integration and delivery/deployment) đòi hỏi sử dụng những nền tảng như Bitbucket để nâng cao năng suất. Hiện nay, việc sử dụng Bitbucket đã khá phổ biến ngay cả với các team nhỏ (xung quanh 5 người, và thường chưa tới 10 người). Tuy nhiên, team nhỏ có những đặc điểm rất khác biệt: giới hạn về tài nguyên, nhân lực, cả utilization rate (tỷ lệ sử dụng). Bài toán kinh tế với Bitbucket quay trở lại điểm trade-off quen thuộc: tiền ít mà muốn chất lượng cao (cũng không hẳn cao quá, chỉ cần tốt hơn hiện tại) thì làm thế nào? Nói đến chất lượng là vì bản thân mục đích của chu trình CI/CD chính là nâng cao chất lượng phần mềm nhờ chuyên nghiệp hóa quy trình. Chúng ta sẽ đi sâu vào vấn đề này trong việc sử dụng Bitbucket, mà cuối cùng như tựa đề sẽ là so sánh hai lựa chọn khả thi nhất: dùng có sẵn (Bitbucket Cloud) và tự dựng (self-hosted Bitbucket runners)." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/cicd.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-23T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/cicd.png" />
+<meta property="twitter:title" content="Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?" />
+<script type="application/ld+json">
+{"description":"Bitbucket.org là nền tảng để hợp tác (collaboration) trong phát triển phần mềm. Xây dựng chu trình cung ứng phần mềm mang tính liên tục (continuous integration and delivery/deployment) đòi hỏi sử dụng những nền tảng như Bitbucket để nâng cao năng suất. Hiện nay, việc sử dụng Bitbucket đã khá phổ biến ngay cả với các team nhỏ (xung quanh 5 người, và thường chưa tới 10 người). Tuy nhiên, team nhỏ có những đặc điểm rất khác biệt: giới hạn về tài nguyên, nhân lực, cả utilization rate (tỷ lệ sử dụng). Bài toán kinh tế với Bitbucket quay trở lại điểm trade-off quen thuộc: tiền ít mà muốn chất lượng cao (cũng không hẳn cao quá, chỉ cần tốt hơn hiện tại) thì làm thế nào? Nói đến chất lượng là vì bản thân mục đích của chu trình CI/CD chính là nâng cao chất lượng phần mềm nhờ chuyên nghiệp hóa quy trình. Chúng ta sẽ đi sâu vào vấn đề này trong việc sử dụng Bitbucket, mà cuối cùng như tựa đề sẽ là so sánh hai lựa chọn khả thi nhất: dùng có sẵn (Bitbucket Cloud) và tự dựng (self-hosted Bitbucket runners).","image":"/assets/img/cicd.png","headline":"Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?","dateModified":"2021-07-23T00:00:00+09:00","datePublished":"2021-07-23T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/bitbucket-pipelines-runners/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/bitbucket-pipelines-runners/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?&url=/bitbucket-pipelines-runners/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/bitbucket-pipelines-runners/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/bitbucket-pipelines-runners/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/cicd.png" alt="Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#bài-toán-team-nhỏ">Bài toán team nhỏ</a></li>
+  <li><a href="#cicd-với-bitbucket">CI/CD với Bitbucket</a>
+    <ul>
+      <li><a href="#bitbucket-cloud">Bitbucket Cloud</a></li>
+      <li><a href="#self-hosted-solution">Self-hosted solution</a>
+        <ul>
+          <li><a href="#máy-đặt-tại-nhà">Máy đặt tại nhà</a></li>
+          <li><a href="#máy-trên-cloud">Máy trên cloud</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#kết-luận">Kết luận</a></li>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><strong>Bitbucket.org</strong> là nền tảng để hợp tác (collaboration) trong phát triển phần mềm.
+Xây dựng chu trình cung ứng phần mềm mang tính liên tục (continuous integration and delivery/deployment) đòi hỏi sử dụng những nền tảng như Bitbucket để nâng cao năng suất.
+Hiện nay, việc sử dụng Bitbucket đã khá phổ biến ngay cả với các <strong>team nhỏ</strong> (xung quanh 5 người, và thường chưa tới 10 người).
+Tuy nhiên, team nhỏ có những đặc điểm rất khác biệt: giới hạn về tài nguyên, nhân lực, cả utilization rate (tỷ lệ sử dụng).
+Bài toán kinh tế với Bitbucket quay trở lại điểm trade-off quen thuộc: <strong>tiền ít mà muốn chất lượng cao</strong> (cũng không hẳn cao quá, chỉ cần tốt hơn hiện tại) thì làm thế nào?
+Nói đến chất lượng là vì bản thân mục đích của chu trình CI/CD chính là nâng cao chất lượng phần mềm nhờ chuyên nghiệp hóa quy trình.
+Chúng ta sẽ đi sâu vào vấn đề này trong việc sử dụng Bitbucket, mà cuối cùng như tựa đề sẽ là so sánh hai lựa chọn khả thi nhất: dùng có sẵn (Bitbucket Cloud) và tự dựng (self-hosted Bitbucket runners).
+<!--more--></p>
+
+<h1 id="bài-toán-team-nhỏ">Bài toán team nhỏ</h1>
+
+<p><strong>Team nhỏ</strong> là những team chỉ khoảng 5 thành viên, trong đó vì bài toán chúng ta có liên quan tới Bitbucket tức là quản lý sản phẩm phần mềm, nên gọi là 5 thành viên là <strong>chỉ tính người có commit code thôi!</strong>.
+Bởi vì chỉ có người commit lên thì mới là chủ chốt sử dụng.
+Còn viết tài liệu cũng có công, nhưng công số không nhiều.
+Và quan trọng hơn chỉ code và cấu hình thì mới trigger cái luồng CI/CD cho chạy, còn tài liệu thì chỉ để đọc.
+Và tài liệu thì ta có thể dùng những giải pháp ít tốn kém khác như Google Drive để quản lý, và đó không thuộc scope của bài viết này.
+Và đương nhiên, nói tới Bitbucket là phải nói tới các công cụ quản lý phiên bản (version control system) như Git hay mercurial.</p>
+
+<p><em>Vậy tại sao team nhỏ cũng cần những công cụ như Bitbucket?</em>
+Hiển nhiên là vì họ cũng cần quản lý code và đóng gói thành phẩm chuyển giao cho khách hàng, và quan trọng là hợp tác giữa các thành viên trong dự án.
+Với dự án có 1 người thì một Bitbucket account cũng là nơi tốt để họ lưu trữ sản phẩm, hơn là lưu trữ tại mỗi local để rồi dễ bị mất mát, không quản lý được.</p>
+
+<p><em>Đặc điểm của team nhỏ là gì?</em></p>
+<ul>
+  <li>
+    <p><strong>Nguồn nhân lực ít</strong>, vì vậy, nếu có thể dùng CI/CD để tự động hóa sẽ giúp giảm tải khá nhiều. Tuy nhiên, chu trình CI/CD nếu đã được thiết lập thì nên tái sử dụng ở các dự án về sau. Tránh cảnh mỗi lần kickoff lại xây lại chu trình CI/CD từ đầu.</p>
+  </li>
+  <li>
+    <p><strong>Nguồn tài chính, hỗ trợ hạn hẹp</strong>. Thường thì phân phối nguồn lực sẽ tương ứng với team size, vì vậy, budget thường sẽ hạn chế và tài nguyên cũng sẽ không reserved được mà phải on-demand (lúc nào cần thì phải làm đơn xin cấp). Với các team lớn vì nguồn thu của họ ổn định và cũng lớn, nên họ có thể dễ dàng xin cấp số lượng lớn <em>ngay từ đầu</em> để duy trì nguồn thu đó (*).</p>
+  </li>
+  <li>
+    <p><strong>Chất lượng sản phẩm và chu trình phát triển phụ thuộc vào nhiều biến cố định</strong>. Ví dụ như thường sẽ có nhân lực chủ chốt, đó là 1 biến cố định, mà biến ấy mất đi là dự án đi vào khó khăn. Hoặc có 1 cái máy mà cả dự án chỉ có 1 cái, nếu nó hỏng thì … khó khăn! Loại bỏ bớt các biến cố định này, đòi hỏi phải bổ sung thay thế (alternatives) và đương nhiên là cần tiền, và không có tiền thì … giải tán! Hoặc thế nào đó, nhưng tóm lại thường sẽ là phải chấp nhận thôi!</p>
+  </li>
+</ul>
+
+<p>Nói đến đây có thể thấy cloud là một cứu cánh như thế nào với các team nhỏ.
+Muốn có máy thay thế, có thể thuê cả năm, hoặc trả pay-as-you-go, muôn vàn hình thái chi trả, mà tóm lại không cần mua một cái máy về.
+Như vậy giảm thiểu được các biến cố định.
+Ngoài ra, lên cloud tức là lên chuẩn, kiến thức chuyên môn hầu như chỉ có cấu hình nên ai vào thay thế cũng vậy, chỉ cần có cơ bản về cloud.
+Nhờ vậy mà vấn đề nhân lực cũng theo đó mà suy giảm.</p>
+
+<p><strong>Chú ý:</strong> 
+<em>(*) Tất nhiên, cũng không hẳn không có cách để team nhỏ xin resource. Nhiều team nhỏ có cùng requirements về resources có thể cùng nhau xin một số lượng lớn, sau đó đem về dùng <strong>chung</strong>.</em></p>
+
+<p>Biểu đồ về tỷ lệ sử dụng dịch vụ Runner của các teams dưới đây được trích từ công cụ tính giá tiền của AWS.
+<strong>Biểu đồ nào phù hợp với team nhỏ?</strong></p>
+
+<p><img src="/assets/img/workload.PNG" alt="" /></p>
+
+<h1 id="cicd-với-bitbucket">CI/CD với Bitbucket</h1>
+
+<p>Bitbucket cung cấp khá nhiều giải pháp để hỗ trợ tự động hóa CI/CD:</p>
+
+<ul>
+  <li><strong>Bitbucket Pipelines</strong> [1]: chu trình CI/CD được viết vào file <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/"><code class="language-plaintext highlighter-rouge">bitbucket_pipelines.yml</code></a> và được tự động hóa theo kịch bản được viết ra.</li>
+  <li><strong>Bitbucket Cloud</strong>: hệ thống máy ảo để chạy các pipelines được đặt trên server của Bitbucket.</li>
+  <li><strong>Bitbucket Runners</strong>: các runners do người dùng tự dựng. Có thể cấu hình theo từng project (Project Runners) và workspace (Workspace Runners).</li>
+</ul>
+
+<p>Quy trình sẽ là:</p>
+
+<ol>
+  <li>Người dùng tạo file kịch bản CI/CD <code class="language-plaintext highlighter-rouge">bitbucket_pipelines.yml</code> và để vào nhánh tương ứng.</li>
+  <li>Người dùng thực hiện thay đổi trong code và commit, push lên Bitbucker repo.</li>
+  <li>Dựa theo kịch bản đã cho, một <strong>runner</strong> (server, có thể ở trên Bitbucket Cloud hoặc tự dựng, nếu trong kịch bản không cấu hình, thì mặc định Bitbucket Cloud) sẽ chạy kịch bản đó để thực hiện các bước building, testing và merge code tự động.</li>
+</ol>
+
+<p>Để cho dễ giải thích về sau, tôi xin đặt ra một số tiền đề sau cho bài toán team nhỏ:</p>
+
+<blockquote>
+  <ul>
+    <li>Giới hạn team là 5 thành viên.</li>
+    <li>Nhu cầu sử dụng giới hạn trong 8h/ngày. Tính từ 9h sáng tới 17h tối. Nhân viên ít thích OT, có OT cũng rất ít. Nên sau 7h tối hầu như không có ai sử dụng.</li>
+    <li>Vì lý do bảo mật, có yêu cầu không được sử dụng mà không báo cáo xin phép. Do vậy có thể xem sau 7h tối và trước 9h sáng hầu như nhu cầu dùng rất ít (được luật của cty bảo đảm). Ngày nghỉ ngày lễ đương nhiên phải có cho phép của lãnh đạo mới được làm nên coi như không có nhu cầu dùng.</li>
+  </ul>
+</blockquote>
+
+<h2 id="bitbucket-cloud">Bitbucket Cloud</h2>
+
+<p><strong>Bitbucket Cloud</strong> cung cấp runners theo pipelines, với bảng giá như bên dưới.
+Hầu như về mặt kỹ thuật, chỉ cần cấu hình file <code class="language-plaintext highlighter-rouge">bitbucket_pipelines.yml</code>, nên thủ tục rất tiện lợi cho người dùng.
+Giá của Bitbucket Cloud này là <code class="language-plaintext highlighter-rouge">flat</code>.
+Giả dụ team có nhiều nhất 5 thành viên, và dùng gói <code class="language-plaintext highlighter-rouge">Standard</code> để có 2500 build minutes mỗi tháng (tính trung bình 1 build là 5 phút thì ta có 500 lượt CI/CD mỗi tháng), thì tổng giá là <strong>$3\times 5=15$ USD</strong>.
+Sau khi vượt quá mức 2500 build minutes, thì cứ mỗi 1000 build minutes phải trả thêm 10 USD.</p>
+
+<p>Vậy với các tiền đề đã nói, chúng ta hãy nhẩm tính, chỉ có 20 ngày làm việc/tháng.
+Và mỗi ngày thì chỉ làm 8 tiếng, thì với 500 lượt CI/CD, tức là trung bình $500/(20\times 8)=3.125$ lượt build/giờ.
+Con số này không quá tồi, vì mỗi lượt CI/CD tương ứng 1 push (push có thể cùng lúc nhiều commit), nên 5 thành viên trong 1 giờ push 3 lần là cũng không quá ít.</p>
+
+<p>Tuy nhiên, để đảm bảo mô hình giá trên trở nên hiện thực, cần có luật trong công ty để đảm bảo:</p>
+
+<ul>
+  <li><strong>Thời gian 1 lượt CI/CD không quá 5 phút</strong></li>
+  <li><strong>Push nhiều commit cùng lượt</strong> thì <code class="language-plaintext highlighter-rouge">rebase</code> hoặc merge lại làm 1 cho đẹp history, chứ nghiêm cấm kiểu push nhát một, là rất tốn tiền build CI/CD.</li>
+  <li><strong>Lên kế hoạch làm việc cụ thể</strong>, đến giờ nào thì ai push cái gì. Điều này đảm bảo tỷ lệ 5 người push 3 lần trong 1 giờ!</li>
+</ul>
+
+<p>Tránh tình trạng, có dev cứ tí lại push, tí lại push nhát một, tốn tiền build time.
+Cũng không nên tích lại nhiều commit để push 1 lần quá, vì như thế có thể sót mất một số vấn đề ở các commit giữa chừng, khó review, và lọt lưới vấn đề.
+Nhìn chung, đòi hỏi dev phải có kinh nghiệm và khả năng quản lý code tốt!</p>
+
+<p><img src="/assets/img/bbcloud.png" alt="" /></p>
+
+<h2 id="self-hosted-solution">Self-hosted solution</h2>
+
+<p>Như trên có thể thấy, với tiền đề đã cho, thì nếu dùng Bitbucket Cloud, nếu có kỷ luật mạnh thì chỉ mất 15 USD/tháng.
+Còn kỷ luật mà yếu thì, giá đội lên khá nhiều.
+Đơn cử có các đồng chí, cứ 1-2 phút lại push một lần là mô hình giá này … giải tán!
+Và các nhân vật ấy sẽ không khác gì đang DDoS chính dự án của mình!
+Tất nhiên con số ở trên là trung bình trong cả 1 thời gian dài, vì có nhiều dev chỉ push nhiều 1 thời điểm nhất định trong ngày, sau đó thì lại không push nữa.
+Việc nắm bắt được biểu đồ push của anh em là trách nhiệm của nhà quản lý dự án.</p>
+
+<p>Song song với bán runners của mình, Bitbucket cũng cho phép người dùng tự cấu hình runners.
+Tức là quản lý code vẫn trên Bitbucket, nhưng CI/CD thì sẽ có 1 docker chạy trên runners của khách hàng.
+Cứ mỗi lần push lên là runner ở nhà hoặc trên cloud nào đó sẽ tự động clone code về và thực hiện kịch bản.</p>
+<h3 id="máy-đặt-tại-nhà">Máy đặt tại nhà</h3>
+
+<p>Giải pháp đặt runner tại nhà (hoặc tại máy công ty) thì có vẻ tránh được ràng buộc của Bitbucket Cloud.
+Cho chạy 24/7 cũng OK nếu chịu được tiền điện!
+Theo như giá điện tại Hà Nội chả hạn, cứ tính là 2000 một số.
+Thì một server cho chạy 24/7 thì $24\times 30\times 2000=1440000\approx 62.5$ USD/tháng.
+Tuy nhiên, với tiền đề đã cho, thì thực ra là $20\times 8\times 2000=320000\approx 13.9$ USD/tháng.
+Nhưng như vậy, mỗi ngày đều phải có người đến bật lên và lúc ra về phải nhớ tắt đi.
+Tiền upfront (giá máy, chi phí lắp đặt ban đầu) thì sẽ phát sinh tầm vài chục triệu, nên hy vọng sẽ lâu để hoàn lại.
+Giả dụ là mua server RAM 8GB, 2 core mạnh để chạy CI/CD thì giá sẽ vào tầm: <a href="https://vatgia.com/846/2426596/thong_so_ky_thuat/server-ibm-system-x3500-m4-7383-c2a-intel-xeon-e5-2620-2-0ghz-ram-8gb-dvd-raid-m1115-750w-kh%C3%B4ng-k%C3%A8m-%E1%BB%95-c%E1%BB%A9ng.html">45 triệu VND$\approx 1956.5$ USD</a>.
+Giả dụ dùng được 5 năm là phải nâng cấp thì mỗi tháng cũng mất tầm 32.5 USD.
+<strong>Tổng cộng với tiền điện là $32.5+13.9=46.4$USD/tháng.</strong></p>
+
+<p>Ngoài ra, nên nhớ hệ điều hành bắt buộc là <code class="language-plaintext highlighter-rouge">Linux</code> [2].
+Cách cấu hình khá đơn giản, nhưng lời khuyên là nên cấu hình <strong>Workspace Runner</strong> để nhiều dự án khác nhau có thể dùng chung.
+Nhờ vậy mà tỷ lệ sử dụng sẽ tăng, tránh lãng phí.</p>
+
+<p>Như vậy, so với Bitbucket Cloud thì giá thành của giải pháp đặt runner tại nhà là gấp 3 lần.
+Lợi ích lớn nhất là không bị giới hạn bởi số lượng build minutes, nhưng sẽ có một số thủ tục bắt buộc như <code class="language-plaintext highlighter-rouge">về là phải tắt điện</code>.
+Vì tiền điện phải tự trả mà!</p>
+
+<h3 id="máy-trên-cloud">Máy trên cloud</h3>
+<p>Giải pháp cuối cùng là cũng tự dựng, nhưng là dựng trên một dịch vụ cloud khác như AWS EC2.
+So với lời giải đặt tại nhà thì sẽ bớt tiền điện và upfront.</p>
+
+<p>Với tiền đề đã cho, tôi chọn biểu đồ sử dụng <code class="language-plaintext highlighter-rouge">Daily spike traffic</code>, với baseline là 0 máy, và thời điểm peak là 1 máy, 1 ngày dùng chỉ 8 tiếng, thứ 7, chủ nhật không dùng.
+Tôi cũng không thấy lý do phải lưu snapshot ra với kiểu nhu cầu CI/CD (mỗi lần chạy lại một sản phẩm khác hẳn), nên dùng EBS nhưng không để lựa chọn Snapshot.
+Ngoài ra, để theo dõi runner và tự động tắt bật runner, tôi thêm một instance nhỏ giá rẻ (chỉ 5 USD/tháng) vào.
+<code class="language-plaintext highlighter-rouge">monitor</code> thì sẽ cho chạy 24/7 vì giá rẻ.
+Với monitor, tôi sẽ cấu hình cài AWS CLI và chạy <code class="language-plaintext highlighter-rouge">cron</code> định kỳ cứ thứ 2 đến thứ 6, đúng 9h sáng thì bật và 5h chiều thì tự động tắt.
+Các sử dụng ngoại lệ như OT là phải có phê duyệt!
+Chi tiết của estimate có thể xem tại: <a href="https://calculator.aws/#/estimate?nc2=pr&amp;id=4efbfde0d2715053ff15f10b6ded6018eca7b256">https://calculator.aws/</a></p>
+
+<p><strong>Thì tổng giá là 17.30 USD/tháng. Nhìn chung là ngang dùng Bitbucket Cloud mà không tốn thêm phí gì khác.</strong></p>
+
+<p>Tuy nhiên, để đảm bảo việc chỉ dùng 8 tiếng/ngày, thì phải đảm bảo bật tắt tự động, tôi giải quyết bằng thêm instance monitor và set quyền truy cập vào monitor giới hạn.
+Vậy với giải pháp này, tôi thêm được bao nhiêu build minutes?
+Hãy nhẩm tính là 160 tiếng có 60 phút là tôi đã có $160\times 60=9600$ build minutes.
+Rộng rãi hơn so với dùng Bitbucket Cloud, mặc dùng vẫn phải cưỡng chế thời gian bật tắt cho chỉ dùng 8h/ngày.</p>
+<h1 id="kết-luận">Kết luận</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Solution</th>
+      <th>Price [USD/tháng]</th>
+      <th># Build minutes</th>
+      <th>Nhược điểm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dùng Bitbucket Cloud</td>
+      <td>15.0</td>
+      <td>2500</td>
+      <td>Phải lên lịch push. Giới hạn 5 thành viên push 3 lần 1 giờ. Không cho OT, ngày làm chỉ 8h, ngày nghỉ không cho làm.</td>
+    </tr>
+    <tr>
+      <td>Tự dựng EC2 runner</td>
+      <td>17.3</td>
+      <td>9600</td>
+      <td>Cài đặt monitor tự bật tắt runner vào lịch đã hẹn. Ngoài thời gian 8h làm việc của ngày làm việc là monitor sẽ tắt runner.</td>
+    </tr>
+    <tr>
+      <td>Tự dựng server runner</td>
+      <td>46.4</td>
+      <td>9600</td>
+      <td>Phải tự quản lý và có việc gì phải gọi bảo trì hoặc tự sửa chữa. Khi không dùng phải tắt điện đi. Nếu theo cách này thì phải dùng chung với vài dự án thì mỗi dự án sẽ rẻ đi, và sẽ chậm đi nếu chạy nhiều tác vụ cùng lúc.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Mặc dù, cách đặt tại nhà có thể cải tiến bằng cách cho nhiều dự án dùng chung, nhưng cách đặt trên EC2 cũng có thể áp dụng dùng chung, nên cách đặt tại nhà sẽ vẫn thua cách cấu hình EC2.</li>
+  <li>Nếu dự án cần không quá nhiều build minutes (dưới 2500) thì Bitbucker Cloud là giải pháp yên tâm và nhanh chóng nhất. Không cần cài đặt gì nhiều và chu trình CI/CD có thể bắt tay vào ngay.</li>
+  <li>Nếu cần nhiều build minutes và chia sẻ nhiều dự án, thì có lẽ dựng trên EC2 vẫn tốt hơn đặt tại nhà.</li>
+</ul>
+
+<p>Vì 2 cách sau khá mất công cấu hình, nên để CI/CD không chậm trễ, thì roadmap hợp lý nhất:</p>
+
+<ol>
+  <li>Khởi đầu bằng Bitbucket Cloud, nhưng có theo dõi số lượng build minutes.</li>
+  <li>Khi pipelines đã hoàn thiện, nếu phát hiện thấy số lượng build minutes lớn hơn 2500 quá nhiều thì chuyển sang dùng EC2 vẫn với pipelines đã hoàn thiện.</li>
+</ol>
+
+<p>Nói chung, với dev có nhiều kinh nghiệm thì chuyện push nhát một liên tục là sẽ ít xảy ra, thường là 1 buổi sáng hoặc 1 buổi chiều làm 1-2 push thôi.
+Cả ngày chắc được 2-3 push.
+Do đó có lẽ cũng sẽ không đến 2500 build minutes nếu đội dev có kinh nghiệm!
+và vì vậy giải pháp Bitbucket Cloud có lẽ là lời giải nhanh chóng hơn.</p>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="Configur92:online"><i>Configure bitbucket-pipelines.yml | Bitbucket Cloud | Atlassian Support</i>. https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/.</span></li>
+<li><span id="Setupand33:online"><i>Set up and use runners for Linux | Bitbucket Cloud | Atlassian Support</i>. https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-use-runners-for-linux/.</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-07-23">23 Jul 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#aiops">#aiops</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#bitbucket">#bitbucket</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#bitbucket-cloud">#bitbucket cloud</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#bitbucket-pipelines">#bitbucket pipelines</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#bitbucket-runners">#bitbucket runners</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#devops">#devops</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#devsecops">#devsecops</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#itops">#itops</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#site-reliability-engineering">#site reliability engineering</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//xops/"> &laquo; Tản mạn về XOps</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//python-amazon-lex-chatbot-elasticsearch/">Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現 &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

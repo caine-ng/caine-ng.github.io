@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/favicon.ico">
+
+<title>Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước | AiFi</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Svelte là một framework của ngôn ngữ Javascript, với mô hình bi-direction data binding (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS. Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít. Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML. Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend. Cách làm này nhìn chung là thủ công, và rất nhiều lập trình viên JS đã hiểu rằng đây là con đường code thuần và hầu như là buggy (rất nhiều bug có thể phát sinh)! Lịch sử sang trang mới vào những năm 2010-2011, cùng với sự ra đời của hàng loạt trào lưu mới như Lean startups, Agile development, … với những JS framework theo luồng MVVM (Model-View-ViewModel). Backbone và AngularJS hầu như ra đời trong giai đoạn này đã mở ra kỷ nguyên mới, khi dữ liệu và hiển thị được binding với nhau khiến cho sự đồng bộ thống nhất trên frontend được đảm bảo. Công ty tôi thời đó khởi đầu cũng làm JQuery thuần, code vô cùng nhiều bugs, mà kỹ sư OT ngày đêm lo sửa. Nhưng đó là chuyện của hơn 10 năm trước các bạn ạ. Sau đó nhiều kỹ sư trong công ty đã cực lực phản đối việc tiếp tục dùng JQuery và đề xuất dùng những con đường bug-free hơn như AngularJS. Đó là những chuyện xảy ra vào năm 2013. Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu “o bế” khá nhiều công nghệ Web mới như ngôn ngữ lập trình Hack (hậu duệ của PHP) và Meteor một kiểu JS framework cũng thực hiện MVVM, data binding để đồng bộ hiển thị và dữ liệu tại frontend. Và cùng năm 2013, ReactJS, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió. Hồi đó cũng có tranh luận là lên tiếp tục chịu đựng JQuery hay chuyển sang data binding là AngularJS hoặc ReactJS mà cuối cùng có vẻ là AngularJS đã được chọn. Bẵng đi ít lâu, 2013, VueJS ra đời và nhanh chóng được chào đón. Sau đó gần đây là Svelte." />
+<meta property="og:description" content="Svelte là một framework của ngôn ngữ Javascript, với mô hình bi-direction data binding (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS. Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít. Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML. Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend. Cách làm này nhìn chung là thủ công, và rất nhiều lập trình viên JS đã hiểu rằng đây là con đường code thuần và hầu như là buggy (rất nhiều bug có thể phát sinh)! Lịch sử sang trang mới vào những năm 2010-2011, cùng với sự ra đời của hàng loạt trào lưu mới như Lean startups, Agile development, … với những JS framework theo luồng MVVM (Model-View-ViewModel). Backbone và AngularJS hầu như ra đời trong giai đoạn này đã mở ra kỷ nguyên mới, khi dữ liệu và hiển thị được binding với nhau khiến cho sự đồng bộ thống nhất trên frontend được đảm bảo. Công ty tôi thời đó khởi đầu cũng làm JQuery thuần, code vô cùng nhiều bugs, mà kỹ sư OT ngày đêm lo sửa. Nhưng đó là chuyện của hơn 10 năm trước các bạn ạ. Sau đó nhiều kỹ sư trong công ty đã cực lực phản đối việc tiếp tục dùng JQuery và đề xuất dùng những con đường bug-free hơn như AngularJS. Đó là những chuyện xảy ra vào năm 2013. Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu “o bế” khá nhiều công nghệ Web mới như ngôn ngữ lập trình Hack (hậu duệ của PHP) và Meteor một kiểu JS framework cũng thực hiện MVVM, data binding để đồng bộ hiển thị và dữ liệu tại frontend. Và cùng năm 2013, ReactJS, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió. Hồi đó cũng có tranh luận là lên tiếp tục chịu đựng JQuery hay chuyển sang data binding là AngularJS hoặc ReactJS mà cuối cùng có vẻ là AngularJS đã được chọn. Bẵng đi ít lâu, 2013, VueJS ra đời và nhanh chóng được chào đón. Sau đó gần đây là Svelte." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/assets/img/svelte-checkall-uncheckall.gif" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-10T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/img/svelte-checkall-uncheckall.gif" />
+<meta property="twitter:title" content="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" />
+<script type="application/ld+json">
+{"description":"Svelte là một framework của ngôn ngữ Javascript, với mô hình bi-direction data binding (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS. Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít. Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML. Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend. Cách làm này nhìn chung là thủ công, và rất nhiều lập trình viên JS đã hiểu rằng đây là con đường code thuần và hầu như là buggy (rất nhiều bug có thể phát sinh)! Lịch sử sang trang mới vào những năm 2010-2011, cùng với sự ra đời của hàng loạt trào lưu mới như Lean startups, Agile development, … với những JS framework theo luồng MVVM (Model-View-ViewModel). Backbone và AngularJS hầu như ra đời trong giai đoạn này đã mở ra kỷ nguyên mới, khi dữ liệu và hiển thị được binding với nhau khiến cho sự đồng bộ thống nhất trên frontend được đảm bảo. Công ty tôi thời đó khởi đầu cũng làm JQuery thuần, code vô cùng nhiều bugs, mà kỹ sư OT ngày đêm lo sửa. Nhưng đó là chuyện của hơn 10 năm trước các bạn ạ. Sau đó nhiều kỹ sư trong công ty đã cực lực phản đối việc tiếp tục dùng JQuery và đề xuất dùng những con đường bug-free hơn như AngularJS. Đó là những chuyện xảy ra vào năm 2013. Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu “o bế” khá nhiều công nghệ Web mới như ngôn ngữ lập trình Hack (hậu duệ của PHP) và Meteor một kiểu JS framework cũng thực hiện MVVM, data binding để đồng bộ hiển thị và dữ liệu tại frontend. Và cùng năm 2013, ReactJS, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió. Hồi đó cũng có tranh luận là lên tiếp tục chịu đựng JQuery hay chuyển sang data binding là AngularJS hoặc ReactJS mà cuối cùng có vẻ là AngularJS đã được chọn. Bẵng đi ít lâu, 2013, VueJS ra đời và nhanh chóng được chào đón. Sau đó gần đây là Svelte.","image":"/assets/img/svelte-checkall-uncheckall.gif","headline":"Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước","dateModified":"2021-12-10T00:00:00+09:00","datePublished":"2021-12-10T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"/svelte-and-reset-checkboxes-10years-ago/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/favicon.ico"},"name":"tuan"},"url":"/svelte-and-reset-checkboxes-10years-ago/","author":{"@type":"Person","name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="http://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js"></script>
+</head>
+
+
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước&url=/svelte-and-reset-checkboxes-10years-ago/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=/svelte-and-reset-checkboxes-10years-ago/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=/svelte-and-reset-checkboxes-10years-ago/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href="">AiFi</a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="/assets/img/svelte-checkall-uncheckall.gif" alt="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> và bài toán reset hiển thị đúng cách</a>
+    <ul>
+      <li><a href="#một-ngày-đẹp-trời-năm-2012-một-yêu-cầu-khách-hàng-tới">Một ngày đẹp trời năm 2012, một yêu cầu khách hàng tới</a></li>
+      <li><a href="#lời-giải-10-năm-trước">Lời giải 10 năm trước</a></li>
+    </ul>
+  </li>
+  <li><a href="#cách-làm-1-làm-bằng-js-thuần">Cách làm 1: Làm bằng JS thuần</a></li>
+  <li><a href="#cách-làm-2-làm-bằng-svelte">Cách làm 2: Làm bằng Svelte</a></li>
+  <li><a href="#kết-luận">Kết luận</a></li>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><strong>Svelte</strong> là một framework của ngôn ngữ Javascript, với mô hình <strong>bi-direction data binding</strong> (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
+Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
+Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML.
+Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend.
+Cách làm này nhìn chung là thủ công, và rất nhiều lập trình viên JS đã hiểu rằng đây là con đường code thuần và hầu như là <strong>buggy</strong> (rất nhiều bug có thể phát sinh)!
+Lịch sử sang trang mới vào những năm 2010-2011, cùng với sự ra đời của hàng loạt trào lưu mới như Lean startups, Agile development, … với những <strong>JS framework theo luồng MVVM (Model-View-ViewModel)</strong>.
+<code class="language-plaintext highlighter-rouge">Backbone</code> và <code class="language-plaintext highlighter-rouge">AngularJS</code> hầu như ra đời trong giai đoạn này đã mở ra kỷ nguyên mới, khi dữ liệu và hiển thị được <strong>binding</strong> với nhau khiến cho sự đồng bộ thống nhất trên frontend được đảm bảo.
+Công ty tôi thời đó khởi đầu cũng làm JQuery thuần, code vô cùng nhiều bugs, mà kỹ sư OT ngày đêm lo sửa.
+Nhưng đó là chuyện của hơn 10 năm trước các bạn ạ.
+Sau đó nhiều kỹ sư trong công ty đã cực lực phản đối việc tiếp tục dùng JQuery và đề xuất dùng những con đường bug-free hơn như <strong>AngularJS</strong>.
+Đó là những chuyện xảy ra vào năm 2013.
+Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu “o bế” khá nhiều công nghệ Web mới như ngôn ngữ lập trình Hack (hậu duệ của PHP) và <code class="language-plaintext highlighter-rouge">Meteor</code> một kiểu JS framework cũng thực hiện MVVM, data binding để đồng bộ hiển thị và dữ liệu tại frontend.
+Và cùng năm 2013, <code class="language-plaintext highlighter-rouge">ReactJS</code>, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió.
+Hồi đó cũng có tranh luận là lên tiếp tục <strong>chịu đựng JQuery</strong> hay chuyển sang data binding là <code class="language-plaintext highlighter-rouge">AngularJS</code> hoặc <code class="language-plaintext highlighter-rouge">ReactJS</code> mà cuối cùng có vẻ là <code class="language-plaintext highlighter-rouge">AngularJS</code> đã được chọn.
+Bẵng đi ít lâu, 2013, <code class="language-plaintext highlighter-rouge">VueJS</code> ra đời và nhanh chóng được chào đón.
+Sau đó gần đây là <code class="language-plaintext highlighter-rouge">Svelte</code>.
+<!--more--></p>
+
+<h1 id="một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách">Một ví dụ: hộp checkbox <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> và bài toán reset hiển thị đúng cách</h1>
+
+<h2 id="một-ngày-đẹp-trời-năm-2012-một-yêu-cầu-khách-hàng-tới">Một ngày đẹp trời năm 2012, một yêu cầu khách hàng tới</h2>
+
+<p>Hồi ấy có 1 câu chuyện là thế này.
+Nói thì dài dòng nhưng chủ yếu là làm chức năng <code class="language-plaintext highlighter-rouge">Check All/Uncheck All</code> mà bạn có thể nhìn thấy ở hình ảnh bên trên.
+Nó là chức năng bổ trợ cho <code class="language-plaintext highlighter-rouge">Datatables</code> mà chúng tôi có dùng.
+<strong>Cũng 10 năm rồi, tôi thú thực là cũng chả nhớ chi tiết lắm</strong>, nhưng đại để là có yêu cầu thế này:</p>
+
+<ul>
+  <li>Mỗi dòng phải có 1 checkbox, và mỗi checkbox là riêng nhau, không có chuyện click checkbox ở dòng 1 mà lại thay đổi hiển thị của dòng 2 là … giải tán.</li>
+  <li>Có nút <code class="language-plaintext highlighter-rouge">Check All</code> mà khi click vào thì tất cả các checkbox con chuyển thành ON hết.</li>
+  <li>Có nút <code class="language-plaintext highlighter-rouge">Uncheck All</code> mà khi chọn thì tất cả các checkbox con của mỗi dùng đều OFF hết.</li>
+  <li>Nút <code class="language-plaintext highlighter-rouge">Check All</code> và <code class="language-plaintext highlighter-rouge">Uncheck All</code> có thể làm một để tối ưu trải nghiệm người dùng.</li>
+  <li>Nếu tất cả các nút con đều ON thì <code class="language-plaintext highlighter-rouge">CheckAll</code> cũng phải ON.</li>
+  <li>Nếu có ít nhất 1 nút con là OFF thì <code class="language-plaintext highlighter-rouge">CheckAll</code> phải OFF.</li>
+  <li>Ngược lại với <code class="language-plaintext highlighter-rouge">Uncheck ALL</code> (nếu tách hai hộp check ra).</li>
+</ul>
+
+<p><img src="/assets/img/svelte-checkall-uncheckall-2.gif" alt="svelte" /></p>
+
+<p><strong>Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm</strong>.
+Tức là phải <code class="language-plaintext highlighter-rouge">reset</code> chuẩn, không được để chọn <code class="language-plaintext highlighter-rouge">Check All</code> nhưng lại có dòng nào không được check (dù đã check rồi).
+Không được để check dòng này nhưng dòng khác lại bị ảnh hưởng.</p>
+
+<h2 id="lời-giải-10-năm-trước">Lời giải 10 năm trước</h2>
+
+<p>Scope cũng khá nhẹ nhàng, nhưng lúc đó anh em lại chọn dùng JQuery và code thuần luôn.</p>
+
+<p>Đó quả thực là một bước đi <code class="language-plaintext highlighter-rouge">gian khổ</code>: thứ nhất, là vấn đề <code class="language-plaintext highlighter-rouge">data binding</code>, chuyện bind checkbox từng dòng vào hiển thị từng dòng mà lại làm bằng JS thuần thì đòi hỏi phải chơi trò <code class="language-plaintext highlighter-rouge">gắn nhãn và selector</code>.
+Tức là với dòng thứ <code class="language-plaintext highlighter-rouge">n</code> gắn nhãn <code class="language-plaintext highlighter-rouge">id="row-n"</code> chẳng hạn, sau đó dùng selector của JS hoặc JQuery như <code class="language-plaintext highlighter-rouge">var el = document.querySelector("#row-n");</code> hoặc như JQuery thì đơn giản hơn <code class="language-plaintext highlighter-rouge">$('#row-n')</code>, để switch hiển thị.</p>
+
+<blockquote>
+  <p><strong>Bạn nghĩ sao?</strong></p>
+</blockquote>
+
+<blockquote>
+  <p><em>Thế tức là gắn nhãn bằng tay còn gì?</em></p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Vâng, đúng thế. Gắn nhãn bằng tay và select nhãn theo tên đã đặt.</strong></p>
+</blockquote>
+
+<blockquote>
+  <p><em>Thế nếu miss một phát là toang, select nhầm nhãn là hiển nhiên có khả năng vì là con người làm. Rồi còn đặt tên mà không có quy tắc gây nhầm lẫn lúc select là TOANG nặng!</em></p>
+</blockquote>
+
+<p>Vâng, thú thực là lúc ấy mấy công nghệ <strong>MVVM frameworks như AngularJS/ReactJS</strong> vẫn đang trong vòng thai nghén của Google và Facebook, anh em cũng chưa có điều kiện tiếp cận, mới bắt buộc phải dùng JS thuần mà code.
+Chuyện 10 năm trước cơ mà!
+(Chứ còn năm 2021 này mà còn dùng là … không nên! <strong>Phải MVVM hết</strong>.).</p>
+
+<h1 id="cách-làm-1-làm-bằng-js-thuần">Cách làm 1: Làm bằng JS thuần</h1>
+
+<p>Đánh nhãn bằng tay đương nhiên là không tốt.
+Để hiểu được lý do tại sao nên dùng framework và patterns có sẵn, chúng ta nên bắt đầu từ việc định tính hóa bài toán.</p>
+
+<p><strong>Bài toán</strong>: Giả sử có $n$ dòng trong bảng.
+Mỗi dòng có một checkbox $c_i\in\{0,1\}$ (ở đây 0 là OFF còn 1 là ON).
+Trạng thái của <code class="language-plaintext highlighter-rouge">Check All</code> là $C\in\{0,1\}$ và tương ứng của <code class="language-plaintext highlighter-rouge">Uncheck all</code> là $\overline{C}=1-C$.
+Thì <code class="language-plaintext highlighter-rouge">bài toán đồng bộ trạng thái</code> ở đây là đảm bảo rằng ở mọi thời điểm:</p>
+
+<blockquote>
+  <p>$C=\bigcap_{i=1}^n c_i$                                          (1)</p>
+</blockquote>
+
+<p>Điều này khá thú vị, việc đảm bảo phương trình (1) luôn xảy ra đòi hỏi phải <strong>quản lý trạng thái</strong> một cách chính xác.</p>
+
+<p>Để làm được điều này với JS thuần, đòi hỏi</p>
+
+<ul>
+  <li>Đánh nhãn chính xác, khó nhầm lẫn.</li>
+  <li>Không select nhầm nhãn.</li>
+  <li>Quản lý trạng thái ON/OFF phải đồng bộ.</li>
+  <li>Phải set checked ngay khi có <code class="language-plaintext highlighter-rouge">onclick</code>.</li>
+</ul>
+
+<p>Nhìn chung là một cách làm khá <code class="language-plaintext highlighter-rouge">tồi tệ</code>.
+<strong>Đặc biệt, vì số lượng biến trạng thái là $n+1$ nên khi $n$ càng lớn việc quản lý trạng thái càng khó khăn, dễ xảy ra bug, mistakes, …</strong></p>
+
+<h1 id="cách-làm-2-làm-bằng-svelte">Cách làm 2: Làm bằng Svelte</h1>
+
+<p>Với <strong>Svelte’s <a href="https://svelte.dev/tutorial/checkbox-inputs">binding</a></strong>, việc quản lý trạng thái trở nên dễ dàng và ít mistakes hơn.
+Bạn chỉ cần định nghĩa biến trạng thái của checkboxes và bind chúng vào định nghĩa của <code class="language-plaintext highlighter-rouge">&lt;input type="checkbox"&gt;</code> nhờ từ khóa <code class="language-plaintext highlighter-rouge">bind:checked={}</code>.
+Ví dụ như sau:</p>
+
+<pre><code class="language-svelte">&lt;input
+    type="checkbox"
+    class="form-check-input"
+    aria-checked="false"
+    bind:checked={checkedAll}
+    on:click={onCheckedAll}
+/&gt;
+</code></pre>
+
+<p>Như trên biến <code class="language-plaintext highlighter-rouge">checkedAll</code> đã được bind vào checkbox.
+Thậm chí cũng chả cần định nghĩa <code class="language-plaintext highlighter-rouge">id</code> cho textbox (tức là đánh nhãn) làm gì, bạn chỉ cần quản lý biến trạng thái <code class="language-plaintext highlighter-rouge">checkedAll</code> trong code của mình.
+<strong>Mà thao tác ấy chắc chắn sẽ tự động và ít bugs hơn đánh nhãn bằng tay kiểu JS thuần.</strong>
+Khi biến trạng thái thay đổi, hiển thị checkbox sẽ <strong>tự động</strong> thay đổi theo và bạn chẳng phải làm mấy cái thao tác set props hay gì mất thời gian mà lại dễ lỗi.
+Ví dụ bạn để set prop nhầm chỗ hoặc assign nhầm label một phát vì cách đặt tên của lập trình viên cũ quá tồi thì ôi thôi có mà … toang nặng.</p>
+
+<p>Đến đây, việc còn lại quá nhẹ nhàng với vài dòng code chơi: bạn định nghĩa một mảng <code class="language-plaintext highlighter-rouge">checked</code> cho trạng thái của $n$ biến trạng thái còn lại và <code class="language-plaintext highlighter-rouge">bind:checked={}</code> vào các checkbox ở từng dòng.
+Để thực hiện logic chuyển trạng thái, bạn chỉ cần lo viết code tương tác giữa biến $C$ và $c_i, i=1,n$ chứ chả phải lo ngồi set prop, hoặc set text làm gì mất công và dễ bug.</p>
+
+<h1 id="kết-luận">Kết luận</h1>
+
+<p>Nhìn chung cách làm bằng JS thuần là cách làm thiếu tính trừu tượng hóa, thủ công và đánh nhãn mệt nghỉ.
+Thay vào đó sự tiến bộ của công nghệ những năm 2010-2014 đã cho phép lập trình frontend web có những framework kiểu MVVM đủ mạnh như AngularJS, VueJS, ReactJS và gần đây là Svelte.
+Sử dụng Svelte để <strong>trừu tượng hóa</strong> trạng thái hiển thị thành biến (qua <code class="language-plaintext highlighter-rouge">binding</code>) và quản lý trạng thái thông qua quản lý biến là một điểm chốt khiến cho việc sử dụng Svelte (cũng như VueJS, ReactJS, AngularJS) chiếm ưu thế vượt trội so với cách làm thủ công JS thuần mà 10 năm trước chúng tôi hay làm.</p>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="LogicEls13:online"><i>Logic / Else-if blocks • Svelte Tutorial</i>. https://svelte.dev/tutorial/else-if-blocks</span></li>
+<li><span id="DocsSve0:online"><i>Docs • SvelteKit</i>. https://kit.svelte.dev/docs</span></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2021-12-10">10 Dec 2021</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#angularjs">#angularjs</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#frontend">#frontend</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#reactjs">#reactjs</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#svelte">#svelte</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#svelte-framework">#svelte framework</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="/tags#vuejs">#vuejs</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="//write-logs/"> &laquo; Học cách viết log nghiêm chỉnh</a>
+            
+            
+            <a class="next d-block col-md-6 text-lg-right" href="//turn-off-electric-before-leaving-why/">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか? &raquo; </a>
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Software-Engineering">Software Engineering (33)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Computer-Vision">Computer Vision (4)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Artificial-Intelligence">Artificial Intelligence (14)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (29)</a>
+                
+                    <a class="mt-1 mb-1" href="/categories#Project-Management">Project Management (31)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2021 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/assets/js/mediumish.js"></script>
+
+
+<script src="/assets/js/lazyload.js"></script>
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>
