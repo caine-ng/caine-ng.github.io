@@ -3,10 +3,10 @@
   <channel>
     <title>AiFi</title>
     <description>An AI Engineer&apos;s blog</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Dec 2021 07:34:55 +0900</pubDate>
-    <lastBuildDate>Sat, 25 Dec 2021 07:34:55 +0900</lastBuildDate>
+    <link>https://wanted2.github.io/</link>
+    <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 25 Dec 2021 07:44:00 +0900</pubDate>
+    <lastBuildDate>Sat, 25 Dec 2021 07:44:00 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -71,8 +71,8 @@ Let’s hear words about the roadmap of ACC from Scott Belsky.&lt;/p&gt;
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 </description>
         <pubDate>Sun, 19 Dec 2021 00:00:00 +0900</pubDate>
-        <link>/adobe-creative-cloud/</link>
-        <guid isPermaLink="true">/adobe-creative-cloud/</guid>
+        <link>https://wanted2.github.io/adobe-creative-cloud/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/adobe-creative-cloud/</guid>
         
         <category>adobe acrobat</category>
         
@@ -213,8 +213,8 @@ Let’s hear words about the roadmap of ACC from Scott Belsky.&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行. &lt;i&gt;セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行&lt;/i&gt;. https://www.chibabank.co.jp/webeb/security/internet/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 18 Dec 2021 00:00:00 +0900</pubDate>
-        <link>/turn-off-electric-before-leaving-why/</link>
-        <guid isPermaLink="true">/turn-off-electric-before-leaving-why/</guid>
+        <link>https://wanted2.github.io/turn-off-electric-before-leaving-why/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/turn-off-electric-before-leaving-why/</guid>
         
         <category>残業</category>
         
@@ -371,8 +371,8 @@ Sử dụng Svelte để &lt;strong&gt;trừu tượng hóa&lt;/strong&gt; trạ
 &lt;li&gt;&lt;span id=&quot;DocsSve0:online&quot;&gt;&lt;i&gt;Docs • SvelteKit&lt;/i&gt;. https://kit.svelte.dev/docs&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Fri, 10 Dec 2021 00:00:00 +0900</pubDate>
-        <link>/svelte-and-reset-checkboxes-10years-ago/</link>
-        <guid isPermaLink="true">/svelte-and-reset-checkboxes-10years-ago/</guid>
+        <link>https://wanted2.github.io/svelte-and-reset-checkboxes-10years-ago/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/svelte-and-reset-checkboxes-10years-ago/</guid>
         
         <category>svelte framework</category>
         
@@ -883,8 +883,8 @@ Thế nên có cơ hội các bạn nên trau dồi, vì thực sự cái tổng
 &lt;li&gt;&lt;span id=&quot;kent2006guide&quot;&gt;Kent, K. A., &amp;amp; Souppaya, M. (2006). &lt;i&gt;Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology&lt;/i&gt;. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
-        <link>/write-logs/</link>
-        <guid isPermaLink="true">/write-logs/</guid>
+        <link>https://wanted2.github.io/write-logs/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/write-logs/</guid>
         
         <category>logging</category>
         
@@ -1048,8 +1048,8 @@ Còn muốn hơn thì tốt nhất tuyển người qua nước tư bản kiểu
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ThisisLe25:online&quot;&gt;&lt;i&gt;This is Lean |&lt;/i&gt;. https://thisislean.com/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 27 Nov 2021 00:00:00 +0900</pubDate>
-        <link>/fullstask-engineer-and-lean-startup/</link>
-        <guid isPermaLink="true">/fullstask-engineer-and-lean-startup/</guid>
+        <link>https://wanted2.github.io/fullstask-engineer-and-lean-startup/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/fullstask-engineer-and-lean-startup/</guid>
         
         <category>project management</category>
         
@@ -1204,8 +1204,8 @@ Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Gra
 &lt;li&gt;&lt;span id=&quot;TheProdu24:online&quot;&gt;&lt;i&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/i&gt;. https://www.epi.org/productivity-pay-gap/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 20 Nov 2021 00:00:00 +0900</pubDate>
-        <link>/chicken-and-egg-problem/</link>
-        <guid isPermaLink="true">/chicken-and-egg-problem/</guid>
+        <link>https://wanted2.github.io/chicken-and-egg-problem/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/chicken-and-egg-problem/</guid>
         
         <category>project management</category>
         
@@ -1746,8 +1746,8 @@ In the next steps, we will implement the following two stories:&lt;/p&gt;
 &lt;p&gt;The pricing estimation of these two stories with the original story can be found &lt;a href=&quot;https://calculator.aws/#/estimate?id=e6fb0a2e9b0d46b7b876fec8e8da02c8c1e4be60&quot;&gt;here (152.20$ per month)&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sat, 13 Nov 2021 00:00:00 +0900</pubDate>
-        <link>/opensearch-kibana-tuts-1/</link>
-        <guid isPermaLink="true">/opensearch-kibana-tuts-1/</guid>
+        <link>https://wanted2.github.io/opensearch-kibana-tuts-1/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/opensearch-kibana-tuts-1/</guid>
         
         <category>aws</category>
         
@@ -1908,8 +1908,8 @@ One downside is that it is not free, with a price of €288 per year!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;mediumco31:online&quot;&gt;&lt;i&gt;medium.com&lt;/i&gt;. https://medium.com/boston-product/the-true-definition-of-done-c6c254a0ff3e&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
-        <link>/azure-boards-pm-extensions/</link>
-        <guid isPermaLink="true">/azure-boards-pm-extensions/</guid>
+        <link>https://wanted2.github.io/azure-boards-pm-extensions/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/azure-boards-pm-extensions/</guid>
         
         <category>programming</category>
         
@@ -2221,8 +2221,8 @@ Có đủ cả testing, vận hành, xử lý lỗi, … nên nhìn chung là m�
 Khi có vấn đề gì thì cứ theo luồng mà chạy thôi nên độ tự tin nó cao.&lt;/p&gt;
 </description>
         <pubDate>Mon, 01 Nov 2021 00:00:00 +0900</pubDate>
-        <link>/integromat/</link>
-        <guid isPermaLink="true">/integromat/</guid>
+        <link>https://wanted2.github.io/integromat/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/integromat/</guid>
         
         <category>programming</category>
         
@@ -2438,8 +2438,8 @@ Còn postdoc thì bắt đầu thành thục hơn ở cấp trợ tá cho giáo 
 Đó là một điều đáng quý và nếu có cơ hội nên chú ý học hỏi!&lt;/p&gt;
 </description>
         <pubDate>Sat, 23 Oct 2021 00:00:00 +0900</pubDate>
-        <link>/rd-pj-lifecycle/</link>
-        <guid isPermaLink="true">/rd-pj-lifecycle/</guid>
+        <link>https://wanted2.github.io/rd-pj-lifecycle/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/rd-pj-lifecycle/</guid>
         
         <category>R&amp;D</category>
         
