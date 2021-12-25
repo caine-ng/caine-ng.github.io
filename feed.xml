@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T18:26:59+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T19:03:37+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
 &lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
@@ -215,7 +215,7 @@ In these scenarios, After Effects seems to be a better fit.&lt;/p&gt;
 &lt;p&gt;We had a look on image/video editing softwares.
 But now we want to edit, mix, enhance audio, we should think about Adobe Audition.
 Adobe Audition can be integrated into After Effects or Premiere Pro.
-The output audios can be saved to Behance and Stock.&lt;/p&gt;
+The output audios can be published to Behance and Stock.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/adobe-audition.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -243,9 +243,59 @@ The output audios can be saved to Behance and Stock.&lt;/p&gt;
 
 &lt;h3 id=&quot;media-encoder&quot;&gt;Media Encoder&lt;/h3&gt;
 
+&lt;p&gt;&lt;strong&gt;Adobe Media Encoder (AME)&lt;/strong&gt; is a video media transcoding utility developed and marketed by Adobe through Adobe Creative Cloud. 
+It is designed for integration into workflows with other video applications such as Adobe Premiere Pro and After Effects.&lt;/p&gt;
+
 &lt;h2 id=&quot;animation&quot;&gt;Animation&lt;/h2&gt;
 
+&lt;h3 id=&quot;adobe-animate-cc&quot;&gt;Adobe Animate CC&lt;/h3&gt;
+
+&lt;p&gt;Adobe Animate CC, formerly Adobe Flash Professional CC, is the current series of the Animate application offered by subscription through Adobe Creative Cloud.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fFRtT-wDZlE&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL3atG_J6wz0Vv9AoXqXOgc63X_8D5OBHE&quot;&gt;2D Animation - Free Course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;adobe-character-animator&quot;&gt;Adobe Character Animator&lt;/h3&gt;
+
+&lt;p&gt;Adobe Character Animator is a 2D puppet animation program developed by Adobe that is included with Adobe After Effects CC through Adobe Creative Cloud.
+It uses a &lt;strong&gt;multi-track motion capture recording system&lt;/strong&gt; to apply behaviors to puppets.&lt;/p&gt;
+
+&lt;p&gt;Some nice thing can be done with Character Animator:&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/gWBLAcTWH5Q&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
 &lt;h2 id=&quot;web-design-tools&quot;&gt;Web design tools&lt;/h2&gt;
+
+&lt;h3 id=&quot;adobe-dreamweaver&quot;&gt;Adobe Dreamweaver&lt;/h3&gt;
+
+&lt;p&gt;Adobe Dreamweaver, formerly Macromedia Dreamweaver, is a web development application originally based on the codebase of Backstage, which was acquired by Macromedia in March 1996.
+Dreamweaver has been owned and marketed by Adobe since December 2005.&lt;/p&gt;
+
+&lt;p&gt;Dreamweaver is available for both Mac and Windows. Recent versions have incorporated support for web technologies such as CSS, JavaScript, and various server-side scripting languages and frameworks including ASP.NET, ColdFusion, JavaServer Pages, and PHP.&lt;/p&gt;
+
+&lt;p&gt;As a WYSIWYG Presto-based editor, Dreamweaver can hide the HTML code details of pages from the user, &lt;strong&gt;making it possible for non-coders to create web pages and sites&lt;/strong&gt;. One criticism of this approach is that it can produce HTML pages whose file size and amount of HTML code is larger than an optimally hand-coded page would be, which can cause web browsers to perform poorly. This can be particularly true because the application makes it very easy to create table-based layouts. In addition, some web site developers have criticised Dreamweaver in the past for producing code that often does not comply with W3C standards, though recent versions have been more compliant. Dreamweaver 8.0 performed poorly on the Acid2 Test, developed by the Web Standards Project. However, Adobe has increased the support for CSS and other ways to lay out a page without tables in later versions of the application, with the ability to convert tables to layers and vice versa.&lt;/p&gt;
+
+&lt;p&gt;Dreamweaver allows users to preview websites in many browsers, provided that they are installed on their computer. It also has some site management tools, such as the ability to find and replace lines of text or code by whatever parameters specified across the entire site, and a templatisation feature for creating multiple pages with similar structures. The behaviours panel also enables use of basic JavaScript without any coding knowledge.&lt;/p&gt;
+
+&lt;p&gt;Dreamweaver can use “Extensions” – small programs, which any web developer can write (usually in HTML and JavaScript). Extensions provide added functionality to the software for whoever wants to download and install them. Dreamweaver is supported by a large community of extension developers who make extensions available (both commercial and free) for most web development tasks from simple rollover effects to full-featured shopping carts.&lt;/p&gt;
+
+&lt;p&gt;Like other HTML editors, Dreamweaver edits files locally, then uploads all edited files to the remote web server using FTP, SFTP, or WebDAV. Dreamweaver CS4 now supports the Subversion (software) (SVN) version control system.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Ok60gdJif0U&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLttcEXjN1UcHi3Rc-FSNZOaFSsSjFWCBS&quot;&gt;Dreamweaver Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;adobe-xd&quot;&gt;Adobe XD&lt;/h3&gt;
+&lt;p&gt;Adobe XD is a vector-based user experience design, prototyping, and presentation tool for web apps and mobile apps, developed and published by Adobe. It is available for free, but requires an account registered through Adobe Creative Cloud.&lt;/p&gt;
+
+&lt;h3 id=&quot;adobe-indesign&quot;&gt;Adobe InDesign&lt;/h3&gt;
+
+&lt;h3 id=&quot;adobe-incopy&quot;&gt;Adobe InCopy&lt;/h3&gt;
 
 &lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
 
