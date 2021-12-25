@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T19:03:37+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T19:31:00+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
 &lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
@@ -274,13 +274,15 @@ It uses a &lt;strong&gt;multi-track motion capture recording system&lt;/strong&g
 &lt;p&gt;Adobe Dreamweaver, formerly Macromedia Dreamweaver, is a web development application originally based on the codebase of Backstage, which was acquired by Macromedia in March 1996.
 Dreamweaver has been owned and marketed by Adobe since December 2005.&lt;/p&gt;
 
-&lt;p&gt;Dreamweaver is available for both Mac and Windows. Recent versions have incorporated support for web technologies such as CSS, JavaScript, and various server-side scripting languages and frameworks including ASP.NET, ColdFusion, JavaServer Pages, and PHP.&lt;/p&gt;
+&lt;p&gt;Dreamweaver is available for both Mac and Windows. Recent versions have incorporated support for web technologies such as CSS, JavaScript, and various server-side scripting languages and frameworks, including ASP.NET, ColdFusion, JavaServer Pages, and PHP.&lt;/p&gt;
 
-&lt;p&gt;As a WYSIWYG Presto-based editor, Dreamweaver can hide the HTML code details of pages from the user, &lt;strong&gt;making it possible for non-coders to create web pages and sites&lt;/strong&gt;. One criticism of this approach is that it can produce HTML pages whose file size and amount of HTML code is larger than an optimally hand-coded page would be, which can cause web browsers to perform poorly. This can be particularly true because the application makes it very easy to create table-based layouts. In addition, some web site developers have criticised Dreamweaver in the past for producing code that often does not comply with W3C standards, though recent versions have been more compliant. Dreamweaver 8.0 performed poorly on the Acid2 Test, developed by the Web Standards Project. However, Adobe has increased the support for CSS and other ways to lay out a page without tables in later versions of the application, with the ability to convert tables to layers and vice versa.&lt;/p&gt;
+&lt;p&gt;As a WYSIWYG Presto-based editor, Dreamweaver can hide the HTML code details of pages from the user, &lt;strong&gt;making it possible for non-coders to create web pages and sites&lt;/strong&gt;. One criticism of this approach is that it can produce HTML pages whose file size and amount of HTML code can be larger than an optimally hand-coded page would be, which can cause web browsers to perform poorly. This can be particularly true because the application makes it very easy to create table-based layouts. In addition, some website developers have criticized Dreamweaver in the past for producing code that often does not comply with W3C standards, though recent versions have been more compliant. Dreamweaver 8.0 performed poorly on the Acid2 Test, developed by the Web Standards Project. However, Adobe has increased the support for CSS and other ways to layout a page without tables in later versions of the application, with the ability to convert tables to layers and vice versa.&lt;/p&gt;
 
-&lt;p&gt;Dreamweaver allows users to preview websites in many browsers, provided that they are installed on their computer. It also has some site management tools, such as the ability to find and replace lines of text or code by whatever parameters specified across the entire site, and a templatisation feature for creating multiple pages with similar structures. The behaviours panel also enables use of basic JavaScript without any coding knowledge.&lt;/p&gt;
+&lt;p&gt;Dreamweaver allows users to preview websites in many browsers, provided that they are installed on their computers.
+It also has some site management tools, such as the ability to find and replace lines of text or code by whatever parameters specified across the entire site and a templatization feature for creating multiple pages with similar structures. 
+The behaviors panel also enables the use of basic JavaScript without any coding knowledge.&lt;/p&gt;
 
-&lt;p&gt;Dreamweaver can use “Extensions” – small programs, which any web developer can write (usually in HTML and JavaScript). Extensions provide added functionality to the software for whoever wants to download and install them. Dreamweaver is supported by a large community of extension developers who make extensions available (both commercial and free) for most web development tasks from simple rollover effects to full-featured shopping carts.&lt;/p&gt;
+&lt;p&gt;Dreamweaver can use “Extensions” – small programs, which any web developer can write (usually in HTML and JavaScript). Extensions provide added functionality to the software for whoever wants to download and install them. Dreamweaver is supported by a large community of extension developers who make extensions available (both commercial and free) for most web development tasks, from simple rollover effects to full-featured shopping carts.&lt;/p&gt;
 
 &lt;p&gt;Like other HTML editors, Dreamweaver edits files locally, then uploads all edited files to the remote web server using FTP, SFTP, or WebDAV. Dreamweaver CS4 now supports the Subversion (software) (SVN) version control system.&lt;/p&gt;
 
@@ -291,23 +293,58 @@ Dreamweaver has been owned and marketed by Adobe since December 2005.&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;adobe-xd&quot;&gt;Adobe XD&lt;/h3&gt;
-&lt;p&gt;Adobe XD is a vector-based user experience design, prototyping, and presentation tool for web apps and mobile apps, developed and published by Adobe. It is available for free, but requires an account registered through Adobe Creative Cloud.&lt;/p&gt;
+&lt;p&gt;Adobe XD is a vector-based user experience design and prototyping system.
+It is also a presentation tool for web apps and mobile apps, which is developed and published by Adobe.
+It is available for free but requires an account registered through Adobe Creative Cloud.&lt;/p&gt;
 
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/68w2VwalD5w&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLOTakqGKI6lcIRHkjCsVyxmg8lweyewmR&quot;&gt;Adobe XD Course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;content-creation&quot;&gt;Content Creation&lt;/h2&gt;
 &lt;h3 id=&quot;adobe-indesign&quot;&gt;Adobe InDesign&lt;/h3&gt;
+&lt;p&gt;Adobe InDesign is a desktop publishing and page layout designing software application produced by Adobe Inc. It can be used to create works such as posters, flyers, brochures, magazines, newspapers, presentations, books, and ebooks. InDesign can also publish content suitable for tablet devices in conjunction with Adobe Digital Publishing Suite. Graphic designers and production artists are the principal users, creating and laying out periodical publications, posters, and print media. It also supports export to EPUB and SWF formats to create ebooks and digital publications, including digital magazines and content suitable for consumption on tablet computers. In addition, InDesign supports XML, style sheets, and other coding markups, making it suitable for exporting tagged text content for use in other digital and online formats. The Adobe InCopy word processor uses the same formatting engine as InDesign.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/RXRT3dHu6_o&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;adobe-incopy&quot;&gt;Adobe InCopy&lt;/h3&gt;
+&lt;p&gt;Adobe InCopy is a professional word processor made by Adobe Inc. that integrates with Adobe InDesign. While InDesign is used to publish printed material, including newspapers and magazines, InCopy is used for general word processing. The software enables editors to write, edit, and design documents. The software includes standard word processing features such as spell check, track changes, and word count and has various viewing modes that allow editors to visually inspect design elements — just as it looks to the designer working in Adobe InDesign.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/zq5YpOIA13E&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
 
 &lt;h3 id=&quot;acrobat&quot;&gt;Acrobat&lt;/h3&gt;
+&lt;p&gt;Adobe Acrobat is a family of computer programs developed by Adobe Systems, designed to view, create, manipulate and manage files in Adobe’s Portable Document Format (PDF). Some software in the family is commercial, and some are free of charge. Adobe Reader (formerly Acrobat Reader) is available as a no-charge download from Adobe’s website and allows the viewing and printing of PDF files. Acrobat and Reader are widely used as a way to present information with a fixed layout similar to a paper publication.&lt;/p&gt;
+
+&lt;p&gt;As of June 2020, the main members of the Adobe Acrobat family are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Adobe Acrobat DC, sold only by subscription through Adobe Document Cloud with mobile app support.
+    &lt;ul&gt;
+      &lt;li&gt;Adobe Acrobat Standard DC&lt;/li&gt;
+      &lt;li&gt;Adobe Acrobat Pro DC includes the ability to convert scanned documents and add media files&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adobe Acrobat 2020, the last version sold through a one-time perpetual license, but without cloud features.
+    &lt;ul&gt;
+      &lt;li&gt;Adobe Acrobat Standard 2020&lt;/li&gt;
+      &lt;li&gt;Adobe Acrobat Pro 2020&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adobe Acrobat Reader DC, a free client version with the ability to print, sign, and annotate.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;aero&quot;&gt;Aero&lt;/h3&gt;
+&lt;p&gt;Adobe Aero is an augmented reality authoring and publishing tool developed by Adobe and marketed through Adobe Creative Cloud.
+Aero was originally announced as a private beta for iOS users at Adobe MAX 2018.
+It was officially launched during Adobe MAX 2019.&lt;/p&gt;
 
-&lt;h1 id=&quot;mobile-and-free-web-apps&quot;&gt;Mobile and free web apps&lt;/h1&gt;
+&lt;p&gt;Aero is part of Adobe’s 3D &amp;amp; AR series, which includes Adobe Dimension, Fuse, and Substance.&lt;/p&gt;
 
-&lt;h2 id=&quot;adobe-scan-fill--sign&quot;&gt;Adobe Scan, Fill &amp;amp; Sign&lt;/h2&gt;
-
-&lt;h2 id=&quot;photoshop-express&quot;&gt;Photoshop Express&lt;/h2&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fo8aG0vCY7k&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h1 id=&quot;adobe-sensei-the-graphical-ai&quot;&gt;Adobe Sensei: the graphical AI&lt;/h1&gt;
 
