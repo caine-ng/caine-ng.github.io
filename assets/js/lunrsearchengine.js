@@ -8,7 +8,7 @@ var documents = [{
     "id": 1,
     "url": "https://wanted2.github.io/about",
     "title": "Tuan Nguyen-Anh",
-    "body": " tuan. nguyenanh. brse@gmail. com| Curriculum Vitae: English Interests: Site Reliability Engineering (SAP/DevOps), Artificial Intelligence, Internet of Things, Computer Vision, Machine Learning,Bridge System Engineer, Project Management "
+    "body": "tuan. nguyenanh. brse@gmail. com| Curriculum Vitae: English Interests: Site Reliability Engineering (SAP/DevOps), Artificial Intelligence, Internet of Things, Computer Vision, Machine Learning,Bridge System Engineer, Project Management "
     }, {
     "id": 2,
     "url": "https://wanted2.github.io/categories",
