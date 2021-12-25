@@ -1,7 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T19:48:56+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
-&lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AiFi</title>
+    <description>An AI Engineer&apos;s blog</description>
+    <link>https://wanted2.github.io/</link>
+    <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 25 Dec 2021 20:06:59 +0900</pubDate>
+    <lastBuildDate>Sat, 25 Dec 2021 20:06:59 +0900</lastBuildDate>
+    <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Adobe Creative Cloud: An All-in-One Platform for Creators</title>
+        <description>&lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
 Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families and the power to collaborate with anyone, anywhere. 
 Many things can be done with this solution.
 We take a look at the features.
@@ -129,7 +139,7 @@ Because presets were tuned by professionals, and the tuned parameters can be hug
   &lt;p&gt;&lt;strong&gt;Photoshop is best for professionals who want to tune every detail of a single photo, while Lightroom presets are good for unknowledgeable users who want to tune a batch of hundred images without specialized knowledge about graphics.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/Adobe-Lightroom.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/Adobe-Lightroom.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;While Lightroom Classic is a desktop app, Lightroom is a web app with the address: &lt;a href=&quot;https://lightroom.adobe.com/&quot;&gt;lightroom.adobe.com&lt;/a&gt;.&lt;/p&gt;
 
@@ -217,7 +227,7 @@ But now we want to edit, mix, enhance audio, we should think about Adobe Auditio
 Adobe Audition can be integrated into After Effects or Premiere Pro.
 The output audios can be published to Behance and Stock.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-audition.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/adobe-audition.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0njJIOjxS4c&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
@@ -357,9 +367,44 @@ It was officially launched during Adobe MAX 2019.&lt;/p&gt;
 &lt;p&gt;We took a look at the Adobe Creative Cloud ecosystem.
 Like most other commercial clouds like Oracle Cloud, AWS, Google GCP, or M$ Azure, it has many products and services which make our life better.
 And Adobe Sensei AI is impressive as it integrates many of the latest technologies in Computer Vision, Machine Learning, and Artificial Intelligence.
-Hope to use it in our own products soon.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="se" /><category term="sre" /><category term="adobe acrobat" /><category term="adobe creative cloud" /><category term="design" /><category term="illustrator" /><category term="adobe sensei" /><category term="adobe photoshop" /><category term="adobe lightroom" /><category term="adobe premiere pro" /><category term="premiere rush" /><category term="charactor animation" /><summary type="html">A categorization and a diagram of Adobe Creative Cloud Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business. Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families and the power to collaborate with anyone, anywhere. Many things can be done with this solution. We take a look at the features.</summary></entry><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
+Hope to use it in our own products soon.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/adobe-creative-cloud/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/adobe-creative-cloud/</guid>
+        
+        <category>adobe acrobat</category>
+        
+        <category>adobe creative cloud</category>
+        
+        <category>design</category>
+        
+        <category>illustrator</category>
+        
+        <category>adobe sensei</category>
+        
+        <category>adobe photoshop</category>
+        
+        <category>adobe lightroom</category>
+        
+        <category>adobe premiere pro</category>
+        
+        <category>premiere rush</category>
+        
+        <category>charactor animation</category>
+        
+        
+        <category>Software Engineering</category>
+        
+        <category>Artificial Intelligence</category>
+        
+        <category>Computer Vision</category>
+        
+      </item>
+    
+      <item>
+        <title>なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title>
+        <description>&lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？
 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります．
@@ -468,9 +513,34 @@ Hope to use it in our own products soon.&lt;/p&gt;</content><author><name>Tuan N
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ipa01&quot;&gt;松田 晃一, 村岡 恭昭, &amp;amp; 齋藤 毅. (2019). &lt;i&gt;情報システムの障害状況 - 2019 年後半データ&lt;/i&gt;. IPA社会基盤センター.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ipa02&quot;&gt;情報処理推進機構. &lt;i&gt;情報システムの障害状況一覧：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/sec/system/system_fault.html&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ipa03&quot;&gt;情報処理推進機構. &lt;i&gt;プレス発表　重要インフラを支えるシステムの障害情報や対策を分析した2種類の教訓集を公開：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/about/press/20140513.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行. &lt;i&gt;セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行&lt;/i&gt;. https://www.chibabank.co.jp/webeb/security/internet/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="残業" /><category term="OT" /><category term="電気を消す" /><category term="電気利用" /><category term="障害対応" /><summary type="html">あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．</summary></entry><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
+&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行. &lt;i&gt;セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行&lt;/i&gt;. https://www.chibabank.co.jp/webeb/security/internet/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 18 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/turn-off-electric-before-leaving-why/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/turn-off-electric-before-leaving-why/</guid>
+        
+        <category>残業</category>
+        
+        <category>OT</category>
+        
+        <category>電気を消す</category>
+        
+        <category>電気利用</category>
+        
+        <category>障害対応</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title>
+        <description>&lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
 Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
 Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML.
 Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend.
@@ -507,7 +577,7 @@ Nó là chức năng bổ trợ cho &lt;code class=&quot;language-plaintext high
   &lt;li&gt;Ngược lại với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Uncheck ALL&lt;/code&gt; (nếu tách hai hộp check ra).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall-2.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/svelte-checkall-uncheckall-2.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm&lt;/strong&gt;.
 Tức là phải &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; chuẩn, không được để chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All&lt;/code&gt; nhưng lại có dòng nào không được check (dù đã check rồi).
@@ -601,10 +671,34 @@ Sử dụng Svelte để &lt;strong&gt;trừu tượng hóa&lt;/strong&gt; trạ
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;LogicEls13:online&quot;&gt;&lt;i&gt;Logic / Else-if blocks • Svelte Tutorial&lt;/i&gt;. https://svelte.dev/tutorial/else-if-blocks&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;DocsSve0:online&quot;&gt;&lt;i&gt;Docs • SvelteKit&lt;/i&gt;. https://kit.svelte.dev/docs&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="svelte framework" /><category term="svelte" /><category term="vuejs" /><category term="reactjs" /><category term="angularjs" /><category term="frontend" /><summary type="html">Svelte là một framework của ngôn ngữ Javascript, với mô hình bi-direction data binding (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS. Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít. Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML. Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend. Cách làm này nhìn chung là thủ công, và rất nhiều lập trình viên JS đã hiểu rằng đây là con đường code thuần và hầu như là buggy (rất nhiều bug có thể phát sinh)! Lịch sử sang trang mới vào những năm 2010-2011, cùng với sự ra đời của hàng loạt trào lưu mới như Lean startups, Agile development, … với những JS framework theo luồng MVVM (Model-View-ViewModel). Backbone và AngularJS hầu như ra đời trong giai đoạn này đã mở ra kỷ nguyên mới, khi dữ liệu và hiển thị được binding với nhau khiến cho sự đồng bộ thống nhất trên frontend được đảm bảo. Công ty tôi thời đó khởi đầu cũng làm JQuery thuần, code vô cùng nhiều bugs, mà kỹ sư OT ngày đêm lo sửa. Nhưng đó là chuyện của hơn 10 năm trước các bạn ạ. Sau đó nhiều kỹ sư trong công ty đã cực lực phản đối việc tiếp tục dùng JQuery và đề xuất dùng những con đường bug-free hơn như AngularJS. Đó là những chuyện xảy ra vào năm 2013. Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu “o bế” khá nhiều công nghệ Web mới như ngôn ngữ lập trình Hack (hậu duệ của PHP) và Meteor một kiểu JS framework cũng thực hiện MVVM, data binding để đồng bộ hiển thị và dữ liệu tại frontend. Và cùng năm 2013, ReactJS, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió. Hồi đó cũng có tranh luận là lên tiếp tục chịu đựng JQuery hay chuyển sang data binding là AngularJS hoặc ReactJS mà cuối cùng có vẻ là AngularJS đã được chọn. Bẵng đi ít lâu, 2013, VueJS ra đời và nhanh chóng được chào đón. Sau đó gần đây là Svelte.</summary></entry><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
-&lt;em&gt;Source: SIEM&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
+&lt;li&gt;&lt;span id=&quot;DocsSve0:online&quot;&gt;&lt;i&gt;Docs • SvelteKit&lt;/i&gt;. https://kit.svelte.dev/docs&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 10 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/svelte-and-reset-checkboxes-10years-ago/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/svelte-and-reset-checkboxes-10years-ago/</guid>
+        
+        <category>svelte framework</category>
+        
+        <category>svelte</category>
+        
+        <category>vuejs</category>
+        
+        <category>reactjs</category>
+        
+        <category>angularjs</category>
+        
+        <category>frontend</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+      </item>
+    
+      <item>
+        <title>Học cách viết log nghiêm chỉnh</title>
+        <description>&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
 Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư &lt;em&gt;học cách viết log cho nó OK em&lt;/em&gt;.
 Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công.
 Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ &lt;strong&gt;cần thiết nhưng ít thì tốt hơn&lt;/strong&gt;.
@@ -763,7 +857,7 @@ Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thốn
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/log-01.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/log-01.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
 Cấp 0 này có 1 điểm thú vị là những log tập trung trên cloud cũng phải được lưu trữ tối thiểu 12 tháng trên Active Storage.
 Có 2 ngoại lệ nhỏ:&lt;/p&gt;
 &lt;ul&gt;
@@ -914,7 +1008,17 @@ Một số sự kiện nên bắt với hành vi người dùng:&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;------------------        ----------------        ------------------
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;------------------        ----------------        ------------------
 | Log Generation |  ====&amp;gt; | Log Analysis |  ====&amp;gt; | Log Monitoring |
 |                |        ----------------        ------------------
 |                |               /\                         /\
@@ -924,7 +1028,7 @@ Một số sự kiện nên bắt với hành vi người dùng:&lt;/p&gt;
 |                |  ====&amp;gt; | Log Storage  |  =================
 |                |        ----------------
 ------------------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;các-chức-năng-chính&quot;&gt;Các chức năng chính&lt;/h3&gt;
 &lt;p&gt;Nhìn chung một hệ thống log management hoàn chỉnh nên có tối thiểu các chức năng sau:&lt;/p&gt;
@@ -1079,10 +1183,30 @@ Thế nên có cơ hội các bạn nên trau dồi, vì thực sự cái tổng
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;LogManag44:online&quot;&gt;US Department of Commerce, Technology Administration, National Institute of Standards and Technology. &lt;i&gt;Log Management | CSRC&lt;/i&gt;. https://csrc.nist.gov/Projects/log-management&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;M213156:online&quot;&gt;Executive Office of the President Office of Management and Budget. (2021). &lt;i&gt;M-21-31: Memorandum for the Heads of Executive Departments and Agencies&lt;/i&gt;. https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kent2006guide&quot;&gt;Kent, K. A., &amp;amp; Souppaya, M. (2006). &lt;i&gt;Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology&lt;/i&gt;. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="sre" /><category term="logging" /><category term="log4j" /><category term="python" /><summary type="html">Source: SIEM Viết log nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ. Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư học cách viết log cho nó OK em. Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công. Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ cần thiết nhưng ít thì tốt hơn. Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”. Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi. Và như vậy đòi hỏi phải có chuẩn (standard) cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh. Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!</summary></entry><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
-&lt;em&gt;Source &lt;a href=&quot;https://vertical-innovation.com&quot;&gt;Vertical Innovation&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
+&lt;li&gt;&lt;span id=&quot;kent2006guide&quot;&gt;Kent, K. A., &amp;amp; Souppaya, M. (2006). &lt;i&gt;Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology&lt;/i&gt;. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/write-logs/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/write-logs/</guid>
+        
+        <category>logging</category>
+        
+        <category>log4j</category>
+        
+        <category>python</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Site Reliable Engineering</category>
+        
+      </item>
+    
+      <item>
+        <title>Why lean startups love fullstack engineers?</title>
+        <description>&lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Lean&lt;/strong&gt; [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -1224,7 +1348,36 @@ Còn muốn hơn thì tốt nhất tuyển người qua nước tư bản kiểu
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ThisisLe25:online&quot;&gt;&lt;i&gt;This is Lean |&lt;/i&gt;. https://thisislean.com/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="project management" /><category term="project lifecycle" /><category term="software development" /><category term="lean stratup" /><category term="this is lean" /><category term="fullstack engineer" /><summary type="html">Source Vertical Innovation Lean [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood. Efficiency paradox … the idea of the efficiency paradox, which claims that organisations’ understanding of “true efficiency” is incorrect. It suggests that when organisations focus too much on utilising resources efficiently – the traditional and most common form of efficiency – it tends to lead to an increase in the amount of work there is to do. Consequently, the more organisations try to be efficient (being busy), the more inefficient they will actually become (taking care of non-value adding but necessary work). This is Lean addresses +how to resolve this paradox. Bắt đầu từ gần 10 năm trước, năm 2011, bởi Eric Ries, Lean đã trở thành một phương pháp luận để cải tiến hiệu suất công việc và số lượng startups là Lean startups ngày càng gia tăng cho thấy sự yêu chuộng dành cho Lean từ cộng đồng khởi nghiệp. Nếu bạn đã từng có một giai đoạn khủng hoảng: ngày nào cũng bận bịu và phải làm tăng ca (OT) đến tận khuya, hoặc thậm chí phải mang việc về nhà làm, bạn đã rơi vào efficiency paradox: bạn luôn bận rộn, nhưng chả hoàn thành (release) cái gì cả. Thực ra vế sau chính là dấu hiệu (triệu chứng bệnh) của efficiency paradox, và khi có triệu chứng bận bịu nhưng chả done cái gì, đó chính là lúc Lean phải thể hiện value. Nếu cải tiến hiệu suất là mục tiêu của Lean, thì cách thức thực hiện lại vô vùng đòi hỏi sự tỷ mỷ chi tiết. Một trong số những tiêu chí quan trọng để build 1 team khởi nghiệp Lean, chính là sự tồn tại của cross-functional team hay tức là fullstack engineers. Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần đóng đinh thì búa sẽ dùng nhiều hơn và kìm hầu như không có việc, nhưng khi cần vặn ốc thì kìm bận bịu nhưng búa chả có việc gì: vậy tại sao không kiếm một cái vừa là kìm vừa là búa? Trong khởi nghiệp Lean, khi nói đến từ FE mà bạn hiểu là Frontend Engineer thì không có value mấy, phải hiểu là Fullstack Engineer thì mới có nhiều value.</summary></entry><entry><title type="html">Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</title><link href="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html" rel="alternate" type="text/html" title="Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động" /><published>2021-11-20T00:00:00+09:00</published><updated>2021-11-20T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html">&lt;iframe width=&quot;100%&quot; height=&quot;680&quot; src=&quot;https://www.epi.org?p=235212&amp;amp;view=embed&amp;amp;embed_template=charts_v2013_08_21&amp;amp;embed_date=20211121&amp;amp;onp=91701&amp;amp;utm_source=epi_press&amp;amp;utm_medium=chart_embed&amp;amp;utm_campaign=charts_v2&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ThisisLe25:online&quot;&gt;&lt;i&gt;This is Lean |&lt;/i&gt;. https://thisislean.com/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 27 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/fullstask-engineer-and-lean-startup/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/fullstask-engineer-and-lean-startup/</guid>
+        
+        <category>project management</category>
+        
+        <category>project lifecycle</category>
+        
+        <category>software development</category>
+        
+        <category>lean stratup</category>
+        
+        <category>this is lean</category>
+        
+        <category>fullstack engineer</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</title>
+        <description>&lt;iframe width=&quot;100%&quot; height=&quot;680&quot; src=&quot;https://www.epi.org?p=235212&amp;amp;view=embed&amp;amp;embed_template=charts_v2013_08_21&amp;amp;embed_date=20211121&amp;amp;onp=91701&amp;amp;utm_source=epi_press&amp;amp;utm_medium=chart_embed&amp;amp;utm_campaign=charts_v2&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;&lt;strong&gt;Con gà và quả trứng&lt;/strong&gt; là một bài toán kinh điển trong thống kê học cổ điển liên quan tới &lt;strong&gt;nhân quả (causality)&lt;/strong&gt; và &lt;strong&gt;luân hồi (feedback)&lt;/strong&gt; của các chuỗi thời gian (time series).
 Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series).
@@ -1351,9 +1504,38 @@ Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Gra
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;granger1969investigating&quot;&gt;Granger, C. W. J. (1969). Investigating causal relations by econometric models and cross-spectral methods. &lt;i&gt;Econometrica: Journal of the Econometric Society&lt;/i&gt;, 424–438.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;feige1979casual&quot;&gt;Feige, E. L., &amp;amp; Pearce, D. K. (1979). The casual causal relationship between money and income: Some caveats for time series analysis. &lt;i&gt;The Review of Economics and Statistics&lt;/i&gt;, 521–533.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;thurman1988chickens&quot;&gt;Thurman, W. N., Fisher, M. E., &amp;amp; others. (1988). Chickens, eggs, and causality, or which came first. &lt;i&gt;American Journal of Agricultural Economics&lt;/i&gt;, &lt;i&gt;70&lt;/i&gt;(2), 237–238.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;TheProdu24:online&quot;&gt;&lt;i&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/i&gt;. https://www.epi.org/productivity-pay-gap/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="ai" /><category term="project management" /><category term="project lifecycle" /><category term="software development" /><category term="chicken and egg" /><category term="causal relations" /><category term="Granger model" /><summary type="html">Con gà và quả trứng là một bài toán kinh điển trong thống kê học cổ điển liên quan tới nhân quả (causality) và luân hồi (feedback) của các chuỗi thời gian (time series). Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series). Việc kiểm tra nhân quả và luân hồi giữa các chuỗi thời gian được định tính và định lượng thông qua Granger verification. Năm 1979, Feige và Pearce [2] nghiên cứu về mối quan hệ luân hồi giữa tiền tệ và thu nhập, có sử dụng Granger verification. Năm 1988, Thurman và Fisher [3] nghiên cứu chuỗi thời gian về sản lượng trứng cũng như chuỗi dữ liệu về số lượng gà trên toàn nước Mỹ để tìm ra quan hệ nhân quả giữa trứng và gà. Họ sử dụng công thức của Granger và lần đầu tiên kết luận mang tính thống kê rằng trứng có trước và là nguyên nhân sinh ra gà. Phân tích các chuỗi sự kiện thời gian (time series analysis) và nhân quả/luân hồi giữa các chuỗi là một chủ đề truyền thống của thống kê và kinh tế học. Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa sản lượng lao động và bất bình đăng thu nhập hay bài toán Productivity-Pay Gap [4]. Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).</summary></entry><entry><title type="html">A Tutorial on Amazon OpenSearch Service and Kibana</title><link href="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html" rel="alternate" type="text/html" title="A Tutorial on Amazon OpenSearch Service and Kibana" /><published>2021-11-13T00:00:00+09:00</published><updated>2021-11-13T00:00:00+09:00</updated><id>https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1</id><content type="html" xml:base="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana.svg&quot; alt=&quot;os&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Our problem at hand is quite predictable!
+&lt;li&gt;&lt;span id=&quot;TheProdu24:online&quot;&gt;&lt;i&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/i&gt;. https://www.epi.org/productivity-pay-gap/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 20 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/chicken-and-egg-problem/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/chicken-and-egg-problem/</guid>
+        
+        <category>project management</category>
+        
+        <category>project lifecycle</category>
+        
+        <category>software development</category>
+        
+        <category>chicken and egg</category>
+        
+        <category>causal relations</category>
+        
+        <category>Granger model</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+        <category>Artificial Intelligence</category>
+        
+      </item>
+    
+      <item>
+        <title>A Tutorial on Amazon OpenSearch Service and Kibana</title>
+        <description>&lt;p&gt;Our problem at hand is quite predictable!
 A client has their staff submitting reports by CSV files every single day.
 One hundred files per day, but one file may have more than $10,000$ rows.
 The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports.
@@ -1365,7 +1547,16 @@ In other words, when CPUUtilization rate goes above 80%, it must automatically a
 
 &lt;p&gt;&lt;strong&gt;Auto scale-out&lt;/strong&gt; operations are easy because we can use some sorts of Python code like the following to update a cluster (OpenSearch service):&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;boto3&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;boto3&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boto3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;opensearch&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update_domain_config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
@@ -1374,7 +1565,7 @@ In other words, when CPUUtilization rate goes above 80%, it must automatically a
       &lt;span class=&quot;s&quot;&gt;&apos;InstanceCount&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;And the number of instances in the cluster will be 10.
 However, to know when to perform this operation, the executors must be notified by a &lt;strong&gt;trigger&lt;/strong&gt;.
@@ -1471,17 +1662,39 @@ Let’s explore the manual for end-users:&lt;/p&gt;
   &lt;li&gt;For the first time, you will be prompted to a confirmation:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-02.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-02.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;To explore the dashboards and visualizations, you need to index data first and then go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stack Management &amp;gt; Index Patterns&lt;/code&gt; to select the index.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-03.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-03.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To put a new document into the indices from your local, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pybuilder&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb index_document &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb index_document &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053
 PyBuilder version 0.13.3
 Build started at 2021-11-14 16:44:26
 &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------&lt;/span&gt;
@@ -1503,10 +1716,32 @@ Build Summary
                Tasks: index_document &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2056 ms]
 Build finished at 2021-11-14 16:44:37
 Build took 10 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;10963 ms&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Check if the document is already:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb search &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053         
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb search &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053         
 PyBuilder version 0.13.3
 Build started at 2021-11-14 16:45:30
 &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------&lt;/span&gt;
@@ -1528,19 +1763,19 @@ Build Summary
                Tasks: search &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1355 ms]
 Build finished at 2021-11-14 16:45:38
 Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Now you have indexed 1 document into OpenSearch, we can be back to Kibana to create an index pattern.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-04.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-04.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Click into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Next step&lt;/code&gt; then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create index pattern&lt;/code&gt; to go to the field lists screen.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-05.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-05.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;sql-query-workbench&quot;&gt;SQL Query Workbench&lt;/h2&gt;
 
@@ -1550,7 +1785,7 @@ Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;sp
   &lt;li&gt;Open the left sidebar, select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenSearch Plugins &amp;gt; Query Workbench&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-06.png&quot; alt=&quot;workbench&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-06.png&quot; alt=&quot;workbench&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Document for SQL in OpenSearch can be found &lt;a href=&quot;https://opensearch.org/docs/latest/search-plugins/sql/index/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -1559,22 +1794,25 @@ Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;sp
 &lt;p&gt;This is also a valuable feature in OpenSearch dashboard.
 You can add visualization blocks or code blocks (SQL/PPL).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-07.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-07.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this example, we used the following SQL query for full-text search:&lt;/p&gt;
 
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sql&lt;/span&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sql&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x0053&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;match_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;&quot;f1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;anomaly-detection&quot;&gt;Anomaly Detection&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-08.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-08.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;From this view, we can create an Anomaly Detector with a specific rule like&lt;/p&gt;
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;title contains f1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;title contains f1
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Other features like Dashboards, Visualizations, Trace Analytics are also worth exploring.&lt;/p&gt;
 
@@ -1667,7 +1905,21 @@ SAML based authentication and Amazon Cognito are all supported.&lt;/p&gt;
 
 &lt;p&gt;To enable auto-tune,&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST https://es.us-east-1.amazonaws.com/2021-01-01/opensearch/domain/domain-name/config
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;POST https://es.us-east-1.amazonaws.com/2021-01-01/opensearch/domain/domain-name/config
 &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;AutoTuneOptions&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s2&quot;&gt;&quot;DesiredState&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ENABLED&quot;&lt;/span&gt;,
@@ -1681,14 +1933,14 @@ SAML based authentication and Amazon Cognito are all supported.&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}]&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;We have walked through a tutorial on configurations of an OpenSearch cluster with logging options, encryption at rest, .etc.
 In the next steps, we will implement the following two stories:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-stories.svg&quot; alt=&quot;next stories&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-stories.svg&quot; alt=&quot;next stories&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;story-1-csv-upload-to-s3-for-streaming&quot;&gt;Story 1: CSV upload to S3 for streaming&lt;/h2&gt;
 
@@ -1794,10 +2046,34 @@ In the next steps, we will implement the following two stories:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;pricing-estimation&quot;&gt;Pricing estimation&lt;/h2&gt;
-&lt;p&gt;The pricing estimation of these two stories with the original story can be found &lt;a href=&quot;https://calculator.aws/#/estimate?id=e6fb0a2e9b0d46b7b876fec8e8da02c8c1e4be60&quot;&gt;here (152.20$ per month)&lt;/a&gt;.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="sre" /><category term="se" /><category term="ai" /><category term="aws" /><category term="amazon web services" /><category term="opensearch" /><category term="elasticsearch" /><category term="kibana" /><summary type="html">Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster.</summary></entry><entry><title type="html">Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</title><link href="https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html" rel="alternate" type="text/html" title="Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials" /><published>2021-11-07T00:00:00+09:00</published><updated>2021-11-07T00:00:00+09:00</updated><id>https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions</id><content type="html" xml:base="https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html">&lt;p&gt;&lt;img src=&quot;https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/d3560903-f638-4528-b9ba-8cbf6a015a8d.png&quot; alt=&quot;Azure Boards&quot; /&gt;
-&lt;em&gt;Source: &lt;a href=&quot;http://ilikesqldata.com/deep-dive-into-azure-boards/&quot;&gt;ILikeSQLData&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Azure Boards (AB)&lt;/strong&gt; [1] is an essential tool for Project Management [2] in software development projects.
+&lt;p&gt;The pricing estimation of these two stories with the original story can be found &lt;a href=&quot;https://calculator.aws/#/estimate?id=e6fb0a2e9b0d46b7b876fec8e8da02c8c1e4be60&quot;&gt;here (152.20$ per month)&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 13 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/opensearch-kibana-tuts-1/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/opensearch-kibana-tuts-1/</guid>
+        
+        <category>aws</category>
+        
+        <category>amazon web services</category>
+        
+        <category>opensearch</category>
+        
+        <category>elasticsearch</category>
+        
+        <category>kibana</category>
+        
+        
+        <category>Software Engineering</category>
+        
+        <category>Site Reliable Engineering</category>
+        
+        <category>Artificial Intelligence</category>
+        
+      </item>
+    
+      <item>
+        <title>Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</title>
+        <description>&lt;p&gt;&lt;strong&gt;Azure Boards (AB)&lt;/strong&gt; [1] is an essential tool for Project Management [2] in software development projects.
 It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team.
 Linking commits and PRs to working items in Azure Repos [3], Azure Pipelines [4], and Azure Artifacts [5], Azure Boards also supports enhanced code analytics.
 By integrating with Azure Test Plans [6] (however, it is not free [7], 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams.
@@ -1932,9 +2208,30 @@ One downside is that it is not free, with a price of €288 per year!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;Definiti31:online&quot;&gt;&lt;i&gt;Definition of Done - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.dod&amp;amp;ssr=false#overview&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ProductV55:online&quot;&gt;&lt;i&gt;Product Vision - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.product-vision&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;BacklogE28:online&quot;&gt;&lt;i&gt;Backlog Essentials - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.backlog-essentials&amp;amp;ssr=false#overview&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;mediumco31:online&quot;&gt;&lt;i&gt;medium.com&lt;/i&gt;. https://medium.com/boston-product/the-true-definition-of-done-c6c254a0ff3e&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="programming" /><category term="project management" /><category term="dod" /><category term="define-of-done" /><category term="backlog" /><summary type="html">Source: ILikeSQLData Azure Boards (AB) [1] is an essential tool for Project Management [2] in software development projects. It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team. Linking commits and PRs to working items in Azure Repos [3], Azure Pipelines [4], and Azure Artifacts [5], Azure Boards also supports enhanced code analytics. By integrating with Azure Test Plans [6] (however, it is not free [7], 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams. Some recent features like Analytics views also give the PM more confidence in making decisions. However, the Azure Boards also lacks several important features of a perfect backlog: First, there is no Define-of-Done (DoD) checklist in AB by default. Second, there is not a clear feature to demonstrate the Product Vision to teams. (There is a Delivery Plan to show the roadmap towards a specific release goal). Finally, if users are already familiar with other tools like JIRA, then AB has a poor backlog view. This post introduces several extensions to solve these problems: Define-of-Done [8], Product Vision [9], and Backlog Essentials [10].</summary></entry><entry><title type="html">Integromat: An integration platform for workflow automation</title><link href="https://wanted2.github.io/pm/non-english/2021/11/01/integromat.html" rel="alternate" type="text/html" title="Integromat: An integration platform for workflow automation" /><published>2021-11-01T00:00:00+09:00</published><updated>2021-11-01T00:00:00+09:00</updated><id>https://wanted2.github.io/pm/non-english/2021/11/01/integromat</id><content type="html" xml:base="https://wanted2.github.io/pm/non-english/2021/11/01/integromat.html">&lt;p&gt;&lt;img src=&quot;/assets/img/integromat01.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm.
+&lt;li&gt;&lt;span id=&quot;mediumco31:online&quot;&gt;&lt;i&gt;medium.com&lt;/i&gt;. https://medium.com/boston-product/the-true-definition-of-done-c6c254a0ff3e&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/azure-boards-pm-extensions/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/azure-boards-pm-extensions/</guid>
+        
+        <category>programming</category>
+        
+        <category>project management</category>
+        
+        <category>dod</category>
+        
+        <category>define-of-done</category>
+        
+        <category>backlog</category>
+        
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>Integromat: An integration platform for workflow automation</title>
+        <description>&lt;p&gt;Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm.
 Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt.
 Hôm ấy, có giao cho 1 nhiệm vụ như thế này:&lt;/p&gt;
 
@@ -2060,7 +2357,7 @@ Integormat sẽ gửi link verify vào email đăng ký, và bạn phải click 
 
 &lt;p&gt;Khi bắt đầu thì sẽ có một nút bấm trong trang MyPage để guide bạn onboarding nhanh chóng:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat02.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat02.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 &lt;h2 id=&quot;thiết-kế-hệ-thống&quot;&gt;Thiết kế hệ thống&lt;/h2&gt;
 
 &lt;p&gt;Bạn sẽ cần 1 trigger để theo dõi nguồn cấp RSS, một module để chuyển XML sang CSV, và một module để upload lên OneDrive.
@@ -2073,12 +2370,12 @@ Bạn không nên quên &lt;strong&gt;xử lý lỗi&lt;/strong&gt; vì mọi mo
 &lt;p&gt;Đầu tiên bạn cần ấn nút &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Creat a scenario&lt;/code&gt; để tạo ra một kịch bản thực thi cho nhiệm vụ.
 Mọi xử lý sẽ bắt đầu từ 1 &lt;strong&gt;trigger&lt;/strong&gt; mà bạn sẽ dùng RSS để bắt đầu.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat03.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat03.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hãy chọn &lt;strong&gt;Watch RSS feed items&lt;/strong&gt;.
 Trong cửa sổ tiếp theo hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Show advanced settings&lt;/code&gt;, nhập nguồn RSS và click OK.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat04.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat04.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Trong cửa sổ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Choose where to start&lt;/code&gt; thì cứ chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;From now on&lt;/code&gt; cũng ok.
 Thế là bạn đã có 1 trigger mà cứ mỗi khi có thay đổi trên nguồn cấp đã cho (tần suất kiểm tra sẽ cấu hình sau), thì lập tức trigger sẽ chạy luồng mà bạn sẽ cấu hình tiếp theo.&lt;/p&gt;
@@ -2087,15 +2384,15 @@ Thế là bạn đã có 1 trigger mà cứ mỗi khi có thay đổi trên ngu�
 
 &lt;p&gt;Nhấn vào nút &lt;strong&gt;Add a module&lt;/strong&gt; như hình dưới:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat05.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat05.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó chọn module &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CSV&lt;/code&gt; từ danh sách:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat06.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat06.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó bạn có thể nhập chọn những trường sẽ lấy từ nguồn RSS để tạo ra file CSV:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat07.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat07.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Bạn có thể chọn GROUP BY bằng trường tùy thích.
 Trên đây tôi chọn theo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updated_at&lt;/code&gt;.&lt;/p&gt;
@@ -2104,20 +2401,20 @@ Trên đây tôi chọn theo &lt;code class=&quot;language-plaintext highlighter
 
 &lt;p&gt;Để upload CSV lên OneDrive, bạn cần add thêm module OneDrive:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integormat08.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integormat08.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upload file&lt;/code&gt; ở cửa sổ chọn chức năng:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat09.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat09.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt; để authenticate vào OneDrive:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat10.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat10.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó một pop-up sẽ mở ra để bạn xác nhận quyền truy cập của ứng dụng integromat vào OneDrive.
 Khi xong bước này bạn sẽ quay lại thiết lập &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Folder&lt;/code&gt; thành &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;, tên file thành &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xml&lt;/code&gt; và dữ liệu là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;text&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat11.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat11.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Để tránh lỗi bạn nên chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rename existing files&lt;/code&gt;.&lt;/p&gt;
 
@@ -2126,24 +2423,24 @@ Khi xong bước này bạn sẽ quay lại thiết lập &lt;code class=&quot;l
 &lt;p&gt;Vậy là bạn đã xong luồng thứ nhất mà chưa mất đến 5 phút đâu.
 Trước khi add luồng thứ 2, chúng ta cần có 1 module để song song hóa, kiểu như &lt;strong&gt;Router&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat12.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat12.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau khi thêm router thì thiết kế của bạn sẽ như sau:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat13.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat13.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;post-news-to-chat-room&quot;&gt;Post news to Chat room&lt;/h3&gt;
 
 &lt;p&gt;Từ Router hãy tạo thêm 1 luồng mới và tìm module Gitter:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat14.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat14.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Send a mesage to a room&lt;/code&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat15.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat15.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Bạn sẽ phải đăng nhập và cấp quyền truy cập cho integromat vào Gitter.im.
 Một cửa sổ popup sẽ mửo ra sau khi bạn nhấn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt;.
-&lt;img src=&quot;/assets/img/integromat16.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/integromat16.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Chú ý là Gitter chỉ chấp nhận đăng nhập qua Gitlab, Github và Twitter.
 Đây là kênh chat dành riêng cho developer.
@@ -2152,13 +2449,13 @@ Tôi chọn twitter thôi.&lt;/p&gt;
 &lt;p&gt;Sau khi cấp quyền thành công, bạn sẽ quay lại integromat, và cấu hình tin nhắn sẽ lên Gitter.
 Bạn có thể dùng định dạng mẫu markdown để post bài.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat17.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat17.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Vậy đấy luồng số 2 đã xong trong chưa đầy 1 phút.&lt;/p&gt;
 
 &lt;h3 id=&quot;error-handling&quot;&gt;Error handling&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat18.png&quot; style=&quot;width:50%; margin: 10px; float: right;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat18.png&quot; style=&quot;width:50%; margin: 10px; float: right;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Xử lý lỗi luôn là một phần quan trọng của lập trình phần mềm.
 Lỗi luôn xảy ra và cách handle lỗi rất quan trọng.
@@ -2166,7 +2463,7 @@ Bạn click chuột phải vào module cần xử lý lỗi và chọn &lt;code 
 Đó là tất cả việc bạn sẽ cần làm để bắt đầu xử lý lỗi trên integromat.
 &lt;strong&gt;Tiện quá đúng không?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat19.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat19.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Vậy nội dung hàm xử lý lỗi sẽ như thế nào?&lt;/strong&gt;
 Bạn có thể dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;directives (điều hướng)&lt;/code&gt; hoặc chạy một module nào đó.
@@ -2187,31 +2484,31 @@ Với module CSV convert thì tôi chọn &lt;code class=&quot;language-plaintex
 
 &lt;p&gt;Mô hình thực thi cuối cùng như sau:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat20.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat20.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;filters&quot;&gt;Filters&lt;/h3&gt;
 
 &lt;p&gt;Để thực hiện điều kiện filter những tin có liên quan tới &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;, bạn có thể dùng chức năng filter của integromat như sau.
 Click vào link giữa trigger và router:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat21.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat21.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;test&quot;&gt;Test&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat22.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat22.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
 Testing là phần cần thiết trong phát triển phần mềm.
 Các module đã được phát triển có SLA khá cao và unit testing cẩn thận nên ta sẽ skip UT lần này.
 API testing cũng không cần vì các module đã được test cẩn thận và có SLA rồi.
 Vậy ta cần test tích hợp (IT) thì sẽ có nút bấm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Run once&lt;/code&gt;.
 Tuy nhiên, bạn sẽ phải cần cấu hình Scenario như bên dưới:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat23.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat23.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Sau đó thì bạn sẽ thực hiện testing nhiều lần, cứ có bugs thì lại fix cho đến khi thấy mỹ mãn thì chuyển tới mục tiếp theo để vận hành thôi.&lt;/p&gt;
 
 &lt;h2 id=&quot;vận-hành&quot;&gt;Vận hành&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat24.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/integromat24.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
 Trước khi triển khai vận hành, bạn phải cấu hình một chút về tần suất fetch news.
 Như đã nói tần suất tầm 60 phút cũng ổn.&lt;/p&gt;
 
@@ -2224,179 +2521,243 @@ Có áp dụng cả filter, router, …
 Có đủ cả testing, vận hành, xử lý lỗi, … nên nhìn chung là một luồng ổn định để chiến lâu dài.&lt;/p&gt;
 
 &lt;p&gt;Nhìn chung cách làm nào cũng được, nhưng dùng nền tảng có SLA cao thì anh em yên tâm hơn về xử lý sự cố, xử lý lỗi, …
-Khi có vấn đề gì thì cứ theo luồng mà chạy thôi nên độ tự tin nó cao.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="non-english" /><category term="programming" /><category term="project management" /><category term="workflow automation" /><category term="cicd" /><category term="notifications" /><summary type="html">Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm. Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt. Hôm ấy, có giao cho 1 nhiệm vụ như thế này: Sếp (S): Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là https://vnexpress.net/rss/so-hoa.rss mà bọn anh muốn thực hiện 1 workflow như sau: Đầu tiên lấy dữ liệu từ https://vnexpress.net/rss/so-hoa.rss và parse thành 1 list các bài báo. yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về AI. Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được. Upload file CSV lên OneDrive của team. Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im S: Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?</summary></entry><entry><title type="html">日本流【幹事】について</title><link href="https://wanted2.github.io/non-english/pm/2021/10/23/kanji.html" rel="alternate" type="text/html" title="日本流【幹事】について" /><published>2021-10-23T00:00:00+09:00</published><updated>2021-10-23T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/pm/2021/10/23/kanji</id><content type="html" xml:base="https://wanted2.github.io/non-english/pm/2021/10/23/kanji.html">&lt;p&gt;&lt;img src=&quot;https://www.insource.co.jp/common/img/column/column_project-management-top.jpg&quot; alt=&quot;幹事さん&quot; /&gt;
-&lt;em&gt;出典： &lt;a href=&quot;https://www.insource.co.jp/contents/column_project-management.html&quot;&gt;insource.jp&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;昔数回「幹事をしろう」と言われたことがあるけど、よく幹事のお仕事について少し知識不足でした。
-ホッとするともう2012年2013年ごろだったので、今だと8年か9年前の話でした。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.insource.co.jp/contents/column_project-management.html&quot;&gt;プロジェクト・マネージャーには幹事力があった方がいい。&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+Khi có vấn đề gì thì cứ theo luồng mà chạy thôi nên độ tự tin nó cao.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 01 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/integromat/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/integromat/</guid>
+        
+        <category>programming</category>
+        
+        <category>project management</category>
+        
+        <category>workflow automation</category>
+        
+        <category>cicd</category>
+        
+        <category>notifications</category>
+        
+        
+        <category>Project Management</category>
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+      </item>
+    
+      <item>
+        <title>構想フェーズから終了までの研究開発サイクル</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;研究開発は大別すると基本的な原理や性質を知るための純粋基礎研究、特定の実際的目的のために行われる目的基礎研究、特定の要請に答えるための応用研究、新製品を導入するための研究に分かれる。
+Source: wikipedia.com&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;月日が経ってPM職にはなぜ【幹事力】が必要か少し理解できるようになりました。
-日本語の中に【カンジ】というと【漢字】と書けるし、【幹事】と【監事】とも書けます。
-もちろん、PMには字を読めないといけないので、【漢字力】が必要ですし、
-日々でプロジェクトの品質や正常な状態を保つためには、監査作業を行うのも重要で、その監査を行うには【監事力】も必要になりますが、
-総合的にPJをちゃんと稼働させるためには、【幹事力】は大事だなと思っています。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Hoạt động nghiên cứu và phát triển (R&amp;amp;D)&lt;/strong&gt; là hoạt động do các công ty tổ chức thực hiện nhằm đổi mới sáng tạo dẫn đến &lt;strong&gt;tri thức, sản phẩm và dịch vụ mới&lt;/strong&gt;.
+Phân loại dự án R&amp;amp;D thì tùy vào mục đích có thể phân thành: R&amp;amp;D cơ bản “thuần” (phát hiện định luật, định lý, tính chất mới mang tính &lt;strong&gt;tổng quát&lt;/strong&gt;), R&amp;amp;D cơ bản “có mục đích cụ thể” (phát hiện định luật, định lý và tính chất mới trong 1 ngành hẹp, không cần tổng quát), và R&amp;amp;D ứng dụng (sử dụng kết quả của R&amp;amp;D cơ bản để tạo ra sản phẩm mới, dịch vụ mới).
+Dù là cơ bản thuần, cơ bản hẹp hay ứng dụng thì nhìn chung dự án R&amp;amp;D đều là dự án và là đối tượng của ngành Project Management.
+Tuy nhiên, vì là đi tìm cái mới nên dù cái mới là mang tính lý thuyết (cơ bản thuần và cơ bản hẹp) hay ứng dụng, thì dự án R&amp;amp;D có những đặc điểm riêng khác với dự án thông thường: outcome của dự án nghiên cứu thường khó định hình ngay từ đầu và đôi khi hơi mơ hồ với những người làm kỹ thuật (&lt;em&gt;bởi vì nếu cái mới mà mình đã biết từ đầu thì nó đâu còn là cái mới nữa đúng không các bạn?&lt;/em&gt;)
+Thi thoảng dự án nghiên cứu sẽ không có outcome, nhưng đột nhiên một vài tuần sau lại output ra tới tấp!
+&lt;!--more--&gt;&lt;/p&gt;
 
-&lt;!--more--&gt;
+&lt;h1 id=&quot;vòng-đời-dự-án-và-ví-dụ-về-dự-án-nghiên-cứu-thiết-kế-hệ-thống-quản-lý-sân-bay&quot;&gt;Vòng đời dự án và ví dụ về dự án nghiên cứu thiết kế hệ thống quản lý sân bay&lt;/h1&gt;
 
-&lt;h1 id=&quot;幹事とは&quot;&gt;幹事とは&lt;/h1&gt;
+&lt;h2 id=&quot;vòng-đời-dự-án-rd&quot;&gt;Vòng đời dự án R&amp;amp;D&lt;/h2&gt;
+&lt;p&gt;Dự án nghiên cứu thường hình thành từ một quá trình là một nhà đầu tư (cá nhân hoặc tổ chức cung cấp kinh phí như NSF hay DARPA) công bố một lĩnh vực hay chủ đề nghiên cứu và kêu gọi các nhóm nghiên cứu trong toàn quốc hoặc thậm chí trên thế giới gửi proposal lên phê duyệt kinh phí (grant).
+Các nhóm nghiên cứu có thể ở trường đại học hay trong công nghiệp đều được.
+Các nhóm có thể proposal độc lập hoặc hợp tác nghiên cứu.
+Trong trường hợp hợp tác nghiên cứu, yếu tố như việc không để xảy ra conflicts, phân chia công việc, communication để đảm bảo việc collaborate diễn ra trơn chu sẽ được xem xét cẩn thận.
+Khi kêu gọi này được công bố, các viện hoặc các trường, tổ chức sẽ nhận thông báo và gửi đến từng nhóm nghiên cứu dưới quyền.
+Các nhóm sẽ bắt đầu thực hiện quá trình proposal để nhận grant.
+Các Project Investigators (PI) sẽ được bầu lên để thực hiện quá trình này.
+Trong quản lý dự án, nó sẽ ứng với quá trình Định nghĩa (要件定義).
+Sau khi có bản proposal nêu đầy đủ mục đích và giá trị nghiên cứu, những stakeholders sẽ tham gia và quan trọng nhất là tầm nhìn về cái &lt;strong&gt;mới&lt;/strong&gt; mà dự án sẽ output ra, thì nhóm PIs sẽ trình bày kết quả điều tra lên hội đồng cấp duyệt kinh phí.&lt;/p&gt;
 
-&lt;p&gt;日本語にはよくある現象ですが、読み方が同じものでも、書き方が違って意味が違うものがちらほらあります。
-【カンジ】もそのシャドウ現象の一例です。
-日本語学校に通った時で、2千文字以上の漢字を学んだことがあるけど、日本語能力試験には【漢字力】が必要なためです。
-プロジェクトマネジメントの側面に近いけれども、PJはちゃんとしているか監査作業が必要になり、監査を行った後には、監査報告書を書くことになり、【監事力】が必要な場合も珍しくありません。
-しかし、この二つのカンジと重なって、【幹事】というものもあります。
-主に飲み会の幹事などよく見られています。
-飲み会だろうから、PMには関係ないじゃないか。
-業務外の話じゃないかと思うかもしれませんが、実際にはよくPMの話と重なっています。&lt;/p&gt;
+&lt;p&gt;Sau khi được phê duyệt (承認済み) thì các nhóm nghiên cứu được cấp grant sẽ tiến hành thiết kế tỷ mỷ, lên action plan mà sẽ ở dạng WBS, lên kế hoạch tỷ mỷ về cả schedule lần resource (con người và thiết bị), …&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;「自分がプロジェクトリーダーになる際不安なことはなんですか？」という質問への回答として、以下のようなお悩みをよく伺います。&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Các bạn sẽ thấy lạ là tại sao có thể phê duyệt cấp grant khi mà chỉ có 1 bản proposal sơ khai chứ chưa triển khai gì hết?&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;目的やゴールの設定が苦手&lt;/li&gt;
-    &lt;li&gt;スケジュールや計画の立て方がわからない&lt;/li&gt;
-    &lt;li&gt;関係部署と綿密な連携（コミュニケーション）が取れるか不安&lt;/li&gt;
-    &lt;li&gt;重視するリスクがわからない&lt;/li&gt;
-  &lt;/ul&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Thì thực ra tính bất định của dự án nghiên cứu như đã nói ở trên: nếu cái mới mà đã biết từ đầu thì lại không phải cái mới! Do đó, theo tôi hiểu sẽ chủ yếu dựa vào cái gọi là “uy tín và kình nghiệm” của PIs dự án là chính.
+PI có nhiều kinh nghiệm sẽ viết ra 1 bản proposal chi tiết mà qua đó thể hiện hết &lt;strong&gt;khả năng thực thi&lt;/strong&gt; của nhóm.
+Thì đúng rồi, có khả năng thực thi thì là điều kiện tiên quyết, chứ không có khả năng thực thi thì out ngay!
+Thế nên vị trí PI ở những tổ chức cấp grant danh giá, thường là các giáo sư có bề dày thành tích cả về nghiên cứu lần hướng dẫn sinh viên.
+Các thành phần trẻ hơn thì cũng có nhưng hiếm và thường là như các cụ gọi là “con ông cháu cha” (không có ý xấu nhé!).
+&lt;strong&gt;Tức là nhìn chung là sẽ ít rủi ro và không biết ra được cái gì nhưng có độ chắc chắn sẽ ra được một cái gì đó cao!&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;これも幹事さんの悩みと良く重なっています。
-&lt;strong&gt;幹事力を持っている方はPM力も鍛えます。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;幹事をやるとPMの仕組み、【定義】、【計画・事前準備】、【実施】、【終結】などのステップを鍛えることができるメリットがあります。
-しかし、それだけではなく、メンバー間の関係を密にさせたり、チームを盛り上げて生産力を向上したりするために、行事を催すことも大事です。
-その行事をうまく開催するためには、もちろん幹事さんは必要で監事力もある場面で不可欠な要素です。&lt;/p&gt;
-
-&lt;h1 id=&quot;幹事力を身につく&quot;&gt;幹事力を身につく&lt;/h1&gt;
-
-&lt;h2 id=&quot;ワークフローを稼働する前に&quot;&gt;ワークフローを稼働する前に&lt;/h2&gt;
-
-&lt;p&gt;幹事さんのお仕事、特にチームワークの時のイベントの幹事さんのお仕事は、仕事ですので、決まったフローがあります。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/kanji-workflow.svg&quot; alt=&quot;workflow&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;飲み会を催すことなんだけれども、プロジェクト管理に近いですね。&lt;/p&gt;
-
-&lt;h2 id=&quot;定義&quot;&gt;定義&lt;/h2&gt;
-
-&lt;p&gt;まず、PMの【要件定義】と同様に、幹事職に就く時には、&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：なんのためにこの会を行うか
-↓&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;主役決め&lt;/strong&gt;: 誰が何を担当するか。諸段階では、数人のPIを読んで構成を作ることもPMではよくあるシナリオで、幹事の場合、幹事さんが連絡担当や注文担当などを決めて進める。
-↓&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;工夫&lt;/strong&gt;: 主役メンバーの会議でどの工夫を行って主役も参加メンバーも会を楽しめるか一緒に決めといた方が良い。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;目的や開催テーマを決めない場合、話しづらいという会はよくありますので、事前に主役メンバーで決めて、参加メンバーの間の会話を促進すると良いでしょう。
-テーマを決めないでそのまま進めてしまうというありがちなミスは若手幹事にはよくあります。&lt;/p&gt;
-
-&lt;h2 id=&quot;事前準備&quot;&gt;事前準備&lt;/h2&gt;
-
-&lt;p&gt;【要件定義】はある程度出来たら、次にようやく計画段階に入れます。
-スケジュール管理やリソース管理は先に行い、リスク管理を考えて、上長の承認とメンバーへの通知をするという流れはPM職にはよくあります。
-偶然にも幹事のお仕事にも同じワークフローがあります。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/kanji-plan.svg&quot; alt=&quot;planning&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;まず、決めたテーマはチームのニーズに合うかどうか&lt;strong&gt;ニーズ調査&lt;/strong&gt;を行ってテーマを調整した方がいいです。
-チームのニーズにあったテーマが出来上がったら、参加者を絞って、&lt;strong&gt;参加者名簿&lt;/strong&gt;を作ればいいです。
-後で連絡やリマインドを送るためにはメーリングリスト（ML）を作ったらいいでしょう。
-その次に、平行に行えると思うが、&lt;strong&gt;日程調整&lt;/strong&gt;と&lt;strong&gt;場所調整&lt;/strong&gt;をメンバー間で話せます。
-日程調整の際に、メンバーの出欠確認も同時に行えることがあります。
-開催時間も事前にチームで合意をとった方がよいでしょう。
-長すぎて拘束時間は大幅になると若者が飽きてしまうため、2時間程度で良いと思われます。
-場所、つまり、お店を選択する際に、メンバーのこだわりを聞いた方が良いが、事前に可能なお店のリストを作って、皆の投票で決める手段も良いです。
-アレルギーがあるメンバーもいるかもしれないため、場所を選択する時、考慮した方が無事です。
-また、すべての決断をチームで行うことも第一原則で、チームの中には&lt;strong&gt;透明性&lt;/strong&gt;があげられます。&lt;/p&gt;
-
-&lt;p&gt;メンバーと日程と場所が決まったら、計画はほぼ完了したが、ここで一旦リスクを見直した方がいいです。
-&lt;strong&gt;リスク管理&lt;/strong&gt;を行うときに、プロジェクトがうまくいかない原因に、「事前の下調べが足りておらず、プロジェクト進行中や後日トラブルが発生することになった」というものを気づけた方が無難です。
-幹事の場合、お店の選定にリスクが潜んでいます。最近は、検索サイトで便利にお店を探すことができますが、リスクマネジメントの観点から下見をおすすめします。
-上級者を目指すならお店の責任者と名刺交換し、会の趣旨を伝えておくと万全です。
-お店のホスピタリティもわかって安心ですね。
-あとは、資金調達もやったらいいです。
-支払方法を皆の都合に合わせばいいんで、終了後でも決められます。
-あとは、二次会が出て、遅くなるとどうするか、気配ったら良い計画になるであろう。&lt;/p&gt;
-
-&lt;p&gt;リスクをちゃんと管理できれば、次に、予約する前に、一回上長と相談し、経験のある方に意見をもらって&lt;strong&gt;承認&lt;/strong&gt;をいただくと無難でしょう。
-&lt;strong&gt;予約&lt;/strong&gt;が出来たら、案内状をチームに告知する必要があります。
-これも&lt;strong&gt;進捗報告&lt;/strong&gt;という義務です。
-最後に、&lt;strong&gt;出欠確認&lt;/strong&gt;も忘れずに行きましょう。&lt;/p&gt;
-
-&lt;h2 id=&quot;実施&quot;&gt;実施&lt;/h2&gt;
-
-&lt;p&gt;ようやく実施に入ります。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/kanji-implement.svg&quot; alt=&quot;implementation&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;多忙で忘れてしまうメンバーもいるので、開催当日の朝礼や前日には一回&lt;strong&gt;リマインド&lt;/strong&gt;をした方がよいです。
-メールで連絡するとわからない人もいるので、チャットや口頭で確認したらいいです。
-会の前にお店へ&lt;strong&gt;移動&lt;/strong&gt;します。
-予約時間にするときにアクセスも重要なポイントで、できるだけ皆はすぐにアクセスできるお店を選びます。
-予約時間に遅れそうな場合、お店に連絡します。
-会計の方法と時間も確認します。
-&lt;strong&gt;開始&lt;/strong&gt;の際には、席へメンバーを誘導し、注文を始めます。
-&lt;strong&gt;進行中&lt;/strong&gt;には、乾杯や挨拶、遅れたメンバーの追加注文などのイベントも忘れずにやっていきましょう。
-&lt;strong&gt;会話を盛り上げる&lt;/strong&gt;ためには、司会役も工夫を行いましょう。
-会の&lt;strong&gt;後半&lt;/strong&gt;になると、スピーチなどで会を盛り上げます。
-&lt;strong&gt;終了時&lt;/strong&gt;に忘れ物がないように、注意の声をかけ、会計もちゃんとしましょう。&lt;/p&gt;
-
-&lt;h2 id=&quot;事後報告&quot;&gt;事後報告&lt;/h2&gt;
-
-&lt;p&gt;実施終了はPJの終了ではない。
-同様に会の実施終了後にも幹事さんがやる仕事があります。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;安否確認&lt;/strong&gt;でメンバーがちゃんと帰宅できたかやった方が無難です。人というリソースを大事にするためです。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;報告書&lt;/strong&gt;を書いた方がいいです。上長が実施状況がわかるように、メンバーも今後の実施の改善になる要素です。&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;振り返り&lt;/strong&gt;は主役メンバーで行い、今後改善する可能性を開けます。参加メンバーを誘っても良いです。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ツール&quot;&gt;ツール&lt;/h2&gt;
-
-&lt;p&gt;私は昔幹事さんをサポートするツールの開発にもかかわった経験があったが、それが10年前の話でした。
-現在、世の中に幹事さんの業務フロー全体をサポートするツールはたくさんあります。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;定義や計画を書きコミュニケーションを補足するためには、GoogleのMeetやOfficeやSlackなど充実しています。&lt;/li&gt;
-  &lt;li&gt;日程調整は、&lt;a href=&quot;https://chouseisan.com/&quot;&gt;調整さん&lt;/a&gt;や&lt;a href=&quot;https://www.polly.ai/&quot;&gt;Polly&lt;/a&gt;などのツールがあります。PollyはチャットツールのSlackやTeamsにも連携できます。&lt;/li&gt;
-  &lt;li&gt;場所調整のために、&lt;a href=&quot;https://tabelog.com/&quot;&gt;食べログ&lt;/a&gt;などを使えばいいでしょう。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;一つの場所にまとまっていないが、コンボで利用できるので、幹事さんもPMさんもコンボ利用を使っているのであろう。
-今後、すべて一つの場所に集中する基盤があるといいかもしれません。&lt;/p&gt;
-
-&lt;h1 id=&quot;なぜそれが重要か幹事に学ぶプロジェクトマネジメント&quot;&gt;なぜそれが重要か：幹事に学ぶプロジェクトマネジメント&lt;/h1&gt;
-
-&lt;h2 id=&quot;チームワークを良くする&quot;&gt;チームワークを良くする&lt;/h2&gt;
-
-&lt;p&gt;行事は飲み会だけではなく、PJ内で情報を共有し、透明性をあげ効率を向上する勉強会などの開催もしばしば必要になります。
-これらの会を行うおかげで、チームワークをスムーズに活性化できます。
-信頼関係を構築できるし、楽しく働けます。&lt;/p&gt;
-
-&lt;h2 id=&quot;チームワークの効率の改善&quot;&gt;チームワークの効率の改善&lt;/h2&gt;
-&lt;p&gt;長時間でコードを書いて、飽きてしまって、効率も悪くなるし、モチベーションも下がってしまうため、さぼることは避けられません。
-これは開発現場の実践でした。
-もう10年前の話だったが、幹事さんの立場を大事にしなければなりません。
-PMも幹事力を身に付きましょう。&lt;/p&gt;
-
-&lt;h1 id=&quot;結論&quot;&gt;結論&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/chouseisan.png&quot; alt=&quot;implementation&quot; /&gt;
-&lt;em&gt;出典： &lt;a href=&quot;https://chouseisan.com/&quot;&gt;調整さん&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;偶然にも、幹事さんもPMさんも似ているワークフローでチームワークを向上しています。
-行事は飲み会だけではなく、勉強会などでも幹事力を身についた方が良いです。
-例えば、↑の図で&lt;a href=&quot;https://chouseisan.com/&quot;&gt;調整さん&lt;/a&gt;の対象行事の一覧を引用しますが、飲み会以外にも同窓会や忘年会なども対象です。&lt;/p&gt;
+&lt;p&gt;Sau khi lên kế hoạch tỷ mỷ thì việc &lt;strong&gt;thực thi&lt;/strong&gt; là bắt buộc. Trong quá trình thực thi việc audit dự án sẽ thường xuyên xảy ra để đảm bảo các giáo sư và nhóm nghiên cứu sử dụng kinh phí và resource hợp lý, đồng thời tiến độ diễn ra chuẩn.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;最後に確かに、PMさんもその幹事力を身につきましょう。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="pm" /><category term="project management" /><category term="kanji" /><summary type="html">出典： insource.jp 昔数回「幹事をしろう」と言われたことがあるけど、よく幹事のお仕事について少し知識不足でした。 ホッとするともう2012年2013年ごろだったので、今だと8年か9年前の話でした。 プロジェクト・マネージャーには幹事力があった方がいい。 月日が経ってPM職にはなぜ【幹事力】が必要か少し理解できるようになりました。 日本語の中に【カンジ】というと【漢字】と書けるし、【幹事】と【監事】とも書けます。 もちろん、PMには字を読めないといけないので、【漢字力】が必要ですし、 日々でプロジェクトの品質や正常な状態を保つためには、監査作業を行うのも重要で、その監査を行うには【監事力】も必要になりますが、 総合的にPJをちゃんと稼働させるためには、【幹事力】は大事だなと思っています。</summary></entry></feed>
+  &lt;p&gt;&lt;strong&gt;Q: Vậy nếu không biết cái mới là gì từ đầu thì dự án có deadline không?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A: Nhìn chung là không, mà sẽ chạy cho đến khi hết tiền hoặc hết hạn (tổ chức có thể cấp dạng hợp đồng 1 triệu đô trong 5 năm) thì thôi.&lt;/strong&gt; Tuy nhiên tùy vào tổ chức cấp grant, việc audit và đòi báo cáo hàng năm hoặc hàng quý là có. Đến quý đến năm mà không có gì thì việc cấp tiếp là có thể sẽ bị xem xét lại.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cuối cùng, là sau một thời gian dài vô cùng áp lực (bởi ngay cả người xin tiền cũng không biết là mình sẽ output ra cái gì, lúc nào cũng nơm nớp bị cắt grant) thì nếu có được thành quả đáng kể đúng hạn báo cáo năm thì dự án sẽ đóng lại với &lt;strong&gt;tổng kết và báo cáo&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Tôi thấy có nhiều nhóm nghiên cứu đơn giản là publish xong paper lên hội nghị lớn hoặc tạp chí danh tiếng là kết thúc. Vậy việc thực thi lên sản phẩm thì thế nào?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; Nhìn chung thì những nghiên cứu ứng dụng như vậy thì phần publish paper sẽ không output ra sản phẩm mà để có thể lên sản phẩm thì nhóm sẽ phải kết hợp với bên các cty để thực hiện nghiên cứu cộng tác.
+Ở dạng này thì sự phân công sẽ là nhóm nghiên cứu của đại học làm những phần điều tra kỹ thuật, pilot study là cùng.
+Sau đó thì khi có output ở dạng paper thì chuyển lại cho bên nghiên cứu công nghiệp triển khai sản phẩm.
+Tuy nhiên, có nhiều nghiên cứu công nghiệp mang tính tuyệt mật, chuyện publish paper bị chặn luôn mà bên cty công nghiệp có thể yêu cầu chỉ nộp patent thôi chả hạn.
+Nhưng nếu grant là của NSF hoặc các tổ chức phi lợi nhuận thì nhóm bạn có thể yên tâm ngồi viết paper.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;ví-dụ-về-dự-án-hệ-thống-quản-lý-sân-bay&quot;&gt;Ví dụ về dự án hệ thống quản lý sân bay&lt;/h2&gt;
+
+&lt;p&gt;Để cho gần với thực tiễn ngành trí tuệ nhân tạo, chúng ta cùng nhìn vào 1 dự án thực tế giấu tên.
+&lt;strong&gt;Hệ thống quản lý sân bay (Airport Management System, hay viết tắt là AMS)&lt;/strong&gt; là một phần không thể thiếu trong tối ưu hóa hoạt động của sân bay, đặc biệt là các sân bay lớn như JFK airport.
+Năm nay tổ chức Foundation X lại tự dưng xuất fund nghiên cứu cho lĩnh vực tự động hóa sân bay, chủ đề tuyệt vời cho các nhóm nghiên cứu trong hầu hết các lĩnh vực của trí tuệ nhân tạo như tối ưu hóa nguồn lực, bảo mật hệ thống, logistic, tính toán song song, …
+Grant tạm tính sơ là 1 triệu đô trong 5 năm đi chẳng hạn hoặc tùy vào estimate của các proposals.&lt;/p&gt;
+
+&lt;p&gt;10 nhóm nghiên cứu từ các trường đại học khác nhau trong toàn quốc nhận thấy năng lực thực thi phù hợp và muốn cùng nhau viết grant để giành fund này.
+10 giáo sư đứng đầu các nhóm đứng tên làm PI và phân chia mỗi người mỗi mảng ứng với 10 mảng được công bố trong thư mời nộp proposal.
+Trong đó có 2 nhóm nghiên cứu của giáo sư A và giáo sư B muốn hợp tác cùng nhau.
+Nhóm A làm về tối ưu hóa nhân lực và lên kế hoạch di chuyển trong hệ thống.
+Nhóm B làm về hệ thống theo dõi và bảo mật.
+Tại sao 2 nhóm này muốn cộng tác bởi vì tiền đề để thực hiện các nghiệp vụ tương ứng trong mảng của họ thì đều dựa trên thu thập observations từ sensors.
+Sau khi tracking, classifying, detecting, analysing flows của các observations thì họ aggregate kết quả và output ra những cảnh báo real-time (nghiệp vụ của giáo sư B) hoặc tích lũy vào data warehouse và rồi xử lý analytics dạng batch (nghiệp vụ của giáo sư A).
+Với xuất phát điểm chung từ điểm phân tích dữ liệu nên 2 giáo sư và cũng là 2 PIs quyết định hợp tác nghiên cứu.
+Đầu tiên là họ sẽ dành ra 6 tháng để làm proposal và họ sẽ thuê 1 postdoc làm trợ tá để làm hộ thí nghiệm pilot study (deadline của proposal là tháng 8, nhưng các giáo sư đã phong phanh nghe tin và rục rịch chuẩn bị từ tháng 2 lúc call for proposals còn đang ở dạng draft).&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-1-định-nghĩa&quot;&gt;Giai đoạn 1: Định nghĩa&lt;/h1&gt;
+
+&lt;p&gt;Giai đoạn này, có thể từ vài tháng, nhưng thường khoảng 6 tháng và output là 1 bản proposal có thể giành grant để anh em cùng nhau chiến tiếp.
+Thì có khi sản phẩm là cả 1 hệ thống warehouse lớn, nhưng trong giai đoạn này chỉ làm những demo, PoC hoặc pilot study nhỏ.
+Hoặc cùng lắm tạo ra bộ khung.
+Và người hiểu rõ nhất chỉ có PI.
+Còn kể postdoc hay Phd student hay associate thì nhìn chung cũng chỉ nhận task và làm báo cáo cho giáo sư đọc.
+Big picture vẫn nằm trong tay PI.&lt;/p&gt;
+
+&lt;p&gt;Nay có 1 postdoc C có background đúng về mảng tracking, analytics như vậy thì đương nhiên 2 giáo sư sẽ phải xâu xé để giành lấy.
+Nhưng sẽ tốt hơn về mặt phân chia nguồn lực nếu 2 giáo sư cùng dùng chung postdoc.&lt;/p&gt;
+
+&lt;p&gt;Thì giáo sư A chủ yếu về mảng quản lý dự án dạng big data (xử lý cũng ko cần real-time) mà có thể tích lũy và xử lý theo batch trên server trung tâm.
+Giáo sư là PI mảng Resource Allocation and Schedule Planning.
+Ví dụ như sân bay JFK thì bên trong phải có một số lượng lớn lao công hoạt động trong ngày.
+Nếu phân bổ nguồn tài nguyên này hợp lý có thể tiết kiệm việc sử dụng ngân sách cho việc lau dọn.
+Ví dụ như nếu track được 1 nhân viên lao công Y đang gần khu vực hành khách Z thì có thể tính điểm assign Y vào lau dọn Z ngay nếu trạng thái của Z đang là bẩn.
+Tuy nhiên khi scale bài toán lên vài trăm khu vực và vài trăm lao công chia thành nhiều ca thì bài toán không còn nhỏ nhưu vậy.&lt;/p&gt;
+
+&lt;p&gt;Giáo sư B thì lại chuyên về Security.
+Ví dụ như từ camera mà phát hiện ra người khả nghi và track được người đó trong nhiều frame tiếp theo đang thực hiện hành vi phạm tội thì có thể lên cảnh báo theo ngưỡng.
+Ngoài cảnh báo realtime thì giáo sư còn làm early detection và prediction để dự báo những nguy cơ và ngăn chặn chúng khi chưa xảy ra trong thì tương lai gần.&lt;/p&gt;
+
+&lt;p&gt;Các bạn thấy đấy, phần chung thì vẫn là những xử lý như vậy, sau đó thì phần riêng tuy khác nhau nhưng nếu phải thuê 2 postdocs thì hơi lãng phí nên có thể thuê 1 postdoc rồi các giáo sư thay phiên nhau dùng.&lt;/p&gt;
+
+&lt;p&gt;Nhiệm vụ của postdoc C được thuê sẽ là phải thực hiện phân tích pilot trên dữ liệu sân bay đã.
+Khi được cả 2 giáo sư thông qua thì move sang phần analytics của giáo sư A trước rồi làm phần real-time của giáo sư B.
+Hoặc song song luôn cũng OK.
+Tuy nhiên, hàng tuần nên book lịch họp weekly với cả 2 giáo sư và tốt nhất lời khuyên của tôi là sớm nắm bắt cái big picture và cái phần Resource Management and Schedule Management của giáo sư A đã.
+Mình có 6 tháng thôi nên chủ động là không thừa!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Chủ động book lịch với GS nhưng xong em cũng chả biết nói gì anh ạ.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; (“Đụt” thế thì anh cũng chịu!) Nói chung là communicate với giáo sư cũng như là bắt sóng ăng ten ấy mà. Sóng của PI luôn là sóng tần cao (high frequency signal) mà ăng ten của em hơi kém thì cứ nói thẳng vấn đề ra để giáo sư nâng cấp cho.
+Chủ đề nói chuyện em nên quyết định trước khi book. Nhưng trường hợp của dự án này thì chắc chắn là liên quan tới việc xin grant.
+Em có thể nói thẳng cảm nghĩ ra vì giáo sư rất là open.
+Ví dụ em điều tra thấy độ khả thi thấp em cứ thằng thắn “Tôi thấy cái dự án này như sh&lt;strong&gt;. Tôi nghĩ không xin được grant đâu.” thì giáo sư là người open ông cũng sẽ lắng nghe em thôi.
+Không nên để muộn quá vì bản thân PI cũng đang muốn dùng em để kiểm tra xem cái đề tài này có phải sh&lt;/strong&gt; thật không?
+nên tốt nhất ngồi điều tra 1-2 hôm thấy bế tắc là phải báo ngay để PI dừng lại hoặc phân bổ em vào dự án khác cho đỡ lãng phí resource.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Q: Giai đoạn này có nên nộp paper không?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; ôi tuyệt quá. Em cần hiểu PI cũng đang muốn dùng 6 tháng này để kiểm tra độ khả thi của proposal.
+Nếu nộp paper bị reject thì cũng là tín hiệu để họ biết nên dừng lại, đổi đề tài.
+Còn accept thì cứ thế thẳng tiến. Vì paper cũng sẽ là luận cứ để tiếp tục nên em nhớ nếu định nộp paper thì nên nộp ngay 1-2 tháng đầu.
+Vì chẳng may độ khả thi thấp (dự án đề tài kém) thì người ta sớm điều chỉnh lại resource hoặc revise lại proposal của grant.
+Chứ đừng để đến cuối giai đoạn mới nộp là không trở tay kịp.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nhìn chung thì các bạn cần hiểu là paper thì với các giáo sư nó chỉ mang tính chất xác nhận một cái grant nào đó và cái grant đó mới là cái đem lại tiền chứ paper thì chả đem lại đồng nào dù là hội nghị danh tiếng như CVPR/ICCV/ECCV/… hay tạp chí Q1 (đã ko đem lại tiền lại còn tiêu tiền đi dự hội nghị, phí đăng bài, …).
+Nên cố gắng nộp theo chủ để grant của giáo là tốt nhất, thì giáo còn thấy có &lt;strong&gt;lợi ích&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-2-thiết-kế-và-lên-kế-hoạch&quot;&gt;Giai đoạn 2: Thiết kế và lên kế hoạch&lt;/h1&gt;
+
+&lt;p&gt;Sau khi proposal được phê duyệt lần đầu, có thể sẽ phải dành thêm 1 thời gian ngắn để lên kế hoạch tỷ mỷ những việc cần làm.
+PI sẽ phải tìm và chỉ định các chức danh dự án như PM, PO, developers, research associates, …
+Sau khi có danh sách members, thì việc tiếp theo là mua sắm trang bị, rồi lên action plan.
+Lúc này có thể tạo ra Work Breakdown Structure (WBS), nhưng nhìn chung do đi tìm cái mới nên sẽ dừng ở mức assign mỗi member một chủ đề và coi mỗi chủ đề như 1 PJ nhỏ (sub-PJ).
+Và giáo sư sẽ như là supervisor trong việc lên kế hoạch cũng như thực thi.
+Tuy nhiên khi đã trở thành chủ nhân của 1 sub-PJ thì mỗi bạn sẽ đóng vai trò như 1 leader hoặc sub-PM.
+Đây sẽ là các bạn PhD hoặc postdoc có đề tài cụ thể, và tạo sub-WBS cho từng sub-PJ và assign tasks cho các bạn master BS bên dưới.
+Các nghiệp vụ dự án như quản lý nhân lực tài nguyên, schedule, tiến độ, communication, setup họp hành sự kiện cũng phải có xác nhận của PI và báo cáo nên đều đặn.&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-3-thực-hiện-và-kiểm-chứng&quot;&gt;Giai đoạn 3: Thực hiện và kiểm chứng&lt;/h1&gt;
+
+&lt;p&gt;Giai đoạn này là giai đoạn nóng nhất vì nó sẽ tạo ra output cho các sub-PJ nói riêng và PJ lớn nói chung.
+Tại sao phải chia nhỏ ra nhiều mảng thành nhiều sub-PJ bởi vì nếu để cả cục lớn thì nếu cục ấy ko có output là dự án chết luôn.
+Nhưng khi chia nhỏ thì sub-PJ này chưa có output “mới” thì sub-PJ khác có output “mới” mà mỗi lần báo cáo chỉ cần có 1 cái mới là đủ OK!
+Việc tiến hành vẫn phải đảm bảo tính minh bạch thông qua nghiệp vụ audit từ bên cấp fund.
+Ngoài ra các hoạt động báo cáo tiến độ, tố chức xử lý sự cố, vấn đề, họp hành, chia sẻ tri thức trong dự án cũng không nên coi nhẹ.&lt;/p&gt;
+
+&lt;p&gt;Dự án nghiên cứu nên cứ chạy cho tới khi hết tiền hoặc hết hạn.
+Do vậy sau mỗi kỳ báo cáo năm, có thể các PI sẽ tổ chức hoạch định lại để nâng cao chất lượng output.
+Cũng vì thế việc thay đổi WBS có thể diễn ra theo năm hoặc nửa năm.
+Tốt nhất mỗi sub-PJ nên nhận một mảng và thiết lập WBS của công việc đủ chạy trong nửa năm/1 năm hoặc đến kỳ báo cáo kết quả dự án của PI với tổ chức cấp grant.&lt;/p&gt;
+
+&lt;p&gt;Tùy đặc điểm dự án mà quá trình thực hiện và kiểm chứng có những điểm chết riêng.
+Ví dụ như dự án sân bay thì phải hợp tác với bên sân bay mới có thể lấy dữ liệu và chạy PoC hiện trường được.
+Thế nên lại xuất hiện bài toán phải collaboration mà PI phải nhìn thấu từ giai đoạn định nghĩa.
+Nhưng trong giai đoạn này thì việc collaboration cần nên được thực hiện rõ ràng trách nhiệm và phân công.
+Tránh việc nhóm nghiên cứu thực hiện task lấn sân của bên khác.
+Ví dụ bên sân bay phải thực hiện thu thập dữ liệu nhưng nhóm nghiên cứu sẽ chỉ đóng vai trò tư vấn giám sát trong nghiệp vụ đó.
+Hoặc việc lắp đặt thiết bị có phần mềm thì bên nhóm nghiên cứu sẽ làm trên nền tảng sân bay nhưng sẽ có giám sát và hỗ trợ thế nào đó từ bên sân bay.&lt;/p&gt;
+
+&lt;p&gt;Một vấn đề hay xảy ra ở cấp quản lý resource ở đây là các bạn phải resolve conflicts giữa các thành phần công việc trong PJ lẫn sub-PJ.
+Các bạn ở cấp postdoc và PhD sẽ phải quản lý các bạn ở cấp dưới.
+Các bạn master student và BS thì sẽ tham gia với vai trò dev là chính.
+Nhưng đôi khi có conflict ko có tiến độ báo cáo thì cấp trên phải ra tay xử lý.&lt;/p&gt;
+
+&lt;h1 id=&quot;giai-đoạn-4-tổng-kết-và-báo-cáo&quot;&gt;Giai đoạn 4: Tổng kết và báo cáo&lt;/h1&gt;
+&lt;p&gt;Cuối cùng thì sau một thời gian vài năm các sub-PJ chạy và mỗi năm có báo cáo output mới, thì cái mới tích lũy lại đủ to thì cũng có thể close.
+Nhưng nhìn chung sẽ close khi gần hết hạn hoặc hết tiền. Chứ còn tiền còn hạn thì nghĩ thêm bài toán mà chạy chứ close làm gì vội cho mất công đi xin lại.
+Lúc kết thúc thì cũng lại có những buổi họp đúc kết kinh nghiệm, báo cáo đề tài, chia tay và allocate/assign lại tài nguyên sang đâu đó.
+Nói chuyện tương lai công việc của các postdoc, PhD ai giữ lại ai cho đi, …&lt;/p&gt;
+
+&lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+
+&lt;p&gt;Trên đây là khái lược big picture của dự án nghiên cứu theo mô hình lab mà chắc là nhắm vào đối tượng từ PhD student trở lên.
+Với các bạn master và BS thì có thể các vẫn tham gia ở mức DEV, tức là nhận task cụ thể rồi các bạn làm, chứ chưa nhìn ở tầm người làm quản lý.
+Từ PhD Student (chưa phải PhD nhé) thì đã bắt đầu nắm trọng trách trong 1 sub-PJ nhỏ của giáo mà sẽ phải làm từ định nghĩa.
+Giáo sẵn sàng bỏ sức ra giúp các bạn làm cho xong đề tài, nhưng về phía các bạn làm PhD là cũng phải chủ động giữ tư thế owner thường xuyên tạo ra cái mới cho giáo.
+Còn postdoc thì bắt đầu thành thục hơn ở cấp trợ tá cho giáo trong quản lý dự án rồi.&lt;/p&gt;
+
+&lt;p&gt;Nói chung một lợi thế khi làm ở các lab đẳng cấp thế giới là các bạn dù làm nghiên cứu cơ bản thuần, cơ bản hẹp hay ứng dụng thì cũng sẽ được hướng dẫn để làm chỉn chu từ bước định nghĩa.
+Đó là một điều đáng quý và nếu có cơ hội nên chú ý học hỏi!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 23 Oct 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/rd-pj-lifecycle/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/rd-pj-lifecycle/</guid>
+        
+        <category>R&amp;D</category>
+        
+        <category>research and development</category>
+        
+        <category>project lifecycle</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+  </channel>
+</rss>
