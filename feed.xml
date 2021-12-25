@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T12:57:05+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T15:14:33+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
 &lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
@@ -87,7 +87,7 @@ When an artist creates a project in Photoshop with Content Credentials, then tha
 &lt;h1 id=&quot;toolsets&quot;&gt;Toolsets&lt;/h1&gt;
 
 &lt;p&gt;Now, we understand the goals and roles of ACC in creative activities.
-We will take a closer look on each of the app in this section.&lt;/p&gt;
+We will take a closer look at each of the app in this section.&lt;/p&gt;
 
 &lt;h2 id=&quot;image-editing&quot;&gt;Image editing&lt;/h2&gt;
 
@@ -96,7 +96,7 @@ We will take a closer look on each of the app in this section.&lt;/p&gt;
 &lt;p&gt;Photoshop has more than 30 years of history.
 A brief overview of released versions can be found &lt;a href=&quot;https://adobe.fandom.com/wiki/Adobe_Photoshop_release_history&quot;&gt;here&lt;/a&gt;.
 The latest version is CC 2021, and we mostly use it.
-Adobe Photoshop is specialized for photo enthusiasts, who want to make beautiful images from camera captured inputs.&lt;/p&gt;
+Adobe Photoshop is specialized to photo enthusiasts who want to make beautiful images from camera-captured inputs.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://learningavphotoshop.weebly.com/uploads/2/6/4/6/26460741/4580840_orig.jpg&quot; alt=&quot;pscc&quot; /&gt;
 &lt;em&gt;Source: &lt;a href=&quot;https://learningavphotoshop.weebly.com/uploads/2/6/4/6/26460741/4580840_orig.jpg&quot;&gt;learningavphotoshop&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
@@ -109,7 +109,27 @@ Adobe Photoshop is specialized for photo enthusiasts, who want to make beautiful
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLttcEXjN1UcFpeLZXSLtNU5iT2OxkO2nF&quot;&gt;Photoshop CC Essentials&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Based on an estimation, there is a requirement of at least 2 years to master this Photoshop CC.&lt;/p&gt;
+&lt;p&gt;Based on a rough estimation, there is a requirement of at least two years to master this Photoshop CC.
+There are too many features to learn, but think about the 30-year history of Photoshop: you only spend two years to learn 30 years of Photoshop features and code.
+What a benefit!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Photoshop is a comprehensive photo editing app for photographers, web designers, visual artists, and photo enthusiasts.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, what’s about Lightroom?
+While &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tools&lt;/code&gt; is essential in Photoshop, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Presets&lt;/code&gt; is primary in Lightroom.
+In Photoshop, you can tune your images at a detailed level using fine-grained tools.
+But it is completely different in Lightroom, where the presets hold only common features which are known to sufficiently produce good quality images.
+Because Photoshop is specific for details, it is often used by professional photographers.
+But with Lightroom, the user segment can be large.
+Because presets were tuned by professionals, and the tuned parameters can be huge (millions to billions of parameters).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Photoshop is best for professionals who want to tune every detail of a single photo, while Lightroom presets are good for unknowledgeable users who want to tune a batch of hundred images without specialized knowledge about graphics.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/Adobe-Lightroom.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;illustrator&quot;&gt;Illustrator&lt;/h3&gt;
 
