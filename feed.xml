@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T12:04:55+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T12:57:05+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
 &lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
@@ -52,7 +52,7 @@ Adobe Photoshop for Web is in Beta now and will be available in ACC soon.&lt;/p&
 Adobe provides Spaces and Canvas for collaboration.
 You can not only share the PSD and AI files with your collaborators but also work with them directly in ACC.
 Adobe Cloud Canvases provide an overview of the whole team’s work.
-Users can make comments, can get feedbacks &lt;strong&gt;real-time&lt;/strong&gt; in Canvases.&lt;/p&gt;
+Users can make comments, can get &lt;strong&gt;real-time&lt;/strong&gt; feedbacks in Canvases.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;And don’t forget the devices. &lt;strong&gt;Adobe apps like Photoshop in Apple’s M1 chip run twice faster than in older chips.&lt;/strong&gt;&lt;/p&gt;
@@ -86,9 +86,30 @@ When an artist creates a project in Photoshop with Content Credentials, then tha
 
 &lt;h1 id=&quot;toolsets&quot;&gt;Toolsets&lt;/h1&gt;
 
+&lt;p&gt;Now, we understand the goals and roles of ACC in creative activities.
+We will take a closer look on each of the app in this section.&lt;/p&gt;
+
 &lt;h2 id=&quot;image-editing&quot;&gt;Image editing&lt;/h2&gt;
 
 &lt;h3 id=&quot;photoshop-vs-lightroom-lightroom-classic&quot;&gt;Photoshop vs. Lightroom (Lightroom classic)&lt;/h3&gt;
+
+&lt;p&gt;Photoshop has more than 30 years of history.
+A brief overview of released versions can be found &lt;a href=&quot;https://adobe.fandom.com/wiki/Adobe_Photoshop_release_history&quot;&gt;here&lt;/a&gt;.
+The latest version is CC 2021, and we mostly use it.
+Adobe Photoshop is specialized for photo enthusiasts, who want to make beautiful images from camera captured inputs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://learningavphotoshop.weebly.com/uploads/2/6/4/6/26460741/4580840_orig.jpg&quot; alt=&quot;pscc&quot; /&gt;
+&lt;em&gt;Source: &lt;a href=&quot;https://learningavphotoshop.weebly.com/uploads/2/6/4/6/26460741/4580840_orig.jpg&quot;&gt;learningavphotoshop&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There are some resources in YouTube for you to learn Photoshop (especially, CC 2020):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLyGOksFjYo-nzGtyi6wFs68NpDic1lg9a&quot;&gt;Adobe Photoshop CC 2020 Tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL9pkETrdJ0rb-BsDHwE0gmsj0duEXqbQ3&quot;&gt;Adobe Photoshop Tutorials&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLttcEXjN1UcFpeLZXSLtNU5iT2OxkO2nF&quot;&gt;Photoshop CC Essentials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Based on an estimation, there is a requirement of at least 2 years to master this Photoshop CC.&lt;/p&gt;
 
 &lt;h3 id=&quot;illustrator&quot;&gt;Illustrator&lt;/h3&gt;
 
