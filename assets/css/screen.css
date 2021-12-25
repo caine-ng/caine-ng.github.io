@@ -194,10 +194,15 @@ section.recent-posts {
     margin-bottom: 2rem;
 }
 
-/* .post-top-meta .author-thumb {
-    width: 48px;
-    height: 48px;
-} */
+.post-top-meta .author-thumb {
+    /* width: 48px;
+    height: 48px; */
+    max-width: 48px;
+}
+
+.post-top-meta div {
+    width: auto;
+}
 
 .post-top-meta.authorpage .author-thumb {
     margin-top: 40px;
