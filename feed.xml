@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T18:12:06+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T18:26:59+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
 &lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
@@ -228,6 +228,18 @@ The output audios can be saved to Behance and Stock.&lt;/p&gt;
 &lt;h2 id=&quot;storage-and-management&quot;&gt;Storage and Management&lt;/h2&gt;
 
 &lt;h3 id=&quot;adobe-stock-and-adobe-bridge&quot;&gt;Adobe Stock and Adobe Bridge&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Adobe Stock&lt;/strong&gt;, formerly known as Adobe Stock Photos, is a stock image database that was originally integrated with Adobe Bridge in Adobe Creative Suite 2 and 3. It is presently available through certain subscription packages from Adobe Creative Cloud.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Users can access Adobe Stock from &lt;a href=&quot;https://stock.adobe.com/&quot;&gt;https://stock.adobe.com/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Adobe Bridge&lt;/strong&gt; is a digital asset management tool developed by Adobe. It is freely included as part of Adobe Creative Cloud and was first made available with Creative Suite 2. Its primary purpose is to link the parts of the Creative Suite together using a format similar to the file browser found in previous versions of Adobe Photoshop. It is accessible from all other components of the Creative Suite (except for the standalone version of Adobe Acrobat 8).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bridge is also included with the stand-alone Photoshop application, and can perform certain Photoshop processing functions separately (and simultaneously) with Photoshop itself.&lt;/p&gt;
 
 &lt;h3 id=&quot;media-encoder&quot;&gt;Media Encoder&lt;/h3&gt;
 
