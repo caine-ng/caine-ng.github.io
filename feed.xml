@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T17:06:00+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-25T17:59:17+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
 &lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
@@ -176,16 +176,39 @@ The models can be saved and viewed from different perspectives.&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL431Fy2ZWI6fqRGdUsKT5KBCmmI3A55dR&quot;&gt;Adobe Dimension Tutorials&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Needless to say, you take an advantage if you are already familiar with &lt;strong&gt;object-oriented design (OOD)&lt;/strong&gt;, because everything here is just 3D &lt;strong&gt;objects&lt;/strong&gt;!
-Then you can be quite familiar with the workflow like, select a template object, change the &lt;strong&gt;Properties&lt;/strong&gt; of the object, then define its &lt;strong&gt;Scene&lt;/strong&gt; and &lt;strong&gt;Actions&lt;/strong&gt;.
-Adobe Dimension integrate Adobe Stock and Behance as its cloud storage and management solutions.
-You can save your models to Stock or sharing assets to Behance.&lt;/p&gt;
+&lt;p&gt;Needless to say, you take advantage if you are already familiar with &lt;strong&gt;object-oriented design (OOD)&lt;/strong&gt;, because everything here is just 3D &lt;strong&gt;objects&lt;/strong&gt;!
+Then you can be quite familiar with the workflow like selecting a template object, changing the &lt;strong&gt;Properties&lt;/strong&gt; of the object, then defining its &lt;strong&gt;Scene&lt;/strong&gt; and &lt;strong&gt;Actions&lt;/strong&gt;.
+Adobe Dimension integrates Adobe Stock and Behance as its cloud storage and management solutions.
+You can save your models to Stock or share assets to Behance.&lt;/p&gt;
 
 &lt;h2 id=&quot;video-editing&quot;&gt;Video editing&lt;/h2&gt;
 
-&lt;h3 id=&quot;premier-pro-and-rush&quot;&gt;Premier Pro and Rush&lt;/h3&gt;
+&lt;p&gt;Unlike photos, videos need special care about motions, perspectives, and so on.&lt;/p&gt;
+
+&lt;h3 id=&quot;premiere-pro-and-rush&quot;&gt;Premiere Pro and Rush&lt;/h3&gt;
+&lt;p&gt;With Premiere Pro, users can edit their video durations, change replaying orders, image processing, edit audio, and so on with videos.
+Rush is for mobile.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/f7prDfwtMCo&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLttcEXjN1UcGF_PCDUcQw2WOoh6MZtvWt&quot;&gt;Adobe Premiere Pro Course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some nice features can be &lt;strong&gt;multi-perspective videos&lt;/strong&gt; and &lt;strong&gt;video-audio alignment&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;after-effects&quot;&gt;After Effects&lt;/h3&gt;
+
+&lt;p&gt;Unlike Premiere Pro is for professionals, After Effects has a smaller video editing toolset but yet enough for amateur users.
+Some simple modifications can be quite clunky with Premiere Pro.
+In these scenarios, After Effects seems to be a better fit solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d2436y6oj07al2.cloudfront.net/assets/vbblog/2016/09/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/FuJMHF510mc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib&quot;&gt;Affter Effects course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;audio-editing&quot;&gt;Audio editing&lt;/h2&gt;
 
