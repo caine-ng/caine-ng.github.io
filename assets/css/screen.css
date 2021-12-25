@@ -188,8 +188,8 @@ section.recent-posts {
 }
 
 .post-top-meta .author-thumb {
-    width: 72px;
-    height: 72px;
+    width: 48px;
+    height: 48px;
 }
 
 .post-top-meta.authorpage .author-thumb {
@@ -346,6 +346,8 @@ blockquote {
 .article-post p,
 .article-post blockquote {
     margin: 0 0 1.5rem 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .featured-image {
@@ -685,7 +687,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: -apple-system, system-ui, Arial, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, Arial, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .article-post .h1,
@@ -711,7 +715,7 @@ h6 {
 }
 
 .layout-page .article-post {
-    font-family: -apple-system, Arial, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, Arial, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1rem;
 }
 
