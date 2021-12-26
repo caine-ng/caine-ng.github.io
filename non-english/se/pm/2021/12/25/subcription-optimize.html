@@ -443,7 +443,7 @@
 <span title="Estimated read time">
   
   
-    1 min
+    5 mins
   
 </span>
 
@@ -452,6 +452,17 @@
   <div id="table-of-contents">
   <h2>Index</h2>
     <ol id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#bản-chất-của-bài-toán-quản-lý-license-software-license-management">Bản chất của bài toán quản lý license (Software License Management)</a></li>
+<li class="toc-entry toc-h1"><a href="#quay-lại-ví-dụ-lab-40-người">Quay lại ví dụ lab 40 người</a>
+<ol>
+<li class="toc-entry toc-h2"><a href="#đại-học-lớn-vs-đại-học-nhỏ-và-viện-ít-người">Đại học lớn vs. đại học nhỏ (và viện ít người)</a></li>
+<li class="toc-entry toc-h2"><a href="#lựa-chọn-subscription-cho-phần-mềm-đồ-họa-adobe-software">Lựa chọn subscription cho phần mềm đồ họa: Adobe software</a></li>
+<li class="toc-entry toc-h2"><a href="#lựa-chọn-gói-nào-cho-games">Lựa chọn gói nào cho games</a></li>
+<li class="toc-entry toc-h2"><a href="#lựa-chọn-gói-truyền-hình-gì">Lựa chọn gói truyền hình gì?</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h1"><a href="#kết-luận">Kết luận</a></li>
+<li class="toc-entry toc-h1"><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ol>
   </div>
 
@@ -476,7 +487,71 @@ Những gì trong thế mạnh thì là cái bạn sẽ hướng dẫn (chứ kh
 <!--more--></p>
 </blockquote>
 
+<h1 id="bản-chất-của-bài-toán-quản-lý-license-software-license-management">Bản chất của bài toán quản lý license (Software License Management)</h1>
+
+<p>Thực ra nói là tôn trọng bản quyền là 1 vấn đề nhưng nó chỉ là một cái mang tính chất bề nổi của tảng băng chìm.
+<strong>Ẩn đằng sau kỹ năng quản lý license chính là vấn đề cost (giá thành) và security (bảo mật).</strong>
+6 bước cần phải làm với quản lý license (SLM) chính là:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quy trình</th>
+      <th>Mô tả</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Usage analysis</strong></td>
+      <td>Phân tích nhu cầu sử dụng của nhóm phát triển, tổ chức dưới quyền, nhân viên. Nhóm đứng đầu sẽ phải phân tích nhu cầu sử dụng thực sự của nhân viên là gì. Ở bước này chưa cần tối ưu ngay, nhưng cần phải ngăn chặn những request mua đồ không cần thiết.</td>
+    </tr>
+    <tr>
+      <td><strong>License optimization</strong></td>
+      <td>Sau khi đã tối ưu hóa requests từ phía end-users, thì việc tiếp theo là với bộ request đã tối ưu ấy rồi, thì phải lựa chọn mua (hay không mua) những phần mềm, thiết bị nào. License nào sẽ bỏ tiền ra để subscribe, và sẽ subscribe theo gói nào?</td>
+    </tr>
+    <tr>
+      <td><strong>Maintenance analysis</strong></td>
+      <td>Cái này cũng nói đi nói lại nhiều lần rồi, nếu bước này không tính toán dài hạn dựa trên usage analysis thì ví dụ phiên bản phần mềm nâng cấp thì lại phải mua lại license, dẫn đến tốn tiền nâng cấp license. Ngoài ra, nếu không kịp thời nâng cấp mua mới license thì khi hết hạn nhân viên lại phải chờ sếp mua license mới, rất tốn công.</td>
+    </tr>
+    <tr>
+      <td><strong>Standardized data collection</strong></td>
+      <td>Với các tổ chức lớn như viện nghiên cứu hay trường đại học có hàng trăm thậm chí hàng ngàn nhân viên, việc quản lý tập trung, thu thập thông tin sử dụng phần mềm của nhân viên (cài phiên bản nào, license thế nào) là vô cùng quan trọng. Về mặt bảo mật, thì khi có license hết hạn, người dùng vi phạm license agreement, nhà quản lý sẽ được thông báo trực tiếp từ data, và như thế đối ứng sự cố bảo mật mới tốt.</td>
+    </tr>
+    <tr>
+      <td><strong>Cyber-threat detection</strong></td>
+      <td>Thực ra thì thu thập dữ liệu mà muốn lên cảnh báo thì phải có một feature là threat detection. Tức là phát hiện nguy cơ liên quan tới license ngay từ dữ liệu usage của nhân viên.</td>
+    </tr>
+    <tr>
+      <td><strong>Audit Prevention</strong></td>
+      <td>Phòng chống các vấn đề khi đã phát hiện ra từ dữ liệu ra là cần thiết. Auditor sẽ phải đưa ra những suggestions để tổ chức và nhà quản lý đưa thành policy để implement trong tổ chức.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Đấy, nghe thì có vẻ đơn giản là làm 1 bảng Excel để quản lý license một cách thủ công, nhưng breakdown ra thì cũng đủ thứ.
+Làm nhà quản lý cho 1 team nhỏ tầm 5-6 người, hay dù quản lý cả 1 department hay là hiệu trưởng một trường đại học danh tiếng có hàng vạn sinh viên thì những vấn đề như thế này không được lơ là.</p>
+
+<p>Theo kinh nghiệm của tôi thì cứ tốt nhất mua luôn gói nào nó có sẵn hết các chức năng trên.
+Ví dụ thu thập dữ liệu và detect nguy cơ là Adobe nó cũng có hết trong gói Business rồi đấy.
+Tuy nhiên, nếu trong nhóm chỉ có 1-2 người cần mua thì bài toán giá thành cân đối bảo mật sẽ phát sinh vì ít nhu cầu dùng quá (cost vs. security trade-off).
+Tuy nhiên, nếu là lãnh đạo của 1 department hàng trăm nhân khẩu dưới quyền thì cứ thoải mái thôi, vì khi số lượng đặt hàng lên đến hàng trăm, hàng ngàn thì chắc chắn Adobe sẽ có discount.
+Vào mấy cái viện ít người mới lo chứ còn vào những chỗ quân đông tướng lắm như trường đại học, tập đoàn, cty lớn thì chủ yếu là kỹ năng quản lý thôi.</p>
+
+<h1 id="quay-lại-ví-dụ-lab-40-người">Quay lại ví dụ lab 40 người</h1>
+
+<h2 id="đại-học-lớn-vs-đại-học-nhỏ-và-viện-ít-người">Đại học lớn vs. đại học nhỏ (và viện ít người)</h2>
+
+<h2 id="lựa-chọn-subscription-cho-phần-mềm-đồ-họa-adobe-software">Lựa chọn subscription cho phần mềm đồ họa: Adobe software</h2>
+
+<h2 id="lựa-chọn-gói-nào-cho-games">Lựa chọn gói nào cho games</h2>
+
 <iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http%3A%2F%2Falgorithmancy%2E8kindsoffun%2Ecom%3A80%2FMDAnwu%2Eppt&amp;wdAr=1.3333333333333333" width="100%" height="480px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+<h2 id="lựa-chọn-gói-truyền-hình-gì">Lựa chọn gói truyền hình gì?</h2>
+
+<h1 id="kết-luận">Kết luận</h1>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
     
 
