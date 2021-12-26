@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-26T10:52:57+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize.html" rel="alternate" type="text/html" title="Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?" /><published>2021-12-25T00:00:00+09:00</published><updated>2021-12-25T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize.html">&lt;p&gt;&lt;img src=&quot;https://sieconsultinggroup.com/wp-content/uploads/2016/10/SLMGovModel-800x515.png&quot; alt=&quot;SLM&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-26T11:07:47+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize.html" rel="alternate" type="text/html" title="Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?" /><published>2021-12-25T00:00:00+09:00</published><updated>2021-12-25T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize.html">&lt;p&gt;&lt;img src=&quot;https://sieconsultinggroup.com/wp-content/uploads/2016/10/SLMGovModel-800x515.png&quot; alt=&quot;SLM&quot; /&gt;
 &lt;em&gt;Software License Management Governance Model&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Ở các quốc gia tôn trọng và thực thi nghiêm chỉnh luật bản quyền, thì vị trí leader có một “đặc sản” khá thú vị là &lt;strong&gt;kỹ năng quản lý license&lt;/strong&gt;, hay là &lt;strong&gt;tối ưu hóa license (サブスクリプションの最適化, optimize subscriptions)&lt;/strong&gt;.
@@ -95,8 +95,15 @@ Mà thế thì hầu như muốn mua phần mềm gì cũng chỉ có vài khả
 Cái này cũng có cái hay cái dở.
 Thì thực ra tình huống nó bắt buộc là mình ít người mình chịu.
 Nhưng nó lại dở vì đa số người ta dùng Adobe, MATLAB, … mình lại không mua được thì thành ra là lại outliers.
-Ví dụ nghiên cứu của lĩnh vực đều dùng Adobe Photoshop, thì mình lại tái hiện trên GIMP thì ôi thôi!
-Nên lúc cân nhắc làm việc ở viện lớn hay viện nhỏ, đại học danh tiếng hay ít danh tiếng, tập cty lớn hay mấy startups, theo kinh nghiệm của tôi nên cân nhắc bài toán &lt;strong&gt;quản lý license&lt;/strong&gt;.&lt;/p&gt;
+Ví dụ nghiên cứu của lĩnh vực đều dùng Adobe Photoshop, thì mình lại tái hiện trên GIMP thì ôi thôi!&lt;/p&gt;
+
+&lt;p&gt;Mà cái quan trọng nhất lại không chỉ giá tiền mà là &lt;strong&gt;audit&lt;/strong&gt;. Dù ông nhà nghiên cứu ở viện nhỏ, ông có mua personal subscription hay open source thì chắc chắn sẽ không có control của tổ chức.
+Nên nếu ông đề nghị mua phần mềm cho 2 cậu postdocs thì chắc chắn ông lãnh đạo viện sẽ bắt ông phải mua theo option 2.
+Mà như thế là dữ liệu của nhóm ông tự dưng lại phải chia sẻ ra cho các nhóm khác trong viện mà thậm chí ngoài viện.
+Còn nếu ông không đề nghị mua, tức là ông giấu lãnh đạo viện thì sẽ không cân đối kế toán được.
+Còn ông mà bảo postdocs nó dùng open source thì lại xảy ra vấn đề là không minh bạch vì không có control trong audit.&lt;/p&gt;
+
+&lt;p&gt;Nên lúc cân nhắc làm việc ở viện lớn hay viện nhỏ, đại học danh tiếng hay ít danh tiếng, tập cty lớn hay mấy startups, theo kinh nghiệm của tôi nên cân nhắc bài toán &lt;strong&gt;quản lý license&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;lựa-chọn-subscription-cho-phần-mềm-đồ-họa-adobe-software&quot;&gt;Lựa chọn subscription cho phần mềm đồ họa: Adobe software&lt;/h2&gt;
 
