@@ -1,7 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://wanted2.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://wanted2.github.io/" rel="alternate" type="text/html" /><updated>2021-12-28T00:06:33+09:00</updated><id>https://wanted2.github.io/feed.xml</id><title type="html">AiFi</title><subtitle>The official AiFi</subtitle><author><name>Tuan Nguyen-Anh</name></author><entry><title type="html">Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize.html" rel="alternate" type="text/html" title="Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?" /><published>2021-12-25T00:00:00+09:00</published><updated>2021-12-25T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/25/subcription-optimize.html">&lt;p&gt;&lt;img src=&quot;https://sieconsultinggroup.com/wp-content/uploads/2016/10/SLMGovModel-800x515.png&quot; alt=&quot;SLM&quot; /&gt;
-&lt;em&gt;Software License Management Governance Model&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AiFi</title>
+    <description>An AI Engineer&apos;s blog</description>
+    <link>https://wanted2.github.io/</link>
+    <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 31 Dec 2021 23:10:37 +0900</pubDate>
+    <lastBuildDate>Fri, 31 Dec 2021 23:10:37 +0900</lastBuildDate>
+    <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Chia tay 2021!</title>
+        <description>&lt;p&gt;Đây là bài post thứ 61 của blog AiFi trong năm 2021, cũng là bài viết chia tay 2021, trong tâm thế đón chờ 2022 tươi mới hơn.
+Theo quan điểm làm việc scrum, thì coi như đây là thời điểm kết thúc 1 chu kỳ, cũng là lúc làm một số việc để nhìn lại một năm đã qua (bao gồm cả GKPT hay &lt;em&gt;Good, Keep, Problem, Try&lt;/em&gt;).
+2021年中61番目の投稿です．
+2021年と別れて，2022年を迎える時期の投稿です．
+一年間を1スプリントとすると，いろいろなことができたと思いますので，スクラムの行事として，レビューとレトロ会をここで開催したいと思います．
+_Good, Keep, Problem, Try_も含めてやります．
+&lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;Ở các quốc gia tôn trọng và thực thi nghiêm chỉnh luật bản quyền, thì vị trí leader có một “đặc sản” khá thú vị là &lt;strong&gt;kỹ năng quản lý license&lt;/strong&gt;, hay là &lt;strong&gt;tối ưu hóa license (サブスクリプションの最適化, optimize subscriptions)&lt;/strong&gt;.
+&lt;h1 id=&quot;nhìn-lại-năm-2021-của-blog-aifi&quot;&gt;Nhìn lại năm 2021 của blog AiFi&lt;/h1&gt;
+
+&lt;h2 id=&quot;nhìn-từ-thống-kê-người-dùng&quot;&gt;Nhìn từ thống kê người dùng&lt;/h2&gt;
+
+&lt;p&gt;Hiện tại AiFi blog sử dụng Google Analytics để track và lấy thống kê người dùng.
+Các sự kiện như view, scroll, referal, … được báo cáo theo phút lên server của Google.&lt;/p&gt;
+
+&lt;p&gt;Đầu tiên là thống kê về người dùng và nguồn giới thiệu.
+Trong năm 2021, blog tuy mới ra mắt và còn nhiều khó khăn vất vả nhưng đã thu hút được 552 user mới từ khắp nơi trên thế giới.
+&lt;strong&gt;552 người dùng này đã ghi lại 7309 sự kiện.&lt;/strong&gt;
+Một con số đáng khích lệ với blog mới 1 năm tuổi đời.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Một điểm đáng chú ý là dù facebook.com là nơi tác giả hay chia sẻ bài viết, nhưng &lt;strong&gt;user lại phần lớn đến từ 2 nguồn: google và direct&lt;/strong&gt;.
+Về yếu tố địa lý thì đa phần người dùng đến từ &lt;strong&gt;Việt Nam, Mỹ và Nhật Bản&lt;/strong&gt;.
+Các nước khác vẫn chưa đóng tỷ trọng lớn trong cơ cấu người dùng của AiFi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tỷ lệ người dùng của AiFi gia tăng tính từ tháng &lt;strong&gt;7&lt;/strong&gt;.
+Trong năm 2021, &lt;strong&gt;số lượng sự kiện &lt;em&gt;user engagement&lt;/em&gt; là 1852, và số &lt;em&gt;page view&lt;/em&gt; là 2622 lượt&lt;/strong&gt;.
+Ngoài ra, 3 bài viết đạt số lượng truy cập cao nhất (không tính trang chủ) là:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/mOCR-mlkit-androidx-example/&quot;&gt;mOCR: A real-time application of OCR with Google MLKit and Android CameraX&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/adobe-creative-cloud/&quot;&gt;Adobe Creative Cloud: An All-in-One Platform for Creators&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/aws-lambda-spacy-mxnet-possible-but-shouldnt/&quot;&gt;Implementing a complex system in AWS Lambda: Should or shouldn’t?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sự “vùng lên” của bài viết &lt;a href=&quot;/adobe-creative-cloud/&quot;&gt;Adobe Creative Cloud: An All-in-One Platform for Creators&lt;/a&gt; thật thú vị vì bài viết được xuất bản trên blog AiFi vào tháng cuối năm nhưng lại đứng thứ nhì.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-03.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Về hệ điều hành, trình duyệt và ngôn ngữ đầu vẫn là &lt;strong&gt;Windows, Chrome và English&lt;/strong&gt;.
+Theo sau lần lượt là &lt;strong&gt;MacOS, Safari và tiếng Nhật&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;nhìn-từ-kết-quả-tìm-kiếm&quot;&gt;Nhìn từ kết quả tìm kiếm&lt;/h2&gt;
+
+&lt;p&gt;Kết quả tìm kiếm về “AiFi Caineng” trên google.com và Bing Search trong ngày 31 tháng 12 năm 2021 như sau:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/aifi-search-engines-2021.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Kết quả tìm kiếm từ khóa “aifi” và thậm chí “aifi caineng” quả là hơi nghèo nàn và dễ bị lẫn vào các từ khóa tìm kiếm khác như “wifi” chẳng hạn.
+Đây cũng là 1 thiếu sót do blog mới chỉ 1 năm, và tác giả vẫn đang bận bịu công việc chính cuả tác giả.
+Tuy nhiên, từ năm 2022, ở mức độ nhất định việc nâng rank trong các cỗ máy tìm kiếm từ khóa sẽ được &lt;strong&gt;tối ưu hóa&lt;/strong&gt; nhằm đưa tri thức của AiFi đến với đông đảo bạn đọc và nâng cao chất lượng phục vụ.&lt;/p&gt;
+
+&lt;h1 id=&quot;good-keep-problem-try&quot;&gt;Good, Keep, Problem, Try&lt;/h1&gt;
+
+&lt;p&gt;Việc chạy sprint kéo dài 1 năm quả là hơi lạ, tuy nhiên là cũng dễ hiểu vì viết blog chỉ là việc phụ làm trong thời gian rảnh rỗi của tác giả.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Good&lt;/th&gt;
+      &lt;th&gt;Keep&lt;/th&gt;
+      &lt;th&gt;Problem&lt;/th&gt;
+      &lt;th&gt;Try&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Đã tạo được và thu hút lượng người dùng nhất định.&lt;/td&gt;
+      &lt;td&gt;Duy trì tần suất chia sẻ bài viết.&lt;/td&gt;
+      &lt;td&gt;Thứ hạng trên search engine chưa cao.&lt;/td&gt;
+      &lt;td&gt;Tối ưu hóa SEO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Tối ưu hóa từ khóa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Tối ưu thẻ HTML, …&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Chưa tạo ra thu nhập từ blog&lt;/td&gt;
+      &lt;td&gt;Xem xét đưa vào và tối ưu hóa quảng cáo.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Các nguồn Google và Facebook đã đem đến lượng người dùng nhất định.&lt;/td&gt;
+      &lt;td&gt;Tiếp tục duy trì quảng bá trên Google và Facebook.&lt;/td&gt;
+      &lt;td&gt;Nguồn Facebook chưa đem lại nhiều người dùng mới.&lt;/td&gt;
+      &lt;td&gt;Tối ưu hóa quảng bá blog trên Facebook.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Một số nguồn cấp khác như Twitter và LinkedIn vẫn chưa đem lại nhiều người dùng.&lt;/td&gt;
+      &lt;td&gt;Lên chiến lược quảng bá trên các nền tảng này.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;tổng-kết&quot;&gt;Tổng kết&lt;/h1&gt;
+
+&lt;p&gt;Kết thúc Sprint 2021, hướng tới Sprint 2022, blog AiFi xin cám ơn đông đảo bạn đọc, đặc biệt là 552 người dùng đã có, vì sự quan tâm và thịnh tình trong năm qua.
+Trong năm 2022, AiFi sẽ tiếp tục cập nhật và mong muốn lan tỏa tri thức cho anh em, với phương châm, troll trước học sau.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/year-end/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/year-end/</guid>
+        
+        <category>Event</category>
+        
+        <category>Year-end event</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+      </item>
+    
+      <item>
+        <title>Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?</title>
+        <description>&lt;p&gt;Ở các quốc gia tôn trọng và thực thi nghiêm chỉnh luật bản quyền, thì vị trí leader có một “đặc sản” khá thú vị là &lt;strong&gt;kỹ năng quản lý license&lt;/strong&gt;, hay là &lt;strong&gt;tối ưu hóa license (サブスクリプションの最適化, optimize subscriptions)&lt;/strong&gt;.
 Giải thích thì cũng mất thời gian, tôi xin lấy ví dụ bài toán như sau:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -270,10 +410,41 @@ Tốt nhất là nên lên kế hoạch thí nghiệm và chốt thời gian t�
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 &lt;p&gt;Nhìn chung, &lt;strong&gt;kỹ năng quản lý license&lt;/strong&gt; là một kỹ năng không thể thiếu để quản trị một nhóm tầm trong quy mô 50-100 nhân viên.
-Ở quy mô này trở lên, bắt đầu phải có những điểm lưu ý và thảo luận để quản lý linh hoạt chủ động mà lại tối ưu.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="Adobe" /><category term="Adobe Creative Cloud" /><category term="Games" /><category term="Subscriptions" /><category term="teamlead" /><category term="techlead" /><category term="supervisor" /><category term="assistant" /><summary type="html">Software License Management Governance Model Ở các quốc gia tôn trọng và thực thi nghiêm chỉnh luật bản quyền, thì vị trí leader có một “đặc sản” khá thú vị là kỹ năng quản lý license, hay là tối ưu hóa license (サブスクリプションの最適化, optimize subscriptions). Giải thích thì cũng mất thời gian, tôi xin lấy ví dụ bài toán như sau: Giả sử bạn là chủ nhiệm (hoặc người đứng đầu) một phòng nghiên cứu và phát triển có lượng nhân sự ổn định là 40 người. Hàng năm có 20 người tốt nghiệp và đi chỗ khác, và bạn sẽ lại đón khoảng 20 người mới vào để phân đề tài hướng dẫn. Và vì vậy nhân sự luôn ổn định tầm 40 người. Thế mạnh của phòng là xử lý đồ họa, thiết kế web, và mấy cái game ghiếc, truyền hình (TV). Những gì trong thế mạnh thì là cái bạn sẽ hướng dẫn (chứ không có chuyện là nhận vào rồi cho làm mấy cái text tiếc vớ vẩn hay mấy cái random là không có đâu). Vậy bây giờ là phát sinh ra trong hướng nghiên cứu của phòng bạn, sẽ phải mua máy móc như màn hình cỡ lớn, màn hình đặc dụng cho ngành truyền hình, … và đăng ký mua license phần mềm như Adobe Photoshop, Illustrator, XD, … rồi lại còn games, …. Thế kế hoạch quản lý license của bạn như thế nào? Với giả định bạn là đứng đầu lab và trách nhiệm quản lý sẽ thuộc về bạn.</summary></entry><entry><title type="html">Adobe Creative Cloud: An All-in-One Platform for Creators</title><link href="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html" rel="alternate" type="text/html" title="Adobe Creative Cloud: An All-in-One Platform for Creators" /><published>2021-12-19T00:00:00+09:00</published><updated>2021-12-19T00:00:00+09:00</updated><id>https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud</id><content type="html" xml:base="https://wanted2.github.io/se/sre/2021/12/19/adobe-creative-cloud.html">&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-creative-cloud-2.png&quot; alt=&quot;adobe&quot; /&gt;
-&lt;em&gt;A categorization and a diagram of Adobe Creative Cloud&lt;/em&gt;&lt;/p&gt;
+Ở quy mô này trở lên, bắt đầu phải có những điểm lưu ý và thảo luận để quản lý linh hoạt chủ động mà lại tối ưu.&lt;/p&gt;
 
-&lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
+</description>
+        <pubDate>Sat, 25 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/subcription-optimize/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/subcription-optimize/</guid>
+        
+        <category>Adobe</category>
+        
+        <category>Adobe Creative Cloud</category>
+        
+        <category>Games</category>
+        
+        <category>Subscriptions</category>
+        
+        <category>teamlead</category>
+        
+        <category>techlead</category>
+        
+        <category>supervisor</category>
+        
+        <category>assistant</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>Adobe Creative Cloud: An All-in-One Platform for Creators</title>
+        <description>&lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
 Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families and the power to collaborate with anyone, anywhere. 
 Many things can be done with this solution.
 We take a look at the features.
@@ -401,7 +572,7 @@ Because presets were tuned by professionals, and the tuned parameters can be hug
   &lt;p&gt;&lt;strong&gt;Photoshop is best for professionals who want to tune every detail of a single photo, while Lightroom presets are good for unknowledgeable users who want to tune a batch of hundred images without specialized knowledge about graphics.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/Adobe-Lightroom.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/Adobe-Lightroom.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;While Lightroom Classic is a desktop app, Lightroom is a web app with the address: &lt;a href=&quot;https://lightroom.adobe.com/&quot;&gt;lightroom.adobe.com&lt;/a&gt;.&lt;/p&gt;
 
@@ -489,7 +660,7 @@ But now we want to edit, mix, enhance audio, we should think about Adobe Auditio
 Adobe Audition can be integrated into After Effects or Premiere Pro.
 The output audios can be published to Behance and Stock.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/adobe-audition.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/adobe-audition.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0njJIOjxS4c&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
@@ -629,9 +800,44 @@ It was officially launched during Adobe MAX 2019.&lt;/p&gt;
 &lt;p&gt;We took a look at the Adobe Creative Cloud ecosystem.
 Like most other commercial clouds like Oracle Cloud, AWS, Google GCP, or M$ Azure, it has many products and services which make our life better.
 And Adobe Sensei AI is impressive as it integrates many of the latest technologies in Computer Vision, Machine Learning, and Artificial Intelligence.
-Hope to use it in our own products soon.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="se" /><category term="sre" /><category term="adobe acrobat" /><category term="adobe creative cloud" /><category term="design" /><category term="illustrator" /><category term="adobe sensei" /><category term="adobe photoshop" /><category term="adobe lightroom" /><category term="adobe premiere pro" /><category term="premiere rush" /><category term="charactor animation" /><summary type="html">A categorization and a diagram of Adobe Creative Cloud Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business. Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families and the power to collaborate with anyone, anywhere. Many things can be done with this solution. We take a look at the features.</summary></entry><entry><title type="html">なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html" rel="alternate" type="text/html" title="なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?" /><published>2021-12-18T00:00:00+09:00</published><updated>2021-12-18T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/12/18/turn-off-electric-before-leaving-why.html">&lt;p&gt;&lt;img src=&quot;/assets/img/2019年度後半障害発生状況.svg&quot; alt=&quot;2019年度後半障害発生状況&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
+Hope to use it in our own products soon.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/adobe-creative-cloud/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/adobe-creative-cloud/</guid>
+        
+        <category>adobe acrobat</category>
+        
+        <category>adobe creative cloud</category>
+        
+        <category>design</category>
+        
+        <category>illustrator</category>
+        
+        <category>adobe sensei</category>
+        
+        <category>adobe photoshop</category>
+        
+        <category>adobe lightroom</category>
+        
+        <category>adobe premiere pro</category>
+        
+        <category>premiere rush</category>
+        
+        <category>charactor animation</category>
+        
+        
+        <category>Software Engineering</category>
+        
+        <category>Artificial Intelligence</category>
+        
+        <category>Computer Vision</category>
+        
+      </item>
+    
+      <item>
+        <title>なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title>
+        <description>&lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？
 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります．
@@ -740,9 +946,34 @@ Hope to use it in our own products soon.&lt;/p&gt;</content><author><name>Tuan N
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ipa01&quot;&gt;松田 晃一, 村岡 恭昭, &amp;amp; 齋藤 毅. (2019). &lt;i&gt;情報システムの障害状況 - 2019 年後半データ&lt;/i&gt;. IPA社会基盤センター.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ipa02&quot;&gt;情報処理推進機構. &lt;i&gt;情報システムの障害状況一覧：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/sec/system/system_fault.html&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ipa03&quot;&gt;情報処理推進機構. &lt;i&gt;プレス発表　重要インフラを支えるシステムの障害情報や対策を分析した2種類の教訓集を公開：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/about/press/20140513.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行. &lt;i&gt;セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行&lt;/i&gt;. https://www.chibabank.co.jp/webeb/security/internet/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="残業" /><category term="OT" /><category term="電気を消す" /><category term="電気利用" /><category term="障害対応" /><summary type="html">あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？ これはSEにとってなかなか回答できるが興味深い質問です． 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？ 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります． これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです． ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます． お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です． 私は昼休憩は取らないですが，なぜなら，このせいです． お昼はファストフードばかりで離席せずに対応を続けています． 帰宅は19時～で大丈夫でしょう．</summary></entry><entry><title type="html">Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title><link href="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html" rel="alternate" type="text/html" title="Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước" /><published>2021-12-10T00:00:00+09:00</published><updated>2021-12-10T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/2021/12/10/svelte-and-reset-checkboxes-10years-ago.html">&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
+&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行. &lt;i&gt;セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行&lt;/i&gt;. https://www.chibabank.co.jp/webeb/security/internet/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 18 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/turn-off-electric-before-leaving-why/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/turn-off-electric-before-leaving-why/</guid>
+        
+        <category>残業</category>
+        
+        <category>OT</category>
+        
+        <category>電気を消す</category>
+        
+        <category>電気利用</category>
+        
+        <category>障害対応</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title>
+        <description>&lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
 Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
 Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML.
 Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend.
@@ -779,7 +1010,7 @@ Nó là chức năng bổ trợ cho &lt;code class=&quot;language-plaintext high
   &lt;li&gt;Ngược lại với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Uncheck ALL&lt;/code&gt; (nếu tách hai hộp check ra).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/svelte-checkall-uncheckall-2.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/svelte-checkall-uncheckall-2.gif&quot; alt=&quot;svelte&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Đấy, yêu cầu có thế rồi chuyển xuống cho đội hakken làm&lt;/strong&gt;.
 Tức là phải &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; chuẩn, không được để chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All&lt;/code&gt; nhưng lại có dòng nào không được check (dù đã check rồi).
@@ -873,10 +1104,34 @@ Sử dụng Svelte để &lt;strong&gt;trừu tượng hóa&lt;/strong&gt; trạ
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;LogicEls13:online&quot;&gt;&lt;i&gt;Logic / Else-if blocks • Svelte Tutorial&lt;/i&gt;. https://svelte.dev/tutorial/else-if-blocks&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;DocsSve0:online&quot;&gt;&lt;i&gt;Docs • SvelteKit&lt;/i&gt;. https://kit.svelte.dev/docs&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="svelte framework" /><category term="svelte" /><category term="vuejs" /><category term="reactjs" /><category term="angularjs" /><category term="frontend" /><summary type="html">Svelte là một framework của ngôn ngữ Javascript, với mô hình bi-direction data binding (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS. Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít. Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML. Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend. Cách làm này nhìn chung là thủ công, và rất nhiều lập trình viên JS đã hiểu rằng đây là con đường code thuần và hầu như là buggy (rất nhiều bug có thể phát sinh)! Lịch sử sang trang mới vào những năm 2010-2011, cùng với sự ra đời của hàng loạt trào lưu mới như Lean startups, Agile development, … với những JS framework theo luồng MVVM (Model-View-ViewModel). Backbone và AngularJS hầu như ra đời trong giai đoạn này đã mở ra kỷ nguyên mới, khi dữ liệu và hiển thị được binding với nhau khiến cho sự đồng bộ thống nhất trên frontend được đảm bảo. Công ty tôi thời đó khởi đầu cũng làm JQuery thuần, code vô cùng nhiều bugs, mà kỹ sư OT ngày đêm lo sửa. Nhưng đó là chuyện của hơn 10 năm trước các bạn ạ. Sau đó nhiều kỹ sư trong công ty đã cực lực phản đối việc tiếp tục dùng JQuery và đề xuất dùng những con đường bug-free hơn như AngularJS. Đó là những chuyện xảy ra vào năm 2013. Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu “o bế” khá nhiều công nghệ Web mới như ngôn ngữ lập trình Hack (hậu duệ của PHP) và Meteor một kiểu JS framework cũng thực hiện MVVM, data binding để đồng bộ hiển thị và dữ liệu tại frontend. Và cùng năm 2013, ReactJS, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió. Hồi đó cũng có tranh luận là lên tiếp tục chịu đựng JQuery hay chuyển sang data binding là AngularJS hoặc ReactJS mà cuối cùng có vẻ là AngularJS đã được chọn. Bẵng đi ít lâu, 2013, VueJS ra đời và nhanh chóng được chào đón. Sau đó gần đây là Svelte.</summary></entry><entry><title type="html">Học cách viết log nghiêm chỉnh</title><link href="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html" rel="alternate" type="text/html" title="Học cách viết log nghiêm chỉnh" /><published>2021-12-05T00:00:00+09:00</published><updated>2021-12-05T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/sre/2021/12/05/write-logs.html">&lt;p&gt;&lt;img src=&quot;https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png&quot; alt=&quot;log management&quot; /&gt;
-&lt;em&gt;Source: SIEM&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
+&lt;li&gt;&lt;span id=&quot;DocsSve0:online&quot;&gt;&lt;i&gt;Docs • SvelteKit&lt;/i&gt;. https://kit.svelte.dev/docs&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 10 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/svelte-and-reset-checkboxes-10years-ago/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/svelte-and-reset-checkboxes-10years-ago/</guid>
+        
+        <category>svelte framework</category>
+        
+        <category>svelte</category>
+        
+        <category>vuejs</category>
+        
+        <category>reactjs</category>
+        
+        <category>angularjs</category>
+        
+        <category>frontend</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+      </item>
+    
+      <item>
+        <title>Học cách viết log nghiêm chỉnh</title>
+        <description>&lt;p&gt;&lt;strong&gt;Viết log&lt;/strong&gt; nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ.
 Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư &lt;em&gt;học cách viết log cho nó OK em&lt;/em&gt;.
 Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công.
 Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ &lt;strong&gt;cần thiết nhưng ít thì tốt hơn&lt;/strong&gt;.
@@ -1035,7 +1290,7 @@ Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thốn
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/log-01.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/log-01.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
 Cấp 0 này có 1 điểm thú vị là những log tập trung trên cloud cũng phải được lưu trữ tối thiểu 12 tháng trên Active Storage.
 Có 2 ngoại lệ nhỏ:&lt;/p&gt;
 &lt;ul&gt;
@@ -1186,7 +1441,17 @@ Một số sự kiện nên bắt với hành vi người dùng:&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;------------------        ----------------        ------------------
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;------------------        ----------------        ------------------
 | Log Generation |  ====&amp;gt; | Log Analysis |  ====&amp;gt; | Log Monitoring |
 |                |        ----------------        ------------------
 |                |               /\                         /\
@@ -1196,7 +1461,7 @@ Một số sự kiện nên bắt với hành vi người dùng:&lt;/p&gt;
 |                |  ====&amp;gt; | Log Storage  |  =================
 |                |        ----------------
 ------------------
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;các-chức-năng-chính&quot;&gt;Các chức năng chính&lt;/h3&gt;
 &lt;p&gt;Nhìn chung một hệ thống log management hoàn chỉnh nên có tối thiểu các chức năng sau:&lt;/p&gt;
@@ -1351,10 +1616,30 @@ Thế nên có cơ hội các bạn nên trau dồi, vì thực sự cái tổng
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;LogManag44:online&quot;&gt;US Department of Commerce, Technology Administration, National Institute of Standards and Technology. &lt;i&gt;Log Management | CSRC&lt;/i&gt;. https://csrc.nist.gov/Projects/log-management&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;M213156:online&quot;&gt;Executive Office of the President Office of Management and Budget. (2021). &lt;i&gt;M-21-31: Memorandum for the Heads of Executive Departments and Agencies&lt;/i&gt;. https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kent2006guide&quot;&gt;Kent, K. A., &amp;amp; Souppaya, M. (2006). &lt;i&gt;Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology&lt;/i&gt;. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="sre" /><category term="logging" /><category term="log4j" /><category term="python" /><summary type="html">Source: SIEM Viết log nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ. Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư học cách viết log cho nó OK em. Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công. Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ cần thiết nhưng ít thì tốt hơn. Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”. Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi. Và như vậy đòi hỏi phải có chuẩn (standard) cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh. Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!</summary></entry><entry><title type="html">Why lean startups love fullstack engineers?</title><link href="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html" rel="alternate" type="text/html" title="Why lean startups love fullstack engineers?" /><published>2021-11-27T00:00:00+09:00</published><updated>2021-11-27T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/2021/11/27/fullstask-engineer-and-lean-startup.html">&lt;p&gt;&lt;img src=&quot;https://vertical-innovation.com/wp-content/uploads/2020/05/Lean-startup-VerticalInnovation.jpg&quot; alt=&quot;lean&quot; /&gt;
-&lt;em&gt;Source &lt;a href=&quot;https://vertical-innovation.com&quot;&gt;Vertical Innovation&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
+&lt;li&gt;&lt;span id=&quot;kent2006guide&quot;&gt;Kent, K. A., &amp;amp; Souppaya, M. (2006). &lt;i&gt;Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology&lt;/i&gt;. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 05 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/write-logs/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/write-logs/</guid>
+        
+        <category>logging</category>
+        
+        <category>log4j</category>
+        
+        <category>python</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Site Reliable Engineering</category>
+        
+      </item>
+    
+      <item>
+        <title>Why lean startups love fullstack engineers?</title>
+        <description>&lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Lean&lt;/strong&gt; [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -1496,7 +1781,36 @@ Còn muốn hơn thì tốt nhất tuyển người qua nước tư bản kiểu
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ThisisLe25:online&quot;&gt;&lt;i&gt;This is Lean |&lt;/i&gt;. https://thisislean.com/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="project management" /><category term="project lifecycle" /><category term="software development" /><category term="lean stratup" /><category term="this is lean" /><category term="fullstack engineer" /><summary type="html">Source Vertical Innovation Lean [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood. Efficiency paradox … the idea of the efficiency paradox, which claims that organisations’ understanding of “true efficiency” is incorrect. It suggests that when organisations focus too much on utilising resources efficiently – the traditional and most common form of efficiency – it tends to lead to an increase in the amount of work there is to do. Consequently, the more organisations try to be efficient (being busy), the more inefficient they will actually become (taking care of non-value adding but necessary work). This is Lean addresses +how to resolve this paradox. Bắt đầu từ gần 10 năm trước, năm 2011, bởi Eric Ries, Lean đã trở thành một phương pháp luận để cải tiến hiệu suất công việc và số lượng startups là Lean startups ngày càng gia tăng cho thấy sự yêu chuộng dành cho Lean từ cộng đồng khởi nghiệp. Nếu bạn đã từng có một giai đoạn khủng hoảng: ngày nào cũng bận bịu và phải làm tăng ca (OT) đến tận khuya, hoặc thậm chí phải mang việc về nhà làm, bạn đã rơi vào efficiency paradox: bạn luôn bận rộn, nhưng chả hoàn thành (release) cái gì cả. Thực ra vế sau chính là dấu hiệu (triệu chứng bệnh) của efficiency paradox, và khi có triệu chứng bận bịu nhưng chả done cái gì, đó chính là lúc Lean phải thể hiện value. Nếu cải tiến hiệu suất là mục tiêu của Lean, thì cách thức thực hiện lại vô vùng đòi hỏi sự tỷ mỷ chi tiết. Một trong số những tiêu chí quan trọng để build 1 team khởi nghiệp Lean, chính là sự tồn tại của cross-functional team hay tức là fullstack engineers. Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần đóng đinh thì búa sẽ dùng nhiều hơn và kìm hầu như không có việc, nhưng khi cần vặn ốc thì kìm bận bịu nhưng búa chả có việc gì: vậy tại sao không kiếm một cái vừa là kìm vừa là búa? Trong khởi nghiệp Lean, khi nói đến từ FE mà bạn hiểu là Frontend Engineer thì không có value mấy, phải hiểu là Fullstack Engineer thì mới có nhiều value.</summary></entry><entry><title type="html">Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</title><link href="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html" rel="alternate" type="text/html" title="Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động" /><published>2021-11-20T00:00:00+09:00</published><updated>2021-11-20T00:00:00+09:00</updated><id>https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem</id><content type="html" xml:base="https://wanted2.github.io/non-english/se/pm/ai/2021/11/20/chicken-and-egg-problem.html">&lt;iframe width=&quot;100%&quot; height=&quot;680&quot; src=&quot;https://www.epi.org?p=235212&amp;amp;view=embed&amp;amp;embed_template=charts_v2013_08_21&amp;amp;embed_date=20211121&amp;amp;onp=91701&amp;amp;utm_source=epi_press&amp;amp;utm_medium=chart_embed&amp;amp;utm_campaign=charts_v2&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ThisisLe25:online&quot;&gt;&lt;i&gt;This is Lean |&lt;/i&gt;. https://thisislean.com/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 27 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/fullstask-engineer-and-lean-startup/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/fullstask-engineer-and-lean-startup/</guid>
+        
+        <category>project management</category>
+        
+        <category>project lifecycle</category>
+        
+        <category>software development</category>
+        
+        <category>lean stratup</category>
+        
+        <category>this is lean</category>
+        
+        <category>fullstack engineer</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>Quả trứng và con gà: cái nào có trước? - Bất bình đẳng về lương và sản lượng lao động</title>
+        <description>&lt;iframe width=&quot;100%&quot; height=&quot;680&quot; src=&quot;https://www.epi.org?p=235212&amp;amp;view=embed&amp;amp;embed_template=charts_v2013_08_21&amp;amp;embed_date=20211121&amp;amp;onp=91701&amp;amp;utm_source=epi_press&amp;amp;utm_medium=chart_embed&amp;amp;utm_campaign=charts_v2&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;&lt;strong&gt;Con gà và quả trứng&lt;/strong&gt; là một bài toán kinh điển trong thống kê học cổ điển liên quan tới &lt;strong&gt;nhân quả (causality)&lt;/strong&gt; và &lt;strong&gt;luân hồi (feedback)&lt;/strong&gt; của các chuỗi thời gian (time series).
 Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series).
@@ -1623,9 +1937,38 @@ Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Gra
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;granger1969investigating&quot;&gt;Granger, C. W. J. (1969). Investigating causal relations by econometric models and cross-spectral methods. &lt;i&gt;Econometrica: Journal of the Econometric Society&lt;/i&gt;, 424–438.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;feige1979casual&quot;&gt;Feige, E. L., &amp;amp; Pearce, D. K. (1979). The casual causal relationship between money and income: Some caveats for time series analysis. &lt;i&gt;The Review of Economics and Statistics&lt;/i&gt;, 521–533.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;thurman1988chickens&quot;&gt;Thurman, W. N., Fisher, M. E., &amp;amp; others. (1988). Chickens, eggs, and causality, or which came first. &lt;i&gt;American Journal of Agricultural Economics&lt;/i&gt;, &lt;i&gt;70&lt;/i&gt;(2), 237–238.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;TheProdu24:online&quot;&gt;&lt;i&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/i&gt;. https://www.epi.org/productivity-pay-gap/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="non-english" /><category term="se" /><category term="pm" /><category term="ai" /><category term="project management" /><category term="project lifecycle" /><category term="software development" /><category term="chicken and egg" /><category term="causal relations" /><category term="Granger model" /><summary type="html">Con gà và quả trứng là một bài toán kinh điển trong thống kê học cổ điển liên quan tới nhân quả (causality) và luân hồi (feedback) của các chuỗi thời gian (time series). Năm 1969, Granger (Nobel kinh tế 2003) xuất bản một seminar paper [1] định tính hóa nhân quả và luân hồi giữa các chuỗi sự kiện thời gian (temporal time series). Việc kiểm tra nhân quả và luân hồi giữa các chuỗi thời gian được định tính và định lượng thông qua Granger verification. Năm 1979, Feige và Pearce [2] nghiên cứu về mối quan hệ luân hồi giữa tiền tệ và thu nhập, có sử dụng Granger verification. Năm 1988, Thurman và Fisher [3] nghiên cứu chuỗi thời gian về sản lượng trứng cũng như chuỗi dữ liệu về số lượng gà trên toàn nước Mỹ để tìm ra quan hệ nhân quả giữa trứng và gà. Họ sử dụng công thức của Granger và lần đầu tiên kết luận mang tính thống kê rằng trứng có trước và là nguyên nhân sinh ra gà. Phân tích các chuỗi sự kiện thời gian (time series analysis) và nhân quả/luân hồi giữa các chuỗi là một chủ đề truyền thống của thống kê và kinh tế học. Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa sản lượng lao động và bất bình đăng thu nhập hay bài toán Productivity-Pay Gap [4]. Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).</summary></entry><entry><title type="html">A Tutorial on Amazon OpenSearch Service and Kibana</title><link href="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html" rel="alternate" type="text/html" title="A Tutorial on Amazon OpenSearch Service and Kibana" /><published>2021-11-13T00:00:00+09:00</published><updated>2021-11-13T00:00:00+09:00</updated><id>https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1</id><content type="html" xml:base="https://wanted2.github.io/sre/se/ai/2021/11/13/opensearch-kibana-tuts-1.html">&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana.svg&quot; alt=&quot;os&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Our problem at hand is quite predictable!
+&lt;li&gt;&lt;span id=&quot;TheProdu24:online&quot;&gt;&lt;i&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/i&gt;. https://www.epi.org/productivity-pay-gap/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 20 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/chicken-and-egg-problem/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/chicken-and-egg-problem/</guid>
+        
+        <category>project management</category>
+        
+        <category>project lifecycle</category>
+        
+        <category>software development</category>
+        
+        <category>chicken and egg</category>
+        
+        <category>causal relations</category>
+        
+        <category>Granger model</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
+        
+        <category>Artificial Intelligence</category>
+        
+      </item>
+    
+      <item>
+        <title>A Tutorial on Amazon OpenSearch Service and Kibana</title>
+        <description>&lt;p&gt;Our problem at hand is quite predictable!
 A client has their staff submitting reports by CSV files every single day.
 One hundred files per day, but one file may have more than $10,000$ rows.
 The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports.
@@ -1637,7 +1980,16 @@ In other words, when CPUUtilization rate goes above 80%, it must automatically a
 
 &lt;p&gt;&lt;strong&gt;Auto scale-out&lt;/strong&gt; operations are easy because we can use some sorts of Python code like the following to update a cluster (OpenSearch service):&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;boto3&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;boto3&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;boto3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;opensearch&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update_domain_config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
@@ -1646,7 +1998,7 @@ In other words, when CPUUtilization rate goes above 80%, it must automatically a
       &lt;span class=&quot;s&quot;&gt;&apos;InstanceCount&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;And the number of instances in the cluster will be 10.
 However, to know when to perform this operation, the executors must be notified by a &lt;strong&gt;trigger&lt;/strong&gt;.
@@ -1743,17 +2095,39 @@ Let’s explore the manual for end-users:&lt;/p&gt;
   &lt;li&gt;For the first time, you will be prompted to a confirmation:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-02.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-02.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;To explore the dashboards and visualizations, you need to index data first and then go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Stack Management &amp;gt; Index Patterns&lt;/code&gt; to select the index.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-03.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-03.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To put a new document into the indices from your local, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pybuilder&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb index_document &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb index_document &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053
 PyBuilder version 0.13.3
 Build started at 2021-11-14 16:44:26
 &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------&lt;/span&gt;
@@ -1775,10 +2149,32 @@ Build Summary
                Tasks: index_document &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2056 ms]
 Build finished at 2021-11-14 16:44:37
 Build took 10 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;10963 ms&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Check if the document is already:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb search &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053         
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pyb search &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;indexName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;x0053         
 PyBuilder version 0.13.3
 Build started at 2021-11-14 16:45:30
 &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------&lt;/span&gt;
@@ -1800,19 +2196,19 @@ Build Summary
                Tasks: search &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1355 ms]
 Build finished at 2021-11-14 16:45:38
 Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Now you have indexed 1 document into OpenSearch, we can be back to Kibana to create an index pattern.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-04.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-04.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Click into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Next step&lt;/code&gt; then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create index pattern&lt;/code&gt; to go to the field lists screen.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-05.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-05.png&quot; alt=&quot;confirm&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;sql-query-workbench&quot;&gt;SQL Query Workbench&lt;/h2&gt;
 
@@ -1822,7 +2218,7 @@ Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;sp
   &lt;li&gt;Open the left sidebar, select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenSearch Plugins &amp;gt; Query Workbench&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-06.png&quot; alt=&quot;workbench&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-06.png&quot; alt=&quot;workbench&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Document for SQL in OpenSearch can be found &lt;a href=&quot;https://opensearch.org/docs/latest/search-plugins/sql/index/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -1831,22 +2227,25 @@ Build took 7 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;7631 ms&lt;sp
 &lt;p&gt;This is also a valuable feature in OpenSearch dashboard.
 You can add visualization blocks or code blocks (SQL/PPL).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-07.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-07.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this example, we used the following SQL query for full-text search:&lt;/p&gt;
 
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sql&lt;/span&gt;
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sql&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x0053&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;match_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;&quot;f1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;anomaly-detection&quot;&gt;Anomaly Detection&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-08.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-08.png&quot; alt=&quot;notebook&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;From this view, we can create an Anomaly Detector with a specific rule like&lt;/p&gt;
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;title contains f1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;title contains f1
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Other features like Dashboards, Visualizations, Trace Analytics are also worth exploring.&lt;/p&gt;
 
@@ -1939,7 +2338,21 @@ SAML based authentication and Amazon Cognito are all supported.&lt;/p&gt;
 
 &lt;p&gt;To enable auto-tune,&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST https://es.us-east-1.amazonaws.com/2021-01-01/opensearch/domain/domain-name/config
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;POST https://es.us-east-1.amazonaws.com/2021-01-01/opensearch/domain/domain-name/config
 &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&quot;AutoTuneOptions&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s2&quot;&gt;&quot;DesiredState&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;ENABLED&quot;&lt;/span&gt;,
@@ -1953,14 +2366,14 @@ SAML based authentication and Amazon Cognito are all supported.&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}]&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;We have walked through a tutorial on configurations of an OpenSearch cluster with logging options, encryption at rest, .etc.
 In the next steps, we will implement the following two stories:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/os-kibana-stories.svg&quot; alt=&quot;next stories&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/os-kibana-stories.svg&quot; alt=&quot;next stories&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;story-1-csv-upload-to-s3-for-streaming&quot;&gt;Story 1: CSV upload to S3 for streaming&lt;/h2&gt;
 
@@ -2066,10 +2479,34 @@ In the next steps, we will implement the following two stories:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;pricing-estimation&quot;&gt;Pricing estimation&lt;/h2&gt;
-&lt;p&gt;The pricing estimation of these two stories with the original story can be found &lt;a href=&quot;https://calculator.aws/#/estimate?id=e6fb0a2e9b0d46b7b876fec8e8da02c8c1e4be60&quot;&gt;here (152.20$ per month)&lt;/a&gt;.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="sre" /><category term="se" /><category term="ai" /><category term="aws" /><category term="amazon web services" /><category term="opensearch" /><category term="elasticsearch" /><category term="kibana" /><summary type="html">Our problem at hand is quite predictable! A client has their staff submitting reports by CSV files every single day. One hundred files per day, but one file may have more than $10,000$ rows. The managers want to have an analytical solution for their administrators and technical specialists to view and explore the submitted reports. Data’s growing day by day, and they want a scalable and automated solution. In other words, when CPUUtilization rate goes above 80%, it must automatically add more nodes to the cluster.</summary></entry><entry><title type="html">Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</title><link href="https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html" rel="alternate" type="text/html" title="Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials" /><published>2021-11-07T00:00:00+09:00</published><updated>2021-11-07T00:00:00+09:00</updated><id>https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions</id><content type="html" xml:base="https://wanted2.github.io/pm/2021/11/07/azure-boards-pm-extensions.html">&lt;p&gt;&lt;img src=&quot;https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/d3560903-f638-4528-b9ba-8cbf6a015a8d.png&quot; alt=&quot;Azure Boards&quot; /&gt;
-&lt;em&gt;Source: &lt;a href=&quot;http://ilikesqldata.com/deep-dive-into-azure-boards/&quot;&gt;ILikeSQLData&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Azure Boards (AB)&lt;/strong&gt; [1] is an essential tool for Project Management [2] in software development projects.
+&lt;p&gt;The pricing estimation of these two stories with the original story can be found &lt;a href=&quot;https://calculator.aws/#/estimate?id=e6fb0a2e9b0d46b7b876fec8e8da02c8c1e4be60&quot;&gt;here (152.20$ per month)&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 13 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/opensearch-kibana-tuts-1/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/opensearch-kibana-tuts-1/</guid>
+        
+        <category>aws</category>
+        
+        <category>amazon web services</category>
+        
+        <category>opensearch</category>
+        
+        <category>elasticsearch</category>
+        
+        <category>kibana</category>
+        
+        
+        <category>Software Engineering</category>
+        
+        <category>Site Reliable Engineering</category>
+        
+        <category>Artificial Intelligence</category>
+        
+      </item>
+    
+      <item>
+        <title>Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</title>
+        <description>&lt;p&gt;&lt;strong&gt;Azure Boards (AB)&lt;/strong&gt; [1] is an essential tool for Project Management [2] in software development projects.
 It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team.
 Linking commits and PRs to working items in Azure Repos [3], Azure Pipelines [4], and Azure Artifacts [5], Azure Boards also supports enhanced code analytics.
 By integrating with Azure Test Plans [6] (however, it is not free [7], 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams.
@@ -2204,296 +2641,26 @@ One downside is that it is not free, with a price of €288 per year!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;Definiti31:online&quot;&gt;&lt;i&gt;Definition of Done - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.dod&amp;amp;ssr=false#overview&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ProductV55:online&quot;&gt;&lt;i&gt;Product Vision - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.product-vision&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;BacklogE28:online&quot;&gt;&lt;i&gt;Backlog Essentials - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.backlog-essentials&amp;amp;ssr=false#overview&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;mediumco31:online&quot;&gt;&lt;i&gt;medium.com&lt;/i&gt;. https://medium.com/boston-product/the-true-definition-of-done-c6c254a0ff3e&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="programming" /><category term="project management" /><category term="dod" /><category term="define-of-done" /><category term="backlog" /><summary type="html">Source: ILikeSQLData Azure Boards (AB) [1] is an essential tool for Project Management [2] in software development projects. It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team. Linking commits and PRs to working items in Azure Repos [3], Azure Pipelines [4], and Azure Artifacts [5], Azure Boards also supports enhanced code analytics. By integrating with Azure Test Plans [6] (however, it is not free [7], 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams. Some recent features like Analytics views also give the PM more confidence in making decisions. However, the Azure Boards also lacks several important features of a perfect backlog: First, there is no Define-of-Done (DoD) checklist in AB by default. Second, there is not a clear feature to demonstrate the Product Vision to teams. (There is a Delivery Plan to show the roadmap towards a specific release goal). Finally, if users are already familiar with other tools like JIRA, then AB has a poor backlog view. This post introduces several extensions to solve these problems: Define-of-Done [8], Product Vision [9], and Backlog Essentials [10].</summary></entry><entry><title type="html">Integromat: An integration platform for workflow automation</title><link href="https://wanted2.github.io/pm/non-english/2021/11/01/integromat.html" rel="alternate" type="text/html" title="Integromat: An integration platform for workflow automation" /><published>2021-11-01T00:00:00+09:00</published><updated>2021-11-01T00:00:00+09:00</updated><id>https://wanted2.github.io/pm/non-english/2021/11/01/integromat</id><content type="html" xml:base="https://wanted2.github.io/pm/non-english/2021/11/01/integromat.html">&lt;p&gt;&lt;img src=&quot;/assets/img/integromat01.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm.
-Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt.
-Hôm ấy, có giao cho 1 nhiệm vụ như thế này:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Sếp (S)&lt;/strong&gt;: Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là &lt;a href=&quot;https://vnexpress.net/rss/so-hoa.rss&quot;&gt;https://vnexpress.net/rss/so-hoa.rss&lt;/a&gt; mà bọn anh muốn thực hiện 1 workflow như sau:&lt;/p&gt;
-  &lt;ul class=&quot;task-list&quot;&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Đầu tiên lấy dữ liệu từ &lt;a href=&quot;https://vnexpress.net/rss/so-hoa.rss&quot;&gt;https://vnexpress.net/rss/so-hoa.rss&lt;/a&gt; và parse thành 1 list các bài báo.
-      &lt;ul class=&quot;task-list&quot;&gt;
-        &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;.&lt;/li&gt;
-        &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được.&lt;/li&gt;
-        &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Upload file CSV lên OneDrive của team.&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;S&lt;/strong&gt;: &lt;strong&gt;Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;!--more--&gt;
-
-&lt;h1 id=&quot;đề-xuất-của-nhân-viên-em-xin-làm-2-tuần-ạ&quot;&gt;Đề xuất của nhân viên: Em xin làm 2 tuần ạ!&lt;/h1&gt;
-
-&lt;p&gt;Bài toán này thực ra không có gì mới mẻ cả, mà là một dạng task mà trong đó có các thành phần của xây dựng một data warehouse cơ bản: luồng ETL cơ bản, lưu trữ dữ liệu dạng bảng (mà thực ra bảng cũng như SQL, về sau có thể thay thế bằng CSDL dạng quan hệ), rồi luồng thông báo cảnh báo lên chat hoặc SNS.
-Vì hai luồng CSV và hook vào Gitter.im là song song nên có thể dính thêm tối ưu hóa đa nhiệm đa luồng.
-Nói chung là 1 bài tập vừa sức và không quá hóc búa, một bài tập cơ bản cho kỹ sư data mới vào nghề.&lt;/p&gt;
-
-&lt;p&gt;Trên đây là bản chất của bài toán, còn mục tiêu của đưa bài tập này với kỹ sư data lâu năm như anh bạn tôi thì là muốn xem mindset làm việc của nhân viên để còn bồi dưỡng dần dần.&lt;/p&gt;
-
-&lt;p&gt;Dưới đây là bản đề xuất của cậu nhân viên:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Nhân viên K&lt;/strong&gt;: Em xin đề xuất làm việc như sau ạ:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Với luồng CSV như anh giao, em sẽ dùng stack là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python&lt;/code&gt; để lấy nguồn cấp RSS, dùng các thư viện như sau: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xml&lt;/code&gt; để parse RSS tree, và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pandas&lt;/code&gt; để tạo nội dung CSV, sau đó em dùng &lt;a href=&quot;https://docs.microsoft.com/en-us/onedrive/developer/rest-api/getting-started/?view=odsp-graph-online&quot;&gt;API&lt;/a&gt; của M$ để upload file lên OneDrive. Luồng này em estimate mất 7 ngày (4 ngày tạo file CSV và 3 ngày để upload lên OneDrive).&lt;/li&gt;
-    &lt;li&gt;Với luồng post bài lên chat thì em phải đọc hiểu &lt;a href=&quot;https://developer.gitter.im/docs/welcome&quot;&gt;tài liệu&lt;/a&gt; của API của Gitter để post bài lên room, mất tầm 3 ngày nữa ạ.&lt;/li&gt;
-    &lt;li&gt;Về kiến trúc để song song hóa hai luồng, em dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;multiprocessing&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;threading&lt;/code&gt; ạ.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Nhìn chung làm thế nào thì cũng được thôi.
-&lt;strong&gt;Kết quả&lt;/strong&gt; mà ok thì cũng không vấn đề gì nếu quá trình có sai sót.
-Có vấn đề sai sót ở quá trình thì cứ fix rồi commit lên mà đảm bảo kết quả cuối cùng ok thì không sao.
-Tuy vậy kết quả kỳ vọng ở đây là gì?
-CÓ 3 mặt:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;tốc độ làm việc&lt;/em&gt;: phải nhanh, 2 tuần là đề xuất của K.&lt;/li&gt;
-  &lt;li&gt;sản phẩm có tính &lt;em&gt;khả dụng&lt;/em&gt; cao:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;em&gt;ít bugs ở sản phẩm đầu ra&lt;/em&gt;, còn các sản phẩm trung gian, các quá trình thì chả ai quan tâm. Code cũng được mà no-code, low-code cũng được.&lt;/li&gt;
-      &lt;li&gt;&lt;em&gt;triển khai và vận hành được luôn và ít sự cố&lt;/em&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Danh sách chi tiết liệt kê ra thì còn dài nhưng mà tạm thời với bài tập về nhà kiểu này thì tôi nghĩ anh bạn tôi có tiêu chí đánh giá thế là ổn thỏa rồi.&lt;/p&gt;
-
-&lt;p&gt;Nhìn chung, tôi và anh bạn tôi cũng không phải kiểu dò xét từng chi tiết khiến nhân viên cảm thấy &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bị soi&lt;/code&gt; khi làm việc, nên những chi tiết thì cứ giao các em làm, nhưng quản lý output và chất lượng.
-Tuy nhiên, là bản đề xuất này coi như 1 output trung gian thì quả thực là hơi khiến anh em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lăn tăn&lt;/code&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Thứ nhất, là estimate 10 man-days tức là 2 man-weeks, 2 tuần làm việc.&lt;/li&gt;
-  &lt;li&gt;Thứ hai là cách làm có vẻ hơi đòi hỏi anh em quản lý phải monitor và theo dõi từng khâu trong quy trình để đảm bảo ít bugs. Như vậy là tăng tải cho anh em quản lý.&lt;/li&gt;
-  &lt;li&gt;Thứ ba là khâu triển khai và vận hành hầu như ko có ý kiến gì trong đề xuất.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Với người mới thì cũng cứ tạm cho làm rồi anh em mình uốn nắn dần Tuấn ạ.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Đây là lời tâm huyết của anh bạn tôi lúc bắt đầu cho cậu nhân viên K làm việc này.
-Tôi lúc đó cũng không biết nói thế nào nên cứ để nó chạy thử xem.&lt;/p&gt;
-
-&lt;h1 id=&quot;đánh-giá-thực-ra-bọn-anh-làm-tầm-5-10-phút-là-xong-em-ạ-&quot;&gt;Đánh giá: Thực ra bọn anh làm tầm 5-10 phút là xong em ạ …&lt;/h1&gt;
-
-&lt;p&gt;Nhưng bây giờ nghĩ lại, tôi thấy đáng ra nên đánh chặn ngay từ đầu!
-Làm quản lý chả ai muốn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;soi&lt;/code&gt; nhân viên cả, nhưng đề xuất làm như K là anh em phải chuẩn hóa quy trình, lên kế hoạch theo dõi, lên cảnh báo, …
-trăm thứ bà rằn mà nói chung là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tăng tải&lt;/code&gt; cho quản lý.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Kết cục là không chỉ 2 tuần mà quá trình “uốn nắn” kéo dài 6 tháng luôn mà lúc triển khai và vận hành cũng vẫn không yên tâm về sự cố bất thình lình.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Tại sao không nên đánh chặn ngay thì vì lý do giáo dục để hướng dẫn nhân viên cho lên dần dần.
-Mình mà đánh chặn đôi khi lại gặp câu nói bất hủ:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Thế các anh làm đi?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ừ thì các anh làm thì chỉ mất tầm 5-10 phút thôi em ạ!
-Và bọn anh lấy ví dụ mẫu là nền tảng tích hợp dịch vụ &lt;a href=&quot;https://www.integromat.com/en&quot;&gt;integromat.com&lt;/a&gt; cho nó nhanh nhé.&lt;/p&gt;
-
-&lt;h1 id=&quot;cấu-hình-integromat&quot;&gt;Cấu hình integromat&lt;/h1&gt;
-
-&lt;h2 id=&quot;đăng-ký-tài-khoản&quot;&gt;Đăng ký tài khoản&lt;/h2&gt;
-
-&lt;p&gt;Đầu tiên là cũng nên có điều tra về nền tảng integration xem có gói nào phù hợp nhất.
-Tuy nhiên, theo tôi tìm hiểu thì mảng tích hợp này cũng khá bão hòa và nhiều nền tảng rồi.
-Tính năng cũng same same nhau.
-Thôi thì tạm chọn integromat nhé.&lt;/p&gt;
-
-&lt;p&gt;Thì integromat cũng offer nhiều gói: &lt;a href=&quot;https://www.integromat.com/en/pricing&quot;&gt;https://www.integromat.com/en/pricing&lt;/a&gt;.
-Gói Free để demo thử thì bạn sẽ chỉ tạo được tối đa 2 scenarios.
-Scenario timeout chỉ được 5 phút, minimum interval giữa hai lần chạy của scenario chỉ tối thiểu 15 phút.
-Webhook queue size (số lượng webhook được lên queue thực hiện) cũng nhỏ hơn, storage ngoài cũng chỉ được 1MB.&lt;/p&gt;
-
-&lt;p&gt;Thì quay lại đầu bài thì thực ra cũng chỉ cần update ở tầm 60 phút một lần.
-Các chỉ số khác là đủ cho bản demo, và quan trọng hơn là triển khai vận hành cũng đủ để dùng trong thực tế.&lt;/p&gt;
-
-&lt;p&gt;Ngoài ra gói có phí cơ bản cũng chỉ 9$/tháng.&lt;/p&gt;
-
-&lt;p&gt;Đầu tiên vào trang &lt;a href=&quot;https://www.integromat.com/en/register&quot;&gt;Sign up&lt;/a&gt; dịch vụ, điền thông tin và đăng ký free thôi.
-Integormat sẽ gửi link verify vào email đăng ký, và bạn phải click vào link trong email đăng ký ấy để kích hoạt tài khoản.&lt;/p&gt;
-
-&lt;p&gt;Nhìn chung quá trình này mất 1-2 phút.&lt;/p&gt;
-
-&lt;p&gt;Khi bắt đầu thì sẽ có một nút bấm trong trang MyPage để guide bạn onboarding nhanh chóng:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat02.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-&lt;h2 id=&quot;thiết-kế-hệ-thống&quot;&gt;Thiết kế hệ thống&lt;/h2&gt;
-
-&lt;p&gt;Bạn sẽ cần 1 trigger để theo dõi nguồn cấp RSS, một module để chuyển XML sang CSV, và một module để upload lên OneDrive.
-Song song với đó, bạn cần 1 module để tích hợp với Gitter.im.
-Bạn không nên quên &lt;strong&gt;xử lý lỗi&lt;/strong&gt; vì mọi module đều có thể có lỗi khi fetch data.&lt;/p&gt;
-
-&lt;h2 id=&quot;cấu-hình-các-modules&quot;&gt;Cấu hình các modules&lt;/h2&gt;
-&lt;h3 id=&quot;triggers&quot;&gt;Triggers&lt;/h3&gt;
-
-&lt;p&gt;Đầu tiên bạn cần ấn nút &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Creat a scenario&lt;/code&gt; để tạo ra một kịch bản thực thi cho nhiệm vụ.
-Mọi xử lý sẽ bắt đầu từ 1 &lt;strong&gt;trigger&lt;/strong&gt; mà bạn sẽ dùng RSS để bắt đầu.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat03.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hãy chọn &lt;strong&gt;Watch RSS feed items&lt;/strong&gt;.
-Trong cửa sổ tiếp theo hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Show advanced settings&lt;/code&gt;, nhập nguồn RSS và click OK.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat04.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Trong cửa sổ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Choose where to start&lt;/code&gt; thì cứ chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;From now on&lt;/code&gt; cũng ok.
-Thế là bạn đã có 1 trigger mà cứ mỗi khi có thay đổi trên nguồn cấp đã cho (tần suất kiểm tra sẽ cấu hình sau), thì lập tức trigger sẽ chạy luồng mà bạn sẽ cấu hình tiếp theo.&lt;/p&gt;
-
-&lt;h3 id=&quot;xml-to-csv&quot;&gt;XML to CSV&lt;/h3&gt;
-
-&lt;p&gt;Nhấn vào nút &lt;strong&gt;Add a module&lt;/strong&gt; như hình dưới:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat05.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sau đó chọn module &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CSV&lt;/code&gt; từ danh sách:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat06.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sau đó bạn có thể nhập chọn những trường sẽ lấy từ nguồn RSS để tạo ra file CSV:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat07.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Bạn có thể chọn GROUP BY bằng trường tùy thích.
-Trên đây tôi chọn theo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;updated_at&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;upload-to-onedrive&quot;&gt;Upload to OneDrive&lt;/h3&gt;
-
-&lt;p&gt;Để upload CSV lên OneDrive, bạn cần add thêm module OneDrive:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integormat08.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upload file&lt;/code&gt; ở cửa sổ chọn chức năng:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat09.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sau đó chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt; để authenticate vào OneDrive:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat10.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sau đó một pop-up sẽ mở ra để bạn xác nhận quyền truy cập của ứng dụng integromat vào OneDrive.
-Khi xong bước này bạn sẽ quay lại thiết lập &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Folder&lt;/code&gt; thành &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;, tên file thành &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xml&lt;/code&gt; và dữ liệu là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;text&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat11.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Để tránh lỗi bạn nên chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rename existing files&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;routing&quot;&gt;Routing&lt;/h3&gt;
-
-&lt;p&gt;Vậy là bạn đã xong luồng thứ nhất mà chưa mất đến 5 phút đâu.
-Trước khi add luồng thứ 2, chúng ta cần có 1 module để song song hóa, kiểu như &lt;strong&gt;Router&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat12.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sau khi thêm router thì thiết kế của bạn sẽ như sau:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat13.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;post-news-to-chat-room&quot;&gt;Post news to Chat room&lt;/h3&gt;
-
-&lt;p&gt;Từ Router hãy tạo thêm 1 luồng mới và tìm module Gitter:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat14.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hãy chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Send a mesage to a room&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat15.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Bạn sẽ phải đăng nhập và cấp quyền truy cập cho integromat vào Gitter.im.
-Một cửa sổ popup sẽ mửo ra sau khi bạn nhấn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt;.
-&lt;img src=&quot;/assets/img/integromat16.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Chú ý là Gitter chỉ chấp nhận đăng nhập qua Gitlab, Github và Twitter.
-Đây là kênh chat dành riêng cho developer.
-Tôi chọn twitter thôi.&lt;/p&gt;
-
-&lt;p&gt;Sau khi cấp quyền thành công, bạn sẽ quay lại integromat, và cấu hình tin nhắn sẽ lên Gitter.
-Bạn có thể dùng định dạng mẫu markdown để post bài.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat17.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Vậy đấy luồng số 2 đã xong trong chưa đầy 1 phút.&lt;/p&gt;
-
-&lt;h3 id=&quot;error-handling&quot;&gt;Error handling&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat18.png&quot; style=&quot;width:50%; margin: 10px; float: right;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Xử lý lỗi luôn là một phần quan trọng của lập trình phần mềm.
-Lỗi luôn xảy ra và cách handle lỗi rất quan trọng.
-Bạn click chuột phải vào module cần xử lý lỗi và chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add error handlers&lt;/code&gt;.
-Đó là tất cả việc bạn sẽ cần làm để bắt đầu xử lý lỗi trên integromat.
-&lt;strong&gt;Tiện quá đúng không?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat19.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Vậy nội dung hàm xử lý lỗi sẽ như thế nào?&lt;/strong&gt;
-Bạn có thể dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;directives (điều hướng)&lt;/code&gt; hoặc chạy một module nào đó.
-Có vài điều hướng cơ bản:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rollback&lt;/code&gt;: revert lại mọi thay đổi.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Break&lt;/code&gt;: dừng tại đó.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Resume&lt;/code&gt; một xử lý nào đó đang bị gián đoạn.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Commit&lt;/code&gt; một thay đổi hiện có.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ignore&lt;/code&gt; luôn!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Trong ví dụ hiện tại, tôi tạm thời cho &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt; luôn, tức là dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ignore&lt;/code&gt; cho upload file.&lt;/p&gt;
-
-&lt;p&gt;Làm tương tự với các module khác, bạn có thể đảm bảo có xử lý lỗi trong từng trường hợp cụ thể.
-Với module CSV convert thì tôi chọn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Break&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Mô hình thực thi cuối cùng như sau:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat20.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;filters&quot;&gt;Filters&lt;/h3&gt;
-
-&lt;p&gt;Để thực hiện điều kiện filter những tin có liên quan tới &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AI&lt;/code&gt;, bạn có thể dùng chức năng filter của integromat như sau.
-Click vào link giữa trigger và router:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat21.png&quot; alt=&quot;integromat&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;test&quot;&gt;Test&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat22.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
-Testing là phần cần thiết trong phát triển phần mềm.
-Các module đã được phát triển có SLA khá cao và unit testing cẩn thận nên ta sẽ skip UT lần này.
-API testing cũng không cần vì các module đã được test cẩn thận và có SLA rồi.
-Vậy ta cần test tích hợp (IT) thì sẽ có nút bấm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Run once&lt;/code&gt;.
-Tuy nhiên, bạn sẽ phải cần cấu hình Scenario như bên dưới:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat23.png&quot; style=&quot;width:50%; margin: 10px; float: left;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sau đó thì bạn sẽ thực hiện testing nhiều lần, cứ có bugs thì lại fix cho đến khi thấy mỹ mãn thì chuyển tới mục tiếp theo để vận hành thôi.&lt;/p&gt;
-
-&lt;h2 id=&quot;vận-hành&quot;&gt;Vận hành&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/integromat24.png&quot; style=&quot;width:30%; margin: 10px; float: right;&quot; /&gt;
-Trước khi triển khai vận hành, bạn phải cấu hình một chút về tần suất fetch news.
-Như đã nói tần suất tầm 60 phút cũng ổn.&lt;/p&gt;
-
-&lt;p&gt;Sau đó bạn ấn vào cái Switch button để chuyển sang ON/OFF là xong.&lt;/p&gt;
-
-&lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
-
-&lt;p&gt;Chúng ta đã điểm lại cách implement một dịch vụ fetch news và parse XML-to-CSV và post bài lên OneDrive cũng như Gitter.
-Có áp dụng cả filter, router, …
-Có đủ cả testing, vận hành, xử lý lỗi, … nên nhìn chung là một luồng ổn định để chiến lâu dài.&lt;/p&gt;
-
-&lt;p&gt;Nhìn chung cách làm nào cũng được, nhưng dùng nền tảng có SLA cao thì anh em yên tâm hơn về xử lý sự cố, xử lý lỗi, …
-Khi có vấn đề gì thì cứ theo luồng mà chạy thôi nên độ tự tin nó cao.&lt;/p&gt;</content><author><name>Tuan Nguyen-Anh</name></author><category term="pm" /><category term="non-english" /><category term="programming" /><category term="project management" /><category term="workflow automation" /><category term="cicd" /><category term="notifications" /><summary type="html">Cách đây gần chục năm, có 1 câu chuyện tôi từng chứng kiến như sau: có 1 anh sếp bạn tôi giao nhiệm vụ cho nhân viên mới vào làm. Cậu nhân viên cũng mới vào ngành, nên nhiệm vụ cũng kiểu như các bài tập nhỏ để dần dần nắm bắt. Hôm ấy, có giao cho 1 nhiệm vụ như thế này: Sếp (S): Anh giao cho em một nhiệm vụ là thu thập dữ liệu từ nguồn cấp RSS (hiện tại có vài nghìn nguồn mở, bọn anh sẽ lên danh sách sau). Nhưng giờ anh có 1 nguồn là https://vnexpress.net/rss/so-hoa.rss mà bọn anh muốn thực hiện 1 workflow như sau: Đầu tiên lấy dữ liệu từ https://vnexpress.net/rss/so-hoa.rss và parse thành 1 list các bài báo. yêu cầu ở đây là filter chỉ lấy ra những bài báo nào mà phần giới thiệu có nói về AI. Sau đó convert list của em lấy về thành CSV với tất cả các trường có thể lấy được. Upload file CSV lên OneDrive của team. Song song với luồng CSV là luồng post bài đăng lên room chat của team trên Gitter.im S: Em lên stack công nghệ và estimate làm trong bao lâu hộ anh trước được không?</summary></entry></feed>
+&lt;li&gt;&lt;span id=&quot;mediumco31:online&quot;&gt;&lt;i&gt;medium.com&lt;/i&gt;. https://medium.com/boston-product/the-true-definition-of-done-c6c254a0ff3e&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/azure-boards-pm-extensions/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/azure-boards-pm-extensions/</guid>
+        
+        <category>programming</category>
+        
+        <category>project management</category>
+        
+        <category>dod</category>
+        
+        <category>define-of-done</category>
+        
+        <category>backlog</category>
+        
+        
+        <category>Project Management</category>
+        
+      </item>
+    
+  </channel>
+</rss>
