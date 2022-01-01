@@ -938,3 +938,8 @@ tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
     background-color: #f9f9f9;
 }
+
+.lb-style-custom .lb-like-icon, .lb-style-custom .lb-dislike-icon {
+    width: 16px!important;
+    height: 16px!important;
+}
