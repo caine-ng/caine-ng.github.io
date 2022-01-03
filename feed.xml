@@ -5,9 +5,31 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 01 Jan 2022 13:12:05 +0900</pubDate>
-    <lastBuildDate>Sat, 01 Jan 2022 13:12:05 +0900</lastBuildDate>
+    <pubDate>Tue, 04 Jan 2022 02:10:48 +0900</pubDate>
+    <lastBuildDate>Tue, 04 Jan 2022 02:10:48 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Chào 2022 và câu chuyện khoảng cách công nghệ giữa các quốc gia, tổ chức</title>
+        <description>&lt;!--more--&gt;
+
+</description>
+        <pubDate>Sat, 01 Jan 2022 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/new-year/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/new-year/</guid>
+        
+        <category>Event</category>
+        
+        <category>Newyear event</category>
+        
+        <category>technological distance</category>
+        
+        <category>innovation</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+      </item>
     
       <item>
         <title>Chia tay 2021!</title>
@@ -2501,164 +2523,6 @@ In the next steps, we will implement the following two stories:&lt;/p&gt;
         <category>Site Reliable Engineering</category>
         
         <category>Artificial Intelligence</category>
-        
-      </item>
-    
-      <item>
-        <title>Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</title>
-        <description>&lt;p&gt;&lt;strong&gt;Azure Boards (AB)&lt;/strong&gt; [1] is an essential tool for Project Management [2] in software development projects.
-It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team.
-Linking commits and PRs to working items in Azure Repos [3], Azure Pipelines [4], and Azure Artifacts [5], Azure Boards also supports enhanced code analytics.
-By integrating with Azure Test Plans [6] (however, it is not free [7], 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams.
-Some recent features like Analytics views also give the PM more confidence in making decisions.
-However, the Azure Boards also lacks several important features of a perfect backlog:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;First, there is no &lt;strong&gt;Define-of-Done (DoD)&lt;/strong&gt; checklist in AB by default.&lt;/li&gt;
-  &lt;li&gt;Second, there is not a clear feature to demonstrate the &lt;strong&gt;Product Vision&lt;/strong&gt; to teams. (There is a Delivery Plan to show the roadmap towards a specific release goal).&lt;/li&gt;
-  &lt;li&gt;Finally, if users are already familiar with other tools like JIRA, then AB has a poor backlog view.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This post introduces several extensions to solve these problems: &lt;strong&gt;Define-of-Done&lt;/strong&gt; [8], &lt;strong&gt;Product Vision&lt;/strong&gt; [9], and &lt;strong&gt;Backlog Essentials&lt;/strong&gt; [10].
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;define-of-done-extension-the-perfectionist-for-software&quot;&gt;Define-of-Done extension: The perfectionist for software&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://agile-extensions.gallerycdn.vsassets.io/extensions/agile-extensions/dod/3.0.40/1599210825590/dist/images/screenshot-dod.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;are-you-really-understanding-the-role-of-managers-in-a-software-project&quot;&gt;Are you really understanding the role of managers in a software project?&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Define-of-Done (DoD)&lt;/strong&gt; perfects software!
-Development teams will not acknowledge a bug if there is no feedback or tests.
-Testers and QA helps to ensure technical bugs don’t happen.
-However, logical bugs (wrong business flows, unfriendly or difficult-to-use UX, …) can be found only by users and product owners (PO).
-PO must feedback development teams about logical bugs, and customer support (CS) teams must feedback development teams about claims from end-users.&lt;/p&gt;
-
-&lt;p&gt;Many wrong perceptions that PO, SM, and Product Managers (PdM) are close to testers and QA!
-It is completely wrong!
-Testers and QAs are bug finders, although they only find and report technical bugs.
-PO/SM/PM don’t find bugs (please remember this).
-What they actually do are &lt;strong&gt;APPROVE GOOD PRODUCTS&lt;/strong&gt; and &lt;strong&gt;DENY DEFECTIVE PRODUCTS&lt;/strong&gt;.
-They don’t find bugs because they already have a &lt;strong&gt;checklist&lt;/strong&gt; to classify what is a good product and what is a defective product!&lt;/p&gt;
-
-&lt;p&gt;So the right actions in a perfect development team are like Testers/QA &lt;strong&gt;report&lt;/strong&gt; bugs, Developers &lt;strong&gt;develop products and fix bugs&lt;/strong&gt;, but the product won’t launch without &lt;strong&gt;approval&lt;/strong&gt; from PO/SM/PM.
-If PO/SM/PM &lt;strong&gt;deny&lt;/strong&gt; a thing, don’t even think about launching!&lt;/p&gt;
-
-&lt;p&gt;Then the checklist PO/SM/PdM needs to consult when deciding the launching is a part of DoD.
-Perhaps it contains a list of features that must be completed, a check of flow, UI/UX, …&lt;/p&gt;
-
-&lt;p&gt;But remember that this is only one of the missions that PO/SM/PdM must complete.
-There are many other things to make the development smoothly that they need to do.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;In many software projects, developers and testers miss the task of reporting and obtaining approvals from managers, and &lt;strong&gt;such incidents often lead to serious consequences&lt;/strong&gt;!&lt;/em&gt;
-&lt;em&gt;I observed several young developers in my experience: they were overconfident about their code and sometimes skipped the approval processes when deploying and launching.&lt;/em&gt;
-&lt;em&gt;These behaviors are classified as &lt;strong&gt;bad behaviors (thái độ kém)&lt;/strong&gt; in all software projects!&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;dod-and-acceptance-criteria-ac&quot;&gt;DoD and Acceptance Criteria (AC)&lt;/h2&gt;
-
-&lt;p&gt;If you’re beginning to wonder why this is a product management issue and not a quality control topic for the technical team, that’s in part due to the difference between a general Definition of Done and the specific acceptance criteria for a particular user story.&lt;/p&gt;
-
-&lt;p&gt;DoD is universally applied (with a few exceptions) to everything the engineering organization is attempting to ship.
-While a product management &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OK&lt;/code&gt; might be one of the items on the checklist, it’s a fairly generic definition.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Acceptance criteria&lt;/strong&gt;, however, are unique to the user story or feature in question. 
-These criteria should be defined by product management, with input from the technical team on any specific use cases or parameters that must be met to green light this item before it’s considered done.&lt;/p&gt;
-
-&lt;p&gt;Since DoD is considered for everything, product management should review the definition and make sure they agree that it is comprehensive enough. 
-However, the ownership and management of the definition doesn’t necessarily need to be the responsibility of product management. 
-As long as product is satisfied that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;done&lt;/code&gt; items pass the tests spelled out in the DoD, they can largely leave it be.&lt;/p&gt;
-
-&lt;p&gt;But a shipped product or feature can hardly be considered done in the eyes of product, either.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;For a product manager, you&apos;re not done with a product (or feature) until you&apos;ve put it out to pasture,&lt;/code&gt; says Adam Sigel of Hometap [11]. 
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Once it&apos;s launched, you begin the long tail of customer support, price changes, bug fixes, and compatibility updates. Once you&apos;re done supporting it, it&apos;s time to sunset it. Then, and only then, are you done with a product.&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;dod-extension-in-ab&quot;&gt;DoD extension in AB&lt;/h2&gt;
-
-&lt;p&gt;So for a specific user story, testers, developers and QA must ensure that specific AC are implemented.
-But managers need to ensure that members DONE the AC correcly, at least in terms of workflow.
-A typical DoD checklist is as follows:&lt;/p&gt;
-
-&lt;ul class=&quot;task-list&quot;&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is peer-reviewed&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is checked in&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is deployed to test environment&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code/feature passes regression testing&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code/feature passes smoke testing&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is documented&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Help documentation is updated&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Feature is OK’d by stakeholders&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Without a fulfilled DoD, then the product was launch without a correct workflow and there might be bugs inside.
-A perfect DoD is ensured and a continuous delivery is possible!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;AB&lt;/strong&gt; by default doesn’t provide a checklist feature, however, user can use a items list like &lt;strong&gt;Define-of-Done&lt;/strong&gt; [8].
-It helps a lot in ensuring the quality of a product.&lt;/p&gt;
-
-&lt;h1 id=&quot;product-vision-to-know-what-you-are-working-for-in-long-term&quot;&gt;Product Vision: To know what you are working for in long-term&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://agile-extensions.gallerycdn.vsassets.io/extensions/agile-extensions/product-vision/2.0.26/1588400179018/assets/images/screenshot-product-vision-workhub.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Product Vision (PV)&lt;/strong&gt; is a slogan or motto of a product which describes the value that the product will give to end-users.
-In Agile development, for a short-term, you will hear sprint goals, task descriptions, acceptance criteria, .etc.
-All of them are for short durations, and you will see a part of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;big picture&lt;/code&gt;.
-Such a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;big picture&lt;/code&gt; can be huge, and the owner may need to survey for a long time to give.
-However, once the vision is clear, the owner can describe it in a short sentence, or a photo, a video, or anything which can represents the vision compactly.&lt;/p&gt;
-
-&lt;p&gt;The Product Vision sheds light on the direction the development will working towards.
-Let’s see the PV of SpaceX:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not.
-&lt;a href=&quot;https://www.spacex.com/careers/index.html?department=Food%2520Services&quot;&gt;Elon Musk&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;backlog-essentials-bringing-jira-back-to-azure-devops&quot;&gt;Backlog essentials: Bringing JIRA back to Azure DevOps&lt;/h1&gt;
-
-&lt;iframe style=&quot;float: right; margin: 10px; width: 50%;&quot; src=&quot;https://www.youtube-nocookie.com/embed/q6n6nb7w3kU&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;If you are familiar with JIRA, some of the following features may comfort you:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Quick editting in backlog&lt;/li&gt;
-  &lt;li&gt;Progressbar in issue views&lt;/li&gt;
-  &lt;li&gt;Dynamic backlog charts (Insights)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And when you switch to AB, you find that those features are not there.
-&lt;strong&gt;Backlog essentials (BE, [10])&lt;/strong&gt; add them back to AB.
-One downside is that it is not free, with a price of €288 per year!&lt;/p&gt;
-&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;AzureBoa68:online&quot;&gt;&lt;i&gt;Azure Boards | Microsoft Azure&lt;/i&gt;. https://azure.microsoft.com/en-us/services/devops/boards/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;meredith2017project&quot;&gt;Meredith, J. R., Shafer, S. M., &amp;amp; Mantel Jr, S. J. (2017). &lt;i&gt;Project management: a strategic managerial approach&lt;/i&gt;. John Wiley &amp;amp; Sons.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureRep87:online&quot;&gt;&lt;i&gt;Azure Repos – Git Repositories | Microsoft Azure&lt;/i&gt;. https://azure.microsoft.com/en-us/services/devops/repos/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzurePip74:online&quot;&gt;&lt;i&gt;Azure Pipelines | Microsoft Azure&lt;/i&gt;. https://azure.microsoft.com/en-us/services/devops/pipelines/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureArt12:online&quot;&gt;&lt;i&gt;Azure Artifacts | Microsoft Azure&lt;/i&gt;. https://azure.microsoft.com/en-us/services/devops/artifacts/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureTes7:online&quot;&gt;&lt;i&gt;Azure Test Plans | Microsoft Azure&lt;/i&gt;. https://azure.microsoft.com/en-us/services/devops/test-plans/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureDev1:online&quot;&gt;&lt;i&gt;Azure DevOps Services Pricing | Microsoft Azure&lt;/i&gt;. https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Definiti31:online&quot;&gt;&lt;i&gt;Definition of Done - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.dod&amp;amp;ssr=false#overview&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ProductV55:online&quot;&gt;&lt;i&gt;Product Vision - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.product-vision&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;BacklogE28:online&quot;&gt;&lt;i&gt;Backlog Essentials - Visual Studio Marketplace&lt;/i&gt;. https://marketplace.visualstudio.com/items?itemName=agile-extensions.backlog-essentials&amp;amp;ssr=false#overview&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;mediumco31:online&quot;&gt;&lt;i&gt;medium.com&lt;/i&gt;. https://medium.com/boston-product/the-true-definition-of-done-c6c254a0ff3e&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/azure-boards-pm-extensions/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/azure-boards-pm-extensions/</guid>
-        
-        <category>programming</category>
-        
-        <category>project management</category>
-        
-        <category>dod</category>
-        
-        <category>define-of-done</category>
-        
-        <category>backlog</category>
-        
-        
-        <category>Project Management</category>
         
       </item>
     
