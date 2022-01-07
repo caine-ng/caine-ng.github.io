@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 08 Jan 2022 02:32:37 +0900</pubDate>
-    <lastBuildDate>Sat, 08 Jan 2022 02:32:37 +0900</lastBuildDate>
+    <pubDate>Sat, 08 Jan 2022 03:12:31 +0900</pubDate>
+    <lastBuildDate>Sat, 08 Jan 2022 03:12:31 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -75,10 +75,10 @@ Có lẽ trong năm 2022 sẽ khám phá “lại” một lĩnh vực công ngh
 &lt;h2 id=&quot;câu-chuyện-7-năm-trước&quot;&gt;Câu chuyện 7 năm trước&lt;/h2&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Knowledge is inherently a public good. (Jaffe, 1986 [1])&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Knowledge is inherently a public good. (Jaffe, 1986 [2])&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tri thức về cơ bản là một tài sản chung (trích Jaffe [1])&lt;/code&gt;.
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tri thức về cơ bản là một tài sản chung (trích Jaffe [2])&lt;/code&gt;.
 Nó mang hai hàm nghĩa:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Thứ nhất, không thể giấu giếm tri thức làm của riêng (nó khác với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trí tuệ&lt;/code&gt; là thứ có thể được đăng ký bảo hộ).&lt;/li&gt;
@@ -99,6 +99,36 @@ Tất nhiên là thanh niên đó đã lĩnh đủ của các giáo sư vì ở 
 &lt;p&gt;Bây giờ tôi thấy cái trường hợp này đúng là cần phải hiểu là chỉ cần làm mấy cái vớ vẩn, cũng không cần phải to tát rồi không dám chia sẻ mất đi ý nghĩa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tri thức&lt;/code&gt; trong hàn lâm.
 Và có lẽ cũng đúng như lời người thày lúc ấy nói, thực ra những công nghệ to tát và vĩ đại có khi thực ra là những thứ vớ vẩn thôi mà phải không?&lt;/p&gt;
 
+&lt;h2 id=&quot;đến-câu-chuyện-rd-spillovers-và-knowledge-diffusion&quot;&gt;Đến câu chuyện R&amp;amp;D spillovers và knowledge diffusion&lt;/h2&gt;
+
+&lt;p&gt;Các nghiên cứu về mối tương quan giữa không gian công nghệ, lợi nhuận và giá trị thị trường của các firm đã có từ khá lâu.
+Thật thú vị là câu chuyện kể trên lại khá liên quan bởi công nghệ chốt trong phần nghiên cứu PhD đó lại vốn là một tri thức đã phổ biến và được đào sâu nghiên cứu ở trong hàn lâm.
+Do vậy, ở mức độ nào đó dù là đăng ký bản quyền cho một thứ mà giới hàn lâm đã coi là public good thì nó rất là … vớ vẩn.
+Tất nhiên chuyện đăng ký bản quyền là thể hiện giá trị R&amp;amp;D trong các doanh nghiệp, và là một phần quan trọng trong cái gọi là tương tác khoa học giữa hàn lâm và giới công nghiệp.&lt;/p&gt;
+
+&lt;p&gt;Trong nhánh nghiên cứu này có thể kể đến công trình của Jaffe [2, 3] và rất nhiều công trình sau đó của các nhà nghiên cứu khác.
+Thì có lẽ có một khái niệm khá quan trọng là &lt;strong&gt;technological space&lt;/strong&gt; tức là &lt;strong&gt;không gian công nghệ&lt;/strong&gt;.
+Ở đây, Jaffe đã xây dựng 1 vector 49 chiều (thu gọn từ 328 classes trong hệ thống patent toàn cầu) để biểu diễn vị trí của 1 firm trong không gian công nghệ.
+Ví dụ, hệ thống patent toàn cầu có phân nhóm lĩnh vực thành 328 classes, thì tác giả Jaffe đã group lại thành 49 categories bao quát nhất mọi lĩnh vực công nghệ.
+Giả sử công ty $A$ có $N$ patent thuộc 49 categories trên (đánh số từ 1) thì $f_i(A),~i=1,2, \ldots $ là số lượng pattern của $A$ trong lĩnh vực $i$, thì&lt;/p&gt;
+
+&lt;p&gt;$\sum_{i=1}^{49} f_i(A)=N$&lt;/p&gt;
+
+&lt;p&gt;và vector biểu diễn của công ty A (&lt;strong&gt;technological vector&lt;/strong&gt;) là&lt;/p&gt;
+
+&lt;p&gt;$F_A=\begin{bmatrix}
+f_1 \newline
+f_2 \newline
+\vdots \newline
+f_{49}
+\end{bmatrix}$&lt;/p&gt;
+
+&lt;p&gt;với $f_i=\frac{f_i(A)}{N},~i=1, 2, \ldots $.&lt;/p&gt;
+
+&lt;p&gt;Cứ như vậy, các điểm vector đều nằm trên một mặt phẳng (hyperplane) 49 chiều $\sum_{i=1}^{49}x_i=1$.
+Khi 2 công ty có cùng một mối quan tâm về 1 công nghệ nào đó thì bằng chứng sẽ là về mặt R&amp;amp;D ở lĩnh vực đó ($i$ chả hạn) chỉ số sẽ cao lên.&lt;/p&gt;
+
+&lt;p&gt;Jaffe đã nghiên cứu về một hiện tượng thú vị trong innovation đó là &lt;strong&gt;R&amp;amp;D spillovers&lt;/strong&gt; [2, 3], hay là sự khuếch tán của tri thức R&amp;amp;D, hay là &lt;strong&gt;knowledge diffusion&lt;/strong&gt;.&lt;/p&gt;
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;PMPCerti18:online&quot;&gt;PMA. &lt;i&gt;PMP Certification Requirements | Project Management Certification &amp;amp; PMP Certification Eligibility&lt;/i&gt;. https://projectmanagementacademy.net/pmp-certification-requirements&lt;/span&gt;&lt;/li&gt;
