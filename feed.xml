@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 08 Jan 2022 03:12:31 +0900</pubDate>
-    <lastBuildDate>Sat, 08 Jan 2022 03:12:31 +0900</lastBuildDate>
+    <pubDate>Sat, 08 Jan 2022 04:12:50 +0900</pubDate>
+    <lastBuildDate>Sat, 08 Jan 2022 04:12:50 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -128,13 +128,48 @@ f_{49}
 &lt;p&gt;Cứ như vậy, các điểm vector đều nằm trên một mặt phẳng (hyperplane) 49 chiều $\sum_{i=1}^{49}x_i=1$.
 Khi 2 công ty có cùng một mối quan tâm về 1 công nghệ nào đó thì bằng chứng sẽ là về mặt R&amp;amp;D ở lĩnh vực đó ($i$ chả hạn) chỉ số sẽ cao lên.&lt;/p&gt;
 
-&lt;p&gt;Jaffe đã nghiên cứu về một hiện tượng thú vị trong innovation đó là &lt;strong&gt;R&amp;amp;D spillovers&lt;/strong&gt; [2, 3], hay là sự khuếch tán của tri thức R&amp;amp;D, hay là &lt;strong&gt;knowledge diffusion&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Jaffe đã nghiên cứu về một hiện tượng thú vị trong innovation đó là &lt;strong&gt;R&amp;amp;D spillovers&lt;/strong&gt; [2, 3], hay là sự khuếch tán của tri thức R&amp;amp;D, hay là &lt;strong&gt;knowledge diffusion&lt;/strong&gt;.
+Nghiên cứu của Jaffe vào năm 1986 chủ yếu dựa trên quan sát của những người đi trước rằng khi có một công ty trong một lĩnh vực nào đó nâng cao đầu tư vào R&amp;amp;D thì đột nhiên những công ty xung quanh cũng bắt đầu phải chạy theo đầu tư vào mảng đó.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Firms whose research is in areas where there is much research by other firms have, on average, more patents per dollar of R&amp;amp;D and a higher return to R&amp;amp;D in terms of accounting profits or market value, though firms with very low own—R&amp;amp;D suffer lower profits and market value if their neighbors do a lot.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tức là nếu trong cùng 1 mảng mà cty đầu tư nhiều hơn vào R&amp;amp;D so với các công ty khác cùng lĩnh vực thì sẽ có giá trị thị thường lợi nhuận cao hơn.
+Và ngược lại nếu đầu tư ít hơn các công ty neighbors thì sẽ bị thụt lùi về lợi nhuận lẫn giá trị thị trường.
+Điều này cũng giải thích tại sao các tập đoàn công nghệ lớn không tiếc tiền đầu tư để đứng đầu một lĩnh vực nào đó so với các công ty lân cận.&lt;/p&gt;
+
+&lt;p&gt;Ở đây chúng ta cũng cần hiểu khái niệm &lt;strong&gt;neighbor (lân cận)&lt;/strong&gt; là hiểu theo nghĩa địa lý (geographical).
+Rất nhiều nghiên cứu theo sau Jaffe về sau đều chỉ ra mối correlation mạnh giữa khoảng cách địa lý và khoảng cách trong không gian công nghệ (đo bằng vector 49 chiều) [3, 4].
+R&amp;amp;D spillovers không chỉ tồn tại trong các firms cùng lĩnh vực mà còn tồn tại giữa hàn lâm và công nghiệp theo Jaffe, 1989 [3].
+Thì nghiên cứu hàn lâm lại có vẻ thúc đẩy tiến bộ trong các công ty xung quanh (gần về địa lý) hoặc có hợp tác với trường đại học ấy [3].
+Khá nhiều nghiên cứu về &lt;strong&gt;spillovers (knowledge diffusion)&lt;/strong&gt; đã trải thành một mạch dài từ sau Jaffe, 1986 [2]:
+David và cộng sự [5] thì nghiên cứu về tác động của public R&amp;amp;D trong việc &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kích hoạt&lt;/code&gt; private R&amp;amp;D.
+Baptista và Swann [6] cũng chỉ ra khá nhiều bằng chứng cho thấy “tốt nhất là đi cùng nhau” giữa các firm trong cùng cluster.
+Những nghiên cứu về &lt;strong&gt;open innovation&lt;/strong&gt; [7, 8] cũng cho thấy benefits của kinh tế từ R&amp;amp;D trong các trường đại học.&lt;/p&gt;
+
+&lt;p&gt;Trên đây là để hiểu rõ nguồn gốc của đống nghiên cứu đã có. Tại sao lại có cái đống này, và có căn bản.
+Gần đây từ những năm 2020 trở ra có cái gì thì cũng chịu khó xem thì thấy vẫn có người làm theo hướng này kha khá:
+Sun và cộng sự [9] thì tập trung vào vấn đề tối ưu hiệu suất sử dụng năng lượng như 1 benefit của R&amp;amp;D spillover.
+Fini và cộng sự [10] thì cho thấy là nếu nhà nghiên cứu &lt;strong&gt;khởi nghiệp&lt;/strong&gt; và đóng góp cho việc diffuse tri thức thì sẽ tăng hiệu suất nghiên cứu lên.
+Ufuk và cộng sự [11] thì nghiên cứu trên tập dữ liệu của Pháp thì thấy rõ spillovers đang bị lệch về phía nghiên cứu ứng dụng mà ít về phía nghiên cứu cơ bản.
+Hsu và cộng sự [12] thì nghiên cứu về vấn đề Trung Quốc: spillovers tại Trung Quốc.
+Martinez và cộng sự [13] thì trả lời vấn đề crowdfunding ảnh hưởng tới spillovers ra sao.&lt;/p&gt;
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;PMPCerti18:online&quot;&gt;PMA. &lt;i&gt;PMP Certification Requirements | Project Management Certification &amp;amp; PMP Certification Eligibility&lt;/i&gt;. https://projectmanagementacademy.net/pmp-certification-requirements&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;jaffe1986technological&quot;&gt;Jaffe, A. B. (1986). Technological Opportunity and Spillovers of R&amp;amp;D: Evidence from Firms’ Patents, Profits, and Market Value. &lt;i&gt;The American Economic Review&lt;/i&gt;, &lt;i&gt;76&lt;/i&gt;(5), 984–1001.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;jaffe1989real&quot;&gt;Jaffe, A. B. (1989). Real effects of academic research. &lt;i&gt;The American Economic Review&lt;/i&gt;, 957–970.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;audretsch1996r&quot;&gt;Audretsch, D. B., &amp;amp; Feldman, M. P. (1996). R&amp;amp;D spillovers and the geography of innovation and production. &lt;i&gt;The American Economic Review&lt;/i&gt;, &lt;i&gt;86&lt;/i&gt;(3), 630–640.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;audretsch1996r&quot;&gt;Audretsch, D. B., &amp;amp; Feldman, M. P. (1996). R&amp;amp;D spillovers and the geography of innovation and production. &lt;i&gt;The American Economic Review&lt;/i&gt;, &lt;i&gt;86&lt;/i&gt;(3), 630–640.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;david2000public&quot;&gt;David, P. A., Hall, B. H., &amp;amp; Toole, A. A. (2000). Is public R&amp;amp;D a complement or substitute for private R&amp;amp;D? A review of the econometric evidence. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;29&lt;/i&gt;(4-5), 497–529.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;baptista1998firms&quot;&gt;Baptista, R., &amp;amp; Swann, P. (1998). Do firms in clusters innovate more? &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;27&lt;/i&gt;(5), 525–540.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;salter2001economic&quot;&gt;Salter, A. J., &amp;amp; Martin, B. R. (2001). The economic benefits of publicly funded basic research: a critical review. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;30&lt;/i&gt;(3), 509–532.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;perkmann2007university&quot;&gt;Perkmann, M., &amp;amp; Walsh, K. (2007). University–industry relationships and open innovation: Towards a research agenda. &lt;i&gt;International Journal of Management Reviews&lt;/i&gt;, &lt;i&gt;9&lt;/i&gt;(4), 259–280.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;sun2021energy&quot;&gt;Sun, H., Edziah, B. K., Kporsu, A. K., Sarkodie, S. A., &amp;amp; Taghizadeh-Hesary, F. (2021). Energy efficiency: The role of technological innovation and knowledge spillover. &lt;i&gt;Technological Forecasting and Social Change&lt;/i&gt;, &lt;i&gt;167&lt;/i&gt;, 120659.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;fini2021attention&quot;&gt;Fini, R., Perkmann, M., &amp;amp; Michael Ross, J. (2021). Attention to exploration: The effect of academic entrepreneurship on the production of scientific knowledge. &lt;i&gt;Organization Science&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;akcigit2021back&quot;&gt;Akcigit, U., Hanley, D., &amp;amp; Serrano-Velarde, N. (2021). Back to basics: Basic research spillovers, innovation policy, and growth. &lt;i&gt;The Review of Economic Studies&lt;/i&gt;, &lt;i&gt;88&lt;/i&gt;(1), 1–43.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hsu2021rich&quot;&gt;Hsu, D. H., Hsu, P.-H., &amp;amp; Zhao, Q. (2021). Rich on paper? Chinese firms’ academic publications, patents, and market value. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;50&lt;/i&gt;(9), 104319.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;martinez2021knowledge&quot;&gt;Martı́nez-Climent Carla, Mastrangelo, L., &amp;amp; Ribeiro-Soriano, D. (2021). The knowledge spillover effect of crowdfunding. &lt;i&gt;Knowledge Management Research &amp;amp; Practice&lt;/i&gt;, &lt;i&gt;19&lt;/i&gt;(1), 106–116.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 01 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/new-year/</link>
