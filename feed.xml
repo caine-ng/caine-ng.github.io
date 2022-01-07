@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Jan 2022 04:28:49 +0900</pubDate>
-    <lastBuildDate>Wed, 05 Jan 2022 04:28:49 +0900</lastBuildDate>
+    <pubDate>Sat, 08 Jan 2022 02:32:37 +0900</pubDate>
+    <lastBuildDate>Sat, 08 Jan 2022 02:32:37 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -72,11 +72,39 @@ Có lẽ trong năm 2022 sẽ khám phá “lại” một lĩnh vực công ngh
 
 &lt;h1 id=&quot;khoảng-cách-công-nghệ&quot;&gt;Khoảng cách công nghệ&lt;/h1&gt;
 
+&lt;h2 id=&quot;câu-chuyện-7-năm-trước&quot;&gt;Câu chuyện 7 năm trước&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Knowledge is inherently a public good. (Jaffe, 1986 [1])&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tri thức về cơ bản là một tài sản chung (trích Jaffe [1])&lt;/code&gt;.
+Nó mang hai hàm nghĩa:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Thứ nhất, không thể giấu giếm tri thức làm của riêng (nó khác với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trí tuệ&lt;/code&gt; là thứ có thể được đăng ký bảo hộ).&lt;/li&gt;
+  &lt;li&gt;Thứ hai, tri thức có thể lan tỏa như thông tin.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Câu chuyện về khoảng cách công nghệ có nguồn gốc từ 7 năm trước, khi tôi còn tham gia một chương trình lãnh đạo trẻ.
+Thật thú vị là trong một bài thuyết trình cuối khóa về thành tích thực tập tại các công ty.
+Khi đó một điều kiện bắt buộc tham gia chương trình lãnh đạo trẻ là sẽ phải tham gia thực tập vài tháng tại 1 doanh nghiệp ở nước ngoài (nhưng không được là doanh nghiệp ở quốc gia của chính mình, tránh cảnh tranh thủ về nước).
+Có nhiều người xin sang châu Âu, Mỹ để làm intern ngắn hạn.
+Trong các bạn lúc đó phát biểu có một sinh viên PhD khi đó lên thuyết trình, nhưng chỉ sau 2 slide giới thiệu cậu ta kết thúc rằng vì đã ký NDA với doanh nghiệp lớn ở Mỹ về lĩnh vực phần mềm (lớn nhất thế giới) nên không thể trình bày tiếp.
+Tất nhiên là thanh niên đó đã lĩnh đủ của các giáo sư vì ở trong trường đại học &lt;strong&gt;cái quan trọng nhất chính là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tri thức&lt;/code&gt;&lt;/strong&gt;, mà tri thức thì là public good.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Đến khi nào anh hiểu được rằng những tri thức vĩ đại và to lớn mà người ta hay gọi là trí tuệ ấy, luôn tồn tại dưới vỏ bọc tầm thường và vớ vẩn, thì anh mới hành động như người có tri thức được.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bây giờ tôi thấy cái trường hợp này đúng là cần phải hiểu là chỉ cần làm mấy cái vớ vẩn, cũng không cần phải to tát rồi không dám chia sẻ mất đi ý nghĩa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tri thức&lt;/code&gt; trong hàn lâm.
+Và có lẽ cũng đúng như lời người thày lúc ấy nói, thực ra những công nghệ to tát và vĩ đại có khi thực ra là những thứ vớ vẩn thôi mà phải không?&lt;/p&gt;
+
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;PMPCerti18:online&quot;&gt;PMA. &lt;i&gt;PMP Certification Requirements | Project Management Certification &amp;amp; PMP Certification Eligibility&lt;/i&gt;. https://projectmanagementacademy.net/pmp-certification-requirements&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;jaffe1986technological&quot;&gt;Jaffe, A. B. (1986). Technological Opportunity and Spillovers of R&amp;amp;D: Evidence from Firms’ Patents, Profits, and Market Value. &lt;i&gt;The American Economic Review&lt;/i&gt;, &lt;i&gt;76&lt;/i&gt;(5), 984–1001.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;jaffe1989real&quot;&gt;Jaffe, A. B. (1989). Real effects of academic research. &lt;i&gt;The American Economic Review&lt;/i&gt;, 957–970.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;jaffe1989real&quot;&gt;Jaffe, A. B. (1989). Real effects of academic research. &lt;i&gt;The American Economic Review&lt;/i&gt;, 957–970.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;audretsch1996r&quot;&gt;Audretsch, D. B., &amp;amp; Feldman, M. P. (1996). R&amp;amp;D spillovers and the geography of innovation and production. &lt;i&gt;The American Economic Review&lt;/i&gt;, &lt;i&gt;86&lt;/i&gt;(3), 630–640.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 01 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/new-year/</link>
