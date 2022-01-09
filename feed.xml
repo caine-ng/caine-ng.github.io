@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Jan 2022 23:24:13 +0900</pubDate>
-    <lastBuildDate>Sun, 09 Jan 2022 23:24:13 +0900</lastBuildDate>
+    <pubDate>Sun, 09 Jan 2022 23:51:39 +0900</pubDate>
+    <lastBuildDate>Sun, 09 Jan 2022 23:51:39 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -48,11 +48,17 @@ Because all maintenance is up on the providers, this solution costs you nothing:
 Note that the &lt;a href=&quot;https://english.api.rakuten.net/theapiguy/api/public-holiday&quot;&gt;Public Holidays API&lt;/a&gt; has low latency (59ms) and is completely free.
 Another solution is to build an endpoint in your own API like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/api/v1/holidays&lt;/code&gt; to validate the holidays, but while such a ready-to-use solution is there, why should you waste time and money to build/manage/maintain on your own?&lt;/p&gt;
 
+&lt;p&gt;When you have an API, you should make sure you don’t miss anything when publishing your solution:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://api.rakuten.co.jp/docs/ja-images/ProviderWelcome_1.png&quot; alt=&quot;RapidAPI&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;RapidAPI makes your API easy to distribute and monetize.
+Adding your API to the RapidAPI Hub gets you instant exposure to our growing user base, a search-engine-optimized profile page for your API, as well as features like user management and billing services.
+RapidAPI also serves functional testings, API monitoring dashboards, and many other premiere features like API authentication.&lt;/p&gt;
+
 &lt;h1 id=&quot;rapidapi-for-api-vendors&quot;&gt;RapidApi for API Vendors&lt;/h1&gt;
 
 &lt;h1 id=&quot;rapidapi-for-app-developers&quot;&gt;RapidAPI for App Developers&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://api.rakuten.co.jp/docs/ja-images/ProviderWelcome_1.png&quot; alt=&quot;RapidAPI&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 </description>
