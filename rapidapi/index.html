@@ -285,7 +285,12 @@
                     
                     <div class="toc mt-4 mb-4 lead">
                         <h3 class="font-weight-bold">Summary</h3>
-                        
+                        <ul>
+  <li><a href="#what-is-rapidapi">What is RapidAPI?</a></li>
+  <li><a href="#rapidapi-for-api-vendors">RapidApi for API Vendors</a></li>
+  <li><a href="#rapidapi-for-app-developers">RapidAPI for App Developers</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
                     </div>
                 
                 <!-- End Toc -->
@@ -297,6 +302,42 @@ The API marketplace platform will connect API providers and developers.
 Developers in Japan and across Asia will be able to find, test, and connect to thousands of APIs for their applications.
 The marketplace will also allow API providers to connect with the global developer community through personalized API portals.
  <!--more--></p>
+
+<h1 id="what-is-rapidapi">What is RapidAPI?</h1>
+
+<p>Let us assume that you have an API that is ready for production.
+You need to add authentication like API key, OAuth 2, or something else.
+You need to deploy your API to somewhere that is stable and reliable.</p>
+
+<blockquote>
+  <p>What is the <strong>shortest path</strong> to achieving your goal?</p>
+</blockquote>
+
+<p>You are an application developer, and you need to manage the records of some master data for the app.
+For example, you need to maintain the list of public holidays in your app.
+You don’t want to hardcode those things in the code.
+Note that the public holidays change between countries and sometimes due to the law it will change between years.
+It is somewhat troublesome to maintain the records in your database as it will make you allocate some effort and human resources there.</p>
+
+<blockquote>
+  <p>What is the most convenient way to maintain such data?</p>
+</blockquote>
+
+<p>In both scenarios, Rakuten RapidAPI Marketplace gives you excellent solutions.
+Either maintenance of master data (public holidays) or publishing a new API, you can do all of the lifecycles in one platform.</p>
+
+<p>For example, when you want to check a day is a holiday or not, you can thus search for a free API like this <a href="https://english.api.rakuten.net/theapiguy/api/public-holiday">one</a> and make a request.
+Because all maintenance is up on the providers, this solution costs you nothing: you don’t need to worry about maintaining the records of holidays data (which shouldn’t be your matter in any way) and focus on your own application logic.
+Note that the <a href="https://english.api.rakuten.net/theapiguy/api/public-holiday">Public Holidays API</a> has low latency (59ms) and is completely free.
+Another solution is to build an endpoint in your own API like <code class="language-plaintext highlighter-rouge">/api/v1/holidays</code> to validate the holidays, but while such a ready-to-use solution is there, why should you waste time and money to build/manage/maintain on your own?</p>
+
+<h1 id="rapidapi-for-api-vendors">RapidApi for API Vendors</h1>
+
+<h1 id="rapidapi-for-app-developers">RapidAPI for App Developers</h1>
+
+<p><img src="https://api.rakuten.co.jp/docs/ja-images/ProviderWelcome_1.png" alt="RapidAPI" /></p>
+
+<h1 id="conclusion">Conclusion</h1>
 
             </div>
 
