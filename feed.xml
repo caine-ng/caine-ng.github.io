@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Jan 2022 00:08:26 +0900</pubDate>
-    <lastBuildDate>Thu, 13 Jan 2022 00:08:26 +0900</lastBuildDate>
+    <pubDate>Thu, 13 Jan 2022 00:28:02 +0900</pubDate>
+    <lastBuildDate>Thu, 13 Jan 2022 00:28:02 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -48,7 +48,7 @@ Because all maintenance is up on the providers, this solution costs you nothing:
 Note that the &lt;a href=&quot;https://english.api.rakuten.net/theapiguy/api/public-holiday&quot;&gt;Public Holidays API&lt;/a&gt; has low latency (59ms) and is completely free.
 Another solution is to build an endpoint in your own API like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/api/v1/holidays&lt;/code&gt; to validate the holidays, but while such a ready-to-use solution is there, why should you waste time and money to build/manage/maintain on your own?&lt;/p&gt;
 
-&lt;p&gt;When you have an API, you should make sure you don’t miss anything when publishing your solution:&lt;/p&gt;
+&lt;p&gt;When you have an API, you should make sure you don’t miss a checklist when publishing your solution:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://api.rakuten.co.jp/docs/ja-images/ProviderWelcome_1.png&quot; alt=&quot;RapidAPI&quot; /&gt;&lt;/p&gt;
 
@@ -56,8 +56,21 @@ Another solution is to build an endpoint in your own API like &lt;code class=&qu
 Adding your API to the RapidAPI Hub gets you instant exposure to our growing user base, a search-engine-optimized profile page for your API, as well as features like user management and billing services.
 RapidAPI also serves functional testings, API monitoring dashboards, and many other premiere features like API authentication.&lt;/p&gt;
 
-&lt;h1 id=&quot;rapidapi-for-api-vendors&quot;&gt;RapidApi for API Vendors&lt;/h1&gt;
+&lt;h1 id=&quot;rapidapi-for-api-vendors&quot;&gt;RapidAPI for API Vendors&lt;/h1&gt;
 
+&lt;p&gt;The workflow between an app developer’s client to a vendor API can be as follows:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/rapidapi.svg&quot; alt=&quot;rapidapi&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;An &lt;a href=&quot;https://docs.rapidapi.com/docs/keys&quot;&gt;API Key&lt;/a&gt; is generated and appended to the request’s header to RapidAPI servers.&lt;/li&gt;
+  &lt;li&gt;RapidAPI authenticate the request (using API Key and optionally a configured authentication method like OAuth 2). Then it modifies the requests header to append &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X-RapidAPI-*&lt;/code&gt; headers.&lt;/li&gt;
+  &lt;li&gt;The vendor API (destination API in the diagram) checks the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X-RapidAPI-*&lt;/code&gt; headers and authenticates the modified requests.&lt;/li&gt;
+  &lt;li&gt;A response is generated according to the requested information and is then returned to RapidAPI.&lt;/li&gt;
+  &lt;li&gt;RapidAPI modifies the response from vendor servers. It appends Rapid API headers (for example, headers about rate limits) or generates a new response.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;As you can see, RapidAPI Marketplace acts as a proxy between app servers (client in the diagram) and the vendor API servers.&lt;/p&gt;
 &lt;h1 id=&quot;rapidapi-for-app-developers&quot;&gt;RapidAPI for App Developers&lt;/h1&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
