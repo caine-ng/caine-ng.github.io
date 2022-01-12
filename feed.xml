@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Jan 2022 00:28:02 +0900</pubDate>
-    <lastBuildDate>Thu, 13 Jan 2022 00:28:02 +0900</lastBuildDate>
+    <pubDate>Thu, 13 Jan 2022 01:18:56 +0900</pubDate>
+    <lastBuildDate>Thu, 13 Jan 2022 01:18:56 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -14,7 +14,7 @@
         <description>&lt;p&gt;&lt;em&gt;Image Credit: &lt;a href=&quot;https://financefeeds.com/rakuten-launches-api-marketplace/&quot;&gt;FinanceFeeds&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Rakuten launched RapidAPI Marketplace in 2018 as a result of the collaboration between Japan’s Rakuten Inc and San Francisco-based startup RapidAPI.
-&lt;a href=&quot;https://api.rakuten.co.jp/en/&quot;&gt;The API marketplace&lt;/a&gt; aims to provide software developers in Japan and Asia unified access to more than 8,000 APIs with localized documentation and resources in Japanese and English.
+&lt;a href=&quot;https://api.rakuten.co.jp/en/&quot;&gt;The API marketplace&lt;/a&gt; aims to provide software developers in Japan and Asia unified access to more than 8,000 APIs with localized documentation and resources in Japan’s language and English.
 The API marketplace platform will connect API providers and developers.
 Developers in Japan and across Asia will be able to find, test, and connect to thousands of APIs for their applications.
 The marketplace will also allow API providers to connect with the global developer community through personalized API portals.
@@ -30,7 +30,7 @@ You need to deploy your API to somewhere that is stable and reliable.&lt;/p&gt;
   &lt;p&gt;What is the &lt;strong&gt;shortest path&lt;/strong&gt; to achieving your goal?&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;You are an application developer, and you need to manage the records of some master data for the app.
+&lt;p&gt;You are an application developer, and you need to manage the records of some data for the app.
 For example, you need to maintain the list of public holidays in your app.
 You don’t want to hardcode those things in the code.
 Note that the public holidays change between countries and sometimes due to the law it will change between years.
@@ -41,18 +41,14 @@ It is somewhat troublesome to maintain the records in your database as it will m
 &lt;/blockquote&gt;
 
 &lt;p&gt;In both scenarios, Rakuten RapidAPI Marketplace gives you excellent solutions.
-Either maintenance of master data (public holidays) or publishing a new API, you can do all of the lifecycles in one platform.&lt;/p&gt;
+Either maintenance of the data (public holidays) or publishing a new API, you can do all of the lifecycles in one platform.&lt;/p&gt;
 
 &lt;p&gt;For example, when you want to check a day is a holiday or not, you can thus search for a free API like this &lt;a href=&quot;https://english.api.rakuten.net/theapiguy/api/public-holiday&quot;&gt;one&lt;/a&gt; and make a request.
 Because all maintenance is up on the providers, this solution costs you nothing: you don’t need to worry about maintaining the records of holidays data (which shouldn’t be your matter in any way) and focus on your own application logic.
 Note that the &lt;a href=&quot;https://english.api.rakuten.net/theapiguy/api/public-holiday&quot;&gt;Public Holidays API&lt;/a&gt; has low latency (59ms) and is completely free.
 Another solution is to build an endpoint in your own API like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/api/v1/holidays&lt;/code&gt; to validate the holidays, but while such a ready-to-use solution is there, why should you waste time and money to build/manage/maintain on your own?&lt;/p&gt;
 
-&lt;p&gt;When you have an API, you should make sure you don’t miss a checklist when publishing your solution:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://api.rakuten.co.jp/docs/ja-images/ProviderWelcome_1.png&quot; alt=&quot;RapidAPI&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;RapidAPI makes your API easy to distribute and monetize.
+&lt;p&gt;RapidAPI helps your API to distribute and monetize.
 Adding your API to the RapidAPI Hub gets you instant exposure to our growing user base, a search-engine-optimized profile page for your API, as well as features like user management and billing services.
 RapidAPI also serves functional testings, API monitoring dashboards, and many other premiere features like API authentication.&lt;/p&gt;
 
@@ -70,10 +66,94 @@ RapidAPI also serves functional testings, API monitoring dashboards, and many ot
   &lt;li&gt;RapidAPI modifies the response from vendor servers. It appends Rapid API headers (for example, headers about rate limits) or generates a new response.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;As you can see, RapidAPI Marketplace acts as a proxy between app servers (client in the diagram) and the vendor API servers.&lt;/p&gt;
+&lt;p&gt;As you can see, RapidAPI Marketplace acts as a proxy between app servers (client in the diagram) and the vendor API servers.
+The vendors &lt;a href=&quot;https://docs.rapidapi.com/docs/add-an-api-basics&quot;&gt;register&lt;/a&gt; their APIs and &lt;a href=&quot;https://docs.rapidapi.com/docs/add-an-api-advanced-settings&quot;&gt;fine-tune&lt;/a&gt; the settings in RapidAPI dashboard.
+All API endpoints are relative to a base URL, which is added as a “prefix” to all API endpoints.
+This approach avoids the need to define absolute URLs for endpoints every time and increases API portability by changing the base URL.&lt;/p&gt;
+
+&lt;p&gt;API vendors can &lt;a href=&quot;https://docs.rapidapi.com/docs/configuring-api-authentication&quot;&gt;add&lt;/a&gt; basic authentication or OAuth 2 to their APIs.&lt;/p&gt;
+
+&lt;p&gt;RapidAPI supports &lt;a href=&quot;https://docs.rapidapi.com/docs/automating-api-provisioning&quot;&gt;automatic API provisioning using OpenAPI&lt;/a&gt; and &lt;a href=&quot;https://docs.rapidapi.com/docs/transformations&quot;&gt;custom transformations&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;RapidAPI has basic plan options so app developers can choose among these options to pay:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;API Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Free APIs&lt;/td&gt;
+      &lt;td&gt;APIs that do not require a credit card or subscription to consume.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pay Per Use&lt;/td&gt;
+      &lt;td&gt;APIs that don’t have a subscription fee associated with them. A credit card is required as you pay for what you use on the API.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Freemium APIs&lt;/td&gt;
+      &lt;td&gt;Paid APIs that also include a limited free tier. These require a credit card, even for the free plan.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Paid APIs&lt;/td&gt;
+      &lt;td&gt;APIs that require a paid subscription plan and credit card to consume.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;some-notes-on-security&quot;&gt;Some notes on security&lt;/h2&gt;
+
+&lt;p&gt;RapidAPI supports &lt;a href=&quot;https://docs.rapidapi.com/docs/secret-headers-parameters&quot;&gt;secret headers and parameters&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;RapidAPI allows you to add secret headers and/or query string parameters to API requests. The RapidAPI proxy adds these secrets to every request but is &lt;strong&gt;hidden from the API consumers&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Note that even the consumers who make the requests do not know about these secrets.
+This differs from header and query authentication methods where consumers know all secrets in the requests they make to RapidAPI.&lt;/p&gt;
+
+&lt;p&gt;Users should configure RapidAPI &lt;a href=&quot;https://docs.rapidapi.com/docs/security-threat-protection&quot;&gt;security&lt;/a&gt; features like firewalls, threat protection, schema validation, and request size limit (which returns error code 413).&lt;/p&gt;
+
+&lt;p&gt;Vendors can set their API to &lt;a href=&quot;https://docs.rapidapi.com/docs/private-apis-api-logo&quot;&gt;private&lt;/a&gt; where only invited users can access.&lt;/p&gt;
+
+&lt;h2 id=&quot;audit-and-marketing-tools&quot;&gt;Audit and marketing tools&lt;/h2&gt;
+
+&lt;p&gt;RapidAPI provides &lt;a href=&quot;https://docs.rapidapi.com/docs/provider-dashboard&quot;&gt;Provider Dashboard&lt;/a&gt; where vendors can monitor their API usages.
+Another nice thing is that as a vendor, you can make your monetization more useful using &lt;a href=&quot;https://docs.rapidapi.com/docs/ive-added-my-api-to-rapidapi-now-what&quot;&gt;Marketing API&lt;/a&gt;.
+When you have an API, you should make sure you don’t miss a checklist when publishing your solution:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://api.rakuten.co.jp/docs/ja-images/ProviderWelcome_1.png&quot; alt=&quot;RapidAPI&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This checklist helps you have a better SEO for your API.&lt;/p&gt;
+
+&lt;h2 id=&quot;api-testing&quot;&gt;API Testing&lt;/h2&gt;
+
+&lt;p&gt;Testing is quite tedious!
+RapidAPI helps vendors reduce testing costs with their &lt;a href=&quot;https://docs.rapidapi.com/docs/rapidapi-testing-overview&quot;&gt;API testing feature&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://files.readme.io/726dc84-run-code.png&quot; alt=&quot;RapidAPI testing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you are already familiar with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;postman-tool&lt;/code&gt; you are ready to go with RapidAPI &lt;a href=&quot;https://docs.rapidapi.com/docs/create-a-test-advanced&quot;&gt;advanced testing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://files.readme.io/fabfeb1-Screen_Shot_2020-12-03_at_4.00.53_PM.png&quot; alt=&quot;Advanced testing&quot; /&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;rapidapi-for-app-developers&quot;&gt;RapidAPI for App Developers&lt;/h1&gt;
 
+&lt;p&gt;As an app developer, you can find that &lt;a href=&quot;https://rapidapi.com/hub&quot;&gt;RapidAPI Hub&lt;/a&gt; now has more than 10,000 APIs.
+Even you want to develop an OCR app or a Translation app, you can find your API right away.&lt;/p&gt;
+
+&lt;p&gt;All you need is to register a RapidAPI account, choose your API and then &lt;strong&gt;make a payment&lt;/strong&gt;.
+Finally, you can &lt;a href=&quot;https://docs.rapidapi.com/docs/connecting-to-an-api&quot;&gt;connect&lt;/a&gt; to your paid API using the API key.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/rapidapi-vin.png&quot; alt=&quot;RapidAPI VIN&quot; /&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;It is worth noting that RapidAPI supports not only REST API but also &lt;a href=&quot;https://docs.rapidapi.com/docs/graphql-apis&quot;&gt;GraphQL&lt;/a&gt;, &lt;a href=&quot;https://docs.rapidapi.com/docs/adding-soap-apis&quot;&gt;SOAP&lt;/a&gt;, and &lt;a href=&quot;https://docs.rapidapi.com/docs/kafka-apis&quot;&gt;Kafka&lt;/a&gt; APIs.
+We did not touch &lt;a href=&quot;https://docs.rapidapi.com/docs/what-is-rapidapi-for-teams&quot;&gt;RapidAPI for Teams&lt;/a&gt;, but it might be useful at the organization level.&lt;/p&gt;
 </description>
         <pubDate>Sun, 09 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/rapidapi/</link>
