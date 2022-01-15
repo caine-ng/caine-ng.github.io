@@ -5,19 +5,27 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jan 2022 02:46:10 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jan 2022 02:46:10 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jan 2022 03:08:57 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jan 2022 03:08:57 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Cán cân thu nhập: hàn lâm, khởi nghiệp và công ty</title>
-        <description>&lt;p&gt;Trong cộng đồng mạng xã hội hiện đại gần đây có nổ ra tranh cãi về câu nói &lt;a href=&quot;&quot;&gt;Có làm thì mới có ăn, cái loại không làm mà lại muốn có ăn thì chỉ có ăn …&lt;/a&gt; của tác giả &lt;strong&gt;Huấn Hoa Hồng&lt;/strong&gt;.
-Những bô lão của cộng đồng hàm lâm như &lt;strong&gt;Giáo sư kiêm lính thủy đánh bạc&lt;/strong&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=V8YTqQkXGx0&quot;&gt;Tiến Bịp&lt;/a&gt; cũng nhanh chóng xuất bản các papers để phản bác Huấn.
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Cộng đồng mạng xã hội hiện đại gần đây có nổ ra tranh cãi về câu nói &lt;a href=&quot;&quot;&gt;Có làm thì mới có ăn, cái loại không làm mà lại muốn có ăn thì chỉ có ăn …&lt;/a&gt; của tác giả &lt;strong&gt;Huấn Hoa Hồng&lt;/strong&gt;.
+Những bô lão của cộng đồng hàm lâm như &lt;strong&gt;Giáo sư kiêm lính thủy đánh bạc&lt;/strong&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=V8YTqQkXGx0&quot;&gt;Tiến Bịp&lt;/a&gt; cũng nhanh chóng xuất bản các papers để phản bác Huấn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nghe thì chả có vẻ liên quan gì nhưng những chân lý do các vị giáo sư “tự phong” của cộng đồng mạng này cũng có sức nặng nhất định: &lt;em&gt;Có làm thì mới có ăn&lt;/em&gt; thì đã là nguyên lý của lao động sản xuất có hệ thống trong xã hội.
+Nhưng vấn đề là làm gì và làm thế nào?
+Định hướng nghề nghiệp chính là một khâu quan trọng giúp các bạn trẻ phát triển sự nghiệp.
+Tất nhiên ngoài hai vị “giáo sư” kể trên thì còn vô số học thuyết và lý thuyết trong cái mảng này với hàng ngàn cuốn sách đủ thể loại của các tác giả trên thế giới để định hướng các bạn trẻ.
+Nhưng thôi chúng ta cứ đưa ra góc nhìn thiết thực nhất với mọi người lao động bình thường: &lt;strong&gt;thu nhập&lt;/strong&gt; trước đã nhé!
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;lựa-chọn-sự-nghiệp&quot;&gt;Lựa chọn sự nghiệp&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/careers.svg&quot; alt=&quot;careers&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/careers.png&quot; alt=&quot;careers&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
@@ -39,6 +47,18 @@ Những bô lão của cộng đồng hàm lâm như &lt;strong&gt;Giáo sư ki�
         <pubDate>Mon, 10 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/pay/</link>
         <guid isPermaLink="true">https://wanted2.github.io/pay/</guid>
+        
+        <category>Career</category>
+        
+        <category>academics</category>
+        
+        <category>industry</category>
+        
+        <category>government</category>
+        
+        <category>entrepreneurship</category>
+        
+        <category>startups</category>
         
         
         <category>Tiếng Việt, 日本語</category>
