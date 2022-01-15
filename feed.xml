@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jan 2022 06:19:01 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jan 2022 06:19:01 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jan 2022 06:21:05 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jan 2022 06:21:05 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -181,9 +181,20 @@ Muốn reputation cao thì lại phải dựa vào những affiliation là VC c�
 
 &lt;h2 id=&quot;thu-nhập-của-nhà-khởi-nghiệp&quot;&gt;Thu nhập của nhà khởi nghiệp&lt;/h2&gt;
 
-&lt;p&gt;Quay lại chủ để chính là &lt;strong&gt;thu nhập&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Quay lại chủ để chính là &lt;strong&gt;thu nhập&lt;/strong&gt;.
+Thì có bài của Åstebro và cộng sự [6] năm 2013 cũng nghiên cứu trên tập các nhà sáng lập xuất thân từ academics xem &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thu nhập của họ có khá lên sau khi rời academics không?&lt;/code&gt;
+Đau cái là nó lại không khá lên, qua thống kê của Åstebro và cộng sự thì thu nhập before/after khởi nghiệp nó lại như nhau: trước khi khởi nghiệp thì thu nhập trung bình là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;397,000 (39.7 man)&lt;/code&gt; còn sau khi khởi nghiệp bình quân là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;450,000 (45 man)&lt;/code&gt;.
+Mà phương sai lại cao gấp 3 lần tức là sau khi khởi nghiệp thu nhập lại “bấp bênh” hơn.
+Ngoài ra 60% những nhà khởi nghiệp này lại từ bỏ khởi nghiệp trong vòng 2 năm và 66% lại quay trở về academics!&lt;/p&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+
+&lt;p&gt;Nói chung &lt;strong&gt;Có làm thì mới có ăn&lt;/strong&gt; là chân lý của lao động rồi.
+Bài điều tra điểm qua hầu hết mọi hướng đi khả thi, trừ hướng chính phủ/NGO chưa muốn động vào.
+Nhưng nhìn chung là làm thuê thì chấp nhận là lương sẽ chỉ cao nếu đi đúng đường.
+Còn tự thân khởi nghiệp thì nghĩ béo bở nhưng đau đầu và thực tế là cũng chả tăng thêm thu nhập bao nhiêu (từ 39.7 man lên 45 man), mà phần lớn (60%) là thất bại sau 2 năm [6].&lt;/p&gt;
+
+&lt;p&gt;Thế nên quay lại câu hỏi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nếu làm R&amp;amp;D khởi nghiệp mà không béo bằng đi làm thuê phát triển thì có nên làm nghiên cứu không?&lt;/code&gt; thì tôi nghĩ là tùy mỗi người thôi, nhưng nhìn quan điểm là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thu nhập&lt;/code&gt; thì có lẽ con đường đi nghiên cứu nó không thông minh lắm đâu!&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
