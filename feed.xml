@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jan 2022 04:04:20 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jan 2022 04:04:20 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jan 2022 04:23:43 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jan 2022 04:23:43 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -65,6 +65,27 @@ Hiểm nguy đi cùng khởi nghiệp sẽ bao gồm:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Vậy &lt;em&gt;những tên dở người (insane) nào lại đi làm cho khởi nghiệp và các công ty nhỏ?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Đầu tiên chúng ta cũng cần hiểu quy trình tuyển dụng dù công ty nhỏ hay lớn thì cũng sẽ đại loại là trước khi hai bên bắt tay nhau thì phải có một quá trình &lt;strong&gt;matching&lt;/strong&gt;.
+Vấn đề là employer cũng không có ngay được thông tin về skill cũng như abilities của employee và ngược lại employee cũng không biết được là cái khởi nghiệp này nó có skill và tiềm năng ra sao.
+Cái này trong lĩnh vực này gọi là &lt;strong&gt;information assymmetry&lt;/strong&gt;, tức là sự thiếu thông tin về nhau của hai bên khi tiếp xúc.
+Tất nhiên khi hai bên đang thiếu thông tin về nhau như vậy, việc tìm điểm cân bằng equibilirum là cần thiết.&lt;/p&gt;
+
+&lt;p&gt;Theo [13] thì trong một survey ở labor market Thụy Điển thì sinh viên đại học bên đó đặt các yếu tố sau lên đầu khi tìm việc:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lương khởi điểm cao&lt;/li&gt;
+  &lt;li&gt;Cơ hội phát triển bản thân và có training&lt;/li&gt;
+  &lt;li&gt;Cơ hội làm việc lâu dài&lt;/li&gt;
+  &lt;li&gt;Môi trường làm việc năng động và phát triển tốt.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Một điểm thú vị [13] là trong những người làm việc R&amp;amp;D (cả chuyển việc lẫn mới tốt nghiệp) thì yếu tố quan trọng nhất với họ không phải lương hay job security mà là &lt;strong&gt;independence và responsibilty (sự độc lập và trách nhiệm)&lt;/strong&gt;.
+Tức là lương cao và chuyện không hợp hoặc công ty chết thì nhảy việc thì không quan trọng với người làm R&amp;amp;D, mà quan trọng với họ là được làm việc độc lập (được làm chủ nghiên cứu của mình và toàn quyền quyết định) và trách nhiệm rõ ràng.&lt;/p&gt;
+
+&lt;p&gt;Ngoài việc lương bèo thì những nguy cơ tiềm ẩn như làm việc nhiều giờ, stress cũng dai dẳng với các nhân viên của công ty khởi nghiệp.&lt;/p&gt;
+
+&lt;p&gt;Và Nystrӧm cũng chỉ ra kết quả thú vị: hầu như &lt;strong&gt;khởi nghiệp và cty vừa nhỏ chỉ thuê được các vị trí yếu hơn so với các công ty lớn&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;khởi-nghiệp&quot;&gt;Khởi nghiệp&lt;/h1&gt;
 
