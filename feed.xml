@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jan 2022 05:22:13 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jan 2022 05:22:13 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jan 2022 05:54:01 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jan 2022 05:54:01 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -120,14 +120,28 @@ Tất nhiên độ thỏa mãn về lương lậu cũng chỉ là survey kiểu 
 Lại có bài của Stern [4] năm 2004.
 Ô đọc xong mà lại thấy nghèo quá!
 Kết quả chỉ ra 1 tương quan âm giữa lương và độ khoa học trong tổ chức: những cơ quan nghiên cứu mà cho phép nhà nghiên cứu xuất bản bài báo và hội nghị thì nhận được 25% discount trong lương.
-&lt;strong&gt;Tức là nhà nghiên cứu sẵn sàng nhận lương thấp thì 25% nếu cho phép họ xuất bản bài báo lên tạp chí khoa học uy tín hoặc hội nghị lớn.&lt;/strong&gt;
-Thế thì nghèo!&lt;/p&gt;
+&lt;strong&gt;Tức là nhà nghiên cứu sẵn sàng nhận lương thấp đi 25% nếu cho phép họ xuất bản bài báo lên tạp chí khoa học uy tín hoặc hội nghị lớn.&lt;/strong&gt;
+Thế thì nghèo!
+&lt;em&gt;Thế nên xuất bản papers là chấp nhận nghèo đi đấy anh em ạ!&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Mấy cái nghiên cứu này cũng dựa trên giả thuyết multi-offers rồi lại làm mấy cái fixed-effect regression tests, thế mà xong lại ra lương không cao hơn mà lại thấp đi 25% thế này thì có lẽ cũng không cần điều tra hướng này sâu thêm nữa!
-Mà lại còn nhiều thử thách, ví dụ như muốn hợp tác nghiên cứu với industry mà hay gọi là &lt;strong&gt;University-Industry(UI) collaboration&lt;/strong&gt;, thì cái UI này cũng tù lắm: vừa bị control của trường đại học (university administration) lại còn vấn đề sở hữu trí tuệ (IP) của doanh nghiệp.
+Mà lại còn nhiều thử thách, ví dụ như muốn hợp tác nghiên cứu với industry mà hay gọi là &lt;strong&gt;University-Industry (UI) collaboration&lt;/strong&gt;, thì cái UI này cũng tù lắm: vừa bị control của trường đại học (university administration) lại còn vấn đề sở hữu trí tuệ (IP) của doanh nghiệp.
 Nói chung là có nhiều thử thách, mà thế mới đúng vì &lt;strong&gt;có làm thì mới có ăn&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;làm-cho-công-ty-lớn&quot;&gt;Làm cho công ty lớn&lt;/h2&gt;
+
+&lt;p&gt;Đây là hướng đi còn lại trong nhánh &lt;strong&gt;Làm thuê&lt;/strong&gt; và cũng là phổ biến nhất trong nhóm lao động trẻ mới tốt nghiệp ra trường.
+Nhìn chung vì nó là đại trà nên lương ở mức mặt bằng chung, phúc lợi thì công ty này công ty kia nó cũng same same.
+Anh em trải qua hết rồi cũng chả có thấy điểm ưu trội nào mấy.&lt;/p&gt;
+
+&lt;p&gt;Thôi thì xem thử có bài nào hay hay thì thấy có bài của Andersson và cộng sự [14] xuất bản năm 2009 về câu hỏi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;những công ty nào sẽ trả tiền thuê talents?&lt;/code&gt;
+Thì thu nhập cũng phải hiểu là có thu nhập khởi điểm và thu nhập khi đã có kinh nghiệm.
+Ngoài ra còn stock options nữa cũng là một yếu tốt trong thu nhập khi đi làm thuê.
+Hay là nghiên cứu này lại tổ chức trên đúng tập dữ liệu là các công ty software ở Mỹ nên có lẽ rất phù hợp cho ngành IT.
+Thì câu hỏi là &lt;strong&gt;những công ty như thế nào sẽ trả lương cao và họ sẽ trả cao cho nhân viên như thế nào?&lt;/strong&gt;.
+Nhóm của Andersson chỉ ra rằng những công ty ở khu vực đầu tư mạo hiểm (thắng thì sẽ thắng lớn nhưng thua thì cũng dặt dẹo) thì sẵn sàng trả cao để thu hút nhân tài.
+Thế nên là anh em thấy những dự án thử thách mạo hiểm thì cứ nhảy vào chiến thôi, đừng lo “sập”!
+Chỉ cần lo chiến đấu thôi!&lt;/p&gt;
 
 &lt;h1 id=&quot;khởi-nghiệp&quot;&gt;Khởi nghiệp&lt;/h1&gt;
 
