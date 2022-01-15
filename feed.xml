@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jan 2022 04:34:00 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jan 2022 04:34:00 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jan 2022 04:47:49 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jan 2022 04:47:49 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -93,6 +93,13 @@ Câu hỏi nghiên cứu ở đây là liệu spin-offs có sẵn sàng trả ca
 Các tác giả tập trung vào bộ dữ liệu spin-offs ở Đức và thật thú vị sau khi họ làm mấy cái regression test linh tinh và đưa ra kết quả cũng không mới lắm: &lt;strong&gt;spin-offs dù nhận vốn academics (có thể dồi dào hay không biết) nhưng cũng không trả cao đâu!&lt;/strong&gt;
 Họ cũng chỉ ra rằng một nhận định cũ rằng spin-offs có tốc độ mở rộng quy mô nhân sự cao hơn các khởi nghiệp khác là sai vì số liệu của họ cũng không chỉ ra significance nào.
 &lt;em&gt;Mất công làm một đống regression tests mà kết quả là lương cũng không cao hơn là bao thì quả cũng của đáng tội!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Nhìn con số từ Đức và Thụy Điển có vẻ không khả quan lắm, nên tôi chuyển hướng nhìn sang Mỹ xem sao.
+Thế là có ngay bài điều tra của Kim [8] ngay năm 2018 thôi nên số liệu thực tế và rất mới.
+Dữ liệu dựa trên khởi nghiệp xuất phát từ OB của MIT.
+Thì thật thú vị là nhóm VC-backed tức là được nhận đầu tư của VC thì có thu nhập khá hơn 10% (non-founder employees) so với mặt bằng chung.
+Sau khi thêm hiệu ứng cố định (fixed-effect) dựa trên quan sát là nhiều employees nhận multi-offers thì con số lại không significant lắm, chứng tỏ là việc được VC đầu tư sẽ dẫn tới lương trả cao lên.
+Và điều đó cho thấy ở Mỹ thì nên tìm vào khởi nghiệp có VC!&lt;/p&gt;
 
 &lt;h1 id=&quot;khởi-nghiệp&quot;&gt;Khởi nghiệp&lt;/h1&gt;
 
