@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jan 2022 05:54:01 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jan 2022 05:54:01 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jan 2022 06:06:36 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jan 2022 06:06:36 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -144,6 +144,32 @@ Thế nên là anh em thấy những dự án thử thách mạo hiểm thì c�
 Chỉ cần lo chiến đấu thôi!&lt;/p&gt;
 
 &lt;h1 id=&quot;khởi-nghiệp&quot;&gt;Khởi nghiệp&lt;/h1&gt;
+
+&lt;p&gt;Làm thuê thì có vẻ cũng hòm hòm vậy, đi vào chỗ nào lương sẽ như thế nào là đã có hình dung trong đầu nên tôi nghĩ chắc cũng chả có gì mới nữa.
+&lt;strong&gt;Xem khởi nghiệp tức là mình mở hẳn công ty của mình xem có khá khẩm hơn không nào?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Đầu tiên là vấn đề ý tưởng thì có bài của Homfeldt và cộng sự [9] ngay năm 2019.
+Họ trả lời câu hỏi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;liệu ý tưởng của startups có thực sự mới mẻ hơn của các công ty lớn không?&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We find that start-ups’ ideas are characterized by a higher degree of novelty and to some extent higher benefit for end customers but, on the downside, are less likely to be implemented than suppliers’ ideas.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Câu trả lời là ý tưởng thì đúng là có vẻ tân tiến nhưng lại kiểu ít có khả năng thực thi hơn của công ty lớn.
+Tức là mới nhưng mà hơi mơ mộng.
+Thì đúng là vậy, ý tưởng mới sẽ khó được đón nhận ngay và thường bị xem là mơ mộng, viển vông.
+Nhưng qua thời gian nếu startup trụ vững và chứng minh được thì nó lại thành hiện thực và startup sẽ cất cánh.
+Rủi ro lớn nhất là startup không thực hiện được thôi, nhưng đó không phải vấn đề mới mà là vấn đề chung của mọi startup hiện nay!&lt;/p&gt;
+
+&lt;p&gt;Khi khởi nghiệp thì nếu xuất phát từ 1 nghiên cứu hàn lâm thì startups sẽ được gọi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spin-off&lt;/code&gt; [11, 12].
+Khi xây dựng spin-off thì sẽ phải chú ý vấn đề &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hướng&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chiến lược&lt;/code&gt; (EO) cũng như xây dựng đội ngũ.
+[12] cũng chỉ ra một số yếu tố hỗ trợ vấn đề &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hướng&lt;/code&gt; là&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sự có mặt của 1 quản lý không phải academics (non-academics manager) trong đội ngũ quản lý&lt;/li&gt;
+  &lt;li&gt;Có vốn của VC&lt;/li&gt;
+  &lt;li&gt;Hỗ trợ của tổ chức chuyên tài trợ spin-off trong chuyển giao công nghệ
+Trên đây có vẻ là yếu tố chiến lược hỗ trợ spin-off phát triển.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 
