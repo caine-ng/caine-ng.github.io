@@ -5,9 +5,71 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Jan 2022 06:26:01 +0900</pubDate>
-    <lastBuildDate>Sun, 16 Jan 2022 06:26:01 +0900</lastBuildDate>
+    <pubDate>Sun, 16 Jan 2022 22:28:21 +0900</pubDate>
+    <lastBuildDate>Sun, 16 Jan 2022 22:28:21 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>責任者</title>
+        <description>&lt;p&gt;ベトナムに帰ってからベトナムの職場文化になってからはもはや2年間になっております．
+ベトナム職場でいうと，恥ずかしいけど，楽しい経験もあるし，悲しい経験もありました．
+仕事の責任者として働いた経験もあり，悲しい時で，部下に怒られて，そろそろ殴られる経験もありました．
+なぜなら，背景から考えると，文化の違いかなと思います．
+ベトナム職場では上下関係は社会的に存在するけど，きちんと働かないとね，上下関係なく殴られるそうです．
+「殴られる」は厳しい言葉ですが，主にいうと，ベトナム職場で下記の三大原則はあります．&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原則1：&lt;strong&gt;Có làm thì mới có ăn&lt;/strong&gt;. You must work to be fed. 職あり食ある．&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原則2：&lt;strong&gt;Có lỗi thì sửa là được&lt;/strong&gt;. Don’t be panic, just fix bugs, then it’s OK. 問題にダラダラしないで，修正すれば問題なし．（ただ何もしないなら，↑の原則１をみてください）．&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;原則3：&lt;strong&gt;Làm thì làm cho nghiêm chỉnh.&lt;/strong&gt; You should do the work thoroughly. 徹底的にやりましょう．&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ベトナム職場の約2年間の経験をまとめて，一回整理したいと思っております．
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;第一原則職と食&quot;&gt;第一原則：「職」と「食」&lt;/h1&gt;
+
+&lt;h1 id=&quot;第二原則チームは障害にだらだらしないで乗り越えることは大事&quot;&gt;第二原則：チームは障害にだらだらしないで，乗り越えることは大事！&lt;/h1&gt;
+
+&lt;h1 id=&quot;第三原則自分の仕事へのこだわりも重視完成したらもう一度見直そう&quot;&gt;第三原則：自分の仕事へのこだわりも重視！完成したら，もう一度見直そう！&lt;/h1&gt;
+
+</description>
+        <pubDate>Sun, 16 Jan 2022 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/pm-sekininsha/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/pm-sekininsha/</guid>
+        
+        <category>責任者</category>
+        
+        <category>担当者</category>
+        
+        <category>権限管理</category>
+        
+        <category>計画管理</category>
+        
+        <category>進捗管理</category>
+        
+        <category>スコープ管理</category>
+        
+        <category>リスク管理</category>
+        
+        <category>コミュニケーション管理</category>
+        
+        <category>リソース管理</category>
+        
+        <category>プロジェクトマネジメント</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Project Management</category>
+        
+      </item>
     
       <item>
         <title>Cán cân thu nhập: hàn lâm, khởi nghiệp và công ty</title>
@@ -2228,177 +2290,6 @@ Thế nên có cơ hội các bạn nên trau dồi, vì thực sự cái tổng
         <category>Software Engineering</category>
         
         <category>Site Reliable Engineering</category>
-        
-      </item>
-    
-      <item>
-        <title>Why lean startups love fullstack engineers?</title>
-        <description>&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Lean&lt;/strong&gt; [1] is the most widespread management philosophy of our time and is currently present in every industry, yet the concept is still vaguely defined and widely misunderstood.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Efficiency paradox&lt;/strong&gt; … the idea of the efficiency paradox, which claims that organisations’ understanding of “true efficiency” is incorrect. It suggests that when organisations focus too much on utilising resources efficiently – the traditional and most common form of efficiency – it tends to lead to an increase in the amount of work there is to do. Consequently, the more organisations try to be efficient (being busy), the more inefficient they will actually become (taking care of non-value adding but necessary work). This is Lean addresses +how to resolve this paradox.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Bắt đầu từ gần 10 năm trước, năm 2011, bởi Eric Ries, Lean đã trở thành một phương pháp luận để cải tiến hiệu suất công việc và số lượng startups là Lean startups ngày càng gia tăng cho thấy sự yêu chuộng dành cho Lean từ cộng đồng khởi nghiệp.
-Nếu bạn đã từng có một giai đoạn khủng hoảng: ngày nào cũng bận bịu và phải làm tăng ca (OT) đến tận khuya, hoặc thậm chí phải mang việc về nhà làm, bạn đã rơi vào &lt;strong&gt;efficiency paradox&lt;/strong&gt;: &lt;em&gt;bạn luôn bận rộn, nhưng chả hoàn thành (release) cái gì cả&lt;/em&gt;.
-Thực ra vế sau chính là dấu hiệu (triệu chứng bệnh) của efficiency paradox, và khi có triệu chứng bận bịu nhưng chả done cái gì, đó chính là lúc &lt;strong&gt;Lean phải thể hiện value&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Nếu cải tiến hiệu suất là mục tiêu của Lean, thì cách thức thực hiện lại vô vùng đòi hỏi sự tỷ mỷ chi tiết.
-Một trong số những tiêu chí quan trọng để build 1 team khởi nghiệp Lean, chính là sự tồn tại của &lt;strong&gt;cross-functional team&lt;/strong&gt; hay tức là &lt;strong&gt;fullstack engineers&lt;/strong&gt;.
-Lý do tại sao là bởi vì như bạn có cái kìm và cái búa, khi cần đóng đinh thì búa sẽ dùng nhiều hơn và kìm hầu như không có việc, nhưng khi cần vặn ốc thì kìm bận bịu nhưng búa chả có việc gì: vậy tại sao không kiếm một cái vừa là kìm vừa là búa?&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Trong khởi nghiệp Lean, khi nói đến từ FE mà bạn hiểu là Frontend Engineer thì không có value mấy, phải hiểu là &lt;strong&gt;Fullstack Engineer&lt;/strong&gt; thì mới có nhiều value.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;!--more--&gt;
-
-&lt;h1 id=&quot;efficiency-paradox-triệu-chứng-bệnh&quot;&gt;Efficiency Paradox: Triệu chứng bệnh&lt;/h1&gt;
-
-&lt;p&gt;Triệu chứng bệnh của efficiency paradox thì không chỉ có mỗi triệu chứng bận mà chả làm ra cái gì như đã nói ở trên.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Triệu chứng 1&lt;/strong&gt;: &lt;strong&gt;Bận mà chả release được cái gì?&lt;/strong&gt; Tức là hiệu suất resource cao gần 100% nhưng lead time (thời gian từ ideas tới release) lại dài mà đôi khi là infinite! Tức là có thể có release nhưng nhìn chung là lead time rất lớn.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Triệu chứng 2&lt;/strong&gt;: &lt;strong&gt;Release nhanh nhưng có nhiều người không có việc.&lt;/strong&gt; Tức là team chia việc và hoàn thiện nhanh, nhưng có nhiều ムダ (tiếng Nhật nghĩa là lãng phí) tức là nhiều bạn chả có việc gì làm, mà nếu cho các bạn ấy làm việc khác thì lại phải ngồi điều tra lại từ đầu, nó lưng chừng dở dang.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Dù là triệu chứng 1 hay 2 thì chắc chắn khởi nghiệp đang ở chỗ loay hoay giải quyết bài toán cân bằng hiệu suất sử dụng (tăng hiệu suất sử dụng nhân lực) và tỷ lệ hoàn thiện (rút ngắn thời gian release).&lt;/p&gt;
-
-&lt;h1 id=&quot;lean-startups&quot;&gt;Lean startups&lt;/h1&gt;
-
-&lt;h2 id=&quot;nhận-xét-về-lean&quot;&gt;Nhận xét về Lean&lt;/h2&gt;
-
-&lt;p&gt;Và để giải quyết bài toán hiệu suất, phương pháp cải tiến của Eric Ries bắt đầu từ những năm 2011 mang tên &lt;strong&gt;Lean startups&lt;/strong&gt; là một phương pháp được ưa chuộng gần đây.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Ưu điểm lớn nhất của Lean chính là vòng tuần hoàn liên tục &lt;strong&gt;Build-Measure-Learn&lt;/strong&gt; khiến cho team dần trưởng thành và hiệu suất gia tăng.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Teams có thể chưa hoàn chỉnh trong vòng thứ nhất nhưng sẽ &lt;em&gt;learn&lt;/em&gt; và lặp lại quá trình &lt;em&gt;build&lt;/em&gt;, &lt;em&gt;measure&lt;/em&gt; đển khi hoàn thiện.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Nhược điểm lớn nhất là việc phụ thuộc quá lớn vào skill của mỗi members: thợ học việc cỡ sinh viên, những nhân viên chỉ biết làm đúng 1 việc frontend hoặc backend, hoặc chỉ biết code mà không làm những quy trình báo cáo, tuyển dụng, … sẽ là chướng ngại mà sớm muộn cũng bị đào thải.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Thiếu tập trung&lt;/strong&gt; là tử địa của Lean. Nếu 1 members trong Lean startups không toàn tâm toàn ý 100% cho startup mà lại phân tâm sang 1 dự án khác 50-50 hoặc 1 cty khác 50-50, Lean chắc chắn fail!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Tại sao? Bởi vì vòng quay của Lean đòi hỏi mọi members trong teams phải toàn tâm toàn ý cho việc cải tiến, theo dõi, và đối ứng.
-&lt;strong&gt;Chính việc phải toàn tâm toàn ý khiến cho việc cùng lúc chạy 2 dự án là vô vùng khó khăn nếu 1 trong 2 cái là Lean.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Nuôi Lean như nuôi Thánh Gióng: cứ phải nuôi nó từ từ, và trong quá trình nuôi là phải theo dõi chăm chút từng ly từng tý. Nhưng khi hữu sự, thì phải cho nó ăn hàng gánh cơm, hàng nong đậu phụ thì nó lại lớn nhanh như thổi, một phát đánh đuổi quân ngoại xâm. Nuôi Lean chính là nuôi một đứa trẻ như vậy!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Mà bà mẹ trong chuyện cổ tích &lt;strong&gt;Thánh Gióng&lt;/strong&gt; là cứ phải nuôi nó đến lúc thành công, mới gọi là gặt hái.
-Với Lean, đó chính là lúc mà vòng quay vừa nhanh, teams luôn có việc mà tốc độ release cũng flash.&lt;/p&gt;
-
-&lt;p&gt;Tất nhiên, thực ra trong đời thực, có những người vẫn có 2-3 đứa con, mà đứa nào cũng là “Lean”, tức là kiểu trẻ phải được kèm cặp từ nhỏ.
-Điều đó dẫn đến chuyện ôm cùng lúc 3 ông con, mà ông nào cũng là Lean cũng là chuyện bình thường.
-Nhưng sẽ rất mệt, mà nhìn chung là sẽ phải đến lúc nào đó bắt buộc phải kệ chúng nó tự lớn.&lt;/p&gt;
-
-&lt;h2 id=&quot;lợi-ích-của-lean&quot;&gt;Lợi ích của Lean&lt;/h2&gt;
-
-&lt;p&gt;Nếu bạn nuôi được startup Lean đến lúc trưởng thành thì quả ngọt vô số.
-Lean startup khi trưởng thành thì vô vàn lợi ích mà người chăn nuôi có thể nhận được:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Improving the quality of work processes hay &lt;strong&gt;Cải tiến chất lượng quy trình&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;Reducing errors or defects in work processes hay &lt;strong&gt;Giảm thiểu lỗi quy trình&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;Reducing costs hay &lt;strong&gt;Giảm thiểu giá thành&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;Improving flow of the process hay &lt;strong&gt;Cải tiến flow làm việc&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;Simplifying complex processes hay &lt;strong&gt;Đơn giản hóa quy trình&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;Reducing lead time hay &lt;strong&gt;Đẩy nhanh thời điểm release&lt;/strong&gt;&lt;/li&gt;
-    &lt;li&gt;Improving employee morale hay &lt;strong&gt;Tăng động lực làm việc cho nhân viên&lt;/strong&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;ứng-dụng-lean&quot;&gt;Ứng dụng Lean&lt;/h2&gt;
-
-&lt;p&gt;Để áp dụng Lean vào quy trình phần mềm (software development), việc triển khai các hạng mục trong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Build-Measure-Learn&lt;/code&gt; là cần thiết, nhưng cũng phải tùy vào tình hình của team.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Đầu tiên, phải xác định vấn đề&lt;/strong&gt;: Muda phát sinh từ đâu? Nguyên nhân là do vấn đề gì?&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Xây dựng quy trình tiêu chuẩn&lt;/strong&gt;: mọi hoạt động của team cần được chuẩn hóa và tốt nhất nên dùng tự động hóa.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;CI/CD&lt;/strong&gt; là sống còn, chất lượng phải được cải tiến và trực quan hóa cho mọi cấp quản lý cũng như members.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Nên có quy trình “kéo”&lt;/strong&gt; tức là trigger của quy trình này phải đến từ nhu cầu của quy trình tiếp theo.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Nếu như nhìn vào biểu đồ trên, bạn thấy ngay luồng chạy của Lean startups là liên tục không gián đoạn, nhưng dữ liệu thu thập được dùng để trực quan hóa sẽ chuyển biến thành các bài học để cải tiến team.&lt;/p&gt;
-
-&lt;p&gt;Rất tiếc, trong thực tế mặc dù Lean startups được bảo đảm sẽ hội tụ, nhưng quy trình sẽ có thể rất lâu tùy vào xuất phát điểm của teams:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Chất lượng members&lt;/strong&gt;: các bạn đã nhiều năm kinh nghiệm dev chưa hay chỉ là sinh viên? Đã quen thực chiến, đa dzi năng chưa hay chỉ biết gán cho các mác frontend là ông suốt ngày chỉ làm frontend?&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sự đa năng&lt;/strong&gt;: Gán cho cái mác coder thì suốt ngày chỉ biết code mà chả biết làm báo cáo, chả biết quy trình team, chả biết gì đến các nghiệp vụ quản lý, tuyển dụng khác, …&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tốc độ học của teams&lt;/strong&gt;: nếu teams chậm tiếp thu, tốc độ xử lý point thấp (chỉ vài điểm một tuần) thì sẽ càng lâu đến trưởng thành.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Chất lượng chia việc&lt;/strong&gt;: tôi gặp khá nhiều chứ không phải 1-2 trường hợp, là cứ đẩy việc cho member chất lượng thấp, nhưng lại bắt một cái worker năng lực thấp phải tính toán một khối công việc rất lớn mà lúc nó tính lâu mất thời gian thì lại sốt ruột, giục, …
-&lt;strong&gt;Muốn nhanh thì phải chia nhỏ, đơn giản hóa (đúng theo tinh thần của Lean nhé)&lt;/strong&gt;, chứ phức tạp to tát mà giao cho workers cấp thấp là … hỏng việc đấy!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Đôi khi cũng là kinh nghiệm làm việc bên giới outsource thôi, là các bạn outsource chưa làm quen nhiều với mô hình Lean startups.
-Do đó khi ốp các bạn vào khung Lean, các bạn thường sẽ hiệu suất rất kém, thậm chí cảm thấy tự ti vì mô hình Lean đòi hỏi các bạn phải &lt;strong&gt;chủ động&lt;/strong&gt;, &lt;strong&gt;quyết chiến&lt;/strong&gt;, &lt;strong&gt;năng động&lt;/strong&gt;, &lt;strong&gt;học hỏi nhanh&lt;/strong&gt;, &lt;strong&gt;chịu áp lực tốt&lt;/strong&gt;, …
-Nhưng sinh viên mình kể từ khi ngồi trên ghế nhà trường, tự học thì không có khả năng, năng động chủ động là không có nên hầu như thụ động tiếp thu theo kiểu &lt;strong&gt;Anh phải lead bọn em mới đi&lt;/strong&gt;.
-&lt;strong&gt;Thế thì còn Lean cái nỗi gì hả em?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Đây là vấn đề vô cùng đau đầu với sinh viên người Việt mà nhìn chung, mắng chửi thì bảo anh ác, nhưng mà không nện cho thì thôi còn Lean làm gì nữa? Chất lượng member nó chỉ được như thế thôi, mà rồi còn bao nhiêu vấn đề khác như đãi ngộ mặt bằng chung xã hội thấp, chế độ không tốt, …
-Nên nói chung đem Lean về VN là cũng có thể nhưng phải chấp nhận mất thời gian và phải hiểu là &lt;strong&gt;mất rất nhiều thời gian&lt;/strong&gt;.
-Do đó khi làm việc với các KH mà kiểu họ hướng vào Lean, là theo kinh nghiệm của tôi là phải đánh chặn luôn: “&lt;strong&gt;Đây tình hình outsource VN nó chỉ được thế này thôi? Có đòi hỏi thì cũng rất mất thời gian. Các ông hiểu rồi thì nhảy vào chiến với anh em, còn không thì tôi nghĩ cũng không có giải pháp nào đâu với cái tình hình như thế này!&lt;/strong&gt;.
-Chứ giờ có bảo thay đổi chế độ, thay đổi cả quốc tính dân tộc, … những chuyện &lt;strong&gt;to tát phức tạp&lt;/strong&gt; như thế thì không làm được đâu!&lt;/p&gt;
-
-&lt;h1 id=&quot;fullstack-engineers-và-cross-functional-teams&quot;&gt;Fullstack engineers và cross-functional teams&lt;/h1&gt;
-
-&lt;p&gt;Một đặc điểm quan trọng của các chiến binh trong dream team của Lean startup đó chính là &lt;strong&gt;cross-functional team&lt;/strong&gt;, tức là các member phải đa năng: việc gì cũng biết, kể từ code backend/frontend, đến cấu hình infra, thiết kế hệ thống các cái, đến thậm chí những công việc ngoài luồng kỹ thuật như kế toán, sổ sách, làm thiết kế hệ thống basic/detail designs, quản lý, tuyển dụng phỏng vấn, …&lt;/p&gt;
-
-&lt;p&gt;Điểm này khác với các tập đoàn công ty lớn, đòi hỏi các bộ phận phải có sự chuyên môn hóa: ông nào frontend thì cả đời cứ chạy frontend cho tôi.
-&lt;strong&gt;Anh cứ kệ em, em chỉ code thôi còn những việc khác em không biết&lt;/strong&gt;.
-Thì những cái kiểu như thế chắc chắn không phù hợp với Lean startups.&lt;/p&gt;
-
-&lt;p&gt;Các team Lean thường rất nhỏ, nhưng các member thì như biệt đội Avengers vậy, mỗi người đều có thể làm mọi khâu trong quy trình thậm chí thay thế khi đồng đội đang đảm nhiệm khâu đó nghỉ.&lt;/p&gt;
-
-&lt;p&gt;Vì vậy, nếu có một member kiểu fullstack mà lại chơi được mọi “súng” thì không việc gì phải bàn.
-Ngược lại những member chỉ kiểu tròn vai thì về nguyên tắc của Lean startups là … không ổn.&lt;/p&gt;
-
-&lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
-
-&lt;p&gt;Nói thì dài dòng, nhưng kết luận thì ngắn gọn thôi:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Lean startups&lt;/strong&gt; là một phương pháp cải tiến hiệu suất cấp team nhỏ trên thế giới, nhưng đem về Vn thì phải chấp nhận rằng &lt;strong&gt;“chỉ được đến thế thôi”&lt;/strong&gt;.
-Còn muốn hơn thì tốt nhất tuyển người qua nước tư bản kiểu chọn nhặt tài năng chứ còn cái kiểu đại trà theo outsource chỉ được đến thế thôi.&lt;/li&gt;
-  &lt;li&gt;Muốn xây dựng dream teams cho Lean startups thì bắt buộc phải có vị trí Fullstack.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ThisisLe25:online&quot;&gt;&lt;i&gt;This is Lean |&lt;/i&gt;. https://thisislean.com/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sat, 27 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/fullstask-engineer-and-lean-startup/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/fullstask-engineer-and-lean-startup/</guid>
-        
-        <category>project management</category>
-        
-        <category>project lifecycle</category>
-        
-        <category>software development</category>
-        
-        <category>lean stratup</category>
-        
-        <category>this is lean</category>
-        
-        <category>fullstack engineer</category>
-        
-        
-        <category>Tiếng Việt, 日本語</category>
-        
-        <category>Software Engineering</category>
-        
-        <category>Project Management</category>
         
       </item>
     
