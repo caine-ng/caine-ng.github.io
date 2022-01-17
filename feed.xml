@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Jan 2022 00:40:50 +0900</pubDate>
-    <lastBuildDate>Mon, 17 Jan 2022 00:40:50 +0900</lastBuildDate>
+    <pubDate>Tue, 18 Jan 2022 01:13:38 +0900</pubDate>
+    <lastBuildDate>Tue, 18 Jan 2022 01:13:38 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -129,7 +129,11 @@
     
       <item>
         <title>4 điều nên làm để quản lý tài khoản AWS</title>
-        <description>&lt;!--more--&gt;
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Những tri thức cơ bản như làm thế nào quản lý mật khẩu với đặt mật khẩu như thế nào thì có lẽ các em tự chủ động thiết lập nhé.
+Trong bài viết này chúng ta sẽ tập trung vào 4 chức năng mang tính nâng cao (advanced) của bảo mật tài khoản AWS.
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 16 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/aws-account/</link>
