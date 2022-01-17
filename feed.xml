@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 Jan 2022 01:16:39 +0900</pubDate>
-    <lastBuildDate>Tue, 18 Jan 2022 01:16:39 +0900</lastBuildDate>
+    <pubDate>Tue, 18 Jan 2022 01:22:24 +0900</pubDate>
+    <lastBuildDate>Tue, 18 Jan 2022 01:22:24 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -135,6 +135,7 @@ Trong bài viết này chúng ta sẽ tập trung vào 4 chức năng mang tính
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Thiết lập và quản lý tài khoản AWS&lt;/strong&gt; không chỉ đơn giản là vấn đề bảo mật dữ liệu mà còn sâu xa hơn là quản lý toàn bộ account trong tổ chức một cách &lt;strong&gt;đồng bộ, tập trung và hiệu quả&lt;/strong&gt; nhất.
+Việc này rất quan trọng bởi account chính là cửa ngõ vào của mọi luồng dữ liệu, mọi truy cập, do đó nếu việc quản lý account bị lơi là sẽ dẫn đến việc những truy cập bất hợp pháp có thể xâm nhập vào “hệ miễn dịch” của tổ chức và gây hại.
 &lt;!--more--&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 16 Jan 2022 00:00:00 +0900</pubDate>

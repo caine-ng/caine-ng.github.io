@@ -93,7 +93,7 @@ var documents = [{
     "id": 18,
     "url": "https://wanted2.github.io/aws-account/",
     "title": "4 điều nên làm để quản lý tài khoản AWS",
-    "body": "2022/01/16 -  Những tri thức cơ bản như làm thế nào quản lý mật khẩu với đặt mật khẩu như thế nào thì có lẽ các em tự chủ động thiết lập nhé. Trong bài viết này chúng ta sẽ tập trung vào 4 chức năng mang tính nâng cao (advanced) của bảo mật tài khoản AWS. Thiết lập và quản lý tài khoản AWS không chỉ đơn giản là vấn đề bảo mật dữ liệu mà còn sâu xa hơn là quản lý toàn bộ account trong tổ chức một cách đồng bộ, tập trung và hiệu quả nhất. "
+    "body": "2022/01/16 -  Những tri thức cơ bản như làm thế nào quản lý mật khẩu với đặt mật khẩu như thế nào thì có lẽ các em tự chủ động thiết lập nhé. Trong bài viết này chúng ta sẽ tập trung vào 4 chức năng mang tính nâng cao (advanced) của bảo mật tài khoản AWS. Thiết lập và quản lý tài khoản AWS không chỉ đơn giản là vấn đề bảo mật dữ liệu mà còn sâu xa hơn là quản lý toàn bộ account trong tổ chức một cách đồng bộ, tập trung và hiệu quả nhất. Việc này rất quan trọng bởi account chính là cửa ngõ vào của mọi luồng dữ liệu, mọi truy cập, do đó nếu việc quản lý account bị lơi là sẽ dẫn đến việc những truy cập bất hợp pháp có thể xâm nhập vào “hệ miễn dịch” của tổ chức và gây hại. "
     }, {
     "id": 19,
     "url": "https://wanted2.github.io/pay/",
