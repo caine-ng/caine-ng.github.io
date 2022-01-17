@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 18 Jan 2022 01:22:24 +0900</pubDate>
-    <lastBuildDate>Tue, 18 Jan 2022 01:22:24 +0900</lastBuildDate>
+    <pubDate>Tue, 18 Jan 2022 01:35:19 +0900</pubDate>
+    <lastBuildDate>Tue, 18 Jan 2022 01:35:19 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -136,7 +136,32 @@ Trong bài viết này chúng ta sẽ tập trung vào 4 chức năng mang tính
 
 &lt;p&gt;&lt;strong&gt;Thiết lập và quản lý tài khoản AWS&lt;/strong&gt; không chỉ đơn giản là vấn đề bảo mật dữ liệu mà còn sâu xa hơn là quản lý toàn bộ account trong tổ chức một cách &lt;strong&gt;đồng bộ, tập trung và hiệu quả&lt;/strong&gt; nhất.
 Việc này rất quan trọng bởi account chính là cửa ngõ vào của mọi luồng dữ liệu, mọi truy cập, do đó nếu việc quản lý account bị lơi là sẽ dẫn đến việc những truy cập bất hợp pháp có thể xâm nhập vào “hệ miễn dịch” của tổ chức và gây hại.
-&lt;!--more--&gt;&lt;/p&gt;
+4 chức năng chúng ta nói đến hôm nay bao gồm:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Bảo mật nhiều lớp cho tài khoản root;&lt;/li&gt;
+  &lt;li&gt;Quản lý và thiết lập phân quyền cùng AWS Organizations;&lt;/li&gt;
+  &lt;li&gt;AWS Single-Sign On (SSO); và&lt;/li&gt;
+  &lt;li&gt;Giám sát hành vi tài khoản trên AWS.
+&lt;!--more--&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;giới-thiệu&quot;&gt;Giới thiệu&lt;/h1&gt;
+&lt;p&gt;Như trong tiếng Nhật thì chữ tài khoản (tiếng Anh, account) được viết là 口座, bắt đầu bằng bộ “khẩu (miệng)”.
+Các bạn đều biết cửa sổ đi vào hệ tiêu hóa mà mọi thứ đồ ăn thức uống phải đi qua đều bắt đầu từ miệng.
+Cái miệng chính là nơi mọi thức ăn xâm nhập vào cơ thể con người.
+Thức ăn có thể hàm chứa dinh dưỡng, nhưng cũng có thể hàm chứa chất độc, bệnh dịch.
+Có thể ngon mà cũng có thể dở.
+Việc bảo vệ “bộ nhá” là cực kỳ quan trọng với con người nói chung!&lt;/p&gt;
+
+&lt;h1 id=&quot;bảo-mật-nhiều-lớp&quot;&gt;Bảo mật nhiều lớp&lt;/h1&gt;
+
+&lt;h1 id=&quot;quản-lý-và-thiết-lập-quyền-với-aws-organizations&quot;&gt;Quản lý và thiết lập quyền với AWS Organizations&lt;/h1&gt;
+
+&lt;h1 id=&quot;aws-single-sing-on-sso&quot;&gt;AWS Single Sing-On (SSO)&lt;/h1&gt;
+
+&lt;h1 id=&quot;giám-sát-hành-vi-với-aws-cloudtrail&quot;&gt;Giám sát hành vi với AWS CloudTrail&lt;/h1&gt;
+
+&lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 </description>
         <pubDate>Sun, 16 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/aws-account/</link>
