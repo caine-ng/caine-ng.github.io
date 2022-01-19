@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Jan 2022 01:57:12 +0900</pubDate>
-    <lastBuildDate>Wed, 19 Jan 2022 01:57:12 +0900</lastBuildDate>
+    <pubDate>Thu, 20 Jan 2022 02:08:48 +0900</pubDate>
+    <lastBuildDate>Thu, 20 Jan 2022 02:08:48 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -164,6 +164,27 @@ Việc bảo vệ “bộ nhá” là cực kỳ quan trọng với con người
 &lt;h1 id=&quot;giám-sát-hành-vi-với-aws-cloudtrail&quot;&gt;Giám sát hành vi với AWS CloudTrail&lt;/h1&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+
+&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;fan2009provably&quot;&gt;Fan, C.-I., &amp;amp; Lin, Y.-H. (2009). Provably secure remote truly three-factor authentication scheme with privacy protection on biometrics. &lt;i&gt;IEEE Transactions on Information Forensics and Security&lt;/i&gt;, &lt;i&gt;4&lt;/i&gt;(4), 933–945.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;nagaraju2016secauthn&quot;&gt;Nagaraju, S., &amp;amp; Parthiban, L. (2016). SecAuthn: Provably secure multi-factor authentication for the cloud computing systems. &lt;i&gt;Indian Journal of Science and Technology&lt;/i&gt;, &lt;i&gt;9&lt;/i&gt;(9), 1–18.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;wang2016two&quot;&gt;Wang, D., &amp;amp; Wang, P. (2016). Two birds with one stone: Two-factor authentication with security beyond conventional bound. &lt;i&gt;IEEE Transactions on Dependable and Secure Computing&lt;/i&gt;, &lt;i&gt;15&lt;/i&gt;(4), 708–722.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;liu2014maca&quot;&gt;Liu, W., Uluagac, A. S., &amp;amp; Beyah, R. (2014). MACA: A privacy-preserving multi-factor cloud authentication system utilizing big data. &lt;i&gt;2014 IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)&lt;/i&gt;, 518–523.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;nagaraju2015trusted&quot;&gt;Nagaraju, S., &amp;amp; Parthiban, L. (2015). Trusted framework for online banking in public cloud using multi-factor authentication and privacy protection gateway. &lt;i&gt;Journal of Cloud Computing&lt;/i&gt;, &lt;i&gt;4&lt;/i&gt;(1), 1–23.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ometov2018multi&quot;&gt;Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T., &amp;amp; Koucheryavy, Y. (2018). Multi-factor authentication: A survey. &lt;i&gt;Cryptography&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(1), 1.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;yu2014efficient&quot;&gt;Yu, J., Wang, G., Mu, Y., &amp;amp; Gao, W. (2014). An efficient generic framework for three-factor authentication with provably secure instantiation. &lt;i&gt;IEEE Transactions on Information Forensics and Security&lt;/i&gt;, &lt;i&gt;9&lt;/i&gt;(12), 2302–2313.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;bhargav2007privacy&quot;&gt;Bhargav-Spantzel, A., Squicciarini, A. C., Modi, S., Young, M., Bertino, E., &amp;amp; Elliott, S. J. (2007). Privacy preserving multi-factor authentication with biometrics. &lt;i&gt;Journal of Computer Security&lt;/i&gt;, &lt;i&gt;15&lt;/i&gt;(5), 529–560.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;wang2014anonymous&quot;&gt;Wang, D., He, D., Wang, P., &amp;amp; Chu, C.-H. (2014). Anonymous two-factor authentication in distributed systems: Certain goals are beyond attainment. &lt;i&gt;IEEE Transactions on Dependable and Secure Computing&lt;/i&gt;, &lt;i&gt;12&lt;/i&gt;(4), 428–442.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;altinkemer2011cost&quot;&gt;Altinkemer, K., &amp;amp; Wang, T. (2011). Cost and benefit analysis of authentication systems. &lt;i&gt;Decision Support Systems&lt;/i&gt;, &lt;i&gt;51&lt;/i&gt;(3), 394–404.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;huang2010generic&quot;&gt;Huang, X., Xiang, Y., Chonka, A., Zhou, J., &amp;amp; Deng, R. H. (2010). A generic framework for three-factor authentication: Preserving security and privacy in distributed systems. &lt;i&gt;IEEE Transactions on Parallel and Distributed Systems&lt;/i&gt;, &lt;i&gt;22&lt;/i&gt;(8), 1390–1397.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;el2019survey&quot;&gt;El-Hajj, M., Fadlallah, A., Chamoun, M., &amp;amp; Serhrouchni, A. (2019). A survey of internet of things (IoT) authentication schemes. &lt;i&gt;Sensors&lt;/i&gt;, &lt;i&gt;19&lt;/i&gt;(5), 1141.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;holdsworth2008token&quot;&gt;Holdsworth, J. (2008). &lt;i&gt;Token for use in online electronic transactions&lt;/i&gt;. Google Patents.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ferrag2018security&quot;&gt;Ferrag, M. A., Maglaras, L., Argyriou, A., Kosmanos, D., &amp;amp; Janicke, H. (2018). Security for 4G and 5G cellular networks: A survey of existing authentication and privacy-preserving schemes. &lt;i&gt;Journal of Network and Computer Applications&lt;/i&gt;, &lt;i&gt;101&lt;/i&gt;, 55–82.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;meng2014surveying&quot;&gt;Meng, W., Wong, D. S., Furnell, S., &amp;amp; Zhou, J. (2014). Surveying the development of biometric user authentication on mobile phones. &lt;i&gt;IEEE Communications Surveys &amp;amp; Tutorials&lt;/i&gt;, &lt;i&gt;17&lt;/i&gt;(3), 1268–1293.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;frikken2009robust&quot;&gt;Frikken, K. B., Blanton, M., &amp;amp; Atallah, M. J. (2009). Robust authentication using physically unclonable functions. &lt;i&gt;International Conference on Information Security&lt;/i&gt;, 262–277.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;boyd2003protocols&quot;&gt;Boyd, C., Mathuria, A., &amp;amp; Stebila, D. (2003). &lt;i&gt;Protocols for authentication and key establishment&lt;/i&gt; (Vol. 1). Springer.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;pointcheval2008multi&quot;&gt;Pointcheval, D., &amp;amp; Zimmer, S. (2008). Multi-factor authenticated key exchange. &lt;i&gt;International Conference on Applied Cryptography and Network Security&lt;/i&gt;, 277–295.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 16 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/aws-account/</link>
