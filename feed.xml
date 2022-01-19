@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 20 Jan 2022 02:29:16 +0900</pubDate>
-    <lastBuildDate>Thu, 20 Jan 2022 02:29:16 +0900</lastBuildDate>
+    <pubDate>Thu, 20 Jan 2022 02:39:44 +0900</pubDate>
+    <lastBuildDate>Thu, 20 Jan 2022 02:39:44 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -157,7 +157,7 @@ Việc bảo vệ “bộ nhá” là cực kỳ quan trọng với con người
 
 &lt;h1 id=&quot;bảo-mật-nhiều-lớp&quot;&gt;Bảo mật nhiều lớp&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://share.qiqqa.com/20220419/HpMTc25IH0ChVCOl0YxiCg/shared_image.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/multi-factor.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
 &lt;em&gt;Hình ảnh trích từ [1]&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;quản-lý-và-thiết-lập-quyền-với-aws-organizations&quot;&gt;Quản lý và thiết lập quyền với AWS Organizations&lt;/h1&gt;
