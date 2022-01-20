@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 21 Jan 2022 02:33:54 +0900</pubDate>
-    <lastBuildDate>Fri, 21 Jan 2022 02:33:54 +0900</lastBuildDate>
+    <pubDate>Fri, 21 Jan 2022 02:58:48 +0900</pubDate>
+    <lastBuildDate>Fri, 21 Jan 2022 02:58:48 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -160,6 +160,17 @@ Việc bảo vệ “bộ nhá” là cực kỳ quan trọng với con người
 &lt;p&gt;&lt;img src=&quot;/assets/images/multi-factor.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
 &lt;em&gt;Hình ảnh trích từ [1]&lt;/em&gt;&lt;/p&gt;
 
+&lt;p&gt;Những tri thức nền tảng cho bảo mật nhiều lớp xuất hiện lần đầu từ bài báo của &lt;strong&gt;Mitchell [2]&lt;/strong&gt; năm 1963.
+Trong bài viết về cách thức nhận dạng vân tay tự động bằng &lt;strong&gt;Ridge&lt;/strong&gt; patterns, ông viết:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It is the purpose of this article to present, together with some evidence of its feasibility, a method by which decentralized automatic identity verification, such as might be desired for credit, banking or security purposes, can be accomplished through automatic comparison of the minutiae in finger-ridge patterns.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;-&lt;em&gt;Mitchell Trauring, Nature, March 1963&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;&lt;img src=&quot;/assets/images/fusion.jpg&quot; style=&quot;float: left; margin: 10px; width: 50%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/biometrics.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;&lt;/p&gt;
@@ -175,6 +186,8 @@ Việc bảo vệ “bộ nhá” là cực kỳ quan trọng với con người
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;fan2009provably&quot;&gt;Fan, C.-I., &amp;amp; Lin, Y.-H. (2009). Provably secure remote truly three-factor authentication scheme with privacy protection on biometrics. &lt;i&gt;IEEE Transactions on Information Forensics and Security&lt;/i&gt;, &lt;i&gt;4&lt;/i&gt;(4), 933–945.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;trauring1963automatic&quot;&gt;Trauring, M. (1963). Automatic comparison of finger-ridge patterns. &lt;i&gt;Nature&lt;/i&gt;, &lt;i&gt;197&lt;/i&gt;(4871), 938–940.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;jain201650&quot;&gt;Jain, A. K., Nandakumar, K., &amp;amp; Ross, A. (2016). 50 years of biometric research: Accomplishments, challenges, and opportunities. &lt;i&gt;Pattern Recognition Letters&lt;/i&gt;, &lt;i&gt;79&lt;/i&gt;, 80–105.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;nagaraju2016secauthn&quot;&gt;Nagaraju, S., &amp;amp; Parthiban, L. (2016). SecAuthn: Provably secure multi-factor authentication for the cloud computing systems. &lt;i&gt;Indian Journal of Science and Technology&lt;/i&gt;, &lt;i&gt;9&lt;/i&gt;(9), 1–18.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;wang2016two&quot;&gt;Wang, D., &amp;amp; Wang, P. (2016). Two birds with one stone: Two-factor authentication with security beyond conventional bound. &lt;i&gt;IEEE Transactions on Dependable and Secure Computing&lt;/i&gt;, &lt;i&gt;15&lt;/i&gt;(4), 708–722.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;liu2014maca&quot;&gt;Liu, W., Uluagac, A. S., &amp;amp; Beyah, R. (2014). MACA: A privacy-preserving multi-factor cloud authentication system utilizing big data. &lt;i&gt;2014 IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)&lt;/i&gt;, 518–523.&lt;/span&gt;&lt;/li&gt;
