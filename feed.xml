@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Jan 2022 22:59:38 +0900</pubDate>
-    <lastBuildDate>Sat, 22 Jan 2022 22:59:38 +0900</lastBuildDate>
+    <pubDate>Sat, 22 Jan 2022 23:50:27 +0900</pubDate>
+    <lastBuildDate>Sat, 22 Jan 2022 23:50:27 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -221,6 +221,43 @@ Thành tích đứng nhất là $FNMR=0.0006$ khi $FMR=10^{-5}$, tức là 10 v�
 
 &lt;p&gt;Trên đây chỉ là kết quả của dataset VISA, ngoài ra NIST còn có những task khác cùng với những dataset khác.
 Từ VN thì cũng có team của một số đội như VNPT hay VIN AI/VIN Bigdata cũng tham gia và có được thứ hạng (tức là đã nộp bài).&lt;/p&gt;
+
+&lt;h2 id=&quot;bật-tính-năng-mfa-của-aws&quot;&gt;Bật tính năng MFA của AWS&lt;/h2&gt;
+
+&lt;h3 id=&quot;với-tài-khoản-root&quot;&gt;Với tài khoản root&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/aws-mfa.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Với người dùng có &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html&quot;&gt;tài khoản root&lt;/a&gt; thì chắc thi thoảng bạn cũng sẽ login vào để làm một số việc như:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quản lý IAM users&lt;/li&gt;
+  &lt;li&gt;Quản lý bill service&lt;/li&gt;
+  &lt;li&gt;Quản lý dịch vụ sử dụng&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vậy tài khoản root là chứa tất cả của bạn (hoặc tổ chức), vậy nên không thể không nâng độ bảo mật lên được.
+Và nên bật MFA lên.
+Mặc dù chúng ta đã tìm hiểu về MFA khá nhiều bên trên, thì &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html&quot;&gt;AWS hỗ trợ một số biện pháp MFA&lt;/a&gt; như sau thôi:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Virtual MFA devices&lt;/strong&gt; hay MFA thông qua phần mềm. Bạn có thể cài đặt Microsoft Authenticator vào điện thoại cho mục đích này.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;U2F security key&lt;/strong&gt; tức là 1 cái USB key để bạn cắm vào máy và nó sẽ dùng thông tin của USB này để nhận dạng bạn khi bạn đăng nhập.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Hardware MFA device&lt;/strong&gt;. Một thiết bị được đăng ký sẽ tạo 1 code 6 chữ số để cho thuật toán time-synchronized one-time password (OTP).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nhìn chung, có thể vân tay hay khuôn mặt thì sẽ cần dùng một kênh khác, còn tài khoản AWS hiện chỉ support những kênh MFA thêm code.
+Ngoài ra MFA thông qua SMS cũng không được hỗ trợ.
+Sau khi khởi động phương thức MFA phù hợp, từ lần đăng nhập tiếp theo, người dùng sẽ phải nhập thêm code được sinh ra từ phần mềm hoặc thiết bị đã đăng ký.&lt;/p&gt;
+
+&lt;h3 id=&quot;với-tài-khoản-iam&quot;&gt;Với tài khoản IAM&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/iam-mfa.png&quot; style=&quot;float: left; margin: 10px; width: 50%&quot; /&gt;
+Bạn có thể cấp &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html&quot;&gt;tài khoản IAM&lt;/a&gt; cho người dùng trong tổ chức của bạn (định nghĩa Roles/Permissions tương ứng với nhiệm vụ của nhân viên).
+Nếu bạn muốn bảo mật hơn, bạn có thể bắt buộc nhân viên dùng IAM phải dùng MFA.
+Bạn truy cập vào trang cấu hình của IAM user đó và yêu cầu assign MFA devices.
+Xem thêm &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/console_sign-in-mfa.html&quot;&gt;hướng dẫn kích hoạt MFA cho tài khoản IAM&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;quản-lý-và-thiết-lập-quyền-với-aws-organizations&quot;&gt;Quản lý và thiết lập quyền với AWS Organizations&lt;/h1&gt;
 
