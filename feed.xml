@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Jan 2022 23:50:27 +0900</pubDate>
-    <lastBuildDate>Sat, 22 Jan 2022 23:50:27 +0900</lastBuildDate>
+    <pubDate>Sat, 22 Jan 2022 23:54:02 +0900</pubDate>
+    <lastBuildDate>Sat, 22 Jan 2022 23:54:02 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -153,7 +153,8 @@ Thức ăn có thể hàm chứa dinh dưỡng, nhưng cũng có thể hàm ch�
 Có thể ngon mà cũng có thể dở.
 Việc bảo vệ “bộ nhá” là cực kỳ quan trọng với con người nói chung!&lt;/p&gt;
 
-&lt;p&gt;Thì gọi là cửa ngõ đi vào thì cũng có nhiều lỗ, vì các bạn biết đấy là con người ta là có 6-7 cái lỗ trên cơ thể (nữ giới nhiều hơn nam giới 1 lỗ).&lt;/p&gt;
+&lt;p&gt;Trong bài viết này song song với việc thao tác trên AWS chúng ta cũng sẽ nói thêm về các nguyên lý đằng sau các thiết lập tài khoản, các dịch vụ bảo mật đa lớp, single sign-on, .v.v…
+Với nguyên tắc là mọi thứ qua miệng đều phải rõ nguồn gốc (cũng không cần chi tiết quá, nhưng ở mức có thể track được).&lt;/p&gt;
 
 &lt;h1 id=&quot;bảo-mật-nhiều-lớp&quot;&gt;Bảo mật nhiều lớp&lt;/h1&gt;
 
@@ -258,6 +259,11 @@ Bạn có thể cấp &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/Us
 Nếu bạn muốn bảo mật hơn, bạn có thể bắt buộc nhân viên dùng IAM phải dùng MFA.
 Bạn truy cập vào trang cấu hình của IAM user đó và yêu cầu assign MFA devices.
 Xem thêm &lt;a href=&quot;https://docs.aws.amazon.com/IAM/latest/UserGuide/console_sign-in-mfa.html&quot;&gt;hướng dẫn kích hoạt MFA cho tài khoản IAM&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Nhìn chung, MFA là một chức năng đơn giản để cấu hình và nên được áp dụng.
+Trong những &lt;a href=&quot;https://aws.amazon.com/blogs/security/new-whitepaper-aws-cloud-security-best-practices/&quot;&gt;best practices của AWS&lt;/a&gt; cũng có hướng dẫn nên cấu hình MFA cho việc xóa object khỏi S3 chẳng hạn.
+Và tại sao AWS chỉ áp dụng MFA dạng code 6 chữ số, chứ không hỗ trợ biometrics như vân tay hay khuôn mặt/mống mắt, thậm chí SMS cũng không được?
+Có lẽ là do vân tay hay mống mặt và đặc biệt khuôn mặt vẫn có tỷ lệ sai nhất định (chúng phù hợp cho nhiệm vụ điều tra của cảnh sát hơn), còn SMS thì có khá nhiều lỗ hổng bảo mật liên quan rồi nên lựa chọn code theo device có lẽ hợp lý hơn.&lt;/p&gt;
 
 &lt;h1 id=&quot;quản-lý-và-thiết-lập-quyền-với-aws-organizations&quot;&gt;Quản lý và thiết lập quyền với AWS Organizations&lt;/h1&gt;
 
