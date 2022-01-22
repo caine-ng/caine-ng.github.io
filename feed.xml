@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Jan 2022 20:18:52 +0900</pubDate>
-    <lastBuildDate>Sat, 22 Jan 2022 20:18:52 +0900</lastBuildDate>
+    <pubDate>Sat, 22 Jan 2022 20:58:54 +0900</pubDate>
+    <lastBuildDate>Sat, 22 Jan 2022 20:58:54 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -198,7 +198,18 @@ Nhưng nhìn chung cái mô hình thực thi thì khá giống nhau:&lt;/p&gt;
   &lt;li&gt;Về mặt &lt;strong&gt;module&lt;/strong&gt;, thì module bảo mật của từng lớp thì sẽ như hình vẽ bên phải. Sẽ có enrollment (đăng ký) và verification (đăng nhập/nhận dạng).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/nist-frvt-2022.png&quot; alt=&quot;NIST FRVT&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Nói chung mảng bảo mật nhiều lớp cũng có khá nhiều dư địa, tuy nhiên nếu so với những mảng như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GAN&lt;/code&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deep learning&lt;/code&gt; thì số lượng papers mỗi năm trong academics có vẻ không nhiều.
+Mà số lượng papers có nhiều trích dẫn thì cũng ít hơn.
+Vì đơn giản như paper về GAN của Goodfellow năm 2014, đến nay là 7 năm mà đã có gần 40k trích dẫn, mà cái mảng đó hầu như top-2% về nhiều trích dẫn thì cũng toàn những paper vài ngàn citations trở nên.
+Nói chung lựa chọn trích dẫn bài nào cũng tuỳ mảng, vì mảng biometrics, tôi thấy những papers của các fellow cũng chỉ vài trăm citations trong 10 năm.
+Nhưng cái mảng deep learning với GAN thấy năm nào cũng hàng ngàn papers mà những papers top thì toàn hàng ngàn citations.
+Nên đôi khi hỏi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;có cần đọc hết các papers trong mảng không?&lt;/code&gt;, thì tôi nghĩ là nếu những mảng ít ít như biometrics thì đọc cũng được, nhưng mấy cái mảng liên quan tới deep với GAN, thì &lt;strong&gt;tôi nghĩ cũng chả cần đọc đâu&lt;/strong&gt;.
+Chỉ cần filter ra top 2% mà chủ yếu những bài có tốc độ tăng trưởng mạnh (mỗi năm trên 200 citations) thì đọc thôi, chứ nó nhiều thế này mà toàn na ná nhau, thì papers mà ít citations chắc chắn là không phải trend, đọc không hết được mà đọc cũng chả để làm gì.
+Tất nhiên, cũng phải ưu tiên những papers mới xuất bản năm nay thì mình nên đọc.
+Tức là ví dụ năm nay là 2022 thì những bài từ 2021 thì mình ưu tiên đọc (nhưng vẫn chỉ nên đọc top tầm 30%), còn từ 2020 về trước thì chỉ chọn bài có độ tăng trưởng trung bình trên 200 citations/năm, và trong đó cũng chỉ nên chọn top.&lt;/p&gt;
+
+&lt;p&gt;Cuối cùng, là về mảng biometrics này thì có một ứng dụng thú vị là &lt;em&gt;face recognition&lt;/em&gt; mà bên computer vision hay deep learning cũng nổi lên (gọi là &lt;em&gt;deep face recognition&lt;/em&gt;).
+&lt;img src=&quot;/assets/images/nist-frvt-2022.png&quot; alt=&quot;NIST FRVT&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;quản-lý-và-thiết-lập-quyền-với-aws-organizations&quot;&gt;Quản lý và thiết lập quyền với AWS Organizations&lt;/h1&gt;
 
