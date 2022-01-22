@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Jan 2022 19:53:03 +0900</pubDate>
-    <lastBuildDate>Sat, 22 Jan 2022 19:53:03 +0900</lastBuildDate>
+    <pubDate>Sat, 22 Jan 2022 19:59:01 +0900</pubDate>
+    <lastBuildDate>Sat, 22 Jan 2022 19:59:01 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -205,7 +205,8 @@ Và đó chính là ý tưởng &lt;strong&gt;feature fusion&lt;/strong&gt; hay 
 &lt;li&gt;&lt;span id=&quot;grother2018ongoing&quot;&gt;Grother, P., Ngan, M., Hanaoka, K., Yang, J. C., &amp;amp; Hom, A. (2022). &lt;i&gt;Ongoing face recognition vendor test (FRVT) part 1: Verification&lt;/i&gt;. US Department of Commerce, National Institute of Standards and Technology.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;boyd2003protocols&quot;&gt;Boyd, C., Mathuria, A., &amp;amp; Stebila, D. (2003). &lt;i&gt;Protocols for authentication and key establishment&lt;/i&gt; (Vol. 1). Springer.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;pankanti2002individuality&quot;&gt;Pankanti, S., Prabhakar, S., &amp;amp; Jain, A. K. (2002). On the individuality of fingerprints. &lt;i&gt;Pattern Analysis and Machine Intelligence, IEEE Transactions On&lt;/i&gt;, &lt;i&gt;24&lt;/i&gt;(8), 1010–1025.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ometov2018multi&quot;&gt;Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T., &amp;amp; Koucheryavy, Y. (2018). Multi-factor authentication: A survey. &lt;i&gt;Cryptography&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(1), 1.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;ometov2018multi&quot;&gt;Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T., &amp;amp; Koucheryavy, Y. (2018). Multi-factor authentication: A survey. &lt;i&gt;Cryptography&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(1), 1.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ngu2016iot&quot;&gt;Ngu, A. H., Gutierrez, M., Metsis, V., Nepal, S., &amp;amp; Sheng, Q. Z. (2016). IoT middleware: A survey on issues and enabling technologies. &lt;i&gt;IEEE Internet of Things Journal&lt;/i&gt;, &lt;i&gt;4&lt;/i&gt;(1), 1–20.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 16 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/aws-account/</link>
