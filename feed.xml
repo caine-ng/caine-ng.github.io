@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Jan 2022 19:59:01 +0900</pubDate>
-    <lastBuildDate>Sat, 22 Jan 2022 19:59:01 +0900</lastBuildDate>
+    <pubDate>Sat, 22 Jan 2022 20:18:52 +0900</pubDate>
+    <lastBuildDate>Sat, 22 Jan 2022 20:18:52 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -185,7 +185,18 @@ Cũng vì đó mà cần phải dùng nhiều đặc trưng, và khi dùng nhi�
 Và đó chính là ý tưởng &lt;strong&gt;feature fusion&lt;/strong&gt; hay là &lt;strong&gt;multimodal&lt;/strong&gt; cho mảng biometrics.
 &lt;em&gt;Nói chung, cũng toàn mấy cái ý tưởng của các fellows từ thời 1990s-2000s&lt;/em&gt;, thời các sếp ấy thì cũng đã 20-30 năm về trước, nên mấy cái ý tưởng này tôi nghĩ mới cũng không mới và trong mảng biometrics cũng đã implement gần hết, thậm chí vào sản phẩm thị trường rồi.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/biometrics.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/biometrics.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
+Cái mảng &lt;strong&gt;bảo mật nhiều lớp [7]&lt;/strong&gt; và &lt;strong&gt;biometrics [2]&lt;/strong&gt; nhìn chung là cũng liên đới rộng phết, từ bảo mật cloud đến tận thiết bị IoT [8] cũng liên quan.
+Nhưng nhìn chung cái mô hình thực thi thì khá giống nhau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Về mặt &lt;strong&gt;hệ thống&lt;/strong&gt; thì anh em nào làm nhiều về cloud, web app thì sẽ hiểu ngay là trong framework sẽ có một bộ phận middleware có những function kiểu như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preLogin(), postAuthentication(), ...&lt;/code&gt; là sẽ là nơi implement thêm các lớp bảo mật. Ở trong middleware [8] thì chúng ta sẽ call thêm các lớp bảo mật khác để đưa ra kết quả.
+    &lt;ul&gt;
+      &lt;li&gt;Ngoài ra, việc fusion của các đặc trưng có thể thực hiện tại &lt;strong&gt;biometrics sensor&lt;/strong&gt;, tức là &lt;strong&gt;early fusion&lt;/strong&gt;. Hoặc tại module decision, tức là &lt;strong&gt;late fusion&lt;/strong&gt; và chủ yếu là fuse kết quả nhận dạng của từng modal.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Về mặt &lt;strong&gt;module&lt;/strong&gt;, thì module bảo mật của từng lớp thì sẽ như hình vẽ bên phải. Sẽ có enrollment (đăng ký) và verification (đăng nhập/nhận dạng).&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/nist-frvt-2022.png&quot; alt=&quot;NIST FRVT&quot; /&gt;&lt;/p&gt;
 

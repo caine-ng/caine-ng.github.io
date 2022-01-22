@@ -357,7 +357,18 @@ Cũng vì đó mà cần phải dùng nhiều đặc trưng, và khi dùng nhi�
 Và đó chính là ý tưởng <strong>feature fusion</strong> hay là <strong>multimodal</strong> cho mảng biometrics.
 <em>Nói chung, cũng toàn mấy cái ý tưởng của các fellows từ thời 1990s-2000s</em>, thời các sếp ấy thì cũng đã 20-30 năm về trước, nên mấy cái ý tưởng này tôi nghĩ mới cũng không mới và trong mảng biometrics cũng đã implement gần hết, thậm chí vào sản phẩm thị trường rồi.</p>
 
-<p><img src="/assets/images/biometrics.png" style="float: right; margin: 10px; width: 50%" /></p>
+<p><img src="/assets/images/biometrics.png" style="float: right; margin: 10px; width: 50%" />
+Cái mảng <strong>bảo mật nhiều lớp [7]</strong> và <strong>biometrics [2]</strong> nhìn chung là cũng liên đới rộng phết, từ bảo mật cloud đến tận thiết bị IoT [8] cũng liên quan.
+Nhưng nhìn chung cái mô hình thực thi thì khá giống nhau:</p>
+
+<ul>
+  <li>Về mặt <strong>hệ thống</strong> thì anh em nào làm nhiều về cloud, web app thì sẽ hiểu ngay là trong framework sẽ có một bộ phận middleware có những function kiểu như <code class="language-plaintext highlighter-rouge">preLogin(), postAuthentication(), ...</code> là sẽ là nơi implement thêm các lớp bảo mật. Ở trong middleware [8] thì chúng ta sẽ call thêm các lớp bảo mật khác để đưa ra kết quả.
+    <ul>
+      <li>Ngoài ra, việc fusion của các đặc trưng có thể thực hiện tại <strong>biometrics sensor</strong>, tức là <strong>early fusion</strong>. Hoặc tại module decision, tức là <strong>late fusion</strong> và chủ yếu là fuse kết quả nhận dạng của từng modal.</li>
+    </ul>
+  </li>
+  <li>Về mặt <strong>module</strong>, thì module bảo mật của từng lớp thì sẽ như hình vẽ bên phải. Sẽ có enrollment (đăng ký) và verification (đăng nhập/nhận dạng).</li>
+</ul>
 
 <p><img src="/assets/images/nist-frvt-2022.png" alt="NIST FRVT" /></p>
 
