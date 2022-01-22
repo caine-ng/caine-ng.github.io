@@ -381,7 +381,18 @@ Tất nhiên, cũng phải ưu tiên những papers mới xuất bản năm nay 
 Tức là ví dụ năm nay là 2022 thì những bài từ 2021 thì mình ưu tiên đọc (nhưng vẫn chỉ nên đọc top tầm 30%), còn từ 2020 về trước thì chỉ chọn bài có độ tăng trưởng trung bình trên 200 citations/năm, và trong đó cũng chỉ nên chọn top.</p>
 
 <p>Cuối cùng, là về mảng biometrics này thì có một ứng dụng thú vị là <em>face recognition</em> mà bên computer vision hay deep learning cũng nổi lên (gọi là <em>deep face recognition</em>).
+Mảng này thì quả là cũng không nhiều papers lắm, cũng giống biometrics, nhưng lại có một số papers có trích dẫn hàng ngàn mặc dù xuất bản sau 2015 như FaceNet hay RetinaFace, ArcFace, CosFace.
+Tuy nhiên, nếu nói về thực tiễn sử dụng thì tôi nghĩ tốt nhất là nên tham khảo các con số trong benchmark lớn của chính phủ Mý [4].
+Lý do là bởi vì đó là các ứng dụng thực tiễn, cũng như bộ dữ liệu lớn tới vài chục triệu người, và quan trọng là mọi team trên thế giới đều có thể tham gia.
+Dưới đây là bảng kết quả hạng mục Verification, tức là cho sẵn một pair hai khuôn mặt, đưa ra kết quả xem đó có cùng 1 identity không?
+Kết quả là đường cong thể hiện tỷ lệ <em>false non-matching rate (FNMR) vs false matching rate (FMR)</em>.
+Chúng ta hãy để ý đến tỷ lệ <strong>FNMR@FMR=$10^{-5}$</strong> thì tên tuổi đứng nhất là InsightFace (là nhóm tác giả của RetinaFace, ArcFace, …).
+Họ chính là tác giả của framework <a href="https://github.com/deepinsight/insightface.git"><code class="language-plaintext highlighter-rouge">insightface</code></a> để nhận dạng khuôn mặt 2D/3D.
+Thành tích đứng nhất là $FNMR=0.0006$ khi $FMR=10^{-5}$, tức là 10 vạn người thì chỉ sai 1 người và miss 60 người, tổng là 61 người bị sai hoặc miss.
 <img src="/assets/images/nist-frvt-2022.png" alt="NIST FRVT" /></p>
+
+<p>Trên đây chỉ là kết quả của dataset VISA, ngoài ra NIST còn có những task khác cùng với những dataset khác.
+Từ VN thì cũng có team của một số đội như VNPT hay VIN AI/VIN Bigdata cũng tham gia và có được thứ hạng (tức là đã nộp bài).</p>
 
 <h1 id="quản-lý-và-thiết-lập-quyền-với-aws-organizations">Quản lý và thiết lập quyền với AWS Organizations</h1>
 

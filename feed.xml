@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Jan 2022 20:58:54 +0900</pubDate>
-    <lastBuildDate>Sat, 22 Jan 2022 20:58:54 +0900</lastBuildDate>
+    <pubDate>Sat, 22 Jan 2022 22:59:38 +0900</pubDate>
+    <lastBuildDate>Sat, 22 Jan 2022 22:59:38 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -209,7 +209,18 @@ Tất nhiên, cũng phải ưu tiên những papers mới xuất bản năm nay 
 Tức là ví dụ năm nay là 2022 thì những bài từ 2021 thì mình ưu tiên đọc (nhưng vẫn chỉ nên đọc top tầm 30%), còn từ 2020 về trước thì chỉ chọn bài có độ tăng trưởng trung bình trên 200 citations/năm, và trong đó cũng chỉ nên chọn top.&lt;/p&gt;
 
 &lt;p&gt;Cuối cùng, là về mảng biometrics này thì có một ứng dụng thú vị là &lt;em&gt;face recognition&lt;/em&gt; mà bên computer vision hay deep learning cũng nổi lên (gọi là &lt;em&gt;deep face recognition&lt;/em&gt;).
+Mảng này thì quả là cũng không nhiều papers lắm, cũng giống biometrics, nhưng lại có một số papers có trích dẫn hàng ngàn mặc dù xuất bản sau 2015 như FaceNet hay RetinaFace, ArcFace, CosFace.
+Tuy nhiên, nếu nói về thực tiễn sử dụng thì tôi nghĩ tốt nhất là nên tham khảo các con số trong benchmark lớn của chính phủ Mý [4].
+Lý do là bởi vì đó là các ứng dụng thực tiễn, cũng như bộ dữ liệu lớn tới vài chục triệu người, và quan trọng là mọi team trên thế giới đều có thể tham gia.
+Dưới đây là bảng kết quả hạng mục Verification, tức là cho sẵn một pair hai khuôn mặt, đưa ra kết quả xem đó có cùng 1 identity không?
+Kết quả là đường cong thể hiện tỷ lệ &lt;em&gt;false non-matching rate (FNMR) vs false matching rate (FMR)&lt;/em&gt;.
+Chúng ta hãy để ý đến tỷ lệ &lt;strong&gt;FNMR@FMR=$10^{-5}$&lt;/strong&gt; thì tên tuổi đứng nhất là InsightFace (là nhóm tác giả của RetinaFace, ArcFace, …).
+Họ chính là tác giả của framework &lt;a href=&quot;https://github.com/deepinsight/insightface.git&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;insightface&lt;/code&gt;&lt;/a&gt; để nhận dạng khuôn mặt 2D/3D.
+Thành tích đứng nhất là $FNMR=0.0006$ khi $FMR=10^{-5}$, tức là 10 vạn người thì chỉ sai 1 người và miss 60 người, tổng là 61 người bị sai hoặc miss.
 &lt;img src=&quot;/assets/images/nist-frvt-2022.png&quot; alt=&quot;NIST FRVT&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Trên đây chỉ là kết quả của dataset VISA, ngoài ra NIST còn có những task khác cùng với những dataset khác.
+Từ VN thì cũng có team của một số đội như VNPT hay VIN AI/VIN Bigdata cũng tham gia và có được thứ hạng (tức là đã nộp bài).&lt;/p&gt;
 
 &lt;h1 id=&quot;quản-lý-và-thiết-lập-quyền-với-aws-organizations&quot;&gt;Quản lý và thiết lập quyền với AWS Organizations&lt;/h1&gt;
 
