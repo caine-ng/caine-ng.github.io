@@ -287,7 +287,11 @@
                         <h3 class="font-weight-bold">Summary</h3>
                         <ul>
   <li><a href="#giới-thiệu">Giới thiệu</a></li>
-  <li><a href="#bảo-mật-nhiều-lớp">Bảo mật nhiều lớp</a></li>
+  <li><a href="#bảo-mật-nhiều-lớp">Bảo mật nhiều lớp</a>
+    <ul>
+      <li><a href="#điểm-qua-những-tiến-bộ-của-mảng-bảo-mật-nhiều-lớp">Điểm qua những tiến bộ của mảng bảo mật nhiều lớp</a></li>
+    </ul>
+  </li>
   <li><a href="#quản-lý-và-thiết-lập-quyền-với-aws-organizations">Quản lý và thiết lập quyền với AWS Organizations</a></li>
   <li><a href="#aws-single-sing-on-sso">AWS Single Sing-On (SSO)</a></li>
   <li><a href="#giám-sát-hành-vi-với-aws-cloudtrail">Giám sát hành vi với AWS CloudTrail</a></li>
@@ -325,10 +329,9 @@ Việc bảo vệ “bộ nhá” là cực kỳ quan trọng với con người
 
 <h1 id="bảo-mật-nhiều-lớp">Bảo mật nhiều lớp</h1>
 
-<p><img src="/assets/images/multi-factor.png" style="float: right; margin: 10px; width: 50%" />
-<em>Hình ảnh trích từ [1]</em></p>
+<h2 id="điểm-qua-những-tiến-bộ-của-mảng-bảo-mật-nhiều-lớp">Điểm qua những tiến bộ của mảng bảo mật nhiều lớp</h2>
 
-<p>Những tri thức nền tảng cho bảo mật nhiều lớp xuất hiện lần đầu từ bài báo của <strong>Mitchell [2]</strong> năm 1963.
+<p>Những tri thức nền tảng cho bảo mật nhiều lớp xuất hiện lần đầu từ bài báo của <strong>Mitchell Trauring [1, 2]</strong> năm 1963.
 Trong bài viết về cách thức nhận dạng vân tay tự động bằng <strong>Ridge</strong> patterns, ông viết:</p>
 
 <blockquote>
@@ -336,12 +339,27 @@ Trong bài viết về cách thức nhận dạng vân tay tự động bằng <
 </blockquote>
 
 <blockquote>
-  <p>-<em>Mitchell Trauring, Nature, March 1963</em></p>
+  <p><em>Mitchell Trauring, Nature, March 1963</em></p>
 </blockquote>
 
-<p><img src="/assets/images/fusion.jpg" style="float: left; margin: 10px; width: 50%" /></p>
+<p><img src="/assets/images/multi-factor.png" style="float: right; margin: 10px; width: 50%" />
+Như hình vẽ bên các bạn có thể thấy, bình thường bảo mật 1 lớp thì chỉ cần có mật khẩu (<em>something you know</em>).
+Tuy nhiên, để tăng độ bảo mật, ví dụ như khi mật khẩu bị đánh cắp thì nên có nhiều phương pháp bảo mật đi kèm như <strong>token [3], vân tay [2], khuôn mặt [4], PIN/key [5], mống mắt, …</strong>.
+Cái quan trọng là phải kết hợp thêm những cái gì user có (<em>something you have</em>) và những gì của user (<em>something you are</em>).
+<img src="/assets/images/fingerprint-matching.png" alt="" />
+<em>Trích dẫn: [1] mô hình vân tay và cách matching local points.</em></p>
+
+<p><img src="/assets/images/fusion.jpg" style="float: left; margin: 10px; width: 50%" />
+Tuy nhiên, một vấn đề lớn của các phương pháp bảo mật đi kèm là độ chính xác.
+Ví dụ như với vân tay [6] thì xác suất <em>false matching probability</em> vẫn có thể đạt $6.10\times 10^{-8}$ với mẫu vân tay có 36 điểm minutiae.
+Do đó việc sử dụng đơn thuần 1 đặc trưng anatomical hoặc behavior có thể tạo ra nhiều <em>false non-matching</em> cũng như <em>false matching</em>.
+Cũng vì đó mà cần phải dùng nhiều đặc trưng, và khi dùng nhiều đặc trưng thì có đặc trưng quan trọng, có đặc trưng không, phải có <strong>weight</strong> cho từng đặc trưng.
+Và đó chính là ý tưởng <strong>feature fusion</strong> hay là <strong>multimodal</strong> cho mảng biometrics.
+<em>Nói chung, cũng toàn mấy cái ý tưởng của các fellows từ thời 1990s-2000s</em>, thời các sếp ấy thì cũng đã 20-30 năm về trước, nên mấy cái ý tưởng này tôi nghĩ mới cũng không mới và trong mảng biometrics cũng đã implement gần hết, thậm chí vào sản phẩm thị trường rồi.</p>
 
 <p><img src="/assets/images/biometrics.png" style="float: right; margin: 10px; width: 50%" /></p>
+
+<p><img src="/assets/images/nist-frvt-2022.png" alt="NIST FRVT" /></p>
 
 <h1 id="quản-lý-và-thiết-lập-quyền-với-aws-organizations">Quản lý và thiết lập quyền với AWS Organizations</h1>
 
@@ -353,26 +371,13 @@ Trong bài viết về cách thức nhận dạng vân tay tự động bằng <
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="fan2009provably">Fan, C.-I., &amp; Lin, Y.-H. (2009). Provably secure remote truly three-factor authentication scheme with privacy protection on biometrics. <i>IEEE Transactions on Information Forensics and Security</i>, <i>4</i>(4), 933–945.</span></li>
-<li><span id="trauring1963automatic">Trauring, M. (1963). Automatic comparison of finger-ridge patterns. <i>Nature</i>, <i>197</i>(4871), 938–940.</span></li>
+<ol class="bibliography"><li><span id="trauring1963automatic">Trauring, M. (1963). Automatic comparison of finger-ridge patterns. <i>Nature</i>, <i>197</i>(4871), 938–940.</span></li>
 <li><span id="jain201650">Jain, A. K., Nandakumar, K., &amp; Ross, A. (2016). 50 years of biometric research: Accomplishments, challenges, and opportunities. <i>Pattern Recognition Letters</i>, <i>79</i>, 80–105.</span></li>
-<li><span id="nagaraju2016secauthn">Nagaraju, S., &amp; Parthiban, L. (2016). SecAuthn: Provably secure multi-factor authentication for the cloud computing systems. <i>Indian Journal of Science and Technology</i>, <i>9</i>(9), 1–18.</span></li>
-<li><span id="wang2016two">Wang, D., &amp; Wang, P. (2016). Two birds with one stone: Two-factor authentication with security beyond conventional bound. <i>IEEE Transactions on Dependable and Secure Computing</i>, <i>15</i>(4), 708–722.</span></li>
-<li><span id="liu2014maca">Liu, W., Uluagac, A. S., &amp; Beyah, R. (2014). MACA: A privacy-preserving multi-factor cloud authentication system utilizing big data. <i>2014 IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)</i>, 518–523.</span></li>
-<li><span id="nagaraju2015trusted">Nagaraju, S., &amp; Parthiban, L. (2015). Trusted framework for online banking in public cloud using multi-factor authentication and privacy protection gateway. <i>Journal of Cloud Computing</i>, <i>4</i>(1), 1–23.</span></li>
-<li><span id="ometov2018multi">Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T., &amp; Koucheryavy, Y. (2018). Multi-factor authentication: A survey. <i>Cryptography</i>, <i>2</i>(1), 1.</span></li>
-<li><span id="yu2014efficient">Yu, J., Wang, G., Mu, Y., &amp; Gao, W. (2014). An efficient generic framework for three-factor authentication with provably secure instantiation. <i>IEEE Transactions on Information Forensics and Security</i>, <i>9</i>(12), 2302–2313.</span></li>
-<li><span id="bhargav2007privacy">Bhargav-Spantzel, A., Squicciarini, A. C., Modi, S., Young, M., Bertino, E., &amp; Elliott, S. J. (2007). Privacy preserving multi-factor authentication with biometrics. <i>Journal of Computer Security</i>, <i>15</i>(5), 529–560.</span></li>
-<li><span id="wang2014anonymous">Wang, D., He, D., Wang, P., &amp; Chu, C.-H. (2014). Anonymous two-factor authentication in distributed systems: Certain goals are beyond attainment. <i>IEEE Transactions on Dependable and Secure Computing</i>, <i>12</i>(4), 428–442.</span></li>
-<li><span id="altinkemer2011cost">Altinkemer, K., &amp; Wang, T. (2011). Cost and benefit analysis of authentication systems. <i>Decision Support Systems</i>, <i>51</i>(3), 394–404.</span></li>
-<li><span id="huang2010generic">Huang, X., Xiang, Y., Chonka, A., Zhou, J., &amp; Deng, R. H. (2010). A generic framework for three-factor authentication: Preserving security and privacy in distributed systems. <i>IEEE Transactions on Parallel and Distributed Systems</i>, <i>22</i>(8), 1390–1397.</span></li>
-<li><span id="el2019survey">El-Hajj, M., Fadlallah, A., Chamoun, M., &amp; Serhrouchni, A. (2019). A survey of internet of things (IoT) authentication schemes. <i>Sensors</i>, <i>19</i>(5), 1141.</span></li>
 <li><span id="holdsworth2008token">Holdsworth, J. (2008). <i>Token for use in online electronic transactions</i>. Google Patents.</span></li>
-<li><span id="ferrag2018security">Ferrag, M. A., Maglaras, L., Argyriou, A., Kosmanos, D., &amp; Janicke, H. (2018). Security for 4G and 5G cellular networks: A survey of existing authentication and privacy-preserving schemes. <i>Journal of Network and Computer Applications</i>, <i>101</i>, 55–82.</span></li>
-<li><span id="meng2014surveying">Meng, W., Wong, D. S., Furnell, S., &amp; Zhou, J. (2014). Surveying the development of biometric user authentication on mobile phones. <i>IEEE Communications Surveys &amp; Tutorials</i>, <i>17</i>(3), 1268–1293.</span></li>
-<li><span id="frikken2009robust">Frikken, K. B., Blanton, M., &amp; Atallah, M. J. (2009). Robust authentication using physically unclonable functions. <i>International Conference on Information Security</i>, 262–277.</span></li>
+<li><span id="grother2018ongoing">Grother, P., Ngan, M., Hanaoka, K., Yang, J. C., &amp; Hom, A. (2022). <i>Ongoing face recognition vendor test (FRVT) part 1: Verification</i>. US Department of Commerce, National Institute of Standards and Technology.</span></li>
 <li><span id="boyd2003protocols">Boyd, C., Mathuria, A., &amp; Stebila, D. (2003). <i>Protocols for authentication and key establishment</i> (Vol. 1). Springer.</span></li>
-<li><span id="pointcheval2008multi">Pointcheval, D., &amp; Zimmer, S. (2008). Multi-factor authenticated key exchange. <i>International Conference on Applied Cryptography and Network Security</i>, 277–295.</span></li></ol>
+<li><span id="pankanti2002individuality">Pankanti, S., Prabhakar, S., &amp; Jain, A. K. (2002). On the individuality of fingerprints. <i>Pattern Analysis and Machine Intelligence, IEEE Transactions On</i>, <i>24</i>(8), 1010–1025.</span></li>
+<li><span id="ometov2018multi">Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T., &amp; Koucheryavy, Y. (2018). Multi-factor authentication: A survey. <i>Cryptography</i>, <i>2</i>(1), 1.</span></li></ol>
 
             </div>
 
