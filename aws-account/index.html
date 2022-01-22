@@ -591,7 +591,73 @@ Chú ý là không chỉ AWS Account mà cả các <code class="language-plainte
 <p>Giá cả của CloudTrail và CloudTrail Lake có thể tìm ở <a href="https://aws.amazon.com/cloudtrail/pricing/">đây</a>.
 Nói chung là nên ước tính trước số lượng sự kiện hành vi trên account để có kế hoạch chọn gói sử dụng thích hợp.</p>
 
+<p>Một mẫu log của CloudTrail cho sự kiện <code class="language-plaintext highlighter-rouge">start-instances</code> sẽ như sau:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="nl">"Records"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"eventVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userIdentity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IAMUser"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"principalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EX_PRINCIPAL_ID"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"arn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arn:aws:iam::123456789012:user/Alice"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"accessKeyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXAMPLE_KEY_ID"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"eventTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-03-06T21:22:54Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eventSource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec2.amazonaws.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eventName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StartInstances"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"awsRegion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us-east-2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceIPAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"205.251.233.176"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userAgent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec2-api-tools 1.6.12.2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"requestParameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"instancesSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"instanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i-ebeaf9e2"</span><span class="p">}]}},</span><span class="w">
+    </span><span class="nl">"responseElements"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"instancesSet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"instanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i-ebeaf9e2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currentState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"previousState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stopped"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]}}</span><span class="w">
+</span><span class="p">}]}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
 <h1 id="kết-luận">Kết luận</h1>
+
+<p>Trên đây chúng ta cùng nhau điểm qua kha khá các vấn đề về quản lý tài khoản.
+Thực ra chỉ 4 điểm có thể là chưa bao quát hết, nhưng cũng hầu như là nắm trọn mảng này.
+Một số vấn đề thú vị khác như RAM, AWS Config, … chúng ta sẽ đề cập khi có dịp.</p>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
