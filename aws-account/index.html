@@ -506,7 +506,7 @@ Với AWS thì là quản lý tất cả các tài khoản nhân viên, máy ả
     <tr>
       <td>6</td>
       <td><strong>Audit your environment for compliance</strong></td>
-      <td>Người quản lý có thể kích hoạt <a href="">AWS CloudTrail</a> để log mọi hành vi trong môi trường tổ chức, mà nhân viên không thể tắt đi được. Người quản lý có thể cấu hình AWS Backup để backup mọi tài nguyên, và dùng AWS Config để đồng bộ cấu hình tài nguyên dịch vụ trong cả tổ chức bất cháp tài khoản và regions.</td>
+      <td>Người quản lý có thể kích hoạt <a href="https://aws.amazon.com/cloudtrail/">AWS CloudTrail</a> để log mọi hành vi trong môi trường tổ chức, mà nhân viên không thể tắt đi được. Người quản lý có thể cấu hình AWS Backup để backup mọi tài nguyên, và dùng AWS Config để đồng bộ cấu hình tài nguyên dịch vụ trong cả tổ chức bất cháp tài khoản và regions.</td>
     </tr>
     <tr>
       <td>7</td>
@@ -575,6 +575,21 @@ Người dùng cũng có thể cấu hình <code class="language-plaintext highl
 Chú ý là không chỉ AWS Account mà cả các <code class="language-plaintext highlighter-rouge">SAML service</code> nếu có thì người dùng có thể truy cập thông qua cổng này.</p>
 
 <h1 id="giám-sát-hành-vi-với-aws-cloudtrail">Giám sát hành vi với AWS CloudTrail</h1>
+
+<p>Nếu application logs có thể được lưu trữ và quản lý với CloudWatch thì <a href="https://aws.amazon.com/cloudtrail/">CloudTrail</a> có thể quản lý mọi hành vi diễn ra trên tài khoản AWS Accounts của cả cá nhân lẫn organization.</p>
+
+<p><img src="https://d1.awsstatic.com/product-marketing/CloudTrail/product-page-diagram_AWS-CloudTrail_HIW%402x.d314033178a16dbbd99111038789685e42f23278.png" alt="" /></p>
+
+<p>Với CloudTrail, người quản lý của tổ chức có thể làm rất nhiều việc:</p>
+
+<ul>
+  <li><strong>Auditting</strong>: theo dõi, giám sát tự động mọi hoạt động diễn ra với tài khoản AWS Organizations. Người quản lý có thể truy vết lại <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html">log hành vi trên tài khoản tối đa 90 ngày quá khứ</a>. Nếu muốn mở rộng trên 90 ngày thì có thể liên hệ với AWS để cấu hình thêm. CloudTrail cũng có thể <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ct-api-tutorial.html">tích hợp vào EventBridge</a> để tăng cường theo dõi và lên cảnh báo. Log file của CloudTrail được mã hóa và được bảo vệ khỏi mất mát. Dữ liệu log trên nhiều vùng có thể được <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/aggregatinglogs.html">aggregate</a> lại. ClouTrail Insight và CloudTrail Lake là các dịch vụ tăng cường hỗ trợ việc quản lý log hành vi dễ hơn.</li>
+  <li><strong>Phát hiện và xử lý vi phạm bảo mật</strong></li>
+  <li><strong>Đối ứng sự cố</strong>: phát hiện bất thường và tìm hiểu root cause.</li>
+</ul>
+
+<p>Giá cả của CloudTrail và CloudTrail Lake có thể tìm ở <a href="https://aws.amazon.com/cloudtrail/pricing/">đây</a>.
+Nói chung là nên ước tính trước số lượng sự kiện hành vi trên account để có kế hoạch chọn gói sử dụng thích hợp.</p>
 
 <h1 id="kết-luận">Kết luận</h1>
 
