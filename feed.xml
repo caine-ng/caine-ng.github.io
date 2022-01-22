@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jan 2022 04:06:45 +0900</pubDate>
-    <lastBuildDate>Sun, 23 Jan 2022 04:06:45 +0900</lastBuildDate>
+    <pubDate>Sun, 23 Jan 2022 04:21:41 +0900</pubDate>
+    <lastBuildDate>Sun, 23 Jan 2022 04:21:41 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -365,13 +365,26 @@ Do vậy, cần có &lt;strong&gt;fedareted learning&lt;/strong&gt; để như�
 
 &lt;h2 id=&quot;cấu-hình-federated-account-để-người-dùng-có-thể-truy-cập-aws&quot;&gt;Cấu hình Federated account để người dùng có thể truy cập AWS&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/aws-sso-assign-user.png&quot; style=&quot;float: left; margin: 10px; width: 50%&quot; /&gt;
-&lt;strong&gt;Về phía người quản lý.&lt;/strong&gt; Một lời giải cho việc này chính là sử dụng AWS Single Sign-On (SSO), mà khởi đầu chỉ cần vào danh sách dịch vụ của AWS Organizations và bật SSO lên.
+&lt;p&gt;&lt;img src=&quot;/assets/images/aws-sso-assign-user.png&quot; style=&quot;float: left; margin: 10px; width: 50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Về phía người quản lý.&lt;/strong&gt; Một lời giải cho việc này chính là sử dụng AWS Single Sign-On (SSO), mà khởi đầu chỉ cần vào danh sách dịch vụ của AWS Organizations và bật SSO lên.
 Sau đó người quản lý vào danh sách user và ấn check tên user account muốn cấp quyền và nhấn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Assign user&lt;/code&gt;.
 Người quản lý sẽ được đưa đến màn hình &lt;strong&gt;Assign Users&lt;/strong&gt; như sau.
 &lt;img src=&quot;/assets/images/aws0-sso-set-permission.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
 Tại đây, người quản lý có thể tạo một &lt;strong&gt;permission set&lt;/strong&gt; mới cho user account đã cho, hoặc cấp ngay một permission set có sẵn.
-Trong ví dụ này tôi chọn luôn permission set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataScientist&lt;/code&gt; có sẵn để cho user account đã tạo nhé.&lt;/p&gt;
+Trong ví dụ này tôi chọn luôn permission set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataScientist&lt;/code&gt; có sẵn để cho user account đã tạo nhé.
+Cần chú ý ở đây là bộ quyền &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataScientist&lt;/code&gt; thì chỉ cho phép user truy cập các dịch vụ Analytics như database, DataLake Formation, RedShift, .v.v… chứ những dịch vụ như CLoudFront, Lambda, … là cần thêm quyền.
+Tùy vào nhu cầu sử dụng mà người quản lý có thể tạo những bộ quyền có sẵn để tiện cho việc quản lý.
+&lt;img src=&quot;/assets/images/aws-sso-assign-user-2.png&quot; style=&quot;float: left; margin: 10px; width: 50%&quot; /&gt;
+Sau khi nhấn thêm vài nút bấm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OK em&lt;/code&gt; nữa thì bộ quyền đã được assign cho user nhá.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/aws-sso-aws.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Về phía federated user.&lt;/strong&gt; Thì họ cần truy cập vào link SSO do người quản lý cung cấp.
+Trong lần truy cập đầu, họ sẽ cần thay đổi mật khẩu mặc định và đăng nhập.
+Như bạn thấy ở hình bên, người dùng sẽ truy cập được vào AWS Account với quyền truy cập giới hạn.
+Người dùng cũng có thể cấu hình &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MFA devices&lt;/code&gt; để tăng bảo mật theo yêu cầu của người quản lý.
+Chú ý là không chỉ AWS Account mà cả các &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SAML service&lt;/code&gt; nếu có thì người dùng có thể truy cập thông qua cổng này.&lt;/p&gt;
 
 &lt;h1 id=&quot;giám-sát-hành-vi-với-aws-cloudtrail&quot;&gt;Giám sát hành vi với AWS CloudTrail&lt;/h1&gt;
 

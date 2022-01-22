@@ -553,13 +553,26 @@ Do vậy, cần có <strong>fedareted learning</strong> để nhượng quyền 
 
 <h2 id="cấu-hình-federated-account-để-người-dùng-có-thể-truy-cập-aws">Cấu hình Federated account để người dùng có thể truy cập AWS</h2>
 
-<p><img src="/assets/images/aws-sso-assign-user.png" style="float: left; margin: 10px; width: 50%" />
-<strong>Về phía người quản lý.</strong> Một lời giải cho việc này chính là sử dụng AWS Single Sign-On (SSO), mà khởi đầu chỉ cần vào danh sách dịch vụ của AWS Organizations và bật SSO lên.
+<p><img src="/assets/images/aws-sso-assign-user.png" style="float: left; margin: 10px; width: 50%" /></p>
+
+<p><strong>Về phía người quản lý.</strong> Một lời giải cho việc này chính là sử dụng AWS Single Sign-On (SSO), mà khởi đầu chỉ cần vào danh sách dịch vụ của AWS Organizations và bật SSO lên.
 Sau đó người quản lý vào danh sách user và ấn check tên user account muốn cấp quyền và nhấn <code class="language-plaintext highlighter-rouge">Assign user</code>.
 Người quản lý sẽ được đưa đến màn hình <strong>Assign Users</strong> như sau.
 <img src="/assets/images/aws0-sso-set-permission.png" style="float: right; margin: 10px; width: 50%" />
 Tại đây, người quản lý có thể tạo một <strong>permission set</strong> mới cho user account đã cho, hoặc cấp ngay một permission set có sẵn.
-Trong ví dụ này tôi chọn luôn permission set <code class="language-plaintext highlighter-rouge">DataScientist</code> có sẵn để cho user account đã tạo nhé.</p>
+Trong ví dụ này tôi chọn luôn permission set <code class="language-plaintext highlighter-rouge">DataScientist</code> có sẵn để cho user account đã tạo nhé.
+Cần chú ý ở đây là bộ quyền <code class="language-plaintext highlighter-rouge">DataScientist</code> thì chỉ cho phép user truy cập các dịch vụ Analytics như database, DataLake Formation, RedShift, .v.v… chứ những dịch vụ như CLoudFront, Lambda, … là cần thêm quyền.
+Tùy vào nhu cầu sử dụng mà người quản lý có thể tạo những bộ quyền có sẵn để tiện cho việc quản lý.
+<img src="/assets/images/aws-sso-assign-user-2.png" style="float: left; margin: 10px; width: 50%" />
+Sau khi nhấn thêm vài nút bấm <code class="language-plaintext highlighter-rouge">OK em</code> nữa thì bộ quyền đã được assign cho user nhá.</p>
+
+<p><img src="/assets/images/aws-sso-aws.png" style="float: right; margin: 10px; width: 50%" /></p>
+
+<p><strong>Về phía federated user.</strong> Thì họ cần truy cập vào link SSO do người quản lý cung cấp.
+Trong lần truy cập đầu, họ sẽ cần thay đổi mật khẩu mặc định và đăng nhập.
+Như bạn thấy ở hình bên, người dùng sẽ truy cập được vào AWS Account với quyền truy cập giới hạn.
+Người dùng cũng có thể cấu hình <code class="language-plaintext highlighter-rouge">MFA devices</code> để tăng bảo mật theo yêu cầu của người quản lý.
+Chú ý là không chỉ AWS Account mà cả các <code class="language-plaintext highlighter-rouge">SAML service</code> nếu có thì người dùng có thể truy cập thông qua cổng này.</p>
 
 <h1 id="giám-sát-hành-vi-với-aws-cloudtrail">Giám sát hành vi với AWS CloudTrail</h1>
 
