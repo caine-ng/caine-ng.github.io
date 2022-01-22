@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jan 2022 01:29:26 +0900</pubDate>
-    <lastBuildDate>Sun, 23 Jan 2022 01:29:26 +0900</lastBuildDate>
+    <pubDate>Sun, 23 Jan 2022 03:28:20 +0900</pubDate>
+    <lastBuildDate>Sun, 23 Jan 2022 03:28:20 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -349,6 +349,12 @@ Họ đưa ra 9 lời khuyên trong việc quản lý AWS Organizations:&lt;/p&g
 &lt;p&gt;Nói chung là nếu quản lý tài nguyên một cách tập trung và hiệu quả thì giá thành của tổ chức sẽ rẻ hơn nhiều so với dùng tài khoản cá nhân.&lt;/p&gt;
 
 &lt;h1 id=&quot;aws-single-sing-on-sso&quot;&gt;AWS Single Sing-On (SSO)&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d1.awsstatic.com/diagrams/SSO-diagram.7b77570150a19ea35cfe4b923e1aee9f52b3dd06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;giới-thiệu-về-federated-learning-with-with-aws&quot;&gt;Giới thiệu về Federated learning with with AWS&lt;/h2&gt;
+
+&lt;h2 id=&quot;cấu-hình-federated-account-để-người-dùng-có-thể-truy-cập-aws&quot;&gt;Cấu hình Federated account để người dùng có thể truy cập AWS&lt;/h2&gt;
 
 &lt;h1 id=&quot;giám-sát-hành-vi-với-aws-cloudtrail&quot;&gt;Giám sát hành vi với AWS CloudTrail&lt;/h1&gt;
 
