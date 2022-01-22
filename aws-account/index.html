@@ -298,7 +298,12 @@
       </li>
     </ul>
   </li>
-  <li><a href="#quản-lý-và-thiết-lập-quyền-với-aws-organizations">Quản lý và thiết lập quyền với AWS Organizations</a></li>
+  <li><a href="#quản-lý-và-thiết-lập-quyền-với-aws-organizations">Quản lý và thiết lập quyền với AWS Organizations</a>
+    <ul>
+      <li><a href="#giới-thiệu-aws-organizations">Giới thiệu AWS Organizations</a></li>
+      <li><a href="#usecase-aws-govcloud">Usecase: AWS GovCloud</a></li>
+    </ul>
+  </li>
   <li><a href="#aws-single-sing-on-sso">AWS Single Sing-On (SSO)</a></li>
   <li><a href="#giám-sát-hành-vi-với-aws-cloudtrail">Giám sát hành vi với AWS CloudTrail</a></li>
   <li><a href="#kết-luận">Kết luận</a></li>
@@ -444,6 +449,87 @@ Và tại sao AWS chỉ áp dụng MFA dạng code 6 chữ số, chứ không h�
 Có lẽ là do vân tay hay mống mặt và đặc biệt khuôn mặt vẫn có tỷ lệ sai nhất định (chúng phù hợp cho nhiệm vụ điều tra của cảnh sát hơn), còn SMS thì có khá nhiều lỗ hổng bảo mật liên quan rồi nên lựa chọn code theo device có lẽ hợp lý hơn.</p>
 
 <h1 id="quản-lý-và-thiết-lập-quyền-với-aws-organizations">Quản lý và thiết lập quyền với AWS Organizations</h1>
+
+<h2 id="giới-thiệu-aws-organizations">Giới thiệu AWS Organizations</h2>
+
+<p>Trong nghiệp vụ quản lý tổ chức, có một mảng khá quan trọng là quản lý tài sản (asset management).
+Thì không đơn giản là lên danh sách tài sản và quản lý chúng, cái đó thì chỉ 1 file Excel là làm được.
+Cái quan trọng hơn với trọng trách này là <strong>quản lý và giám sát</strong> mọi tài sản trong tổ chức bao gồm cả tài sản, tài nguyên máy móc.
+Với AWS thì là quản lý tất cả các tài khoản nhân viên, máy ảo, dịch vụ được dùng một cách <strong>tập trung và hiệu quả</strong>.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Tại sao phải tập trung lại 1 chỗ?</code> Là bởi vì nếu phân tán sẽ khó kiểm soát và nhà quản lý sẽ rơi vào trạng thái bị động với mọi thay đổi trong tổ chức.</li>
+  <li><code class="language-plaintext highlighter-rouge">Tại sao phải hiệu quả?</code> Vì khi lên thành tổ chức, tài nguyên sẽ tăng lên rất nhiều, mà quản lý không hiệu quả thì cũng như người mù ngồi trên đống vàng. Người quản lý sẽ cần một công cụ để có thể ra policy và áp dụng policy đó một cách <em>đồng bộ</em> trong toàn tổ chức.</li>
+</ul>
+
+<p>Lời giải hợp lý ở đây chính là sử dụng <strong><a href="https://aws.amazon.com/organizations/">AWS Organizations</a></strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Tên</th>
+      <th>Chức năng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Manage your AWS accounts</strong></td>
+      <td>Tài khoản AWS trong tổ chức là nơi cần tổ chức quản lý quyền, bảo mật, tài nguyên và costs. Để dễ dàng tổ chức quản lý việc nâng cấp lên môi trường đa tài khoản (multi-account enviroment) là cần thiết. AWS hỗ trợ việc quản lý tập trung tài khoản qua CLI, SDKs, APIs và thậm chí là Infrastructure as code như <a href="https://aws.amazon.com/cloudformation/?org_product_fr_cloudformation">AWS Cloudformation</a>.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Define and manage your organization</strong></td>
+      <td>Ngay khi khởi tạo các tài khoản, người quản lý có thể tạo nhòm tài khoản (OUs) phục vụ cho từ ứng dụng hoặc dịch vụ. Người quản lý có thể sử dụng tags để phân loại và track tài nguyên. Ngoài ra người quản lý có thể truyền lại quyền (delegate) cho nhân viên, khi đó nhân viên có thể coi là đại diện cho tổ chức để thực thi quyền.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Secure and monitor your accounts</strong></td>
+      <td>Người quản lý có thể quản lý bảo mật <strong>tập trung</strong> và cho phép đội bảo mật truy cập cho tổ chức. AWS Organizations cung cấp dịch vụ bảo mật như <a href="https://aws.amazon.com/guardduty/?org_product_fr_guardduty">AWS GuardDuty</a> để phát hiện và xử lý sự cố/nguy cơ bảo mật, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">IAM Access Analyzer</a> để review những truy cập không mong muốn, và dùng <a href="https://aws.amazon.com/macie/">Amazon Macie</a> để quản lsy dữ liệu nhạy cảm (kiểu như review code xem có sót thông tin mật nào không?).</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>Control access and permissions</strong></td>
+      <td>Set up Amazon Single Sign-On (SSO) để cung cấp cho tài khoản người dùng AWS quyền truy cập tài khoản thông qua active directory và tối ưu quyền dựa trên roles. Người quản lý còn có thể cho phép người dùng hoặc OUs sử dụng SCPs để quản lý quyền truy cập vào tài nguyên, dịch vụ, và regions trong tổ chức.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Share resources across accounts</strong></td>
+      <td>Quản lý tài nguyên tập trung với <a href="https://aws.amazon.com/ram/?org_product_ow_ram">AWS Resource Allocation Management (RAM)</a>. Kể cả license cũng có thể được quản lý tập trung với <a href="https://aws.amazon.com/license-manager/?org_product_ft_licensemanager">AWS License Manager</a>, và chia sẻ dịch vụ trong cả tổ chức với AWS Service Catalog.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>Audit your environment for compliance</strong></td>
+      <td>Người quản lý có thể kích hoạt <a href="">AWS CloudTrail</a> để log mọi hành vi trong môi trường tổ chức, mà nhân viên không thể tắt đi được. Người quản lý có thể cấu hình AWS Backup để backup mọi tài nguyên, và dùng AWS Config để đồng bộ cấu hình tài nguyên dịch vụ trong cả tổ chức bất cháp tài khoản và regions.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>Centrally manage billing and costs</strong></td>
+      <td>Quản lý costs tập trung với AWS Cost Explorer, và sử dụng AWS Compute Optimizer để tối ưu giá thành.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="usecase-aws-govcloud">Usecase: AWS GovCloud</h2>
+
+<p>Trên trang chủ của AWS Organizations có thể tìm thấy khá nhiều usecases có sẵn.
+Trong bài này chúng ta xem lại 1 usecase của AWS GovCloud [9].
+Usecase này được đưa ra bởi MITRE.
+Họ đưa ra 9 lời khuyên trong việc quản lý AWS Organizations:</p>
+
+<ul>
+  <li><strong>Reserved Instances</strong>: nên thuê dài hạn để nhận discount.</li>
+  <li><strong>Spot Instances</strong>: nên thuê những instances dạng spot để có thể bid giá và chạy khi giá thực vượt quá giá bid.</li>
+  <li><strong>Auto Scaling and Automating Elasticity</strong>: auto-scaling instances là chuyện nên làm và policy để scale nên dựa trên volume demand.</li>
+  <li><strong>S3 Object Lifecycle Management</strong>: storage type nên được chọn dựa theo object lifecycle và tần suất truy cập.</li>
+  <li><strong>Instance States and Stopping Instances</strong>: hãy cấu hình chỉ bill với những cái gì đang chạy. Không nên thuê kiểu phải trả cho thời gian không chạy.</li>
+  <li><strong>Tagging</strong>: để giám sát giá thành nên dùng labels.</li>
+  <li><strong>AWS Config</strong>: đồng bộ cấu hình tài nguyên trên toàn tổ chức và mọi regions.</li>
+  <li><strong>AWS Organizations</strong>: quản lý quyền và tài khoản trong tổ chức một tập trung và hiệu quả.</li>
+  <li><strong>EC2 Right Sizing</strong>: nếu dùng EC2 thì phải lựa chọn size phù hợp nhu cầu, không nên dùng lớn hơn nhu cầu dẫn tới lãng phí.</li>
+</ul>
+
+<p>Nói chung là nếu quản lý tài nguyên một cách tập trung và hiệu quả thì giá thành của tổ chức sẽ rẻ hơn nhiều so với dùng tài khoản cá nhân.</p>
 
 <h1 id="aws-single-sing-on-sso">AWS Single Sing-On (SSO)</h1>
 
