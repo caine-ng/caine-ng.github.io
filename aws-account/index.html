@@ -306,7 +306,7 @@
   </li>
   <li><a href="#aws-single-sing-on-sso">AWS Single Sing-On (SSO)</a>
     <ul>
-      <li><a href="#giới-thiệu-về-federated-learning-with-with-aws">Giới thiệu về Federated learning with with AWS</a></li>
+      <li><a href="#giới-thiệu-về-federated-learning-với-aws">Giới thiệu về Federated learning với AWS</a></li>
       <li><a href="#cấu-hình-federated-account-để-người-dùng-có-thể-truy-cập-aws">Cấu hình Federated account để người dùng có thể truy cập AWS</a></li>
     </ul>
   </li>
@@ -405,8 +405,9 @@ Dưới đây là bảng kết quả hạng mục Verification, tức là cho s�
 Kết quả là đường cong thể hiện tỷ lệ <em>false non-matching rate (FNMR) vs false matching rate (FMR)</em>.
 Chúng ta hãy để ý đến tỷ lệ <strong>FNMR@FMR=$10^{-5}$</strong> thì tên tuổi đứng nhất là InsightFace (là nhóm tác giả của RetinaFace, ArcFace, …).
 Họ chính là tác giả của framework <a href="https://github.com/deepinsight/insightface.git"><code class="language-plaintext highlighter-rouge">insightface</code></a> để nhận dạng khuôn mặt 2D/3D.
-Thành tích đứng nhất là $FNMR=0.0006$ khi $FMR=10^{-5}$, tức là 10 vạn người thì chỉ sai 1 người và miss 60 người, tổng là 61 người bị sai hoặc miss.
-<img src="/assets/images/nist-frvt-2022.png" alt="NIST FRVT" /></p>
+Thành tích đứng nhất là $FNMR=0.0006$ khi $FMR=10^{-5}$, tức là 10 vạn người thì chỉ sai 1 người và miss 60 người, tổng là 61 người bị sai hoặc miss.</p>
+
+<p><img src="/assets/images/nist-frvt-2022.png" alt="NIST FRVT" /></p>
 
 <p>Trên đây chỉ là kết quả của dataset VISA, ngoài ra NIST còn có những task khác cùng với những dataset khác.
 Từ VN thì cũng có team của một số đội như VNPT hay VIN AI/VIN Bigdata cũng tham gia và có được thứ hạng (tức là đã nộp bài).</p>
@@ -540,9 +541,25 @@ Họ đưa ra 9 lời khuyên trong việc quản lý AWS Organizations:</p>
 
 <p><img src="https://d1.awsstatic.com/diagrams/SSO-diagram.7b77570150a19ea35cfe4b923e1aee9f52b3dd06.png" alt="" /></p>
 
-<h2 id="giới-thiệu-về-federated-learning-with-with-aws">Giới thiệu về Federated learning with with AWS</h2>
+<h2 id="giới-thiệu-về-federated-learning-với-aws">Giới thiệu về Federated learning với AWS</h2>
+
+<p><strong>Federated Authentication</strong>. Vậy là chúng ta đã cấu hình xong AWS Organizations.
+Bây giờ chúng ta đã tạo 1 tài khoản user, và chúng ta muốn user đó sẽ login và sử dụng AWS account với quyền giới hạn.
+Tất nhiên là login bằng tài khoản root thì sẽ có mọi quyền rồi, nhưng vấn đề là việc đó cần phải giới hạn để tránh những sự cố không đáng có.</p>
+
+<p>Việc cấp quyền này chính là hình thức <strong>federated</strong> mà chúng ta muốn học hỏi hôm nay.
+Nhìn chung là nếu cứ tất cả dồn hết vào tài khoản root, thì chuyện quản lý phân quyền sẽ vô cùng mệt mỏi.
+Do vậy, cần có <strong>fedareted learning</strong> để nhượng quyền cũng như chia quyền cho thích hợp.</p>
 
 <h2 id="cấu-hình-federated-account-để-người-dùng-có-thể-truy-cập-aws">Cấu hình Federated account để người dùng có thể truy cập AWS</h2>
+
+<p><img src="/assets/images/aws-sso-assign-user.png" style="float: left; margin: 10px; width: 50%" />
+<strong>Về phía người quản lý.</strong> Một lời giải cho việc này chính là sử dụng AWS Single Sign-On (SSO), mà khởi đầu chỉ cần vào danh sách dịch vụ của AWS Organizations và bật SSO lên.
+Sau đó người quản lý vào danh sách user và ấn check tên user account muốn cấp quyền và nhấn <code class="language-plaintext highlighter-rouge">Assign user</code>.
+Người quản lý sẽ được đưa đến màn hình <strong>Assign Users</strong> như sau.
+<img src="/assets/images/aws0-sso-set-permission.png" style="float: right; margin: 10px; width: 50%" />
+Tại đây, người quản lý có thể tạo một <strong>permission set</strong> mới cho user account đã cho, hoặc cấp ngay một permission set có sẵn.
+Trong ví dụ này tôi chọn luôn permission set <code class="language-plaintext highlighter-rouge">DataScientist</code> có sẵn để cho user account đã tạo nhé.</p>
 
 <h1 id="giám-sát-hành-vi-với-aws-cloudtrail">Giám sát hành vi với AWS CloudTrail</h1>
 

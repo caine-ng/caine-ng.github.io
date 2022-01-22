@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Jan 2022 03:28:20 +0900</pubDate>
-    <lastBuildDate>Sun, 23 Jan 2022 03:28:20 +0900</lastBuildDate>
+    <pubDate>Sun, 23 Jan 2022 04:06:45 +0900</pubDate>
+    <lastBuildDate>Sun, 23 Jan 2022 04:06:45 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -217,8 +217,9 @@ Dưới đây là bảng kết quả hạng mục Verification, tức là cho s�
 Kết quả là đường cong thể hiện tỷ lệ &lt;em&gt;false non-matching rate (FNMR) vs false matching rate (FMR)&lt;/em&gt;.
 Chúng ta hãy để ý đến tỷ lệ &lt;strong&gt;FNMR@FMR=$10^{-5}$&lt;/strong&gt; thì tên tuổi đứng nhất là InsightFace (là nhóm tác giả của RetinaFace, ArcFace, …).
 Họ chính là tác giả của framework &lt;a href=&quot;https://github.com/deepinsight/insightface.git&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;insightface&lt;/code&gt;&lt;/a&gt; để nhận dạng khuôn mặt 2D/3D.
-Thành tích đứng nhất là $FNMR=0.0006$ khi $FMR=10^{-5}$, tức là 10 vạn người thì chỉ sai 1 người và miss 60 người, tổng là 61 người bị sai hoặc miss.
-&lt;img src=&quot;/assets/images/nist-frvt-2022.png&quot; alt=&quot;NIST FRVT&quot; /&gt;&lt;/p&gt;
+Thành tích đứng nhất là $FNMR=0.0006$ khi $FMR=10^{-5}$, tức là 10 vạn người thì chỉ sai 1 người và miss 60 người, tổng là 61 người bị sai hoặc miss.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/nist-frvt-2022.png&quot; alt=&quot;NIST FRVT&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Trên đây chỉ là kết quả của dataset VISA, ngoài ra NIST còn có những task khác cùng với những dataset khác.
 Từ VN thì cũng có team của một số đội như VNPT hay VIN AI/VIN Bigdata cũng tham gia và có được thứ hạng (tức là đã nộp bài).&lt;/p&gt;
@@ -352,9 +353,25 @@ Họ đưa ra 9 lời khuyên trong việc quản lý AWS Organizations:&lt;/p&g
 
 &lt;p&gt;&lt;img src=&quot;https://d1.awsstatic.com/diagrams/SSO-diagram.7b77570150a19ea35cfe4b923e1aee9f52b3dd06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;giới-thiệu-về-federated-learning-with-with-aws&quot;&gt;Giới thiệu về Federated learning with with AWS&lt;/h2&gt;
+&lt;h2 id=&quot;giới-thiệu-về-federated-learning-với-aws&quot;&gt;Giới thiệu về Federated learning với AWS&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Federated Authentication&lt;/strong&gt;. Vậy là chúng ta đã cấu hình xong AWS Organizations.
+Bây giờ chúng ta đã tạo 1 tài khoản user, và chúng ta muốn user đó sẽ login và sử dụng AWS account với quyền giới hạn.
+Tất nhiên là login bằng tài khoản root thì sẽ có mọi quyền rồi, nhưng vấn đề là việc đó cần phải giới hạn để tránh những sự cố không đáng có.&lt;/p&gt;
+
+&lt;p&gt;Việc cấp quyền này chính là hình thức &lt;strong&gt;federated&lt;/strong&gt; mà chúng ta muốn học hỏi hôm nay.
+Nhìn chung là nếu cứ tất cả dồn hết vào tài khoản root, thì chuyện quản lý phân quyền sẽ vô cùng mệt mỏi.
+Do vậy, cần có &lt;strong&gt;fedareted learning&lt;/strong&gt; để nhượng quyền cũng như chia quyền cho thích hợp.&lt;/p&gt;
 
 &lt;h2 id=&quot;cấu-hình-federated-account-để-người-dùng-có-thể-truy-cập-aws&quot;&gt;Cấu hình Federated account để người dùng có thể truy cập AWS&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/aws-sso-assign-user.png&quot; style=&quot;float: left; margin: 10px; width: 50%&quot; /&gt;
+&lt;strong&gt;Về phía người quản lý.&lt;/strong&gt; Một lời giải cho việc này chính là sử dụng AWS Single Sign-On (SSO), mà khởi đầu chỉ cần vào danh sách dịch vụ của AWS Organizations và bật SSO lên.
+Sau đó người quản lý vào danh sách user và ấn check tên user account muốn cấp quyền và nhấn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Assign user&lt;/code&gt;.
+Người quản lý sẽ được đưa đến màn hình &lt;strong&gt;Assign Users&lt;/strong&gt; như sau.
+&lt;img src=&quot;/assets/images/aws0-sso-set-permission.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
+Tại đây, người quản lý có thể tạo một &lt;strong&gt;permission set&lt;/strong&gt; mới cho user account đã cho, hoặc cấp ngay một permission set có sẵn.
+Trong ví dụ này tôi chọn luôn permission set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DataScientist&lt;/code&gt; có sẵn để cho user account đã tạo nhé.&lt;/p&gt;
 
 &lt;h1 id=&quot;giám-sát-hành-vi-với-aws-cloudtrail&quot;&gt;Giám sát hành vi với AWS CloudTrail&lt;/h1&gt;
 
