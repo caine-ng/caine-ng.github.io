@@ -287,7 +287,12 @@
                         <h3 class="font-weight-bold">Summary</h3>
                         <ul>
   <li><a href="#network-intrusion-detection-system">Network Intrusion Detection System</a></li>
-  <li><a href="#machine-learning-at-scale-some-solutions-in-aws">Machine Learning at scale: some solutions in AWS</a></li>
+  <li><a href="#machine-learning-at-scale-some-solutions-in-aws">Machine Learning at scale: some solutions in AWS</a>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#challenges-in-nids-operations">Challenges in NIDS operations</a></li>
+    </ul>
+  </li>
   <li><a href="#machine-learning-at-local">Machine Learning at local</a>
     <ul>
       <li><a href="#a-kaggle-synthetic-dataset">A Kaggle synthetic dataset</a>
@@ -314,7 +319,76 @@
 
 <h1 id="network-intrusion-detection-system">Network Intrusion Detection System</h1>
 
+<p><img src="https://www.researchgate.net/profile/Simon-Enoch/publication/319637372/figure/fig1/AS:543679434510336@1506634686111/Configuration-of-the-enterprise-network.png" style="float: left; margin: 10px; width: 50%;" /></p>
+
+<blockquote>
+  <p><strong>Network intrusion detection system (NIDS)</strong> is an independent platform that examines network traffic patterns to identify intrusions for an entire network. It needs to be placed at a choke point where all traffic traverses. A good location for this is in the DMZ.</p>
+</blockquote>
+
+<p>An IDS is <em>reactive</em> in nature: it only monitors and sends alerts to a group of specific people like administrators.
+The above figure shows a common NIDS architecture, where a DMZ is placed in between <em>external firewall</em> and <em>internal firewall (to an internal network)</em>.
+Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies.</p>
+
+<p><img src="https://www.researchgate.net/profile/Vivek-Singh-70/publication/328572055/figure/fig1/AS:686824250945536@1540763070945/Major-Components-of-Snort-IDS-and-Bro-IDS.ppm" style="float: right; margin: 10px; width: 50%;" />
+A NIDS can have the following architecture:</p>
+
+<ul>
+  <li>A <strong>streaming engine</strong> which ingests packet stream into the NIDS</li>
+  <li>A <strong>package decoder</strong> which turns packet content into visibility</li>
+  <li>A <strong>detection engine</strong> which identify intrusions</li>
+  <li>A <strong>policy engine</strong> which decide and suggest what to do with an intrusion</li>
+  <li>Finally, the intrusion details is collected and <strong>logged</strong>. <strong>Alerts</strong> will be sent to admins and optionally, scripted <strong>actions</strong> can be performed in according to policies.</li>
+</ul>
+
+<p>Two typical examples of NIDS are <a href="https://www.snort.org/">Snort IDS</a> and <a href="https://bricata.com/blog/zeek-ids-threat-detection/">Bro IDS</a>.
+A nicer example that can be integrated into network monitoring can be <a href="https://www.zabbix.com/features#smart_thresholds">Zabbix’s Problem Detection Engine</a>.</p>
+
 <h1 id="machine-learning-at-scale-some-solutions-in-aws">Machine Learning at scale: some solutions in AWS</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>The theory about NIDS perhaps is a huge bundle of knowledge!
+Corporations have set up their own NIDS (in most cases in DMZ) for years.
+We will not talk about such solutions anymore.
+The most interesting part is in the cloud platforms like AWS.</p>
+
+<blockquote>
+  <p>While companies are moving their resources to the cloud, where is the NIDS?</p>
+</blockquote>
+
+<p>In the <a href="https://d1.awsstatic.com/Marketplace/scenarios/security/SEC_01_TSB_Final.pdf"><strong>Shared Responsibility Model (SRM)</strong></a>.
+The <strong>responsibility</strong> of protecting cloud resources like computing instances (EC2) and networking is of AWS.
+Users have the responsibility to tune the best configurations of firewall, instances, load balancers, and other resources in AWS.
+So a platform IDS is already managed at AWS, and the at the users (application developers), the remaining task is to <strong>implement a best Network/Host IDS (endpoint protection)</strong>.
+There are several choices for a Host IDS (HIDS) in the AWS Marketplace like <a href="https://www.trendmicro.com/en_us/business/products/hybrid-cloud/security-data-center-virtualization.html">TrendMicro’s Deep Security</a>.
+For a custom NIDS, users can implement a <a href="https://aws.amazon.com/blogs/networking-and-content-delivery/centralized-inspection-architecture-with-aws-gateway-load-balancer-and-aws-transit-gateway/">Transit DMZ Gateway</a>. 
+An examplar implementation can be as follows:</p>
+
+<p><img src="https://github.com/aws-samples/aws-gateway-load-balancer-code-samples/raw/964874069c0a90d0b6758b2612c2de44a43f2a21/aws-cloudformation/centralized_architecture/images/gwlb_centralized_architecture.jpg" alt="AWS Transit gateway" /></p>
+
+<h2 id="challenges-in-nids-operations">Challenges in NIDS operations</h2>
+
+<p>A standard DMZ with NIDS can be implemented at the cloud or data center.
+However, the <strong>hurdle</strong> only comes when we operate our solution: this is the hard part!</p>
+
+<blockquote>
+  <p>When it comes to operations (運用保守), it often require an enormous amount of manual work!</p>
+</blockquote>
+
+<p>We need a large number of low-paid workers who will sit in front of the monitoring screen and then manually mark each access as legal or not.
+It is the real-world hurdle!</p>
+
+<blockquote>
+  <p>However, the technical issues start when we want <strong>automation</strong>: how to reduce false alarms and misses?</p>
+</blockquote>
+
+<p>Good automated solutions will reduce manual work a lot.
+But it is not straightforward!
+Rule-based systems can have many misses or false alarms.</p>
+
+<blockquote>
+  <p>A weak rule misses many, but a strong rule alerts too much! (So both strong and weak ones are useless!)</p>
+</blockquote>
 
 <h1 id="machine-learning-at-local">Machine Learning at local</h1>
 
