@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jan 2022 04:15:41 +0900</pubDate>
-    <lastBuildDate>Sun, 30 Jan 2022 04:15:41 +0900</lastBuildDate>
+    <pubDate>Sun, 30 Jan 2022 04:18:06 +0900</pubDate>
+    <lastBuildDate>Sun, 30 Jan 2022 04:18:06 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -55,8 +55,8 @@ The most interesting part is in the cloud platforms like AWS.&lt;/p&gt;
 &lt;p&gt;In the &lt;a href=&quot;https://d1.awsstatic.com/Marketplace/scenarios/security/SEC_01_TSB_Final.pdf&quot;&gt;&lt;strong&gt;Shared Responsibility Model (SRM)&lt;/strong&gt;&lt;/a&gt;.
 The &lt;strong&gt;responsibility&lt;/strong&gt; of protecting cloud resources like computing instances (EC2) and networking is of AWS.
 Users have the responsibility to tune the best configurations of firewall, instances, load balancers, and other resources in AWS.
-So a platform IDS is already managed at AWS, and the at the users (application developers), the remaining task is to &lt;strong&gt;implement a best Network/H-ost IDS (endpoint protection)&lt;/strong&gt;.
-There are several choices for a H-ost IDS (HIDS) in the AWS Marketplace like &lt;a href=&quot;https://www.trendmicro.com/en_us/business/products/hybrid-cloud/security-data-center-virtualization.html&quot;&gt;TrendMicro’s Deep Security&lt;/a&gt;.
+So a platform IDS is already managed at AWS, and the at the users (application developers), the remaining task is to &lt;strong&gt;implement a best Network/HIDS (endpoint protection)&lt;/strong&gt;.
+There are several choices for a HIDS in the AWS Marketplace like &lt;a href=&quot;https://www.trendmicro.com/en_us/business/products/hybrid-cloud/security-data-center-virtualization.html&quot;&gt;TrendMicro’s Deep Security&lt;/a&gt;.
 For a custom NIDS, users can implement a &lt;a href=&quot;https://aws.amazon.com/blogs/networking-and-content-delivery/centralized-inspection-architecture-with-aws-gateway-load-balancer-and-aws-transit-gateway/&quot;&gt;Transit DMZ Gateway&lt;/a&gt;. 
 An examplar implementation can be as follows:&lt;/p&gt;
 
@@ -133,9 +133,9 @@ And, in a synthetic way!&lt;/p&gt;
 &lt;p&gt;We start with a synthetic dataset from &lt;a href=&quot;https://www.kaggle.com/sampadab17/network-intrusion-detection&quot;&gt;Kaggle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The dataset to be audited was provided that consists of a wide variety of intrusions simulated in a military network environment. It created an environment to acquire raw TCP/IP dump data for a network by simulating a typical US Air Force LAN. The LAN was focused like a real environment and blasted with multiple a-ttacks. A connection is a sequence of TCP packets starting and ending at some time duration between which data flows to and from a source IP address to a target IP address under some well-defined protocol. Also, each connection is labeled as either normal or as an a-ttack with exactly one specific a-ttack type. Each connection record consists of about 100 bytes.&lt;/p&gt;
+  &lt;p&gt;The dataset to be audited was provided that consists of a wide variety of intrusions simulated in a military network environment. It created an environment to acquire raw TCP/IP dump data for a network by simulating a typical US Air Force LAN. The LAN was focused like a real environment and blasted with multiple attacks. A connection is a sequence of TCP packets starting and ending at some time duration between which data flows to and from a source IP address to a target IP address under some well-defined protocol. Also, each connection is labeled as either normal or as an attack with exactly one specific attack type. Each connection record consists of about 100 bytes.&lt;/p&gt;
 
-  &lt;p&gt;For each TCP/IP connection, 41 quantitative and qualitative features are obtained from normal and a-ttack data (3 qualitative and 38 quantitative features). The class variable has two categories:&lt;/p&gt;
+  &lt;p&gt;For each TCP/IP connection, 41 quantitative and qualitative features are obtained from normal and attack data (3 qualitative and 38 quantitative features). The class variable has two categories:&lt;/p&gt;
   &lt;ul&gt;
     &lt;li&gt;Normal&lt;/li&gt;
     &lt;li&gt;Anomalous&lt;/li&gt;
@@ -144,7 +144,7 @@ And, in a synthetic way!&lt;/p&gt;
 
 &lt;h3 id=&quot;explorative-analysis&quot;&gt;Explorative analysis&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/ids-kaggle-feature-selection.png&quot; alt=&quot;feature selection&quot; /&gt;
-&lt;em&gt;We notice that not all features are useful. Some features like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;is_H-ost_login&lt;/code&gt; have only a constant value.&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt;We notice that not all features are useful. Some features like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;is_Host_login&lt;/code&gt; have only a constant value.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Our dataset is big enough (25K entries) and contains both categorical and numerical features:&lt;/p&gt;
 
@@ -220,7 +220,7 @@ Data columns (total 42 columns):
  17  num_shells                   25192 non-null  int64  
  18  num_access_files             25192 non-null  int64  
  19  num_outbound_cmds            25192 non-null  int64  
- 20  is_H-ost_login                25192 non-null  int64  
+ 20  is_Host_login                25192 non-null  int64  
  21  is_guest_login               25192 non-null  int64  
  22  count                        25192 non-null  int64  
  23  srv_count                    25192 non-null  int64  
@@ -230,17 +230,17 @@ Data columns (total 42 columns):
  27  srv_rerror_rate              25192 non-null  float64
  28  same_srv_rate                25192 non-null  float64
  29  diff_srv_rate                25192 non-null  float64
- 30  srv_diff_H-ost_rate           25192 non-null  float64
- 31  dst_H-ost_count               25192 non-null  int64  
- 32  dst_H-ost_srv_count           25192 non-null  int64  
- 33  dst_H-ost_same_srv_rate       25192 non-null  float64
- 34  dst_H-ost_diff_srv_rate       25192 non-null  float64
- 35  dst_H-ost_same_src_port_rate  25192 non-null  float64
- 36  dst_H-ost_srv_diff_H-ost_rate  25192 non-null  float64
- 37  dst_H-ost_serror_rate         25192 non-null  float64
- 38  dst_H-ost_srv_serror_rate     25192 non-null  float64
- 39  dst_H-ost_rerror_rate         25192 non-null  float64
- 40  dst_H-ost_srv_rerror_rate     25192 non-null  float64
+ 30  srv_diff_Host_rate           25192 non-null  float64
+ 31  dst_Host_count               25192 non-null  int64  
+ 32  dst_Host_srv_count           25192 non-null  int64  
+ 33  dst_Host_same_srv_rate       25192 non-null  float64
+ 34  dst_Host_diff_srv_rate       25192 non-null  float64
+ 35  dst_Host_same_src_port_rate  25192 non-null  float64
+ 36  dst_Host_srv_diff_Host_rate  25192 non-null  float64
+ 37  dst_Host_serror_rate         25192 non-null  float64
+ 38  dst_Host_srv_serror_rate     25192 non-null  float64
+ 39  dst_Host_rerror_rate         25192 non-null  float64
+ 40  dst_Host_srv_rerror_rate     25192 non-null  float64
  41  class                        25192 non-null  object 
 dtypes: float64(15), int64(23), object(4)
 memory usage: 8.1+ MB
@@ -396,12 +396,12 @@ Because the rule is clear, counterfactuals try to make themselves legal (try to 
 So a fixed rule is not enough.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The a-ttacks become more and more advanced, but the rules cannot be changed so fast, making an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Achilles&apos; heel&lt;/code&gt; in the defense system.&lt;/p&gt;
+  &lt;p&gt;The attacks become more and more advanced, but the rules cannot be changed so fast, making an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Achilles&apos; heel&lt;/code&gt; in the defense system.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Machine Learning-based methods&lt;/strong&gt; try to define a soft boundary that can be learned and improved over time.
-The main advantage of the Machine Learning approach is that since the boundary is soft and there is no clear rule, the a-ttackers cannot know the rule exactly (how many minutes should they make for a successful a-ttack?).
-Another important aspect is that since the soft rule is not fixed, it can &lt;strong&gt;evolve&lt;/strong&gt; with the a-ttacks: the more advanced the a-ttack is, the more advanced the defender is.
+The main advantage of the Machine Learning approach is that since the boundary is soft and there is no clear rule, the instruders cannot know the rule exactly (how many minutes should they make for a successful attack?).
+Another important aspect is that since the soft rule is not fixed, it can &lt;strong&gt;evolve&lt;/strong&gt; with the intrusions: the more advanced the intrusion is, the more advanced the defender is.
 When this sounds &lt;em&gt;ambiguous&lt;/em&gt;, but for the security systems, it becomes exactly a common strategy to overcome incidents.
 The Machine Learning methods can be generative or discriminative, but they must be somewhat non-linear and ambiguous enough to hide details of the system to hackers.&lt;/p&gt;
 
