@@ -24,6 +24,7 @@ a:hover {
 pre {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    /* Must do this to remove ugly borders */
     /* border: #E3EDF3 1px solid; */
     width: 100%;
     padding: 7px;
