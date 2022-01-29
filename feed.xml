@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jan 2022 04:18:06 +0900</pubDate>
-    <lastBuildDate>Sun, 30 Jan 2022 04:18:06 +0900</lastBuildDate>
+    <pubDate>Sun, 30 Jan 2022 04:21:14 +0900</pubDate>
+    <lastBuildDate>Sun, 30 Jan 2022 04:21:14 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -400,7 +400,7 @@ So a fixed rule is not enough.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Machine Learning-based methods&lt;/strong&gt; try to define a soft boundary that can be learned and improved over time.
-The main advantage of the Machine Learning approach is that since the boundary is soft and there is no clear rule, the instruders cannot know the rule exactly (how many minutes should they make for a successful attack?).
+The main advantage of the Machine Learning approach is that since the boundary is soft and there is no clear rule, the intruders cannot know the rule exactly (how many minutes should they make for a successful intrusion?).
 Another important aspect is that since the soft rule is not fixed, it can &lt;strong&gt;evolve&lt;/strong&gt; with the intrusions: the more advanced the intrusion is, the more advanced the defender is.
 When this sounds &lt;em&gt;ambiguous&lt;/em&gt;, but for the security systems, it becomes exactly a common strategy to overcome incidents.
 The Machine Learning methods can be generative or discriminative, but they must be somewhat non-linear and ambiguous enough to hide details of the system to hackers.&lt;/p&gt;
