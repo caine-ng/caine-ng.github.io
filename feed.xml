@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jan 2022 00:12:27 +0900</pubDate>
-    <lastBuildDate>Sun, 30 Jan 2022 00:12:27 +0900</lastBuildDate>
+    <pubDate>Sun, 30 Jan 2022 00:51:15 +0900</pubDate>
+    <lastBuildDate>Sun, 30 Jan 2022 00:51:15 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -35,7 +35,7 @@
 
 &lt;h3 id=&quot;explorative-analysis&quot;&gt;Explorative analysis&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/ids-kaggle-feature-selection.png&quot; alt=&quot;feature selection&quot; /&gt;
-&lt;em&gt;We notice that not all features are useful. Some features like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;is_host_login&lt;/code&gt; only has a constant value.&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt;We notice that not all features are useful. Some features like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;is_host_login&lt;/code&gt; have only a constant value.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Our dataset is big enough (25K entries) and contains both categorical and numerical features:&lt;/p&gt;
 
@@ -141,7 +141,7 @@ Anyway, this is a synthetic dataset with some characteristics based on simulatio
 However, it is close to real-world examples enough.
 Next, we will try some machine learning models for predicting anomalies.&lt;/p&gt;
 
-&lt;p&gt;With a little bit simple visualization technique, like T-SNE, we have a diagram of data distribution in the left.
+&lt;p&gt;With a visualization technique, like T-SNE, we have a diagram of data distribution.
 A green point is a normal data point, and a red one is an anomaly.
 We can see that it would be hard to draw a linear boundary between normal points and anomalies.&lt;/p&gt;
 
@@ -277,6 +277,24 @@ Acc. = 99.66656081295649[%], F1 = 99.64604753076016[%]
 &lt;p&gt;&lt;strong&gt;99.6%&lt;/strong&gt;, it is quite good!&lt;/p&gt;
 
 &lt;h2 id=&quot;some-methods-for-machine-learning-based-ids&quot;&gt;Some methods for Machine Learning based IDS&lt;/h2&gt;
+&lt;p&gt;There are many ways to identify anomalous access (i. e., intrusion) in the network.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rule-based methods&lt;/strong&gt; tend to find a “good” heuristic that can be generalized to a global policy for all feature space.
+The same policy can be applied to every input.
+For example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;every connection which lasted for more than 7 minutes are anomalies&lt;/code&gt; is a policy to identify intrusions.
+The problem with this approach is that many false negatives (misses) can be raised.
+Because the rule is clear, counterfactuals try to make themselves legal (try to connect faster) and overcome the 7-minute rule.
+So a fixed rule is not enough.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The attacks become more and more advanced, but the rules cannot be changed so fast, making an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Achilles&apos; heel&lt;/code&gt; in the defense system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Machine Learning-based methods&lt;/strong&gt; try to define a soft boundary that can be learned and improved over time.
+The main advantage of the Machine Learning approach is that since the boundary is soft and there is no clear rule, the attackers cannot know the rule exactly (how many minutes should they make for a successful attack?).
+Another important aspect is that since the soft rule is not fixed, it can &lt;strong&gt;evolve&lt;/strong&gt; with the attacks: the more advanced the attack is, the more advanced the defender is.
+When this sounds &lt;em&gt;ambiguous&lt;/em&gt;, but for the security systems, it becomes exactly a common strategy to overcome incidents.
+The Machine Learning methods can be generative or discriminative, but they must be somewhat non-linear and ambiguous enough to hide details of the system to hackers.&lt;/p&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 

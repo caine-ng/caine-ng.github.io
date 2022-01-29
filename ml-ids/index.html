@@ -334,7 +334,7 @@
 
 <h3 id="explorative-analysis">Explorative analysis</h3>
 <p><img src="/assets/images/ids-kaggle-feature-selection.png" alt="feature selection" />
-<em>We notice that not all features are useful. Some features like <code class="language-plaintext highlighter-rouge">is_host_login</code> only has a constant value.</em></p>
+<em>We notice that not all features are useful. Some features like <code class="language-plaintext highlighter-rouge">is_host_login</code> have only a constant value.</em></p>
 
 <p>Our dataset is big enough (25K entries) and contains both categorical and numerical features:</p>
 
@@ -440,7 +440,7 @@ Anyway, this is a synthetic dataset with some characteristics based on simulatio
 However, it is close to real-world examples enough.
 Next, we will try some machine learning models for predicting anomalies.</p>
 
-<p>With a little bit simple visualization technique, like T-SNE, we have a diagram of data distribution in the left.
+<p>With a visualization technique, like T-SNE, we have a diagram of data distribution.
 A green point is a normal data point, and a red one is an anomaly.
 We can see that it would be hard to draw a linear boundary between normal points and anomalies.</p>
 
@@ -576,6 +576,24 @@ Acc. = 99.66656081295649[%], F1 = 99.64604753076016[%]
 <p><strong>99.6%</strong>, it is quite good!</p>
 
 <h2 id="some-methods-for-machine-learning-based-ids">Some methods for Machine Learning based IDS</h2>
+<p>There are many ways to identify anomalous access (i. e., intrusion) in the network.</p>
+
+<p><strong>Rule-based methods</strong> tend to find a “good” heuristic that can be generalized to a global policy for all feature space.
+The same policy can be applied to every input.
+For example, <code class="language-plaintext highlighter-rouge">every connection which lasted for more than 7 minutes are anomalies</code> is a policy to identify intrusions.
+The problem with this approach is that many false negatives (misses) can be raised.
+Because the rule is clear, counterfactuals try to make themselves legal (try to connect faster) and overcome the 7-minute rule.
+So a fixed rule is not enough.</p>
+
+<blockquote>
+  <p>The attacks become more and more advanced, but the rules cannot be changed so fast, making an <code class="language-plaintext highlighter-rouge">Achilles' heel</code> in the defense system.</p>
+</blockquote>
+
+<p><strong>Machine Learning-based methods</strong> try to define a soft boundary that can be learned and improved over time.
+The main advantage of the Machine Learning approach is that since the boundary is soft and there is no clear rule, the attackers cannot know the rule exactly (how many minutes should they make for a successful attack?).
+Another important aspect is that since the soft rule is not fixed, it can <strong>evolve</strong> with the attacks: the more advanced the attack is, the more advanced the defender is.
+When this sounds <em>ambiguous</em>, but for the security systems, it becomes exactly a common strategy to overcome incidents.
+The Machine Learning methods can be generative or discriminative, but they must be somewhat non-linear and ambiguous enough to hide details of the system to hackers.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
