@@ -293,7 +293,13 @@
       <li><a href="#a-kaggle-synthetic-dataset">A Kaggle synthetic dataset</a>
         <ul>
           <li><a href="#explorative-analysis">Explorative analysis</a></li>
-          <li><a href="#play-with-some-machine-learners">Play with some machine learners</a></li>
+          <li><a href="#play-with-some-machine-learners">Play with some machine learners</a>
+            <ul>
+              <li><a href="#training-and-validation">Training and validation</a></li>
+              <li><a href="#results-of-auto-encoder">Results of Auto-Encoder</a></li>
+              <li><a href="#results-of-random-forest">Results of Random Forest</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li><a href="#some-methods-for-machine-learning-based-ids">Some methods for Machine Learning based IDS</a></li>
@@ -430,7 +436,24 @@ dtypes: float64(15), int64(23), object(4)
 memory usage: 8.1+ MB
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<p>Anyway, this is a synthetic dataset then there are some characteristics that are based on simulation.
+However, it is close to real-world examples enough.
+Next, we will try some machine learning models on predicting anomalies.</p>
+
 <h3 id="play-with-some-machine-learners">Play with some machine learners</h3>
+
+<p>In this section, we will try two different ML models with two different training/inference strategies:</p>
+
+<ul>
+  <li><strong>Generative model with a reconstruction strategy</strong>: the Auto-Encoder</li>
+  <li><strong>Discriminative model with a classification strategy</strong>: the quite classical Random Forest!</li>
+</ul>
+
+<h4 id="training-and-validation">Training and validation</h4>
+
+<h4 id="results-of-auto-encoder">Results of Auto-Encoder</h4>
+
+<h4 id="results-of-random-forest">Results of Random Forest</h4>
 
 <h2 id="some-methods-for-machine-learning-based-ids">Some methods for Machine Learning based IDS</h2>
 
