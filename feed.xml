@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 Jan 2022 21:43:10 +0900</pubDate>
-    <lastBuildDate>Sat, 29 Jan 2022 21:43:10 +0900</lastBuildDate>
+    <pubDate>Sat, 29 Jan 2022 21:45:48 +0900</pubDate>
+    <lastBuildDate>Sat, 29 Jan 2022 21:45:48 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -159,6 +159,11 @@ Next, we will try some machine learning models on predicting anomalies.&lt;/p&gt
 &lt;h2 id=&quot;some-methods-for-machine-learning-based-ids&quot;&gt;Some methods for Machine Learning based IDS&lt;/h2&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;On the synthetic examples, we observed that a quite classical model like &lt;strong&gt;Random Forest&lt;/strong&gt; can outperform neural nets.
+It is not a new thing, we already &lt;em&gt;empirically&lt;/em&gt; knew that, Random Forest is good at this problem, especially, when it is in synthetic environments.
+Somebody can argue that there is chance for overfitting with Random Forest: hmm, I don’t think so.&lt;/p&gt;
+
 </description>
         <pubDate>Sat, 29 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/ml-ids/</link>
