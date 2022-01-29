@@ -435,10 +435,14 @@ Data columns (total 42 columns):
 dtypes: float64(15), int64(23), object(4)
 memory usage: 8.1+ MB
 </pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Anyway, this is a synthetic dataset then there are some characteristics that are based on simulation.
+<p><img src="/assets/images/ids.png" style="float: left; margin: 10px; width: 50%;" />
+Anyway, this is a synthetic dataset then there are some characteristics that are based on simulation.
 However, it is close to real-world examples enough.
 Next, we will try some machine learning models on predicting anomalies.</p>
+
+<p>With a little bit simple visualization technique, like T-SNE, we have a diagram of data distribution in the left.
+A green point is a normal data point, and a red one is an anomaly.
+We can see that it would be hard to draw a linear boundary between normal points and anomalies.</p>
 
 <h3 id="play-with-some-machine-learners">Play with some machine learners</h3>
 
@@ -446,14 +450,130 @@ Next, we will try some machine learning models on predicting anomalies.</p>
 
 <ul>
   <li><strong>Generative model with a reconstruction strategy</strong>: the Auto-Encoder</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1"># creating the autoencoder model
+</span><span class="n">i</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],))</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">encoder</span><span class="p">)</span>
+<span class="n">code</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">encoder</span><span class="p">)</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">code</span><span class="p">)</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)(</span><span class="n">decoder</span><span class="p">)</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">)(</span><span class="n">decoder</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">decoder</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
   <li><strong>Discriminative model with a classification strategy</strong>: the quite classical Random Forest!</li>
 </ul>
 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">criterion</span><span class="o">=</span><span class="s">'gini'</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h4 id="training-and-validation">Training and validation</h4>
+
+<p>We need to transform the data a little bit.
+It is usual to use <code class="language-plaintext highlighter-rouge">MinMaxScaler</code> to perform data transformation.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">X_train_normal</span><span class="p">[</span><span class="n">to_norm</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">[</span><span class="n">to_norm</span><span class="p">])</span>
+<span class="n">X_val_normal</span><span class="p">[</span><span class="n">to_norm</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val_normal</span><span class="p">[</span><span class="n">to_norm</span><span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The Auto-Encoder is trained in a reconstruction manner, i. e., it learns to reconstruct the input:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">,</span> <span class="n">X_train_normal</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_val_normal</span><span class="p">,</span> <span class="n">X_val_normal</span><span class="p">),</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>But the Random Forest learns to classify data as usual:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">rf</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train_num</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="results-of-auto-encoder">Results of Auto-Encoder</h4>
 
+<p>Since the prediction of AE relys on how good it can reconstruct the input:</p>
+<ul>
+  <li>If the reconstruction errors is over a threshold, then the reconstruction fails and the input is <code class="language-plaintext highlighter-rouge">anomaly</code>.</li>
+  <li>Otherwise the input is normal.</li>
+</ul>
+
+<p>Then we must define a <strong>threshold</strong> to separate anomalies and normal inputs.
+To find such threshold, we can compute from the training dataset:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="c1"># reconstructing the train set
+</span><span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">)</span>
+<span class="c1"># finding the mean reconstruction error
+</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">power</span><span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">X_train_normal</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Since the mean of construction error is 0.0018520295581492838, we can choose the threshold <code class="language-plaintext highlighter-rouge">thres = 0.0018</code>.
+Validation in validation set:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="n">X_val</span><span class="p">[</span><span class="n">to_norm</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val</span><span class="p">[</span><span class="n">to_norm</span><span class="p">])</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">power</span><span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">X_val</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># classifying the samples based on threshold
+</span><span class="n">pred_class</span> <span class="o">=</span> <span class="p">[</span><span class="s">'anomaly'</span> <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="n">thres</span> <span class="k">else</span> <span class="s">'normal'</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">mse</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">pred_class</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Acc. = </span><span class="si">{</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">pred_class</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s">[%], F1 = </span><span class="si">{</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">pred_class</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s">'anomaly'</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s">[%"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Results:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>[[2901   69]
+ [ 563 2765]]
+Acc. = 89.96506827564306[%], F1 = 90.17718371153248[%]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>~90%</strong> of F1 score. Hmm, not so bad!</p>
 <h4 id="results-of-random-forest">Results of Random Forest</h4>
+
+<p>Let’s see the results with Random Forest:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="p">[[</span><span class="mi">3321</span>    <span class="mi">7</span><span class="p">]</span>
+ <span class="p">[</span>  <span class="mi">14</span> <span class="mi">2956</span><span class="p">]]</span>
+<span class="n">Acc</span><span class="p">.</span> <span class="o">=</span> <span class="mf">99.66656081295649</span><span class="p">[</span><span class="o">%</span><span class="p">],</span> <span class="n">F1</span> <span class="o">=</span> <span class="mf">99.64604753076016</span><span class="p">[</span><span class="o">%</span><span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>99.6%</strong>, it is quite good!</p>
 
 <h2 id="some-methods-for-machine-learning-based-ids">Some methods for Machine Learning based IDS</h2>
 
@@ -464,11 +584,9 @@ It is not a new thing, we already <em>empirically</em> knew that, Random Forest 
 Somebody can argue that there is chance for overfitting with Random Forest: hmm, I don’t think so.</p>
 
 <blockquote>
-  <p>And even if it is overfitted, this is quite good, because <strong>that’s actually what we want</strong>: <strong>We want our model to be overfitted in this dataset</strong>.</p>
+  <p>And even if it is overfitted, this is quite good, because <strong>that’s actually what we want</strong>: <strong>We want our model to be overfitted to this dataset</strong>.</p>
 
-  <ul>
-    <li>Anonymous -</li>
-  </ul>
+  <p>Anonymous</p>
 </blockquote>
 
             </div>
