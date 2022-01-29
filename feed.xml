@@ -5,13 +5,25 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 Jan 2022 17:11:27 +0900</pubDate>
-    <lastBuildDate>Sat, 29 Jan 2022 17:11:27 +0900</lastBuildDate>
+    <pubDate>Sat, 29 Jan 2022 19:10:47 +0900</pubDate>
+    <lastBuildDate>Sat, 29 Jan 2022 19:10:47 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Machine Learning for Network Intrusion Detection: From Local to Production</title>
         <description>&lt;!--more--&gt;
+
+&lt;h1 id=&quot;network-intrusion-detection-system&quot;&gt;Network Intrusion Detection System&lt;/h1&gt;
+
+&lt;h1 id=&quot;machine-learning-at-scale-some-solutions-in-aws&quot;&gt;Machine Learning at scale: some solutions in AWS&lt;/h1&gt;
+
+&lt;h1 id=&quot;machine-learning-at-local&quot;&gt;Machine Learning at local&lt;/h1&gt;
+
+&lt;h2 id=&quot;synthetic-data-example-in-kaggle&quot;&gt;Synthetic data example in Kaggle&lt;/h2&gt;
+
+&lt;h2 id=&quot;some-methods-for-machine-learning-based-ids&quot;&gt;Some methods for Machine Learning based IDS&lt;/h2&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 </description>
         <pubDate>Sat, 29 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/ml-ids/</link>

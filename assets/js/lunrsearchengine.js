@@ -88,7 +88,7 @@ var documents = [{
     "id": 17,
     "url": "https://wanted2.github.io/ml-ids/",
     "title": "Machine Learning for Network Intrusion Detection: From Local to Production",
-    "body": "2022/01/29 - "
+    "body": "2022/01/29 - Network Intrusion Detection SystemMachine Learning at scale: some solutions in AWSMachine Learning at localSynthetic data example in Kaggle: Some methods for Machine Learning based IDS: Conclusion"
     }, {
     "id": 18,
     "url": "https://wanted2.github.io/pm-sekininsha/",
