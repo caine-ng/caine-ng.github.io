@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jan 2022 00:51:15 +0900</pubDate>
-    <lastBuildDate>Sun, 30 Jan 2022 00:51:15 +0900</lastBuildDate>
+    <pubDate>Sun, 30 Jan 2022 01:41:15 +0900</pubDate>
+    <lastBuildDate>Sun, 30 Jan 2022 01:41:15 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -18,6 +18,38 @@
 &lt;h1 id=&quot;machine-learning-at-scale-some-solutions-in-aws&quot;&gt;Machine Learning at scale: some solutions in AWS&lt;/h1&gt;
 
 &lt;h1 id=&quot;machine-learning-at-local&quot;&gt;Machine Learning at local&lt;/h1&gt;
+
+&lt;p&gt;You have a dataset and perform some analytics at your local or edge PC.
+You don’t use any server or cloud solution at all.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You should ask us why do you need to care about these works while cloud platforms already prepare so many ready-to-use solutions for you?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Agree! Machine learning engineers behind the platforms already do such works (model engineering).
+Then when you do these works, that means you are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A student who is learning ML at an educational place (like university);&lt;/li&gt;
+  &lt;li&gt;A researcher (or engineer) who perform a project for NGO, government, or a big company (who is building a platform solution); and&lt;/li&gt;
+  &lt;li&gt;The worst luck: you’re just an ML enthusiast who is looking into ML when you have free time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Not so many people do model engineering on their own laptop (or desktop), so in my experience, they fall into one of these three categories.
+For the second category, people in that category is ML engineer/scientist who will make the model for thousands to million application developers over the world (who uses the platforms).
+Such category is quite a few, and to be in, you need &lt;strong&gt;qualification&lt;/strong&gt;!
+The most common cases are in the first.
+The third category is possible but is rare and complex: while the first and second category have their own goals with ML (for studying and for works), the third category has no particular purpose.
+They just do it in their free time and for fun (like doing a hobby)!
+The first and second ones will have outcomes (successes and failures), but the third one is just for fun!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No one can ban the hobby of a man, and we just do it!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nevertheless, whatever your category is, when you do these things in your local computing environment, ML matters with you in some ways!
+We will see what a &lt;strong&gt;local IDS model would look like&lt;/strong&gt;.
+Of course, in a synthetic way!&lt;/p&gt;
 
 &lt;h2 id=&quot;a-kaggle-synthetic-dataset&quot;&gt;A Kaggle synthetic dataset&lt;/h2&gt;
 
