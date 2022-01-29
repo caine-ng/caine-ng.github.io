@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 29 Jan 2022 23:47:33 +0900</pubDate>
-    <lastBuildDate>Sat, 29 Jan 2022 23:47:33 +0900</lastBuildDate>
+    <pubDate>Sun, 30 Jan 2022 00:12:27 +0900</pubDate>
+    <lastBuildDate>Sun, 30 Jan 2022 00:12:27 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -24,7 +24,7 @@
 &lt;p&gt;We start with a synthetic dataset from &lt;a href=&quot;https://www.kaggle.com/sampadab17/network-intrusion-detection&quot;&gt;Kaggle&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;The dataset to be audited was provided which consists of a wide variety of intrusions simulated in a military network environment. It created an environment to acquire raw TCP/IP dump data for a network by simulating a typical US Air Force LAN. The LAN was focused like a real environment and blasted with multiple attacks. A connection is a sequence of TCP packets starting and ending at some time duration between which data flows to and from a source IP address to a target IP address under some well-defined protocol. Also, each connection is labelled as either normal or as an attack with exactly one specific attack type. Each connection record consists of about 100 bytes.&lt;/p&gt;
+  &lt;p&gt;The dataset to be audited was provided that consists of a wide variety of intrusions simulated in a military network environment. It created an environment to acquire raw TCP/IP dump data for a network by simulating a typical US Air Force LAN. The LAN was focused like a real environment and blasted with multiple attacks. A connection is a sequence of TCP packets starting and ending at some time duration between which data flows to and from a source IP address to a target IP address under some well-defined protocol. Also, each connection is labeled as either normal or as an attack with exactly one specific attack type. Each connection record consists of about 100 bytes.&lt;/p&gt;
 
   &lt;p&gt;For each TCP/IP connection, 41 quantitative and qualitative features are obtained from normal and attack data (3 qualitative and 38 quantitative features). The class variable has two categories:&lt;/p&gt;
   &lt;ul&gt;
@@ -137,9 +137,9 @@ dtypes: float64(15), int64(23), object(4)
 memory usage: 8.1+ MB
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/ids.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
-Anyway, this is a synthetic dataset then there are some characteristics that are based on simulation.
+Anyway, this is a synthetic dataset with some characteristics based on simulation.
 However, it is close to real-world examples enough.
-Next, we will try some machine learning models on predicting anomalies.&lt;/p&gt;
+Next, we will try some machine learning models for predicting anomalies.&lt;/p&gt;
 
 &lt;p&gt;With a little bit simple visualization technique, like T-SNE, we have a diagram of data distribution in the left.
 A green point is a normal data point, and a red one is an anomaly.
@@ -213,10 +213,10 @@ It is usual to use &lt;code class=&quot;language-plaintext highlighter-rouge&quo
 
 &lt;h4 id=&quot;results-of-auto-encoder&quot;&gt;Results of Auto-Encoder&lt;/h4&gt;
 
-&lt;p&gt;Since the prediction of AE relys on how good it can reconstruct the input:&lt;/p&gt;
+&lt;p&gt;Since the prediction of AE relies on how good it can reconstruct the input:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;If the reconstruction errors is over a threshold, then the reconstruction fails and the input is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;anomaly&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Otherwise the input is normal.&lt;/li&gt;
+  &lt;li&gt;If the reconstruction error is over a threshold, then the reconstruction fails, and the input is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;anomaly&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Otherwise, the input is normal.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Then we must define a &lt;strong&gt;threshold&lt;/strong&gt; to separate anomalies and normal inputs.
@@ -266,12 +266,12 @@ Acc. = 89.96506827564306[%], F1 = 90.17718371153248[%]
 
 &lt;p&gt;Let’s see the results with Random Forest:&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3321&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2956&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Acc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;99.66656081295649&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;F1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;99.64604753076016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;[[3321    7]
+ [  14 2956]]
+Acc. = 99.66656081295649[%], F1 = 99.64604753076016[%]
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;99.6%&lt;/strong&gt;, it is quite good!&lt;/p&gt;
@@ -281,11 +281,11 @@ Acc. = 89.96506827564306[%], F1 = 90.17718371153248[%]
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 
 &lt;p&gt;On the synthetic examples, we observed that a quite classical model like &lt;strong&gt;Random Forest&lt;/strong&gt; can outperform neural nets.
-It is not a new thing, we already &lt;em&gt;empirically&lt;/em&gt; knew that, Random Forest is good at this problem, especially, when it is in synthetic environments.
-Somebody can argue that there is chance for overfitting with Random Forest: hmm, I don’t think so.&lt;/p&gt;
+It is not a new thing: we already &lt;em&gt;empirically&lt;/em&gt; knew that Random Forest is good at this problem, especially when it is in synthetic environments.
+Somebody can argue that there is a chance for overfitting with Random Forest: hmm, I don’t think so.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;And even if it is overfitted, this is quite good, because &lt;strong&gt;that’s actually what we want&lt;/strong&gt;: &lt;strong&gt;We want our model to be overfitted to this dataset&lt;/strong&gt;.&lt;/p&gt;
+  &lt;p&gt;And even if it overfits, this is quite good, because &lt;strong&gt;that’s what we want&lt;/strong&gt;: &lt;strong&gt;We want our model to overfit to this dataset&lt;/strong&gt;.&lt;/p&gt;
 
   &lt;p&gt;Anonymous&lt;/p&gt;
 &lt;/blockquote&gt;

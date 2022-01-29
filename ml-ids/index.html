@@ -323,7 +323,7 @@
 <p>We start with a synthetic dataset from <a href="https://www.kaggle.com/sampadab17/network-intrusion-detection">Kaggle</a>.</p>
 
 <blockquote>
-  <p>The dataset to be audited was provided which consists of a wide variety of intrusions simulated in a military network environment. It created an environment to acquire raw TCP/IP dump data for a network by simulating a typical US Air Force LAN. The LAN was focused like a real environment and blasted with multiple attacks. A connection is a sequence of TCP packets starting and ending at some time duration between which data flows to and from a source IP address to a target IP address under some well-defined protocol. Also, each connection is labelled as either normal or as an attack with exactly one specific attack type. Each connection record consists of about 100 bytes.</p>
+  <p>The dataset to be audited was provided that consists of a wide variety of intrusions simulated in a military network environment. It created an environment to acquire raw TCP/IP dump data for a network by simulating a typical US Air Force LAN. The LAN was focused like a real environment and blasted with multiple attacks. A connection is a sequence of TCP packets starting and ending at some time duration between which data flows to and from a source IP address to a target IP address under some well-defined protocol. Also, each connection is labeled as either normal or as an attack with exactly one specific attack type. Each connection record consists of about 100 bytes.</p>
 
   <p>For each TCP/IP connection, 41 quantitative and qualitative features are obtained from normal and attack data (3 qualitative and 38 quantitative features). The class variable has two categories:</p>
   <ul>
@@ -436,9 +436,9 @@ dtypes: float64(15), int64(23), object(4)
 memory usage: 8.1+ MB
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p><img src="/assets/images/ids.png" style="float: left; margin: 10px; width: 50%;" />
-Anyway, this is a synthetic dataset then there are some characteristics that are based on simulation.
+Anyway, this is a synthetic dataset with some characteristics based on simulation.
 However, it is close to real-world examples enough.
-Next, we will try some machine learning models on predicting anomalies.</p>
+Next, we will try some machine learning models for predicting anomalies.</p>
 
 <p>With a little bit simple visualization technique, like T-SNE, we have a diagram of data distribution in the left.
 A green point is a normal data point, and a red one is an anomaly.
@@ -512,10 +512,10 @@ It is usual to use <code class="language-plaintext highlighter-rouge">MinMaxScal
 
 <h4 id="results-of-auto-encoder">Results of Auto-Encoder</h4>
 
-<p>Since the prediction of AE relys on how good it can reconstruct the input:</p>
+<p>Since the prediction of AE relies on how good it can reconstruct the input:</p>
 <ul>
-  <li>If the reconstruction errors is over a threshold, then the reconstruction fails and the input is <code class="language-plaintext highlighter-rouge">anomaly</code>.</li>
-  <li>Otherwise the input is normal.</li>
+  <li>If the reconstruction error is over a threshold, then the reconstruction fails, and the input is <code class="language-plaintext highlighter-rouge">anomaly</code>.</li>
+  <li>Otherwise, the input is normal.</li>
 </ul>
 
 <p>Then we must define a <strong>threshold</strong> to separate anomalies and normal inputs.
@@ -565,12 +565,12 @@ Acc. = 89.96506827564306[%], F1 = 90.17718371153248[%]
 
 <p>Let’s see the results with Random Forest:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="p">[[</span><span class="mi">3321</span>    <span class="mi">7</span><span class="p">]</span>
- <span class="p">[</span>  <span class="mi">14</span> <span class="mi">2956</span><span class="p">]]</span>
-<span class="n">Acc</span><span class="p">.</span> <span class="o">=</span> <span class="mf">99.66656081295649</span><span class="p">[</span><span class="o">%</span><span class="p">],</span> <span class="n">F1</span> <span class="o">=</span> <span class="mf">99.64604753076016</span><span class="p">[</span><span class="o">%</span><span class="p">]</span>
+</pre></td><td class="rouge-code"><pre>[[3321    7]
+ [  14 2956]]
+Acc. = 99.66656081295649[%], F1 = 99.64604753076016[%]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p><strong>99.6%</strong>, it is quite good!</p>
@@ -580,11 +580,11 @@ Acc. = 89.96506827564306[%], F1 = 90.17718371153248[%]
 <h1 id="conclusion">Conclusion</h1>
 
 <p>On the synthetic examples, we observed that a quite classical model like <strong>Random Forest</strong> can outperform neural nets.
-It is not a new thing, we already <em>empirically</em> knew that, Random Forest is good at this problem, especially, when it is in synthetic environments.
-Somebody can argue that there is chance for overfitting with Random Forest: hmm, I don’t think so.</p>
+It is not a new thing: we already <em>empirically</em> knew that Random Forest is good at this problem, especially when it is in synthetic environments.
+Somebody can argue that there is a chance for overfitting with Random Forest: hmm, I don’t think so.</p>
 
 <blockquote>
-  <p>And even if it is overfitted, this is quite good, because <strong>that’s actually what we want</strong>: <strong>We want our model to be overfitted to this dataset</strong>.</p>
+  <p>And even if it overfits, this is quite good, because <strong>that’s what we want</strong>: <strong>We want our model to overfit to this dataset</strong>.</p>
 
   <p>Anonymous</p>
 </blockquote>
