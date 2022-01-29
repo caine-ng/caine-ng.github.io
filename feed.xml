@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jan 2022 04:21:14 +0900</pubDate>
-    <lastBuildDate>Sun, 30 Jan 2022 04:21:14 +0900</lastBuildDate>
+    <pubDate>Sun, 30 Jan 2022 04:33:21 +0900</pubDate>
+    <lastBuildDate>Sun, 30 Jan 2022 04:33:21 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -407,6 +407,8 @@ The Machine Learning methods can be generative or discriminative, but they must 
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 
+&lt;p&gt;We have reviewed several views of NIDS: at a corporation network view, cloud solutions and machine learning models.&lt;/p&gt;
+
 &lt;p&gt;On the synthetic examples, we observed that a quite classical model like &lt;strong&gt;Random Forest&lt;/strong&gt; can outperform neural nets.
 It is not a new thing: we already &lt;em&gt;empirically&lt;/em&gt; knew that Random Forest is good at this problem, especially when it is in synthetic environments.
 Somebody can argue that there is a chance for overfitting with Random Forest: hmm, I don’t think so.&lt;/p&gt;
@@ -416,6 +418,12 @@ Somebody can argue that there is a chance for overfitting with Random Forest: hm
 
   &lt;p&gt;Anonymous&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;Source code for this article can be found at:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/AIFI-INC/ml-ids&quot;&gt;AIFI-INC’s ML-based IDS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         <pubDate>Sat, 29 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/ml-ids/</link>
