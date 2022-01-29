@@ -32,6 +32,7 @@ pre {
     font-size: .9rem;
     white-space: pre;
     overflow: auto;
+    /* Must do this to remove ugly background */
     /* background: #fff; */
     border-radius: 0px;
     line-height: 1.6;
