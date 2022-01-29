@@ -290,7 +290,9 @@
   <li><a href="#machine-learning-at-scale-some-solutions-in-aws">Machine Learning at scale: some solutions in AWS</a></li>
   <li><a href="#machine-learning-at-local">Machine Learning at local</a>
     <ul>
-      <li><a href="#synthetic-data-example-in-kaggle">Synthetic data example in Kaggle</a></li>
+      <li><a href="#a-kaggle-synthetic-dataset">A Kaggle synthetic dataset</a></li>
+      <li><a href="#explorative-analysis">Explorative analysis</a></li>
+      <li><a href="#play-with-some-machine-learners">Play with some machine learners</a></li>
       <li><a href="#some-methods-for-machine-learning-based-ids">Some methods for Machine Learning based IDS</a></li>
     </ul>
   </li>
@@ -307,7 +309,25 @@
 
 <h1 id="machine-learning-at-local">Machine Learning at local</h1>
 
-<h2 id="synthetic-data-example-in-kaggle">Synthetic data example in Kaggle</h2>
+<h2 id="a-kaggle-synthetic-dataset">A Kaggle synthetic dataset</h2>
+
+<p>We start with a synthetic dataset from <a href="https://www.kaggle.com/sampadab17/network-intrusion-detection">Kaggle</a>.</p>
+
+<blockquote>
+  <p>The dataset to be audited was provided which consists of a wide variety of intrusions simulated in a military network environment. It created an environment to acquire raw TCP/IP dump data for a network by simulating a typical US Air Force LAN. The LAN was focused like a real environment and blasted with multiple attacks. A connection is a sequence of TCP packets starting and ending at some time duration between which data flows to and from a source IP address to a target IP address under some well-defined protocol. Also, each connection is labelled as either normal or as an attack with exactly one specific attack type. Each connection record consists of about 100 bytes.</p>
+
+  <p>For each TCP/IP connection, 41 quantitative and qualitative features are obtained from normal and attack data (3 qualitative and 38 quantitative features) .The class variable has two categories:</p>
+  <ul>
+    <li>Normal</li>
+    <li>Anomalous</li>
+  </ul>
+</blockquote>
+
+<h2 id="explorative-analysis">Explorative analysis</h2>
+<p><img src="/assets/images/ids-kaggle-feature-selection.png" alt="feature selection" />
+<em>We notice that not all features are useful. Some features like <code class="language-plaintext highlighter-rouge">is_host_login</code> only has constant value.</em></p>
+
+<h2 id="play-with-some-machine-learners">Play with some machine learners</h2>
 
 <h2 id="some-methods-for-machine-learning-based-ids">Some methods for Machine Learning based IDS</h2>
 
