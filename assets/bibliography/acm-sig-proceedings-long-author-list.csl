@@ -67,7 +67,7 @@
       <key variable="title"/>
     </sort>
     <layout suffix=".">
-      <text variable="citation-number" prefix="[" suffix="]"/>
+      <!-- <text variable="citation-number" prefix="[" suffix="]"/> -->
       <text macro="author" suffix=" "/>
       <date variable="issued" suffix=". ">
         <date-part name="year"/>
