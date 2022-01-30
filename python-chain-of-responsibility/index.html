@@ -26,8 +26,8 @@
 <meta property="og:title" content="Pythonによる責任の連鎖" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="責任の連鎖はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。" />
-<meta property="og:description" content="責任の連鎖はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。" />
+<meta name="description" content="責任の連鎖 [1]はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。" />
+<meta property="og:description" content="責任の連鎖 [1]はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg" />
 <meta property="twitter:title" content="Pythonによる責任の連鎖" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-chain-of-responsibility/"},"description":"責任の連鎖はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg","headline":"Pythonによる責任の連鎖","dateModified":"2021-07-15T00:00:00+09:00","datePublished":"2021-07-15T00:00:00+09:00","url":"/https://wanted2.github.io/python-chain-of-responsibility/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Pythonによる責任の連鎖","dateModified":"2021-07-15T00:00:00+09:00","datePublished":"2021-07-15T00:00:00+09:00","description":"責任の連鎖 [1]はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-chain-of-responsibility/"},"image":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg","url":"/https://wanted2.github.io/python-chain-of-responsibility/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -299,7 +299,7 @@
                     </div>
                 
                 <!-- End Toc -->
-                <p><strong>責任の連鎖</strong>はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。
+                <p><strong>責任の連鎖</strong> <a class="citation" href="#3Datamod65:online">[1]</a>はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。
 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。
 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。
 <!--more--></p>
@@ -523,8 +523,7 @@
 
 <h1 id="参考文献">参考文献</h1>
 
-<ol class="bibliography"><li><span id="3Datamod65:online"><i>3. Data model — Python 3.9.6 documentation - Metaclasses</i>. https://docs.python.org/3/reference/datamodel.html#metaclasses.</span></li>
-<li><span id="Decorato8:online"><i>Decorator</i>. https://refactoring.guru/design-patterns/decorator.</span></li></ol>
+<ol class="bibliography"><li><span id="3Datamod65:online">[1]3. Data model — Python 3.9.6 documentation - Metaclasses. https://docs.python.org/3/reference/datamodel.html#metaclasses.</span><a class="details" href="https://wanted2.github.io/bibliography/3Datamod65_online/">Details</a></li></ol>
 
             </div>
 

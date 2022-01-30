@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2018/11/eyecatch_aws-services_1200x630-960x504.jpeg" />
 <meta property="twitter:title" content="4 điều nên làm để quản lý tài khoản AWS" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aws-account/"},"description":"Những tri thức cơ bản như làm thế nào quản lý mật khẩu với đặt mật khẩu như thế nào thì có lẽ các em tự chủ động thiết lập nhé. Trong bài viết này chúng ta sẽ tập trung vào 4 chức năng mang tính nâng cao (advanced) của bảo mật tài khoản AWS. Thiết lập và quản lý tài khoản AWS không chỉ đơn giản là vấn đề bảo mật dữ liệu mà còn sâu xa hơn là quản lý toàn bộ account trong tổ chức một cách đồng bộ, tập trung và hiệu quả nhất. Việc này rất quan trọng bởi account chính là cửa ngõ vào của mọi luồng dữ liệu, mọi truy cập, do đó nếu việc quản lý account bị lơi là sẽ dẫn đến việc những truy cập bất hợp pháp có thể xâm nhập vào “hệ miễn dịch” của tổ chức và gây hại. 4 chức năng chúng ta nói đến hôm nay bao gồm: Bảo mật nhiều lớp cho tài khoản root; Quản lý và thiết lập phân quyền cùng AWS Organizations; AWS Single-Sign On (SSO); và Giám sát hành vi tài khoản trên AWS.","image":"https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2018/11/eyecatch_aws-services_1200x630-960x504.jpeg","headline":"4 điều nên làm để quản lý tài khoản AWS","dateModified":"2022-01-16T00:00:00+09:00","datePublished":"2022-01-16T00:00:00+09:00","url":"/https://wanted2.github.io/aws-account/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"4 điều nên làm để quản lý tài khoản AWS","dateModified":"2022-01-16T00:00:00+09:00","datePublished":"2022-01-16T00:00:00+09:00","description":"Những tri thức cơ bản như làm thế nào quản lý mật khẩu với đặt mật khẩu như thế nào thì có lẽ các em tự chủ động thiết lập nhé. Trong bài viết này chúng ta sẽ tập trung vào 4 chức năng mang tính nâng cao (advanced) của bảo mật tài khoản AWS. Thiết lập và quản lý tài khoản AWS không chỉ đơn giản là vấn đề bảo mật dữ liệu mà còn sâu xa hơn là quản lý toàn bộ account trong tổ chức một cách đồng bộ, tập trung và hiệu quả nhất. Việc này rất quan trọng bởi account chính là cửa ngõ vào của mọi luồng dữ liệu, mọi truy cập, do đó nếu việc quản lý account bị lơi là sẽ dẫn đến việc những truy cập bất hợp pháp có thể xâm nhập vào “hệ miễn dịch” của tổ chức và gây hại. 4 chức năng chúng ta nói đến hôm nay bao gồm: Bảo mật nhiều lớp cho tài khoản root; Quản lý và thiết lập phân quyền cùng AWS Organizations; AWS Single-Sign On (SSO); và Giám sát hành vi tài khoản trên AWS.","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aws-account/"},"image":"https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2018/11/eyecatch_aws-services_1200x630-960x504.jpeg","url":"/https://wanted2.github.io/aws-account/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -348,7 +348,7 @@ Với nguyên tắc là mọi thứ qua miệng đều phải rõ nguồn gốc 
 
 <h2 id="điểm-qua-những-tiến-bộ-của-mảng-bảo-mật-nhiều-lớp">Điểm qua những tiến bộ của mảng bảo mật nhiều lớp</h2>
 
-<p>Những tri thức nền tảng cho bảo mật nhiều lớp xuất hiện lần đầu từ bài báo của <strong>Mitchell Trauring [1, 2]</strong> năm 1963.
+<p>Những tri thức nền tảng cho bảo mật nhiều lớp xuất hiện lần đầu từ bài báo của <strong>Mitchell Trauring <a class="citation" href="#trauring1963automatic">[1]</a>, <a class="citation" href="#jain201650">[2]</a></strong> năm 1963.
 Trong bài viết về cách thức nhận dạng vân tay tự động bằng <strong>Ridge</strong> patterns, ông viết:</p>
 
 <blockquote>
@@ -361,25 +361,25 @@ Trong bài viết về cách thức nhận dạng vân tay tự động bằng <
 
 <p><img src="/assets/images/multi-factor.png" style="float: right; margin: 10px; width: 50%" />
 Như hình vẽ bên các bạn có thể thấy, bình thường bảo mật 1 lớp thì chỉ cần có mật khẩu (<em>something you know</em>).
-Tuy nhiên, để tăng độ bảo mật, ví dụ như khi mật khẩu bị đánh cắp thì nên có nhiều phương pháp bảo mật đi kèm như <strong>token [3], vân tay [2], khuôn mặt [4], PIN/key [5], mống mắt, …</strong>.
+Tuy nhiên, để tăng độ bảo mật, ví dụ như khi mật khẩu bị đánh cắp thì nên có nhiều phương pháp bảo mật đi kèm như <strong>token <a class="citation" href="#holdsworth2008token">[3]</a>, vân tay <a class="citation" href="#jain201650">[2]</a>, khuôn mặt <a class="citation" href="#grother2018ongoing">[4]</a>, PIN/key <a class="citation" href="#boyd2003protocols">[5]</a>, mống mắt, …</strong>.
 Cái quan trọng là phải kết hợp thêm những cái gì user có (<em>something you have</em>) và những gì của user (<em>something you are</em>).
 <img src="/assets/images/fingerprint-matching.png" alt="" />
-<em>Trích dẫn: [1] mô hình vân tay và cách matching local points.</em></p>
+<em>Trích dẫn: <a class="citation" href="#trauring1963automatic">[1]</a> mô hình vân tay và cách matching local points.</em></p>
 
 <p><img src="/assets/images/fusion.jpg" style="float: left; margin: 10px; width: 50%" />
 Tuy nhiên, một vấn đề lớn của các phương pháp bảo mật đi kèm là độ chính xác.
-Ví dụ như với vân tay [6] thì xác suất <em>false matching probability</em> vẫn có thể đạt $6.10\times 10^{-8}$ với mẫu vân tay có 36 điểm minutiae.
+Ví dụ như với vân tay <a class="citation" href="#pankanti2002individuality">[6]</a> thì xác suất <em>false matching probability</em> vẫn có thể đạt $6.10\times 10^{-8}$ với mẫu vân tay có 36 điểm minutiae.
 Do đó việc sử dụng đơn thuần 1 đặc trưng anatomical hoặc behavior có thể tạo ra nhiều <em>false non-matching</em> cũng như <em>false matching</em>.
 Cũng vì đó mà cần phải dùng nhiều đặc trưng, và khi dùng nhiều đặc trưng thì có đặc trưng quan trọng, có đặc trưng không, phải có <strong>weight</strong> cho từng đặc trưng.
 Và đó chính là ý tưởng <strong>feature fusion</strong> hay là <strong>multimodal</strong> cho mảng biometrics.
 <em>Nói chung, cũng toàn mấy cái ý tưởng của các fellows từ thời 1990s-2000s</em>, thời các sếp ấy thì cũng đã 20-30 năm về trước, nên mấy cái ý tưởng này tôi nghĩ mới cũng không mới và trong mảng biometrics cũng đã implement gần hết, thậm chí vào sản phẩm thị trường rồi.</p>
 
 <p><img src="/assets/images/biometrics.png" style="float: right; margin: 10px; width: 50%" />
-Cái mảng <strong>bảo mật nhiều lớp [7]</strong> và <strong>biometrics [2]</strong> nhìn chung là cũng liên đới rộng phết, từ bảo mật cloud đến tận thiết bị IoT [8] cũng liên quan.
+Cái mảng <strong>bảo mật nhiều lớp <a class="citation" href="#ometov2018multi">[7]</a></strong> và <strong>biometrics <a class="citation" href="#jain201650">[2]</a></strong> nhìn chung là cũng liên đới rộng phết, từ bảo mật cloud đến tận thiết bị IoT <a class="citation" href="#ngu2016iot">[8]</a> cũng liên quan.
 Nhưng nhìn chung cái mô hình thực thi thì khá giống nhau:</p>
 
 <ul>
-  <li>Về mặt <strong>hệ thống</strong> thì anh em nào làm nhiều về cloud, web app thì sẽ hiểu ngay là trong framework sẽ có một bộ phận middleware có những function kiểu như <code class="language-plaintext highlighter-rouge">preLogin(), postAuthentication(), ...</code> là sẽ là nơi implement thêm các lớp bảo mật. Ở trong middleware [8] thì chúng ta sẽ call thêm các lớp bảo mật khác để đưa ra kết quả.
+  <li>Về mặt <strong>hệ thống</strong> thì anh em nào làm nhiều về cloud, web app thì sẽ hiểu ngay là trong framework sẽ có một bộ phận middleware có những function kiểu như <code class="language-plaintext highlighter-rouge">preLogin(), postAuthentication(), ...</code> là sẽ là nơi implement thêm các lớp bảo mật. Ở trong middleware <a class="citation" href="#ngu2016iot">[8]</a> thì chúng ta sẽ call thêm các lớp bảo mật khác để đưa ra kết quả.
     <ul>
       <li>Ngoài ra, việc fusion của các đặc trưng có thể thực hiện tại <strong>biometrics sensor</strong>, tức là <strong>early fusion</strong>. Hoặc tại module decision, tức là <strong>late fusion</strong> và chủ yếu là fuse kết quả nhận dạng của từng modal.</li>
     </ul>
@@ -399,7 +399,7 @@ Tức là ví dụ năm nay là 2022 thì những bài từ 2021 thì mình ưu 
 
 <p>Cuối cùng, là về mảng biometrics này thì có một ứng dụng thú vị là <em>face recognition</em> mà bên computer vision hay deep learning cũng nổi lên (gọi là <em>deep face recognition</em>).
 Mảng này thì quả là cũng không nhiều papers lắm, cũng giống biometrics, nhưng lại có một số papers có trích dẫn hàng ngàn mặc dù xuất bản sau 2015 như FaceNet hay RetinaFace, ArcFace, CosFace.
-Tuy nhiên, nếu nói về thực tiễn sử dụng thì tôi nghĩ tốt nhất là nên tham khảo các con số trong benchmark lớn của chính phủ Mý [4].
+Tuy nhiên, nếu nói về thực tiễn sử dụng thì tôi nghĩ tốt nhất là nên tham khảo các con số trong benchmark lớn của chính phủ Mý <a class="citation" href="#grother2018ongoing">[4]</a>.
 Lý do là bởi vì đó là các ứng dụng thực tiễn, cũng như bộ dữ liệu lớn tới vài chục triệu người, và quan trọng là mọi team trên thế giới đều có thể tham gia.
 Dưới đây là bảng kết quả hạng mục Verification, tức là cho sẵn một pair hai khuôn mặt, đưa ra kết quả xem đó có cùng 1 identity không?
 Kết quả là đường cong thể hiện tỷ lệ <em>false non-matching rate (FNMR) vs false matching rate (FMR)</em>.
@@ -519,7 +519,7 @@ Với AWS thì là quản lý tất cả các tài khoản nhân viên, máy ả
 <h2 id="usecase-aws-govcloud">Usecase: AWS GovCloud</h2>
 
 <p>Trên trang chủ của AWS Organizations có thể tìm thấy khá nhiều usecases có sẵn.
-Trong bài này chúng ta xem lại 1 usecase của AWS GovCloud [9].
+Trong bài này chúng ta xem lại 1 usecase của AWS GovCloud <a class="citation" href="#mahakian2020aws">[9]</a>.
 Usecase này được đưa ra bởi MITRE.
 Họ đưa ra 9 lời khuyên trong việc quản lý AWS Organizations:</p>
 
@@ -661,15 +661,15 @@ Một số vấn đề thú vị khác như RAM, AWS Config, … chúng ta sẽ 
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="trauring1963automatic">Trauring, M. (1963). Automatic comparison of finger-ridge patterns. <i>Nature</i>, <i>197</i>(4871), 938–940.</span></li>
-<li><span id="jain201650">Jain, A. K., Nandakumar, K., &amp; Ross, A. (2016). 50 years of biometric research: Accomplishments, challenges, and opportunities. <i>Pattern Recognition Letters</i>, <i>79</i>, 80–105.</span></li>
-<li><span id="holdsworth2008token">Holdsworth, J. (2008). <i>Token for use in online electronic transactions</i>. Google Patents.</span></li>
-<li><span id="grother2018ongoing">Grother, P., Ngan, M., Hanaoka, K., Yang, J. C., &amp; Hom, A. (2022). <i>Ongoing face recognition vendor test (FRVT) part 1: Verification</i>. US Department of Commerce, National Institute of Standards and Technology.</span></li>
-<li><span id="boyd2003protocols">Boyd, C., Mathuria, A., &amp; Stebila, D. (2003). <i>Protocols for authentication and key establishment</i> (Vol. 1). Springer.</span></li>
-<li><span id="pankanti2002individuality">Pankanti, S., Prabhakar, S., &amp; Jain, A. K. (2002). On the individuality of fingerprints. <i>Pattern Analysis and Machine Intelligence, IEEE Transactions On</i>, <i>24</i>(8), 1010–1025.</span></li>
-<li><span id="ometov2018multi">Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T., &amp; Koucheryavy, Y. (2018). Multi-factor authentication: A survey. <i>Cryptography</i>, <i>2</i>(1), 1.</span></li>
-<li><span id="ngu2016iot">Ngu, A. H., Gutierrez, M., Metsis, V., Nepal, S., &amp; Sheng, Q. Z. (2016). IoT middleware: A survey on issues and enabling technologies. <i>IEEE Internet of Things Journal</i>, <i>4</i>(1), 1–20.</span></li>
-<li><span id="mahakian2020aws">Mahakian, J., Holmdahl, S., Bada, Q., Silva, S., &amp; Tretler, Z. (2020). <i>AWS GovCloud Resource and Cost Analysis</i>. The MITRE Corporation.</span></li></ol>
+<ol class="bibliography"><li><span id="trauring1963automatic">[1]Trauring, M. 1963. Automatic comparison of finger-ridge patterns. <i>Nature</i>. 197, 4871 (1963), 938–940.</span><a class="details" href="https://wanted2.github.io/bibliography/trauring1963automatic/">Details</a></li>
+<li><span id="jain201650">[2]Jain, A.K., Nandakumar, K. and Ross, A. 2016. 50 years of biometric research: Accomplishments, challenges, and opportunities. <i>Pattern recognition letters</i>. 79, (2016), 80–105.</span><a class="details" href="https://wanted2.github.io/bibliography/jain201650/">Details</a></li>
+<li><span id="holdsworth2008token">[3]Holdsworth, J. 2008. Token for use in online electronic transactions. Google Patents.</span><a class="details" href="https://wanted2.github.io/bibliography/holdsworth2008token/">Details</a></li>
+<li><span id="grother2018ongoing">[4]Grother, P., Ngan, M., Hanaoka, K., Yang, J.C. and Hom, A. 2022. <i>Ongoing face recognition vendor test (FRVT) part 1: Verification</i>. US Department of Commerce, National Institute of Standards and Technology.</span><a class="details" href="https://wanted2.github.io/bibliography/grother2018ongoing/">Details</a></li>
+<li><span id="boyd2003protocols">[5]Boyd, C., Mathuria, A. and Stebila, D. 2003. <i>Protocols for authentication and key establishment</i>. Springer.</span><a class="details" href="https://wanted2.github.io/bibliography/boyd2003protocols/">Details</a></li>
+<li><span id="pankanti2002individuality">[6]Pankanti, S., Prabhakar, S. and Jain, A.K. 2002. On the individuality of fingerprints. <i>Pattern Analysis and Machine Intelligence, IEEE Transactions on</i>. 24, 8 (2002), 1010–1025.</span><a class="details" href="https://wanted2.github.io/bibliography/pankanti2002individuality/">Details</a></li>
+<li><span id="ometov2018multi">[7]Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T. and Koucheryavy, Y. 2018. Multi-factor authentication: A survey. <i>Cryptography</i>. 2, 1 (2018), 1.</span><a class="details" href="https://wanted2.github.io/bibliography/ometov2018multi/">Details</a></li>
+<li><span id="ngu2016iot">[8]Ngu, A.H., Gutierrez, M., Metsis, V., Nepal, S. and Sheng, Q.Z. 2016. IoT middleware: A survey on issues and enabling technologies. <i>IEEE Internet of Things Journal</i>. 4, 1 (2016), 1–20.</span><a class="details" href="https://wanted2.github.io/bibliography/ngu2016iot/">Details</a></li>
+<li><span id="mahakian2020aws">[9]Mahakian, J., Holmdahl, S., Bada, Q., Silva, S. and Tretler, Z. 2020. <i>AWS GovCloud Resource and Cost Analysis</i>. The MITRE Corporation.</span><a class="details" href="https://wanted2.github.io/bibliography/mahakian2020aws/">Details</a></li></ol>
 
             </div>
 

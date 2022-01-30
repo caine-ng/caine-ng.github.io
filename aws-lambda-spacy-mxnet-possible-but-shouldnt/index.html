@@ -26,8 +26,8 @@
 <meta property="og:title" content="Implementing a complex system in AWS Lambda: Should or shouldn’t?" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Amazon Web Services Lambda [1] is a convenient serverless building block, can have hidden power. Surprisingly, it seems like that there is no official document explaining what should be a good Lambda function for a programming language. The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes. Furthermore, parallelism can be limited with some supports to AVX2 [2] and multiprocessing [3]. Although anything can be implemented in Lambda, should we try to put a cumbersome architecture on it? It is an open question, and this post is to explore a possible answer." />
-<meta property="og:description" content="Amazon Web Services Lambda [1] is a convenient serverless building block, can have hidden power. Surprisingly, it seems like that there is no official document explaining what should be a good Lambda function for a programming language. The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes. Furthermore, parallelism can be limited with some supports to AVX2 [2] and multiprocessing [3]. Although anything can be implemented in Lambda, should we try to put a cumbersome architecture on it? It is an open question, and this post is to explore a possible answer." />
+<meta name="description" content="Amazon Web Services Lambda [19] is a convenient serverless building block, can have hidden power. Surprisingly, it seems like there is no official document explaining what should be a good Lambda function for a programming language. The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes. Furthermore, parallelism can be limited with some support to AVX2 [19] and multiprocessing [19] . Although anything can be implemented in Lambda, should we try to put a cumbersome architecture on it? It is an open question, and this post is to explore a possible answer." />
+<meta property="og:description" content="Amazon Web Services Lambda [19] is a convenient serverless building block, can have hidden power. Surprisingly, it seems like there is no official document explaining what should be a good Lambda function for a programming language. The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes. Furthermore, parallelism can be limited with some support to AVX2 [19] and multiprocessing [19] . Although anything can be implemented in Lambda, should we try to put a cumbersome architecture on it? It is an open question, and this post is to explore a possible answer." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="/https://wanted2.github.io/assets/images/mxnet.png" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/mxnet.png" />
 <meta property="twitter:title" content="Implementing a complex system in AWS Lambda: Should or shouldn’t?" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aws-lambda-spacy-mxnet-possible-but-shouldnt/"},"description":"Amazon Web Services Lambda [1] is a convenient serverless building block, can have hidden power. Surprisingly, it seems like that there is no official document explaining what should be a good Lambda function for a programming language. The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes. Furthermore, parallelism can be limited with some supports to AVX2 [2] and multiprocessing [3]. Although anything can be implemented in Lambda, should we try to put a cumbersome architecture on it? It is an open question, and this post is to explore a possible answer.","image":"/https://wanted2.github.io/assets/images/mxnet.png","headline":"Implementing a complex system in AWS Lambda: Should or shouldn’t?","dateModified":"2021-04-03T00:00:00+09:00","datePublished":"2021-04-03T00:00:00+09:00","url":"/https://wanted2.github.io/aws-lambda-spacy-mxnet-possible-but-shouldnt/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Implementing a complex system in AWS Lambda: Should or shouldn’t?","dateModified":"2021-04-03T00:00:00+09:00","datePublished":"2021-04-03T00:00:00+09:00","description":"Amazon Web Services Lambda [19] is a convenient serverless building block, can have hidden power. Surprisingly, it seems like there is no official document explaining what should be a good Lambda function for a programming language. The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes. Furthermore, parallelism can be limited with some support to AVX2 [19] and multiprocessing [19] . Although anything can be implemented in Lambda, should we try to put a cumbersome architecture on it? It is an open question, and this post is to explore a possible answer.","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aws-lambda-spacy-mxnet-possible-but-shouldnt/"},"image":"/https://wanted2.github.io/assets/images/mxnet.png","url":"/https://wanted2.github.io/aws-lambda-spacy-mxnet-possible-but-shouldnt/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -322,10 +322,10 @@
                     </div>
                 
                 <!-- End Toc -->
-                <p>Amazon Web Services Lambda [1] is a convenient serverless building block, can have hidden power.
-Surprisingly, it seems like that there is no official document explaining what should be a good Lambda function for a programming language.
+                <p>Amazon Web Services Lambda <a class="citation" href="#AWSLambd88:online">[1]</a> is a convenient serverless building block, can have hidden power.
+Surprisingly, it seems like there is no official document explaining what should be a good Lambda function for a programming language.
 The size of an uncompressed Lambda function does not exceed 5 megabytes, and the size for all custom Lambda layers should not exceed 250 megabytes.
-Furthermore, parallelism can be limited with some supports to AVX2 [2] and multiprocessing [3].
+Furthermore, parallelism can be limited with some support to AVX2 <a class="citation" href="#Creating27:online">[2]</a>  and multiprocessing <a class="citation" href="#Parallel52:online">[3]</a> .
 Although anything can be implemented in Lambda, should we try to put a <code class="language-plaintext highlighter-rouge">cumbersome</code> architecture on it?
 It is an open question, and this post is to explore a possible answer.
 <!--more--></p>
@@ -334,8 +334,8 @@ It is an open question, and this post is to explore a possible answer.
 
 <h3 id="purpose-finding-a-new-design">Purpose: Finding a new design</h3>
 
-<p>Managed services like Amazon Sagemaker [4] provides a consistent and powerful platform to train and deploy machine learning models.
-Another managed service is AWS Lambda [1] can serve as the integration to API Gateway, which handles and responds to requests upon connections to other services.
+<p>Managed services like Amazon Sagemaker <a class="citation" href="#AmazonSa17:online">[4]</a> provide a consistent and powerful platform to train and deploy machine learning models.
+Another managed service is AWS Lambda <a class="citation" href="#AWSLambd88:online">[1]</a> can serve as the integration to API Gateway, which handles and responds to requests upon connections to other services.
 It seems that it is a natural way to put a simplistic function in Lambda’s handler bodies.
 But it also seems like there is no such enforcement for the complexity of the bodies.
 In other words, we can put anything in them and pay-as-we-go.</p>
@@ -356,27 +356,27 @@ Is Design 2 a recommended way?</p>
 <p>We already had a purpose, and we need a script to implement.
 The script is simplistic: we choose a cumbersome system in a machine learning task, deploy it to AWS Lambda and measure the gain.</p>
 
-<p><strong>The ML tasks</strong> are Named Entity Recognition (NER, [5,6]) and Context-based Question Answering (QA).
+<p><strong>The ML tasks</strong> are Named Entity Recognition (NER, <a class="citation" href="#NamedEnt13:online">[5]</a>, <a class="citation" href="#NamedEnt0:online">[6]</a>) and Context-based Question Answering (QA).
 We choose them because they are complex enough and pre-trained models are ready.
 NER is a problem in information extraction that looks at identifying atomic elements (entities) in text and classifying them into predefined classes such as person names, organizations, locations, dates, .etc.
 Approaches can be using lexicons, sliding windows, and sequential models (Hidden Markov Models and Conditional Random Fields).
 The input text is segmented into pieces of words (<code class="language-plaintext highlighter-rouge">tokens</code>), then a custom model classifies these token into predefined classes.
-Tokenizers can be whitespace-based tokenizers or a language-independent data-driven approach like SentencePiece [7,8,9].
-SentencePiece [7] implements subword regularization [8, 9].
+Tokenizers can be whitespace-based tokenizers or a language-independent data-driven approach like SentencePiece <a class="citation" href="#googlese65:online">[7]</a>, <a class="citation" href="#sennrich-etal-2016-neural">[8]</a>, <a class="citation" href="#DBLP:journals/corr/abs-1804-10959">[9]</a>.
+SentencePiece <a class="citation" href="#googlese65:online">[7]</a> implements subword regularization <a class="citation" href="#sennrich-etal-2016-neural">[8]</a>, <a class="citation" href="#DBLP:journals/corr/abs-1804-10959">[9]</a>.
 Context-based Question Answering is the task of answering a question based on a context text.
 The answer must be a part of the context.
 Therefore, the answer can be returned as <code class="language-plaintext highlighter-rouge">[start_position, length]</code>.
-A typical benchmark is the Standford SquAD dataset [10].
-However, we don’t train models but do use state-of-the-art model ALBERT [11] for inference.</p>
+A typical benchmark is the Standford SquAD dataset <a class="citation" href="#TheStanf29:online">[10]</a>.
+However, we don’t train models but do use state-of-the-art model ALBERT <a class="citation" href="#DBLP:journals/corr/abs-1909-11942">[11]</a> for inference.</p>
 
-<p><strong>The cumbersome systems/models</strong> are spaCy [12] and mxnet [13,14] based BERT models [11,15,16].
+<p><strong>The cumbersome systems/models</strong> are spaCy <a class="citation" href="#spaCyIn92:online">[12]</a>and mxnet <a class="citation" href="#ApacheMX35:online">[13]</a>, <a class="citation" href="#ApacheMX2:online">[14]</a> based BERT models <a class="citation" href="#DBLP:journals/corr/abs-1909-11942">[11]</a>, <a class="citation" href="#DBLP:journals/corr/abs-1810-04805">[15]</a>, (missing reference).
 spaCy is a ready-to-use Python library for linguistics tasks like NER, PoS tagging.
 Pipelines are units in spaCy to chain several different components such as tokenizers, ner, pos taggers, .etc.
 Apache mxnet is a flexible and efficient library for Deep Learning.
 Hence, the size of each library is about 250 megabytes.
 Because the total size is about 500 megabytes, we need to separate it into 2 Lambdas.</p>
 
-<p><strong>Serverless Architecture Model (SAM, [17])</strong> is used to deploy to Lambda.
+<p><strong>Serverless Architecture Model (SAM, <a class="citation" href="#Whatisth14:online">[16]</a>)</strong> is used to deploy to Lambda.
 We test and measure, monitor the gain directly in the AWS Lambda Web interface.</p>
 
 <h2 id="implementations">Implementations</h2>
@@ -524,7 +524,7 @@ We can use the pipeline in Python:</p>
     <span class="p">})</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>We remark the economy of Lambda business.
-Concurrency [18] can provide up to 10000 Lambda processes running at a time, and Amazon makes money by charging on this use by requests and by GB-seconds.
+Concurrency <a class="citation" href="#Managing69:online">[17]</a> can provide up to 10000 Lambda processes running at a time, and Amazon makes money by charging on this use by requests and by GB-seconds.
 Each time a concurrent Lambda runs, the bootstrap runs again.
 For example, the line <code class="language-plaintext highlighter-rouge">nlp = spacy.load('en_core_web_sm')</code> runs every time invoking a concurrent Lambda.
 Therefore, using a large batch size, we gain the time of reloading the <code class="language-plaintext highlighter-rouge">nlp</code> indeed.
@@ -617,8 +617,8 @@ Question: Who was the duke in the battle of Hastings?
 Answer: William the Conqueror
 </pre></td></tr></tbody></table></code></pre></div></div>
 <h4 id="the-handler-1">The handler</h4>
-<p>We pay attention to the BERT Transformer architecture [15,16].
-BERT representations have been trained in several pretext tasks [19].</p>
+<p>We pay attention to the BERT Transformer architecture (missing reference), <a class="citation" href="#GluonNLP52:online">[18]</a>.
+BERT representations have been trained in several pretext tasks <a class="citation" href="#SelfSupe2:online">[19]</a>.</p>
 
 <p><img src="/assets/images/bert.svg" alt="" />
 <em>Figure 2. BERT architecture</em></p>
@@ -631,7 +631,7 @@ In the inference, $P(S|C)$ is modeled as the log-softmax of contextual embedding
 $P(E|S,C)$ is the log-softmax of concatenated features between contextual embeddings and start features.
 $P(A|C)$ is computed using a feed-forward neural network and log-softmax.
 The beam search is then applied in the computed score $P(S,E,A|C)$ to find the best candidates for an answer.
-ALBERT [11] is a lightweight successor of BERT.
+ALBERT <a class="citation" href="#spaCyIn92:online">[12]</a> is a lightweight successor of BERT.
 The inference code is almost similar.</p>
 
 <h4 id="custom-lambda-layer">Custom Lambda Layer</h4>
@@ -677,32 +677,32 @@ The budget for mxnet inference is 4GB.</p>
 </ul>
 
 <p>In this post, we only considered two designs with all components are in the AWS Cloud.
-In practice, the systems may have components not in the cloud, and that makes the game is far interesting.</p>
+In practice, the systems may have components not in the cloud, and that makes the game is interesting.</p>
 
 <h2 id="reference">Reference</h2>
 
-<ol class="bibliography"><li><span id="AWSLambd88:online"><i>AWS Lambda – Serverless Compute - Amazon Web Services</i>. https://aws.amazon.com/lambda/.</span></li>
-<li><span id="Creating27:online"><i>Creating faster AWS Lambda functions with AVX2 | AWS Compute Blog</i>. https://aws.amazon.com/blogs/compute/creating-faster-aws-lambda-functions-with-avx2/.</span></li>
-<li><span id="Parallel52:online"><i>Parallel Processing in Python with AWS Lambda | AWS Compute Blog</i>. https://aws.amazon.com/blogs/compute/parallel-processing-in-python-with-aws-lambda/.</span></li>
-<li><span id="AmazonSa17:online"><i>Amazon SageMaker – Machine Learning – Amazon Web Services</i>. https://aws.amazon.com/sagemaker/.</span></li>
-<li><span id="NamedEnt13:online"><i>Named Entity Recognition · Prodigy · An annotation tool for AI, Machine Learning &amp; NLP</i>. https://prodi.gy/docs/named-entity-recognition.</span></li>
-<li><span id="NamedEnt0:online"><i>Named Entity Recognition - Cohen Courses</i>. http://curtis.ml.cmu.edu/w/courses/index.php/Named_Entity_Recognition.</span></li>
-<li><span id="googlese65:online"><i>google/sentencepiece: Unsupervised text tokenizer for Neural Network-based text generation.</i> https://github.com/google/sentencepiece.</span></li>
-<li><span id="sennrich-etal-2016-neural">Sennrich, R., Haddow, B., &amp; Birch, A. (2016). Neural Machine Translation of Rare Words with Subword Units. <i>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</i>, 1715–1725. https://doi.org/10.18653/v1/P16-1162</span></li>
-<li><span id="DBLP:journals/corr/abs-1804-10959">Kudo, T. (2018). Subword Regularization: Improving Neural Network Translation Models
-               with Multiple Subword Candidates. <i>CoRR</i>, <i>abs/1804.10959</i>. http://arxiv.org/abs/1804.10959</span></li>
-<li><span id="TheStanf29:online"><i>The Stanford Question Answering Dataset</i>. https://rajpurkar.github.io/SQuAD-explorer/.</span></li>
-<li><span id="DBLP:journals/corr/abs-1909-11942">Lan, Z., Chen, M., Goodman, S., Gimpel, K., Sharma, P., &amp; Soricut, R. (2019). ALBERT: A Lite BERT for Self-supervised Learning of Language
-               Representations. <i>CoRR</i>, <i>abs/1909.11942</i>. http://arxiv.org/abs/1909.11942</span></li>
-<li><span id="spaCyIn92:online"><i>spaCy: Industrial-strength Natural Language Processing in Python</i>. https://spacy.io/.</span></li>
-<li><span id="ApacheMX35:online"><i>Apache MXNet on AWS</i>. https://aws.amazon.com/mxnet/.</span></li>
-<li><span id="ApacheMX2:online"><i>Apache MXNet | A flexible and efficient library for deep learning.</i> https://mxnet.apache.org/versions/1.8.0/.</span></li>
-<li><span id="DBLP:journals/corr/abs-1810-04805">Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2018). BERT: Pre-training of Deep Bidirectional Transformers for Language
-               Understanding. <i>CoRR</i>, <i>abs/1810.04805</i>. http://arxiv.org/abs/1810.04805</span></li>
-<li><span id="GluonNLP52:online"><i>GluonNLP: NLP made easy — gluonnlp 0.10.0 documentation</i>. https://nlp.gluon.ai/index.html.</span></li>
-<li><span id="Whatisth14:online"><i>What is the AWS Serverless Application Model (AWS SAM)? - AWS Serverless Application Model</i>. https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html.</span></li>
-<li><span id="Managing69:online"><i>Managing concurrency for a Lambda function - AWS Lambda</i>. https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html.</span></li>
-<li><span id="SelfSupe2:online"><i>Self Supervised Representation Learning in NLP</i>. https://amitness.com/2020/05/self-supervised-learning-nlp/.</span></li></ol>
+<ol class="bibliography"><li><span id="AWSLambd88:online">[1]AWS Lambda – Serverless Compute - Amazon Web Services. https://aws.amazon.com/lambda/.</span><a class="details" href="https://wanted2.github.io/bibliography/AWSLambd88_online/">Details</a></li>
+<li><span id="Creating27:online">[2]Creating faster AWS Lambda functions with AVX2 | AWS Compute Blog. https://aws.amazon.com/blogs/compute/creating-faster-aws-lambda-functions-with-avx2/.</span><a class="details" href="https://wanted2.github.io/bibliography/Creating27_online/">Details</a></li>
+<li><span id="Parallel52:online">[3]Parallel Processing in Python with AWS Lambda | AWS Compute Blog. https://aws.amazon.com/blogs/compute/parallel-processing-in-python-with-aws-lambda/.</span><a class="details" href="https://wanted2.github.io/bibliography/Parallel52_online/">Details</a></li>
+<li><span id="AmazonSa17:online">[4]Amazon SageMaker – Machine Learning – Amazon Web Services. https://aws.amazon.com/sagemaker/.</span><a class="details" href="https://wanted2.github.io/bibliography/AmazonSa17_online/">Details</a></li>
+<li><span id="NamedEnt13:online">[5]Named Entity Recognition · Prodigy · An annotation tool for AI, Machine Learning &amp; NLP. https://prodi.gy/docs/named-entity-recognition.</span><a class="details" href="https://wanted2.github.io/bibliography/NamedEnt13_online/">Details</a></li>
+<li><span id="NamedEnt0:online">[6]Named Entity Recognition - Cohen Courses. http://curtis.ml.cmu.edu/w/courses/index.php/Named_Entity_Recognition.</span><a class="details" href="https://wanted2.github.io/bibliography/NamedEnt0_online/">Details</a></li>
+<li><span id="googlese65:online">[7]google/sentencepiece: Unsupervised text tokenizer for Neural Network-based text generation. https://github.com/google/sentencepiece.</span><a class="details" href="https://wanted2.github.io/bibliography/googlese65_online/">Details</a></li>
+<li><span id="sennrich-etal-2016-neural">[8]Sennrich, R., Haddow, B. and Birch, A. 2016. Neural Machine Translation of Rare Words with Subword Units. <i>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</i> (Berlin, Germany, Aug. 2016), 1715–1725.</span><a class="details" href="https://wanted2.github.io/bibliography/sennrich-etal-2016-neural/">Details</a></li>
+<li><span id="DBLP:journals/corr/abs-1804-10959">[9]Kudo, T. 2018. Subword Regularization: Improving Neural Network Translation Models
+                   with Multiple Subword Candidates. <i>CoRR</i>. abs/1804.10959, (2018).</span><a class="details" href="https://wanted2.github.io/bibliography/DBLP_journals/corr/abs-1804-10959/">Details</a></li>
+<li><span id="TheStanf29:online">[10]The Stanford Question Answering Dataset. https://rajpurkar.github.io/SQuAD-explorer/.</span><a class="details" href="https://wanted2.github.io/bibliography/TheStanf29_online/">Details</a></li>
+<li><span id="DBLP:journals/corr/abs-1909-11942">[11]Lan, Z., Chen, M., Goodman, S., Gimpel, K., Sharma, P. and Soricut, R. 2019. ALBERT: A Lite BERT for Self-supervised Learning of Language
+                   Representations. <i>CoRR</i>. abs/1909.11942, (2019).</span><a class="details" href="https://wanted2.github.io/bibliography/DBLP_journals/corr/abs-1909-11942/">Details</a></li>
+<li><span id="spaCyIn92:online">[12]spaCy: Industrial-strength Natural Language Processing in Python. https://spacy.io/.</span><a class="details" href="https://wanted2.github.io/bibliography/spaCyIn92_online/">Details</a></li>
+<li><span id="ApacheMX35:online">[13]Apache MXNet on AWS. https://aws.amazon.com/mxnet/.</span><a class="details" href="https://wanted2.github.io/bibliography/ApacheMX35_online/">Details</a></li>
+<li><span id="ApacheMX2:online">[14]Apache MXNet | A flexible and efficient library for deep learning. https://mxnet.apache.org/versions/1.8.0/.</span><a class="details" href="https://wanted2.github.io/bibliography/ApacheMX2_online/">Details</a></li>
+<li><span id="DBLP:journals/corr/abs-1810-04805">[15]Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2018. BERT: Pre-training of Deep Bidirectional Transformers for Language
+                   Understanding. <i>CoRR</i>. abs/1810.04805, (2018).</span><a class="details" href="https://wanted2.github.io/bibliography/DBLP_journals/corr/abs-1810-04805/">Details</a></li>
+<li><span id="Whatisth14:online">[16]What is the AWS Serverless Application Model (AWS SAM)? - AWS Serverless Application Model. https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html.</span><a class="details" href="https://wanted2.github.io/bibliography/Whatisth14_online/">Details</a></li>
+<li><span id="Managing69:online">[17]Managing concurrency for a Lambda function - AWS Lambda. https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html.</span><a class="details" href="https://wanted2.github.io/bibliography/Managing69_online/">Details</a></li>
+<li><span id="GluonNLP52:online">[18]GluonNLP: NLP made easy — gluonnlp 0.10.0 documentation. https://nlp.gluon.ai/index.html.</span><a class="details" href="https://wanted2.github.io/bibliography/GluonNLP52_online/">Details</a></li>
+<li><span id="SelfSupe2:online">[19]Self Supervised Representation Learning in NLP. https://amitness.com/2020/05/self-supervised-learning-nlp/.</span><a class="details" href="https://wanted2.github.io/bibliography/SelfSupe2_online/">Details</a></li></ol>
 
             </div>
 

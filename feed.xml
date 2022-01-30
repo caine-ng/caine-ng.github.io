@@ -5,15 +5,13 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 30 Jan 2022 05:44:50 +0900</pubDate>
-    <lastBuildDate>Sun, 30 Jan 2022 05:44:50 +0900</lastBuildDate>
+    <pubDate>Mon, 31 Jan 2022 04:46:01 +0900</pubDate>
+    <lastBuildDate>Mon, 31 Jan 2022 04:46:01 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Machine Learning for Network Intrusion Detection: From Local to Production</title>
-        <description>&lt;!--more--&gt;
-
-&lt;h1 id=&quot;network-intrusion-detection-system&quot;&gt;Network Intrusion Detection System&lt;/h1&gt;
+        <description>&lt;h1 id=&quot;network-intrusion-detection-system&quot;&gt;Network Intrusion Detection System&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://www.researchgate.net/profile/Simon-Enoch/publication/319637372/figure/fig1/AS:543679434510336@1506634686111/Configuration-of-the-enterprise-network.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;&lt;/p&gt;
 
@@ -23,7 +21,8 @@
 
 &lt;p&gt;An IDS is &lt;em&gt;reactive&lt;/em&gt; in nature: it only monitors and sends alerts to a group of specific people like administrators.
 The above figure shows a common NIDS architecture, where a DMZ is placed in between &lt;em&gt;external firewall&lt;/em&gt; and &lt;em&gt;internal firewall (to an internal network)&lt;/em&gt;.
-Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies.&lt;/p&gt;
+Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies.
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://www.researchgate.net/profile/Vivek-Singh-70/publication/328572055/figure/fig1/AS:686824250945536@1540763070945/Major-Components-of-Snort-IDS-and-Bro-IDS.ppm&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
 A NIDS can have the following architecture:&lt;/p&gt;
@@ -33,7 +32,7 @@ A NIDS can have the following architecture:&lt;/p&gt;
   &lt;li&gt;A &lt;strong&gt;package decoder&lt;/strong&gt; which turns packet content into visibility&lt;/li&gt;
   &lt;li&gt;A &lt;strong&gt;detection engine&lt;/strong&gt; which identify intrusions&lt;/li&gt;
   &lt;li&gt;A &lt;strong&gt;policy engine&lt;/strong&gt; which decide and suggest what to do with an intrusion&lt;/li&gt;
-  &lt;li&gt;Finally, the intrusion details is collected and &lt;strong&gt;logged&lt;/strong&gt;. &lt;strong&gt;Alerts&lt;/strong&gt; will be sent to admins and optionally, scripted &lt;strong&gt;actions&lt;/strong&gt; can be performed in according to policies.&lt;/li&gt;
+  &lt;li&gt;Finally, the intrusion details are collected and &lt;strong&gt;logged&lt;/strong&gt;. &lt;strong&gt;Alerts&lt;/strong&gt; will be sent to admins and optionally, scripted &lt;strong&gt;actions&lt;/strong&gt; can be performed in according to policies.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Two typical examples of NIDS are &lt;a href=&quot;https://www.snort.org/&quot;&gt;Snort IDS&lt;/a&gt; and &lt;a href=&quot;https://bricata.com/blog/zeek-ids-threat-detection/&quot;&gt;Bro IDS&lt;/a&gt;.
@@ -407,7 +406,7 @@ The Machine Learning methods can be generative or discriminative, but they must 
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;We have reviewed several views of NIDS: at a corporation network view, cloud solutions and machine learning models.&lt;/p&gt;
+&lt;p&gt;We have reviewed several views of NIDS: at a corporation network view, cloud solutions, and machine learning models.&lt;/p&gt;
 
 &lt;p&gt;On the synthetic examples, we observed that a quite classical model like &lt;strong&gt;Random Forest&lt;/strong&gt; can outperform neural nets.
 It is not a new thing: we already &lt;em&gt;empirically&lt;/em&gt; knew that Random Forest is good at this problem, especially when it is in synthetic environments.
@@ -599,7 +598,7 @@ Với nguyên tắc là mọi thứ qua miệng đều phải rõ nguồn gốc 
 
 &lt;h2 id=&quot;điểm-qua-những-tiến-bộ-của-mảng-bảo-mật-nhiều-lớp&quot;&gt;Điểm qua những tiến bộ của mảng bảo mật nhiều lớp&lt;/h2&gt;
 
-&lt;p&gt;Những tri thức nền tảng cho bảo mật nhiều lớp xuất hiện lần đầu từ bài báo của &lt;strong&gt;Mitchell Trauring [1, 2]&lt;/strong&gt; năm 1963.
+&lt;p&gt;Những tri thức nền tảng cho bảo mật nhiều lớp xuất hiện lần đầu từ bài báo của &lt;strong&gt;Mitchell Trauring &lt;a class=&quot;citation&quot; href=&quot;#trauring1963automatic&quot;&gt;[1]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#jain201650&quot;&gt;[2]&lt;/a&gt;&lt;/strong&gt; năm 1963.
 Trong bài viết về cách thức nhận dạng vân tay tự động bằng &lt;strong&gt;Ridge&lt;/strong&gt; patterns, ông viết:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -612,25 +611,25 @@ Trong bài viết về cách thức nhận dạng vân tay tự động bằng &
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/multi-factor.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
 Như hình vẽ bên các bạn có thể thấy, bình thường bảo mật 1 lớp thì chỉ cần có mật khẩu (&lt;em&gt;something you know&lt;/em&gt;).
-Tuy nhiên, để tăng độ bảo mật, ví dụ như khi mật khẩu bị đánh cắp thì nên có nhiều phương pháp bảo mật đi kèm như &lt;strong&gt;token [3], vân tay [2], khuôn mặt [4], PIN/key [5], mống mắt, …&lt;/strong&gt;.
+Tuy nhiên, để tăng độ bảo mật, ví dụ như khi mật khẩu bị đánh cắp thì nên có nhiều phương pháp bảo mật đi kèm như &lt;strong&gt;token &lt;a class=&quot;citation&quot; href=&quot;#holdsworth2008token&quot;&gt;[3]&lt;/a&gt;, vân tay &lt;a class=&quot;citation&quot; href=&quot;#jain201650&quot;&gt;[2]&lt;/a&gt;, khuôn mặt &lt;a class=&quot;citation&quot; href=&quot;#grother2018ongoing&quot;&gt;[4]&lt;/a&gt;, PIN/key &lt;a class=&quot;citation&quot; href=&quot;#boyd2003protocols&quot;&gt;[5]&lt;/a&gt;, mống mắt, …&lt;/strong&gt;.
 Cái quan trọng là phải kết hợp thêm những cái gì user có (&lt;em&gt;something you have&lt;/em&gt;) và những gì của user (&lt;em&gt;something you are&lt;/em&gt;).
 &lt;img src=&quot;/assets/images/fingerprint-matching.png&quot; alt=&quot;&quot; /&gt;
-&lt;em&gt;Trích dẫn: [1] mô hình vân tay và cách matching local points.&lt;/em&gt;&lt;/p&gt;
+&lt;em&gt;Trích dẫn: &lt;a class=&quot;citation&quot; href=&quot;#trauring1963automatic&quot;&gt;[1]&lt;/a&gt; mô hình vân tay và cách matching local points.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/fusion.jpg&quot; style=&quot;float: left; margin: 10px; width: 50%&quot; /&gt;
 Tuy nhiên, một vấn đề lớn của các phương pháp bảo mật đi kèm là độ chính xác.
-Ví dụ như với vân tay [6] thì xác suất &lt;em&gt;false matching probability&lt;/em&gt; vẫn có thể đạt $6.10\times 10^{-8}$ với mẫu vân tay có 36 điểm minutiae.
+Ví dụ như với vân tay &lt;a class=&quot;citation&quot; href=&quot;#pankanti2002individuality&quot;&gt;[6]&lt;/a&gt; thì xác suất &lt;em&gt;false matching probability&lt;/em&gt; vẫn có thể đạt $6.10\times 10^{-8}$ với mẫu vân tay có 36 điểm minutiae.
 Do đó việc sử dụng đơn thuần 1 đặc trưng anatomical hoặc behavior có thể tạo ra nhiều &lt;em&gt;false non-matching&lt;/em&gt; cũng như &lt;em&gt;false matching&lt;/em&gt;.
 Cũng vì đó mà cần phải dùng nhiều đặc trưng, và khi dùng nhiều đặc trưng thì có đặc trưng quan trọng, có đặc trưng không, phải có &lt;strong&gt;weight&lt;/strong&gt; cho từng đặc trưng.
 Và đó chính là ý tưởng &lt;strong&gt;feature fusion&lt;/strong&gt; hay là &lt;strong&gt;multimodal&lt;/strong&gt; cho mảng biometrics.
 &lt;em&gt;Nói chung, cũng toàn mấy cái ý tưởng của các fellows từ thời 1990s-2000s&lt;/em&gt;, thời các sếp ấy thì cũng đã 20-30 năm về trước, nên mấy cái ý tưởng này tôi nghĩ mới cũng không mới và trong mảng biometrics cũng đã implement gần hết, thậm chí vào sản phẩm thị trường rồi.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/biometrics.png&quot; style=&quot;float: right; margin: 10px; width: 50%&quot; /&gt;
-Cái mảng &lt;strong&gt;bảo mật nhiều lớp [7]&lt;/strong&gt; và &lt;strong&gt;biometrics [2]&lt;/strong&gt; nhìn chung là cũng liên đới rộng phết, từ bảo mật cloud đến tận thiết bị IoT [8] cũng liên quan.
+Cái mảng &lt;strong&gt;bảo mật nhiều lớp &lt;a class=&quot;citation&quot; href=&quot;#ometov2018multi&quot;&gt;[7]&lt;/a&gt;&lt;/strong&gt; và &lt;strong&gt;biometrics &lt;a class=&quot;citation&quot; href=&quot;#jain201650&quot;&gt;[2]&lt;/a&gt;&lt;/strong&gt; nhìn chung là cũng liên đới rộng phết, từ bảo mật cloud đến tận thiết bị IoT &lt;a class=&quot;citation&quot; href=&quot;#ngu2016iot&quot;&gt;[8]&lt;/a&gt; cũng liên quan.
 Nhưng nhìn chung cái mô hình thực thi thì khá giống nhau:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Về mặt &lt;strong&gt;hệ thống&lt;/strong&gt; thì anh em nào làm nhiều về cloud, web app thì sẽ hiểu ngay là trong framework sẽ có một bộ phận middleware có những function kiểu như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preLogin(), postAuthentication(), ...&lt;/code&gt; là sẽ là nơi implement thêm các lớp bảo mật. Ở trong middleware [8] thì chúng ta sẽ call thêm các lớp bảo mật khác để đưa ra kết quả.
+  &lt;li&gt;Về mặt &lt;strong&gt;hệ thống&lt;/strong&gt; thì anh em nào làm nhiều về cloud, web app thì sẽ hiểu ngay là trong framework sẽ có một bộ phận middleware có những function kiểu như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preLogin(), postAuthentication(), ...&lt;/code&gt; là sẽ là nơi implement thêm các lớp bảo mật. Ở trong middleware &lt;a class=&quot;citation&quot; href=&quot;#ngu2016iot&quot;&gt;[8]&lt;/a&gt; thì chúng ta sẽ call thêm các lớp bảo mật khác để đưa ra kết quả.
     &lt;ul&gt;
       &lt;li&gt;Ngoài ra, việc fusion của các đặc trưng có thể thực hiện tại &lt;strong&gt;biometrics sensor&lt;/strong&gt;, tức là &lt;strong&gt;early fusion&lt;/strong&gt;. Hoặc tại module decision, tức là &lt;strong&gt;late fusion&lt;/strong&gt; và chủ yếu là fuse kết quả nhận dạng của từng modal.&lt;/li&gt;
     &lt;/ul&gt;
@@ -650,7 +649,7 @@ Tức là ví dụ năm nay là 2022 thì những bài từ 2021 thì mình ưu 
 
 &lt;p&gt;Cuối cùng, là về mảng biometrics này thì có một ứng dụng thú vị là &lt;em&gt;face recognition&lt;/em&gt; mà bên computer vision hay deep learning cũng nổi lên (gọi là &lt;em&gt;deep face recognition&lt;/em&gt;).
 Mảng này thì quả là cũng không nhiều papers lắm, cũng giống biometrics, nhưng lại có một số papers có trích dẫn hàng ngàn mặc dù xuất bản sau 2015 như FaceNet hay RetinaFace, ArcFace, CosFace.
-Tuy nhiên, nếu nói về thực tiễn sử dụng thì tôi nghĩ tốt nhất là nên tham khảo các con số trong benchmark lớn của chính phủ Mý [4].
+Tuy nhiên, nếu nói về thực tiễn sử dụng thì tôi nghĩ tốt nhất là nên tham khảo các con số trong benchmark lớn của chính phủ Mý &lt;a class=&quot;citation&quot; href=&quot;#grother2018ongoing&quot;&gt;[4]&lt;/a&gt;.
 Lý do là bởi vì đó là các ứng dụng thực tiễn, cũng như bộ dữ liệu lớn tới vài chục triệu người, và quan trọng là mọi team trên thế giới đều có thể tham gia.
 Dưới đây là bảng kết quả hạng mục Verification, tức là cho sẵn một pair hai khuôn mặt, đưa ra kết quả xem đó có cùng 1 identity không?
 Kết quả là đường cong thể hiện tỷ lệ &lt;em&gt;false non-matching rate (FNMR) vs false matching rate (FMR)&lt;/em&gt;.
@@ -770,7 +769,7 @@ Với AWS thì là quản lý tất cả các tài khoản nhân viên, máy ả
 &lt;h2 id=&quot;usecase-aws-govcloud&quot;&gt;Usecase: AWS GovCloud&lt;/h2&gt;
 
 &lt;p&gt;Trên trang chủ của AWS Organizations có thể tìm thấy khá nhiều usecases có sẵn.
-Trong bài này chúng ta xem lại 1 usecase của AWS GovCloud [9].
+Trong bài này chúng ta xem lại 1 usecase của AWS GovCloud &lt;a class=&quot;citation&quot; href=&quot;#mahakian2020aws&quot;&gt;[9]&lt;/a&gt;.
 Usecase này được đưa ra bởi MITRE.
 Họ đưa ra 9 lời khuyên trong việc quản lý AWS Organizations:&lt;/p&gt;
 
@@ -912,15 +911,15 @@ Một số vấn đề thú vị khác như RAM, AWS Config, … chúng ta sẽ 
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;trauring1963automatic&quot;&gt;Trauring, M. (1963). Automatic comparison of finger-ridge patterns. &lt;i&gt;Nature&lt;/i&gt;, &lt;i&gt;197&lt;/i&gt;(4871), 938–940.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;jain201650&quot;&gt;Jain, A. K., Nandakumar, K., &amp;amp; Ross, A. (2016). 50 years of biometric research: Accomplishments, challenges, and opportunities. &lt;i&gt;Pattern Recognition Letters&lt;/i&gt;, &lt;i&gt;79&lt;/i&gt;, 80–105.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;holdsworth2008token&quot;&gt;Holdsworth, J. (2008). &lt;i&gt;Token for use in online electronic transactions&lt;/i&gt;. Google Patents.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;grother2018ongoing&quot;&gt;Grother, P., Ngan, M., Hanaoka, K., Yang, J. C., &amp;amp; Hom, A. (2022). &lt;i&gt;Ongoing face recognition vendor test (FRVT) part 1: Verification&lt;/i&gt;. US Department of Commerce, National Institute of Standards and Technology.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;boyd2003protocols&quot;&gt;Boyd, C., Mathuria, A., &amp;amp; Stebila, D. (2003). &lt;i&gt;Protocols for authentication and key establishment&lt;/i&gt; (Vol. 1). Springer.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;pankanti2002individuality&quot;&gt;Pankanti, S., Prabhakar, S., &amp;amp; Jain, A. K. (2002). On the individuality of fingerprints. &lt;i&gt;Pattern Analysis and Machine Intelligence, IEEE Transactions On&lt;/i&gt;, &lt;i&gt;24&lt;/i&gt;(8), 1010–1025.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ometov2018multi&quot;&gt;Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T., &amp;amp; Koucheryavy, Y. (2018). Multi-factor authentication: A survey. &lt;i&gt;Cryptography&lt;/i&gt;, &lt;i&gt;2&lt;/i&gt;(1), 1.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ngu2016iot&quot;&gt;Ngu, A. H., Gutierrez, M., Metsis, V., Nepal, S., &amp;amp; Sheng, Q. Z. (2016). IoT middleware: A survey on issues and enabling technologies. &lt;i&gt;IEEE Internet of Things Journal&lt;/i&gt;, &lt;i&gt;4&lt;/i&gt;(1), 1–20.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;mahakian2020aws&quot;&gt;Mahakian, J., Holmdahl, S., Bada, Q., Silva, S., &amp;amp; Tretler, Z. (2020). &lt;i&gt;AWS GovCloud Resource and Cost Analysis&lt;/i&gt;. The MITRE Corporation.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;trauring1963automatic&quot;&gt;[1]Trauring, M. 1963. Automatic comparison of finger-ridge patterns. &lt;i&gt;Nature&lt;/i&gt;. 197, 4871 (1963), 938–940.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/trauring1963automatic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;jain201650&quot;&gt;[2]Jain, A.K., Nandakumar, K. and Ross, A. 2016. 50 years of biometric research: Accomplishments, challenges, and opportunities. &lt;i&gt;Pattern recognition letters&lt;/i&gt;. 79, (2016), 80–105.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/jain201650/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;holdsworth2008token&quot;&gt;[3]Holdsworth, J. 2008. Token for use in online electronic transactions. Google Patents.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/holdsworth2008token/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;grother2018ongoing&quot;&gt;[4]Grother, P., Ngan, M., Hanaoka, K., Yang, J.C. and Hom, A. 2022. &lt;i&gt;Ongoing face recognition vendor test (FRVT) part 1: Verification&lt;/i&gt;. US Department of Commerce, National Institute of Standards and Technology.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/grother2018ongoing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;boyd2003protocols&quot;&gt;[5]Boyd, C., Mathuria, A. and Stebila, D. 2003. &lt;i&gt;Protocols for authentication and key establishment&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/boyd2003protocols/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;pankanti2002individuality&quot;&gt;[6]Pankanti, S., Prabhakar, S. and Jain, A.K. 2002. On the individuality of fingerprints. &lt;i&gt;Pattern Analysis and Machine Intelligence, IEEE Transactions on&lt;/i&gt;. 24, 8 (2002), 1010–1025.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/pankanti2002individuality/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ometov2018multi&quot;&gt;[7]Ometov, A., Bezzateev, S., Mäkitalo, N., Andreev, S., Mikkonen, T. and Koucheryavy, Y. 2018. Multi-factor authentication: A survey. &lt;i&gt;Cryptography&lt;/i&gt;. 2, 1 (2018), 1.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ometov2018multi/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ngu2016iot&quot;&gt;[8]Ngu, A.H., Gutierrez, M., Metsis, V., Nepal, S. and Sheng, Q.Z. 2016. IoT middleware: A survey on issues and enabling technologies. &lt;i&gt;IEEE Internet of Things Journal&lt;/i&gt;. 4, 1 (2016), 1–20.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ngu2016iot/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;mahakian2020aws&quot;&gt;[9]Mahakian, J., Holmdahl, S., Bada, Q., Silva, S. and Tretler, Z. 2020. &lt;i&gt;AWS GovCloud Resource and Cost Analysis&lt;/i&gt;. The MITRE Corporation.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/mahakian2020aws/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 16 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/aws-account/</link>
@@ -989,7 +988,7 @@ Xin hãy nhìn vào biểu đồ bên dưới: hầu như chỉ có 2 nhánh&lt;
 &lt;h2 id=&quot;làm-cho-khởi-nghiệp-và-công-ty-nhỏ-vừa&quot;&gt;Làm cho khởi nghiệp và công ty nhỏ vừa&lt;/h2&gt;
 
 &lt;p&gt;Hướng đi mang tính entrepreneur này có vẻ mạo hiểm với cả chủ lẫn tớ: công ty chả biết lúc nào “sập”?
-Một bài survey dưới góc độ employee xem tại sao họ lại chọn hướng đi làm thuê cho khởi nghiệp mà tôi thích là bài của Nystrӧm [13] ngay vừa 2021 rồi.
+Một bài survey dưới góc độ employee xem tại sao họ lại chọn hướng đi làm thuê cho khởi nghiệp mà tôi thích là bài của Nystrӧm &lt;a class=&quot;citation&quot; href=&quot;#nystrom2021working&quot;&gt;[1]&lt;/a&gt; ngay vừa 2021 rồi.
 Hiểm nguy đi cùng khởi nghiệp sẽ bao gồm:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1005,7 +1004,7 @@ Vấn đề là employer cũng không có ngay được thông tin về skill c�
 Cái này trong lĩnh vực này gọi là &lt;strong&gt;information assymmetry&lt;/strong&gt;, tức là sự thiếu thông tin về nhau của hai bên khi tiếp xúc.
 Tất nhiên khi hai bên đang thiếu thông tin về nhau như vậy, việc tìm điểm cân bằng equibilirum là cần thiết.&lt;/p&gt;
 
-&lt;p&gt;Theo [13] thì trong một survey ở labor market Thụy Điển thì sinh viên đại học bên đó đặt các yếu tố sau lên đầu khi tìm việc:&lt;/p&gt;
+&lt;p&gt;Theo &lt;a class=&quot;citation&quot; href=&quot;#nystrom2021working&quot;&gt;[1]&lt;/a&gt; thì trong một survey ở labor market Thụy Điển thì sinh viên đại học bên đó đặt các yếu tố sau lên đầu khi tìm việc:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Lương khởi điểm cao&lt;/li&gt;
@@ -1014,14 +1013,14 @@ Tất nhiên khi hai bên đang thiếu thông tin về nhau như vậy, việc 
   &lt;li&gt;Môi trường làm việc năng động và phát triển tốt.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Một điểm thú vị [13] là trong những người làm việc R&amp;amp;D (cả chuyển việc lẫn mới tốt nghiệp) thì yếu tố quan trọng nhất với họ không phải lương hay job security mà là &lt;strong&gt;independence và responsibilty (sự độc lập và trách nhiệm)&lt;/strong&gt;.
+&lt;p&gt;Một điểm thú vị &lt;a class=&quot;citation&quot; href=&quot;#nystrom2021working&quot;&gt;[1]&lt;/a&gt; là trong những người làm việc R&amp;amp;D (cả chuyển việc lẫn mới tốt nghiệp) thì yếu tố quan trọng nhất với họ không phải lương hay job security mà là &lt;strong&gt;independence và responsibilty (sự độc lập và trách nhiệm)&lt;/strong&gt;.
 Tức là lương cao và chuyện không hợp hoặc công ty chết thì nhảy việc thì không quan trọng với người làm R&amp;amp;D, mà quan trọng với họ là được làm việc độc lập (được làm chủ nghiên cứu của mình và toàn quyền quyết định) và trách nhiệm rõ ràng.&lt;/p&gt;
 
 &lt;p&gt;Ngoài việc lương bèo thì những nguy cơ tiềm ẩn như làm việc nhiều giờ, stress cũng dai dẳng với các nhân viên của công ty khởi nghiệp.&lt;/p&gt;
 
 &lt;p&gt;Và Nystrӧm cũng chỉ ra kết quả thú vị: hầu như &lt;strong&gt;khởi nghiệp và cty vừa nhỏ chỉ thuê được các vị trí yếu hơn so với các công ty lớn&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Doner và cộng sự [7] cũng nghiên cứu về lương khởi nghiệp có thể trả nhưng tập trung vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;academics spin-offs&lt;/code&gt; tức là khởi nghiệp xuất phát từ academics.
+&lt;p&gt;Doner và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#dorner2017wages&quot;&gt;[2]&lt;/a&gt; cũng nghiên cứu về lương khởi nghiệp có thể trả nhưng tập trung vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;academics spin-offs&lt;/code&gt; tức là khởi nghiệp xuất phát từ academics.
 Những nhà sáng lập xuất thân từ academics hoặc từ 1 nghiên cứu nào đó trong academics.
 Câu hỏi nghiên cứu ở đây là liệu spin-offs có sẵn sàng trả cao cho nhân viên không?
 Các tác giả tập trung vào bộ dữ liệu spin-offs ở Đức và thật thú vị sau khi họ làm mấy cái regression test linh tinh và đưa ra kết quả cũng không mới lắm: &lt;strong&gt;spin-offs dù nhận vốn academics (có thể dồi dào hay không biết) nhưng cũng không trả cao đâu!&lt;/strong&gt;
@@ -1029,19 +1028,19 @@ Họ cũng chỉ ra rằng một nhận định cũ rằng spin-offs có tốc �
 &lt;em&gt;Mất công làm một đống regression tests mà kết quả là lương cũng không cao hơn là bao thì quả cũng của đáng tội!&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Nhìn con số từ Đức và Thụy Điển có vẻ không khả quan lắm, nên tôi chuyển hướng nhìn sang Mỹ xem sao.
-Thế là có ngay bài điều tra của Kim [8] ngay năm 2018 thôi nên số liệu thực tế và rất mới.
+Thế là có ngay bài điều tra của Kim &lt;a class=&quot;citation&quot; href=&quot;#kim2018there&quot;&gt;[3]&lt;/a&gt; ngay năm 2018 thôi nên số liệu thực tế và rất mới.
 Dữ liệu dựa trên khởi nghiệp xuất phát từ OB của MIT.
 Thì thật thú vị là nhóm VC-backed tức là được nhận đầu tư của VC thì có thu nhập khá hơn 10% (non-founder employees) so với mặt bằng chung.
 Sau khi thêm hiệu ứng cố định (fixed-effect) dựa trên quan sát là nhiều employees nhận multi-offers thì con số lại không significant lắm, chứng tỏ là việc được VC đầu tư sẽ dẫn tới lương trả cao lên.
 Và điều đó cho thấy ở Mỹ thì nên tìm vào khởi nghiệp có VC!&lt;/p&gt;
 
-&lt;p&gt;Một bài điều tra thú vị khác về &lt;strong&gt;chất lượng của job&lt;/strong&gt; từ khởi nghiệp được Block và cộng sự [10] hoàn thành cũng vào năm 2018.
+&lt;p&gt;Một bài điều tra thú vị khác về &lt;strong&gt;chất lượng của job&lt;/strong&gt; từ khởi nghiệp được Block và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#block2018quantity&quot;&gt;[4]&lt;/a&gt; hoàn thành cũng vào năm 2018.
 Chủ yếu là vì khởi nghiệp thì tạo ra công ăn việc làm, nhưng công ăn việc làm ấy chất lượng có cao không?
 Thì kết quả là &lt;strong&gt;chất lượng thấp&lt;/strong&gt;: phần lớn là lương thấp, bonus bèo hoặc không có, bảo hiểm cũng bấp bênh, công việc cũng không biết công ty chết lúc nào.
 Block nói chung cũng không đưa ra được dấu hiệu cho thấy đãi ngộ khấm khá hơn là bao.
 Tôi nghĩ mấy cái Block này chắc cũng là tình hình chung của mảng này rồi nên thôi chắc mình cũng không nên mất công vào kẻo lại của đáng tội!&lt;/p&gt;
 
-&lt;p&gt;Thôi điều tra một hồi thấy đến cả mấy cái work của Block [10] mà cũng chỉ được bèo như vậy thì chắc làm thuê cho khởi nghiệp mình đọc đến đây thôi!
+&lt;p&gt;Thôi điều tra một hồi thấy đến cả mấy cái work của Block &lt;a class=&quot;citation&quot; href=&quot;#block2018quantity&quot;&gt;[4]&lt;/a&gt; mà cũng chỉ được bèo như vậy thì chắc làm thuê cho khởi nghiệp mình đọc đến đây thôi!
 Đổi mới sáng tạo thì cũng thú vị lắm nhưng nghèo thì gượm để suy nghĩ đã :))&lt;/p&gt;
 
 &lt;h2 id=&quot;làm-cho-hàn-lâm&quot;&gt;Làm cho hàn lâm&lt;/h2&gt;
@@ -1050,12 +1049,12 @@ Tôi nghĩ mấy cái Block này chắc cũng là tình hình chung của mảng
   &lt;p&gt;&lt;strong&gt;Làm cho hàn lâm có mong giàu không?&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Nhìn chung là cũng có lý do tại sao đi dạy đi nghiên cứu lại mong giàu: Nghiên cứu của Currall và cộng sự [5] vào năm 2005 trên tập giáo viên từ gần 7,000 trường học ở Mỹ cho thấy, độ thỏa mãn về lương lậu có tương quan dương với hiệu suất làm việc ở trường và tương quan âm với ý định bỏ việc của giáo viên.
+&lt;p&gt;Nhìn chung là cũng có lý do tại sao đi dạy đi nghiên cứu lại mong giàu: Nghiên cứu của Currall và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#currall2005pay&quot;&gt;[5]&lt;/a&gt; vào năm 2005 trên tập giáo viên từ gần 7,000 trường học ở Mỹ cho thấy, độ thỏa mãn về lương lậu có tương quan dương với hiệu suất làm việc ở trường và tương quan âm với ý định bỏ việc của giáo viên.
 Tức là lương lậu OK thì sẽ không bỏ việc và hiệu suất lại tốt hơn. 
 Tất nhiên độ thỏa mãn về lương lậu cũng chỉ là survey kiểu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lương có đủ sống không em?&lt;/code&gt; chứ chưa nói đến giàu, nhưng qua đây cũng thấy là lương mà không cao là giáo viên cũng bỏ dạy đấy.&lt;/p&gt;
 
 &lt;p&gt;Đấy là ngành dạy dỗ nhé, nhưng còn ngạch nghiên cứu thì sao?
-Lại có bài của Stern [4] năm 2004.
+Lại có bài của Stern &lt;a class=&quot;citation&quot; href=&quot;#stern2004scientists&quot;&gt;[6]&lt;/a&gt; năm 2004.
 Ô đọc xong mà lại thấy nghèo quá!
 Kết quả chỉ ra 1 tương quan âm giữa lương và độ khoa học trong tổ chức: những cơ quan nghiên cứu mà cho phép nhà nghiên cứu xuất bản bài báo và hội nghị thì nhận được 25% discount trong lương.
 &lt;strong&gt;Tức là nhà nghiên cứu sẵn sàng nhận lương thấp đi 25% nếu cho phép họ xuất bản bài báo lên tạp chí khoa học uy tín hoặc hội nghị lớn.&lt;/strong&gt;
@@ -1072,7 +1071,7 @@ Nói chung là có nhiều thử thách, mà thế mới đúng vì &lt;strong&g
 Nhìn chung vì nó là đại trà nên lương ở mức mặt bằng chung, phúc lợi thì công ty này công ty kia nó cũng same same.
 Anh em trải qua hết rồi cũng chả có thấy điểm ưu trội nào mấy.&lt;/p&gt;
 
-&lt;p&gt;Thôi thì xem thử có bài nào hay hay thì thấy có bài của Andersson và cộng sự [14] xuất bản năm 2009 về câu hỏi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;những công ty nào sẽ trả tiền thuê talents?&lt;/code&gt;
+&lt;p&gt;Thôi thì xem thử có bài nào hay hay thì thấy có bài của Andersson và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#andersson2009reaching&quot;&gt;[7]&lt;/a&gt; xuất bản năm 2009 về câu hỏi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;những công ty nào sẽ trả tiền thuê talents?&lt;/code&gt;
 Thì thu nhập cũng phải hiểu là có thu nhập khởi điểm và thu nhập khi đã có kinh nghiệm.
 Ngoài ra còn stock options nữa cũng là một yếu tốt trong thu nhập khi đi làm thuê.
 Hay là nghiên cứu này lại tổ chức trên đúng tập dữ liệu là các công ty software ở Mỹ nên có lẽ rất phù hợp cho ngành IT.
@@ -1088,7 +1087,7 @@ Chỉ cần lo chiến đấu thôi!&lt;/p&gt;
 
 &lt;h2 id=&quot;đặc-điểm-của-khởi-nghiệp&quot;&gt;Đặc điểm của khởi nghiệp&lt;/h2&gt;
 
-&lt;p&gt;Đầu tiên là vấn đề ý tưởng thì có bài của Homfeldt và cộng sự [9] ngay năm 2019.
+&lt;p&gt;Đầu tiên là vấn đề ý tưởng thì có bài của Homfeldt và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#homfeldt2019suppliers&quot;&gt;[8]&lt;/a&gt; ngay năm 2019.
 Họ trả lời câu hỏi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;liệu ý tưởng của startups có thực sự mới mẻ hơn của các công ty lớn không?&lt;/code&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -1101,9 +1100,9 @@ Thì đúng là vậy, ý tưởng mới sẽ khó được đón nhận ngay v�
 Nhưng qua thời gian nếu startup trụ vững và chứng minh được thì nó lại thành hiện thực và startup sẽ cất cánh.
 Rủi ro lớn nhất là startup không thực hiện được thôi, nhưng đó không phải vấn đề mới mà là vấn đề chung của mọi startup hiện nay!&lt;/p&gt;
 
-&lt;p&gt;Khi khởi nghiệp thì nếu xuất phát từ 1 nghiên cứu hàn lâm thì startups sẽ được gọi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spin-off&lt;/code&gt; [11, 12].
+&lt;p&gt;Khi khởi nghiệp thì nếu xuất phát từ 1 nghiên cứu hàn lâm thì startups sẽ được gọi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spin-off&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#rodriguez2018role&quot;&gt;[9]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#dianez2021drivers&quot;&gt;[10]&lt;/a&gt;.
 Khi xây dựng spin-off thì sẽ phải chú ý vấn đề &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hướng&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chiến lược&lt;/code&gt; (EO) cũng như xây dựng đội ngũ.
-[12] cũng chỉ ra một số yếu tố hỗ trợ vấn đề &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hướng&lt;/code&gt; là&lt;/p&gt;
+&lt;a class=&quot;citation&quot; href=&quot;#dianez2021drivers&quot;&gt;[10]&lt;/a&gt; cũng chỉ ra một số yếu tố hỗ trợ vấn đề &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hướng&lt;/code&gt; là&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Sự có mặt của 1 quản lý không phải academics (non-academics manager) trong đội ngũ quản lý&lt;/li&gt;
   &lt;li&gt;Có vốn của VC&lt;/li&gt;
@@ -1111,16 +1110,16 @@ Khi xây dựng spin-off thì sẽ phải chú ý vấn đề &lt;code class=&qu
 Trên đây có vẻ là yếu tố chiến lược hỗ trợ spin-off phát triển.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Rồi làm khởi nghiệp còn phải đau đầu lo vấn đề hợp tác mà thực ra là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mua&lt;/code&gt; affiliation [1].
+&lt;p&gt;Rồi làm khởi nghiệp còn phải đau đầu lo vấn đề hợp tác mà thực ra là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mua&lt;/code&gt; affiliation &lt;a class=&quot;citation&quot; href=&quot;#hsu2004entrepreneurs&quot;&gt;[11]&lt;/a&gt;.
 Không có affiliation thì chẳng có publish gì cả vì reputation thấp.
 Muốn reputation cao thì lại phải dựa vào những affiliation là VC có reputation cao.&lt;/p&gt;
 
-&lt;p&gt;Đấy là nếu gọi vốn VC, còn nếu gọi vốn crowdfunding [2] thì cũng là hướng mới mà nhiều anh em đang làm nhưng nói chung &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gian nan&lt;/code&gt; lắm.&lt;/p&gt;
+&lt;p&gt;Đấy là nếu gọi vốn VC, còn nếu gọi vốn crowdfunding &lt;a class=&quot;citation&quot; href=&quot;#mollick2014dynamics&quot;&gt;[12]&lt;/a&gt; thì cũng là hướng mới mà nhiều anh em đang làm nhưng nói chung &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gian nan&lt;/code&gt; lắm.&lt;/p&gt;
 
 &lt;h2 id=&quot;thu-nhập-của-nhà-khởi-nghiệp&quot;&gt;Thu nhập của nhà khởi nghiệp&lt;/h2&gt;
 
 &lt;p&gt;Quay lại chủ để chính là &lt;strong&gt;thu nhập&lt;/strong&gt;.
-Thì có bài của Åstebro và cộng sự [6] năm 2013 cũng nghiên cứu trên tập các nhà sáng lập xuất thân từ academics xem &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thu nhập của họ có khá lên sau khi rời academics không?&lt;/code&gt;
+Thì có bài của Åstebro và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#aastebro2013does&quot;&gt;[13]&lt;/a&gt; năm 2013 cũng nghiên cứu trên tập các nhà sáng lập xuất thân từ academics xem &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thu nhập của họ có khá lên sau khi rời academics không?&lt;/code&gt;
 Đau cái là nó lại không khá lên, qua thống kê của Åstebro và cộng sự thì thu nhập before/after khởi nghiệp nó lại như nhau: trước khi khởi nghiệp thì thu nhập trung bình là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;397,000 (39.7 man)&lt;/code&gt; còn sau khi khởi nghiệp bình quân là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;450,000 (45 man)&lt;/code&gt;.
 Mà phương sai lại cao gấp 3 lần tức là sau khi khởi nghiệp thu nhập lại “bấp bênh” hơn.
 Ngoài ra 60% những nhà khởi nghiệp này lại từ bỏ khởi nghiệp trong vòng 2 năm và 66% lại quay trở về academics!&lt;/p&gt;
@@ -1130,26 +1129,25 @@ Ngoài ra 60% những nhà khởi nghiệp này lại từ bỏ khởi nghiệp 
 &lt;p&gt;Nói chung &lt;strong&gt;Có làm thì mới có ăn&lt;/strong&gt; là chân lý của lao động rồi.
 Bài điều tra điểm qua hầu hết mọi hướng đi khả thi, trừ hướng chính phủ/NGO chưa muốn động vào.
 Nhưng nhìn chung là làm thuê thì chấp nhận là lương sẽ chỉ cao nếu đi đúng đường.
-Còn tự thân khởi nghiệp thì nghĩ béo bở nhưng đau đầu và thực tế là cũng chả tăng thêm thu nhập bao nhiêu (từ 39.7 man lên 45 man), mà phần lớn (60%) là thất bại sau 2 năm [6].&lt;/p&gt;
+Còn tự thân khởi nghiệp thì nghĩ béo bở nhưng đau đầu và thực tế là cũng chả tăng thêm thu nhập bao nhiêu (từ 39.7 man lên 45 man), mà phần lớn (60%) là thất bại sau 2 năm &lt;a class=&quot;citation&quot; href=&quot;#aastebro2013does&quot;&gt;[13]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thế nên quay lại câu hỏi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nếu làm R&amp;amp;D khởi nghiệp mà không béo bằng đi làm thuê phát triển thì có nên làm nghiên cứu không?&lt;/code&gt; thì tôi nghĩ là tùy mỗi người thôi, nhưng nhìn quan điểm là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thu nhập&lt;/code&gt; thì có lẽ con đường đi nghiên cứu nó không thông minh lắm đâu!&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;hsu2004entrepreneurs&quot;&gt;Hsu, D. H. (2004). What do entrepreneurs pay for venture capital affiliation? &lt;i&gt;The Journal of Finance&lt;/i&gt;, &lt;i&gt;59&lt;/i&gt;(4), 1805–1844.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;mollick2014dynamics&quot;&gt;Mollick, E. (2014). The dynamics of crowdfunding: An exploratory study. &lt;i&gt;Journal of Business Venturing&lt;/i&gt;, &lt;i&gt;29&lt;/i&gt;(1), 1–16.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;bruneel2010investigating&quot;&gt;Bruneel, J., d’Este, P., &amp;amp; Salter, A. (2010). Investigating the factors that diminish the barriers to university–industry collaboration. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;39&lt;/i&gt;(7), 858–868.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;stern2004scientists&quot;&gt;Stern, S. (2004). Do scientists pay to be scientists? &lt;i&gt;Management Science&lt;/i&gt;, &lt;i&gt;50&lt;/i&gt;(6), 835–853.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;currall2005pay&quot;&gt;Currall, S. C., Towler, A. J., Judge, T. A., &amp;amp; Kohn, L. (2005). Pay satisfaction and organizational outcomes. &lt;i&gt;Personnel Psychology&lt;/i&gt;, &lt;i&gt;58&lt;/i&gt;(3), 613–640.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;aastebro2013does&quot;&gt;Åstebro, T., Braunerhjelm, P., &amp;amp; Broström, A. (2013). Does academic entrepreneurship pay? &lt;i&gt;Industrial and Corporate Change&lt;/i&gt;, &lt;i&gt;22&lt;/i&gt;(1), 281–311.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;dorner2017wages&quot;&gt;Dorner, M., Fryges, H., &amp;amp; Schopen, K. (2017). Wages in high-tech start-ups–Do academic spin-offs pay a wage premium? &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;46&lt;/i&gt;(1), 1–18.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kim2018there&quot;&gt;Kim, J. D. (2018). Is there a startup wage premium? Evidence from MIT graduates. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;47&lt;/i&gt;(3), 637–649.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;homfeldt2019suppliers&quot;&gt;Homfeldt, F., Rese, A., &amp;amp; Simon, F. (2019). Suppliers versus start-ups: Where do better innovation ideas come from? &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;48&lt;/i&gt;(7), 1738–1757.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;block2018quantity&quot;&gt;Block, J. H., Fisch, C. O., &amp;amp; Van Praag, M. (2018). Quantity and quality of jobs by entrepreneurial firms. &lt;i&gt;Oxford Review of Economic Policy&lt;/i&gt;, &lt;i&gt;34&lt;/i&gt;(4), 565–583.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;rodriguez2018role&quot;&gt;Rodrı́guez-Gulı́as Marı́a Jesús, Fernández-López, S., Rodeiro-Pazos, D., Corsi, C., &amp;amp; Prencipe, A. (2018). The role of knowledge spillovers on the university spin-offs innovation. &lt;i&gt;Science and Public Policy&lt;/i&gt;, &lt;i&gt;45&lt;/i&gt;(6), 875–883.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;dianez2021drivers&quot;&gt;Diánez-González, J. P., Camelo-Ordaz, C., &amp;amp; Fernández-Alles, M. (2021). Drivers and implications of entrepreneurial orientation for academic spin-offs. &lt;i&gt;International Entrepreneurship and Management Journal&lt;/i&gt;, &lt;i&gt;17&lt;/i&gt;(2), 1007–1035.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;nystrom2021working&quot;&gt;Nyström, K. (2021). Working for an entrepreneur: heaven or hell? &lt;i&gt;Small Business Economics&lt;/i&gt;, &lt;i&gt;56&lt;/i&gt;(2), 919–931.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;andersson2009reaching&quot;&gt;Andersson, F., Freedman, M., Haltiwanger, J., Lane, J., &amp;amp; Shaw, K. (2009). Reaching for the stars: who pays for talent in innovative industries? &lt;i&gt;The Economic Journal&lt;/i&gt;, &lt;i&gt;119&lt;/i&gt;(538), F308–F332.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;nystrom2021working&quot;&gt;[1]Nyström, K. 2021. Working for an entrepreneur: heaven or hell? &lt;i&gt;Small Business Economics&lt;/i&gt;. 56, 2 (2021), 919–931.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nystrom2021working/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;dorner2017wages&quot;&gt;[2]Dorner, M., Fryges, H. and Schopen, K. 2017. Wages in high-tech start-ups–Do academic spin-offs pay a wage premium? &lt;i&gt;Research Policy&lt;/i&gt;. 46, 1 (2017), 1–18.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dorner2017wages/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;kim2018there&quot;&gt;[3]Kim, J.D. 2018. Is there a startup wage premium? Evidence from MIT graduates. &lt;i&gt;Research Policy&lt;/i&gt;. 47, 3 (2018), 637–649.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kim2018there/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;block2018quantity&quot;&gt;[4]Block, J.H., Fisch, C.O. and Van Praag, M. 2018. Quantity and quality of jobs by entrepreneurial firms. &lt;i&gt;Oxford Review of Economic Policy&lt;/i&gt;. 34, 4 (2018), 565–583.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/block2018quantity/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;currall2005pay&quot;&gt;[5]Currall, S.C., Towler, A.J., Judge, T.A. and Kohn, L. 2005. Pay satisfaction and organizational outcomes. &lt;i&gt;Personnel psychology&lt;/i&gt;. 58, 3 (2005), 613–640.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/currall2005pay/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;stern2004scientists&quot;&gt;[6]Stern, S. 2004. Do scientists pay to be scientists? &lt;i&gt;Management science&lt;/i&gt;. 50, 6 (2004), 835–853.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/stern2004scientists/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;andersson2009reaching&quot;&gt;[7]Andersson, F., Freedman, M., Haltiwanger, J., Lane, J. and Shaw, K. 2009. Reaching for the stars: who pays for talent in innovative industries? &lt;i&gt;The Economic Journal&lt;/i&gt;. 119, 538 (2009), F308–F332.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/andersson2009reaching/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;homfeldt2019suppliers&quot;&gt;[8]Homfeldt, F., Rese, A. and Simon, F. 2019. Suppliers versus start-ups: Where do better innovation ideas come from? &lt;i&gt;Research policy&lt;/i&gt;. 48, 7 (2019), 1738–1757.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/homfeldt2019suppliers/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;rodriguez2018role&quot;&gt;[9]Rodrı́guez-Gulı́as Marı́a Jesús, Fernández-López, S., Rodeiro-Pazos, D., Corsi, C. and Prencipe, A. 2018. The role of knowledge spillovers on the university spin-offs innovation. &lt;i&gt;Science and Public Policy&lt;/i&gt;. 45, 6 (2018), 875–883.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rodriguez2018role/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;dianez2021drivers&quot;&gt;[10]Diánez-González, J.P., Camelo-Ordaz, C. and Fernández-Alles, M. 2021. Drivers and implications of entrepreneurial orientation for academic spin-offs. &lt;i&gt;International Entrepreneurship and Management Journal&lt;/i&gt;. 17, 2 (2021), 1007–1035.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dianez2021drivers/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hsu2004entrepreneurs&quot;&gt;[11]Hsu, D.H. 2004. What do entrepreneurs pay for venture capital affiliation? &lt;i&gt;The journal of finance&lt;/i&gt;. 59, 4 (2004), 1805–1844.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hsu2004entrepreneurs/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;mollick2014dynamics&quot;&gt;[12]Mollick, E. 2014. The dynamics of crowdfunding: An exploratory study. &lt;i&gt;Journal of business venturing&lt;/i&gt;. 29, 1 (2014), 1–16.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/mollick2014dynamics/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;aastebro2013does&quot;&gt;[13]Åstebro, T., Braunerhjelm, P. and Broström, A. 2013. Does academic entrepreneurship pay? &lt;i&gt;Industrial and Corporate Change&lt;/i&gt;. 22, 1 (2013), 281–311.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/aastebro2013does/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Mon, 10 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/pay/</link>
@@ -1360,7 +1358,7 @@ Cố gắng duy trì nhịp độ làm việc và sớm chuyển sang Nhật B�
 
 &lt;h3 id=&quot;về-mặt-quản-lý&quot;&gt;Về mặt quản lý&lt;/h3&gt;
 &lt;p&gt;Bản thân AiFi luôn nhắm đến mục tiêu lấy chứng chỉ Project Manager (PM) trong thời gian ngắn nhất có thể.
-Tuy nhiên, đó là một việc không thể nhanh chóng vì PMI [1] đòi hỏi:&lt;/p&gt;
+Tuy nhiên, đó là một việc không thể nhanh chóng vì PMI &lt;a class=&quot;citation&quot; href=&quot;#PMPCerti18:online&quot;&gt;[1]&lt;/a&gt; đòi hỏi:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;36 tháng (3 năm) kinh nghiệm PM (PM experience, không nhất thiết vị trí PM).&lt;/strong&gt; Tuy nhiên, có vẻ là thường những người dự thi đều có &lt;strong&gt;khoảng 7-10 năm kinh nghiệm PM.&lt;/strong&gt; Tức là các bác có nhiều năm kinh nghiệm mới đi thi. Nên một giá trị phù hợp là làm PM khoảng 3 năm thì nghĩ đến chuẩn bị PMP, rồi khoảng năm thứ 4 hoặc thứ 5 thì đi thi là tốt, còn bình thường chắc tầm năm thứ 7 trở ra đi thi thì chắc ăn hơn.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;35 giờ học hướng dẫn (contact hours, hay 35 PDUs)&lt;/strong&gt;. Việc lấy 35 PDUs có thể hoàn thành thông qua 1 khóa khoảng chục triệu của 1 đối tác của PMI ngay tại Hà Nội nên cũng sẽ nhanh chóng thôi và lấy lúc nào cũng được.&lt;/li&gt;
@@ -1405,10 +1403,10 @@ Có lẽ trong năm 2022 sẽ khám phá “lại” một lĩnh vực công ngh
 &lt;h2 id=&quot;câu-chuyện-7-năm-trước&quot;&gt;Câu chuyện 7 năm trước&lt;/h2&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Knowledge is inherently a public good. (Jaffe, 1986 [2])&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Knowledge is inherently a public good. (Jaffe, 1986 &lt;a class=&quot;citation&quot; href=&quot;#jaffe1986technological&quot;&gt;[2]&lt;/a&gt;)&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tri thức về cơ bản là một tài sản chung (trích Jaffe [2])&lt;/code&gt;.
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tri thức về cơ bản là một tài sản chung (trích Jaffe &amp;lt;a class=&quot;citation&quot; href=&quot;#jaffe1986technological&quot;&amp;gt;[2]&amp;lt;/a&amp;gt;)&lt;/code&gt;.
 Nó mang hai hàm nghĩa:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Thứ nhất, không thể giấu giếm tri thức làm của riêng (nó khác với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trí tuệ&lt;/code&gt; là thứ có thể được đăng ký bảo hộ).&lt;/li&gt;
@@ -1436,7 +1434,7 @@ Thật thú vị là câu chuyện kể trên lại khá liên quan bởi công 
 Do vậy, ở mức độ nào đó dù là đăng ký bản quyền cho một thứ mà giới hàn lâm đã coi là public good thì nó rất là … vớ vẩn.
 Tất nhiên chuyện đăng ký bản quyền là thể hiện giá trị R&amp;amp;D trong các doanh nghiệp, và là một phần quan trọng trong cái gọi là tương tác khoa học giữa hàn lâm và giới công nghiệp.&lt;/p&gt;
 
-&lt;p&gt;Trong nhánh nghiên cứu này có thể kể đến công trình của Jaffe [2, 3] và rất nhiều công trình sau đó của các nhà nghiên cứu khác.
+&lt;p&gt;Trong nhánh nghiên cứu này có thể kể đến công trình của Jaffe &lt;a class=&quot;citation&quot; href=&quot;#jaffe1986technological&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#jaffe1989real&quot;&gt;[3]&lt;/a&gt; và rất nhiều công trình sau đó của các nhà nghiên cứu khác.
 Thì có lẽ có một khái niệm khá quan trọng là &lt;strong&gt;technological space&lt;/strong&gt; tức là &lt;strong&gt;không gian công nghệ&lt;/strong&gt;.
 Ở đây, Jaffe đã xây dựng 1 vector 49 chiều (thu gọn từ 328 classes trong hệ thống patent toàn cầu) để biểu diễn vị trí của 1 firm trong không gian công nghệ.
 Ví dụ, hệ thống patent toàn cầu có phân nhóm lĩnh vực thành 328 classes, thì tác giả Jaffe đã group lại thành 49 categories bao quát nhất mọi lĩnh vực công nghệ.
@@ -1458,7 +1456,7 @@ f_{49}
 &lt;p&gt;Cứ như vậy, các điểm vector đều nằm trên một mặt phẳng (hyperplane) 49 chiều $\sum_{i=1}^{49}x_i=1$.
 Khi 2 công ty có cùng một mối quan tâm về 1 công nghệ nào đó thì bằng chứng sẽ là về mặt R&amp;amp;D ở lĩnh vực đó ($i$ chả hạn) chỉ số sẽ cao lên.&lt;/p&gt;
 
-&lt;p&gt;Jaffe đã nghiên cứu về một hiện tượng thú vị trong innovation đó là &lt;strong&gt;R&amp;amp;D spillovers&lt;/strong&gt; [2, 3], hay là sự khuếch tán của tri thức R&amp;amp;D, hay là &lt;strong&gt;knowledge diffusion&lt;/strong&gt;.
+&lt;p&gt;Jaffe đã nghiên cứu về một hiện tượng thú vị trong innovation đó là &lt;strong&gt;R&amp;amp;D spillovers&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#jaffe1986technological&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#jaffe1989real&quot;&gt;[3]&lt;/a&gt;, hay là sự khuếch tán của tri thức R&amp;amp;D, hay là &lt;strong&gt;knowledge diffusion&lt;/strong&gt;.
 Nghiên cứu của Jaffe vào năm 1986 chủ yếu dựa trên quan sát của những người đi trước rằng khi có một công ty trong một lĩnh vực nào đó nâng cao đầu tư vào R&amp;amp;D thì đột nhiên những công ty xung quanh cũng bắt đầu phải chạy theo đầu tư vào mảng đó.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -1470,21 +1468,21 @@ Và ngược lại nếu đầu tư ít hơn các công ty neighbors thì sẽ b
 Điều này cũng giải thích tại sao các tập đoàn công nghệ lớn không tiếc tiền đầu tư để đứng đầu một lĩnh vực nào đó so với các công ty lân cận.&lt;/p&gt;
 
 &lt;p&gt;Ở đây chúng ta cũng cần hiểu khái niệm &lt;strong&gt;neighbor (lân cận)&lt;/strong&gt; là hiểu theo nghĩa địa lý (geographical).
-Rất nhiều nghiên cứu theo sau Jaffe về sau đều chỉ ra mối correlation mạnh giữa khoảng cách địa lý và khoảng cách trong không gian công nghệ (đo bằng vector 49 chiều) [3, 4].
-R&amp;amp;D spillovers không chỉ tồn tại trong các firms cùng lĩnh vực mà còn tồn tại giữa hàn lâm và công nghiệp theo Jaffe, 1989 [3].
-Thì nghiên cứu hàn lâm lại có vẻ thúc đẩy tiến bộ trong các công ty xung quanh (gần về địa lý) hoặc có hợp tác với trường đại học ấy [3].
-Khá nhiều nghiên cứu về &lt;strong&gt;spillovers (knowledge diffusion)&lt;/strong&gt; đã trải thành một mạch dài từ sau Jaffe, 1986 [2]:
-David và cộng sự [5] thì nghiên cứu về tác động của public R&amp;amp;D trong việc &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kích hoạt&lt;/code&gt; private R&amp;amp;D.
-Baptista và Swann [6] cũng chỉ ra khá nhiều bằng chứng cho thấy “tốt nhất là đi cùng nhau” giữa các firm trong cùng cluster.
-Những nghiên cứu về &lt;strong&gt;open innovation&lt;/strong&gt; [7, 8] cũng cho thấy benefits của kinh tế từ R&amp;amp;D trong các trường đại học.&lt;/p&gt;
+Rất nhiều nghiên cứu theo sau Jaffe về sau đều chỉ ra mối correlation mạnh giữa khoảng cách địa lý và khoảng cách trong không gian công nghệ (đo bằng vector 49 chiều) &lt;a class=&quot;citation&quot; href=&quot;#jaffe1989real&quot;&gt;[3]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#audretsch1996r&quot;&gt;[4]&lt;/a&gt;.
+R&amp;amp;D spillovers không chỉ tồn tại trong các firms cùng lĩnh vực mà còn tồn tại giữa hàn lâm và công nghiệp theo Jaffe, 1989 &lt;a class=&quot;citation&quot; href=&quot;#jaffe1989real&quot;&gt;[3]&lt;/a&gt;.
+Thì nghiên cứu hàn lâm lại có vẻ thúc đẩy tiến bộ trong các công ty xung quanh (gần về địa lý) hoặc có hợp tác với trường đại học ấy &lt;a class=&quot;citation&quot; href=&quot;#jaffe1989real&quot;&gt;[3]&lt;/a&gt;.
+Khá nhiều nghiên cứu về &lt;strong&gt;spillovers (knowledge diffusion)&lt;/strong&gt; đã trải thành một mạch dài từ sau Jaffe, 1986 &lt;a class=&quot;citation&quot; href=&quot;#jaffe1986technological&quot;&gt;[2]&lt;/a&gt;:
+David và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#david2000public&quot;&gt;[5]&lt;/a&gt; thì nghiên cứu về tác động của public R&amp;amp;D trong việc &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kích hoạt&lt;/code&gt; private R&amp;amp;D.
+Baptista và Swann &lt;a class=&quot;citation&quot; href=&quot;#baptista1998firms&quot;&gt;[6]&lt;/a&gt; cũng chỉ ra khá nhiều bằng chứng cho thấy “tốt nhất là đi cùng nhau” giữa các firm trong cùng cluster.
+Những nghiên cứu về &lt;strong&gt;open innovation&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#salter2001economic&quot;&gt;[7]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#perkmann2007university&quot;&gt;[8]&lt;/a&gt; cũng cho thấy benefits của kinh tế từ R&amp;amp;D trong các trường đại học.&lt;/p&gt;
 
 &lt;p&gt;Trên đây là để hiểu rõ nguồn gốc của đống nghiên cứu đã có. Tại sao lại có cái đống này, và có căn bản.
 Gần đây từ những năm 2020 trở ra có cái gì thì cũng chịu khó xem thì thấy vẫn có người làm theo hướng này kha khá:
-Sun và cộng sự [9] thì tập trung vào vấn đề tối ưu hiệu suất sử dụng năng lượng như 1 benefit của R&amp;amp;D spillover.
-Fini và cộng sự [10] thì cho thấy là nếu nhà nghiên cứu &lt;strong&gt;khởi nghiệp&lt;/strong&gt; và đóng góp cho việc diffuse tri thức thì sẽ tăng hiệu suất nghiên cứu lên.
-Ufuk và cộng sự [11] thì nghiên cứu trên tập dữ liệu của Pháp thì thấy rõ spillovers đang bị lệch về phía nghiên cứu ứng dụng mà ít về phía nghiên cứu cơ bản.
-Hsu và cộng sự [12] thì nghiên cứu về vấn đề Trung Quốc: spillovers tại Trung Quốc.
-Martinez và cộng sự [13] thì trả lời vấn đề crowdfunding ảnh hưởng tới spillovers ra sao.&lt;/p&gt;
+Sun và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#sun2021energy&quot;&gt;[9]&lt;/a&gt; thì tập trung vào vấn đề tối ưu hiệu suất sử dụng năng lượng như 1 benefit của R&amp;amp;D spillover.
+Fini và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#fini2021attention&quot;&gt;[10]&lt;/a&gt; thì cho thấy là nếu nhà nghiên cứu &lt;strong&gt;khởi nghiệp&lt;/strong&gt; và đóng góp cho việc diffuse tri thức thì sẽ tăng hiệu suất nghiên cứu lên.
+Ufuk và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#akcigit2021back&quot;&gt;[11]&lt;/a&gt; thì nghiên cứu trên tập dữ liệu của Pháp thì thấy rõ spillovers đang bị lệch về phía nghiên cứu ứng dụng mà ít về phía nghiên cứu cơ bản.
+Hsu và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#hsu2021rich&quot;&gt;[12]&lt;/a&gt; thì nghiên cứu về vấn đề Trung Quốc: spillovers tại Trung Quốc.
+Martinez và cộng sự &lt;a class=&quot;citation&quot; href=&quot;#martinez2021knowledge&quot;&gt;[13]&lt;/a&gt; thì trả lời vấn đề crowdfunding ảnh hưởng tới spillovers ra sao.&lt;/p&gt;
 
 &lt;p&gt;Nhìn chung là&lt;/p&gt;
 
@@ -1504,19 +1502,19 @@ Do đó, phần lớn các công ty giống nhau cả về sản phẩm lẫn st
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;PMPCerti18:online&quot;&gt;PMA. &lt;i&gt;PMP Certification Requirements | Project Management Certification &amp;amp; PMP Certification Eligibility&lt;/i&gt;. https://projectmanagementacademy.net/pmp-certification-requirements&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;jaffe1986technological&quot;&gt;Jaffe, A. B. (1986). Technological Opportunity and Spillovers of R&amp;amp;D: Evidence from Firms’ Patents, Profits, and Market Value. &lt;i&gt;The American Economic Review&lt;/i&gt;, &lt;i&gt;76&lt;/i&gt;(5), 984–1001.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;jaffe1989real&quot;&gt;Jaffe, A. B. (1989). Real effects of academic research. &lt;i&gt;The American Economic Review&lt;/i&gt;, 957–970.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;audretsch1996r&quot;&gt;Audretsch, D. B., &amp;amp; Feldman, M. P. (1996). R&amp;amp;D spillovers and the geography of innovation and production. &lt;i&gt;The American Economic Review&lt;/i&gt;, &lt;i&gt;86&lt;/i&gt;(3), 630–640.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;david2000public&quot;&gt;David, P. A., Hall, B. H., &amp;amp; Toole, A. A. (2000). Is public R&amp;amp;D a complement or substitute for private R&amp;amp;D? A review of the econometric evidence. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;29&lt;/i&gt;(4-5), 497–529.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;baptista1998firms&quot;&gt;Baptista, R., &amp;amp; Swann, P. (1998). Do firms in clusters innovate more? &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;27&lt;/i&gt;(5), 525–540.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;salter2001economic&quot;&gt;Salter, A. J., &amp;amp; Martin, B. R. (2001). The economic benefits of publicly funded basic research: a critical review. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;30&lt;/i&gt;(3), 509–532.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;perkmann2007university&quot;&gt;Perkmann, M., &amp;amp; Walsh, K. (2007). University–industry relationships and open innovation: Towards a research agenda. &lt;i&gt;International Journal of Management Reviews&lt;/i&gt;, &lt;i&gt;9&lt;/i&gt;(4), 259–280.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;sun2021energy&quot;&gt;Sun, H., Edziah, B. K., Kporsu, A. K., Sarkodie, S. A., &amp;amp; Taghizadeh-Hesary, F. (2021). Energy efficiency: The role of technological innovation and knowledge spillover. &lt;i&gt;Technological Forecasting and Social Change&lt;/i&gt;, &lt;i&gt;167&lt;/i&gt;, 120659.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;fini2021attention&quot;&gt;Fini, R., Perkmann, M., &amp;amp; Michael Ross, J. (2021). Attention to exploration: The effect of academic entrepreneurship on the production of scientific knowledge. &lt;i&gt;Organization Science&lt;/i&gt;.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;akcigit2021back&quot;&gt;Akcigit, U., Hanley, D., &amp;amp; Serrano-Velarde, N. (2021). Back to basics: Basic research spillovers, innovation policy, and growth. &lt;i&gt;The Review of Economic Studies&lt;/i&gt;, &lt;i&gt;88&lt;/i&gt;(1), 1–43.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;hsu2021rich&quot;&gt;Hsu, D. H., Hsu, P.-H., &amp;amp; Zhao, Q. (2021). Rich on paper? Chinese firms’ academic publications, patents, and market value. &lt;i&gt;Research Policy&lt;/i&gt;, &lt;i&gt;50&lt;/i&gt;(9), 104319.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;martinez2021knowledge&quot;&gt;Martı́nez-Climent Carla, Mastrangelo, L., &amp;amp; Ribeiro-Soriano, D. (2021). The knowledge spillover effect of crowdfunding. &lt;i&gt;Knowledge Management Research &amp;amp; Practice&lt;/i&gt;, &lt;i&gt;19&lt;/i&gt;(1), 106–116.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;PMPCerti18:online&quot;&gt;[1]PMA PMP Certification Requirements | Project Management Certification &amp;amp; PMP Certification Eligibility.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/PMPCerti18_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;jaffe1986technological&quot;&gt;[2]Jaffe, A.B. 1986. Technological Opportunity and Spillovers of R&amp;amp;D: Evidence from Firms’ Patents, Profits, and Market Value. &lt;i&gt;The American Economic Review&lt;/i&gt;. 76, 5 (1986), 984–1001.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/jaffe1986technological/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;jaffe1989real&quot;&gt;[3]Jaffe, A.B. 1989. Real effects of academic research. &lt;i&gt;The American economic review&lt;/i&gt;. (1989), 957–970.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/jaffe1989real/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;audretsch1996r&quot;&gt;[4]Audretsch, D.B. and Feldman, M.P. 1996. R&amp;amp;D spillovers and the geography of innovation and production. &lt;i&gt;The American economic review&lt;/i&gt;. 86, 3 (1996), 630–640.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/audretsch1996r/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;david2000public&quot;&gt;[5]David, P.A., Hall, B.H. and Toole, A.A. 2000. Is public R&amp;amp;D a complement or substitute for private R&amp;amp;D? A review of the econometric evidence. &lt;i&gt;Research policy&lt;/i&gt;. 29, 4-5 (2000), 497–529.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/david2000public/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;baptista1998firms&quot;&gt;[6]Baptista, R. and Swann, P. 1998. Do firms in clusters innovate more? &lt;i&gt;Research policy&lt;/i&gt;. 27, 5 (1998), 525–540.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/baptista1998firms/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;salter2001economic&quot;&gt;[7]Salter, A.J. and Martin, B.R. 2001. The economic benefits of publicly funded basic research: a critical review. &lt;i&gt;Research policy&lt;/i&gt;. 30, 3 (2001), 509–532.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/salter2001economic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;perkmann2007university&quot;&gt;[8]Perkmann, M. and Walsh, K. 2007. University–industry relationships and open innovation: Towards a research agenda. &lt;i&gt;International journal of management reviews&lt;/i&gt;. 9, 4 (2007), 259–280.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/perkmann2007university/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;sun2021energy&quot;&gt;[9]Sun, H., Edziah, B.K., Kporsu, A.K., Sarkodie, S.A. and Taghizadeh-Hesary, F. 2021. Energy efficiency: The role of technological innovation and knowledge spillover. &lt;i&gt;Technological Forecasting and Social Change&lt;/i&gt;. 167, (2021), 120659.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/sun2021energy/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;fini2021attention&quot;&gt;[10]Fini, R., Perkmann, M. and Michael Ross, J. 2021. Attention to exploration: The effect of academic entrepreneurship on the production of scientific knowledge. &lt;i&gt;Organization Science&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/fini2021attention/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;akcigit2021back&quot;&gt;[11]Akcigit, U., Hanley, D. and Serrano-Velarde, N. 2021. Back to basics: Basic research spillovers, innovation policy, and growth. &lt;i&gt;The Review of Economic Studies&lt;/i&gt;. 88, 1 (2021), 1–43.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/akcigit2021back/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hsu2021rich&quot;&gt;[12]Hsu, D.H., Hsu, P.-H. and Zhao, Q. 2021. Rich on paper? Chinese firms’ academic publications, patents, and market value. &lt;i&gt;Research Policy&lt;/i&gt;. 50, 9 (2021), 104319.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hsu2021rich/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;martinez2021knowledge&quot;&gt;[13]Martı́nez-Climent Carla, Mastrangelo, L. and Ribeiro-Soriano, D. 2021. The knowledge spillover effect of crowdfunding. &lt;i&gt;Knowledge Management Research &amp;amp; Practice&lt;/i&gt;. 19, 1 (2021), 106–116.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/martinez2021knowledge/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 01 Jan 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/new-year/</link>
@@ -2369,7 +2367,7 @@ Hope to use it in our own products soon.&lt;/p&gt;
 これはSEにとってなかなか回答できるが興味深い質問です．
 「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？
 実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります．
-これがIPAの調査[1]から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです．
+これがIPAの調査 &lt;a class=&quot;citation&quot; href=&quot;#ipa01&quot;&gt;[1]&lt;/a&gt;から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです．
 ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます．
 お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です．
 私は昼休憩は取らないですが，なぜなら，このせいです．
@@ -2387,7 +2385,7 @@ Hope to use it in our own products soon.&lt;/p&gt;
 
 &lt;h1 id=&quot;帰宅時&quot;&gt;帰宅時&lt;/h1&gt;
 
-&lt;p&gt;19時以降翌日7時以前の間に障害の報告が少ないです[1, 2]．
+&lt;p&gt;19時以降翌日7時以前の間に障害の報告が少ないです &lt;a class=&quot;citation&quot; href=&quot;#ipa01&quot;&gt;[1]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#ipa02&quot;&gt;[2]&lt;/a&gt;．
 ですので，19時～で帰宅することは問題ないでしょうか．
 という常識になって，ほぼ皆はその時間で帰宅してお休み時間を取っています．
 じゃ，例えば，深夜に出勤して何か不審な作業をやっている作業員がいると，異常でしょうか？
@@ -2409,7 +2407,7 @@ Hope to use it in our own products soon.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;じゃ，使用が終わったときに，電気を消さないで，リソースをクリアしないでそのままにすると何が問題かな？
-以下は千葉銀行からお客様にお願いする事項[4]ですが，興味深いですね．&lt;/p&gt;
+以下は千葉銀行からお客様にお願いする事項 &lt;a class=&quot;citation&quot; href=&quot;#chiba01&quot;&gt;[3]&lt;/a&gt;ですが，興味深いですね．&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;ログアウト等の励行&lt;/strong&gt;&lt;/p&gt;
@@ -2471,10 +2469,9 @@ Hope to use it in our own products soon.&lt;/p&gt;
 
 &lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ipa01&quot;&gt;松田 晃一, 村岡 恭昭, &amp;amp; 齋藤 毅. (2019). &lt;i&gt;情報システムの障害状況 - 2019 年後半データ&lt;/i&gt;. IPA社会基盤センター.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ipa02&quot;&gt;情報処理推進機構. &lt;i&gt;情報システムの障害状況一覧：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/sec/system/system_fault.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ipa03&quot;&gt;情報処理推進機構. &lt;i&gt;プレス発表　重要インフラを支えるシステムの障害情報や対策を分析した2種類の教訓集を公開：IPA 独立行政法人 情報処理推進機構&lt;/i&gt;. https://www.ipa.go.jp/about/press/20140513.html&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行. &lt;i&gt;セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行&lt;/i&gt;. https://www.chibabank.co.jp/webeb/security/internet/&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ipa01&quot;&gt;[1]松田 晃一, 村岡 恭昭 and 齋藤 毅 2019. &lt;i&gt;情報システムの障害状況 - 2019 年後半データ&lt;/i&gt;. IPA社会基盤センター.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ipa01/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ipa02&quot;&gt;[2]情報処理推進機構 情報システムの障害状況一覧：IPA 独立行政法人 情報処理推進機構.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ipa02/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;[3]千葉銀行 セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/chiba01/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 18 Dec 2021 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/turn-off-electric-before-leaving-why/</link>

@@ -26,8 +26,8 @@
 <meta property="og:title" content="Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Unit Tests [3, chương 9; 4; 5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [3] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf" />
-<meta property="og:description" content="Unit Tests [3, chương 9; 4; 5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [3] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf" />
+<meta name="description" content="Unit Tests [5], [5], [5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [5] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [5] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf" />
+<meta property="og:description" content="Unit Tests [5], [5], [5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [5] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [5] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg" />
 <meta property="twitter:title" content="Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/unit-tests-clean/"},"description":"Unit Tests [3, chương 9; 4; 5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [3] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf","image":"https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg","headline":"Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển","dateModified":"2021-08-09T00:00:00+09:00","datePublished":"2021-08-09T00:00:00+09:00","url":"/https://wanted2.github.io/unit-tests-clean/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Professionalism and Test-Driven Development - Sự chuyên nghiệp và kiểm nghiệm định hướng phát triển","dateModified":"2021-08-09T00:00:00+09:00","datePublished":"2021-08-09T00:00:00+09:00","description":"Unit Tests [5], [5], [5] là đơn vị tests gần gũi nhất với lập trình viên. Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì? Hôm nay, xin điểm lại bài báo của R. Martin [5] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng Clean Code [5] đồng tác giả, để phần nào trả lời những câu hỏi này. Bài báo học thuật có thể được đọc miễn phí tại: https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/unit-tests-clean/"},"image":"https://upload.wikimedia.org/wikipedia/commons/5/59/Programmer_writing_code_with_Unit_Tests.jpg","url":"/https://wanted2.github.io/unit-tests-clean/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -301,9 +301,9 @@
                     </div>
                 
                 <!-- End Toc -->
-                <p><strong>Unit Tests [3, chương 9; 4; 5]</strong> là đơn vị tests gần gũi nhất với lập trình viên.
+                <p><strong>Unit Tests <a class="citation" href="#martin2009clean">[1]</a>, <a class="citation" href="#martin2007professionalism">[2]</a>, <a class="citation" href="#binder2000testing">[3]</a></strong> là đơn vị tests gần gũi nhất với lập trình viên.
 Vậy vì sao phải làm Unit Tests? Những nguyên tắc để làm UT một cách nghiêm chỉnh và chuyên nghiệp là gì?
-Hôm nay, xin điểm lại bài báo của R. Martin [4] xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng <em>Clean Code [3]</em> đồng tác giả, để phần nào trả lời những câu hỏi này.
+Hôm nay, xin điểm lại bài báo của R. Martin <a class="citation" href="#martin2007professionalism">[2]</a> xuất bản vào năm 2007 cùng một số nguyên tắc trong cuốn sách nổi tiếng <em>Clean Code <a class="citation" href="#martin2009clean">[1]</a></em> đồng tác giả, để phần nào trả lời những câu hỏi này.
 Bài báo học thuật có thể được đọc miễn phí tại: <a href="https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf">https://fpl.cs.depaul.edu/jriely/450/extras/prof-tdd.pdf</a></p>
 
 <!--more-->
@@ -326,7 +326,7 @@ Ví dụ như 1 đoạn code C++ đơn giản như sau:</p>
 <span class="kt">int</span> <span class="n">pivotValue</span> <span class="o">=</span> <span class="n">inputArray</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">pivot</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>Nội dung của đoạn code trên đơn giản chỉ là tìm số đứng giữa trong một mảng, hay chính là giá trị median.
-Như mô tả của Martin [3] thì những năm 1990s, người ta sẽ viết một chương trình có dùng đoạn mã trên với input là một mảng cụ thể và biên dịch, rồi in giá trị lên màn hình để xác nhận.
+Như mô tả của Martin <a class="citation" href="#martin2009clean">[1]</a> thì những năm 1990s, người ta sẽ viết một chương trình có dùng đoạn mã trên với input là một mảng cụ thể và biên dịch, rồi in giá trị lên màn hình để xác nhận.
 Ví dụ, chúng ta sẽ set giá trị đầu vào là <code class="language-plaintext highlighter-rouge">auto inputArray = std::vector&lt;float&gt;({1.0, 6.0, 3.0, 5.9, 7.8});</code>.
 Và rồi khi màn hình in ra giá trị <code class="language-plaintext highlighter-rouge">pivotValue</code> là 5.9 thì test coi như xong.</p>
 <h2 id="tại-sao-nên-test-tự-động-và-nên-dùng-tdd">Tại sao nên test tự động và nên dùng TDD?</h2>
@@ -338,7 +338,7 @@ Và rồi khi màn hình in ra giá trị <code class="language-plaintext highli
 Một nhà phát triển phần mềm chuyên nghiệp sẽ phát hành code <strong>sạch</strong>, <strong>linh hoạt</strong> và <strong>chạy được</strong> - <strong>một cách đúng hạn</strong>.</p>
 </blockquote>
 
-<p>Lợi ích của phương pháp TDD [4] chính là đảm bảo phát hiện ra vấn đề và bắt nhà phát triển sửa ngay: không chỉ là chạy được mà còn là sạch sẽ và linh hoạt.
+<p>Lợi ích của phương pháp TDD <a class="citation" href="#martin2007professionalism">[2]</a> chính là đảm bảo phát hiện ra vấn đề và bắt nhà phát triển sửa ngay: không chỉ là chạy được mà còn là sạch sẽ và linh hoạt.
 Nhiều bạn từng ca thán với tôi là test tự động theo TDD thì không đảm bảo deadline được.
 Thì nguyên nhân chính là vì chưa nắm rõ TDD nên chưa đưa tối ưu hóa được quy trình theo TDD, dẫn đến estimate sai và trễ hạn.
 Còn về nguyên tắc thực hiện đúng TDD thì càng làm sẽ càng ít vấn đề và cái giá phải trả về sau sẽ nhẹ đi, nên càng về sau sẽ phải càng đúng hẹn lên.</p>
@@ -365,7 +365,7 @@ Chứ việc viết những code và test code không để chỉ ra fail là vi
 <em>Thế nên, khi tham gia TDD, bạn lại viết một đoạn code không để chỉ ra thất bại, cũng không để sửa chữa thất bại, mà chỉ để nêu ra thành công thì về nguyên tắc là không tuân thủ luật của TDD và bản thân điều đó lại là một thất bại</em>.</p>
 
 <h1 id="viết-test-sạch-sẽ">Viết test “sạch sẽ”</h1>
-<p>Như Martin [4] đã chỉ ra, test không chỉ là test mà còn là documentation: người ta đọc test code là có thể hình dung ngay được luồng hoạt động của module phần mềm.
+<p>Như Martin <a class="citation" href="#martin2007professionalism">[2]</a> đã chỉ ra, test không chỉ là test mà còn là documentation: người ta đọc test code là có thể hình dung ngay được luồng hoạt động của module phần mềm.
 Vì vậy, lười viết test code chính là việc làm giấu đi cái hướng dẫn sử dụng module phần mềm đó.
 Ngoài ra viết test “bẩn” thì lại mất đi ý nghĩa: người ta khó hình dung là test case này đang kiểm tra cái gì của module phần mềm, và module phần mềm đang làm gì!</p>
 
@@ -383,8 +383,8 @@ Và nhìn chung là có hai luật kinh nghiệm sau nên được áp dụng:</
 
 <h1 id="quy-tắc-first">Quy tắc F.I.R.S.T</h1>
 
-<p>Về mặt tư tưởng của kiểm nghiệm phần mềm, có thể tìm đọc cuốn của Binder [5] tuy hơi cũ nhưng rất chi tiết về lĩnh vực này.
-Các tài liệu về kiến trúc xUnit [1] hay cách viết code và thiết kế sạch sẽ [2, 3] cũng nên tìm hiểu.
+<p>Về mặt tư tưởng của kiểm nghiệm phần mềm, có thể tìm đọc cuốn của Binder <a class="citation" href="#binder2000testing">[3]</a> tuy hơi cũ nhưng rất chi tiết về lĩnh vực này.
+Các tài liệu về kiến trúc xUnit <a class="citation" href="#HumbleOb26:online">[4]</a> hay cách viết code và thiết kế sạch sẽ <a class="citation" href="#cleanarch">[5]</a>, <a class="citation" href="#martin2009clean">[1]</a> cũng nên tìm hiểu.
 Ở đây chúng ta sẽ điểm qua bộ quy tắc <strong>FIRST</strong> để viết test code:</p>
 
 <ul>
@@ -454,12 +454,11 @@ Như vậy, thì khi $N=1$, các bạn sẽ phải viết như hình vẽ trên 
 Sau đó vào từng cái thì các bạn có thể làm rõ và test thêm tùy ý các trường hợp nhỏ lẻ.</p>
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="HumbleOb26:online"><i>Humble Object at XUnitPatterns.com</i>. http://xunitpatterns.com/Humble%20Object.html.</span></li>
-<li><span id="cleanarch">Martin, R. C. (2017). <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span></li>
-<li><span id="martin2009clean">Martin, R. C. (2009). <i>Clean code: a handbook of agile software craftsmanship</i>. Pearson Education.</span></li>
-<li><span id="martin2007professionalism">Martin, R. C. (2007). Professionalism and test-driven development. <i>IEEE Software</i>, <i>24</i>(3), 32–36.</span></li>
-<li><span id="binder2000testing">Binder, R. (2000). <i>Testing object-oriented systems: models, patterns, and tools</i>. Addison-Wesley Professional.</span></li>
-<li><span id="abstraction1988hierarchy">Liskov, B. (1988). Data Abstraction and Hierarchy. <i>SIGPLAN Notices</i>, <i>23</i>(5), 17–34.</span></li></ol>
+<ol class="bibliography"><li><span id="martin2009clean">[1]Martin, R.C. 2009. <i>Clean code: a handbook of agile software craftsmanship</i>. Pearson Education.</span><a class="details" href="https://wanted2.github.io/bibliography/martin2009clean/">Details</a></li>
+<li><span id="martin2007professionalism">[2]Martin, R.C. 2007. Professionalism and test-driven development. <i>IEEE Software</i>. 24, 3 (2007), 32–36.</span><a class="details" href="https://wanted2.github.io/bibliography/martin2007professionalism/">Details</a></li>
+<li><span id="binder2000testing">[3]Binder, R. 2000. <i>Testing object-oriented systems: models, patterns, and tools</i>. Addison-Wesley Professional.</span><a class="details" href="https://wanted2.github.io/bibliography/binder2000testing/">Details</a></li>
+<li><span id="HumbleOb26:online">[4]Humble Object at XUnitPatterns.com. http://xunitpatterns.com/Humble%20Object.html.</span><a class="details" href="https://wanted2.github.io/bibliography/HumbleOb26_online/">Details</a></li>
+<li><span id="cleanarch">[5]Martin, R.C. 2017. <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span><a class="details" href="https://wanted2.github.io/bibliography/cleanarch/">Details</a></li></ol>
 
             </div>
 

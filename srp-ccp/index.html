@@ -26,8 +26,8 @@
 <meta property="og:title" content="Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Quy tắc trách nhiệm đơn (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng." />
-<meta property="og:description" content="Quy tắc trách nhiệm đơn (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng." />
+<meta name="description" content="Quy tắc trách nhiệm đơn (SRP, [1]) là nguyên tắc đầu tiên trong SOLID [1], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng." />
+<meta property="og:description" content="Quy tắc trách nhiệm đơn (SRP, [1]) là nguyên tắc đầu tiên trong SOLID [1], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="/https://wanted2.github.io/assets/images/srp-and-ccp.jpeg" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/srp-and-ccp.jpeg" />
 <meta property="twitter:title" content="Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/srp-ccp/"},"description":"Quy tắc trách nhiệm đơn (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng.","image":"/https://wanted2.github.io/assets/images/srp-and-ccp.jpeg","headline":"Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất","dateModified":"2021-08-07T00:00:00+09:00","datePublished":"2021-08-07T00:00:00+09:00","url":"/https://wanted2.github.io/srp-ccp/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Luận bàn về nguyên tắc trách nhiệm đơn và tính thuần nhất","dateModified":"2021-08-07T00:00:00+09:00","datePublished":"2021-08-07T00:00:00+09:00","description":"Quy tắc trách nhiệm đơn (SRP, [1]) là nguyên tắc đầu tiên trong SOLID [1], và có thể khái quát như là: A module should be responsible to one, and only one, actor. Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng sử dụng.","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/srp-ccp/"},"image":"/https://wanted2.github.io/assets/images/srp-and-ccp.jpeg","url":"/https://wanted2.github.io/srp-ccp/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -305,7 +305,7 @@
                     </div>
                 
                 <!-- End Toc -->
-                <p>Quy tắc <strong>trách nhiệm đơn</strong> (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là:</p>
+                <p>Quy tắc <strong>trách nhiệm đơn</strong> (SRP, <a class="citation" href="#cleanarch">[1]</a>) là nguyên tắc đầu tiên trong SOLID <a class="citation" href="#cleanarch">[1]</a>, và có thể khái quát như là:</p>
 
 <blockquote>
   <p>A module should be responsible to one, and only one, actor.
@@ -316,7 +316,7 @@ Một module phần mềm chỉ nên phục vụ 1 và chỉ 1 đối tượng s
 
 <h1 id="giới-thiệu">Giới thiệu</h1>
 
-<p>Quy tắc <strong>trách nhiệm đơn</strong> (SRP, [2]) là nguyên tắc đầu tiên trong SOLID [2], và có thể khái quát như là:</p>
+<p>Quy tắc <strong>trách nhiệm đơn</strong> (SRP, <a class="citation" href="#cleanarch">[1]</a>) là nguyên tắc đầu tiên trong SOLID <a class="citation" href="#cleanarch">[1]</a>, và có thể khái quát như là:</p>
 
 <blockquote>
   <p>A module should be responsible to one, and only one, actor.
@@ -579,12 +579,7 @@ Chúng ta có thể nhìn thấy những điểm sau từ SRP và CCP:</p>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="HumbleOb26:online"><i>Humble Object at XUnitPatterns.com</i>. http://xunitpatterns.com/Humble%20Object.html.</span></li>
-<li><span id="cleanarch">Martin, R. C. (2017). <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span></li>
-<li><span id="martin2009clean">Martin, R. C. (2009). <i>Clean code: a handbook of agile software craftsmanship</i>. Pearson Education.</span></li>
-<li><span id="martin2007professionalism">Martin, R. C. (2007). Professionalism and test-driven development. <i>IEEE Software</i>, <i>24</i>(3), 32–36.</span></li>
-<li><span id="binder2000testing">Binder, R. (2000). <i>Testing object-oriented systems: models, patterns, and tools</i>. Addison-Wesley Professional.</span></li>
-<li><span id="abstraction1988hierarchy">Liskov, B. (1988). Data Abstraction and Hierarchy. <i>SIGPLAN Notices</i>, <i>23</i>(5), 17–34.</span></li></ol>
+<ol class="bibliography"><li><span id="cleanarch">[1]Martin, R.C. 2017. <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span><a class="details" href="https://wanted2.github.io/bibliography/cleanarch/">Details</a></li></ol>
 
             </div>
 

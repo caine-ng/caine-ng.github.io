@@ -26,8 +26,8 @@
 <meta property="og:title" content="Machine Learning for Network Intrusion Detection: From Local to Production" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="An AI Engineer’s blog" />
-<meta property="og:description" content="An AI Engineer’s blog" />
+<meta name="description" content="Network Intrusion Detection System Network intrusion detection system (NIDS) is an independent platform that examines network traffic patterns to identify intrusions for an entire network. It needs to be placed at a choke point where all traffic traverses. A good location for this is in the DMZ. An IDS is reactive in nature: it only monitors and sends alerts to a group of specific people like administrators. The above figure shows a common NIDS architecture, where a DMZ is placed in between external firewall and internal firewall (to an internal network). Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies." />
+<meta property="og:description" content="Network Intrusion Detection System Network intrusion detection system (NIDS) is an independent platform that examines network traffic patterns to identify intrusions for an entire network. It needs to be placed at a choke point where all traffic traverses. A good location for this is in the DMZ. An IDS is reactive in nature: it only monitors and sends alerts to a group of specific people like administrators. The above figure shows a common NIDS architecture, where a DMZ is placed in between external firewall and internal firewall (to an internal network). Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://daga88.bet/wp-content/uploads/2021/01/ap-tr.jpg" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="https://daga88.bet/wp-content/uploads/2021/01/ap-tr.jpg" />
 <meta property="twitter:title" content="Machine Learning for Network Intrusion Detection: From Local to Production" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/ml-ids/"},"description":"An AI Engineer’s blog","image":"https://daga88.bet/wp-content/uploads/2021/01/ap-tr.jpg","headline":"Machine Learning for Network Intrusion Detection: From Local to Production","dateModified":"2022-01-29T00:00:00+09:00","datePublished":"2022-01-29T00:00:00+09:00","url":"/https://wanted2.github.io/ml-ids/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Machine Learning for Network Intrusion Detection: From Local to Production","dateModified":"2022-01-29T00:00:00+09:00","datePublished":"2022-01-29T00:00:00+09:00","description":"Network Intrusion Detection System Network intrusion detection system (NIDS) is an independent platform that examines network traffic patterns to identify intrusions for an entire network. It needs to be placed at a choke point where all traffic traverses. A good location for this is in the DMZ. An IDS is reactive in nature: it only monitors and sends alerts to a group of specific people like administrators. The above figure shows a common NIDS architecture, where a DMZ is placed in between external firewall and internal firewall (to an internal network). Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies.","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/ml-ids/"},"image":"https://daga88.bet/wp-content/uploads/2021/01/ap-tr.jpg","url":"/https://wanted2.github.io/ml-ids/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -315,9 +315,7 @@
                     </div>
                 
                 <!-- End Toc -->
-                <!--more-->
-
-<h1 id="network-intrusion-detection-system">Network Intrusion Detection System</h1>
+                <h1 id="network-intrusion-detection-system">Network Intrusion Detection System</h1>
 
 <p><img src="https://www.researchgate.net/profile/Simon-Enoch/publication/319637372/figure/fig1/AS:543679434510336@1506634686111/Configuration-of-the-enterprise-network.png" style="float: left; margin: 10px; width: 50%;" /></p>
 
@@ -327,7 +325,8 @@
 
 <p>An IDS is <em>reactive</em> in nature: it only monitors and sends alerts to a group of specific people like administrators.
 The above figure shows a common NIDS architecture, where a DMZ is placed in between <em>external firewall</em> and <em>internal firewall (to an internal network)</em>.
-Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies.</p>
+Here, in the DMZ, a NIDS can be set up to monitor the traffic of the whole corporation and identify the anomalies.
+<!--more--></p>
 
 <p><img src="https://www.researchgate.net/profile/Vivek-Singh-70/publication/328572055/figure/fig1/AS:686824250945536@1540763070945/Major-Components-of-Snort-IDS-and-Bro-IDS.ppm" style="float: right; margin: 10px; width: 50%;" />
 A NIDS can have the following architecture:</p>
@@ -337,7 +336,7 @@ A NIDS can have the following architecture:</p>
   <li>A <strong>package decoder</strong> which turns packet content into visibility</li>
   <li>A <strong>detection engine</strong> which identify intrusions</li>
   <li>A <strong>policy engine</strong> which decide and suggest what to do with an intrusion</li>
-  <li>Finally, the intrusion details is collected and <strong>logged</strong>. <strong>Alerts</strong> will be sent to admins and optionally, scripted <strong>actions</strong> can be performed in according to policies.</li>
+  <li>Finally, the intrusion details are collected and <strong>logged</strong>. <strong>Alerts</strong> will be sent to admins and optionally, scripted <strong>actions</strong> can be performed in according to policies.</li>
 </ul>
 
 <p>Two typical examples of NIDS are <a href="https://www.snort.org/">Snort IDS</a> and <a href="https://bricata.com/blog/zeek-ids-threat-detection/">Bro IDS</a>.
@@ -711,7 +710,7 @@ The Machine Learning methods can be generative or discriminative, but they must 
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>We have reviewed several views of NIDS: at a corporation network view, cloud solutions and machine learning models.</p>
+<p>We have reviewed several views of NIDS: at a corporation network view, cloud solutions, and machine learning models.</p>
 
 <p>On the synthetic examples, we observed that a quite classical model like <strong>Random Forest</strong> can outperform neural nets.
 It is not a new thing: we already <em>empirically</em> knew that Random Forest is good at this problem, especially when it is in synthetic environments.

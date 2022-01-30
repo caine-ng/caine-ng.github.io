@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/rensou1.png" />
 <meta property="twitter:title" content="Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-amazon-lex-chatbot-elasticsearch/"},"description":"音声認識による文章連想検索システムは、ユーザの音声入力に対して、決まった言葉で検索エンジンを起動して、関連する文章の一覧を返すシステムです。 本稿では、アマゾンLexやElasticsearchなどの既製部品を使ってシステムを構築する話題を挙げます。","image":"/https://wanted2.github.io/assets/images/rensou1.png","headline":"Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現","dateModified":"2021-07-24T00:00:00+09:00","datePublished":"2021-07-24T00:00:00+09:00","url":"/https://wanted2.github.io/python-amazon-lex-chatbot-elasticsearch/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現","dateModified":"2021-07-24T00:00:00+09:00","datePublished":"2021-07-24T00:00:00+09:00","description":"音声認識による文章連想検索システムは、ユーザの音声入力に対して、決まった言葉で検索エンジンを起動して、関連する文章の一覧を返すシステムです。 本稿では、アマゾンLexやElasticsearchなどの既製部品を使ってシステムを構築する話題を挙げます。","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-amazon-lex-chatbot-elasticsearch/"},"image":"/https://wanted2.github.io/assets/images/rensou1.png","url":"/https://wanted2.github.io/python-amazon-lex-chatbot-elasticsearch/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -345,7 +345,7 @@
 
 <p>ここで、インテグレーションのために重要な概念を説明します。
 インテントはスクリプトのことですが、インテントの構成と作成方法です。
-Pythonでコーディングするなら、<code class="language-plaintext highlighter-rouge">boto3</code>ライブラリ[1]の<a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot"><code class="language-plaintext highlighter-rouge">create_bot</code>メソッド</a>を参考すれば良いでしょう。
+Pythonでコーディングするなら、<code class="language-plaintext highlighter-rouge">boto3</code>ライブラリ <a class="citation" href="#LexModel37:online">[1]</a>の<a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot"><code class="language-plaintext highlighter-rouge">create_bot</code>メソッド</a>を参考すれば良いでしょう。
 会話フローを実現するために、重要な要素は<strong>コンテキスト、サンプル、プロムプト、スロットとフック</strong>です。</p>
 
 <table>
@@ -451,7 +451,7 @@ Elasticsearch本番では<strong>全文検索</strong>など、キーワード�
 <p>PDFデータやOfficeデータをS3にアップして、Elasticsearchのエンドポイントへ送信するフローを自動化したいです。
 つまり、<code class="language-plaintext highlighter-rouge">Document Storage S3 ---&gt; Indexing Lambda ---&gt; Elasticsearch Service</code>のフローを自動化します。</p>
 
-<p>この部分の設計は下記になります[2]。</p>
+<p>この部分の設計は下記になります <a class="citation" href="#Buildado59:online">[2]</a>。</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -699,7 +699,7 @@ Elasticsearch本番では<strong>全文検索</strong>など、キーワード�
 <p>リソースアクセスのためのロールとポリシーも記述されていますが、大まかに<code class="language-plaintext highlighter-rouge">Document Storage S3 ---&gt; Indexing Lambda ---&gt; Elasticsearch Service</code>の処理を記述します。
 毎回PDF文章データが<code class="language-plaintext highlighter-rouge">S3DocumentStoreBucket</code>にアップされると、<code class="language-plaintext highlighter-rouge">IndexDocumentLambda</code>というラムダ関数が起動されます。</p>
 
-<p>索引作成処理にはElasticsearchのエンドポイントにドキュメントを送信する処理ですが、下記になります[2]。</p>
+<p>索引作成処理にはElasticsearchのエンドポイントにドキュメントを送信する処理ですが、下記になります <a class="citation" href="#Buildado59:online">[2]</a>。</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -951,9 +951,8 @@ ElasticsearchとLexの課金量はかなりかかります。また、UltraWarm�
 
 <h1 id="参考文献">参考文献</h1>
 
-<ol class="bibliography"><li><span id="LexModel37:online"><i>LexModelsV2 — Boto3 Docs 1.18.6 documentation</i>. https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html.</span></li>
-<li><span id="Buildado59:online">Jain, A., &amp; Kulkarni, R. <i>Build a document search bot using Amazon Lex and Amazon Elasticsearch Service | AWS Machine Learning Blog</i>. https://aws.amazon.com/jp/blogs/machine-learning/build-a-document-search-bot-using-amazon-lex-and-amazon-elasticsearch-service/.</span></li>
-<li><span id="DeployaW32:online">Atoa, O., &amp; Strahan, B. <i>Deploy a Web UI for Your Chatbot  | AWS Machine Learning Blog</i>. https://aws.amazon.com/jp/blogs/machine-learning/deploy-a-web-ui-for-your-chatbot/.</span></li></ol>
+<ol class="bibliography"><li><span id="LexModel37:online">[1]LexModelsV2 — Boto3 Docs 1.18.6 documentation. https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html.</span><a class="details" href="https://wanted2.github.io/bibliography/LexModel37_online/">Details</a></li>
+<li><span id="Buildado59:online">[2]Jain, A. and Kulkarni, R. Build a document search bot using Amazon Lex and Amazon Elasticsearch Service | AWS Machine Learning Blog. https://aws.amazon.com/jp/blogs/machine-learning/build-a-document-search-bot-using-amazon-lex-and-amazon-elasticsearch-service/.</span><a class="details" href="https://wanted2.github.io/bibliography/Buildado59_online/">Details</a></li></ol>
 
             </div>
 

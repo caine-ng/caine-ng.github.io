@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/cicd.png" />
 <meta property="twitter:title" content="Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/bitbucket-pipelines-runners/"},"description":"Bitbucket.org là nền tảng để hợp tác (collaboration) trong phát triển phần mềm. Xây dựng chu trình cung ứng phần mềm mang tính liên tục (continuous integration and delivery/deployment) đòi hỏi sử dụng những nền tảng như Bitbucket để nâng cao năng suất. Hiện nay, việc sử dụng Bitbucket đã khá phổ biến ngay cả với các team nhỏ (xung quanh 5 người, và thường chưa tới 10 người). Tuy nhiên, team nhỏ có những đặc điểm rất khác biệt: giới hạn về tài nguyên, nhân lực, cả utilization rate (tỷ lệ sử dụng). Bài toán kinh tế với Bitbucket quay trở lại điểm trade-off quen thuộc: tiền ít mà muốn chất lượng cao (cũng không hẳn cao quá, chỉ cần tốt hơn hiện tại) thì làm thế nào? Nói đến chất lượng là vì bản thân mục đích của chu trình CI/CD chính là nâng cao chất lượng phần mềm nhờ chuyên nghiệp hóa quy trình. Chúng ta sẽ đi sâu vào vấn đề này trong việc sử dụng Bitbucket, mà cuối cùng như tựa đề sẽ là so sánh hai lựa chọn khả thi nhất: dùng có sẵn (Bitbucket Cloud) và tự dựng (self-hosted Bitbucket runners).","image":"/https://wanted2.github.io/assets/images/cicd.png","headline":"Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?","dateModified":"2021-07-23T00:00:00+09:00","datePublished":"2021-07-23T00:00:00+09:00","url":"/https://wanted2.github.io/bitbucket-pipelines-runners/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?","dateModified":"2021-07-23T00:00:00+09:00","datePublished":"2021-07-23T00:00:00+09:00","description":"Bitbucket.org là nền tảng để hợp tác (collaboration) trong phát triển phần mềm. Xây dựng chu trình cung ứng phần mềm mang tính liên tục (continuous integration and delivery/deployment) đòi hỏi sử dụng những nền tảng như Bitbucket để nâng cao năng suất. Hiện nay, việc sử dụng Bitbucket đã khá phổ biến ngay cả với các team nhỏ (xung quanh 5 người, và thường chưa tới 10 người). Tuy nhiên, team nhỏ có những đặc điểm rất khác biệt: giới hạn về tài nguyên, nhân lực, cả utilization rate (tỷ lệ sử dụng). Bài toán kinh tế với Bitbucket quay trở lại điểm trade-off quen thuộc: tiền ít mà muốn chất lượng cao (cũng không hẳn cao quá, chỉ cần tốt hơn hiện tại) thì làm thế nào? Nói đến chất lượng là vì bản thân mục đích của chu trình CI/CD chính là nâng cao chất lượng phần mềm nhờ chuyên nghiệp hóa quy trình. Chúng ta sẽ đi sâu vào vấn đề này trong việc sử dụng Bitbucket, mà cuối cùng như tựa đề sẽ là so sánh hai lựa chọn khả thi nhất: dùng có sẵn (Bitbucket Cloud) và tự dựng (self-hosted Bitbucket runners).","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/bitbucket-pipelines-runners/"},"image":"/https://wanted2.github.io/assets/images/cicd.png","url":"/https://wanted2.github.io/bitbucket-pipelines-runners/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -358,7 +358,7 @@ Nhờ vậy mà vấn đề nhân lực cũng theo đó mà suy giảm.</p>
 <p>Bitbucket cung cấp khá nhiều giải pháp để hỗ trợ tự động hóa CI/CD:</p>
 
 <ul>
-  <li><strong>Bitbucket Pipelines</strong> [1]: chu trình CI/CD được viết vào file <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/"><code class="language-plaintext highlighter-rouge">bitbucket_pipelines.yml</code></a> và được tự động hóa theo kịch bản được viết ra.</li>
+  <li><strong>Bitbucket Pipelines</strong> <a class="citation" href="#Configur92:online">[1]</a>: chu trình CI/CD được viết vào file <a href="https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/"><code class="language-plaintext highlighter-rouge">bitbucket_pipelines.yml</code></a> và được tự động hóa theo kịch bản được viết ra.</li>
   <li><strong>Bitbucket Cloud</strong>: hệ thống máy ảo để chạy các pipelines được đặt trên server của Bitbucket.</li>
   <li><strong>Bitbucket Runners</strong>: các runners do người dùng tự dựng. Có thể cấu hình theo từng project (Project Runners) và workspace (Workspace Runners).</li>
 </ul>
@@ -432,7 +432,7 @@ Giả dụ là mua server RAM 8GB, 2 core mạnh để chạy CI/CD thì giá s�
 Giả dụ dùng được 5 năm là phải nâng cấp thì mỗi tháng cũng mất tầm 32.5 USD.
 <strong>Tổng cộng với tiền điện là $32.5+13.9=46.4$USD/tháng.</strong></p>
 
-<p>Ngoài ra, nên nhớ hệ điều hành bắt buộc là <code class="language-plaintext highlighter-rouge">Linux</code> [2].
+<p>Ngoài ra, nên nhớ hệ điều hành bắt buộc là <code class="language-plaintext highlighter-rouge">Linux</code> <a class="citation" href="#Setupand33:online">[2]</a>.
 Cách cấu hình khá đơn giản, nhưng lời khuyên là nên cấu hình <strong>Workspace Runner</strong> để nhiều dự án khác nhau có thể dùng chung.
 Nhờ vậy mà tỷ lệ sử dụng sẽ tăng, tránh lãng phí.</p>
 
@@ -511,8 +511,8 @@ và vì vậy giải pháp Bitbucket Cloud có lẽ là lời giải nhanh chón
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="Configur92:online"><i>Configure bitbucket-pipelines.yml | Bitbucket Cloud | Atlassian Support</i>. https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/.</span></li>
-<li><span id="Setupand33:online"><i>Set up and use runners for Linux | Bitbucket Cloud | Atlassian Support</i>. https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-use-runners-for-linux/.</span></li></ol>
+<ol class="bibliography"><li><span id="Configur92:online">[1]Configure bitbucket-pipelines.yml | Bitbucket Cloud | Atlassian Support. https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/.</span><a class="details" href="https://wanted2.github.io/bibliography/Configur92_online/">Details</a></li>
+<li><span id="Setupand33:online">[2]Set up and use runners for Linux | Bitbucket Cloud | Atlassian Support. https://support.atlassian.com/bitbucket-cloud/docs/set-up-and-use-runners-for-linux/.</span><a class="details" href="https://wanted2.github.io/bibliography/Setupand33_online/">Details</a></li></ol>
 
             </div>
 

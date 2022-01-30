@@ -26,8 +26,8 @@
 <meta property="og:title" content="Idle Time Pricing Models in the Cloud" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Batch processing (JP: バッチ処理, VI: Xu Lý Lô) is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit. A program that reads a large file and generates a report, for example, is considered to be a batch job. Services such as Azure Batch [1] and AWS Batch [2, 3] support runs of batch jobs with VMs/EC2 instances and serverless container backend. However, running batch jobs requires VMs and instances to run continuously in production with almost zero downtime. It also means that there will be idle time to keep batch jobs running in the background. We review and estimate the idle time pricing of several cloud-based batch processing services." />
-<meta property="og:description" content="Batch processing (JP: バッチ処理, VI: Xu Lý Lô) is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit. A program that reads a large file and generates a report, for example, is considered to be a batch job. Services such as Azure Batch [1] and AWS Batch [2, 3] support runs of batch jobs with VMs/EC2 instances and serverless container backend. However, running batch jobs requires VMs and instances to run continuously in production with almost zero downtime. It also means that there will be idle time to keep batch jobs running in the background. We review and estimate the idle time pricing of several cloud-based batch processing services." />
+<meta name="description" content="Batch processing (JP: バッチ処理, VI: Xu Lý Lô) is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit. A program that reads a large file and generates a report, for example, is considered to be a batch job. Services such as Azure Batch [6] and AWS Batch [6], [6] support runs of batch jobs with VMs/EC2 instances and serverless container backend. However, running batch jobs requires VMs and instances to run continuously in production with almost zero downtime. It also means that there will be idle time to keep batch jobs running in the background. We review and estimate the idle time pricing of several cloud-based batch processing services." />
+<meta property="og:description" content="Batch processing (JP: バッチ処理, VI: Xu Lý Lô) is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit. A program that reads a large file and generates a report, for example, is considered to be a batch job. Services such as Azure Batch [6] and AWS Batch [6], [6] support runs of batch jobs with VMs/EC2 instances and serverless container backend. However, running batch jobs requires VMs and instances to run continuously in production with almost zero downtime. It also means that there will be idle time to keep batch jobs running in the background. We review and estimate the idle time pricing of several cloud-based batch processing services." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="/https://wanted2.github.io/assets/images/batch.png" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/batch.png" />
 <meta property="twitter:title" content="Idle Time Pricing Models in the Cloud" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/idle-time-pricing-models/"},"description":"Batch processing (JP: バッチ処理, VI: Xu Lý Lô) is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit. A program that reads a large file and generates a report, for example, is considered to be a batch job. Services such as Azure Batch [1] and AWS Batch [2, 3] support runs of batch jobs with VMs/EC2 instances and serverless container backend. However, running batch jobs requires VMs and instances to run continuously in production with almost zero downtime. It also means that there will be idle time to keep batch jobs running in the background. We review and estimate the idle time pricing of several cloud-based batch processing services.","image":"/https://wanted2.github.io/assets/images/batch.png","headline":"Idle Time Pricing Models in the Cloud","dateModified":"2021-08-19T00:00:00+09:00","datePublished":"2021-08-19T00:00:00+09:00","url":"/https://wanted2.github.io/idle-time-pricing-models/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Idle Time Pricing Models in the Cloud","dateModified":"2021-08-19T00:00:00+09:00","datePublished":"2021-08-19T00:00:00+09:00","description":"Batch processing (JP: バッチ処理, VI: Xu Lý Lô) is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit. A program that reads a large file and generates a report, for example, is considered to be a batch job. Services such as Azure Batch [6] and AWS Batch [6], [6] support runs of batch jobs with VMs/EC2 instances and serverless container backend. However, running batch jobs requires VMs and instances to run continuously in production with almost zero downtime. It also means that there will be idle time to keep batch jobs running in the background. We review and estimate the idle time pricing of several cloud-based batch processing services.","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/idle-time-pricing-models/"},"image":"/https://wanted2.github.io/assets/images/batch.png","url":"/https://wanted2.github.io/idle-time-pricing-models/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -307,7 +307,7 @@
                 <!-- End Toc -->
                 <p><strong>Batch processing (JP: バッチ処理, VI: Xu Lý Lô)</strong> is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit.
 A program that reads a large file and generates a report, for example, is considered to be a batch job.
-Services such as Azure Batch [1] and AWS Batch [2, 3] support runs of batch jobs with VMs/EC2 instances and serverless container backend.
+Services such as Azure Batch <a class="citation" href="#soh2020overview">[1]</a> and AWS Batch <a class="citation" href="#witte2019event">[2]</a>, <a class="citation" href="#balaji2018benchmarking">[3]</a> support runs of batch jobs with VMs/EC2 instances and serverless container backend.
 However, running batch jobs requires VMs and instances to run continuously in production with almost <strong>zero downtime</strong>.
 It also means that there will be <strong>idle time</strong> to keep batch jobs running in the background.
 We review and estimate the idle time pricing of several cloud-based batch processing services. 
@@ -320,17 +320,17 @@ Virtual machines often use the pay-per-use model, which requires running the VMs
 For example, AWS EC2 instances are billed for running durations on an hourly basis.
 Because the distribution of coming requests is unknown or probabilistic, then the instances must be kept running without downtime.
 This results in hours without requests are being paid with the same price as hours with requests (real working hours).
-The issue is called <strong>idle time issue</strong>, which is well-known in cloud computing [1-3].</p>
+The issue is called <strong>idle time issue</strong>, which is well-known in cloud computing <a class="citation" href="#soh2020overview">[1]</a>, <a class="citation" href="#witte2019event">[2]</a>, <a class="citation" href="#balaji2018benchmarking">[3]</a>.</p>
 
 <p><strong>Batch jobs</strong> are scheduled jobs with minimal user interactions.
 It is possible to have some jobs in the systems which cannot be answered in real-time then users want to submit for processing in the background.
 The submitted jobs are queued and scheduled to process later when the application does not require them to give results soon.
 Scheduled jobs are popped from the queue and run automatically with interactions to computations resources such as VMs and databases.
 Due to a large number of jobs, a Massive Parallel Processing (MPP) system can be used for batch jobs when the number of data is too big (1TB or more)!
-Azure Batch [1] and AWS Batch [2] are fully managed cloud services for batch jobs which give highly scalable without extensive programming efforts.
+Azure Batch <a class="citation" href="#soh2020overview">[1]</a> and AWS Batch <a class="citation" href="#witte2019event">[2]</a> are fully managed cloud services for batch jobs which give highly scalable without extensive programming efforts.
 Azure Batch supports Azure VMs while AWS Batch supports EC2 instances based Elastic Container Service (ECS), Fargate-based ECS, and Lambda.
 Reducing <strong>idle time</strong> while deploying to these services is a demand, and it requires careful designs.
-For example, in [5], Qureshi described a design that reduces Azure Batch cost using dynamic allocation and relocation of resources with lookahead technique for deallocating nodes.
+For example, in <a class="citation" href="#qureshi2019reduce">[4]</a>, Qureshi described a design that reduces Azure Batch cost using dynamic allocation and relocation of resources with lookahead technique for deallocating nodes.
 Their results showed that 30% of the total cost was reduced with the proposed techniques.</p>
 
 <p><strong>Graphical Processing Unit (GPU)</strong> has helped to accelerate the latest Artificial Intelligence workloads.
@@ -342,10 +342,10 @@ In AWS Lambda and Azure Functions, computations are billed for running time only
 However, <strong>Lambda and Functions do not support GPU!</strong>
 Hence, the normal uses of these serverless computing mechanisms are often API calls, i. e., calling to other APIs, not any massive computations.
 Therefore, deploying GPU-required batch jobs to the cloud often use VM-based approaches.
-In [4], Risco and Moltó designed a batch processing system using AWS Batch with GPU-enabled ECS.
+In <a class="citation" href="#risco2021gpu">[5]</a>, Risco and Moltó designed a batch processing system using AWS Batch with GPU-enabled ECS.
 They used 12 vGPUs of type <code class="language-plaintext highlighter-rouge">g3s.xlarge</code>.</p>
 
-<p>To summary, batch processing in the cloud relies on the pricing models that have idle time if we do not keep the system busy 24 hours per day.
+<p>In summary, batch processing in the cloud relies on the pricing models that have idle time if we do not keep the system busy 24 hours per day.
 AWS Batch supports some serverless mechanisms like Lambda and Fargate-based ECS but only supports CPUs.
 For the need of GPUs, one must switch to instance-based or VM-based approaches, which turns us back to the idle time problem indeed.
 <strong>The choice of pricing models is whether billing for milliseconds or not?</strong></p>
@@ -378,21 +378,21 @@ Their service is <strong>low traffic, but (we) want to keep some spot CPU availa
 <blockquote>
   <p>Alternatively, you could achieve your goal by <strong>creating two managed to compute environments</strong> which are both associated with your job queue.
 For the first compute environment (with the lowest integer value for order), set min/desired/max vCPUs=2, ensuring that it always has a single EC2 instance with 2vCPUs in it. 
-The second computes environment could have min vCPUs=0 and max vCPUs set to whatever upper limit you like.
+The second one computes environment could have min vCPUs=0 and max vCPUs set to whatever upper limit you like.
 With this model, AWS Batch jobs requiring two or fewer vCPUs could be immediately scheduled to the always-on instance while additional capacity is scaled up/down as needed when you have a larger number of concurrent jobs to run.</p>
 </blockquote>
 
 <p>Actually, this answer always keeps an <code class="language-plaintext highlighter-rouge">m4.large</code> instance to be run without being modified and having another group of resources that can be scaled up and down according to the situations.
 Nevertheless, on the trade-off of response time and cost, <code class="language-plaintext highlighter-rouge">minVcpus=2</code> was kept, but the type of the instance was preserved to reduce cost.</p>
 
-<p>To find more about the parameters of AWS Batch, one can consult with [6].
+<p>To find more about the parameters of AWS Batch, one can consult with <a class="citation" href="#WhatIsAW85:online">[6]</a>.
 AWS Batch is a batch computing platform with stateful jobs, job queues, GPU jobs, …
 Jobs are the unit of work invoked by AWS Batch.
 Jobs can be invoked as containerized applications running on Amazon ECS container instances in an ECS cluster.</p>
 
 <h3 id="scar">SCAR</h3>
 
-<p>SCAR [4] is a serverless system for GPU-enabled computing.
+<p>SCAR <a class="citation" href="#risco2021gpu">[5]</a> is a serverless system for GPU-enabled computing.
 They have their own Functional Definition Language (FDL) for serverless workflows.
 Their work helps to design a batch system faster and easier.
 One example can be found below.</p>
@@ -432,7 +432,7 @@ We will wait for GPU supports in the near future.</p>
 <p><strong>Second, even with some parametric methodologies like setting <code class="language-plaintext highlighter-rouge">minVcpus</code> VMs/instance-based options still need to face the trade-off between idle time and cost</strong>.
 An example of the use case was given in which a mistake in scale-out design has led to a scale-up option that doubled the bills.
 Typically, we will need to keep <code class="language-plaintext highlighter-rouge">minVcpus</code>$\geq 2$ to have quick responses, but we still do not have scaledown of GPU (no <code class="language-plaintext highlighter-rouge">minvGpus</code> parameters in AWS Batch template).
-Then the idle cost is mostly unavoidable (SCAR [4] described their approach on scaling down with zero resources when no workload, then the startup time and loading time will increase in return, and they are idle costs).</p>
+Then the idle cost is mostly unavoidable (SCAR <a class="citation" href="#risco2021gpu">[5]</a> described their approach on scaling down with zero resources when no workload, then the startup time and loading time will increase in return, and they are idle costs).</p>
 <h1 id="conclusion">Conclusion</h1>
 
 <p>Finally, we want to cut down our bills every month (but want to increase the income). :yum:
@@ -441,14 +441,12 @@ Future works will direct to the practices of GPU-enabled serverless architecture
 
 <h1 id="references">References</h1>
 
-<ol class="bibliography"><li><span id="soh2020overview">Soh, J., Copeland, M., Puca, A., &amp; Harris, M. (2020). Overview of Azure Platform as a Service. In <i>Microsoft Azure</i> (pp. 43–55). Springer.</span></li>
-<li><span id="witte2019event">Witte, P. A., Louboutin, M., Modzelewski, H., Jones, C., Selvage, J., &amp; Herrmann, F. J. (2019). Event-driven workflows for large-scale seismic imaging in the cloud. In <i>SEG Technical Program Expanded Abstracts 2019</i> (pp. 3984–3988). Society of Exploration Geophysicists.</span></li>
-<li><span id="balaji2018benchmarking">Balaji, A., &amp; Allen, A. (2018). Benchmarking automatic machine learning frameworks. <i>ArXiv Preprint ArXiv:1808.06492</i>.</span></li>
-<li><span id="risco2021gpu">Risco, S., &amp; Moltó, G. (2021). GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. <i>Applied Sciences</i>, <i>11</i>(4), 1438.</span></li>
-<li><span id="qureshi2019reduce">Qureshi, A. N. (2019). Reduce Cost of Batch Processing Microsoft Azure Cloud. <i>JETIR-International Journal of Emerging Technologies and Innovative Research</i>, 2349–5162.</span></li>
-<li><span id="WhatIsAW85:online"><i>What Is AWS Batch? - AWS Batch</i>. https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html.</span></li>
-<li><span id="Computee29:online"><i>Compute environment parameters - AWS Batch</i>. https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html.</span></li>
-<li><span id="BatchCom43:online"><i>Batch - Compute job scheduling service | Microsoft Azure</i>. https://azure.microsoft.com/en-us/services/batch/.</span></li></ol>
+<ol class="bibliography"><li><span id="soh2020overview">[1]Soh, J., Copeland, M., Puca, A. and Harris, M. 2020. Overview of Azure Platform as a Service. <i>Microsoft Azure</i>. Springer. 43–55.</span><a class="details" href="https://wanted2.github.io/bibliography/soh2020overview/">Details</a></li>
+<li><span id="witte2019event">[2]Witte, P.A., Louboutin, M., Modzelewski, H., Jones, C., Selvage, J. and Herrmann, F.J. 2019. Event-driven workflows for large-scale seismic imaging in the cloud. <i>SEG Technical Program Expanded Abstracts 2019</i>. Society of Exploration Geophysicists. 3984–3988.</span><a class="details" href="https://wanted2.github.io/bibliography/witte2019event/">Details</a></li>
+<li><span id="balaji2018benchmarking">[3]Balaji, A. and Allen, A. 2018. Benchmarking automatic machine learning frameworks. <i>arXiv preprint arXiv:1808.06492</i>. (2018).</span><a class="details" href="https://wanted2.github.io/bibliography/balaji2018benchmarking/">Details</a></li>
+<li><span id="qureshi2019reduce">[4]Qureshi, A.N. 2019. Reduce Cost of Batch Processing Microsoft Azure Cloud. <i>JETIR-International Journal of Emerging Technologies and Innovative Research</i>. (2019), 2349–5162.</span><a class="details" href="https://wanted2.github.io/bibliography/qureshi2019reduce/">Details</a></li>
+<li><span id="risco2021gpu">[5]Risco, S. and Moltó, G. 2021. GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. <i>Applied Sciences</i>. 11, 4 (2021), 1438.</span><a class="details" href="https://wanted2.github.io/bibliography/risco2021gpu/">Details</a></li>
+<li><span id="WhatIsAW85:online">[6]What Is AWS Batch? - AWS Batch. https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html.</span><a class="details" href="https://wanted2.github.io/bibliography/WhatIsAW85_online/">Details</a></li></ol>
 
             </div>
 

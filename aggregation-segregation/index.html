@@ -26,8 +26,8 @@
 <meta property="og:title" content="Aggregation and Segregation" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Interface Segregation Principle (ISP) is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted." />
-<meta property="og:description" content="Interface Segregation Principle (ISP) is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted." />
+<meta name="description" content="Interface Segregation Principle (ISP) [1] is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted." />
+<meta property="og:description" content="Interface Segregation Principle (ISP) [1] is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9oekgoz7fvmh1yz7fsw.png" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9oekgoz7fvmh1yz7fsw.png" />
 <meta property="twitter:title" content="Aggregation and Segregation" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aggregation-segregation/"},"description":"Interface Segregation Principle (ISP) is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted.","image":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9oekgoz7fvmh1yz7fsw.png","headline":"Aggregation and Segregation","dateModified":"2021-08-28T00:00:00+09:00","datePublished":"2021-08-28T00:00:00+09:00","url":"/https://wanted2.github.io/aggregation-segregation/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Aggregation and Segregation","dateModified":"2021-08-28T00:00:00+09:00","datePublished":"2021-08-28T00:00:00+09:00","description":"Interface Segregation Principle (ISP) [1] is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted.","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aggregation-segregation/"},"image":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9oekgoz7fvmh1yz7fsw.png","url":"/https://wanted2.github.io/aggregation-segregation/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -293,7 +293,7 @@
                     </div>
                 
                 <!-- End Toc -->
-                <p><strong>Interface Segregation Principle (ISP)</strong> is one of the five pillars in SOLID design principles.
+                <p><strong>Interface Segregation Principle (ISP) <a class="citation" href="#cleanarch">[1]</a></strong> is one of the five pillars in SOLID design principles.
 The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need.
 Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature.
 When other features change, the current feature is not affected, and the user service will not be interrupted.
@@ -466,7 +466,7 @@ Riding ...
 <h1 id="segregation">Segregation</h1>
 
 <p><img src="/assets/images/isp2.svg" style="float: right; margin: 10px; width: 50%;" />
-The <strong>Interface Segregation Principle (ISP, [2])</strong> states that the aggregated <code class="language-plaintext highlighter-rouge">HumanInst</code> class in the previous section was not good enough:
+The <strong>Interface Segregation Principle (ISP, <a class="citation" href="#cleanarch">[1]</a>)</strong> states that the aggregated <code class="language-plaintext highlighter-rouge">HumanInst</code> class in the previous section was not good enough:
 whenever changes happen in one function, it will force the whole to be re-compiled, and then affect all other functions and actors.
 The ISP guides us that the following design will be better.
 A <code class="language-plaintext highlighter-rouge">Police</code> interface (actually, in C++ we don’t have interfaces, but we can use abstract class instead), or a <code class="language-plaintext highlighter-rouge">PoliceInst</code> class can have only one <code class="language-plaintext highlighter-rouge">calculate</code> function and doesn’t rely on <code class="language-plaintext highlighter-rouge">walk</code> and <code class="language-plaintext highlighter-rouge">ride</code>.
@@ -681,12 +681,7 @@ Riding ...
 
 <h1 id="references">References</h1>
 
-<ol class="bibliography"><li><span id="HumbleOb26:online"><i>Humble Object at XUnitPatterns.com</i>. http://xunitpatterns.com/Humble%20Object.html.</span></li>
-<li><span id="cleanarch">Martin, R. C. (2017). <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span></li>
-<li><span id="martin2009clean">Martin, R. C. (2009). <i>Clean code: a handbook of agile software craftsmanship</i>. Pearson Education.</span></li>
-<li><span id="martin2007professionalism">Martin, R. C. (2007). Professionalism and test-driven development. <i>IEEE Software</i>, <i>24</i>(3), 32–36.</span></li>
-<li><span id="binder2000testing">Binder, R. (2000). <i>Testing object-oriented systems: models, patterns, and tools</i>. Addison-Wesley Professional.</span></li>
-<li><span id="abstraction1988hierarchy">Liskov, B. (1988). Data Abstraction and Hierarchy. <i>SIGPLAN Notices</i>, <i>23</i>(5), 17–34.</span></li></ol>
+<ol class="bibliography"><li><span id="cleanarch">[1]Martin, R.C. 2017. <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span><a class="details" href="https://wanted2.github.io/bibliography/cleanarch/">Details</a></li></ol>
 
             </div>
 

@@ -26,8 +26,8 @@
 <meta property="og:title" content="Code audit processes and the new feature of Python 3.8 - sys.audit" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [1] and PEP 551 [2]." />
-<meta property="og:description" content="Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [1] and PEP 551 [2]." />
+<meta name="description" content="Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [6] and PEP 551 [6]." />
+<meta property="og:description" content="Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [6] and PEP 551 [6]." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png" />
 <meta property="og:type" content="article" />
@@ -36,7 +36,7 @@
 <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png" />
 <meta property="twitter:title" content="Code audit processes and the new feature of Python 3.8 - sys.audit" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-38-sys-audit/"},"description":"Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [1] and PEP 551 [2].","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png","headline":"Code audit processes and the new feature of Python 3.8 - sys.audit","dateModified":"2021-07-17T00:00:00+09:00","datePublished":"2021-07-17T00:00:00+09:00","url":"/https://wanted2.github.io/python-38-sys-audit/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Code audit processes and the new feature of Python 3.8 - sys.audit","dateModified":"2021-07-17T00:00:00+09:00","datePublished":"2021-07-17T00:00:00+09:00","description":"Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [6] and PEP 551 [6].","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-38-sys-audit/"},"image":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png","url":"/https://wanted2.github.io/python-38-sys-audit/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -331,7 +331,7 @@ The purpose of audits is to identify and report problems, not to respond, preven
 If you are using Python 2.x or even Python 3.7, this feature may not be available.
 Calls like <code class="language-plaintext highlighter-rouge">sys.audit</code> and <code class="language-plaintext highlighter-rouge">sys.addaudithook</code> are only available from version 3.8.
 The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running.
-Two proposals that made this available are PEP 578 [1] and PEP 551 [2].
+Two proposals that made this available are PEP 578 <a class="citation" href="#PEP578Py66:online">[1]</a> and PEP 551 <a class="citation" href="#PEP551Se63:online">[2]</a>.
 <!--more--></p>
 
 <h1 id="overview-of-technical-audits">Overview of technical audits</h1>
@@ -419,22 +419,22 @@ Finally, remember to <strong>share knowledge</strong> among the team.</p>
 Remember that code audit differs from code reviews in the way that code audit reviews the <strong>running</strong> system!
 Then if it’s not running, this is not audit.</p>
 
-<p>In this post, we focus on the new features for runtime audit: proposals PEP 578 [1] and PEP 551 [2].
+<p>In this post, we focus on the new features for runtime audit: proposals PEP 578 <a class="citation" href="#PEP578Py66:online">[1]</a> and PEP 551 <a class="citation" href="#PEP551Se63:online">[2]</a>.
 These proposals were made available only from Python 3.8.
 PEP 578 was only a part of PEP 551, which concerns the <strong>security transparency</strong> of Python programs: the lack of internal audits leads to the fact that many threats can bypass audits.
 Python up to 3.7 in isolation could manage to audit all events in codes.
-However, no runtime events have been captured, and this was leading to a poor audit.
+However, no runtime events have been captured, and this led to a poor audit.
 Defenders have a need to audit specific uses of the Python programming language in order to detect abnormal or malicious usage. 
 With PEP 578, the Python runtime gains the ability to provide this. 
 The aim of this PEP is to assist system administrators with deploying a security-transparent version of the Python programming language that can integrate with their existing auditing and protection systems.</p>
 
 <h2 id="sysaudit-and-sysaddaudithook"><code class="language-plaintext highlighter-rouge">sys.audit</code> and <code class="language-plaintext highlighter-rouge">sys.addaudithook</code></h2>
 
-<p>Runtime audithooks [1] comes with two different APIs: CPython and standard way.
-You can use <code class="language-plaintext highlighter-rouge">sys.audit/sys.addaudithooks</code> in Python code and <code class="language-plaintext highlighter-rouge">PySys_Audit/PySys_AddAuditHook</code> in native C code [3].
-The backport to Python 3.7 and older versions can be found in a third-party <code class="language-plaintext highlighter-rouge">sysaudit</code> [4].
-A list of <strong>auditable events</strong> can be found in [5].
-Some discussions on bypassing audit features in Python 3.8 can be found in [6].</p>
+<p>Runtime audithooks <a class="citation" href="#PEP578Py66:online">[1]</a> comes with two different APIs: CPython and standard way.
+You can use <code class="language-plaintext highlighter-rouge">sys.audit/sys.addaudithooks</code> in Python code and <code class="language-plaintext highlighter-rouge">PySys_Audit/PySys_AddAuditHook</code> in native C code PEP 578 <a class="citation" href="#sysSyst75:online">[3]</a>.
+The backport to Python 3.7 and older versions can be found in a third-party <code class="language-plaintext highlighter-rouge">sysaudit</code> <a class="citation" href="#sysaudit76:online">[4]</a>.
+A list of <strong>auditable events</strong> can be found in <a class="citation" href="#Auditeve66:online">[5]</a>.
+Some discussions on bypassing audit features in Python 3.8 can be found in <a class="citation" href="#Bypassin44:online">[6]</a>.</p>
 
 <h3 id="native-c-interface">Native C interface</h3>
 
@@ -686,15 +686,15 @@ The first part showed an overview of code audit in practice.
 The second part discussed a new audit feature in the Python programming language: <code class="language-plaintext highlighter-rouge">sys.audit/PySys_Audit</code>.</p>
 
 <p>Although this feature is new in the Python programming language but the merit of capturing runtime events can be helpful.
-Benchmark in PEP 578 [1] showed that adding this audit did not change the performance or cost then it is nice to have this in your project.</p>
+Benchmark in PEP 578 <a class="citation" href="#PEP578Py66:online">[1]</a> showed that adding this audit did not change the performance or cost then it is nice to have this in your project.</p>
 <h1 id="references">References</h1>
 
-<ol class="bibliography"><li><span id="PEP578Py66:online"><i>PEP 578 – Python Runtime Audit Hooks | Python.org</i>. https://www.python.org/dev/peps/pep-0578.</span></li>
-<li><span id="PEP551Se63:online"><i>PEP 551 - Security transparency in the Python runtime - Python.org</i>. https://www.python.org/dev/peps/pep-0551/.</span></li>
-<li><span id="sysSyst75:online"><i>sys - System-specific parameters and functions - Python 3.9.6 documentation</i>. https://docs.python.org/3/library/sys.html.</span></li>
-<li><span id="sysaudit76:online"><i>sysaudit — sysaudit documentation</i>. https://sysaudit.readthedocs.io/en/latest/.</span></li>
-<li><span id="Auditeve66:online"><i>Audit events table - Python 3.9.6 documentation</i>. https://docs.python.org/3/library/audit_events.html.</span></li>
-<li><span id="Bypassin44:online"><i>Bypassing Python3.8 Audit Hooks [Part 1] · daddycocoaman</i>. https://daddycocoaman.dev/posts/bypassing-python38-audit-hooks-part-1/.</span></li></ol>
+<ol class="bibliography"><li><span id="PEP578Py66:online">[1]PEP 578 – Python Runtime Audit Hooks | Python.org. https://www.python.org/dev/peps/pep-0578.</span><a class="details" href="https://wanted2.github.io/bibliography/PEP578Py66_online/">Details</a></li>
+<li><span id="PEP551Se63:online">[2]PEP 551 - Security transparency in the Python runtime - Python.org. https://www.python.org/dev/peps/pep-0551/.</span><a class="details" href="https://wanted2.github.io/bibliography/PEP551Se63_online/">Details</a></li>
+<li><span id="sysSyst75:online">[3]sys - System-specific parameters and functions - Python 3.9.6 documentation. https://docs.python.org/3/library/sys.html.</span><a class="details" href="https://wanted2.github.io/bibliography/sysSyst75_online/">Details</a></li>
+<li><span id="sysaudit76:online">[4]sysaudit — sysaudit documentation. https://sysaudit.readthedocs.io/en/latest/.</span><a class="details" href="https://wanted2.github.io/bibliography/sysaudit76_online/">Details</a></li>
+<li><span id="Auditeve66:online">[5]Audit events table - Python 3.9.6 documentation. https://docs.python.org/3/library/audit_events.html.</span><a class="details" href="https://wanted2.github.io/bibliography/Auditeve66_online/">Details</a></li>
+<li><span id="Bypassin44:online">[6]Bypassing Python3.8 Audit Hooks [Part 1] · daddycocoaman. https://daddycocoaman.dev/posts/bypassing-python38-audit-hooks-part-1/.</span><a class="details" href="https://wanted2.github.io/bibliography/Bypassin44_online/">Details</a></li></ol>
 
             </div>
 
