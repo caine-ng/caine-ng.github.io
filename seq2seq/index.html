@@ -325,6 +325,72 @@ Nên nhìn chung là <code class="language-plaintext highlighter-rouge">seq2seq<
 
 <h1 id="giới-thiệu-model-seq2seq">Giới thiệu model Seq2Seq</h1>
 
+<p>Nỗi lòng người làm thày mà hướng dẫn sinh viên thì tùy level mà kỳ vọng thì nó cũng khác nhau, và với những level cao như postdoc là luôn có sự mong muốn nhất định.
+Đó là phải vượt qua <code class="language-plaintext highlighter-rouge">thử thách (challenges)</code> của thày.
+Thì cái challenge đây có hai nghĩa là cuộc thi và thử thách, thì nói thực là cuộc thi không cần đâu, chỉ cần vượt qua thử thách tối thiểu của thày trong cái kỹ năng làm nghiên cứu thôi là <code class="language-plaintext highlighter-rouge">ok em</code> rồi.</p>
+
+<p>Trong thực tế kinh nghiệm thì tôi thấy mấy cái thử thách cũng không phức tạp lắm đâu, đặc biệt là trong lĩnh vực NLP+Vision này thì tôi thấy cũng chỉ có vài bài như Image Captioning, Video-to-Text hay VQA.
+Code thì nhan nhản trong cộng đồng nghiên cứu (đặc thù của ngạch nghiên cứu là kế thừa, vì người ta công bố mà mình không dùng thì phí), rồi tài liệu thì mảng NLP với Vision các ông cũng publish trên ArXiV với mấy hội nghị open, chứ nào có giấu giếm gì nhau?
+Thế mà không hiểu vì sao vẫn không vượt qua được cho thày?
+Xem lại rốt cuộc là tôi nghĩ thì có lẽ nên thêm câu hỏi sau vào bộ dữ liệu QA:</p>
+
+<blockquote>
+  <p>Q: Không làm muốn có ăn thì ăn gì bây giờ?
+A: ??? (câu hỏi tự luận nha)
+Context: Hãy xem video của Prof. Huan Rose</p>
+</blockquote>
+
+<p>Thì nhìn chung là <code class="language-plaintext highlighter-rouge">seq2seq</code> là một model thử thách như vậy.
+Với những bài đặc biệt chỉ của NLP như NMT, Text Summarization hay QA thì <code class="language-plaintext highlighter-rouge">seq2seq</code> đã mở ra hẳn cả một mảng riêng mà về sau còn có thêm mấy cái pretraining encoder/decoder như BERT, AlBERT, RoBERT, BART, … mà chủ yếu là representation learning.</p>
+
+<blockquote>
+  <p>Mô hình <code class="language-plaintext highlighter-rouge">seq2seq</code> đơn giản chỉ gồm một chuỗi input $\mathbb{x}_1, \mathbb{x}_2, \ldots, \mathbb{x}_m$. 
+Chuỗi này đương nhiên là biểu diễn vector (embedding) sau khi đã preprocessing qua tokenizer và thay thế từ không có trong vocabulảy bởi <code class="language-plaintext highlighter-rouge">UNK</code>.
+Sau đó là <strong>encoder</strong> với các trạng thái $\mathbb{h}_1, \mathbb{h}_2, \ldots, \mathbb{h}_m$ cũng như biểu diễn đầu ra của encoder là $\mathbb{z}_1, \mathbb{z}_2, \ldots, \mathbb{z}_m$.
+Encoder chính là một mạng trí tuệ nhân tạo dạng Long-Short Term Memory (LSTM) mà chúng ta sẽ nói sau.
+Bây giờ thì chúng ta cần aggregate chuỗi biểu diễn đầu ra của encoder thành biến vector \(\mathbb{c}_t=\sum_{i=1}^m\alpha_i^t\mathbb{z}_i\).
+Ở mỗi bước \(t\) thì <strong>decoder</strong> LSTM sẽ nhận input là output của bước \(t-1\) là \(\mathbb{g}_{t-1}\) và biến context \(\mathbb{c}_t\) để đưa ra output \(\mathbb{g}_t\).</p>
+
+\[\mathbb{g}_t=\mbox{LSTM}\left(\mathbb{g}_{t-1},\mathbb{c}_t\right)\]
+
+  <p>ứng với mỗi \(\mathbb{g}_t\) sẽ được giải mã thành một ký tự trong ngôn ngữ đầu ra.
+Quá trình này kết thúc khi ký tự <code class="language-plaintext highlighter-rouge">EOS</code> được giải mã ra.
+Chuỗi đầu vào \(\mathbb{x}_i\) và chuỗi đầu ra của decoder \(\mathbb{g}_j\) có thể có độ dài khác nhau.</p>
+</blockquote>
+
+<p>Trong bài toán NMT, thì chuỗi đầu vào có thể là tiếng Anh và chuỗi đầu ra là tiếng Nhật.
+Nhưng ngược lại thì sẽ cần tokenizer bằng tiếng Nhật.
+Trong bài toán Text Summarization (TS), thì cả đầu ra và đầu vào đều sẽ cùng ngôn ngữ, nhưng đầu ra sẽ là một chuỗi ngắn gọn xúc tích hơn.
+Cái gọi là <code class="language-plaintext highlighter-rouge">ngắn gọn, xúc tích hơn</code> sẽ được định nghĩa và học thông qua dữ liệu.
+Thì NMT có bộ WMT2014, WMT2017, còn TS thì có bộ DUC.
+Còn bài toán QA thì chuỗi đầu vào là một câu hỏi còn đầu ra là 1 câu trả lời.
+Cái hay của QA là đôi khi có thêm chuỗi context (hay gọi là gợi ý), ví dụ như hỏi <code class="language-plaintext highlighter-rouge">Bạn sống ở đâu?</code> thì có thêm context là <code class="language-plaintext highlighter-rouge">Tôi sống ở Nhật</code> thì máy sẽ trả lời luôn là <code class="language-plaintext highlighter-rouge">Nhật</code>.
+QA thì có bộ SQuAD v1 và v2 với hơn trăm ngàn bộ câu hỏi (nghe như luyện thì TOEIC).
+Metrics đánh giá thì có cái BLUE-4 score, CIDEr, ROGUE là có thể dùng để đánh giá chuỗi đầu ra có phù hợp không.
+Chúng ta sẽ đi sâu thêm vào từng chi tiết sau.</p>
+
+<p>Các task trong NLP thì là như vậy, dữ liệu, code và metrics hầu như có sẵn.
+Thì cũng là kết nối với Vision là khoảng CVPR tầm 2015-2016 gì đó có mấy cái Workshops nói về làm sao để có thể tích hợp nhiều modal (multi-modal) để đưa ra những giải pháp tốt hơn.
+Mọc ra trước mắt lúc đó thì có 3 tasks nằm trong định hướng: Image Captioning, Video-to-Text và VQA.
+Nói chung nghe lúc đó có vẻ mới, nhưng chỉ có task là mới thôi chứ còn những cái để thực thi những task ấy các sếp promote các task ấy lên họ đã chuẩn bị hết rồi.
+Technique thì có sẵn <code class="language-plaintext highlighter-rouge">seq2seq</code>, CNN, RNN, LSTM, Faster R-CNN để extract attributes dưới dạng object detections, …
+Metrics thì vì output vẫn là chuỗi text nên lại xài lại BLUE-4, CIDEr rồi ROGUE thôi.
+Nên coi như nền tảng rất sẵn rồi, chỉ nhảy vào làm thí nghiệm và viết paper rồi … ăn!</p>
+
+<p><em>Vậy tại sao vẫn cứ không đến nơi đến chốn được?</em></p>
+
+<ol>
+  <li>Tôi nghĩ vấn đề đầu tiên lúc làm Image Captioning là thiếu <code class="language-plaintext highlighter-rouge">alignment</code>.</li>
+  <li>Lúc làm cái Video-to-Text thì cái visual semantic embedding (VSE) là không có. Mà nói thẳng ra thì cái ấy chính mình <code class="language-plaintext highlighter-rouge">chủ động</code> nghĩ ra mà làm chứ?</li>
+  <li>CÒn cái VQA thì lúc ấy nói thật là hai cái captioning với VTT nó đã <code class="language-plaintext highlighter-rouge">bết bát</code> sẵn rồi thì sẽ rất khó vì bản thân VQA tuy chỉ thay cái context là text bởi hình ảnh, nhưng chất lượng detector, rồi alignment mà hai bước trên chưa làm tốt thì sang đến VQA coi như … vỡ trận.</li>
+</ol>
+
+<p>Tuy nhiên, nếu ở vào vai trò anh Postdoc mà làm cái mảng này tôi vẫn sẽ đề xuất luồng làm việc <code class="language-plaintext highlighter-rouge">Image Captioning --&gt; Video-to-Text --&gt; VQA</code>.
+Bởi luồng làm việc này nó theo chiều hướng tích lùy dần know-how để làm việc ngày càng tốt hơn.
+Thứ hai, là vì nó có một vài điểm trigger giữa chừng nên nếu làm postdoc các bạn có thể submit bài báo tại các thời điểm ấy như là làm Image Captioning xong thì 1 bài, …
+<strong>Nhưng rốt cuộc cái quan trọng nhất vẫn là phải có làm có ăn.</strong>
+Còn không muốn làm thì hỏi giáo sư Huấn để biết phải làm gì.</p>
+
 <h2 id="recurrent-neural-nets-long-short-term-memory-và-gated-recurrent-units">Recurrent Neural Nets, Long-Short Term Memory và Gated Recurrent Units</h2>
 
 <h2 id="kiến-trúc-seq2seq-s2s">Kiến trúc Seq2Seq (S2S)</h2>
@@ -378,10 +444,6 @@ Nên nhìn chung là <code class="language-plaintext highlighter-rouge">seq2seq<
                     
                     <li>
                         <a class="smoothscroll" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence</a>
-                    </li>
-                    
-                    <li>
-                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering</a>
                     </li>
                     
                     <li>
@@ -514,7 +576,7 @@ https://search.google.com/structured-data/testing-tool/u/0/
                 
                     <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (16)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (38)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (37)</a>
                 
                     <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
                 
