@@ -5,9 +5,57 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Feb 2022 17:41:11 +0900</pubDate>
-    <lastBuildDate>Tue, 01 Feb 2022 17:41:11 +0900</lastBuildDate>
+    <pubDate>Tue, 01 Feb 2022 19:17:00 +0900</pubDate>
+    <lastBuildDate>Tue, 01 Feb 2022 19:17:00 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Seq2Seq và kiến trúc Encoder-Decoder</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;/aws-account/&quot;&gt;Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn&lt;/a&gt;, hôm nay đọc tiếp cái &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sequence-to-sequence&lt;/code&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq2Seq&lt;/code&gt;) cũng thấy có cả 30k-40k cũng có.
+Thế nên là cái &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq2Seq&lt;/code&gt; này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq2Seq&lt;/code&gt; này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm).
+Chứ đọc làm sao mà hết được?
+Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp.
+Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. 
+Có bài như bài gốc Transformer (Attention is all you need, &lt;a class=&quot;citation&quot; href=&quot;#vaswani2017attention&quot;&gt;[1]&lt;/a&gt;) mới ra đời từ 2017 mà đã hơn 35k trích dẫn!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq2Seq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#kalchbrenner2013recurrent&quot;&gt;[2, 3, 4]&lt;/a&gt; là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT), Question-Answering (QA), Visual Question Answering (VQA) và Video-To-Text (VTT).
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;vaswani2017attention&quot;&gt;Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. 2017. Attention is all you need. &lt;i&gt;Advances in neural information processing systems&lt;/i&gt; (2017), 5998–6008.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/vaswani2017attention/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;kalchbrenner2013recurrent&quot;&gt;Kalchbrenner, N. and Blunsom, P. 2013. Recurrent continuous translation models. &lt;i&gt;Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP), Seattle, USA. Association for Computational Linguistics&lt;/i&gt; (2013).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kalchbrenner2013recurrent/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;sutskever2014sequence&quot;&gt;Sutskever, I., Vinyals, O. and Le, Q.V.V. 2014. Sequence to sequence learning with neural networks. &lt;i&gt;Advances in Neural Information Processing Systems&lt;/i&gt; (2014), 3104–3112.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/sutskever2014sequence/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;cho2014learning&quot;&gt;Cho, K., Merrienboer, B. van, Gulcehre, C., Bougares, F., Schwenk, H. and Bengio, Y. 2014. Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation. &lt;i&gt;arXiv preprint arXiv:1406.1078&lt;/i&gt;. (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/seq2seq/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/seq2seq/</guid>
+        
+        <category>Machine learning</category>
+        
+        <category>Neural Machine Translation</category>
+        
+        <category>Long-Short Term Memory</category>
+        
+        <category>Recurrent Neural Networks</category>
+        
+        <category>Encoder-Decoder</category>
+        
+        <category>Seq2Seq</category>
+        
+        <category>Sequence-to-Sequence</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Artificial Intelligence</category>
+        
+      </item>
     
       <item>
         <title>Machine Learning for Network Intrusion Detection: From Local to Production</title>
@@ -2358,141 +2406,6 @@ Hope to use it in our own products soon.&lt;/p&gt;
         <category>Artificial Intelligence</category>
         
         <category>Computer Vision</category>
-        
-      </item>
-    
-      <item>
-        <title>なぜ帰宅する前や使用済みの時などに電気を消すべきでしょうか?また，なぜ残業しない方がよいか?</title>
-        <description>&lt;p&gt;&lt;strong&gt;あなたは何時出社しますか？何時昼休憩を取りますか？何時に帰宅しますか？&lt;/strong&gt;
-これはSEにとってなかなか回答できるが興味深い質問です．
-「朝8時に出社して，13時に休憩を取り，17時に帰宅する」という回答は一般的であろうが，なぜその時間にしているか説明できるでしょうか？
-実際は上図に述べるように，SEの業務として障害対応が枠に入っており，障害がよく起きる時間にあまり欠席せずに，席にいるべきところもあります．
-これがIPAの調査 &lt;a class=&quot;citation&quot; href=&quot;#ipa01&quot;&gt;[1]&lt;/a&gt;から読み取っているが，朝8時から午後1時まであまり離席しないほうが絶対にいいのです．
-ですので，朝8時に出社できる方は絶対に情報システムの場所では歓迎されます．
-お昼休憩をとるのは13時～で大丈夫ですが，おにぎりやパンなどファストフードを買って席で食べた方が慣れたSEの風景です．
-私は昼休憩は取らないですが，なぜなら，このせいです．
-お昼はファストフードばかりで離席せずに対応を続けています．
-帰宅は19時～で大丈夫でしょう．&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h1 id=&quot;朝寝坊はダメだぞ&quot;&gt;朝寝坊はダメだぞ&lt;/h1&gt;
-
-&lt;p&gt;上で説明したが，朝8時から対応しないといけない障害も起きうるため，SEの場合，朝寝坊は禁則ですね．
-「ITだから，徹夜してプログラミングをしたので朝寝坊してしまった」という説明もちらほら聞かれていますが，ダメです！
-プログラミングは勤務時間内でやれぇ．
-朝で遅れなくきちんと出勤した方がいいです．&lt;/p&gt;
-
-&lt;h1 id=&quot;帰宅時&quot;&gt;帰宅時&lt;/h1&gt;
-
-&lt;p&gt;19時以降翌日7時以前の間に障害の報告が少ないです &lt;a class=&quot;citation&quot; href=&quot;#ipa01&quot;&gt;[1]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#ipa02&quot;&gt;[2]&lt;/a&gt;．
-ですので，19時～で帰宅することは問題ないでしょうか．
-という常識になって，ほぼ皆はその時間で帰宅してお休み時間を取っています．
-じゃ，例えば，深夜に出勤して何か不審な作業をやっている作業員がいると，異常でしょうか？
-これは障害の種であるため，いったん深夜に作業するPCなど機器を起動しないように電気を必ず消しましょう．
-また，例えば，深夜に障害につながる異常が発生すると，出勤できる作業員がお休み中の場合もあるから，対応も大変です．
-なので，19時～翌日7時までの間に，重要インフラ以外電気をきちんと使用されないように規定したほうがいいでしょう．
-「お金がかかっちゃう」という理由もよく聞かれたが，SEの分野では，多分それが本当の理由ではないと思います．
-実際の理由は障害対応の都合であろう．&lt;/p&gt;
-
-&lt;h1 id=&quot;物品を使用したとき&quot;&gt;物品を使用したとき&lt;/h1&gt;
-
-&lt;p&gt;上記の「帰宅時」の説明と同じように，物品の使用が終わったらリソースをクリアしましょう．
-「物品」とは，物理的にある会議室やサーバー部屋や機器などの施設だけではなく，&lt;strong&gt;仮想的に存在するサーバーやクラウドサービスの使用も含まれています&lt;/strong&gt;．
-19時～ではなく，勤務時間内に一時使用するサーバーもあります．
-離席している最中に作業PCはONのままにしている可能性もあり，画面ロックをしない場合，セキュリティインシデントが起きうるのです．&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;離席時，必ず&lt;strong&gt;画面ロック&lt;/strong&gt;などで資産をロックしましょう．再度着席したら，ロック解除で大丈夫です．&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;じゃ，使用が終わったときに，電気を消さないで，リソースをクリアしないでそのままにすると何が問題かな？
-以下は千葉銀行からお客様にお願いする事項 &lt;a class=&quot;citation&quot; href=&quot;#chiba01&quot;&gt;[3]&lt;/a&gt;ですが，興味深いですね．&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;ログアウト等の励行&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;お客さまのパソコンを遠隔で操作し、正当な契約者が操作したように装う事例が発生しております。
-&lt;strong&gt;パソコンの外部からの不正操作を防止するため、Web-EBをご利用にならない時や、インターネット接続が必要ない時は、ご利用のパソコンをネットワークから遮断したり、無線LANを切断するなど、パソコンをインターネット環境から隔離し、常時接続をさけてください。&lt;/strong&gt;
-また、&lt;strong&gt;パソコンをご利用にならない場合は、パソコンの電源を落とすよう徹底&lt;/strong&gt;をお願いいたします。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;電源を落とし，インターネット接続も遮断するというお願いですね．
-もうちょっとわかりやすいマンガで説明した投稿もあります．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.chibabank.co.jp/safety/netbank/comic06/comic03.html&quot;&gt;マンガでわかる！インターネットバンキングのセキュリティ対策 &amp;gt; パソコンの電源を入れたままにしていませんか？&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;最近，クラウド基盤へ移すサービスも少なくないので，物理ではなく仮想的な資産も存在します．
-例えば，AWSの仮想サーバーやサービスなどですね．
-それらは電源を落としても稼働できるため，リソース管理をきちんとしないといけないです．
-つまり，各資産の稼働時間を把握する必要があります．
-それ以外の時間はなんとかの方法でクリアして，再度必要になったら再度立ち上げるように仕組みを規定する必要があります．&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;まあ，ややこしいけど，とりあえず，物理リソースの場合，上記のマンガのように電源を落としましょう．&lt;/strong&gt;
-&lt;strong&gt;仮想リソースの場合，使用のワークフローを自動化し，心配がないようにしましょう．&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;残業&quot;&gt;残業&lt;/h1&gt;
-
-&lt;p&gt;毎日19時～帰宅した方がよいという話をしました．
-ですので，19時以降の「残業」はダメですね．
-といっても，時々仕事のためにしないといけないこともあるでしょう．
-しかし，それが異常程度の確率にしないと大きな問題であろう．
-会社100人で皆残業すると，逆に皆で合意したので体制を決めて残業することは問題ないです．
-しかし，体制も決めず，上司の許可も得ず勝手に残業するということはダメです．&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ですので，障害を減らしたい意志で考えると，会社の体制に従うべきです．
-で，一般的に，&lt;strong&gt;残業しない&lt;/strong&gt;ことにしましょう．&lt;/li&gt;
-  &lt;li&gt;仕事を自宅まで持ち帰っても，&lt;strong&gt;勤務時間外，つまり責任者が常駐しない時に仕事をしない&lt;/strong&gt;ことにしましょう．
-    &lt;ul&gt;
-      &lt;li&gt;WFHの場合でも，仕事を自宅でやっても責任者の許可を得ないまま仕事はしません．&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;仕事が途中半端で19時までに終わらせない場合でも，事前に見通して，&lt;strong&gt;切りのよいタイミングでリソースをクリアして，電源を落として帰宅しましょう&lt;/strong&gt;．
-    &lt;ul&gt;
-      &lt;li&gt;効率というよりも，障害の課題です．&lt;/li&gt;
-      &lt;li&gt;効率の考え方は勤務時間外で考えないで，勤務時間内のみで効率を考えるべきであろう．&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;結論&quot;&gt;結論&lt;/h1&gt;
-&lt;p&gt;そうですね．大学時代，「成果を出せるために，研究室に常駐」，「徹夜して，明日の発表会に成果を説明する資料を作る」，「19時以降も帰宅しない，プログラミングをします」など，大学生・院生からもよく聞かれたが，懐かしいです．
-大学時代で若者はこうしていったが，社会人になって，あれは「異常」です．
-むしろダメです．&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;社会人になってから，初めて朝定時に出社し，午後定時に退出すれば一番いい人間だと感じました．&lt;/strong&gt;
-障害発生が少ない働きを維持しましょう．
-これからその人生を送りたいですね．&lt;/p&gt;
-
-&lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;ipa01&quot;&gt;松田 晃一, 村岡 恭昭 and 齋藤 毅 2019. &lt;i&gt;情報システムの障害状況 - 2019 年後半データ&lt;/i&gt;. IPA社会基盤センター.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ipa01/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ipa02&quot;&gt;情報処理推進機構 情報システムの障害状況一覧：IPA 独立行政法人 情報処理推進機構.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ipa02/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;chiba01&quot;&gt;千葉銀行 セキュリティ対策に関するお願い｜安心してご利用いただくために｜千葉銀行.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/chiba01/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sat, 18 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/turn-off-electric-before-leaving-why/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/turn-off-electric-before-leaving-why/</guid>
-        
-        <category>残業</category>
-        
-        <category>OT</category>
-        
-        <category>電気を消す</category>
-        
-        <category>電気利用</category>
-        
-        <category>障害対応</category>
-        
-        
-        <category>Tiếng Việt, 日本語</category>
-        
-        <category>Software Engineering</category>
-        
-        <category>Project Management</category>
         
       </item>
     

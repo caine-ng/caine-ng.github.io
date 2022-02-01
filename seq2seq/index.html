@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="https://wanted2.github.io/assets/images/favicon.ico">
+
+<title>Seq2Seq và kiến trúc Encoder-Decoder | AiFi</title>
+
+ 
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6" crossorigin="anonymous"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2CDTCF0EP6');
+        </script>
+    
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Seq2Seq và kiến trúc Encoder-Decoder | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [4]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [4, 4, 4] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT), Question-Answering (QA), Visual Question Answering (VQA) và Video-To-Text (VTT)." />
+<meta property="og:description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [4]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [4, 4, 4] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT), Question-Answering (QA), Visual Question Answering (VQA) và Video-To-Text (VTT)." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/https://wanted2.github.io/assets/images/san01.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-01T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/https://wanted2.github.io/assets/images/san01.png" />
+<meta property="twitter:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
+<script type="application/ld+json">
+{"headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [4]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [4, 4, 4] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT), Question-Answering (QA), Visual Question Answering (VQA) và Video-To-Text (VTT).","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"image":"/https://wanted2.github.io/assets/images/san01.png","url":"/https://wanted2.github.io/seq2seq/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="https://wanted2.github.io/assets/css/screen.css" rel="stylesheet">
+
+<link href="https://wanted2.github.io/assets/css/main.css" rel="stylesheet">
+
+<script src="https://wanted2.github.io/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<!-- <script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script> -->
+</head>
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="https://wanted2.github.io/">
+    <img src="https://wanted2.github.io/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="https://wanted2.github.io/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="https://wanted2.github.io/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="https://wanted2.github.io/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <!-- <script src="https://wanted2.github.io/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="https://wanted2.github.io/assets/js/lunrsearchengine.js"></script> -->
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Seq2Seq và kiến trúc Encoder-Decoder&url=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="mailto:?subject=Seq2Seq và kiến trúc Encoder-Decoder&body=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-2 col-lg-2 text-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://wanted2.github.io/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-10 col-lg-10 text-right">
+                        <a target="_blank" class="link-dark" href="">AiFi</a>
+                        <!-- <a target="_blank" href="" class="btn follow">Follow</a> -->
+                        <!-- LikeBtn.com BEGIN -->
+                        <span class="likebtn-wrapper" 
+                            data-site_id="61cfccd36fd08b2d68c1929e"
+                            data-theme="custom" 
+                            data-icon_l_url="/assets/images/OK_EM.png" 
+                            data-icon_l_url_v="/assets/images/OK_EM_clicked.png" 
+                            data-identifier="/seq2seq/" 
+                            data-show_like_label="false" 
+                            data-like_enabled="false" 
+                            data-dislike_enabled="false" 
+                            data-icon_dislike_show="false" 
+                            data-voting_cancelable="false" 
+                            data-counter_show="true"
+                            data-counter_frmt="comma"></span>
+                        <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+                        <!-- LikeBtn.com END -->
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Seq2Seq và kiến trúc Encoder-Decoder</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://wanted2.github.io/assets/images/san01.png" alt="Seq2Seq và kiến trúc Encoder-Decoder">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <blockquote>
+  <p><a href="/aws-account/">Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn</a>, hôm nay đọc tiếp cái <code class="language-plaintext highlighter-rouge">sequence-to-sequence</code> (<code class="language-plaintext highlighter-rouge">Seq2Seq</code>) cũng thấy có cả 30k-40k cũng có.
+Thế nên là cái <code class="language-plaintext highlighter-rouge">Seq2Seq</code> này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái <code class="language-plaintext highlighter-rouge">Seq2Seq</code> này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm).
+Chứ đọc làm sao mà hết được?
+Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp.
+Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. 
+Có bài như bài gốc Transformer (Attention is all you need, <a class="citation" href="#vaswani2017attention">[1]</a>) mới ra đời từ 2017 mà đã hơn 35k trích dẫn!</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">Seq2Seq</code> <a class="citation" href="#kalchbrenner2013recurrent">[2, 3, 4]</a> là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT), Question-Answering (QA), Visual Question Answering (VQA) và Video-To-Text (VTT).
+<!--more--></p>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="vaswani2017attention">Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. 2017. Attention is all you need. <i>Advances in neural information processing systems</i> (2017), 5998–6008.</span><a class="details" href="https://wanted2.github.io/bibliography/vaswani2017attention/">Details</a></li>
+<li><span id="kalchbrenner2013recurrent">Kalchbrenner, N. and Blunsom, P. 2013. Recurrent continuous translation models. <i>Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP), Seattle, USA. Association for Computational Linguistics</i> (2013).</span><a class="details" href="https://wanted2.github.io/bibliography/kalchbrenner2013recurrent/">Details</a></li>
+<li><span id="sutskever2014sequence">Sutskever, I., Vinyals, O. and Le, Q.V.V. 2014. Sequence to sequence learning with neural networks. <i>Advances in Neural Information Processing Systems</i> (2014), 3104–3112.</span><a class="details" href="https://wanted2.github.io/bibliography/sutskever2014sequence/">Details</a></li>
+<li><span id="cho2014learning">Cho, K., Merrienboer, B. van, Gulcehre, C., Bougares, F., Schwenk, H. and Bengio, Y. 2014. Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation. <i>arXiv preprint arXiv:1406.1078</i>. (2014).</span><a class="details" href="https://wanted2.github.io/bibliography/cho2014learning/">Details</a></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-02-01">01 Feb 2022</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Encoder-Decoder">#Encoder-Decoder</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Long-Short-Term-Memory">#Long-Short Term Memory</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Machine-learning">#Machine learning</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Neural-Machine-Translation">#Neural Machine Translation</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Recurrent-Neural-Networks">#Recurrent Neural Networks</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Seq2Seq">#Seq2Seq</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Sequence-to-Sequence">#Sequence-to-Sequence</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="https://wanted2.github.io//ml-ids/"> &laquo; Machine Learning for Network Intrusion Detection: From Local to Production</a>
+            
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="https://wanted2.github.io/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://caineng.us20.list-manage.com/subscribe/post?u=76342d3d74a6807aac5aec0d7&id=b5645e19be" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (16)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (38)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (18)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (36)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (34)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2022 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="https://wanted2.github.io/assets/js/mediumish.js"></script>
+
+
+<script src="https://wanted2.github.io/assets/js/lazyload.js"></script>
+
+
+<script src="https://wanted2.github.io/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>
