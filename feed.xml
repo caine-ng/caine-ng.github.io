@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 02 Feb 2022 02:46:35 +0900</pubDate>
-    <lastBuildDate>Wed, 02 Feb 2022 02:46:35 +0900</lastBuildDate>
+    <pubDate>Wed, 02 Feb 2022 03:11:30 +0900</pubDate>
+    <lastBuildDate>Wed, 02 Feb 2022 03:11:30 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -20,9 +20,9 @@ Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 201
 Có bài như bài gốc Transformer (Attention is all you need, &lt;a class=&quot;citation&quot; href=&quot;#vaswani2017attention&quot;&gt;[1]&lt;/a&gt;) mới ra đời từ 2017 mà đã hơn 35k trích dẫn!&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq2Seq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#kalchbrenner2013recurrent&quot;&gt;[2, 3, 4]&lt;/a&gt; là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, &lt;a class=&quot;citation&quot; href=&quot;#sutskever2014sequence&quot;&gt;[3]&lt;/a&gt;), Question-Answering (QA, &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2016squad&quot;&gt;[5]&lt;/a&gt;), Visual Question Answering (VQA, &lt;a class=&quot;citation&quot; href=&quot;#antol2015vqa&quot;&gt;[6]&lt;/a&gt;) và Video-To-Text (VTT, &lt;a class=&quot;citation&quot; href=&quot;#venugopalan2015sequence&quot;&gt;[7]&lt;/a&gt;).
-Bài toán Image Captioning thì cũng có thể ứng dụng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; như trong bài &lt;em&gt;Semantic Attention (SA) &lt;a class=&quot;citation&quot; href=&quot;#you2016image&quot;&gt;[8]&lt;/a&gt;&lt;/em&gt; hay &lt;em&gt;Densecap &lt;a class=&quot;citation&quot; href=&quot;#johnson2016densecap&quot;&gt;[9]&lt;/a&gt;&lt;/em&gt;.
-Nên nhìn chung là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng &lt;a class=&quot;citation&quot; href=&quot;#luong2015multi&quot;&gt;[10]&lt;/a&gt;.
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq2Seq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#kalchbrenner2013recurrent&quot;&gt;[2, 3, 4]&lt;/a&gt; là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, &lt;a class=&quot;citation&quot; href=&quot;#sutskever2014sequence&quot;&gt;[3]&lt;/a&gt;), Question-Answering (QA, &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2016squad&quot;&gt;[5]&lt;/a&gt;), Visual Question Answering (VQA, &lt;a class=&quot;citation&quot; href=&quot;#antol2015vqa&quot;&gt;[6]&lt;/a&gt;), Text Summarization (TS, &lt;a class=&quot;citation&quot; href=&quot;#rush2015neural&quot;&gt;[7, 8]&lt;/a&gt;) và Video-To-Text (VTT, &lt;a class=&quot;citation&quot; href=&quot;#venugopalan2015sequence&quot;&gt;[9]&lt;/a&gt;).
+Bài toán Image Captioning thì cũng có thể ứng dụng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; như trong bài &lt;em&gt;Semantic Attention (SA) &lt;a class=&quot;citation&quot; href=&quot;#you2016image&quot;&gt;[10]&lt;/a&gt;&lt;/em&gt; hay &lt;em&gt;Densecap &lt;a class=&quot;citation&quot; href=&quot;#johnson2016densecap&quot;&gt;[11]&lt;/a&gt;&lt;/em&gt;.
+Nên nhìn chung là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng &lt;a class=&quot;citation&quot; href=&quot;#luong2015multi&quot;&gt;[12]&lt;/a&gt;.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;giới-thiệu-model-seq2seq&quot;&gt;Giới thiệu model Seq2Seq&lt;/h1&gt;
@@ -31,9 +31,13 @@ Nên nhìn chung là &lt;code class=&quot;language-plaintext highlighter-rouge&q
 
 &lt;h2 id=&quot;kiến-trúc-seq2seq-s2s&quot;&gt;Kiến trúc Seq2Seq (S2S)&lt;/h2&gt;
 
+&lt;h2 id=&quot;anh-em-nhà-bert&quot;&gt;Anh em nhà BERT&lt;/h2&gt;
+
 &lt;h1 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h1&gt;
 
 &lt;h2 id=&quot;neural-machine-translation-nmt&quot;&gt;Neural Machine Translation (NMT)&lt;/h2&gt;
+
+&lt;h2 id=&quot;text-summarization&quot;&gt;Text Summarization&lt;/h2&gt;
 
 &lt;h2 id=&quot;qa-và-vqa&quot;&gt;QA và VQA&lt;/h2&gt;
 
@@ -49,6 +53,8 @@ Nên nhìn chung là &lt;code class=&quot;language-plaintext highlighter-rouge&q
 &lt;li&gt;&lt;span id=&quot;cho2014learning&quot;&gt;Cho, K., Merrienboer, B. van, Gulcehre, C., Bougares, F., Schwenk, H. and Bengio, Y. 2014. Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation. &lt;i&gt;arXiv preprint arXiv:1406.1078&lt;/i&gt;. (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;rajpurkar2016squad&quot;&gt;Rajpurkar, P., Zhang, J., Lopyrev, K. and Liang, P. 2016. SQuAD: 100,000+ Questions for Machine Comprehension of Text. &lt;i&gt;Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing&lt;/i&gt; (2016), 2383–2392.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rajpurkar2016squad/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;antol2015vqa&quot;&gt;Antol, S., Agrawal, A., Lu, J., Mitchell, M., Batra, D., Zitnick, C.L. and Parikh, D. 2015. Vqa: Visual question answering. &lt;i&gt;Proceedings of the IEEE international conference on computer vision&lt;/i&gt; (2015), 2425–2433.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/antol2015vqa/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;rush2015neural&quot;&gt;Rush, A.M., Chopra, S. and Weston, J. 2015. A Neural Attention Model for Abstractive Sentence Summarization. &lt;i&gt;Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing&lt;/i&gt; (2015), 379–389.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rush2015neural/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ranzato2015sequence&quot;&gt;Ranzato, M.A., Chopra, S., Auli, M. and Zaremba, W. 2015. Sequence level training with recurrent neural networks. &lt;i&gt;arXiv preprint arXiv:1511.06732&lt;/i&gt;. (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ranzato2015sequence/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;venugopalan2015sequence&quot;&gt;Venugopalan, S., Rohrbach, M., Donahue, J., Mooney, R., Darrell, T. and Saenko, K. 2015. Sequence to sequence-video to text. &lt;i&gt;Proceedings of the IEEE international conference on computer vision&lt;/i&gt; (2015), 4534–4542.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/venugopalan2015sequence/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;you2016image&quot;&gt;You, Q., Jin, H., Wang, Z., Fang, C. and Luo, J. 2016. Image captioning with semantic attention. &lt;i&gt;Proceedings of the IEEE conference on computer vision and pattern recognition&lt;/i&gt; (2016), 4651–4659.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/you2016image/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;johnson2016densecap&quot;&gt;Johnson, J., Karpathy, A. and Fei-Fei, L. 2016. Densecap: Fully convolutional localization networks for dense captioning. &lt;i&gt;Proceedings of the IEEE conference on computer vision and pattern recognition&lt;/i&gt; (2016), 4565–4574.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/johnson2016densecap/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
