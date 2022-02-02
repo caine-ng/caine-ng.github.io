@@ -393,6 +393,42 @@ Còn không muốn làm thì hỏi giáo sư Huấn để biết phải làm gì
 
 <h2 id="recurrent-neural-nets-long-short-term-memory-và-gated-recurrent-units">Recurrent Neural Nets, Long-Short Term Memory và Gated Recurrent Units</h2>
 
+<p>Thôi nói chung là cái trường hợp postdoc ở trên là một ví dụ điển hình thôi, mà trường hợp ấy tôi nghĩ đã được giáo sư Huấn chỉ bảo tận tình rồi nên không cần lo lắng nữa.
+Chúng ta quay lại với chủ để chính của hôm nay là giới thiệu về <code class="language-plaintext highlighter-rouge">seq2seq</code>.
+Để implement được <code class="language-plaintext highlighter-rouge">seq2seq</code> thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là <em>Stochastic Gradient Descent (SGD)</em>.
+Thì cái học củ SGD là mình chỉ random sample một phần của dữ liệu học để tính được gradient và update weight của model.
+Chúng ta sẽ có <em>learning rate</em> mà nhỏ thì chậm, còn cao quá thì mô hình sẽ khó hội tụ.</p>
+
+<p>Lời giải thì đơn giản nhất là có mô hình <em>Recurrent Neural Nets (RNN)</em> mà mô hình và công thức forward pass như bên dưới:</p>
+
+<p><img src="/assets/images/rnn.svg" alt="rnn" /></p>
+
+<p>Công thức rất rõ ràng nên có thể sử dụng <code class="language-plaintext highlighter-rouge">Numpy</code> để implement forward pass khá đơn giản với vài dòng code chơi thôi.
+Cái khó khăn là khi đã tính xong kết quả các biến \(u_t, o_t, h_t, x_t\) và hàm loss \(\mathcal{L}\) thì <strong>làm sao update được các weight \(\mathbf{V}, \mathbf{W}, \mathbf{b}, \mathbf{c}\)</strong>?</p>
+
+<p>Thì có hệ thống các công thức phía dưới:</p>
+
+<p><img src="/assets/images/bptt.svg" alt="bptt" /></p>
+
+<p>Tuy hệ thống công thức này phức tạp hơn, nhưng vẫn có thể implement bằng <code class="language-plaintext highlighter-rouge">Numpy</code> và thực hiện train với SGD (tầm khoảng vài chục dòng code nữa).
+Nhìn lại thì công thức và cả phương thức implement RNN là cũng rất <strong>rõ ràng rồi</strong>, vì vậy, nếu không thể implement được thì … thày cũng chịu không thể giải thích tại sao được?</p>
+
+<p>Nhược điểm của RNN là vấn đề ghi nhớ <em>long-term dependencies</em>: ví dụ chúng ta có 1 gradient \(\mathbf{g}\) và giả sử là RNN không có non-linear activations nào thì chúng ta có thể giả sử thêm là cứ sau mỗi time step thì Jacobian matrix là \(\mathbf{J}\), vậy sau \(n\) bước thì gradient của chúng ta sẽ biến thành \(\mathbf{J}^n\mathbf{g}\) và nếu nó có một giá trị riêng \(\lambda\) mà giá trị khác \(\pm 1\), thì sẽ dẫn đến vấn đề là gradient triệt tiêu hoặc tiến ra vô cùng sau hữu hạn bước tính.
+Để khắc phục nhược điểm này thì một giải pháp được đưa ra là đưa <em>self-loop</em> vào cùng các <em>non-linear gates</em> như forget gate, output/input gates để control giá trị.
+Mỗi cổng đều chứa <em>sigmoid</em> activation để đưa giá trị về khoảng \((0,1)\) dẫn đến các giá trị output ở các cổng có thể bị shut-off.</p>
+
+<p><img src="/assets/images/lstm.svg" alt="lstm" /></p>
+
+<p>Việc thêm gates và non-linear activation (<code class="language-plaintext highlighter-rouge">sigmoid</code>) để control giá trị là hợp lý với LSTM.
+Tuy nhiên, nếu nhìn vào cái đám công thức thì trong LSTM khi update và forget của \(\mathbf{h}_{t+1}\) là đồng thời thực hiện song song việc forget và quyết định có update hay không.
+<strong>Gated Recurrent Unit (GRU)</strong> thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng <code class="language-plaintext highlighter-rouge">update</code> và <code class="language-plaintext highlighter-rouge">reset</code> cho từng mục đích ấy.</p>
+
+<blockquote>
+  <p>Nhìn chung, công thức toán của các kiến trúc RNN/LSTM/GRU đều không phức tạp.
+Nếu có thời gian, các bạn có thể tự thực hiện implement các kiến trúc trên bằng <code class="language-plaintext highlighter-rouge">numpy</code>.
+Forward pass thì chắc là đơn giản hơn, tuy nhiên backward pass với SGD thì sẽ đòi hỏi một chút công sức (vài chục dòng code nữa).</p>
+</blockquote>
+
 <h2 id="kiến-trúc-seq2seq-s2s">Kiến trúc Seq2Seq (S2S)</h2>
 
 <h2 id="anh-em-nhà-bert">Anh em nhà BERT</h2>

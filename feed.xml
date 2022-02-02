@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 02 Feb 2022 04:54:48 +0900</pubDate>
-    <lastBuildDate>Wed, 02 Feb 2022 04:54:48 +0900</lastBuildDate>
+    <pubDate>Thu, 03 Feb 2022 02:33:02 +0900</pubDate>
+    <lastBuildDate>Thu, 03 Feb 2022 02:33:02 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -94,6 +94,42 @@ Thứ hai, là vì nó có một vài điểm trigger giữa chừng nên nếu 
 Còn không muốn làm thì hỏi giáo sư Huấn để biết phải làm gì.&lt;/p&gt;
 
 &lt;h2 id=&quot;recurrent-neural-nets-long-short-term-memory-và-gated-recurrent-units&quot;&gt;Recurrent Neural Nets, Long-Short Term Memory và Gated Recurrent Units&lt;/h2&gt;
+
+&lt;p&gt;Thôi nói chung là cái trường hợp postdoc ở trên là một ví dụ điển hình thôi, mà trường hợp ấy tôi nghĩ đã được giáo sư Huấn chỉ bảo tận tình rồi nên không cần lo lắng nữa.
+Chúng ta quay lại với chủ để chính của hôm nay là giới thiệu về &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.
+Để implement được &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là &lt;em&gt;Stochastic Gradient Descent (SGD)&lt;/em&gt;.
+Thì cái học củ SGD là mình chỉ random sample một phần của dữ liệu học để tính được gradient và update weight của model.
+Chúng ta sẽ có &lt;em&gt;learning rate&lt;/em&gt; mà nhỏ thì chậm, còn cao quá thì mô hình sẽ khó hội tụ.&lt;/p&gt;
+
+&lt;p&gt;Lời giải thì đơn giản nhất là có mô hình &lt;em&gt;Recurrent Neural Nets (RNN)&lt;/em&gt; mà mô hình và công thức forward pass như bên dưới:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/rnn.svg&quot; alt=&quot;rnn&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Công thức rất rõ ràng nên có thể sử dụng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Numpy&lt;/code&gt; để implement forward pass khá đơn giản với vài dòng code chơi thôi.
+Cái khó khăn là khi đã tính xong kết quả các biến \(u_t, o_t, h_t, x_t\) và hàm loss \(\mathcal{L}\) thì &lt;strong&gt;làm sao update được các weight \(\mathbf{V}, \mathbf{W}, \mathbf{b}, \mathbf{c}\)&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;Thì có hệ thống các công thức phía dưới:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/bptt.svg&quot; alt=&quot;bptt&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tuy hệ thống công thức này phức tạp hơn, nhưng vẫn có thể implement bằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Numpy&lt;/code&gt; và thực hiện train với SGD (tầm khoảng vài chục dòng code nữa).
+Nhìn lại thì công thức và cả phương thức implement RNN là cũng rất &lt;strong&gt;rõ ràng rồi&lt;/strong&gt;, vì vậy, nếu không thể implement được thì … thày cũng chịu không thể giải thích tại sao được?&lt;/p&gt;
+
+&lt;p&gt;Nhược điểm của RNN là vấn đề ghi nhớ &lt;em&gt;long-term dependencies&lt;/em&gt;: ví dụ chúng ta có 1 gradient \(\mathbf{g}\) và giả sử là RNN không có non-linear activations nào thì chúng ta có thể giả sử thêm là cứ sau mỗi time step thì Jacobian matrix là \(\mathbf{J}\), vậy sau \(n\) bước thì gradient của chúng ta sẽ biến thành \(\mathbf{J}^n\mathbf{g}\) và nếu nó có một giá trị riêng \(\lambda\) mà giá trị khác \(\pm 1\), thì sẽ dẫn đến vấn đề là gradient triệt tiêu hoặc tiến ra vô cùng sau hữu hạn bước tính.
+Để khắc phục nhược điểm này thì một giải pháp được đưa ra là đưa &lt;em&gt;self-loop&lt;/em&gt; vào cùng các &lt;em&gt;non-linear gates&lt;/em&gt; như forget gate, output/input gates để control giá trị.
+Mỗi cổng đều chứa &lt;em&gt;sigmoid&lt;/em&gt; activation để đưa giá trị về khoảng \((0,1)\) dẫn đến các giá trị output ở các cổng có thể bị shut-off.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/lstm.svg&quot; alt=&quot;lstm&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Việc thêm gates và non-linear activation (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sigmoid&lt;/code&gt;) để control giá trị là hợp lý với LSTM.
+Tuy nhiên, nếu nhìn vào cái đám công thức thì trong LSTM khi update và forget của \(\mathbf{h}_{t+1}\) là đồng thời thực hiện song song việc forget và quyết định có update hay không.
+&lt;strong&gt;Gated Recurrent Unit (GRU)&lt;/strong&gt; thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; cho từng mục đích ấy.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Nhìn chung, công thức toán của các kiến trúc RNN/LSTM/GRU đều không phức tạp.
+Nếu có thời gian, các bạn có thể tự thực hiện implement các kiến trúc trên bằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numpy&lt;/code&gt;.
+Forward pass thì chắc là đơn giản hơn, tuy nhiên backward pass với SGD thì sẽ đòi hỏi một chút công sức (vài chục dòng code nữa).&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;kiến-trúc-seq2seq-s2s&quot;&gt;Kiến trúc Seq2Seq (S2S)&lt;/h2&gt;
 
