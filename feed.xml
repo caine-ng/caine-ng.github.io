@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 03 Feb 2022 02:33:02 +0900</pubDate>
-    <lastBuildDate>Thu, 03 Feb 2022 02:33:02 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Feb 2022 01:57:05 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Feb 2022 01:57:05 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -97,11 +97,11 @@ Còn không muốn làm thì hỏi giáo sư Huấn để biết phải làm gì
 
 &lt;p&gt;Thôi nói chung là cái trường hợp postdoc ở trên là một ví dụ điển hình thôi, mà trường hợp ấy tôi nghĩ đã được giáo sư Huấn chỉ bảo tận tình rồi nên không cần lo lắng nữa.
 Chúng ta quay lại với chủ để chính của hôm nay là giới thiệu về &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.
-Để implement được &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là &lt;em&gt;Stochastic Gradient Descent (SGD)&lt;/em&gt;.
+Để implement được &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là &lt;em&gt;Stochastic Gradient Descent (SGD, &lt;a class=&quot;citation&quot; href=&quot;#bottou2007tradeoffs&quot;&gt;[13]&lt;/a&gt;)&lt;/em&gt;.
 Thì cái học củ SGD là mình chỉ random sample một phần của dữ liệu học để tính được gradient và update weight của model.
 Chúng ta sẽ có &lt;em&gt;learning rate&lt;/em&gt; mà nhỏ thì chậm, còn cao quá thì mô hình sẽ khó hội tụ.&lt;/p&gt;
 
-&lt;p&gt;Lời giải thì đơn giản nhất là có mô hình &lt;em&gt;Recurrent Neural Nets (RNN)&lt;/em&gt; mà mô hình và công thức forward pass như bên dưới:&lt;/p&gt;
+&lt;p&gt;Lời giải thì đơn giản nhất là có mô hình &lt;em&gt;Recurrent Neural Nets (RNN, &lt;a class=&quot;citation&quot; href=&quot;#rumelhart1986learning&quot;&gt;[14]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[15]&lt;/a&gt;)&lt;/em&gt; mà mô hình và công thức forward pass như bên dưới:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/rnn.svg&quot; alt=&quot;rnn&quot; /&gt;&lt;/p&gt;
 
@@ -117,13 +117,14 @@ Nhìn lại thì công thức và cả phương thức implement RNN là cũng r
 
 &lt;p&gt;Nhược điểm của RNN là vấn đề ghi nhớ &lt;em&gt;long-term dependencies&lt;/em&gt;: ví dụ chúng ta có 1 gradient \(\mathbf{g}\) và giả sử là RNN không có non-linear activations nào thì chúng ta có thể giả sử thêm là cứ sau mỗi time step thì Jacobian matrix là \(\mathbf{J}\), vậy sau \(n\) bước thì gradient của chúng ta sẽ biến thành \(\mathbf{J}^n\mathbf{g}\) và nếu nó có một giá trị riêng \(\lambda\) mà giá trị khác \(\pm 1\), thì sẽ dẫn đến vấn đề là gradient triệt tiêu hoặc tiến ra vô cùng sau hữu hạn bước tính.
 Để khắc phục nhược điểm này thì một giải pháp được đưa ra là đưa &lt;em&gt;self-loop&lt;/em&gt; vào cùng các &lt;em&gt;non-linear gates&lt;/em&gt; như forget gate, output/input gates để control giá trị.
+Một kiến trúc đã làm được việc đó là &lt;em&gt;Long-Short Term Memory (LSTM, &lt;a class=&quot;citation&quot; href=&quot;#hochreiter1997long&quot;&gt;[16, 17]&lt;/a&gt;)&lt;/em&gt;.
 Mỗi cổng đều chứa &lt;em&gt;sigmoid&lt;/em&gt; activation để đưa giá trị về khoảng \((0,1)\) dẫn đến các giá trị output ở các cổng có thể bị shut-off.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/lstm.svg&quot; alt=&quot;lstm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Việc thêm gates và non-linear activation (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sigmoid&lt;/code&gt;) để control giá trị là hợp lý với LSTM.
 Tuy nhiên, nếu nhìn vào cái đám công thức thì trong LSTM khi update và forget của \(\mathbf{h}_{t+1}\) là đồng thời thực hiện song song việc forget và quyết định có update hay không.
-&lt;strong&gt;Gated Recurrent Unit (GRU)&lt;/strong&gt; thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; cho từng mục đích ấy.&lt;/p&gt;
+&lt;strong&gt;Gated Recurrent Unit (GRU, &lt;a class=&quot;citation&quot; href=&quot;#cho2014properties&quot;&gt;[18]&lt;/a&gt;)&lt;/strong&gt; thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; cho từng mục đích ấy.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Nhìn chung, công thức toán của các kiến trúc RNN/LSTM/GRU đều không phức tạp.
@@ -160,7 +161,13 @@ Forward pass thì chắc là đơn giản hơn, tuy nhiên backward pass với S
 &lt;li&gt;&lt;span id=&quot;venugopalan2015sequence&quot;&gt;Venugopalan, S., Rohrbach, M., Donahue, J., Mooney, R., Darrell, T. and Saenko, K. 2015. Sequence to sequence-video to text. &lt;i&gt;Proceedings of the IEEE international conference on computer vision&lt;/i&gt; (2015), 4534–4542.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/venugopalan2015sequence/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;you2016image&quot;&gt;You, Q., Jin, H., Wang, Z., Fang, C. and Luo, J. 2016. Image captioning with semantic attention. &lt;i&gt;Proceedings of the IEEE conference on computer vision and pattern recognition&lt;/i&gt; (2016), 4651–4659.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/you2016image/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;johnson2016densecap&quot;&gt;Johnson, J., Karpathy, A. and Fei-Fei, L. 2016. Densecap: Fully convolutional localization networks for dense captioning. &lt;i&gt;Proceedings of the IEEE conference on computer vision and pattern recognition&lt;/i&gt; (2016), 4565–4574.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/johnson2016densecap/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;luong2015multi&quot;&gt;Luong, M.-T., Le, Q.V., Sutskever, I., Vinyals, O. and Kaiser, L. 2015. Multi-task sequence to sequence learning. &lt;i&gt;arXiv preprint arXiv:1511.06114&lt;/i&gt;. (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/luong2015multi/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;luong2015multi&quot;&gt;Luong, M.-T., Le, Q.V., Sutskever, I., Vinyals, O. and Kaiser, L. 2015. Multi-task sequence to sequence learning. &lt;i&gt;arXiv preprint arXiv:1511.06114&lt;/i&gt;. (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/luong2015multi/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;bottou2007tradeoffs&quot;&gt;Bottou, L. and Bousquet, O. 2007. The tradeoffs of large scale learning. &lt;i&gt;Advances in neural information processing systems&lt;/i&gt;. 20, (2007).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/bottou2007tradeoffs/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;rumelhart1986learning&quot;&gt;Rumelhart, D.E., Hinton, G.E. and Williams, R.J. 1986. Learning representations by back-propagating errors. &lt;i&gt;nature&lt;/i&gt;. 323, 6088 (1986), 533–536.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rumelhart1986learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;goodfellow2016deep&quot;&gt;Goodfellow, I., Bengio, Y. and Courville, A. 2016. &lt;i&gt;Deep learning&lt;/i&gt;. MIT press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/goodfellow2016deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hochreiter1997long&quot;&gt;Hochreiter, S. and Schmidhuber, J. 1997. Long short-term memory. &lt;i&gt;Neural computation&lt;/i&gt;. 9, 8 (1997), 1735–1780.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hochreiter1997long/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;gers2000learning&quot;&gt;Gers, F.A., Schmidhuber, J. and Cummins, F. 2000. Learning to forget: Continual prediction with LSTM. &lt;i&gt;Neural computation&lt;/i&gt;. 12, 10 (2000), 2451–2471.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gers2000learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;cho2014properties&quot;&gt;Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. &lt;i&gt;Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014&lt;/i&gt; (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014properties/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>
