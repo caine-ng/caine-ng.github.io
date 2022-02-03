@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Feb 2022 01:57:05 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Feb 2022 01:57:05 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Feb 2022 05:16:05 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Feb 2022 05:16:05 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -128,11 +128,176 @@ Tuy nhiên, nếu nhìn vào cái đám công thức thì trong LSTM khi update 
 
 &lt;blockquote&gt;
   &lt;p&gt;Nhìn chung, công thức toán của các kiến trúc RNN/LSTM/GRU đều không phức tạp.
-Nếu có thời gian, các bạn có thể tự thực hiện implement các kiến trúc trên bằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numpy&lt;/code&gt;.
+Nếu có thời gian, các bạn có thể tự thực hiện implement các kiến t
+rúc trên bằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numpy&lt;/code&gt;.
 Forward pass thì chắc là đơn giản hơn, tuy nhiên backward pass với SGD thì sẽ đòi hỏi một chút công sức (vài chục dòng code nữa).&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;Nói một chút về hàm loss \(\mathcal{L}\) khi train NMT chẳng hạn, vì chúng ta biết chuỗi &lt;strong&gt;đúng&lt;/strong&gt; \(\mathbf{y}=(y_1,y_2,\ldots,y_n)\) nên ở mỗi step \(0\leq t\leq n-1\), ta sẽ xem xét vector output \(\mathbf{u}_t\) (là softmax) và lấy xác suất của vị trí thứ \(y_t\), và tất nhiên lấy log nghịch đảo như mọi khi:&lt;/p&gt;
+
+\[\mathcal{L}=\sum_t-\log u_{y_t}\]
+
+&lt;p&gt;Khi testing, chúng ta sẽ sử dụng &lt;strong&gt;beam search&lt;/strong&gt; để tìm ra các chuỗi phù hợp (sẽ giải thích thêm ở phần sau).&lt;/p&gt;
+
 &lt;h2 id=&quot;kiến-trúc-seq2seq-s2s&quot;&gt;Kiến trúc Seq2Seq (S2S)&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/san01.png&quot; alt=&quot;seq2seq&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Training &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; đòi hỏi cần có GPU phù hợp và tận dụng xử lý song song.
+1 đặc điểm không thể tránh khỏi của bộ dữ liệu là độ dài các chuỗi không đồng bộ, nên có thể tạo ra giải pháp là &lt;strong&gt;fill thêm ký tự trống vào để cho tất cả các chuỗi cùng độ dài&lt;/strong&gt;.
+Việc này sẽ đòi hỏi thêm khá nhiều memory, vì vậy, một giải pháp khá phù hợp là chia ra thành các &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maxi-batches&lt;/code&gt; rồi trong từng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maxi-batch&lt;/code&gt; thì lại chia tiếp thành các &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mini-batch&lt;/code&gt;.
+Trong mỗi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mini-batch&lt;/code&gt; như hình dưới thì mới thực hiện fill ký tự trống.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/rnn-mini-batches.png&quot; alt=&quot;rnn-mini-batches&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Training &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thường mất 5-15 epochs (1 lượt qua toàn bộ corpus).
+Bạn cũng nên thiết lập một tiêu chí dừng lại khi validation error rate không cải tiến thêm.
+Training lâu thêm không những không tạo thêm cải tiến mà có thể dẫn tới overfitting.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Testing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;&lt;/strong&gt;. Giả sử chúng ta có một corpus 50,000 từ.
+Vậy trong vector \(\mathbf{u}_t\in\mathbb{R}^{50,000}\), ta sẽ chọn phần tử có xác suất cao nhất (dựa trên embedding logits) để output ra ở bước thứ \(t\).
+Giải pháp này tức là &lt;strong&gt;chỉ chọn cái tốt nhất ở mỗi bước&lt;/strong&gt;.
+Vấn đề ở đây là nếu chỉ chọn cái tốt nhất độc lập ở từng bước thì khi đến một thời điểm \(t&apos;\), câu dịch trở lên không đúng thì không thể quay lại sửa từ đầu được.
+Do đó, cách tốt hơn là dùng &lt;strong&gt;Beam Search&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ở bước \(t=0\) chúng ta chọn một beam gồm \(n\) top words \(p(w_0^1), p(w_0^2), \ldots, p(w_0^n)\).&lt;/li&gt;
+  &lt;li&gt;Ở thời điểm tiếp theo \(t=1\), ta lại chọn tiếp \(n\) top words \(p(w_1^1), p(w_1^2), \ldots, p(w_1^n)\) và làm tiếp:
+    &lt;ul&gt;
+      &lt;li&gt;nhân xác xuất của cụm 2 từ liên tiếp \(p(w_0^{i_0})p(w_1^{i_1}), 1\leq i_0, i_1\leq n\).&lt;/li&gt;
+      &lt;li&gt;Chọn top \(n\) cặp từ \((i_0,i_1)\) giữ lại.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ở thời điểm \(t=2\), ta lại chọn tiếp top \(n\) words \(p(w_2^1), p(w_2^2), \ldots, p(w_2^n)\), và lại nhân xác suất để tìm ra top \(n\) triplets \((i_0, i_1, i_2)\) để giữ lại trong beam.&lt;/li&gt;
+  &lt;li&gt;Cứ tiếp tục như vậy đến khi gặp &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EOS&lt;/code&gt; thì bỏ câu dịch đó ra khỏi beam và giảm size của beam đi 1.&lt;/li&gt;
+  &lt;li&gt;Khi kích thước của beam giảm xuống còn 0 thì dừng beam search.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Một đoạn code demo của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beam search&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;itertools&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;random&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;warnings&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;warnings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filterwarnings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;ignore&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;softmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sample_decoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vocab_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    We implement a sample encoder.
+    In practice, it should be a neural network.
+    But for this demo of beam search, this is enough!
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;softmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vocab_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argmax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;beam_search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eos_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vocab_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    :param outputs: the output of encoders as softmax probabilities
+    :param n: beam&apos;s maximum size
+    :return the completed sentences with EOS
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# first step
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vocab_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;top_n_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argsort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;beam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top_n_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vocab_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;top_n_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argsort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;new_beam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_id&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itertools&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;top_n_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;old_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_beam&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;new_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;new_prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;old_prob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;new_beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_prob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;new_beam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;new_beam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;beam&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eos_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Beam size = &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;, # outputs = &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt;
+    
+&lt;span class=&quot;n&quot;&gt;beam_search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample_encoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eos_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vocab_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (&lt;a class=&quot;citation&quot; href=&quot;#koehn2009statistical&quot;&gt;[19]&lt;/a&gt;).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tất nhiên, cũng cần chú ý là implement những cái này ở local cũng chỉ để học hỏi thôi nhé.
+&lt;strong&gt;Chứ còn triển khai vận hành thực sự thì nó có những solutions có sẵn chạy ầm ầm trên AWS/Azure/GCP rồi.&lt;/strong&gt;
+Mà có khi nó còn thành dịch vụ đem bán khắp nơi rồi ấy chứ (có cả tiếng Việt luôn nhé).&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;anh-em-nhà-bert&quot;&gt;Anh em nhà BERT&lt;/h2&gt;
 
@@ -167,7 +332,8 @@ Forward pass thì chắc là đơn giản hơn, tuy nhiên backward pass với S
 &lt;li&gt;&lt;span id=&quot;goodfellow2016deep&quot;&gt;Goodfellow, I., Bengio, Y. and Courville, A. 2016. &lt;i&gt;Deep learning&lt;/i&gt;. MIT press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/goodfellow2016deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;hochreiter1997long&quot;&gt;Hochreiter, S. and Schmidhuber, J. 1997. Long short-term memory. &lt;i&gt;Neural computation&lt;/i&gt;. 9, 8 (1997), 1735–1780.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hochreiter1997long/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;gers2000learning&quot;&gt;Gers, F.A., Schmidhuber, J. and Cummins, F. 2000. Learning to forget: Continual prediction with LSTM. &lt;i&gt;Neural computation&lt;/i&gt;. 12, 10 (2000), 2451–2471.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gers2000learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;cho2014properties&quot;&gt;Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. &lt;i&gt;Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014&lt;/i&gt; (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014properties/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;cho2014properties&quot;&gt;Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. &lt;i&gt;Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014&lt;/i&gt; (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014properties/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;koehn2009statistical&quot;&gt;Koehn, P. 2009. Neural Machine Translation. &lt;i&gt;Statistical Machine Translation&lt;/i&gt;. Cambridge University Press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/koehn2009statistical/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>

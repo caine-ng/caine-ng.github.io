@@ -28,8 +28,8 @@
 <meta property="og:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [18]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [18, 18, 18] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [18]), Question-Answering (QA, [18]), Visual Question Answering (VQA, [18]), Text Summarization (TS, [18, 18]) và Video-To-Text (VTT, [18]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [18] hay Densecap [18]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [18]." />
-<meta property="og:description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [18]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [18, 18, 18] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [18]), Question-Answering (QA, [18]), Visual Question Answering (VQA, [18]), Text Summarization (TS, [18, 18]) và Video-To-Text (VTT, [18]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [18] hay Densecap [18]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [18]." />
+<meta name="description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [19]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [19, 19, 19] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [19]), Question-Answering (QA, [19]), Visual Question Answering (VQA, [19]), Text Summarization (TS, [19, 19]) và Video-To-Text (VTT, [19]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [19] hay Densecap [19]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [19]." />
+<meta property="og:description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [19]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [19, 19, 19] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [19]), Question-Answering (QA, [19]), Visual Question Answering (VQA, [19]), Text Summarization (TS, [19, 19]) và Video-To-Text (VTT, [19]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [19] hay Densecap [19]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [19]." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="twitter:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <script type="application/ld+json">
-{"headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [18]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [18, 18, 18] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [18]), Question-Answering (QA, [18]), Visual Question Answering (VQA, [18]), Text Summarization (TS, [18, 18]) và Video-To-Text (VTT, [18]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [18] hay Densecap [18]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [18].","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"image":"/https://wanted2.github.io/assets/images/san01.jpg","url":"/https://wanted2.github.io/seq2seq/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [19]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [19, 19, 19] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [19]), Question-Answering (QA, [19]), Visual Question Answering (VQA, [19]), Text Summarization (TS, [19, 19]) và Video-To-Text (VTT, [19]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [19] hay Densecap [19]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [19].","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"image":"/https://wanted2.github.io/assets/images/san01.jpg","url":"/https://wanted2.github.io/seq2seq/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -426,11 +426,176 @@ Tuy nhiên, nếu nhìn vào cái đám công thức thì trong LSTM khi update 
 
 <blockquote>
   <p>Nhìn chung, công thức toán của các kiến trúc RNN/LSTM/GRU đều không phức tạp.
-Nếu có thời gian, các bạn có thể tự thực hiện implement các kiến trúc trên bằng <code class="language-plaintext highlighter-rouge">numpy</code>.
+Nếu có thời gian, các bạn có thể tự thực hiện implement các kiến t
+rúc trên bằng <code class="language-plaintext highlighter-rouge">numpy</code>.
 Forward pass thì chắc là đơn giản hơn, tuy nhiên backward pass với SGD thì sẽ đòi hỏi một chút công sức (vài chục dòng code nữa).</p>
 </blockquote>
 
+<p>Nói một chút về hàm loss \(\mathcal{L}\) khi train NMT chẳng hạn, vì chúng ta biết chuỗi <strong>đúng</strong> \(\mathbf{y}=(y_1,y_2,\ldots,y_n)\) nên ở mỗi step \(0\leq t\leq n-1\), ta sẽ xem xét vector output \(\mathbf{u}_t\) (là softmax) và lấy xác suất của vị trí thứ \(y_t\), và tất nhiên lấy log nghịch đảo như mọi khi:</p>
+
+\[\mathcal{L}=\sum_t-\log u_{y_t}\]
+
+<p>Khi testing, chúng ta sẽ sử dụng <strong>beam search</strong> để tìm ra các chuỗi phù hợp (sẽ giải thích thêm ở phần sau).</p>
+
 <h2 id="kiến-trúc-seq2seq-s2s">Kiến trúc Seq2Seq (S2S)</h2>
+
+<p><img src="/assets/images/san01.png" alt="seq2seq" /></p>
+
+<p>Training <code class="language-plaintext highlighter-rouge">seq2seq</code> đòi hỏi cần có GPU phù hợp và tận dụng xử lý song song.
+1 đặc điểm không thể tránh khỏi của bộ dữ liệu là độ dài các chuỗi không đồng bộ, nên có thể tạo ra giải pháp là <strong>fill thêm ký tự trống vào để cho tất cả các chuỗi cùng độ dài</strong>.
+Việc này sẽ đòi hỏi thêm khá nhiều memory, vì vậy, một giải pháp khá phù hợp là chia ra thành các <code class="language-plaintext highlighter-rouge">maxi-batches</code> rồi trong từng <code class="language-plaintext highlighter-rouge">maxi-batch</code> thì lại chia tiếp thành các <code class="language-plaintext highlighter-rouge">mini-batch</code>.
+Trong mỗi <code class="language-plaintext highlighter-rouge">mini-batch</code> như hình dưới thì mới thực hiện fill ký tự trống.</p>
+
+<p><img src="/assets/images/rnn-mini-batches.png" alt="rnn-mini-batches" /></p>
+
+<p>Training <code class="language-plaintext highlighter-rouge">seq2seq</code> thường mất 5-15 epochs (1 lượt qua toàn bộ corpus).
+Bạn cũng nên thiết lập một tiêu chí dừng lại khi validation error rate không cải tiến thêm.
+Training lâu thêm không những không tạo thêm cải tiến mà có thể dẫn tới overfitting.</p>
+
+<p><strong>Testing <code class="language-plaintext highlighter-rouge">seq2seq</code></strong>. Giả sử chúng ta có một corpus 50,000 từ.
+Vậy trong vector \(\mathbf{u}_t\in\mathbb{R}^{50,000}\), ta sẽ chọn phần tử có xác suất cao nhất (dựa trên embedding logits) để output ra ở bước thứ \(t\).
+Giải pháp này tức là <strong>chỉ chọn cái tốt nhất ở mỗi bước</strong>.
+Vấn đề ở đây là nếu chỉ chọn cái tốt nhất độc lập ở từng bước thì khi đến một thời điểm \(t'\), câu dịch trở lên không đúng thì không thể quay lại sửa từ đầu được.
+Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
+
+<ul>
+  <li>Ở bước \(t=0\) chúng ta chọn một beam gồm \(n\) top words \(p(w_0^1), p(w_0^2), \ldots, p(w_0^n)\).</li>
+  <li>Ở thời điểm tiếp theo \(t=1\), ta lại chọn tiếp \(n\) top words \(p(w_1^1), p(w_1^2), \ldots, p(w_1^n)\) và làm tiếp:
+    <ul>
+      <li>nhân xác xuất của cụm 2 từ liên tiếp \(p(w_0^{i_0})p(w_1^{i_1}), 1\leq i_0, i_1\leq n\).</li>
+      <li>Chọn top \(n\) cặp từ \((i_0,i_1)\) giữ lại.</li>
+    </ul>
+  </li>
+  <li>Ở thời điểm \(t=2\), ta lại chọn tiếp top \(n\) words \(p(w_2^1), p(w_2^2), \ldots, p(w_2^n)\), và lại nhân xác suất để tìm ra top \(n\) triplets \((i_0, i_1, i_2)\) để giữ lại trong beam.</li>
+  <li>Cứ tiếp tục như vậy đến khi gặp <code class="language-plaintext highlighter-rouge">EOS</code> thì bỏ câu dịch đó ra khỏi beam và giảm size của beam đi 1.</li>
+  <li>Khi kích thước của beam giảm xuống còn 0 thì dừng beam search.</li>
+</ul>
+
+<p>Một đoạn code demo của <code class="language-plaintext highlighter-rouge">beam search</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="p">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s">'ignore'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="o">/</span><span class="n">s</span>
+
+<span class="k">def</span> <span class="nf">sample_decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">):</span>
+    <span class="s">"""
+    We implement a sample encoder.
+    In practice, it should be a neural network.
+    But for this demo of beam search, this is enough!
+    """</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,))</span>
+    <span class="k">if</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">argmax</span><span class="p">()</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="k">def</span> <span class="nf">beam_search</span><span class="p">(</span><span class="n">decoder</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">):</span>
+    <span class="s">"""
+    :param outputs: the output of encoders as softmax probabilities
+    :param n: beam's maximum size
+    :return the completed sentences with EOS
+    """</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># first step
+</span>    <span class="n">p</span> <span class="o">=</span> <span class="n">decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
+    <span class="n">top_n_ids</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
+    <span class="n">beam</span> <span class="o">=</span> <span class="p">[((</span><span class="n">i</span><span class="p">,),</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_n_ids</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
+        <span class="n">top_n_ids</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
+        <span class="n">new_beam</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">old_beam</span><span class="p">,</span> <span class="n">new_id</span> <span class="ow">in</span> <span class="n">itertools</span><span class="p">.</span><span class="n">product</span><span class="p">(</span><span class="n">beam</span><span class="p">,</span> <span class="n">top_n_ids</span><span class="p">):</span>
+            <span class="n">old_ids</span><span class="p">,</span> <span class="n">old_prob</span> <span class="o">=</span> <span class="n">old_beam</span>
+            <span class="n">new_ids</span> <span class="o">=</span> <span class="n">old_ids</span> <span class="o">+</span> <span class="p">(</span><span class="n">new_id</span><span class="p">,)</span>
+            <span class="n">new_prob</span> <span class="o">=</span> <span class="n">old_prob</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="n">new_id</span><span class="p">]</span>
+            <span class="n">new_beam</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">new_ids</span><span class="p">,</span> <span class="n">new_prob</span><span class="p">))</span>
+        <span class="n">new_beam</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">new_beam</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">new_beam</span> <span class="o">=</span> <span class="n">new_beam</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">beam</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ids</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">new_beam</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">eos_id</span> <span class="o">==</span> <span class="n">ids</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">outputs</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">ids</span><span class="p">,</span> <span class="n">prob</span><span class="p">))</span>
+                <span class="k">continue</span>
+            <span class="n">beam</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">ids</span><span class="p">,</span> <span class="n">prob</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Beam size = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span><span class="si">}</span><span class="s">, # outputs = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">outputs</span>
+    
+<span class="n">beam_search</span><span class="p">(</span><span class="n">sample_encoder</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (<a class="citation" href="#koehn2009statistical">[19]</a>).</p>
+
+<blockquote>
+  <p>Tất nhiên, cũng cần chú ý là implement những cái này ở local cũng chỉ để học hỏi thôi nhé.
+<strong>Chứ còn triển khai vận hành thực sự thì nó có những solutions có sẵn chạy ầm ầm trên AWS/Azure/GCP rồi.</strong>
+Mà có khi nó còn thành dịch vụ đem bán khắp nơi rồi ấy chứ (có cả tiếng Việt luôn nhé).</p>
+</blockquote>
 
 <h2 id="anh-em-nhà-bert">Anh em nhà BERT</h2>
 
@@ -465,7 +630,8 @@ Forward pass thì chắc là đơn giản hơn, tuy nhiên backward pass với S
 <li><span id="goodfellow2016deep">Goodfellow, I., Bengio, Y. and Courville, A. 2016. <i>Deep learning</i>. MIT press.</span><a class="details" href="https://wanted2.github.io/bibliography/goodfellow2016deep/">Details</a></li>
 <li><span id="hochreiter1997long">Hochreiter, S. and Schmidhuber, J. 1997. Long short-term memory. <i>Neural computation</i>. 9, 8 (1997), 1735–1780.</span><a class="details" href="https://wanted2.github.io/bibliography/hochreiter1997long/">Details</a></li>
 <li><span id="gers2000learning">Gers, F.A., Schmidhuber, J. and Cummins, F. 2000. Learning to forget: Continual prediction with LSTM. <i>Neural computation</i>. 12, 10 (2000), 2451–2471.</span><a class="details" href="https://wanted2.github.io/bibliography/gers2000learning/">Details</a></li>
-<li><span id="cho2014properties">Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. <i>Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014</i> (2014).</span><a class="details" href="https://wanted2.github.io/bibliography/cho2014properties/">Details</a></li></ol>
+<li><span id="cho2014properties">Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. <i>Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014</i> (2014).</span><a class="details" href="https://wanted2.github.io/bibliography/cho2014properties/">Details</a></li>
+<li><span id="koehn2009statistical">Koehn, P. 2009. Neural Machine Translation. <i>Statistical Machine Translation</i>. Cambridge University Press.</span><a class="details" href="https://wanted2.github.io/bibliography/koehn2009statistical/">Details</a></li></ol>
 
             </div>
 
