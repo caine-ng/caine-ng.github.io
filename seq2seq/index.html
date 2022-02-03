@@ -530,6 +530,8 @@ Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
 55
 56
 57
+58
+59
 </pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">random</span>
@@ -543,7 +545,7 @@ Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
 
 <span class="k">def</span> <span class="nf">sample_decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">):</span>
     <span class="s">"""
-    We implement a sample encoder.
+    We implement a sample decoder.
     In practice, it should be a neural network.
     But for this demo of beam search, this is enough!
     """</span>
@@ -555,7 +557,7 @@ Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
         <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
     <span class="k">return</span> <span class="n">a</span>
 
-<span class="k">def</span> <span class="nf">beam_search</span><span class="p">(</span><span class="n">decoder</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">beam_search</span><span class="p">(</span><span class="n">decoder</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="s">"""
     :param outputs: the output of encoders as softmax probabilities
     :param n: beam's maximum size
@@ -566,7 +568,8 @@ Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
 </span>    <span class="n">p</span> <span class="o">=</span> <span class="n">decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
     <span class="n">top_n_ids</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
     <span class="n">beam</span> <span class="o">=</span> <span class="p">[((</span><span class="n">i</span><span class="p">,),</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_n_ids</span><span class="p">]</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">iter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">iter</span> <span class="o">&lt;</span> <span class="n">max_iter</span><span class="p">:</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
         <span class="n">top_n_ids</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
         <span class="n">new_beam</span> <span class="o">=</span> <span class="p">[]</span>
@@ -584,9 +587,10 @@ Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
                 <span class="k">continue</span>
             <span class="n">beam</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">ids</span><span class="p">,</span> <span class="n">prob</span><span class="p">))</span>
         <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Beam size = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span><span class="si">}</span><span class="s">, # outputs = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="nb">iter</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">outputs</span>
     
-<span class="n">beam_search</span><span class="p">(</span><span class="n">sample_encoder</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+<span class="n">beam_search</span><span class="p">(</span><span class="n">sample_decoder</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (<a class="citation" href="#koehn2009statistical">[19]</a>).</p>
