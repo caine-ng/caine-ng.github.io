@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Feb 2022 22:53:56 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Feb 2022 22:53:56 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Feb 2022 23:22:59 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Feb 2022 23:22:59 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -323,8 +323,28 @@ Thì công thức attention (không có mask) sẽ như sau:&lt;/p&gt;
 &lt;p&gt;trong đó, \(d_k\) là số chiều của vector query \(Q\) và key \(K\).
 Trong trường hợp dùng mask (ở decoder chả hạn) thì chủ yếu là để kết hợp với position embedding để hạn chế ảnh hưởng của các token trước thời điểm $t$ chả hạn.&lt;/p&gt;
 
+&lt;p&gt;Nói chung lý thuyết của Transformer cũng không có gì quá phức tạp.
+Bản thân Transformer cũng đã được implement chi tiết trong thư viện &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tensor2tensor&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#vaswani2018tensor2tensor&quot;&gt;[20]&lt;/a&gt; nên như tôi đã nói, cái mảng này thực ra tài liệu tài nguyên thì vô cùng dồi dào.
+&lt;strong&gt;Thế là lại nói lại câu chuyện postdoc ở trên: &lt;em&gt;không hiểu tại sao lại không làm được?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Thì tôi nghĩ là ngoài 3 yếu tố đã nói ở mục đầu, thì quá tập trung vào competition! 
+Từ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;challenge&lt;/code&gt; mà người thày nói cũng có nghĩa là cuộc thi (competition) nhưng cũng có nghĩa là thử thách.
+Mà vấn đề là cái nghĩa sau nó sẽ quan trọng hơn.
+Bởi mảng nghiên cứu là giao thoa giữa Vision và NLP, nên là nếu chỉ tập trung vào 1 competition nhất định của vision mà không cập nhật bên NLP thì có vẻ là tầng nghĩa sau (thử thách) là sẽ bị lose track.
+Đấy thế nên là cũng nhắc lại lời người thày: “&lt;strong&gt;Thực ra nhiệm vụ của người làm thày là giảm bớt số lượng những con bò trên thế giới xuống&lt;/strong&gt;”.
+Tôi nghĩ đúng là để biến một con bò thành người cũng khá vất vả, mà thất bại mãi mới thành công một phát cũng là chuyện thường!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Chốt là cuộc thi, competition là không quan trọng đâu.
+Cái quan trọng với postdoc là rèn luyện được một cái tác phong nghiên cứu tốt để có thể hướng tới lâu dài.
+&lt;strong&gt;Chứ mất công giành được vị trí trong 1 competition trước mắt, nhưng lại mất vị trí tenure cả đời thì luận về trí là thua rồi!&lt;/strong&gt;
+Đã xác định gắn bó lâu dài thì không cần thi cử gì cho mất thời gian đâu, lo mà tìm ra cống hiến để đời và gắn bó lâu dài thì hơn.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h3 id=&quot;bert&quot;&gt;BERT&lt;/h3&gt;
-&lt;p&gt;Bidirectional Encoder Representations from Transformers (BERT &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[20]&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Bidirectional Encoder Representations from Transformers (BERT &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[21]&lt;/a&gt;)&lt;/p&gt;
 
 &lt;h1 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h1&gt;
 
@@ -359,6 +379,7 @@ Trong trường hợp dùng mask (ở decoder chả hạn) thì chủ yếu là 
 &lt;li&gt;&lt;span id=&quot;gers2000learning&quot;&gt;Gers, F.A., Schmidhuber, J. and Cummins, F. 2000. Learning to forget: Continual prediction with LSTM. &lt;i&gt;Neural computation&lt;/i&gt;. 12, 10 (2000), 2451–2471.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gers2000learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;cho2014properties&quot;&gt;Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. &lt;i&gt;Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014&lt;/i&gt; (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014properties/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;koehn2009statistical&quot;&gt;Koehn, P. 2009. Neural Machine Translation. &lt;i&gt;Statistical Machine Translation&lt;/i&gt;. Cambridge University Press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/koehn2009statistical/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;vaswani2018tensor2tensor&quot;&gt;Vaswani, A., Bengio, S., Brevdo, E., Chollet, F., Gomez, A.N., Gouws, S., Jones, L., Kaiser, Ł., Kalchbrenner, N., Parmar, N. and others 2018. Tensor2tensor for neural machine translation. &lt;i&gt;arXiv preprint arXiv:1803.07416&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/vaswani2018tensor2tensor/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;devlin2019bert&quot;&gt;Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. &lt;i&gt;Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)&lt;/i&gt; (2019), 4171–4186.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/devlin2019bert/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
