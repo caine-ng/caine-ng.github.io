@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Feb 2022 23:56:22 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Feb 2022 23:56:22 +0900</lastBuildDate>
+    <pubDate>Sat, 05 Feb 2022 03:23:45 +0900</pubDate>
+    <lastBuildDate>Sat, 05 Feb 2022 03:23:45 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -313,7 +313,7 @@ Transformer cũng có thể coi là một dạng &lt;code class=&quot;language-p
 Điểm khác biệt là context (hay là attention) đã được chuyển thành tầng đề xuất &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;self-attention&lt;/code&gt;.
 Nhìn chung, Transformer hay cả các kiến trúc BERT về sau cũng kế thừa tương đối nhiều tính chất của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.
 Bản thân Transformer cũng là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nhưng bỏ đi RNN/CNN.
-&lt;img src=&quot;/assets/images/mha.png&quot; style=&quot;float: left; margin: 10px; width: 25%;&quot; /&gt;
+&lt;img src=&quot;/assets/images/mha.png&quot; style=&quot;float: left; margin: 10px; width: 15%;&quot; /&gt;
 Trong kiến trúc thì ngoài residual connection chỉ có điểm đáng chú ý là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;multi-head attention&lt;/code&gt;.
 Như hình vẽ bên trái, có 3 vector mới được đưa ra là \(K, V, Q\), tương ứng cho &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keys, values, queries&lt;/code&gt;.
 Thì công thức attention (không có mask) sẽ như sau:&lt;/p&gt;
@@ -325,6 +325,7 @@ Trong trường hợp dùng mask (ở decoder chả hạn) thì chủ yếu là 
 
 &lt;p&gt;Nói chung lý thuyết của Transformer cũng không có gì quá phức tạp.
 Bản thân Transformer cũng đã được implement chi tiết trong thư viện &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tensor2tensor&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#vaswani2018tensor2tensor&quot;&gt;[20]&lt;/a&gt; nên như tôi đã nói, cái mảng này thực ra tài liệu tài nguyên thì vô cùng dồi dào.
+Ngoài ra một thư viện nữa là HuggingFace &lt;a class=&quot;citation&quot; href=&quot;#wolf2020transformers&quot;&gt;[21]&lt;/a&gt; với model zoo dồi dào cũng rất đáng xem.
 &lt;strong&gt;Thế là lại nói lại câu chuyện postdoc ở trên: &lt;em&gt;không hiểu tại sao lại không làm được?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -351,12 +352,51 @@ Triệu chứng bệnh rõ ràng nhất ở đây là&lt;/p&gt;
   &lt;li&gt;Việc ưu tiên competition trước việc nhận ra thách thức thực sự của mình chính là &lt;strong&gt;yếu về quản lý action plan, time và schedule&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Nhìn chung việc thiếu kỹ năng quản lý dự án sẽ không bao giờ đưa người postdoc gia nhập nhóm tỷ lệ dưới 5% thành công được.
+&lt;p&gt;Nhìn chung việc thiếu kỹ năng quản lý dự án sẽ không bao giờ đưa người postdoc gia nhập nhóm (dưới) 5% thành công được.
 &lt;strong&gt;Mà ví dụ khoảng làm postdoc được 2-3 năm mà người thày nhìn vào thấy đủ thứ bệnh, chỗ nào cũng yếu thế này thì rất là khó để không cho … bật bãi!&lt;/strong&gt;
 Ở Mỹ chả hạn, làm nghiên cứu muốn tồn tại lâu dài phải có kỹ năng quản lý dự án nghiên cứu. Thế mà chạy postdoc 2 năm mà không ngộ ra chân lý, không thể hiện tiềm năng làm quản lý lãnh đạo, thì không bật bãi chắc chỉ có ở thiên đường thôi!&lt;/p&gt;
 
 &lt;h3 id=&quot;bert&quot;&gt;BERT&lt;/h3&gt;
-&lt;p&gt;Bidirectional Encoder Representations from Transformers (BERT &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[21]&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;B&lt;/strong&gt;idirectional &lt;strong&gt;E&lt;/strong&gt;ncoder &lt;strong&gt;R&lt;/strong&gt;epresentations from &lt;strong&gt;T&lt;/strong&gt;ransformers (&lt;strong&gt;BERT&lt;/strong&gt;, &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[22]&lt;/a&gt;) lại là 1 kiến trúc mới gần đây (từ 2018?).
+Pretraining kiến trúc trên 1 task unsupervised (kiểu tự học), rồi dùng lại kiến trúc đó trong 1 task supervised khác là tư tưởng chính của BERT.
+Các phiên bản cải tiến của BERT có thể kể đến AlBERT &lt;a class=&quot;citation&quot; href=&quot;#lan2019albert&quot;&gt;[23]&lt;/a&gt;, RoBERTa &lt;a class=&quot;citation&quot; href=&quot;#liu2019roberta&quot;&gt;[24]&lt;/a&gt;, BART &lt;a class=&quot;citation&quot; href=&quot;#lewis2020bart&quot;&gt;[25]&lt;/a&gt;, XlNet &lt;a class=&quot;citation&quot; href=&quot;#yang2019xlnet&quot;&gt;[26]&lt;/a&gt;, XLM &lt;a class=&quot;citation&quot; href=&quot;#conneau2019cross&quot;&gt;[27]&lt;/a&gt; hay gần đây là ELECTRA &lt;a class=&quot;citation&quot; href=&quot;#clark2020electra&quot;&gt;[28]&lt;/a&gt; đều kế thừa tinh thần này.
+Trong quá khứ thì việc sử dụng pretraining để tạo ra một xuất phát điểm tốt hơn cho model là ý tưởng đã được khai thác &lt;a class=&quot;citation&quot; href=&quot;#hinton2006fast&quot;&gt;[29]&lt;/a&gt;.
+Ví dụ như Hinton thì đã pretrain deep belief nets và gọi là &lt;em&gt;greedy layer-wise unsupervised pretraining&lt;/em&gt;.
+Thủ thuật này là cần thiết khi train các model lớn:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;to train the first layer in isolation, then extract all features from the first layer only once, then train the second layer in isolation given those features, and so on. &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[15]&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ý tưởng của kiểu pretraining này là ta có một model rất lớn \(A\), việc train \(A\) từ đầu (random weights) sẽ rất khó.
+Do vậy, chúng ta sẽ tìm một task unsupervised \(u\) (vì vậy không cần labels), để train \(A\) trước.
+Sau đó, khi vào train cho task chính \(T\) (có labels) thì weights của \(A\) đã được khởi tạo bởi việc học \(u\) sẽ khiến training \(A\) cho \(T\) trở nên nhanh chóng hơn.
+Trên thực tế có khá nhiều task bên computer vision đã sử dụng ý tưởng này và đưa ra khá nhiều kết quả thuyết phục.&lt;/p&gt;
+
+&lt;p&gt;Với bên NLP, thì BERT lựa chọn task pretraining (gọi là &lt;em&gt;pretext&lt;/em&gt;) là masked language modeling (MLM).
+Ví dụ như trong câu&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;Original: I have a pen &amp;lt;EOS&amp;gt;
+Masked: I &amp;lt;MASK&amp;gt; a pen &amp;lt;EOS&amp;gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;thì từ câu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masked&lt;/code&gt;, nhiệm vụ của pretext là phải &lt;em&gt;phục hồi&lt;/em&gt; lại các từ bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;MASK&amp;gt;&lt;/code&gt;.
+Nguyên tắc pretext này nhìn chung giống với &lt;em&gt;denoising auto-encoders&lt;/em&gt; &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[15]&lt;/a&gt;.
+Vì việc tạo bộ dữ liệu masking là dễ dàng và có thể tự làm được (viết script để ngẫu nhiên thay 1 token bởi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;MASK&amp;gt;&lt;/code&gt;) nên task này có thể xếp vào hạng mục &lt;strong&gt;unsupervised learning&lt;/strong&gt; hoặc &lt;strong&gt;self-supervised learning (SSL)&lt;/strong&gt;.
+Lợi thế là người train có thể tạo ra bộ dữ liệu lớn tự động để máy học pretext mà không cần gắn nhãn!
+Một pretext khác là &lt;em&gt;đoán câu tiếp theo (Next Sentence Prediction, NSP)&lt;/em&gt;.
+Ví dụ:&lt;/p&gt;
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;I told the principal that I would like to revolutionize this university if he give me something to do.
+Next Sentence: He sent me to the Psychology department.
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Trong kết quả của BERT thì có vẻ pretext NSP giúp cải thiện độ chính xác của task QA.
+Tất nhiên, ngoài dùng pretext thì còn những kiểu pretraining khác như sử dụng feature đã pretrain (ELMo, &lt;a class=&quot;citation&quot; href=&quot;#peters2018deep&quot;&gt;[30]&lt;/a&gt;) hoặc fine-tune toàn bộ pretrain parameters (OpenAI GPT, &lt;a class=&quot;citation&quot; href=&quot;#radford2018improving&quot;&gt;[31]&lt;/a&gt;).
+Gần đây có model BART &lt;a class=&quot;citation&quot; href=&quot;#lewis2020bart&quot;&gt;[25]&lt;/a&gt; tích hợp cả BERT và GPT để tạo ra một cơ chế pretext có thể mô phỏng hàm noise bất kỳ.&lt;/p&gt;
+
+&lt;p&gt;Hầu hết những phương pháp kể trên đều có thể tìm thấy tại thư viện model HuggingFace &lt;a class=&quot;citation&quot; href=&quot;#wolf2020transformers&quot;&gt;[21]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h1&gt;
 
@@ -392,7 +432,17 @@ Triệu chứng bệnh rõ ràng nhất ở đây là&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;cho2014properties&quot;&gt;Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. &lt;i&gt;Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014&lt;/i&gt; (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014properties/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;koehn2009statistical&quot;&gt;Koehn, P. 2009. Neural Machine Translation. &lt;i&gt;Statistical Machine Translation&lt;/i&gt;. Cambridge University Press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/koehn2009statistical/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;vaswani2018tensor2tensor&quot;&gt;Vaswani, A., Bengio, S., Brevdo, E., Chollet, F., Gomez, A.N., Gouws, S., Jones, L., Kaiser, Ł., Kalchbrenner, N., Parmar, N. and others 2018. Tensor2tensor for neural machine translation. &lt;i&gt;arXiv preprint arXiv:1803.07416&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/vaswani2018tensor2tensor/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;devlin2019bert&quot;&gt;Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. &lt;i&gt;Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)&lt;/i&gt; (2019), 4171–4186.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/devlin2019bert/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;wolf2020transformers&quot;&gt;Wolf, T., Chaumond, J., Debut, L., Sanh, V., Delangue, C., Moi, A., Cistac, P., Funtowicz, M., Davison, J., Shleifer, S. and others 2020. Transformers: State-of-the-art natural language processing. &lt;i&gt;Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations&lt;/i&gt; (2020), 38–45.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wolf2020transformers/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;devlin2019bert&quot;&gt;Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. &lt;i&gt;Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)&lt;/i&gt; (2019), 4171–4186.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/devlin2019bert/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;lan2019albert&quot;&gt;Lan, Z., Chen, M., Goodman, S., Gimpel, K., Sharma, P. and Soricut, R. 2019. Albert: A lite bert for self-supervised learning of language representations. &lt;i&gt;arXiv preprint arXiv:1909.11942&lt;/i&gt;. (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lan2019albert/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;liu2019roberta&quot;&gt;Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D., Levy, O., Lewis, M., Zettlemoyer, L. and Stoyanov, V. 2019. Roberta: A robustly optimized bert pretraining approach. &lt;i&gt;arXiv preprint arXiv:1907.11692&lt;/i&gt;. (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2019roberta/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;lewis2020bart&quot;&gt;Lewis, M., Liu, Y., Goyal, N., Ghazvininejad, M., Mohamed, A., Levy, O., Stoyanov, V. and Zettlemoyer, L. 2020. BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension. &lt;i&gt;Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt; (2020), 7871–7880.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lewis2020bart/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;yang2019xlnet&quot;&gt;Yang, Z., Dai, Z., Yang, Y., Carbonell, J., Salakhutdinov, R.R. and Le, Q.V. 2019. Xlnet: Generalized autoregressive pretraining for language understanding. &lt;i&gt;Advances in neural information processing systems&lt;/i&gt;. 32, (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/yang2019xlnet/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;conneau2019cross&quot;&gt;Conneau, A. and Lample, G. 2019. Cross-lingual language model pretraining. &lt;i&gt;Advances in Neural Information Processing Systems&lt;/i&gt;. 32, (2019), 7059–7069.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/conneau2019cross/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;clark2020electra&quot;&gt;Clark, K., Luong, M.-T., Le, Q.V. and Manning, C.D. 2020. Electra: Pre-training text encoders as discriminators rather than generators. &lt;i&gt;arXiv preprint arXiv:2003.10555&lt;/i&gt;. (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/clark2020electra/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hinton2006fast&quot;&gt;Hinton, G.E., Osindero, S. and Teh, Y.-W. 2006. A fast learning algorithm for deep belief nets. &lt;i&gt;Neural computation&lt;/i&gt;. 18, 7 (2006), 1527–1554.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hinton2006fast/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;peters2018deep&quot;&gt;Peters, M.E., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K. and Zettlemoyer, L. 2018. Deep Contextualized Word Representations. &lt;i&gt;Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)&lt;/i&gt; (New Orleans, Louisiana, Jun. 2018), 2227–2237.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/peters2018deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;radford2018improving&quot;&gt;Radford, A., Narasimhan, K., Salimans, T. and Sutskever, I. 2018. &lt;i&gt;Improving language understanding by generative pre-training&lt;/i&gt;. OpenAI.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/radford2018improving/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>
