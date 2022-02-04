@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Feb 2022 05:48:48 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Feb 2022 05:48:48 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Feb 2022 22:53:56 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Feb 2022 22:53:56 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -303,7 +303,28 @@ Do đó, cách tốt hơn là dùng &lt;strong&gt;Beam Search&lt;/strong&gt;:&lt
 Mà có khi nó còn thành dịch vụ đem bán khắp nơi rồi ấy chứ (có cả tiếng Việt luôn nhé).&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;anh-em-nhà-bert&quot;&gt;Anh em nhà BERT&lt;/h2&gt;
+&lt;h2 id=&quot;transformers-và-bert&quot;&gt;Transformers và BERT&lt;/h2&gt;
+
+&lt;h3 id=&quot;transformer-1&quot;&gt;Transformer &lt;a class=&quot;citation&quot; href=&quot;#vaswani2017attention&quot;&gt;[1]&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/transformer.png&quot; style=&quot;float: right; margin: 10px; width: 25%;&quot; /&gt;
+Deep Networks nhưng không có RNNs hay CNNs gì cả!
+Transformer cũng có thể coi là một dạng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nhưng không chỉ gồm các tầng FC, embedding, …
+Điểm khác biệt là context (hay là attention) đã được chuyển thành tầng đề xuất &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;self-attention&lt;/code&gt;.
+Nhìn chung, Transformer hay cả các kiến trúc BERT về sau cũng kế thừa tương đối nhiều tính chất của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.
+Bản thân Transformer cũng là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nhưng bỏ đi RNN/CNN.
+&lt;img src=&quot;/assets/images/mha.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
+Trong kiến trúc thì ngoài residual connection chỉ có điểm đáng chú ý là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;multi-head attention&lt;/code&gt;.
+Như hình vẽ bên trái, có 3 vector mới được đưa ra là \(K, V, Q\), tương ứng cho &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keys, values, queries&lt;/code&gt;.
+Thì công thức attention (không có mask) sẽ như sau:&lt;/p&gt;
+
+\[\mbox{Attention}\left(Q,K,V\right)=\mbox{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V\]
+
+&lt;p&gt;trong đó, \(d_k\) là số chiều của vector query \(Q\) và key \(K\).
+Trong trường hợp dùng mask (ở decoder chả hạn) thì chủ yếu là để kết hợp với position embedding để hạn chế ảnh hưởng của các token trước thời điểm $t$ chả hạn.&lt;/p&gt;
+
+&lt;h3 id=&quot;bert&quot;&gt;BERT&lt;/h3&gt;
+&lt;p&gt;Bidirectional Encoder Representations from Transformers (BERT &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[20]&lt;/a&gt;)&lt;/p&gt;
 
 &lt;h1 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h1&gt;
 
@@ -337,7 +358,8 @@ Mà có khi nó còn thành dịch vụ đem bán khắp nơi rồi ấy chứ (
 &lt;li&gt;&lt;span id=&quot;hochreiter1997long&quot;&gt;Hochreiter, S. and Schmidhuber, J. 1997. Long short-term memory. &lt;i&gt;Neural computation&lt;/i&gt;. 9, 8 (1997), 1735–1780.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hochreiter1997long/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;gers2000learning&quot;&gt;Gers, F.A., Schmidhuber, J. and Cummins, F. 2000. Learning to forget: Continual prediction with LSTM. &lt;i&gt;Neural computation&lt;/i&gt;. 12, 10 (2000), 2451–2471.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gers2000learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;cho2014properties&quot;&gt;Cho, K., Merrienboer, B. van, Bahdanau, D. and Bengio, Y. 2014. On the properties of neural machine translation: Encoder-decoder approaches. &lt;i&gt;Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation (SSST-8), 2014&lt;/i&gt; (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cho2014properties/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;koehn2009statistical&quot;&gt;Koehn, P. 2009. Neural Machine Translation. &lt;i&gt;Statistical Machine Translation&lt;/i&gt;. Cambridge University Press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/koehn2009statistical/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;koehn2009statistical&quot;&gt;Koehn, P. 2009. Neural Machine Translation. &lt;i&gt;Statistical Machine Translation&lt;/i&gt;. Cambridge University Press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/koehn2009statistical/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;devlin2019bert&quot;&gt;Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. &lt;i&gt;Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)&lt;/i&gt; (2019), 4171–4186.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/devlin2019bert/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>
