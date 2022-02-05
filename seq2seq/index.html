@@ -796,6 +796,21 @@ Có mấy giải pháp:</p>
 <ul>
   <li><strong>Nâng cấp nên Colab Pro (10USD/tháng) và Pro Plus (50USD/tháng).</strong> Tuy nhiên, dù lên Pro Plus thì 1 session cũng chỉ được 24h liên tục. Được cái là cho phép chạy background nên sẽ dễ thở hơn. Có điều là 24h thì lại phải save ra Google Drive, rồi khởi động lại training <strong>bằng tay</strong>. GPU/TPU sẽ nhanh hơn tầm vài lần nên có thể sẽ chỉ mất vài tuần để train thôi. <strong>Hì hục</strong> nó là thế đấy!</li>
   <li><strong>Tự chế ra 1 hệ thống multi-GPU</strong>: kiếm kinh phí mua tầm 24 cái GPUs P100 thì có khi 1 epoch mất 1h thôi, thì train trong ngày sẽ xong. Giá cả thì <strong>Tesla P100 SXM2 16GB</strong> tầm 10,000 USD/cái, 24 cái thì tầm 240,000 USD thôi! Muốn làm big data mà chỉ code thôi là không ăn thua đâu! Bởi vận hành triển khai mỗi tháng hóa đơn đã vài chục ngàn đô, tiền upfront mua GPU cũng đã 240,000 USD thì code hầu như là phần ít giá trị nhất! Code nói chung … rẻ mạt!</li>
+  <li><strong>Thuê EC2</strong>: thì có vài lựa chọn là <strong>on-demand</strong> và <strong>reserved</strong>.
+    <ul>
+      <li>reserved thì 1 tháng 30 ngày 720 h là mình phải trả hết 720 h. Thì rẻ nhất là <code class="language-plaintext highlighter-rouge">g5.xlarge</code> cũng mỗi giờ 0.63 đô. Như vậy là mỗi tháng \(0.63 \times 720 = 453.6\) USD/tháng. Tuy nhiên, <code class="language-plaintext highlighter-rouge">g5.xlarge</code> chỉ có 1 GPU và tính năng thì xấp xỉ Colab Free, nên giả sử train 15 epochs mất 45 ngày liên tục, thì sẽ tốn là \(0.63 \times 45 \times 24 = 680.4\) USD cho lượt train này.
+        <ul>
+          <li>Nếu thuê GPU tốt hẳn đi là <code class="language-plaintext highlighter-rouge">g5.48xlarge</code> coi như 8 GPUs thì nhanh hơn tầm 8 lần thì giá reserved sẽ là \(10.26 \times 45 \times 24 /8 = 1385.1\) USD cho lượt train. Tuy nhiên, vì reserved nên mình thuê theo tháng thì ngoài lượt train này, hàng tháng mình tổng phải trả là \(10.26 \times 720 = 7387.2\) USD/tháng. Tức là train được tầm 6 lượt WMT 2014.</li>
+        </ul>
+      </li>
+      <li>Thuê <strong>on-demand</strong> thì mình không trả hàng tháng, dùng phát nào xong trả phát ấy thôi. Thì ví dụ, <code class="language-plaintext highlighter-rouge">g5.48xlarge</code> thì sẽ mất \(16.29\times 45 \times 24 /8 = 2199.5\) USD cho mỗi lượt train này kéo dài tầm gần 1 tuần.</li>
+      <li>Thuê <a href="https://aws.amazon.com/ec2/spot/pricing/"><strong>Spot</strong></a> thì có thể thuê loại <code class="language-plaintext highlighter-rouge">g5g.16xlarge</code> thì có 2 Tensor core và mất 1.1112 USD/h. Nhìn chung Spot giá sẽ mềm hơn <strong>on-demand</strong> và cùng hạng với reserved. Tuy nhiên, vì là spot nên lúc nào mà tự dưng bị interupt là phải có kế hoạch ứng phó trước:
+        <blockquote>
+          <p>Spot Instances are a cost-effective choice if you can be flexible about when your applications run and <strong>if your applications can be interrupted</strong></p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="neural-machine-translation-nmt">Neural Machine Translation (NMT)</h2>

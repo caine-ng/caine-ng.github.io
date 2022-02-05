@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Feb 2022 20:06:11 +0900</pubDate>
-    <lastBuildDate>Sat, 05 Feb 2022 20:06:11 +0900</lastBuildDate>
+    <pubDate>Sat, 05 Feb 2022 23:38:53 +0900</pubDate>
+    <lastBuildDate>Sat, 05 Feb 2022 23:38:53 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -483,6 +483,21 @@ Có mấy giải pháp:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Nâng cấp nên Colab Pro (10USD/tháng) và Pro Plus (50USD/tháng).&lt;/strong&gt; Tuy nhiên, dù lên Pro Plus thì 1 session cũng chỉ được 24h liên tục. Được cái là cho phép chạy background nên sẽ dễ thở hơn. Có điều là 24h thì lại phải save ra Google Drive, rồi khởi động lại training &lt;strong&gt;bằng tay&lt;/strong&gt;. GPU/TPU sẽ nhanh hơn tầm vài lần nên có thể sẽ chỉ mất vài tuần để train thôi. &lt;strong&gt;Hì hục&lt;/strong&gt; nó là thế đấy!&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Tự chế ra 1 hệ thống multi-GPU&lt;/strong&gt;: kiếm kinh phí mua tầm 24 cái GPUs P100 thì có khi 1 epoch mất 1h thôi, thì train trong ngày sẽ xong. Giá cả thì &lt;strong&gt;Tesla P100 SXM2 16GB&lt;/strong&gt; tầm 10,000 USD/cái, 24 cái thì tầm 240,000 USD thôi! Muốn làm big data mà chỉ code thôi là không ăn thua đâu! Bởi vận hành triển khai mỗi tháng hóa đơn đã vài chục ngàn đô, tiền upfront mua GPU cũng đã 240,000 USD thì code hầu như là phần ít giá trị nhất! Code nói chung … rẻ mạt!&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Thuê EC2&lt;/strong&gt;: thì có vài lựa chọn là &lt;strong&gt;on-demand&lt;/strong&gt; và &lt;strong&gt;reserved&lt;/strong&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;reserved thì 1 tháng 30 ngày 720 h là mình phải trả hết 720 h. Thì rẻ nhất là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g5.xlarge&lt;/code&gt; cũng mỗi giờ 0.63 đô. Như vậy là mỗi tháng \(0.63 \times 720 = 453.6\) USD/tháng. Tuy nhiên, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g5.xlarge&lt;/code&gt; chỉ có 1 GPU và tính năng thì xấp xỉ Colab Free, nên giả sử train 15 epochs mất 45 ngày liên tục, thì sẽ tốn là \(0.63 \times 45 \times 24 = 680.4\) USD cho lượt train này.
+        &lt;ul&gt;
+          &lt;li&gt;Nếu thuê GPU tốt hẳn đi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g5.48xlarge&lt;/code&gt; coi như 8 GPUs thì nhanh hơn tầm 8 lần thì giá reserved sẽ là \(10.26 \times 45 \times 24 /8 = 1385.1\) USD cho lượt train. Tuy nhiên, vì reserved nên mình thuê theo tháng thì ngoài lượt train này, hàng tháng mình tổng phải trả là \(10.26 \times 720 = 7387.2\) USD/tháng. Tức là train được tầm 6 lượt WMT 2014.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Thuê &lt;strong&gt;on-demand&lt;/strong&gt; thì mình không trả hàng tháng, dùng phát nào xong trả phát ấy thôi. Thì ví dụ, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g5.48xlarge&lt;/code&gt; thì sẽ mất \(16.29\times 45 \times 24 /8 = 2199.5\) USD cho mỗi lượt train này kéo dài tầm gần 1 tuần.&lt;/li&gt;
+      &lt;li&gt;Thuê &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; thì có thể thuê loại &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g5g.16xlarge&lt;/code&gt; thì có 2 Tensor core và mất 1.1112 USD/h. Nhìn chung Spot giá sẽ mềm hơn &lt;strong&gt;on-demand&lt;/strong&gt; và cùng hạng với reserved. Tuy nhiên, vì là spot nên lúc nào mà tự dưng bị interupt là phải có kế hoạch ứng phó trước:
+        &lt;blockquote&gt;
+          &lt;p&gt;Spot Instances are a cost-effective choice if you can be flexible about when your applications run and &lt;strong&gt;if your applications can be interrupted&lt;/strong&gt;&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;neural-machine-translation-nmt&quot;&gt;Neural Machine Translation (NMT)&lt;/h2&gt;
