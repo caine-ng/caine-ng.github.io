@@ -709,8 +709,22 @@ Nên cạnh tranh vào cái con đường kiểu đọ thông số GPU này có 
 
 <h2 id="neural-machine-translation-nmt">Neural Machine Translation (NMT)</h2>
 
+<p>NMT là 1 bài toán NLP khá điển hình. Lần này chúng ta sẽ chạy thử 1 vài mô hình trên HuggingFace để dịch tiếng Đức sang tiếng Anh.
+Đầu tiên, là với mớ lý thuyết phía trên, chúng ta sẽ xem thử cách thức fine-tune model AlBERT cho task NMT.
+Tôi dùng bộ dữ liệu WMT 2014 để show:</p>
 <noscript><pre>400: Invalid request</pre></noscript>
 <script src="https://gist.github.com/fab8ab5644bd1a122dd3ad8880d283f9.js"> </script>
+
+<p>Nhìn chung, cứ setup đúng các thông số, tokenizer, hàm loss, optimizer, .v.v… thì hầu như quá trình fine-tune mô hình kiểu BERT diễn ra rất trôi chảy.
+Vấn đề tài nguyên để kết thúc quá trình train thì như thảo luận ở trên, các bạn có thể tự lựa chọn giải pháp phù hợp túi tiền.</p>
+
+<p>Nói chung nấu cả buổi nhưng ăn thì nhanh thôi. 
+Để demo chức năng dịch Đức-Anh thì tôi xài luôn model có sẵn<a href="https://huggingface.co/google/bert2bert_L-24_wmt_de_en"><code class="language-plaintext highlighter-rouge">google/bert2bert_L-24_wmt_de_en</code></a>.</p>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/88d0506002341d151a8e5ad745f3364f.js"> </script>
+
+<p>Tôi cũng sử dụng <code class="language-plaintext highlighter-rouge">sacrebleu</code> để show được điểm số BLEU của vài câu dịch.</p>
 
 <h2 id="text-summarization">Text Summarization</h2>
 

@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Feb 2022 00:30:26 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Feb 2022 00:30:26 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Feb 2022 01:38:39 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Feb 2022 01:38:39 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -396,8 +396,22 @@ Nên cạnh tranh vào cái con đường kiểu đọ thông số GPU này có 
 
 &lt;h2 id=&quot;neural-machine-translation-nmt&quot;&gt;Neural Machine Translation (NMT)&lt;/h2&gt;
 
+&lt;p&gt;NMT là 1 bài toán NLP khá điển hình. Lần này chúng ta sẽ chạy thử 1 vài mô hình trên HuggingFace để dịch tiếng Đức sang tiếng Anh.
+Đầu tiên, là với mớ lý thuyết phía trên, chúng ta sẽ xem thử cách thức fine-tune model AlBERT cho task NMT.
+Tôi dùng bộ dữ liệu WMT 2014 để show:&lt;/p&gt;
 &lt;noscript&gt;&lt;pre&gt;400: Invalid request&lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/fab8ab5644bd1a122dd3ad8880d283f9.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Nhìn chung, cứ setup đúng các thông số, tokenizer, hàm loss, optimizer, .v.v… thì hầu như quá trình fine-tune mô hình kiểu BERT diễn ra rất trôi chảy.
+Vấn đề tài nguyên để kết thúc quá trình train thì như thảo luận ở trên, các bạn có thể tự lựa chọn giải pháp phù hợp túi tiền.&lt;/p&gt;
+
+&lt;p&gt;Nói chung nấu cả buổi nhưng ăn thì nhanh thôi. 
+Để demo chức năng dịch Đức-Anh thì tôi xài luôn model có sẵn&lt;a href=&quot;https://huggingface.co/google/bert2bert_L-24_wmt_de_en&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google/bert2bert_L-24_wmt_de_en&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/88d0506002341d151a8e5ad745f3364f.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Tôi cũng sử dụng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sacrebleu&lt;/code&gt; để show được điểm số BLEU của vài câu dịch.&lt;/p&gt;
 
 &lt;h2 id=&quot;text-summarization&quot;&gt;Text Summarization&lt;/h2&gt;
 
