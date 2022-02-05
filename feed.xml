@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Feb 2022 18:20:02 +0900</pubDate>
-    <lastBuildDate>Sat, 05 Feb 2022 18:20:02 +0900</lastBuildDate>
+    <pubDate>Sat, 05 Feb 2022 20:06:11 +0900</pubDate>
+    <lastBuildDate>Sat, 05 Feb 2022 20:06:11 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -64,10 +64,10 @@ Chuỗi đầu vào \(\mathbb{x}_i\) và chuỗi đầu ra của decoder \(\math
 Nhưng ngược lại thì sẽ cần tokenizer bằng tiếng Nhật.
 Trong bài toán Text Summarization (TS), thì cả đầu ra và đầu vào đều sẽ cùng ngôn ngữ, nhưng đầu ra sẽ là một chuỗi ngắn gọn xúc tích hơn.
 Cái gọi là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ngắn gọn, xúc tích hơn&lt;/code&gt; sẽ được định nghĩa và học thông qua dữ liệu.
-Thì NMT có bộ WMT2014, WMT2017, còn TS thì có bộ DUC.
+Thì NMT có bộ WMT2014 &lt;a class=&quot;citation&quot; href=&quot;#bojar2014findings&quot;&gt;[13]&lt;/a&gt;, WMT2017 &lt;a class=&quot;citation&quot; href=&quot;#bojar2017findings&quot;&gt;[14]&lt;/a&gt;, còn TS thì có bộ DUC &lt;a class=&quot;citation&quot; href=&quot;#paul2004introduc&quot;&gt;[15]&lt;/a&gt;.
 Còn bài toán QA thì chuỗi đầu vào là một câu hỏi còn đầu ra là 1 câu trả lời.
 Cái hay của QA là đôi khi có thêm chuỗi context (hay gọi là gợi ý), ví dụ như hỏi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bạn sống ở đâu?&lt;/code&gt; thì có thêm context là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tôi sống ở Nhật&lt;/code&gt; thì máy sẽ trả lời luôn là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Nhật&lt;/code&gt;.
-QA thì có bộ SQuAD v1 và v2 với hơn trăm ngàn bộ câu hỏi (nghe như luyện thì TOEIC).
+QA thì có bộ SQuAD v1 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2016squad&quot;&gt;[5]&lt;/a&gt; và v2 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2018know&quot;&gt;[16]&lt;/a&gt; với hơn trăm ngàn bộ câu hỏi (nghe như luyện thì TOEIC).
 Metrics đánh giá thì có cái BLUE-4 score, CIDEr, ROGUE là có thể dùng để đánh giá chuỗi đầu ra có phù hợp không.
 Chúng ta sẽ đi sâu thêm vào từng chi tiết sau.&lt;/p&gt;
 
@@ -97,11 +97,11 @@ Còn không muốn làm thì hỏi giáo sư Huấn để biết phải làm gì
 
 &lt;p&gt;Thôi nói chung là cái trường hợp postdoc ở trên là một ví dụ điển hình thôi, mà trường hợp ấy tôi nghĩ đã được giáo sư Huấn chỉ bảo tận tình rồi nên không cần lo lắng nữa.
 Chúng ta quay lại với chủ để chính của hôm nay là giới thiệu về &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.
-Để implement được &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là &lt;em&gt;Stochastic Gradient Descent (SGD, &lt;a class=&quot;citation&quot; href=&quot;#bottou2007tradeoffs&quot;&gt;[13]&lt;/a&gt;)&lt;/em&gt;.
+Để implement được &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là &lt;em&gt;Stochastic Gradient Descent (SGD, &lt;a class=&quot;citation&quot; href=&quot;#bottou2007tradeoffs&quot;&gt;[17]&lt;/a&gt;)&lt;/em&gt;.
 Thì cái học củ SGD là mình chỉ random sample một phần của dữ liệu học để tính được gradient và update weight của model.
 Chúng ta sẽ có &lt;em&gt;learning rate&lt;/em&gt; mà nhỏ thì chậm, còn cao quá thì mô hình sẽ khó hội tụ.&lt;/p&gt;
 
-&lt;p&gt;Lời giải thì đơn giản nhất là có mô hình &lt;em&gt;Recurrent Neural Nets (RNN, &lt;a class=&quot;citation&quot; href=&quot;#rumelhart1986learning&quot;&gt;[14]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[15]&lt;/a&gt;)&lt;/em&gt; mà mô hình và công thức forward pass như bên dưới:&lt;/p&gt;
+&lt;p&gt;Lời giải thì đơn giản nhất là có mô hình &lt;em&gt;Recurrent Neural Nets (RNN, &lt;a class=&quot;citation&quot; href=&quot;#rumelhart1986learning&quot;&gt;[18]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[19]&lt;/a&gt;)&lt;/em&gt; mà mô hình và công thức forward pass như bên dưới:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/rnn.svg&quot; alt=&quot;rnn&quot; /&gt;&lt;/p&gt;
 
@@ -117,14 +117,14 @@ Nhìn lại thì công thức và cả phương thức implement RNN là cũng r
 
 &lt;p&gt;Nhược điểm của RNN là vấn đề ghi nhớ &lt;em&gt;long-term dependencies&lt;/em&gt;: ví dụ chúng ta có 1 gradient \(\mathbf{g}\) và giả sử là RNN không có non-linear activations nào thì chúng ta có thể giả sử thêm là cứ sau mỗi time step thì Jacobian matrix là \(\mathbf{J}\), vậy sau \(n\) bước thì gradient của chúng ta sẽ biến thành \(\mathbf{J}^n\mathbf{g}\) và nếu nó có một giá trị riêng \(\lambda\) mà giá trị khác \(\pm 1\), thì sẽ dẫn đến vấn đề là gradient triệt tiêu hoặc tiến ra vô cùng sau hữu hạn bước tính.
 Để khắc phục nhược điểm này thì một giải pháp được đưa ra là đưa &lt;em&gt;self-loop&lt;/em&gt; vào cùng các &lt;em&gt;non-linear gates&lt;/em&gt; như forget gate, output/input gates để control giá trị.
-Một kiến trúc đã làm được việc đó là &lt;em&gt;Long-Short Term Memory (LSTM, &lt;a class=&quot;citation&quot; href=&quot;#hochreiter1997long&quot;&gt;[16, 17]&lt;/a&gt;)&lt;/em&gt;.
+Một kiến trúc đã làm được việc đó là &lt;em&gt;Long-Short Term Memory (LSTM, &lt;a class=&quot;citation&quot; href=&quot;#hochreiter1997long&quot;&gt;[20, 21]&lt;/a&gt;)&lt;/em&gt;.
 Mỗi cổng đều chứa &lt;em&gt;sigmoid&lt;/em&gt; activation để đưa giá trị về khoảng \((0,1)\) dẫn đến các giá trị output ở các cổng có thể bị shut-off.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/lstm.svg&quot; alt=&quot;lstm&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Việc thêm gates và non-linear activation (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sigmoid&lt;/code&gt;) để control giá trị là hợp lý với LSTM.
 Tuy nhiên, nếu nhìn vào cái đám công thức thì trong LSTM khi update và forget của \(\mathbf{h}_{t+1}\) là đồng thời thực hiện song song việc forget và quyết định có update hay không.
-&lt;strong&gt;Gated Recurrent Unit (GRU, &lt;a class=&quot;citation&quot; href=&quot;#cho2014properties&quot;&gt;[18]&lt;/a&gt;)&lt;/strong&gt; thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; cho từng mục đích ấy.&lt;/p&gt;
+&lt;strong&gt;Gated Recurrent Unit (GRU, &lt;a class=&quot;citation&quot; href=&quot;#cho2014properties&quot;&gt;[22]&lt;/a&gt;)&lt;/strong&gt; thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reset&lt;/code&gt; cho từng mục đích ấy.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Nhìn chung, công thức toán của các kiến trúc RNN/LSTM/GRU đều không phức tạp.
@@ -295,7 +295,7 @@ Do đó, cách tốt hơn là dùng &lt;strong&gt;Beam Search&lt;/strong&gt;:&lt
 &lt;span class=&quot;n&quot;&gt;beam_search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample_decoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eos_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vocab_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (&lt;a class=&quot;citation&quot; href=&quot;#koehn2009statistical&quot;&gt;[19]&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (&lt;a class=&quot;citation&quot; href=&quot;#koehn2009statistical&quot;&gt;[23]&lt;/a&gt;).&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Tất nhiên, cũng cần chú ý là implement những cái này ở local cũng chỉ để học hỏi thôi nhé.
@@ -324,8 +324,8 @@ Thì công thức attention (không có mask) sẽ như sau:&lt;/p&gt;
 Trong trường hợp dùng mask (ở decoder chả hạn) thì chủ yếu là để kết hợp với position embedding để hạn chế ảnh hưởng của các token trước thời điểm $t$ chả hạn.&lt;/p&gt;
 
 &lt;p&gt;Nói chung lý thuyết của Transformer cũng không có gì quá phức tạp.
-Bản thân Transformer cũng đã được implement chi tiết trong thư viện &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tensor2tensor&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#vaswani2018tensor2tensor&quot;&gt;[20]&lt;/a&gt; nên như tôi đã nói, cái mảng này thực ra tài liệu tài nguyên thì vô cùng dồi dào.
-Ngoài ra một thư viện nữa là HuggingFace &lt;a class=&quot;citation&quot; href=&quot;#wolf2020transformers&quot;&gt;[21]&lt;/a&gt; với model zoo dồi dào cũng rất đáng xem.
+Bản thân Transformer cũng đã được implement chi tiết trong thư viện &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tensor2tensor&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#vaswani2018tensor2tensor&quot;&gt;[24]&lt;/a&gt; nên như tôi đã nói, cái mảng này thực ra tài liệu tài nguyên thì vô cùng dồi dào.
+Ngoài ra một thư viện nữa là HuggingFace &lt;a class=&quot;citation&quot; href=&quot;#wolf2020transformers&quot;&gt;[25]&lt;/a&gt; với model zoo dồi dào cũng rất đáng xem.
 &lt;strong&gt;Thế là lại nói lại câu chuyện postdoc ở trên: &lt;em&gt;không hiểu tại sao lại không làm được?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -357,15 +357,15 @@ Triệu chứng bệnh rõ ràng nhất ở đây là&lt;/p&gt;
 Ở Mỹ chả hạn, làm nghiên cứu muốn tồn tại lâu dài phải có kỹ năng quản lý dự án nghiên cứu. Thế mà chạy postdoc 2 năm mà không ngộ ra chân lý, không thể hiện tiềm năng làm quản lý lãnh đạo, thì không bật bãi chắc chỉ có ở thiên đường thôi!&lt;/p&gt;
 
 &lt;h3 id=&quot;bert&quot;&gt;BERT&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;B&lt;/strong&gt;idirectional &lt;strong&gt;E&lt;/strong&gt;ncoder &lt;strong&gt;R&lt;/strong&gt;epresentations from &lt;strong&gt;T&lt;/strong&gt;ransformers (&lt;strong&gt;BERT&lt;/strong&gt;, &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[22]&lt;/a&gt;) lại là 1 kiến trúc mới gần đây (từ 2018?).
+&lt;p&gt;&lt;strong&gt;B&lt;/strong&gt;idirectional &lt;strong&gt;E&lt;/strong&gt;ncoder &lt;strong&gt;R&lt;/strong&gt;epresentations from &lt;strong&gt;T&lt;/strong&gt;ransformers (&lt;strong&gt;BERT&lt;/strong&gt;, &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[26]&lt;/a&gt;) lại là 1 kiến trúc mới gần đây (từ 2018?).
 Pretraining kiến trúc trên 1 task unsupervised (kiểu tự học), rồi dùng lại kiến trúc đó trong 1 task supervised khác là tư tưởng chính của BERT.
-Các phiên bản cải tiến của BERT có thể kể đến AlBERT &lt;a class=&quot;citation&quot; href=&quot;#lan2019albert&quot;&gt;[23]&lt;/a&gt;, RoBERTa &lt;a class=&quot;citation&quot; href=&quot;#liu2019roberta&quot;&gt;[24]&lt;/a&gt;, BART &lt;a class=&quot;citation&quot; href=&quot;#lewis2020bart&quot;&gt;[25]&lt;/a&gt;, XlNet &lt;a class=&quot;citation&quot; href=&quot;#yang2019xlnet&quot;&gt;[26]&lt;/a&gt;, XLM &lt;a class=&quot;citation&quot; href=&quot;#conneau2019cross&quot;&gt;[27]&lt;/a&gt; hay gần đây là ELECTRA &lt;a class=&quot;citation&quot; href=&quot;#clark2020electra&quot;&gt;[28]&lt;/a&gt; đều kế thừa tinh thần này.
-Trong quá khứ thì việc sử dụng pretraining để tạo ra một xuất phát điểm tốt hơn cho model là ý tưởng đã được khai thác &lt;a class=&quot;citation&quot; href=&quot;#hinton2006fast&quot;&gt;[29]&lt;/a&gt;.
+Các phiên bản cải tiến của BERT có thể kể đến AlBERT &lt;a class=&quot;citation&quot; href=&quot;#lan2019albert&quot;&gt;[27]&lt;/a&gt;, RoBERTa &lt;a class=&quot;citation&quot; href=&quot;#liu2019roberta&quot;&gt;[28]&lt;/a&gt;, BART &lt;a class=&quot;citation&quot; href=&quot;#lewis2020bart&quot;&gt;[29]&lt;/a&gt;, XlNet &lt;a class=&quot;citation&quot; href=&quot;#yang2019xlnet&quot;&gt;[30]&lt;/a&gt;, XLM &lt;a class=&quot;citation&quot; href=&quot;#conneau2019cross&quot;&gt;[31]&lt;/a&gt; hay gần đây là ELECTRA &lt;a class=&quot;citation&quot; href=&quot;#clark2020electra&quot;&gt;[32]&lt;/a&gt; đều kế thừa tinh thần này.
+Trong quá khứ thì việc sử dụng pretraining để tạo ra một xuất phát điểm tốt hơn cho model là ý tưởng đã được khai thác &lt;a class=&quot;citation&quot; href=&quot;#hinton2006fast&quot;&gt;[33]&lt;/a&gt;.
 Ví dụ như Hinton thì đã pretrain deep belief nets và gọi là &lt;em&gt;greedy layer-wise unsupervised pretraining&lt;/em&gt;.
 Thủ thuật này là cần thiết khi train các model lớn:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;to train the first layer in isolation, then extract all features from the first layer only once, then train the second layer in isolation given those features, and so on. &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[15]&lt;/a&gt;.&lt;/p&gt;
+  &lt;p&gt;to train the first layer in isolation, then extract all features from the first layer only once, then train the second layer in isolation given those features, and so on. &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[19]&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Ý tưởng của kiểu pretraining này là ta có một model rất lớn \(A\), việc train \(A\) từ đầu (random weights) sẽ rất khó.
@@ -382,7 +382,7 @@ Ví dụ như trong câu&lt;/p&gt;
 Masked: I &amp;lt;MASK&amp;gt; a pen &amp;lt;EOS&amp;gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;thì từ câu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Masked&lt;/code&gt;, nhiệm vụ của pretext là phải &lt;em&gt;phục hồi&lt;/em&gt; lại các từ bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;MASK&amp;gt;&lt;/code&gt;.
-Nguyên tắc pretext này nhìn chung giống với &lt;em&gt;denoising auto-encoders&lt;/em&gt; &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[15]&lt;/a&gt;.
+Nguyên tắc pretext này nhìn chung giống với &lt;em&gt;denoising auto-encoders&lt;/em&gt; &lt;a class=&quot;citation&quot; href=&quot;#goodfellow2016deep&quot;&gt;[19]&lt;/a&gt;.
 Vì việc tạo bộ dữ liệu masking là dễ dàng và có thể tự làm được (viết script để ngẫu nhiên thay 1 token bởi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;MASK&amp;gt;&lt;/code&gt;) nên task này có thể xếp vào hạng mục &lt;strong&gt;unsupervised learning&lt;/strong&gt; hoặc &lt;strong&gt;self-supervised learning (SSL)&lt;/strong&gt;.
 Lợi thế là người train có thể tạo ra bộ dữ liệu lớn tự động để máy học pretext mà không cần gắn nhãn!
 Một pretext khác là &lt;em&gt;đoán câu tiếp theo (Next Sentence Prediction, NSP)&lt;/em&gt;.
@@ -393,10 +393,10 @@ Ví dụ:&lt;/p&gt;
 Next Sentence: He sent me to the Psychology department.
 &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Trong kết quả của BERT thì có vẻ pretext NSP giúp cải thiện độ chính xác của task QA.
-Tất nhiên, ngoài dùng pretext thì còn những kiểu pretraining khác như sử dụng feature đã pretrain (ELMo, &lt;a class=&quot;citation&quot; href=&quot;#peters2018deep&quot;&gt;[30]&lt;/a&gt;) hoặc fine-tune toàn bộ pretrain parameters (OpenAI GPT, &lt;a class=&quot;citation&quot; href=&quot;#radford2018improving&quot;&gt;[31]&lt;/a&gt;).
-Gần đây có model BART &lt;a class=&quot;citation&quot; href=&quot;#lewis2020bart&quot;&gt;[25]&lt;/a&gt; tích hợp cả BERT và GPT để tạo ra một cơ chế pretext có thể mô phỏng hàm noise bất kỳ.&lt;/p&gt;
+Tất nhiên, ngoài dùng pretext thì còn những kiểu pretraining khác như sử dụng feature đã pretrain (ELMo, &lt;a class=&quot;citation&quot; href=&quot;#peters2018deep&quot;&gt;[34]&lt;/a&gt;) hoặc fine-tune toàn bộ pretrain parameters (OpenAI GPT, &lt;a class=&quot;citation&quot; href=&quot;#radford2018improving&quot;&gt;[35]&lt;/a&gt;).
+Gần đây có model BART &lt;a class=&quot;citation&quot; href=&quot;#lewis2020bart&quot;&gt;[29]&lt;/a&gt; tích hợp cả BERT và GPT để tạo ra một cơ chế pretext có thể mô phỏng hàm noise bất kỳ.&lt;/p&gt;
 
-&lt;p&gt;Hầu hết những phương pháp kể trên đều có thể tìm thấy tại thư viện model HuggingFace &lt;a class=&quot;citation&quot; href=&quot;#wolf2020transformers&quot;&gt;[21]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Hầu hết những phương pháp kể trên đều có thể tìm thấy tại thư viện model HuggingFace &lt;a class=&quot;citation&quot; href=&quot;#wolf2020transformers&quot;&gt;[25]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h1&gt;
 
@@ -435,7 +435,7 @@ Có dạy “nấu” thì cũng phải cái gì mà nó kiểu sẵn sẵn mà 
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/G5lmya6eKtc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/G5lmya6eKtc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Nguồn &lt;strong&gt;tài nguyên tính toán&lt;/strong&gt;:
@@ -466,6 +466,25 @@ Với Colab, bạn có thể định nghĩa form các biến chương trình nh�
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/nmt-colab-01.png&quot; alt=&quot;colab form&quot; /&gt;&lt;/p&gt;
 
+&lt;p&gt;Sau khi đã làm quen với môi trường Google Colab thì bạn đã all-set to go!&lt;/p&gt;
+
+&lt;h4 id=&quot;chú-ý-về-train-song-song&quot;&gt;Chú ý về train song song&lt;/h4&gt;
+&lt;p&gt;Một chú ý nhỏ mang tính hô trợ trong quản lý time thôi là nếu bạn chọn Colab Free plan thì GPU/TPU tốc độ khá thấp.
+Ngoài ra, bộ dữ liệu hạng vừa như WMT 2014 thì cũng có 4,468,840 cặp câu dịch (bộ training set).
+Mà Colab Free thì tốc độ training sẽ rơi vào tầm 18-20 FPS với model AlBERT, như vậy để train hết 1 epoch với WMT sẽ mất tầm 62-70 (h), tức là khoảng 3 ngày/epoch (liên tục).
+Mà để train model NMT thì sẽ mất 5-15 epochs nên sẽ phải mất tầm &lt;strong&gt;15-45 ngày train liên tục&lt;/strong&gt;.
+Tuy nhiên, Colab Free có giới hạn là 1 session chỉ được 12h liên tục, nên bạn sẽ phải break ra tầm 30-90 sessions.
+Ngoài ra đóng browser là mất luôn đấy chứ nó lại không chạy ở background đâu.&lt;/p&gt;
+
+&lt;p&gt;Bài viết này chỉ sử dụng có sẵn với viết script để demo inference hoặc show training vài step nó như thế nào thôi, nên chúng tôi cũng chỉ cần Colab Free là đủ.
+Tuy nhiên, nếu mà các bạn định làm nghiêm túc kiểu hì hục nấu cả buổi thì tôi nghĩ là nếu dùng GPU thì dưới 8 GPUs là hì hục lâu phết đấy!
+Có mấy giải pháp:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Nâng cấp nên Colab Pro (10USD/tháng) và Pro Plus (50USD/tháng).&lt;/strong&gt; Tuy nhiên, dù lên Pro Plus thì 1 session cũng chỉ được 24h liên tục. Được cái là cho phép chạy background nên sẽ dễ thở hơn. Có điều là 24h thì lại phải save ra Google Drive, rồi khởi động lại training &lt;strong&gt;bằng tay&lt;/strong&gt;. GPU/TPU sẽ nhanh hơn tầm vài lần nên có thể sẽ chỉ mất vài tuần để train thôi. &lt;strong&gt;Hì hục&lt;/strong&gt; nó là thế đấy!&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tự chế ra 1 hệ thống multi-GPU&lt;/strong&gt;: kiếm kinh phí mua tầm 24 cái GPUs P100 thì có khi 1 epoch mất 1h thôi, thì train trong ngày sẽ xong. Giá cả thì &lt;strong&gt;Tesla P100 SXM2 16GB&lt;/strong&gt; tầm 10,000 USD/cái, 24 cái thì tầm 240,000 USD thôi! Muốn làm big data mà chỉ code thôi là không ăn thua đâu! Bởi vận hành triển khai mỗi tháng hóa đơn đã vài chục ngàn đô, tiền upfront mua GPU cũng đã 240,000 USD thì code hầu như là phần ít giá trị nhất! Code nói chung … rẻ mạt!&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;neural-machine-translation-nmt&quot;&gt;Neural Machine Translation (NMT)&lt;/h2&gt;
 
 &lt;h2 id=&quot;text-summarization&quot;&gt;Text Summarization&lt;/h2&gt;
@@ -490,6 +509,10 @@ Với Colab, bạn có thể định nghĩa form các biến chương trình nh�
 &lt;li&gt;&lt;span id=&quot;you2016image&quot;&gt;You, Q., Jin, H., Wang, Z., Fang, C. and Luo, J. 2016. Image captioning with semantic attention. &lt;i&gt;Proceedings of the IEEE conference on computer vision and pattern recognition&lt;/i&gt; (2016), 4651–4659.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/you2016image/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;johnson2016densecap&quot;&gt;Johnson, J., Karpathy, A. and Fei-Fei, L. 2016. Densecap: Fully convolutional localization networks for dense captioning. &lt;i&gt;Proceedings of the IEEE conference on computer vision and pattern recognition&lt;/i&gt; (2016), 4565–4574.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/johnson2016densecap/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;luong2015multi&quot;&gt;Luong, M.-T., Le, Q.V., Sutskever, I., Vinyals, O. and Kaiser, L. 2015. Multi-task sequence to sequence learning. &lt;i&gt;arXiv preprint arXiv:1511.06114&lt;/i&gt;. (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/luong2015multi/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;bojar2014findings&quot;&gt;Bojar, O., Buck, C., Federmann, C., Haddow, B., Koehn, P., Leveling, J., Monz, C., Pecina, P., Post, M., Saint-Amand, H. and others 2014. Findings of the 2014 workshop on statistical machine translation. &lt;i&gt;Proceedings of the ninth workshop on statistical machine translation&lt;/i&gt; (2014), 12–58.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/bojar2014findings/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;bojar2017findings&quot;&gt;Bojar, O., Chatterjee, R., Federmann, C., Graham, Y., Haddow, B., Huang, S., Huck, M., Koehn, P., Liu, Q., Logacheva, V. and others 2017. Findings of the 2017 conference on machine translation (wmt17). &lt;i&gt;Proceedings of the Second Conference on Machine Translation&lt;/i&gt; (2017), 169–214.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/bojar2017findings/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;paul2004introduc&quot;&gt;Over, P. and Yen, J. 2014. An Introduction to DUC-2004. https://duc.nist.gov/pubs/2004slides/duc2004.intro.pdf.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/paul2004introduc/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;rajpurkar2018know&quot;&gt;Rajpurkar, P., Jia, R. and Liang, P. 2018. Know What You Don’t Know: Unanswerable Questions for SQuAD. &lt;i&gt;Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)&lt;/i&gt; (2018), 784–789.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rajpurkar2018know/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;bottou2007tradeoffs&quot;&gt;Bottou, L. and Bousquet, O. 2007. The tradeoffs of large scale learning. &lt;i&gt;Advances in neural information processing systems&lt;/i&gt;. 20, (2007).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/bottou2007tradeoffs/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;rumelhart1986learning&quot;&gt;Rumelhart, D.E., Hinton, G.E. and Williams, R.J. 1986. Learning representations by back-propagating errors. &lt;i&gt;nature&lt;/i&gt;. 323, 6088 (1986), 533–536.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rumelhart1986learning/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;goodfellow2016deep&quot;&gt;Goodfellow, I., Bengio, Y. and Courville, A. 2016. &lt;i&gt;Deep learning&lt;/i&gt;. MIT press.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/goodfellow2016deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
