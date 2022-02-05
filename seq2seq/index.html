@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="twitter:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <script type="application/ld+json">
-{"headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [35]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [35, 35, 35] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [35]), Question-Answering (QA, [35]), Visual Question Answering (VQA, [35]), Text Summarization (TS, [35, 35]) và Video-To-Text (VTT, [35]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [35] hay Densecap [35]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [35].","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"image":"/https://wanted2.github.io/assets/images/san01.jpg","url":"/https://wanted2.github.io/seq2seq/","author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [35]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [35, 35, 35] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [35]), Question-Answering (QA, [35]), Visual Question Answering (VQA, [35]), Text Summarization (TS, [35, 35]) và Video-To-Text (VTT, [35]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [35] hay Densecap [35]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [35].","image":"/https://wanted2.github.io/assets/images/san01.jpg","headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","url":"/https://wanted2.github.io/seq2seq/","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -488,125 +488,8 @@ Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
 
 <p>Một đoạn code demo của <code class="language-plaintext highlighter-rouge">beam search</code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="p">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s">'ignore'</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">X</span><span class="o">/</span><span class="n">s</span>
-
-<span class="k">def</span> <span class="nf">sample_decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">):</span>
-    <span class="s">"""
-    We implement a sample decoder.
-    In practice, it should be a neural network.
-    But for this demo of beam search, this is enough!
-    """</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,))</span>
-    <span class="k">if</span> <span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">argmax</span><span class="p">()</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-        <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
-    <span class="k">return</span> <span class="n">a</span>
-
-<span class="k">def</span> <span class="nf">beam_search</span><span class="p">(</span><span class="n">decoder</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="s">"""
-    :param outputs: the output of encoders as softmax probabilities
-    :param n: beam's maximum size
-    :return the completed sentences with EOS
-    """</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="c1"># first step
-</span>    <span class="n">p</span> <span class="o">=</span> <span class="n">decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
-    <span class="n">top_n_ids</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
-    <span class="n">beam</span> <span class="o">=</span> <span class="p">[((</span><span class="n">i</span><span class="p">,),</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_n_ids</span><span class="p">]</span>
-    <span class="nb">iter</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">iter</span> <span class="o">&lt;</span> <span class="n">max_iter</span><span class="p">:</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">decoder</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
-        <span class="n">top_n_ids</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="n">n</span><span class="p">:]</span>
-        <span class="n">new_beam</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">old_beam</span><span class="p">,</span> <span class="n">new_id</span> <span class="ow">in</span> <span class="n">itertools</span><span class="p">.</span><span class="n">product</span><span class="p">(</span><span class="n">beam</span><span class="p">,</span> <span class="n">top_n_ids</span><span class="p">):</span>
-            <span class="n">old_ids</span><span class="p">,</span> <span class="n">old_prob</span> <span class="o">=</span> <span class="n">old_beam</span>
-            <span class="n">new_ids</span> <span class="o">=</span> <span class="n">old_ids</span> <span class="o">+</span> <span class="p">(</span><span class="n">new_id</span><span class="p">,)</span>
-            <span class="n">new_prob</span> <span class="o">=</span> <span class="n">old_prob</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="n">new_id</span><span class="p">]</span>
-            <span class="n">new_beam</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">new_ids</span><span class="p">,</span> <span class="n">new_prob</span><span class="p">))</span>
-        <span class="n">new_beam</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">new_beam</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">new_beam</span> <span class="o">=</span> <span class="n">new_beam</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
-        <span class="n">beam</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">ids</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">new_beam</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">eos_id</span> <span class="o">==</span> <span class="n">ids</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-                <span class="n">outputs</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">ids</span><span class="p">,</span> <span class="n">prob</span><span class="p">))</span>
-                <span class="k">continue</span>
-            <span class="n">beam</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">ids</span><span class="p">,</span> <span class="n">prob</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Beam size = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">beam</span><span class="p">)</span><span class="si">}</span><span class="s">, # outputs = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-        <span class="nb">iter</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">outputs</span>
-    
-<span class="n">beam_search</span><span class="p">(</span><span class="n">sample_decoder</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">eos_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/6397ad4648f7c891ccd41513bb8206e5.js"> </script>
 
 <p>Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (<a class="citation" href="#koehn2009statistical">[23]</a>).</p>
 
@@ -813,7 +696,21 @@ Có mấy giải pháp:</p>
   </li>
 </ul>
 
+<p><em>Như các bạn đã thấy ở trên: cùng mức GPU <code class="language-plaintext highlighter-rouge">g5.xlarge</code> thì Colab Free còn thuê EC2 mất 453.6 USD. Vậy sự khác biệt là gì? Điểm khác chính yếu là thuê EC2 thì bạn không phải lo cái <strong>session 12 h</strong> (sau 12h phải khởi động lại bằng tay và save dữ liệu vào Google Drive).</em>
+<strong>Tức là chỉ mỗi cái limit 12h ấy thôi đã trị giá 453.6 USD rồi.</strong></p>
+
+<p>Một điểm đáng lưu ý thứ 2 là giới R&amp;D cạnh tranh khá khốc liệt, nên trên thứ vô thưởng vô phạt kiểu này thì kéo dài 45 ngày và free cũng được.
+Nhưng cái gì mà có giá trị kinh tế một chút là cạnh tranh ác liệt: <strong>train là phải xong trong ngày, chứ đợi cả tháng sau có đứa nó publish mất thì sao?</strong>
+Thế nên tôi nghĩ nếu thực sự phải cạnh tranh thì chắc lại 240,000 USD hoặc <code class="language-plaintext highlighter-rouge">g5.48xlarge</code> thôi.
+Và nếu chọn con đường cạnh tranh này thì các tập đoàn lớn, có sẵn hàng chục cái GPU server trong tay muốn huy động lúc nào cũng <code class="language-plaintext highlighter-rouge">ok em</code> thì chắc chắn là thắng thế.
+Nên cạnh tranh vào cái con đường kiểu đọ thông số GPU này có lẽ là chỉ dành cho tập đoàn lớn thôi.</p>
+
+<p>Thứ 3 nữa là tự chế 240,000 USD thì mới là DIY và <code class="language-plaintext highlighter-rouge">self-supervised</code> chứ còn thuê với Colab thì đâu còn là <code class="language-plaintext highlighter-rouge">self</code> nữa nên rốt cuộc là chắc cũng quay lại 240,000 USD nếu thực sự là <code class="language-plaintext highlighter-rouge">self</code>.</p>
+
 <h2 id="neural-machine-translation-nmt">Neural Machine Translation (NMT)</h2>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/fab8ab5644bd1a122dd3ad8880d283f9.js"> </script>
 
 <h2 id="text-summarization">Text Summarization</h2>
 
