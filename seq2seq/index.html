@@ -28,8 +28,8 @@
 <meta property="og:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [35]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [35, 35, 35] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [35]), Question-Answering (QA, [35]), Visual Question Answering (VQA, [35]), Text Summarization (TS, [35, 35]) và Video-To-Text (VTT, [35]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [35] hay Densecap [35]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [35]." />
-<meta property="og:description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [35]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [35, 35, 35] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [35]), Question-Answering (QA, [35]), Visual Question Answering (VQA, [35]), Text Summarization (TS, [35, 35]) và Video-To-Text (VTT, [35]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [35] hay Densecap [35]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [35]." />
+<meta name="description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [39]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [39, 39, 39] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [39]), Question-Answering (QA, [39]), Visual Question Answering (VQA, [39]), Text Summarization (TS, [39, 39]) và Video-To-Text (VTT, [39]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [39] hay Densecap [39]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [39]." />
+<meta property="og:description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [39]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [39, 39, 39] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [39]), Question-Answering (QA, [39]), Visual Question Answering (VQA, [39]), Text Summarization (TS, [39, 39]) và Video-To-Text (VTT, [39]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [39] hay Densecap [39]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [39]." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="twitter:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <script type="application/ld+json">
-{"description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [35]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [35, 35, 35] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [35]), Question-Answering (QA, [35]), Visual Question Answering (VQA, [35]), Text Summarization (TS, [35, 35]) và Video-To-Text (VTT, [35]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [35] hay Densecap [35]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [35].","image":"/https://wanted2.github.io/assets/images/san01.jpg","headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","url":"/https://wanted2.github.io/seq2seq/","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [39]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [39, 39, 39] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [39]), Question-Answering (QA, [39]), Visual Question Answering (VQA, [39]), Text Summarization (TS, [39, 39]) và Video-To-Text (VTT, [39]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [39] hay Densecap [39]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [39].","image":"/https://wanted2.github.io/assets/images/san01.jpg","headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","url":"/https://wanted2.github.io/seq2seq/","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -381,7 +381,7 @@ Thì NMT có bộ WMT2014 <a class="citation" href="#bojar2014findings">[13]</a>
 Còn bài toán QA thì chuỗi đầu vào là một câu hỏi còn đầu ra là 1 câu trả lời.
 Cái hay của QA là đôi khi có thêm chuỗi context (hay gọi là gợi ý), ví dụ như hỏi <code class="language-plaintext highlighter-rouge">Bạn sống ở đâu?</code> thì có thêm context là <code class="language-plaintext highlighter-rouge">Tôi sống ở Nhật</code> thì máy sẽ trả lời luôn là <code class="language-plaintext highlighter-rouge">Nhật</code>.
 QA thì có bộ SQuAD v1 <a class="citation" href="#rajpurkar2016squad">[5]</a> và v2 <a class="citation" href="#rajpurkar2018know">[16]</a> với hơn trăm ngàn bộ câu hỏi (nghe như luyện thì TOEIC).
-Metrics đánh giá thì có cái BLUE-4 score, CIDEr, ROGUE là có thể dùng để đánh giá chuỗi đầu ra có phù hợp không.
+Metrics đánh giá thì có cái BLUE-4 score, CIDEr, ROGUE <a class="citation" href="#lin2004rouge">[17]</a> là có thể dùng để đánh giá chuỗi đầu ra có phù hợp không.
 Chúng ta sẽ đi sâu thêm vào từng chi tiết sau.</p>
 
 <p>Các task trong NLP thì là như vậy, dữ liệu, code và metrics hầu như có sẵn.
@@ -410,11 +410,11 @@ Còn không muốn làm thì hỏi giáo sư Huấn để biết phải làm gì
 
 <p>Thôi nói chung là cái trường hợp postdoc ở trên là một ví dụ điển hình thôi, mà trường hợp ấy tôi nghĩ đã được giáo sư Huấn chỉ bảo tận tình rồi nên không cần lo lắng nữa.
 Chúng ta quay lại với chủ để chính của hôm nay là giới thiệu về <code class="language-plaintext highlighter-rouge">seq2seq</code>.
-Để implement được <code class="language-plaintext highlighter-rouge">seq2seq</code> thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là <em>Stochastic Gradient Descent (SGD, <a class="citation" href="#bottou2007tradeoffs">[17]</a>)</em>.
+Để implement được <code class="language-plaintext highlighter-rouge">seq2seq</code> thì chúng ta cần 1 mô hình nhận chuỗi và output đầu ra cũng là một chuỗi khác, và quan trọng hơn là có thể huấn luyện bằng thuật toán Gradient Descent, cụ thể hơn là <em>Stochastic Gradient Descent (SGD, <a class="citation" href="#bottou2007tradeoffs">[18]</a>)</em>.
 Thì cái học củ SGD là mình chỉ random sample một phần của dữ liệu học để tính được gradient và update weight của model.
 Chúng ta sẽ có <em>learning rate</em> mà nhỏ thì chậm, còn cao quá thì mô hình sẽ khó hội tụ.</p>
 
-<p>Lời giải thì đơn giản nhất là có mô hình <em>Recurrent Neural Nets (RNN, <a class="citation" href="#rumelhart1986learning">[18]</a>, <a class="citation" href="#goodfellow2016deep">[19]</a>)</em> mà mô hình và công thức forward pass như bên dưới:</p>
+<p>Lời giải thì đơn giản nhất là có mô hình <em>Recurrent Neural Nets (RNN, <a class="citation" href="#rumelhart1986learning">[19]</a>, <a class="citation" href="#goodfellow2016deep">[20]</a>)</em> mà mô hình và công thức forward pass như bên dưới:</p>
 
 <p><img src="/assets/images/rnn.svg" alt="rnn" /></p>
 
@@ -430,14 +430,14 @@ Nhìn lại thì công thức và cả phương thức implement RNN là cũng r
 
 <p>Nhược điểm của RNN là vấn đề ghi nhớ <em>long-term dependencies</em>: ví dụ chúng ta có 1 gradient \(\mathbf{g}\) và giả sử là RNN không có non-linear activations nào thì chúng ta có thể giả sử thêm là cứ sau mỗi time step thì Jacobian matrix là \(\mathbf{J}\), vậy sau \(n\) bước thì gradient của chúng ta sẽ biến thành \(\mathbf{J}^n\mathbf{g}\) và nếu nó có một giá trị riêng \(\lambda\) mà giá trị khác \(\pm 1\), thì sẽ dẫn đến vấn đề là gradient triệt tiêu hoặc tiến ra vô cùng sau hữu hạn bước tính.
 Để khắc phục nhược điểm này thì một giải pháp được đưa ra là đưa <em>self-loop</em> vào cùng các <em>non-linear gates</em> như forget gate, output/input gates để control giá trị.
-Một kiến trúc đã làm được việc đó là <em>Long-Short Term Memory (LSTM, <a class="citation" href="#hochreiter1997long">[20, 21]</a>)</em>.
+Một kiến trúc đã làm được việc đó là <em>Long-Short Term Memory (LSTM, <a class="citation" href="#hochreiter1997long">[21, 22]</a>)</em>.
 Mỗi cổng đều chứa <em>sigmoid</em> activation để đưa giá trị về khoảng \((0,1)\) dẫn đến các giá trị output ở các cổng có thể bị shut-off.</p>
 
 <p><img src="/assets/images/lstm.svg" alt="lstm" /></p>
 
 <p>Việc thêm gates và non-linear activation (<code class="language-plaintext highlighter-rouge">sigmoid</code>) để control giá trị là hợp lý với LSTM.
 Tuy nhiên, nếu nhìn vào cái đám công thức thì trong LSTM khi update và forget của \(\mathbf{h}_{t+1}\) là đồng thời thực hiện song song việc forget và quyết định có update hay không.
-<strong>Gated Recurrent Unit (GRU, <a class="citation" href="#cho2014properties">[22]</a>)</strong> thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng <code class="language-plaintext highlighter-rouge">update</code> và <code class="language-plaintext highlighter-rouge">reset</code> cho từng mục đích ấy.</p>
+<strong>Gated Recurrent Unit (GRU, <a class="citation" href="#cho2014properties">[23]</a>)</strong> thực hiện chia ra, tức là thay vì 1 cổng là làm luôn cả hai chức năng, thì tạo 2 cổng <code class="language-plaintext highlighter-rouge">update</code> và <code class="language-plaintext highlighter-rouge">reset</code> cho từng mục đích ấy.</p>
 
 <blockquote>
   <p>Nhìn chung, công thức toán của các kiến trúc RNN/LSTM/GRU đều không phức tạp.
@@ -491,7 +491,7 @@ Do đó, cách tốt hơn là dùng <strong>Beam Search</strong>:</p>
 <noscript><pre>400: Invalid request</pre></noscript>
 <script src="https://gist.github.com/6397ad4648f7c891ccd41513bb8206e5.js"> </script>
 
-<p>Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (<a class="citation" href="#koehn2009statistical">[23]</a>).</p>
+<p>Ngoài ra, nếu có thời gian các bạn có thể tìm hiểu thêm các thủ thuật để tăng hiệu suất khi inference như fusion (ensembling), reranking, hoặc khi train như tăng kích thước vocabularies, training data, back translation, round-trip training, guided alignment training, .v.v… (<a class="citation" href="#koehn2009statistical">[24]</a>).</p>
 
 <blockquote>
   <p>Tất nhiên, cũng cần chú ý là implement những cái này ở local cũng chỉ để học hỏi thôi nhé.
@@ -520,8 +520,8 @@ Thì công thức attention (không có mask) sẽ như sau:</p>
 Trong trường hợp dùng mask (ở decoder chả hạn) thì chủ yếu là để kết hợp với position embedding để hạn chế ảnh hưởng của các token trước thời điểm $t$ chả hạn.</p>
 
 <p>Nói chung lý thuyết của Transformer cũng không có gì quá phức tạp.
-Bản thân Transformer cũng đã được implement chi tiết trong thư viện <code class="language-plaintext highlighter-rouge">tensor2tensor</code> <a class="citation" href="#vaswani2018tensor2tensor">[24]</a> nên như tôi đã nói, cái mảng này thực ra tài liệu tài nguyên thì vô cùng dồi dào.
-Ngoài ra một thư viện nữa là HuggingFace <a class="citation" href="#wolf2020transformers">[25]</a> với model zoo dồi dào cũng rất đáng xem.
+Bản thân Transformer cũng đã được implement chi tiết trong thư viện <code class="language-plaintext highlighter-rouge">tensor2tensor</code> <a class="citation" href="#vaswani2018tensor2tensor">[25]</a> nên như tôi đã nói, cái mảng này thực ra tài liệu tài nguyên thì vô cùng dồi dào.
+Ngoài ra một thư viện nữa là HuggingFace <a class="citation" href="#wolf2020transformers">[26]</a> với model zoo dồi dào cũng rất đáng xem.
 <strong>Thế là lại nói lại câu chuyện postdoc ở trên: <em>không hiểu tại sao lại không làm được?</em></strong></p>
 
 <blockquote>
@@ -553,15 +553,15 @@ Triệu chứng bệnh rõ ràng nhất ở đây là</p>
 Ở Mỹ chả hạn, làm nghiên cứu muốn tồn tại lâu dài phải có kỹ năng quản lý dự án nghiên cứu. Thế mà chạy postdoc 2 năm mà không ngộ ra chân lý, không thể hiện tiềm năng làm quản lý lãnh đạo, thì không bật bãi chắc chỉ có ở thiên đường thôi!</p>
 
 <h3 id="bert">BERT</h3>
-<p><strong>B</strong>idirectional <strong>E</strong>ncoder <strong>R</strong>epresentations from <strong>T</strong>ransformers (<strong>BERT</strong>, <a class="citation" href="#devlin2019bert">[26]</a>) lại là 1 kiến trúc mới gần đây (từ 2018?).
+<p><strong>B</strong>idirectional <strong>E</strong>ncoder <strong>R</strong>epresentations from <strong>T</strong>ransformers (<strong>BERT</strong>, <a class="citation" href="#devlin2019bert">[27]</a>) lại là 1 kiến trúc mới gần đây (từ 2018?).
 Pretraining kiến trúc trên 1 task unsupervised (kiểu tự học), rồi dùng lại kiến trúc đó trong 1 task supervised khác là tư tưởng chính của BERT.
-Các phiên bản cải tiến của BERT có thể kể đến AlBERT <a class="citation" href="#lan2019albert">[27]</a>, RoBERTa <a class="citation" href="#liu2019roberta">[28]</a>, BART <a class="citation" href="#lewis2020bart">[29]</a>, XlNet <a class="citation" href="#yang2019xlnet">[30]</a>, XLM <a class="citation" href="#conneau2019cross">[31]</a> hay gần đây là ELECTRA <a class="citation" href="#clark2020electra">[32]</a> đều kế thừa tinh thần này.
-Trong quá khứ thì việc sử dụng pretraining để tạo ra một xuất phát điểm tốt hơn cho model là ý tưởng đã được khai thác <a class="citation" href="#hinton2006fast">[33]</a>.
+Các phiên bản cải tiến của BERT có thể kể đến AlBERT <a class="citation" href="#lan2019albert">[28]</a>, RoBERTa <a class="citation" href="#liu2019roberta">[29]</a>, BART <a class="citation" href="#lewis2020bart">[30]</a>, XlNet <a class="citation" href="#yang2019xlnet">[31]</a>, XLM <a class="citation" href="#conneau2019cross">[32]</a> hay gần đây là ELECTRA <a class="citation" href="#clark2020electra">[33]</a> đều kế thừa tinh thần này.
+Trong quá khứ thì việc sử dụng pretraining để tạo ra một xuất phát điểm tốt hơn cho model là ý tưởng đã được khai thác <a class="citation" href="#hinton2006fast">[34]</a>.
 Ví dụ như Hinton thì đã pretrain deep belief nets và gọi là <em>greedy layer-wise unsupervised pretraining</em>.
 Thủ thuật này là cần thiết khi train các model lớn:</p>
 
 <blockquote>
-  <p>to train the first layer in isolation, then extract all features from the first layer only once, then train the second layer in isolation given those features, and so on. <a class="citation" href="#goodfellow2016deep">[19]</a>.</p>
+  <p>to train the first layer in isolation, then extract all features from the first layer only once, then train the second layer in isolation given those features, and so on. <a class="citation" href="#goodfellow2016deep">[20]</a>.</p>
 </blockquote>
 
 <p>Ý tưởng của kiểu pretraining này là ta có một model rất lớn \(A\), việc train \(A\) từ đầu (random weights) sẽ rất khó.
@@ -578,7 +578,7 @@ Ví dụ như trong câu</p>
 Masked: I &lt;MASK&gt; a pen &lt;EOS&gt;
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>thì từ câu <code class="language-plaintext highlighter-rouge">Masked</code>, nhiệm vụ của pretext là phải <em>phục hồi</em> lại các từ bị <code class="language-plaintext highlighter-rouge">&lt;MASK&gt;</code>.
-Nguyên tắc pretext này nhìn chung giống với <em>denoising auto-encoders</em> <a class="citation" href="#goodfellow2016deep">[19]</a>.
+Nguyên tắc pretext này nhìn chung giống với <em>denoising auto-encoders</em> <a class="citation" href="#goodfellow2016deep">[20]</a>.
 Vì việc tạo bộ dữ liệu masking là dễ dàng và có thể tự làm được (viết script để ngẫu nhiên thay 1 token bởi <code class="language-plaintext highlighter-rouge">&lt;MASK&gt;</code>) nên task này có thể xếp vào hạng mục <strong>unsupervised learning</strong> hoặc <strong>self-supervised learning (SSL)</strong>.
 Lợi thế là người train có thể tạo ra bộ dữ liệu lớn tự động để máy học pretext mà không cần gắn nhãn!
 Một pretext khác là <em>đoán câu tiếp theo (Next Sentence Prediction, NSP)</em>.
@@ -589,10 +589,10 @@ Ví dụ:</p>
 Next Sentence: He sent me to the Psychology department.
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>Trong kết quả của BERT thì có vẻ pretext NSP giúp cải thiện độ chính xác của task QA.
-Tất nhiên, ngoài dùng pretext thì còn những kiểu pretraining khác như sử dụng feature đã pretrain (ELMo, <a class="citation" href="#peters2018deep">[34]</a>) hoặc fine-tune toàn bộ pretrain parameters (OpenAI GPT, <a class="citation" href="#radford2018improving">[35]</a>).
-Gần đây có model BART <a class="citation" href="#lewis2020bart">[29]</a> tích hợp cả BERT và GPT để tạo ra một cơ chế pretext có thể mô phỏng hàm noise bất kỳ.</p>
+Tất nhiên, ngoài dùng pretext thì còn những kiểu pretraining khác như sử dụng feature đã pretrain (ELMo, <a class="citation" href="#peters2018deep">[35]</a>) hoặc fine-tune toàn bộ pretrain parameters (OpenAI GPT, <a class="citation" href="#radford2018improving">[36]</a>).
+Gần đây có model BART <a class="citation" href="#lewis2020bart">[30]</a> tích hợp cả BERT và GPT để tạo ra một cơ chế pretext có thể mô phỏng hàm noise bất kỳ.</p>
 
-<p>Hầu hết những phương pháp kể trên đều có thể tìm thấy tại thư viện model HuggingFace <a class="citation" href="#wolf2020transformers">[25]</a>.</p>
+<p>Hầu hết những phương pháp kể trên đều có thể tìm thấy tại thư viện model HuggingFace <a class="citation" href="#wolf2020transformers">[26]</a>.</p>
 
 <h1 id="ứng-dụng">Ứng dụng</h1>
 
@@ -727,6 +727,19 @@ Vấn đề tài nguyên để kết thúc quá trình train thì như thảo lu
 <p>Tôi cũng sử dụng <code class="language-plaintext highlighter-rouge">sacrebleu</code> để show được điểm số BLEU của vài câu dịch.</p>
 
 <h2 id="text-summarization">Text Summarization</h2>
+<p>Bài toán <code class="language-plaintext highlighter-rouge">Text Summarization</code> (TS), yêu cầu đưa ra một đoạn <code class="language-plaintext highlighter-rouge">tóm tắt</code> ngắn gọn của 1 văn bản dài.
+Có khá nhiều bộ dữ liệu hỗ trợ việc training một model như vậy <a class="citation" href="#metatext2022summary">[37]</a>.
+Trong bài này, tôi chọn 1 bộ nhỏ vừa là bộ WikiHow <a class="citation" href="#koupaee2018wikihow">[38]</a> với tầm 240,000 cặp bài báo-tóm tắt.</p>
+
+<p>Về mặt model, thì có khá nhiều hệ thống state-of-the-art và là <code class="language-plaintext highlighter-rouge">seq2seq</code> cho abstractive TS như NAM <a class="citation" href="#rush2015neural">[7]</a>, Encoder-Decoder RNN <a class="citation" href="#nallapati2016abstractive">[39]</a> hay BART <a class="citation" href="#lewis2020bart">[30]</a>.</p>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/08fb46dd6f03981287c5d3155bf7d6fa.js"> </script>
+
+<p>Nhìn chung, tuy WikiHow số lượng cặp dữ liệu ít hơn WMT14 (240,000 vs. 4,500,000) nhưng mỗi cặp dữ liệu lại là hẳn 1 bài dài, nên kết cục là cùng 1 GPU Colab Free thì thời gian train vẫn mất 49h/epoch.
+Tức là cứ 1 epoch 2 ngày, và train khoảng 15 epochs thì mất tầm 30 ngày (hay 1 tháng, tính cả nghỉ lễ, T7/CN).</p>
+
+<p><img src="/assets/images/ts-training.png" alt="ts" /></p>
 
 <h2 id="qa-và-vqa">QA và VQA</h2>
 
@@ -752,6 +765,7 @@ Vấn đề tài nguyên để kết thúc quá trình train thì như thảo lu
 <li><span id="bojar2017findings">Bojar, O., Chatterjee, R., Federmann, C., Graham, Y., Haddow, B., Huang, S., Huck, M., Koehn, P., Liu, Q., Logacheva, V. and others 2017. Findings of the 2017 conference on machine translation (wmt17). <i>Proceedings of the Second Conference on Machine Translation</i> (2017), 169–214.</span><a class="details" href="https://wanted2.github.io/bibliography/bojar2017findings/">Details</a></li>
 <li><span id="paul2004introduc">Over, P. and Yen, J. 2014. An Introduction to DUC-2004. https://duc.nist.gov/pubs/2004slides/duc2004.intro.pdf.</span><a class="details" href="https://wanted2.github.io/bibliography/paul2004introduc/">Details</a></li>
 <li><span id="rajpurkar2018know">Rajpurkar, P., Jia, R. and Liang, P. 2018. Know What You Don’t Know: Unanswerable Questions for SQuAD. <i>Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)</i> (2018), 784–789.</span><a class="details" href="https://wanted2.github.io/bibliography/rajpurkar2018know/">Details</a></li>
+<li><span id="lin2004rouge">Lin, C.-Y. 2004. Rouge: A package for automatic evaluation of summaries. <i>Text summarization branches out</i> (2004), 74–81.</span><a class="details" href="https://wanted2.github.io/bibliography/lin2004rouge/">Details</a></li>
 <li><span id="bottou2007tradeoffs">Bottou, L. and Bousquet, O. 2007. The tradeoffs of large scale learning. <i>Advances in neural information processing systems</i>. 20, (2007).</span><a class="details" href="https://wanted2.github.io/bibliography/bottou2007tradeoffs/">Details</a></li>
 <li><span id="rumelhart1986learning">Rumelhart, D.E., Hinton, G.E. and Williams, R.J. 1986. Learning representations by back-propagating errors. <i>nature</i>. 323, 6088 (1986), 533–536.</span><a class="details" href="https://wanted2.github.io/bibliography/rumelhart1986learning/">Details</a></li>
 <li><span id="goodfellow2016deep">Goodfellow, I., Bengio, Y. and Courville, A. 2016. <i>Deep learning</i>. MIT press.</span><a class="details" href="https://wanted2.github.io/bibliography/goodfellow2016deep/">Details</a></li>
@@ -770,7 +784,10 @@ Vấn đề tài nguyên để kết thúc quá trình train thì như thảo lu
 <li><span id="clark2020electra">Clark, K., Luong, M.-T., Le, Q.V. and Manning, C.D. 2020. Electra: Pre-training text encoders as discriminators rather than generators. <i>arXiv preprint arXiv:2003.10555</i>. (2020).</span><a class="details" href="https://wanted2.github.io/bibliography/clark2020electra/">Details</a></li>
 <li><span id="hinton2006fast">Hinton, G.E., Osindero, S. and Teh, Y.-W. 2006. A fast learning algorithm for deep belief nets. <i>Neural computation</i>. 18, 7 (2006), 1527–1554.</span><a class="details" href="https://wanted2.github.io/bibliography/hinton2006fast/">Details</a></li>
 <li><span id="peters2018deep">Peters, M.E., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K. and Zettlemoyer, L. 2018. Deep Contextualized Word Representations. <i>Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)</i> (New Orleans, Louisiana, Jun. 2018), 2227–2237.</span><a class="details" href="https://wanted2.github.io/bibliography/peters2018deep/">Details</a></li>
-<li><span id="radford2018improving">Radford, A., Narasimhan, K., Salimans, T. and Sutskever, I. 2018. <i>Improving language understanding by generative pre-training</i>. OpenAI.</span><a class="details" href="https://wanted2.github.io/bibliography/radford2018improving/">Details</a></li></ol>
+<li><span id="radford2018improving">Radford, A., Narasimhan, K., Salimans, T. and Sutskever, I. 2018. <i>Improving language understanding by generative pre-training</i>. OpenAI.</span><a class="details" href="https://wanted2.github.io/bibliography/radford2018improving/">Details</a></li>
+<li><span id="metatext2022summary">+64 Summarization Datasets - NLP Database.</span><a class="details" href="https://wanted2.github.io/bibliography/metatext2022summary/">Details</a></li>
+<li><span id="koupaee2018wikihow">Koupaee, M. and Wang, W.Y. 2018. Wikihow: A large scale text summarization dataset. <i>arXiv preprint arXiv:1810.09305</i>. (2018).</span><a class="details" href="https://wanted2.github.io/bibliography/koupaee2018wikihow/">Details</a></li>
+<li><span id="nallapati2016abstractive">Nallapati, R., Zhou, B., Santos, C. dos, Gu̇lçehre Çağlar and Xiang, B. 2016. Abstractive Text Summarization using Sequence-to-sequence RNNs and Beyond. <i>Proceedings of The 20th SIGNLL Conference on Computational Natural Language Learning</i> (2016), 280–290.</span><a class="details" href="https://wanted2.github.io/bibliography/nallapati2016abstractive/">Details</a></li></ol>
 
             </div>
 
