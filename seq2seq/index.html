@@ -302,6 +302,12 @@
   </li>
   <li><a href="#ứng-dụng">Ứng dụng</a>
     <ul>
+      <li><a href="#cách-tiếp-cận">Cách tiếp cận</a>
+        <ul>
+          <li><a href="#các-nguồn-tài-nguyên">Các nguồn tài nguyên</a></li>
+          <li><a href="#đôi-lời-về-google-colab">Đôi lời về Google Colab</a></li>
+        </ul>
+      </li>
       <li><a href="#neural-machine-translation-nmt">Neural Machine Translation (NMT)</a></li>
       <li><a href="#text-summarization">Text Summarization</a></li>
       <li><a href="#qa-và-vqa">QA và VQA</a></li>
@@ -703,6 +709,8 @@ Gần đây có model BART <a class="citation" href="#lewis2020bart">[25]</a> t�
 
 <h1 id="ứng-dụng">Ứng dụng</h1>
 
+<h2 id="cách-tiếp-cận">Cách tiếp cận</h2>
+<h3 id="các-nguồn-tài-nguyên">Các nguồn tài nguyên</h3>
 <p>Như đã nói ở trên, mảng này thì code kiếc, tài liệu, tài nguyên thì vô cùng <strong>sẵn</strong> có và dồi dào.
 Thế nên thôi mình cứ <strong>ăn “sẵn”</strong> đi cho nó nhanh chứ nấu làm gì mất thời gian.</p>
 
@@ -720,25 +728,52 @@ Có dạy “nấu” thì cũng phải cái gì mà nó kiểu sẵn sẵn mà 
 <p>Thì tại sao nói mảng này đồ ăn sẵn nhiều thì dưới đây là một số nguồn mà các bạn có thể tận dụng:</p>
 
 <ul>
-  <li>Code thì HuggingFace, tensorflow, Github:</li>
-  <li>Model zoo thì HuggingFace thôi. https://huggingface.co/
+  <li><strong>Code</strong> thì HuggingFace, tensorflow, Github</li>
+  <li><strong>Model Zoo</strong> thì HuggingFace thôi.
     <ul>
+      <li><a href="https://huggingface.co/">https://huggingface.co/</a></li>
       <li>Cứ tải về mà hì hục “nấu”.</li>
       <li>Nấu xong chắc cũng chỉ chạm đũa vài miếng là ngấy thôi nhưng nếu thích nấu thì nấu thôi.</li>
     </ul>
   </li>
-  <li>tài liệu tutorials thì cứ search YouTube là ra hết mà.</li>
-  <li>Nguồn tài nguyên tính toán:
+  <li><strong>Tài liệu</strong> tutorials thì cứ search YouTube là ra hết mà.
+    <ul>
+      <li><a href="https://www.youtube.com/c/HuggingFace">Kênh hướng dẫn của HuggingFace</a></li>
+      <li><a href="https://www.youtube.com/watch?v=G5lmya6eKtc">The Future of Natural Language Processing</a></li>
+    </ul>
+  </li>
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G5lmya6eKtc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<ul>
+  <li>Nguồn <strong>tài nguyên tính toán</strong>:
     <ul>
       <li>Đầu tiên cũng chả cần mua GPU/TPU riêng đâu.</li>
       <li>Để làm demo bạn cứ xài tạm Colab ấy.
         <ul>
-          <li>https://colab.research.google.com/</li>
+          <li><a href="https://colab.research.google.com/">https://colab.research.google.com/</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLQY2H8rRoyvyK5aEDAI3wUUqC_F0oEroL">Một playlist hướng dẫn dùng Colab với Tensorflow</a></li>
         </ul>
       </li>
     </ul>
   </li>
 </ul>
+
+<h3 id="đôi-lời-về-google-colab">Đôi lời về Google Colab</h3>
+
+<blockquote>
+  <p><a href="https://research.google.com/colaboratory/faq.html">FAQ</a> <strong>What is Colabotory?</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>Colaboratory, or “Colab” for short, is a product from Google Research. Colab allows anybody to write and execute arbitrary python code through the browser, and is especially well suited to machine learning, data analysis and education. More technically, Colab is a hosted Jupyter notebook service that requires no setup to use, while providing free access to computing resources including GPUs.</p>
+</blockquote>
+
+<p>Google Colab nhìn chung là 1 dịch vụ Notebook cung cấp sẵn môi trường để chạy các tác vụ liên quan tới machine learning.
+Với Colab, bạn có thể định nghĩa form các biến chương trình như hình bên dưới, rồi tạo lập mạng trí tuệ nhân tạo, thiết lập môi trường GPU/TPU để training hoặc inference.</p>
+
+<p><img src="/assets/images/nmt-colab-01.png" alt="colab form" /></p>
 
 <h2 id="neural-machine-translation-nmt">Neural Machine Translation (NMT)</h2>
 

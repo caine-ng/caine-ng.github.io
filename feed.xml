@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Feb 2022 16:23:37 +0900</pubDate>
-    <lastBuildDate>Sat, 05 Feb 2022 16:23:37 +0900</lastBuildDate>
+    <pubDate>Sat, 05 Feb 2022 18:01:25 +0900</pubDate>
+    <lastBuildDate>Sat, 05 Feb 2022 18:01:25 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -400,6 +400,8 @@ Gần đây có model BART &lt;a class=&quot;citation&quot; href=&quot;#lewis202
 
 &lt;h1 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h1&gt;
 
+&lt;h2 id=&quot;cách-tiếp-cận&quot;&gt;Cách tiếp cận&lt;/h2&gt;
+&lt;h3 id=&quot;các-nguồn-tài-nguyên&quot;&gt;Các nguồn tài nguyên&lt;/h3&gt;
 &lt;p&gt;Như đã nói ở trên, mảng này thì code kiếc, tài liệu, tài nguyên thì vô cùng &lt;strong&gt;sẵn&lt;/strong&gt; có và dồi dào.
 Thế nên thôi mình cứ &lt;strong&gt;ăn “sẵn”&lt;/strong&gt; đi cho nó nhanh chứ nấu làm gì mất thời gian.&lt;/p&gt;
 
@@ -417,25 +419,52 @@ Có dạy “nấu” thì cũng phải cái gì mà nó kiểu sẵn sẵn mà 
 &lt;p&gt;Thì tại sao nói mảng này đồ ăn sẵn nhiều thì dưới đây là một số nguồn mà các bạn có thể tận dụng:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Code thì HuggingFace, tensorflow, Github:&lt;/li&gt;
-  &lt;li&gt;Model zoo thì HuggingFace thôi. https://huggingface.co/
+  &lt;li&gt;&lt;strong&gt;Code&lt;/strong&gt; thì HuggingFace, tensorflow, Github&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Model Zoo&lt;/strong&gt; thì HuggingFace thôi.
     &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://huggingface.co/&quot;&gt;https://huggingface.co/&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;Cứ tải về mà hì hục “nấu”.&lt;/li&gt;
       &lt;li&gt;Nấu xong chắc cũng chỉ chạm đũa vài miếng là ngấy thôi nhưng nếu thích nấu thì nấu thôi.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;tài liệu tutorials thì cứ search YouTube là ra hết mà.&lt;/li&gt;
-  &lt;li&gt;Nguồn tài nguyên tính toán:
+  &lt;li&gt;&lt;strong&gt;Tài liệu&lt;/strong&gt; tutorials thì cứ search YouTube là ra hết mà.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/c/HuggingFace&quot;&gt;Kênh hướng dẫn của HuggingFace&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=G5lmya6eKtc&quot;&gt;The Future of Natural Language Processing&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/G5lmya6eKtc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nguồn &lt;strong&gt;tài nguyên tính toán&lt;/strong&gt;:
     &lt;ul&gt;
       &lt;li&gt;Đầu tiên cũng chả cần mua GPU/TPU riêng đâu.&lt;/li&gt;
       &lt;li&gt;Để làm demo bạn cứ xài tạm Colab ấy.
         &lt;ul&gt;
-          &lt;li&gt;https://colab.research.google.com/&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://colab.research.google.com/&quot;&gt;https://colab.research.google.com/&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLQY2H8rRoyvyK5aEDAI3wUUqC_F0oEroL&quot;&gt;Một playlist hướng dẫn dùng Colab với Tensorflow&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;đôi-lời-về-google-colab&quot;&gt;Đôi lời về Google Colab&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://research.google.com/colaboratory/faq.html&quot;&gt;FAQ&lt;/a&gt; &lt;strong&gt;What is Colabotory?&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Colaboratory, or “Colab” for short, is a product from Google Research. Colab allows anybody to write and execute arbitrary python code through the browser, and is especially well suited to machine learning, data analysis and education. More technically, Colab is a hosted Jupyter notebook service that requires no setup to use, while providing free access to computing resources including GPUs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Google Colab nhìn chung là 1 dịch vụ Notebook cung cấp sẵn môi trường để chạy các tác vụ liên quan tới machine learning.
+Với Colab, bạn có thể định nghĩa form các biến chương trình như hình bên dưới, rồi tạo lập mạng trí tuệ nhân tạo, thiết lập môi trường GPU/TPU để training hoặc inference.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/nmt-colab-01.png&quot; alt=&quot;colab form&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;neural-machine-translation-nmt&quot;&gt;Neural Machine Translation (NMT)&lt;/h2&gt;
 
