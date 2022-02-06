@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Feb 2022 05:15:30 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Feb 2022 05:15:30 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Feb 2022 18:26:00 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Feb 2022 18:26:00 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -406,7 +406,7 @@ Tôi dùng bộ dữ liệu WMT 2014 để show:&lt;/p&gt;
 Vấn đề tài nguyên để kết thúc quá trình train thì như thảo luận ở trên, các bạn có thể tự lựa chọn giải pháp phù hợp túi tiền.&lt;/p&gt;
 
 &lt;p&gt;Nói chung nấu cả buổi nhưng ăn thì nhanh thôi. 
-Để demo chức năng dịch Đức-Anh thì tôi xài luôn model có sẵn&lt;a href=&quot;https://huggingface.co/google/bert2bert_L-24_wmt_de_en&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google/bert2bert_L-24_wmt_de_en&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+Để demo chức năng dịch Đức-Anh thì tôi xài luôn model có sẵn &lt;a href=&quot;https://huggingface.co/google/bert2bert_L-24_wmt_de_en&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google/bert2bert_L-24_wmt_de_en&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;noscript&gt;&lt;pre&gt;400: Invalid request&lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/88d0506002341d151a8e5ad745f3364f.js&quot;&gt; &lt;/script&gt;
@@ -426,9 +426,28 @@ Trong bài này, tôi chọn 1 bộ nhỏ vừa là bộ WikiHow &lt;a class=&qu
 &lt;p&gt;Nhìn chung, tuy WikiHow số lượng cặp dữ liệu ít hơn WMT14 (240,000 vs. 4,500,000) nhưng mỗi cặp dữ liệu lại là hẳn 1 bài dài, nên kết cục là cùng 1 GPU Colab Free thì thời gian train vẫn mất 49h/epoch.
 Tức là cứ 1 epoch 2 ngày, và train khoảng 15 epochs thì mất tầm 30 ngày (hay 1 tháng, tính cả nghỉ lễ, T7/CN).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/ts-training.png&quot; alt=&quot;ts&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ts_training.png&quot; alt=&quot;ts&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;qa-và-vqa&quot;&gt;QA và VQA&lt;/h2&gt;
+
+&lt;p&gt;Nếu bạn đã làm bài thi TOEIC reading and listening thì cũng dễ giải thích bài QA và VQA thôi.
+Task QA là 1 bộ phận trong task lớn Reading Comprehension (RC): cho 1 bài báo (có thể kèm hình ảnh), người/máy sẽ đọc rồi trả lời 1 câu hỏi liên quan tới bài viết đó.
+&lt;em&gt;Bài báo&lt;/em&gt; làm reference được gọi là &lt;em&gt;context&lt;/em&gt;, một ví dụ điển hình:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Context: I live in Japan.
+Question: Where do I live?
+Answer: Japan.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Dạng đơn giản nhất là như vậy chỉ cần đọc kỹ và &lt;strong&gt;paraphrasing&lt;/strong&gt; lại cụm từ có sẵn trong context thôi.
+Đây là dạng &lt;strong&gt;extractive QA&lt;/strong&gt; tức là chỉ đơn giản skim bài viết và quote lại thôi.
+Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2016squad&quot;&gt;[5]&lt;/a&gt; và v2 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2018know&quot;&gt;[16]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tuy nhiên, nếu bạn làm bài thi TOEIC bạn sẽ hiểu là có cả những câu hỏi mà không chỉ paraphrasing mà phải suy luận.
+Đây gọi là &lt;strong&gt;abstractive QA&lt;/strong&gt;, điển hình cho dạng này là bộ TweetQA &lt;a class=&quot;citation&quot; href=&quot;#xiong2019tweetqa&quot;&gt;[40]&lt;/a&gt;.
+&lt;img src=&quot;https://tweetqa.github.io/image/example.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
+Như ở ví dụ bên tay trái, bạn có thể thấy cần phải để ý chi tiết và suy luận thì mới trả lời được.&lt;/p&gt;
 
 &lt;h2 id=&quot;video-to-text-và-image-captioning&quot;&gt;Video-to-Text và Image Captioning&lt;/h2&gt;
 
@@ -474,7 +493,8 @@ Tức là cứ 1 epoch 2 ngày, và train khoảng 15 epochs thì mất tầm 30
 &lt;li&gt;&lt;span id=&quot;radford2018improving&quot;&gt;Radford, A., Narasimhan, K., Salimans, T. and Sutskever, I. 2018. &lt;i&gt;Improving language understanding by generative pre-training&lt;/i&gt;. OpenAI.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/radford2018improving/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;metatext2022summary&quot;&gt;+64 Summarization Datasets - NLP Database.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/metatext2022summary/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;koupaee2018wikihow&quot;&gt;Koupaee, M. and Wang, W.Y. 2018. Wikihow: A large scale text summarization dataset. &lt;i&gt;arXiv preprint arXiv:1810.09305&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/koupaee2018wikihow/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;nallapati2016abstractive&quot;&gt;Nallapati, R., Zhou, B., Santos, C. dos, Gu̇lçehre Çağlar and Xiang, B. 2016. Abstractive Text Summarization using Sequence-to-sequence RNNs and Beyond. &lt;i&gt;Proceedings of The 20th SIGNLL Conference on Computational Natural Language Learning&lt;/i&gt; (2016), 280–290.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nallapati2016abstractive/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;nallapati2016abstractive&quot;&gt;Nallapati, R., Zhou, B., Santos, C. dos, Gu̇lçehre Çağlar and Xiang, B. 2016. Abstractive Text Summarization using Sequence-to-sequence RNNs and Beyond. &lt;i&gt;Proceedings of The 20th SIGNLL Conference on Computational Natural Language Learning&lt;/i&gt; (2016), 280–290.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nallapati2016abstractive/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;xiong2019tweetqa&quot;&gt;Xiong, W., Wu, J., Wang, H., Kulkarni, V., Yu, M., Chang, S., Guo, X. and Wang, W.Y. 2019. TWEETQA: A Social Media Focused Question Answering Dataset. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt; (2019), 5020–5031.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/xiong2019tweetqa/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>
