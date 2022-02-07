@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Feb 2022 18:26:00 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Feb 2022 18:26:00 +0900</lastBuildDate>
+    <pubDate>Mon, 07 Feb 2022 09:14:40 +0900</pubDate>
+    <lastBuildDate>Mon, 07 Feb 2022 09:14:40 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -447,7 +447,13 @@ Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 &lt;a 
 &lt;p&gt;Tuy nhiên, nếu bạn làm bài thi TOEIC bạn sẽ hiểu là có cả những câu hỏi mà không chỉ paraphrasing mà phải suy luận.
 Đây gọi là &lt;strong&gt;abstractive QA&lt;/strong&gt;, điển hình cho dạng này là bộ TweetQA &lt;a class=&quot;citation&quot; href=&quot;#xiong2019tweetqa&quot;&gt;[40]&lt;/a&gt;.
 &lt;img src=&quot;https://tweetqa.github.io/image/example.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
-Như ở ví dụ bên tay trái, bạn có thể thấy cần phải để ý chi tiết và suy luận thì mới trả lời được.&lt;/p&gt;
+Như ở ví dụ bên tay trái, bạn có thể thấy cần phải để ý chi tiết và suy luận thì mới trả lời được.
+Ví dụ bên dưới là 1 model Abstractive QA dựa trên AlBERT:&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/f3def206dd7f578e723a90d3336d04da.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Để đánh giá, có thể dùng các metric như ROUGE-L hoặc METEOR.&lt;/p&gt;
 
 &lt;h2 id=&quot;video-to-text-và-image-captioning&quot;&gt;Video-to-Text và Image Captioning&lt;/h2&gt;
 
