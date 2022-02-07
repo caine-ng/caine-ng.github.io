@@ -753,13 +753,12 @@ Question: Where do I live?
 Answer: Japan.</p>
 </blockquote>
 
-<p>Dạng đơn giản nhất là như vậy chỉ cần đọc kỹ và <strong>paraphrasing</strong> lại cụm từ có sẵn trong context thôi.
+<p><img src="https://tweetqa.github.io/image/example.png" style="float: left; margin: 10px; width: 50%;" />
+Dạng đơn giản nhất là như vậy chỉ cần đọc kỹ và <strong>paraphrasing</strong> lại cụm từ có sẵn trong context thôi.
 Đây là dạng <strong>extractive QA</strong> tức là chỉ đơn giản skim bài viết và quote lại thôi.
-Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 <a class="citation" href="#rajpurkar2016squad">[5]</a> và v2 <a class="citation" href="#rajpurkar2018know">[16]</a>.</p>
-
-<p>Tuy nhiên, nếu bạn làm bài thi TOEIC bạn sẽ hiểu là có cả những câu hỏi mà không chỉ paraphrasing mà phải suy luận.
+Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 <a class="citation" href="#rajpurkar2016squad">[5]</a> và v2 <a class="citation" href="#rajpurkar2018know">[16]</a>.
+Tuy nhiên, nếu bạn làm bài thi TOEIC bạn sẽ hiểu là có cả những câu hỏi mà không chỉ paraphrasing mà phải suy luận.
 Đây gọi là <strong>abstractive QA</strong>, điển hình cho dạng này là bộ TweetQA <a class="citation" href="#xiong2019tweetqa">[40]</a>.
-<img src="https://tweetqa.github.io/image/example.png" style="float: left; margin: 10px; width: 50%;" />
 Như ở ví dụ bên tay trái, bạn có thể thấy cần phải để ý chi tiết và suy luận thì mới trả lời được.
 Ví dụ bên dưới là 1 model Abstractive QA dựa trên AlBERT:</p>
 
@@ -781,6 +780,19 @@ Tuy nhiên, nhìn chung những tiến bộ trong mảng NLP đã được tóm 
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/peTwj6WK3vo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 <p>Cũng xoáy kha khá cái trường hợp postdoc, nhưng tôi nghĩ là cứ chuyển hết cho Prof. Huan Rose chỉ bảo là ok thôi.</p>
+
+<p>Nói chung phần kỹ thuật thì không có nhiều điểm khó, nhưng cái khó nhất chắc vẫn là cái 240,000 USD thôi. 
+Mà cái đó thì chắc chắn không phải là cái anh em kỹ thuật có thể giải quyết nổi.</p>
+<blockquote>
+  <p>Nên nếu không có tiền thì … giải tán thôi, chứ biết làm thế nào bây giờ?
+Cái này có đố cũng chịu!
+Như bình thường thì có thể đổi sang làm những cái bài toán mà nó <code class="language-plaintext highlighter-rouge">train phát xong luôn, dùng luôn</code>, những bài toán mà nó có thể chạy chỉ cần CPU, thậm chí chỉ mấy cái device nhỏ nhỏ cũng chạy được ấy.
+Nên tôi nghĩ cũng không cần xoáy nhiều vào cái đám big data nữa:</p>
+  <ol>
+    <li>Xin vô mấy cái tập đoàn lớn đùng ấy mà làm, nó có nhiều người dùng nó sẵn sàng chi tiền tấn ra mà mua. Ví dụ, các anh em thử nghĩ xem mấy cái papers nhiều citation của cái mảng này làm thí nghiệm toàn hàng trăm GPU, TPU thì tác giả toàn nhóm của những công ty như thế nào? phải Google, Facebook, … chứ như anh em <strong>chân đất mắt toét</strong> thì chờ nó ra model rồi dùng lại, chứ mất công hì hục nấu nướng làm gì cho mất thời gian.</li>
+    <li>Chuyển sang làm mấy cái thiết bị nhỏ nhỏ mà làm. Mà chấm dứt suy nghĩ về GPU với mấy cái model to đùng, nấu thì lâu mà ăn thì chóng đi.</li>
+  </ol>
+</blockquote>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 

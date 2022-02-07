@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Feb 2022 09:34:19 +0900</pubDate>
-    <lastBuildDate>Mon, 07 Feb 2022 09:34:19 +0900</lastBuildDate>
+    <pubDate>Mon, 07 Feb 2022 20:51:15 +0900</pubDate>
+    <lastBuildDate>Mon, 07 Feb 2022 20:51:15 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -440,13 +440,12 @@ Question: Where do I live?
 Answer: Japan.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Dạng đơn giản nhất là như vậy chỉ cần đọc kỹ và &lt;strong&gt;paraphrasing&lt;/strong&gt; lại cụm từ có sẵn trong context thôi.
+&lt;p&gt;&lt;img src=&quot;https://tweetqa.github.io/image/example.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
+Dạng đơn giản nhất là như vậy chỉ cần đọc kỹ và &lt;strong&gt;paraphrasing&lt;/strong&gt; lại cụm từ có sẵn trong context thôi.
 Đây là dạng &lt;strong&gt;extractive QA&lt;/strong&gt; tức là chỉ đơn giản skim bài viết và quote lại thôi.
-Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2016squad&quot;&gt;[5]&lt;/a&gt; và v2 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2018know&quot;&gt;[16]&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Tuy nhiên, nếu bạn làm bài thi TOEIC bạn sẽ hiểu là có cả những câu hỏi mà không chỉ paraphrasing mà phải suy luận.
+Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2016squad&quot;&gt;[5]&lt;/a&gt; và v2 &lt;a class=&quot;citation&quot; href=&quot;#rajpurkar2018know&quot;&gt;[16]&lt;/a&gt;.
+Tuy nhiên, nếu bạn làm bài thi TOEIC bạn sẽ hiểu là có cả những câu hỏi mà không chỉ paraphrasing mà phải suy luận.
 Đây gọi là &lt;strong&gt;abstractive QA&lt;/strong&gt;, điển hình cho dạng này là bộ TweetQA &lt;a class=&quot;citation&quot; href=&quot;#xiong2019tweetqa&quot;&gt;[40]&lt;/a&gt;.
-&lt;img src=&quot;https://tweetqa.github.io/image/example.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
 Như ở ví dụ bên tay trái, bạn có thể thấy cần phải để ý chi tiết và suy luận thì mới trả lời được.
 Ví dụ bên dưới là 1 model Abstractive QA dựa trên AlBERT:&lt;/p&gt;
 
@@ -468,6 +467,19 @@ Tuy nhiên, nhìn chung những tiến bộ trong mảng NLP đã được tóm 
 &lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/peTwj6WK3vo&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;Cũng xoáy kha khá cái trường hợp postdoc, nhưng tôi nghĩ là cứ chuyển hết cho Prof. Huan Rose chỉ bảo là ok thôi.&lt;/p&gt;
+
+&lt;p&gt;Nói chung phần kỹ thuật thì không có nhiều điểm khó, nhưng cái khó nhất chắc vẫn là cái 240,000 USD thôi. 
+Mà cái đó thì chắc chắn không phải là cái anh em kỹ thuật có thể giải quyết nổi.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Nên nếu không có tiền thì … giải tán thôi, chứ biết làm thế nào bây giờ?
+Cái này có đố cũng chịu!
+Như bình thường thì có thể đổi sang làm những cái bài toán mà nó &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;train phát xong luôn, dùng luôn&lt;/code&gt;, những bài toán mà nó có thể chạy chỉ cần CPU, thậm chí chỉ mấy cái device nhỏ nhỏ cũng chạy được ấy.
+Nên tôi nghĩ cũng không cần xoáy nhiều vào cái đám big data nữa:&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Xin vô mấy cái tập đoàn lớn đùng ấy mà làm, nó có nhiều người dùng nó sẵn sàng chi tiền tấn ra mà mua. Ví dụ, các anh em thử nghĩ xem mấy cái papers nhiều citation của cái mảng này làm thí nghiệm toàn hàng trăm GPU, TPU thì tác giả toàn nhóm của những công ty như thế nào? phải Google, Facebook, … chứ như anh em &lt;strong&gt;chân đất mắt toét&lt;/strong&gt; thì chờ nó ra model rồi dùng lại, chứ mất công hì hục nấu nướng làm gì cho mất thời gian.&lt;/li&gt;
+    &lt;li&gt;Chuyển sang làm mấy cái thiết bị nhỏ nhỏ mà làm. Mà chấm dứt suy nghĩ về GPU với mấy cái model to đùng, nấu thì lâu mà ăn thì chóng đi.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
