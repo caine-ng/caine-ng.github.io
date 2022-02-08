@@ -318,7 +318,12 @@
       <li><a href="#video-to-text-và-image-captioning">Video-to-Text và Image Captioning</a></li>
     </ul>
   </li>
-  <li><a href="#kết-luận">Kết luận</a></li>
+  <li><a href="#kết-luận">Kết luận</a>
+    <ul>
+      <li><a href="#về-seq2seq-trong-nlp">Về <code class="language-plaintext highlighter-rouge">seq2seq</code> trong NLP</a></li>
+      <li><a href="#về-chuyện-tài-nguyên-training">Về chuyện tài nguyên training</a></li>
+    </ul>
+  </li>
   <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ul>
                     </div>
@@ -855,6 +860,7 @@ Mà không có tiền thì đấy như ví dụ postdoc của chúng ta là lặ
 
 <h1 id="kết-luận">Kết luận</h1>
 
+<h2 id="về-seq2seq-trong-nlp">Về <code class="language-plaintext highlighter-rouge">seq2seq</code> trong NLP</h2>
 <p>Nhìn chung về mấy task bên NLP, thì tất nhiên bài viết này cũng chỉ là 1 phần (bao gồm task NMT/TS/QA với mấy cái tự học) còn nhiều task khác như POS Tagging, semantic roles, …
 Tuy nhiên, nhìn chung những tiến bộ trong mảng NLP đã được tóm tắt, và có vẻ cũng không khó khăn lắm đâu.</p>
 <blockquote>
@@ -877,6 +883,29 @@ Nên tôi nghĩ cũng không cần xoáy nhiều vào cái đám big data nữa:
     <li>Chuyển sang làm mấy cái thiết bị nhỏ nhỏ mà làm. Mà chấm dứt suy nghĩ về GPU với mấy cái model to đùng, nấu thì lâu mà ăn thì chóng đi.</li>
   </ol>
 </blockquote>
+
+<h2 id="về-chuyện-tài-nguyên-training">Về chuyện tài nguyên training</h2>
+<p>Các bạn có thể thấy điển tích <code class="language-plaintext highlighter-rouge">240,000 USD</code> xuất hiện khá nhiều trong bài viết.
+Nói chung mảng này lúc bắt đầu làm postdoc hay dự án nghiên cứu mà không nhìn trước được những khó khăn điển tích này thì kỹ năng quản lý dự án là kém.
+<strong>Chứ chạy đến giữa postdoc lại ngậm ngùi giải tán vì … không có tiền thì còn ra thể thống gì?</strong></p>
+
+<p>Thứ hai là nếu bạn đã xác định đi con đường train triếc mất thời gian này thì điều tra kỹ về lab hoặc nhóm mình vào:</p>
+<blockquote>
+  <p>Nếu thày có <code class="language-plaintext highlighter-rouge">ít hơn 8 GPUs</code> (mà phải là GPU xịn khỏe nhé chứ GPU đểu thì cũng nhiều mà) thì đừng vào lab ấy làm gì, vì cơ sở hạ tầng của lab không có và lúc làm bạn phải tự lo tự chạy đấy. Trong trường hợp thuê thì thày phải có ngân sách và chịu chi.</p>
+</blockquote>
+
+<p>Thứ ba là tốt nhất là nên chọn mấy cái đề tài <code class="language-plaintext highlighter-rouge">không cần train</code>, hoặc có train thì cũng tí là xong.
+Đấy mấy cái Random Forest, mấy cái model nhẹ nhàng train vèo phát xong.
+Rồi mình làm mấy cái deploy lên thiết bị nhỏ nhẹ, vừa khỏe vừa có tiền, cả nhà đều vui :))</p>
+
+<blockquote>
+  <p>Cách đây ít lâu, tôi có làm phỏng vấn tuyển dụng, có bạn trẻ “thị uy” với tôi là từng làm việc với hệ thống 24 GPUs.
+Tôi cũng thú nhận là chỗ chúng tôi <code class="language-plaintext highlighter-rouge">không train</code> gì hết, chỉ vào làm luôn inference nhỏ nhẹ, vừa khỏe vừa vui thôi.
+Nên nếu bạn mà định kiểu dành hàng tuần ngồi train thì chúng tôi không đáp ứng được.</p>
+</blockquote>
+
+<p>Thế nên chốt lại là tốt nhất là nên chọn hướng đi ít train thôi.
+Còn nếu chọn con đường train nhiều tốn kém thì <strong>PHẢI CÓ TIỀN</strong> vì đây là cuộc chơi của người giàu!</p>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
