@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 09 Feb 2022 02:35:58 +0900</pubDate>
-    <lastBuildDate>Wed, 09 Feb 2022 02:35:58 +0900</lastBuildDate>
+    <pubDate>Wed, 09 Feb 2022 07:22:35 +0900</pubDate>
+    <lastBuildDate>Wed, 09 Feb 2022 07:22:35 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -519,6 +519,25 @@ Nhìn chung vẫn là nghiệp vụ quản lý dự án (Project Management) v�
 
 &lt;p&gt;Tuy vậy, với công nghệ hiện tại cũng đủ để làm 1 demo nho nhỏ dạng: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cho máy xem 1 hình ảnh, và đặt 1 vài câu hỏi xung quanh nội dung hình ảnh&lt;/code&gt; và không cho máy kết nối Internet, thì máy cũng có thể trả lời ở mức độ nhất định. Tức là có thể lấy điểm bài nghe số 1 của TOEIC!&lt;/p&gt;
 
+&lt;p&gt;Đánh giá về tiềm năng bài toán VQA, thì tôi thấy cái mảng này nó cũng dồi dào, code kiếc cũng thừa mứa trên Github, kiểu như HuggingFace ý: classifier thì có TIMM &lt;a class=&quot;citation&quot; href=&quot;#rw2019timm&quot;&gt;[45]&lt;/a&gt;, detector thì có Detectron2 &lt;a class=&quot;citation&quot; href=&quot;#wu2019detectron2&quot;&gt;[46]&lt;/a&gt; hay MMDetection &lt;a class=&quot;citation&quot; href=&quot;#mmdetection&quot;&gt;[47]&lt;/a&gt;, segmentations thì có &lt;a class=&quot;citation&quot; href=&quot;#Yakubovskiy:2019&quot;&gt;[48]&lt;/a&gt;, visual relationship detector (VRD) thì cũng tràn lan vì các tác giả cũng công bố hết lên Github.
+Thế nên là những cái low-level detector kiểu visual &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer&lt;/code&gt; là sẵn có, mà người ta công bố mà mình không dùng thì cũng phí.
+Mà vấn đề là của người ta chất lượng nó cao.
+Dữ liệu thì cũng công bố sẵn có hết, bộ dữ liệu VQA hay commonsense hay Visual Genome &lt;a class=&quot;citation&quot; href=&quot;#krishna2017visual&quot;&gt;[49]&lt;/a&gt; thì nhìn chung cũng tầm triệu câu hỏi, với vài trăm ngàn hình ảnh.
+&lt;strong&gt;Đấy vấn đề với quy mô dữ liệu này thì lại quay về bài toán &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;240,000&lt;/code&gt; USD thoai!&lt;/strong&gt;
+Đấy, mấy cái mảng này nó toàn kiểu code kiếc, dữ liệu thì bằng cho không trên Github rồi, nhưng vấn đề là để chạy được thì hàng trăm ngàn đô.
+Các bạn thấy có những nhóm nó chịu khó train để ra model công bố thì toàn 8 GPUs mà cũng hì hục train 1 tuần.
+Có cái train ImageNet trong 1 giờ &lt;a class=&quot;citation&quot; href=&quot;#goyal2017accurate&quot;&gt;[50]&lt;/a&gt; thì lại là họ dùng những &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;256 GPUs&lt;/code&gt; mà họ có được nguồn tài nguyên ấy là nhóm của … Facebook!
+Nên tôi nghĩ khi làm postdoc mà không kiểu có estimate trước thời gian train là lại … giữa chừng đứt gánh vì … không có tiền!
+Mà không có tiền thì đấy như ví dụ postdoc của chúng ta là lặng lẽ giải tán rồi!&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Chứ không có tiền thì thày cũng không có, trò cũng không có thì nhìn nhau … cười à?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mà vì tài nguyên cái mảng này nó tràn lan trên Github nên có bảo tôi code thì lấy code làm công cũng không được vì cùng cái code trên mạng Internet nó nhan nhản ra, &lt;strong&gt;code nói chung là rẻ mạt!&lt;/strong&gt;
+&lt;em&gt;Cái quan trọng là vượt qua cái khó khăn như 240,000 USD và ra được sản phẩm thoai!&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h2 id=&quot;video-to-text-và-image-captioning&quot;&gt;Video-to-Text và Image Captioning&lt;/h2&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
@@ -591,7 +610,13 @@ Nên tôi nghĩ cũng không cần xoáy nhiều vào cái đám big data nữa:
 &lt;li&gt;&lt;span id=&quot;xiong2019tweetqa&quot;&gt;Xiong, W., Wu, J., Wang, H., Kulkarni, V., Yu, M., Chang, S., Guo, X. and Wang, W.Y. 2019. TWEETQA: A Social Media Focused Question Answering Dataset. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt; (2019), 5020–5031.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/xiong2019tweetqa/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;VCRdataset&quot;&gt;VCR: Visual Commonsense Reasoning.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/VCRdataset/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;zellers2019recognition&quot;&gt;Zellers, R., Bisk, Y., Farhadi, A. and Choi, Y. 2019. From recognition to cognition: Visual commonsense reasoning. &lt;i&gt;Proceedings of the IEEE/CVF conference on computer vision and pattern recognition&lt;/i&gt; (2019), 6720–6731.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/zellers2019recognition/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;vinyals2015order&quot;&gt;Vinyals, O., Bengio, S. and Kudlur, M. 2015. Order matters: Sequence to sequence for sets. &lt;i&gt;arXiv preprint arXiv:1511.06391&lt;/i&gt;. (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/vinyals2015order/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;vinyals2015order&quot;&gt;Vinyals, O., Bengio, S. and Kudlur, M. 2015. Order matters: Sequence to sequence for sets. &lt;i&gt;arXiv preprint arXiv:1511.06391&lt;/i&gt;. (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/vinyals2015order/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;rw2019timm&quot;&gt;Wightman, R. 2019. PyTorch Image Models. &lt;i&gt;GitHub repository&lt;/i&gt;. GitHub.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rw2019timm/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;wu2019detectron2&quot;&gt;Wu, Y., Kirillov, A., Massa, F., Lo, W.-Y. and Girshick, R. 2019. Detectron2.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wu2019detectron2/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;mmdetection&quot;&gt;Chen, K. et al. 2019. MMDetection: Open MMLab Detection Toolbox and Benchmark. &lt;i&gt;arXiv preprint arXiv:1906.07155&lt;/i&gt;. (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/mmdetection/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Yakubovskiy:2019&quot;&gt;Yakubovskiy, P. 2020. Segmentation Models Pytorch. &lt;i&gt;GitHub repository&lt;/i&gt;. GitHub.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/Yakubovskiy_2019/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;krishna2017visual&quot;&gt;Krishna, R., Zhu, Y., Groth, O., Johnson, J., Hata, K., Kravitz, J., Chen, S., Kalantidis, Y., Li, L.-J., Shamma, D.A. and others 2017. Visual genome: Connecting language and vision using crowdsourced dense image annotations. &lt;i&gt;International journal of computer vision&lt;/i&gt;. 123, 1 (2017), 32–73.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/krishna2017visual/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;goyal2017accurate&quot;&gt;Goyal, P., Dollár, P., Girshick, R., Noordhuis, P., Wesolowski, L., Kyrola, A., Tulloch, A., Jia, Y. and He, K. 2017. Accurate, large minibatch sgd: Training imagenet in 1 hour. &lt;i&gt;arXiv preprint arXiv:1706.02677&lt;/i&gt;. (2017).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/goyal2017accurate/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>
