@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Feb 2022 21:49:56 +0900</pubDate>
-    <lastBuildDate>Tue, 08 Feb 2022 21:49:56 +0900</lastBuildDate>
+    <pubDate>Tue, 08 Feb 2022 22:14:50 +0900</pubDate>
+    <lastBuildDate>Tue, 08 Feb 2022 22:14:50 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -454,7 +454,7 @@ Ví dụ bên dưới là 1 model Abstractive QA dựa trên AlBERT:&lt;/p&gt;
 
 &lt;p&gt;Để đánh giá, có thể dùng các metric như ROUGE-L hoặc METEOR.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/how-and-why.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/how-and-why.png&quot; style=&quot;float: left; margin: 10px; width: 40%;&quot; /&gt;
 &lt;strong&gt;V&lt;/strong&gt;isual &lt;strong&gt;Q&lt;/strong&gt;uestion &lt;strong&gt;A&lt;/strong&gt;nswering (VQA, &lt;a class=&quot;citation&quot; href=&quot;#antol2015vqa&quot;&gt;[6, 7]&lt;/a&gt;) thay context bởi 1 hình ảnh hoặc video.
 Tức là giống câu hỏi bài nghe thứ nhất trong thi TOEIC (nhưng TOEIC thì không có xem video).
 Thì nói chung cũng đa dạng đấy!
@@ -464,7 +464,21 @@ Mà tôi nghĩ cũng chỉ nhìn vào mỗi cái hình này là cũng hiểu đ�
 Dưới đây là bức tranh lớn trong mảng VQA (tập hợp qua các bài trên 300 citations).
 Tuy chỉ là một mảng nhỏ, nhưng cái scene này nhìn cũng là 1 graph phức tạp phết!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/vqa-author-paper-graph.png&quot; alt=&quot;vqa&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/vqa-author-paper-graphs.png&quot; alt=&quot;vqa&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cũng không nên quên là cách tiếp cận của nhân vật chính postdoc trong bài này là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;, mà nói chung là mảng giao giữa với vision và language nên tôi nghĩ là tiếp cận theo cách nào cũng sẽ đi đến cái chỗ nó như vậy thôi.
+Vậy chúng ta lại cứ bám sát vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nhé (mà hậu duệ là Transformers, BERT là những cái tôi thấy có vẻ cũng bắt đầu lấn sân sang Vision gần đây rồi).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Điểm khác biệt lớn nhất giữa vision và language chính là &lt;strong&gt;ORDER&lt;/strong&gt;.
+Nếu như đơn vị trong language là words được sắp xếp theo order thành phrase và sentence, words được extract từ documents nhờ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer&lt;/code&gt;.
+Trong hình ảnh, có một sự mapping với language, và cái hướng này cũng có mấy nhóm cũng rất mạnh đang làm chủ công nghệ này.
+Ví dụ, word, phrase &amp;lt;-&amp;gt; visual concepts
+còn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer&lt;/code&gt; &amp;lt;-&amp;gt; classifier, object detectors, visual relation detectors, .v.v…
+Nói chung, bên vision cũng có đủ những “vũ khí” tương xứng để extract tokens và feed vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; models.
+Tuy nhiên, vấn đề chính là order: cùng trong một hình ảnh, có thể extract ra 2 vật thể, nhưng khi xếp vào 1 câu văn thì thứ tự nào cũng có khả năng cả.
+Nó khác language là &lt;strong&gt;ORDER&lt;/strong&gt; đã được input sẵn.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;video-to-text-và-image-captioning&quot;&gt;Video-to-Text và Image Captioning&lt;/h2&gt;
 
