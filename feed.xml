@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Feb 2022 22:14:50 +0900</pubDate>
-    <lastBuildDate>Tue, 08 Feb 2022 22:14:50 +0900</lastBuildDate>
+    <pubDate>Wed, 09 Feb 2022 02:35:58 +0900</pubDate>
+    <lastBuildDate>Wed, 09 Feb 2022 02:35:58 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -477,8 +477,47 @@ Ví dụ, word, phrase &amp;lt;-&amp;gt; visual concepts
 còn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tokenizer&lt;/code&gt; &amp;lt;-&amp;gt; classifier, object detectors, visual relation detectors, .v.v…
 Nói chung, bên vision cũng có đủ những “vũ khí” tương xứng để extract tokens và feed vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; models.
 Tuy nhiên, vấn đề chính là order: cùng trong một hình ảnh, có thể extract ra 2 vật thể, nhưng khi xếp vào 1 câu văn thì thứ tự nào cũng có khả năng cả.
-Nó khác language là &lt;strong&gt;ORDER&lt;/strong&gt; đã được input sẵn.&lt;/p&gt;
+Nó khác language là &lt;strong&gt;ORDER&lt;/strong&gt; đã được input sẵn, còn vision thì không.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;Vấn đề &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;order&lt;/code&gt; cũng không phải mới mà được xem xét ngay từ 2015 (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; for sets, &lt;a class=&quot;citation&quot; href=&quot;#vinyals2015order&quot;&gt;[44]&lt;/a&gt;).
+Tuy nhiên, họ cũng chỉ dừng ở mức chọn 1 thứ tự nhất định để bắt đầu và optimize thứ tự đó trong quá trình training.
+Đó cũng là tinh thần của hầu hết các ứng dụng vision-language về sau có dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và attention như image captioning, Video-To-Text (VTT) và VQA.&lt;/p&gt;
+
+&lt;p&gt;Một cách giải quyết khác chính là tìm một &lt;strong&gt;representation&lt;/strong&gt; tốt hơn cho &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set&lt;/code&gt;.
+Vì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set&lt;/code&gt; trong vision không phải &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sequence&lt;/code&gt; trong NLP nên vấn đề sẽ xảy ra khi dùng representation mới là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; sẽ phải thay đổi để phù hợp với representation mới.
+Trong những publication gần đây, một &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set&lt;/code&gt; representation phù hợp là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;graph&lt;/code&gt;.
+Vấn đề là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;graph&lt;/code&gt; không phải &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sequence&lt;/code&gt; nên &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; cũng thay thế bằng graph neural networks (GNN).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Là người thày, có thể không trực tiếp bắt tay vào làm, nhưng phải định hướng.
+Vì vậy không thể định hướng một hướng đi “cụt”, chỉ làm 1 đời postdoc là hết.
+Định hướng, đôi khi dù 10 đời postdoc không làm gì thì cũng không thể hết việc được, mới là định hướng tốt.
+Thậm chí, nếu postdoc mà chịu khó làm thì còn sinh sôi nảy nở ra làm mãi không hết.
+Vision-Language (VL) nhìn chung là 1 định hướng lâu dài như vậy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Làm người trò, thì khi bắt đầu dự án không nên quá thụ động.
+Việc representation có thể phải thay đổi giữa chừng (từ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sequence&lt;/code&gt; sang &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;graph&lt;/code&gt;) là chuyện nếu không nhìn ra ngay từ đầu,
+có thể dẫn đến dự án bị đình chỉ giữa chừng.
+Làm postdoc như vậy là yếu về &lt;strong&gt;quản lý rủi ro&lt;/strong&gt;.
+Nhìn chung vẫn là nghiệp vụ quản lý dự án (Project Management) vẫn còn chưa mạnh.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nhìn chung, mảng Vision-Language (VL) này tôi thấy còn nhiều dư địa cả về lý thuyết lẫn ứng dụng:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Về lý thuyết, cái representation vẫn còn chỗ làm. Ứng với mỗi representation có thể sẽ phải thu thập dataset và gắn nhãn riêng. Xây dựng model mới hẳn cho &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;graph&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Về ứng dụng, VQA hiện tại vẫn chỉ là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;closed form&lt;/code&gt;: xem 1 hình ảnh và extract concepts rồi dùng kỹ thuật QA để trả lời nội dung trong ảnh, tức là chưa phải dạng suy luận nhiều. VQA ở dạng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;open&lt;/code&gt; hơn sẽ thay context không chỉ bởi 1 hình ảnh hay 1 video, mà bởi 1 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;multimedia database&lt;/code&gt;, cũng như trong trò chơi tỷ phú, mỗi câu hỏi không chỉ đòi hỏi phải xem 1 context nhất định mà phải &lt;strong&gt;search&lt;/strong&gt; trong 1 database knowledge mới có thể trả lời được.
+    &lt;ul&gt;
+      &lt;li&gt;Một bước đơn giản hơn chỉ là thay context hình ảnh bởi context video, và câu hỏi là về 1 details nào đó: ví dụ show cho máy một video nấu ăn, và hỏi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tại sao lại cho hành vào phi trước?&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Thay vì giới hạn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;luật chơi&lt;/code&gt; rằng máy chỉ được xem context là 1 bài báo, 1 hình ảnh, 1 video cụ thể, thì nhưu IBM Watson hay Siri, cho phép máy kết nối Internet và có thể query trong cả 1 multimedia database lớn, thì QA sẽ như thế nào?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Tuy vậy, với công nghệ hiện tại cũng đủ để làm 1 demo nho nhỏ dạng: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cho máy xem 1 hình ảnh, và đặt 1 vài câu hỏi xung quanh nội dung hình ảnh&lt;/code&gt; và không cho máy kết nối Internet, thì máy cũng có thể trả lời ở mức độ nhất định. Tức là có thể lấy điểm bài nghe số 1 của TOEIC!&lt;/p&gt;
 
 &lt;h2 id=&quot;video-to-text-và-image-captioning&quot;&gt;Video-to-Text và Image Captioning&lt;/h2&gt;
 
@@ -551,7 +590,8 @@ Nên tôi nghĩ cũng không cần xoáy nhiều vào cái đám big data nữa:
 &lt;li&gt;&lt;span id=&quot;nallapati2016abstractive&quot;&gt;Nallapati, R., Zhou, B., Santos, C. dos, Gu̇lçehre Çağlar and Xiang, B. 2016. Abstractive Text Summarization using Sequence-to-sequence RNNs and Beyond. &lt;i&gt;Proceedings of The 20th SIGNLL Conference on Computational Natural Language Learning&lt;/i&gt; (2016), 280–290.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nallapati2016abstractive/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;xiong2019tweetqa&quot;&gt;Xiong, W., Wu, J., Wang, H., Kulkarni, V., Yu, M., Chang, S., Guo, X. and Wang, W.Y. 2019. TWEETQA: A Social Media Focused Question Answering Dataset. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt; (2019), 5020–5031.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/xiong2019tweetqa/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;VCRdataset&quot;&gt;VCR: Visual Commonsense Reasoning.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/VCRdataset/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;zellers2019recognition&quot;&gt;Zellers, R., Bisk, Y., Farhadi, A. and Choi, Y. 2019. From recognition to cognition: Visual commonsense reasoning. &lt;i&gt;Proceedings of the IEEE/CVF conference on computer vision and pattern recognition&lt;/i&gt; (2019), 6720–6731.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/zellers2019recognition/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;zellers2019recognition&quot;&gt;Zellers, R., Bisk, Y., Farhadi, A. and Choi, Y. 2019. From recognition to cognition: Visual commonsense reasoning. &lt;i&gt;Proceedings of the IEEE/CVF conference on computer vision and pattern recognition&lt;/i&gt; (2019), 6720–6731.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/zellers2019recognition/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;vinyals2015order&quot;&gt;Vinyals, O., Bengio, S. and Kudlur, M. 2015. Order matters: Sequence to sequence for sets. &lt;i&gt;arXiv preprint arXiv:1511.06391&lt;/i&gt;. (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/vinyals2015order/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>
