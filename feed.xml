@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 09 Feb 2022 08:09:25 +0900</pubDate>
-    <lastBuildDate>Wed, 09 Feb 2022 08:09:25 +0900</lastBuildDate>
+    <pubDate>Thu, 10 Feb 2022 00:30:35 +0900</pubDate>
+    <lastBuildDate>Thu, 10 Feb 2022 00:30:35 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -540,6 +540,27 @@ Mà không có tiền thì đấy như ví dụ postdoc của chúng ta là lặ
 
 &lt;h2 id=&quot;video-to-text-và-image-captioning&quot;&gt;Video-to-Text và Image Captioning&lt;/h2&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;Training on videos used standard SGD with momentum set to 0.9 in all cases, with synchronous parallelization across &lt;strong&gt;32 GPUs&lt;/strong&gt; for all models except the 3D ConvNets which receive a large number of input frames and hence require more GPUs to form large batches – we used &lt;strong&gt;64 GPUs&lt;/strong&gt; for these. We trained models on on Kinetics for &lt;strong&gt;110k steps&lt;/strong&gt;, with a 10x reduction of learning rate when validation loss saturated. We tuned the learning rate hyperparameter on the validation set of Kinetics. Models were trained for up to &lt;strong&gt;5k steps&lt;/strong&gt; on UCF-101 and HMDB-51 using a similar learning rate adaptation procedure as for Kinetics but using just &lt;strong&gt;16 GPUs&lt;/strong&gt;. (trích dẫn &lt;a class=&quot;citation&quot; href=&quot;#carreira2017quo&quot;&gt;[51]&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vấn đề gì trong đoạn văn trên?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Thứ nhất, UCF-101 và HMDB-51 là những bộ dữ liệu nhỏ nhưng họ cũng phải dùng tới &lt;strong&gt;16 GPUs&lt;/strong&gt; để train. Thì gọi cho 16 GPUs sẽ nhanh lên tầm 1s/iteration thì train 5k steps mất tầm 1h-2h. Thì với bộ dữ liệu nhỏ như vậy là ổn.&lt;/li&gt;
+  &lt;li&gt;Tuy nhiên, với bộ dữ liệu lớn như Kinetics thì họ phải inputs hàng triệu frames, và để nhanh thì bắt buộc dùng tới 32, thậm chí 64 GPUs để train. Gọi cho là dùng &lt;strong&gt;64 GPUs&lt;/strong&gt; thì sẽ train nhanh đi thì 1s/iteration thì 110k steps cũng mất 1-2 ngày.&lt;/li&gt;
+  &lt;li&gt;Nhưng nên nhớ họ có 64 GPUs nhé, chứ còn chỉ có 1-2 GPUs thì xác định mất 1-2 ngày x 30 lần tức là train mất &lt;strong&gt;1-2 tháng&lt;/strong&gt; (không ngủ nghỉ gì cả, T7/CN nghỉ lễ cũng train).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bài toán Video-To-Text hay Video Captioning, Video-Text Retrieval đòi hỏi cần có những biểu diễn phù hợp cho cả vision lẫn language.
+Về mặt vision thì có mấy cái hệ biểu diễn C3D/I3D như trên.
+Nhìn chung có thể dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; hoặc BERT để learn được những biểu diễn như vậy và input vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; để xuất ra captions.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Nhưng nhìn chung, độ khả thi của đề xuất này vẫn phụ thuộc con số &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;16-32-64&lt;/code&gt; GPUs ở trên. Thày nghèo với thày giàu là có phân biệt đấy.
+Nói chung làm hình ảnh thì dưới 8 GPUs không nên theo.
+Nhưng video thì dưới 16 GPUs thì cũng không nên train triếc mất thời gian.
+Mà thày nào dưới 16 GPUs thì cũng không nên theo nếu bạn định &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;train&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 
 &lt;h2 id=&quot;về-seq2seq-trong-nlp&quot;&gt;Về &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; trong NLP&lt;/h2&gt;
@@ -640,7 +661,8 @@ Còn nếu chọn con đường train nhiều tốn kém thì &lt;strong&gt;PH�
 &lt;li&gt;&lt;span id=&quot;mmdetection&quot;&gt;Chen, K. et al. 2019. MMDetection: Open MMLab Detection Toolbox and Benchmark. &lt;i&gt;arXiv preprint arXiv:1906.07155&lt;/i&gt;. (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/mmdetection/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Yakubovskiy:2019&quot;&gt;Yakubovskiy, P. 2020. Segmentation Models Pytorch. &lt;i&gt;GitHub repository&lt;/i&gt;. GitHub.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/Yakubovskiy_2019/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;krishna2017visual&quot;&gt;Krishna, R., Zhu, Y., Groth, O., Johnson, J., Hata, K., Kravitz, J., Chen, S., Kalantidis, Y., Li, L.-J., Shamma, D.A. and others 2017. Visual genome: Connecting language and vision using crowdsourced dense image annotations. &lt;i&gt;International journal of computer vision&lt;/i&gt;. 123, 1 (2017), 32–73.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/krishna2017visual/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;goyal2017accurate&quot;&gt;Goyal, P., Dollár, P., Girshick, R., Noordhuis, P., Wesolowski, L., Kyrola, A., Tulloch, A., Jia, Y. and He, K. 2017. Accurate, large minibatch sgd: Training imagenet in 1 hour. &lt;i&gt;arXiv preprint arXiv:1706.02677&lt;/i&gt;. (2017).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/goyal2017accurate/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;goyal2017accurate&quot;&gt;Goyal, P., Dollár, P., Girshick, R., Noordhuis, P., Wesolowski, L., Kyrola, A., Tulloch, A., Jia, Y. and He, K. 2017. Accurate, large minibatch sgd: Training imagenet in 1 hour. &lt;i&gt;arXiv preprint arXiv:1706.02677&lt;/i&gt;. (2017).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/goyal2017accurate/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;carreira2017quo&quot;&gt;Carreira, J. and Zisserman, A. 2017. Quo vadis, action recognition? a new model and the kinetics dataset. &lt;i&gt;proceedings of the IEEE Conference on Computer Vision and Pattern Recognition&lt;/i&gt; (2017), 6299–6308.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/carreira2017quo/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Tue, 01 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq/</link>
