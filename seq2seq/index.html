@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="twitter:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <script type="application/ld+json">
-{"description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51].","image":"/https://wanted2.github.io/assets/images/san01.jpg","headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","url":"/https://wanted2.github.io/seq2seq/","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"author":{"@type":"Person","name":"tuan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51].","image":"/https://wanted2.github.io/assets/images/san01.jpg","headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","url":"/https://wanted2.github.io/seq2seq/","author":{"@type":"Person","name":"tuan"},"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -889,6 +889,21 @@ Nên là trước khi bắt đầu dự án, việc lên kế hoạch mua sắm,
 <blockquote>
   <p>Chứ không chạy đến giữa chừng lại ngậm ngùi giải tán vì … không có GPUs (mà thực ra là không có tiền) để chạy thì còn ra cái thể thống cống rãnh gì nữa?</p>
 </blockquote>
+
+<p>Image Captioning thì cũng dùng RNN/LSTM và Attention từ lâu rồi.
+Nhìn chung, cái mảng này vẫn là <strong>cuộc chơi của người giàu</strong>.
+Mà độ giàu của ông thày là số lượng GPUs mà lab thày sở hữu.
+Bây giờ, postdoc có ý tưởng, postdoc có đề tài, postdoc lên kế hoạch, postdoc tính toán tỷ mỷ số lượng tài nguyên cần thiết.
+Thế bây giờ, postdoc là người chọn thày chứ không phải thày chọn postdoc.
+Thì quay lại trường hợp postdoc của chúng ta:</p>
+<blockquote>
+  <p><strong>Tại sao lại chọn chỗ nghèo như vậy?</strong></p>
+</blockquote>
+
+<p>Chưa đi ra đến chợ mà đã hết tiền như thế thì làm thế nào cạnh tranh nổi trong giới postdoc?
+Mà đã thấy không có tiền thì đổi đề tài cho nó phù hợp, làm cái task khác nó không cần tiền đi.
+Tất nhiên là người nghèo lại làm task không có tiền thì lại thành … <code class="language-plaintext highlighter-rouge">nghèo bền vững</code> thôi!
+Nói chung là ngay từ bước <strong>quản lý tài nguyên, một phần trong nghiệp vụ quản lý dự án</strong> là đã có vấn đề.</p>
 
 <h1 id="kết-luận">Kết luận</h1>
 
