@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Feb 2022 00:30:35 +0900</pubDate>
-    <lastBuildDate>Thu, 10 Feb 2022 00:30:35 +0900</lastBuildDate>
+    <pubDate>Thu, 10 Feb 2022 00:49:32 +0900</pubDate>
+    <lastBuildDate>Thu, 10 Feb 2022 00:49:32 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -559,6 +559,17 @@ Nhìn chung có thể dùng &lt;code class=&quot;language-plaintext highlighter-
 Nói chung làm hình ảnh thì dưới 8 GPUs không nên theo.
 Nhưng video thì dưới 16 GPUs thì cũng không nên train triếc mất thời gian.
 Mà thày nào dưới 16 GPUs thì cũng không nên theo nếu bạn định &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;train&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Các bạn cũng cần hiểu, đó là nguồn tài nguyên trong một lab nghiên cứu luôn là mua chung cho cả lab, chứ không phải cho 1 anh postdoc cụ thể nào.
+Ví dụ postdoc muốn xin dùng hệ thống 8 GPUs của thày tầm 1 ngày 2 ngày thì còn ổn.
+Chứ postdoc mà muốn chiếm hẳn 1 tuần để train model video captioning thì tự dưng nó nảy sinh ra rất nhiều vấn đề khác.
+Nên là nếu bạn chọn vào chỗ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nghèo&lt;/code&gt; quá ấy, thì liệu cơm gắp mắm, nhưng tốt nhất đừng có &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;train&lt;/code&gt; gì cả.
+Bây giờ làm việc bên mảng vision này, đặc biệt là video, thì tự dưng lại phải ngồi build cả 1 hệ thống GPU server &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;16-32-64-128-256&lt;/code&gt; GPUs để cho đệ tử nó dùng.
+Nên là trước khi bắt đầu dự án, việc lên kế hoạch mua sắm, build server các cái là phải chuẩn bị từ trước hết.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Chứ không chạy đến giữa chừng lại ngậm ngùi giải tán vì … không có GPUs (mà thực ra là không có tiền) để chạy thì còn ra cái thể thống cống rãnh gì nữa?&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;

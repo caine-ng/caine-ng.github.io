@@ -879,6 +879,17 @@ Nhưng video thì dưới 16 GPUs thì cũng không nên train triếc mất th�
 Mà thày nào dưới 16 GPUs thì cũng không nên theo nếu bạn định <code class="language-plaintext highlighter-rouge">train</code>.</p>
 </blockquote>
 
+<p>Các bạn cũng cần hiểu, đó là nguồn tài nguyên trong một lab nghiên cứu luôn là mua chung cho cả lab, chứ không phải cho 1 anh postdoc cụ thể nào.
+Ví dụ postdoc muốn xin dùng hệ thống 8 GPUs của thày tầm 1 ngày 2 ngày thì còn ổn.
+Chứ postdoc mà muốn chiếm hẳn 1 tuần để train model video captioning thì tự dưng nó nảy sinh ra rất nhiều vấn đề khác.
+Nên là nếu bạn chọn vào chỗ <code class="language-plaintext highlighter-rouge">nghèo</code> quá ấy, thì liệu cơm gắp mắm, nhưng tốt nhất đừng có <code class="language-plaintext highlighter-rouge">train</code> gì cả.
+Bây giờ làm việc bên mảng vision này, đặc biệt là video, thì tự dưng lại phải ngồi build cả 1 hệ thống GPU server <code class="language-plaintext highlighter-rouge">16-32-64-128-256</code> GPUs để cho đệ tử nó dùng.
+Nên là trước khi bắt đầu dự án, việc lên kế hoạch mua sắm, build server các cái là phải chuẩn bị từ trước hết.</p>
+
+<blockquote>
+  <p>Chứ không chạy đến giữa chừng lại ngậm ngùi giải tán vì … không có GPUs (mà thực ra là không có tiền) để chạy thì còn ra cái thể thống cống rãnh gì nữa?</p>
+</blockquote>
+
 <h1 id="kết-luận">Kết luận</h1>
 
 <h2 id="về-seq2seq-trong-nlp">Về <code class="language-plaintext highlighter-rouge">seq2seq</code> trong NLP</h2>
