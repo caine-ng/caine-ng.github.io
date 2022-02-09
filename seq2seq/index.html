@@ -322,6 +322,7 @@
     <ul>
       <li><a href="#về-seq2seq-trong-nlp">Về <code class="language-plaintext highlighter-rouge">seq2seq</code> trong NLP</a></li>
       <li><a href="#về-chuyện-tài-nguyên-training">Về chuyện tài nguyên training</a></li>
+      <li><a href="#về-các-task-vision-language">Về các task vision-language</a></li>
     </ul>
   </li>
   <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
@@ -953,6 +954,23 @@ Nên nếu bạn mà định kiểu dành hàng tuần ngồi train thì chúng 
 
 <p>Thế nên chốt lại là tốt nhất là nên chọn hướng đi ít train thôi.
 Còn nếu chọn con đường train nhiều tốn kém thì <strong>PHẢI CÓ TIỀN</strong> vì đây là cuộc chơi của người giàu!</p>
+
+<h2 id="về-các-task-vision-language">Về các task vision-language</h2>
+<p>Thật thú vị là cùng thời điểm khoảng 2015-2016, bên vision cũng xuất hiện 1 loạt task kế thừa <code class="language-plaintext highlighter-rouge">seq2seq</code> và đến bây giờ vẫn phát triển song song và lấy những công nghệ tiên tiến nhất của bên NLP như Transformers hay BERT về để ứng dụng.
+Thì họ cũng làm lên một nhánh vision-language learning (VL learning), với những task thú vị như VQA, VTT, image captioning, video/image-text retrieval.</p>
+
+<p>Nhìn chung là thú vị, nhưng có một số vấn đề như representation, thì đặc điểm của <code class="language-plaintext highlighter-rouge">set</code> nên có những biểu diễn mới như <code class="language-plaintext highlighter-rouge">graph</code> hay <code class="language-plaintext highlighter-rouge">3D</code> (C3D/I3D).
+Nếu làm một kế hoạch nghiêm chỉnh cũng có thể làm ra một cái postdoc tốt nhưng không hiểu sao ngày ấy lại không đi đến đâu cả.
+Mà cuối cùng ấy, tôi nghĩ có nhiều nguyên nhân như phân tích ở trên, nhưng một nguyên nhân tuy nói ra hơi <code class="language-plaintext highlighter-rouge">phô</code> nhưng mà <code class="language-plaintext highlighter-rouge">thật</code>:</p>
+
+<blockquote>
+  <p>Không có GPUs!</p>
+</blockquote>
+
+<p>Cái này cũng thể hiện sự yếu kém về mặt nghiệp vụ quản lý dự án (liên quan tới quản lý scope, tài nguyên và kế hoạch).</p>
+
+<p>Nhìn chung cũng là một bài học kinh nghiệm quý báu.
+Tôi nghĩ vẫn có nhiều điều đáng lưu ý để thế hệ sau không vấp phải.</p>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 

@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Feb 2022 01:31:22 +0900</pubDate>
-    <lastBuildDate>Thu, 10 Feb 2022 01:31:22 +0900</lastBuildDate>
+    <pubDate>Thu, 10 Feb 2022 01:53:15 +0900</pubDate>
+    <lastBuildDate>Thu, 10 Feb 2022 01:53:15 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -635,6 +635,23 @@ Nên nếu bạn mà định kiểu dành hàng tuần ngồi train thì chúng 
 
 &lt;p&gt;Thế nên chốt lại là tốt nhất là nên chọn hướng đi ít train thôi.
 Còn nếu chọn con đường train nhiều tốn kém thì &lt;strong&gt;PHẢI CÓ TIỀN&lt;/strong&gt; vì đây là cuộc chơi của người giàu!&lt;/p&gt;
+
+&lt;h2 id=&quot;về-các-task-vision-language&quot;&gt;Về các task vision-language&lt;/h2&gt;
+&lt;p&gt;Thật thú vị là cùng thời điểm khoảng 2015-2016, bên vision cũng xuất hiện 1 loạt task kế thừa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và đến bây giờ vẫn phát triển song song và lấy những công nghệ tiên tiến nhất của bên NLP như Transformers hay BERT về để ứng dụng.
+Thì họ cũng làm lên một nhánh vision-language learning (VL learning), với những task thú vị như VQA, VTT, image captioning, video/image-text retrieval.&lt;/p&gt;
+
+&lt;p&gt;Nhìn chung là thú vị, nhưng có một số vấn đề như representation, thì đặc điểm của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;set&lt;/code&gt; nên có những biểu diễn mới như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;graph&lt;/code&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D&lt;/code&gt; (C3D/I3D).
+Nếu làm một kế hoạch nghiêm chỉnh cũng có thể làm ra một cái postdoc tốt nhưng không hiểu sao ngày ấy lại không đi đến đâu cả.
+Mà cuối cùng ấy, tôi nghĩ có nhiều nguyên nhân như phân tích ở trên, nhưng một nguyên nhân tuy nói ra hơi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;phô&lt;/code&gt; nhưng mà &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thật&lt;/code&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Không có GPUs!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Cái này cũng thể hiện sự yếu kém về mặt nghiệp vụ quản lý dự án (liên quan tới quản lý scope, tài nguyên và kế hoạch).&lt;/p&gt;
+
+&lt;p&gt;Nhìn chung cũng là một bài học kinh nghiệm quý báu.
+Tôi nghĩ vẫn có nhiều điều đáng lưu ý để thế hệ sau không vấp phải.&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
