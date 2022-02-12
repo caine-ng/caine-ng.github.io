@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="https://wanted2.github.io/assets/images/favicon.ico">
+
+<title>Speech and Sequence-to-sequence | AiFi</title>
+
+ 
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6" crossorigin="anonymous"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2CDTCF0EP6');
+        </script>
+    
+
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Speech and Sequence-to-sequence | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Speech and Sequence-to-sequence" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;" />
+<meta property="og:description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;" />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-06T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" />
+<meta property="twitter:title" content="Speech and Sequence-to-sequence" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-02-06T00:00:00+09:00","datePublished":"2022-02-06T00:00:00+09:00","description":"Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;","headline":"Speech and Sequence-to-sequence","image":"https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/speech/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/speech/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="https://wanted2.github.io/assets/css/screen.css" rel="stylesheet">
+
+<link href="https://wanted2.github.io/assets/css/main.css" rel="stylesheet">
+
+<script src="https://wanted2.github.io/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<!-- <script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script> -->
+</head>
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="https://wanted2.github.io/">
+    <img src="https://wanted2.github.io/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="https://wanted2.github.io/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="https://wanted2.github.io/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="https://wanted2.github.io/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <!-- <script src="https://wanted2.github.io/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="https://wanted2.github.io/assets/js/lunrsearchengine.js"></script> -->
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Speech and Sequence-to-sequence&url=https://wanted2.github.io/speech/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=https://wanted2.github.io/speech/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wanted2.github.io/speech/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="mailto:?subject=Speech and Sequence-to-sequence&body=https://wanted2.github.io/speech/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+    
+    <div class="sep">
+
+    </div>
+    <ul>
+        <li class="small">
+        579
+     words</li>
+        <li class="small">3 minutes</li>
+    </ul>
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-2 col-lg-2 text-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://wanted2.github.io/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-10 col-lg-10 text-right">
+                        <a target="_blank" class="link-dark" href="">AiFi</a>
+                        <!-- <a target="_blank" href="" class="btn follow">Follow</a> -->
+                        <!-- LikeBtn.com BEGIN -->
+                        <span class="likebtn-wrapper" 
+                            data-site_id="61cfccd36fd08b2d68c1929e"
+                            data-theme="custom" 
+                            data-icon_l_url="/assets/images/OK_EM.png" 
+                            data-icon_l_url_v="/assets/images/OK_EM_clicked.png" 
+                            data-identifier="/speech/" 
+                            data-show_like_label="false" 
+                            data-like_enabled="false" 
+                            data-dislike_enabled="false" 
+                            data-icon_dislike_show="false" 
+                            data-voting_cancelable="false" 
+                            data-counter_show="true"
+                            data-counter_frmt="comma"></span>
+                        <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+                        <!-- LikeBtn.com END -->
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Speech and Sequence-to-sequence</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" alt="Speech and Sequence-to-sequence">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan">Giới thiệu chung về ASR và các bài toán liên quan</a>
+    <ul>
+      <li><a href="#automatic-speech-recognition-7">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[7]</a></a></li>
+      <li><a href="#sound-classification">Sound classification</a></li>
+      <li><a href="#voice-conversion">Voice Conversion</a></li>
+      <li><a href="#text-to-speech">Text-To-Speech</a></li>
+    </ul>
+  </li>
+  <li><a href="#công-nghệ-chính">Công nghệ chính</a>
+    <ul>
+      <li><a href="#i-vector-và-x-vector">i-vector và x-vector</a></li>
+      <li><a href="#seq2seq-và-các-transformers"><code class="language-plaintext highlighter-rouge">seq2seq</code> và các Transformers</a></li>
+    </ul>
+  </li>
+  <li><a href="#lưu-ý-khi-train-model-asr">Lưu ý khi train model ASR</a>
+    <ul>
+      <li><a href="#giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</a></li>
+    </ul>
+  </li>
+  <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p>Như trong <a href="/seq2seq/">bài viết trước</a> thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì <code class="language-plaintext highlighter-rouge">seq2seq</code> đều đang làm chủ.
+Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà <code class="language-plaintext highlighter-rouge">seq2seq</code> và các hậu duệ (thuộc dòng dõi Transformer <a class="citation" href="#vaswani2017attention">[1]</a> và BERT <a class="citation" href="#devlin2019bert">[2, 3]</a>) cũng đang nắm thế chủ động.
+Khởi đầu bài viết, tôi định viết lại về i-vector <a class="citation" href="#kenny2007joint">[4]</a> và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị <code class="language-plaintext highlighter-rouge">seq2seq</code> chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer <a class="citation" href="#gulati2020conformer">[5, 6]</a> <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<!--more-->
+
+<h1 id="giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan">Giới thiệu chung về ASR và các bài toán liên quan</h1>
+
+<h2 id="automatic-speech-recognition-7">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[7]</a></h2>
+
+<h2 id="sound-classification">Sound classification</h2>
+
+<h2 id="voice-conversion">Voice Conversion</h2>
+
+<h2 id="text-to-speech">Text-To-Speech</h2>
+
+<h1 id="công-nghệ-chính">Công nghệ chính</h1>
+
+<h2 id="i-vector-và-x-vector">i-vector và x-vector</h2>
+
+<h2 id="seq2seq-và-các-transformers"><code class="language-plaintext highlighter-rouge">seq2seq</code> và các Transformers</h2>
+
+<h1 id="lưu-ý-khi-train-model-asr">Lưu ý khi train model ASR</h1>
+
+<h2 id="giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</h2>
+
+<p>Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của <code class="language-plaintext highlighter-rouge">seq2seq</code> nên chắc mẩm là giá sẽ không mềm rồi.
+Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain <a class="citation" href="#zhang2020pushing">[6]</a>.
+Giá cả của TPU thì v3 mà trên 32 cores thì chỉ mới hỗ trợ tài Hà Lan nên các bạn chú ý nhé.
+Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi chả hạn là cũng tốn vài chục ngàn Mỹ kim rồi.
+Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
+
+<p><img src="/assets/images/asr-price-deep-models.jpg" alt="pricing" /></p>
+
+<h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
+
+<ol class="bibliography"><li><span id="vaswani2017attention">Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. 2017. Attention is all you need. <i>Advances in neural information processing systems</i> (2017), 5998–6008.</span><a class="details" href="https://wanted2.github.io/bibliography/vaswani2017attention/">Details</a></li>
+<li><span id="devlin2019bert">Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. <i>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)</i> (2019), 4171–4186.</span><a class="details" href="https://wanted2.github.io/bibliography/devlin2019bert/">Details</a></li>
+<li><span id="hsu2021hubert">Hsu, W.-N., Bolte, B., Tsai, Y.-H.H., Lakhotia, K., Salakhutdinov, R. and Mohamed, A. 2021. Hubert: Self-supervised speech representation learning by masked prediction of hidden units. <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing</i>. 29, (2021), 3451–3460.</span><a class="details" href="https://wanted2.github.io/bibliography/hsu2021hubert/">Details</a></li>
+<li><span id="kenny2007joint">Kenny, P., Boulianne, G., Ouellet, P. and Dumouchel, P. 2007. Joint factor analysis versus eigenchannels in speaker recognition. <i>IEEE Transactions on Audio, Speech, and Language Processing</i>. 15, 4 (2007), 1435–1447.</span><a class="details" href="https://wanted2.github.io/bibliography/kenny2007joint/">Details</a></li>
+<li><span id="gulati2020conformer">Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. <i>Proc. Interspeech 2020</i>. (2020), 5036–5040.</span><a class="details" href="https://wanted2.github.io/bibliography/gulati2020conformer/">Details</a></li>
+<li><span id="zhang2020pushing">Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. <i>arXiv preprint arXiv:2010.10504</i>. (2020).</span><a class="details" href="https://wanted2.github.io/bibliography/zhang2020pushing/">Details</a></li>
+<li><span id="yu2016automatic">Yu, D. and Deng, L. 2016. <i>Automatic speech recognition</i>. Springer.</span><a class="details" href="https://wanted2.github.io/bibliography/yu2016automatic/">Details</a></li></ol>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-02-06">06 Feb 2022</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#BERT">#BERT</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Sequence-to-sequence">#Sequence-to-sequence</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Transformer">#Transformer</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#speech-recognition">#speech recognition</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#speech-synthesis">#speech synthesis</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#voice-conversion">#voice conversion</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#音声合成">#音声合成</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#音声変換">#音声変換</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#音声認識">#音声認識</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="https://wanted2.github.io//seq2seq/"> &laquo; Seq2Seq và kiến trúc Encoder-Decoder</a>
+            
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="https://wanted2.github.io/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://caineng.us20.list-manage.com/subscribe/post?u=76342d3d74a6807aac5aec0d7&id=b5645e19be" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (7)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (2)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (3)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (4)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (3)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2022 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="https://wanted2.github.io/assets/js/mediumish.js"></script>
+
+
+<script src="https://wanted2.github.io/assets/js/lazyload.js"></script>
+
+
+<script src="https://wanted2.github.io/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>

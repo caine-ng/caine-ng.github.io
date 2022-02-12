@@ -5,19 +5,15 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 13 Feb 2022 06:30:38 +0900</pubDate>
-    <lastBuildDate>Sun, 13 Feb 2022 06:30:38 +0900</lastBuildDate>
+    <pubDate>Sun, 13 Feb 2022 06:42:05 +0900</pubDate>
+    <lastBuildDate>Sun, 13 Feb 2022 06:42:05 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Speech and Sequence-to-sequence</title>
         <description>&lt;p&gt;Như trong &lt;a href=&quot;/seq2seq/&quot;&gt;bài viết trước&lt;/a&gt; thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; đều đang làm chủ.
 Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các hậu duệ (thuộc dòng dõi Transformer &lt;a class=&quot;citation&quot; href=&quot;#vaswani2017attention&quot;&gt;[1]&lt;/a&gt; và BERT &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[2, 3]&lt;/a&gt;) cũng đang nắm thế chủ động.
-Khởi đầu bài viết, tôi định viết lại về i-vector &lt;a class=&quot;citation&quot; href=&quot;#kenny2007joint&quot;&gt;[4]&lt;/a&gt; và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[5, 6]&lt;/a&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé.&lt;/p&gt;
-&lt;/blockquote&gt;
+Khởi đầu bài viết, tôi định viết lại về i-vector &lt;a class=&quot;citation&quot; href=&quot;#kenny2007joint&quot;&gt;[4]&lt;/a&gt; và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[5, 6]&lt;/a&gt; &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -58,10 +54,17 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;gulati2020conformer&quot;&gt;Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. &lt;i&gt;Proc. Interspeech 2020&lt;/i&gt;. (2020), 5036–5040.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gulati2020conformer/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;zhang2020pushing&quot;&gt;Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. &lt;i&gt;arXiv preprint arXiv:2010.10504&lt;/i&gt;. (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/zhang2020pushing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;yu2016automatic&quot;&gt;Yu, D. and Deng, L. 2016. &lt;i&gt;Automatic speech recognition&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/yu2016automatic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Sun, 06 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/i-vector/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/i-vector/</guid>
+        <link>https://wanted2.github.io/speech/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/speech/</guid>
         
         <category>音声認識</category>
         
