@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 12 Feb 2022 20:21:32 +0900</pubDate>
-    <lastBuildDate>Sat, 12 Feb 2022 20:21:32 +0900</lastBuildDate>
+    <pubDate>Sun, 13 Feb 2022 00:15:43 +0900</pubDate>
+    <lastBuildDate>Sun, 13 Feb 2022 00:15:43 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -16,8 +16,8 @@
 &lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
 
 &lt;p&gt;Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO &lt;a class=&quot;citation&quot; href=&quot;#lin2014microsoft&quot;&gt;[1]&lt;/a&gt; tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim.
-Mà các bạn cũng nhớ giá này là giá &lt;strong&gt;Spot&lt;/strong&gt; tức là có thể bị interrupt giữa chừng nên mới rẻ thế.
-Chứ nếu bạn mà chọn &lt;strong&gt;on-demand&lt;/strong&gt; thì có mà gấp 10 lần.&lt;/p&gt;
+Mà các bạn cũng nhớ giá này là giá &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; tức là có thể bị interrupt giữa chừng nên mới rẻ thế.
+Chứ nếu bạn mà chọn &lt;a href=&quot;https://aws.amazon.com/ec2/pricing/on-demand/&quot;&gt;&lt;strong&gt;on-demand&lt;/strong&gt;&lt;/a&gt; thì có mà gấp 10 lần.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/detr-cost-analysis.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
 
@@ -29,12 +29,12 @@ Thì kết quả là đồng chí ấy báo cáo:&lt;/p&gt;
   &lt;li&gt;train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; để làm phân tích giá nhé) rồi ensemble.&lt;/li&gt;
   &lt;li&gt;mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau.&lt;/li&gt;
   &lt;li&gt;sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS).&lt;/li&gt;
-  &lt;li&gt;Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297$ ngày train, tức là\)297\times 24=7128$$ giờ train.&lt;/li&gt;
+  &lt;li&gt;Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/open-images-price.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; thì giá mềm nhất là &lt;strong&gt;Spot&lt;/strong&gt; cũng tầm $0.918/h.
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; thì giá mềm nhất là &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; cũng tầm $0.918/h.
 Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train.&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
