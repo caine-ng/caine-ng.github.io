@@ -6,7 +6,7 @@
 
 <link rel="icon" href="https://wanted2.github.io/assets/images/favicon.ico">
 
-<title>i-vector & x-vector & Conformer | AiFi</title>
+<title>Speech and Sequence-to-sequence | AiFi</title>
 
  
     
@@ -22,23 +22,23 @@
     
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>i-vector &amp; x-vector &amp; Conformer | AiFi</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Speech and Sequence-to-sequence | AiFi</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="i-vector &amp; x-vector &amp; Conformer" />
+<meta property="og:title" content="Speech and Sequence-to-sequence" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Tình hình là mảng này State-Of-The-Art cũng tràn ngập seq2seq và hậu duệ (bao gồm Transformer và BERT). Lưu ý khi train model ASR Giá thành khi train model State-of-the-art (SOTA) Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của seq2seq nên chắc mẩm là giá sẽ không mềm rồi. Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain [1]. Giá cả của TPU thì v3 mà trên 32 cores thì chỉ mới hỗ trợ tài Hà Lan nên các bạn chú ý nhé. Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi chả hạn là cũng tốn vài chục ngàn Mỹ kim rồi. Tóm lại là cuộc chơi của người giàu các bạn ạ! Tài liệu tham khảo Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. arXiv preprint arXiv:2010.10504. (2020).Details" />
-<meta property="og:description" content="Tình hình là mảng này State-Of-The-Art cũng tràn ngập seq2seq và hậu duệ (bao gồm Transformer và BERT). Lưu ý khi train model ASR Giá thành khi train model State-of-the-art (SOTA) Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của seq2seq nên chắc mẩm là giá sẽ không mềm rồi. Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain [1]. Giá cả của TPU thì v3 mà trên 32 cores thì chỉ mới hỗ trợ tài Hà Lan nên các bạn chú ý nhé. Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi chả hạn là cũng tốn vài chục ngàn Mỹ kim rồi. Tóm lại là cuộc chơi của người giàu các bạn ạ! Tài liệu tham khảo Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. arXiv preprint arXiv:2010.10504. (2020).Details" />
+<meta name="description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7]. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé." />
+<meta property="og:description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7]. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé." />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-02-06T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" />
-<meta property="twitter:title" content="i-vector &amp; x-vector &amp; Conformer" />
+<meta property="twitter:title" content="Speech and Sequence-to-sequence" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"description":"Tình hình là mảng này State-Of-The-Art cũng tràn ngập seq2seq và hậu duệ (bao gồm Transformer và BERT). Lưu ý khi train model ASR Giá thành khi train model State-of-the-art (SOTA) Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của seq2seq nên chắc mẩm là giá sẽ không mềm rồi. Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain [1]. Giá cả của TPU thì v3 mà trên 32 cores thì chỉ mới hỗ trợ tài Hà Lan nên các bạn chú ý nhé. Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi chả hạn là cũng tốn vài chục ngàn Mỹ kim rồi. Tóm lại là cuộc chơi của người giàu các bạn ạ! Tài liệu tham khảo Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. arXiv preprint arXiv:2010.10504. (2020).Details","image":"https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg","headline":"i-vector &amp; x-vector &amp; Conformer","dateModified":"2022-02-06T00:00:00+09:00","datePublished":"2022-02-06T00:00:00+09:00","url":"/https://wanted2.github.io/i-vector/","author":{"@type":"Person","name":"tuan"},"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/i-vector/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-02-06T00:00:00+09:00","datePublished":"2022-02-06T00:00:00+09:00","description":"Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7]. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé.","headline":"Speech and Sequence-to-sequence","image":"https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/i-vector/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/i-vector/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -186,7 +186,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=i-vector & x-vector & Conformer&url=https://wanted2.github.io/i-vector/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Speech and Sequence-to-sequence&url=https://wanted2.github.io/i-vector/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -204,7 +204,7 @@
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="mailto:?subject=i-vector & x-vector & Conformer&body=https://wanted2.github.io/i-vector/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+            <a target="_blank" href="mailto:?subject=Speech and Sequence-to-sequence&body=https://wanted2.github.io/i-vector/" onclick="window.open(this.href, 'width=550,height=435');return false;">
                 <i class="fas fa-envelope"></i>
             </a>
         </li>
@@ -219,6 +219,16 @@
         </li>
     </ul>
     
+    
+    <div class="sep">
+
+    </div>
+    <ul>
+        <li class="small">
+        562
+     words</li>
+        <li class="small">3 minutes</li>
+    </ul>
 </div>
 
         </div>
@@ -262,7 +272,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">i-vector & x-vector & Conformer</h1>
+                <h1 class="posttitle">Speech and Sequence-to-sequence</h1>
 
             </div>
 
@@ -274,7 +284,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" alt="i-vector & x-vector & Conformer">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" alt="Speech and Sequence-to-sequence">
             
 
             
@@ -288,6 +298,20 @@
                     <div class="toc mt-4 mb-4 lead">
                         <h3 class="font-weight-bold">Summary</h3>
                         <ul>
+  <li><a href="#giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan">Giới thiệu chung về ASR và các bài toán liên quan</a>
+    <ul>
+      <li><a href="#automatic-speech-recognition-7">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[7]</a></a></li>
+      <li><a href="#sound-classification">Sound classification</a></li>
+      <li><a href="#voice-conversion">Voice Conversion</a></li>
+      <li><a href="#text-to-speech">Text-To-Speech</a></li>
+    </ul>
+  </li>
+  <li><a href="#công-nghệ-chính">Công nghệ chính</a>
+    <ul>
+      <li><a href="#i-vector-và-x-vector">i-vector và x-vector</a></li>
+      <li><a href="#seq2seq-và-các-transformers"><code class="language-plaintext highlighter-rouge">seq2seq</code> và các Transformers</a></li>
+    </ul>
+  </li>
   <li><a href="#lưu-ý-khi-train-model-asr">Lưu ý khi train model ASR</a>
     <ul>
       <li><a href="#giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</a></li>
@@ -298,24 +322,53 @@
                     </div>
                 
                 <!-- End Toc -->
-                <blockquote>
-  <p>Tình hình là mảng này State-Of-The-Art cũng tràn ngập <code class="language-plaintext highlighter-rouge">seq2seq</code> và hậu duệ (bao gồm <code class="language-plaintext highlighter-rouge">Transformer</code> và <code class="language-plaintext highlighter-rouge">BERT</code>).</p>
+                <p>Như trong <a href="/seq2seq/">bài viết trước</a> thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì <code class="language-plaintext highlighter-rouge">seq2seq</code> đều đang làm chủ.
+Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà <code class="language-plaintext highlighter-rouge">seq2seq</code> và các hậu duệ (thuộc dòng dõi Transformer <a class="citation" href="#vaswani2017attention">[1]</a> và BERT <a class="citation" href="#devlin2019bert">[2, 3]</a>) cũng đang nắm thế chủ động.
+Khởi đầu bài viết, tôi định viết lại về i-vector <a class="citation" href="#kenny2007joint">[4]</a> và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị <code class="language-plaintext highlighter-rouge">seq2seq</code> chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer <a class="citation" href="#gulati2020conformer">[5, 6]</a>.</p>
+
+<blockquote>
+  <p>Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé.</p>
 </blockquote>
+
+<!--more-->
+
+<h1 id="giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan">Giới thiệu chung về ASR và các bài toán liên quan</h1>
+
+<h2 id="automatic-speech-recognition-7">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[7]</a></h2>
+
+<h2 id="sound-classification">Sound classification</h2>
+
+<h2 id="voice-conversion">Voice Conversion</h2>
+
+<h2 id="text-to-speech">Text-To-Speech</h2>
+
+<h1 id="công-nghệ-chính">Công nghệ chính</h1>
+
+<h2 id="i-vector-và-x-vector">i-vector và x-vector</h2>
+
+<h2 id="seq2seq-và-các-transformers"><code class="language-plaintext highlighter-rouge">seq2seq</code> và các Transformers</h2>
 
 <h1 id="lưu-ý-khi-train-model-asr">Lưu ý khi train model ASR</h1>
 
 <h2 id="giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</h2>
 
 <p>Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của <code class="language-plaintext highlighter-rouge">seq2seq</code> nên chắc mẩm là giá sẽ không mềm rồi.
-Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain <a class="citation" href="#zhang2020pushing">[1]</a>.
+Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain <a class="citation" href="#zhang2020pushing">[6]</a>.
 Giá cả của TPU thì v3 mà trên 32 cores thì chỉ mới hỗ trợ tài Hà Lan nên các bạn chú ý nhé.
 Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi chả hạn là cũng tốn vài chục ngàn Mỹ kim rồi.
 Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
 
 <p><img src="/assets/images/asr-price-deep-models.jpg" alt="pricing" /></p>
+
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="zhang2020pushing">Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. <i>arXiv preprint arXiv:2010.10504</i>. (2020).</span><a class="details" href="https://wanted2.github.io/bibliography/zhang2020pushing/">Details</a></li></ol>
+<ol class="bibliography"><li><span id="vaswani2017attention">Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. 2017. Attention is all you need. <i>Advances in neural information processing systems</i> (2017), 5998–6008.</span><a class="details" href="https://wanted2.github.io/bibliography/vaswani2017attention/">Details</a></li>
+<li><span id="devlin2019bert">Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. <i>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)</i> (2019), 4171–4186.</span><a class="details" href="https://wanted2.github.io/bibliography/devlin2019bert/">Details</a></li>
+<li><span id="hsu2021hubert">Hsu, W.-N., Bolte, B., Tsai, Y.-H.H., Lakhotia, K., Salakhutdinov, R. and Mohamed, A. 2021. Hubert: Self-supervised speech representation learning by masked prediction of hidden units. <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing</i>. 29, (2021), 3451–3460.</span><a class="details" href="https://wanted2.github.io/bibliography/hsu2021hubert/">Details</a></li>
+<li><span id="kenny2007joint">Kenny, P., Boulianne, G., Ouellet, P. and Dumouchel, P. 2007. Joint factor analysis versus eigenchannels in speaker recognition. <i>IEEE Transactions on Audio, Speech, and Language Processing</i>. 15, 4 (2007), 1435–1447.</span><a class="details" href="https://wanted2.github.io/bibliography/kenny2007joint/">Details</a></li>
+<li><span id="gulati2020conformer">Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. <i>Proc. Interspeech 2020</i>. (2020), 5036–5040.</span><a class="details" href="https://wanted2.github.io/bibliography/gulati2020conformer/">Details</a></li>
+<li><span id="zhang2020pushing">Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. <i>arXiv preprint arXiv:2010.10504</i>. (2020).</span><a class="details" href="https://wanted2.github.io/bibliography/zhang2020pushing/">Details</a></li>
+<li><span id="yu2016automatic">Yu, D. and Deng, L. 2016. <i>Automatic speech recognition</i>. Springer.</span><a class="details" href="https://wanted2.github.io/bibliography/yu2016automatic/">Details</a></li></ol>
 
             </div>
 
@@ -351,6 +404,38 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
             <div class="after-post-tags">
                 <ul class="tags">
                     
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#BERT">#BERT</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Sequence-to-sequence">#Sequence-to-sequence</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Transformer">#Transformer</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#speech-recognition">#speech recognition</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#speech-synthesis">#speech synthesis</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#voice-conversion">#voice conversion</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#音声合成">#音声合成</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#音声変換">#音声変換</a>
+                    </li>
                     
                     <li>
                         <a class="smoothscroll" href="https://wanted2.github.io/tags#音声認識">#音声認識</a>
@@ -443,17 +528,15 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (16)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (7)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (2)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (3)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (19)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (4)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (37)</a>
-                
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (34)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (3)</a>
                 
             
             
