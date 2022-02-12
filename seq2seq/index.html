@@ -22,14 +22,14 @@
     
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Seq2Seq và kiến trúc Encoder-Decoder | AiFi</title>
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51]." />
-<meta property="og:description" content="Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51]." />
+<meta name="description" content="Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51].1 Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! &#8617;" />
+<meta property="og:description" content="Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51].1 Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! &#8617;" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="/https://wanted2.github.io/assets/images/san01.jpg" />
 <meta property="twitter:title" content="Seq2Seq và kiến trúc Encoder-Decoder" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"description":"Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51].","image":"/https://wanted2.github.io/assets/images/san01.jpg","headline":"Seq2Seq và kiến trúc Encoder-Decoder","dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","url":"/https://wanted2.github.io/seq2seq/","author":{"@type":"Person","name":"tuan"},"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-02-01T00:00:00+09:00","datePublished":"2022-02-01T00:00:00+09:00","description":"Seq2Seq [51, 51, 51] là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, [51]), Question-Answering (QA, [51]), Visual Question Answering (VQA, [51, 51]), Text Summarization (TS, [51, 51]) và Video-To-Text (VTT, [51]). Bài toán Image Captioning thì cũng có thể ứng dụng seq2seq nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào seq2seq như trong bài Semantic Attention (SA) [51] hay Densecap [51]. Nên nhìn chung là seq2seq là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng [51].1 Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn, hôm nay đọc tiếp cái sequence-to-sequence (Seq2Seq) cũng thấy có cả 30k-40k cũng có. Thế nên là cái Seq2Seq này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái Seq2Seq này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, [51]) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! &#8617;","headline":"Seq2Seq và kiến trúc Encoder-Decoder","image":"/https://wanted2.github.io/assets/images/san01.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/seq2seq/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -186,25 +186,25 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Seq2Seq và kiến trúc Encoder-Decoder&url=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?&url=https://wanted2.github.io/subcription-optimize/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://facebook.com/sharer.php?u=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=https://wanted2.github.io/subcription-optimize/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
                 <i class="fab fa-facebook-f"></i>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wanted2.github.io/subcription-optimize/" onclick="window.open(this.href, 'width=550,height=435');return false;">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="mailto:?subject=Seq2Seq và kiến trúc Encoder-Decoder&body=https://wanted2.github.io/seq2seq/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+            <a target="_blank" href="mailto:?subject=Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?&body=https://wanted2.github.io/subcription-optimize/" onclick="window.open(this.href, 'width=550,height=435');return false;">
                 <i class="fas fa-envelope"></i>
             </a>
         </li>
@@ -294,7 +294,7 @@
       <li><a href="#kiến-trúc-seq2seq-s2s">Kiến trúc Seq2Seq (S2S)</a></li>
       <li><a href="#transformers-và-bert">Transformers và BERT</a>
         <ul>
-          <li><a href="#transformer-1">Transformer <a class="citation" href="#vaswani2017attention">[1]</a></a></li>
+          <li><a href="#transformer-13">Transformer <a class="citation" href="#vaswani2017attention">[13]</a></a></li>
           <li><a href="#bert">BERT</a></li>
         </ul>
       </li>
@@ -330,19 +330,11 @@
                     </div>
                 
                 <!-- End Toc -->
-                <blockquote>
-  <p><a href="/aws-account/">Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn</a>, hôm nay đọc tiếp cái <code class="language-plaintext highlighter-rouge">sequence-to-sequence</code> (<code class="language-plaintext highlighter-rouge">Seq2Seq</code>) cũng thấy có cả 30k-40k cũng có.
-Thế nên là cái <code class="language-plaintext highlighter-rouge">Seq2Seq</code> này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái <code class="language-plaintext highlighter-rouge">Seq2Seq</code> này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm).
-Chứ đọc làm sao mà hết được?
-Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp.
-Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. 
-Có bài như bài gốc Transformer (Attention is all you need, <a class="citation" href="#vaswani2017attention">[1]</a>) mới ra đời từ 2017 mà đã hơn 35k trích dẫn!</p>
-</blockquote>
+                <p><code class="language-plaintext highlighter-rouge">Seq2Seq</code> <a class="citation" href="#kalchbrenner2013recurrent">[1, 2, 3]</a> là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, <a class="citation" href="#sutskever2014sequence">[2]</a>), Question-Answering (QA, <a class="citation" href="#rajpurkar2016squad">[4]</a>), Visual Question Answering (VQA, <a class="citation" href="#antol2015vqa">[5, 6]</a>), Text Summarization (TS, <a class="citation" href="#rush2015neural">[7, 8]</a>) và Video-To-Text (VTT, <a class="citation" href="#venugopalan2015sequence">[9]</a>).
+Bài toán Image Captioning thì cũng có thể ứng dụng <code class="language-plaintext highlighter-rouge">seq2seq</code> nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào <code class="language-plaintext highlighter-rouge">seq2seq</code> như trong bài <em>Semantic Attention (SA) <a class="citation" href="#you2016image">[10]</a></em> hay <em>Densecap <a class="citation" href="#johnson2016densecap">[11]</a></em>.
+Nên nhìn chung là <code class="language-plaintext highlighter-rouge">seq2seq</code> là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng <a class="citation" href="#luong2015multi">[12]</a>.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
 
-<p><code class="language-plaintext highlighter-rouge">Seq2Seq</code> <a class="citation" href="#kalchbrenner2013recurrent">[2, 3, 4]</a> là một giải pháp kiến trúc được dùng khá nhiều trong các bài toán NLP và vision như Neural Machine Translation (NMT, <a class="citation" href="#sutskever2014sequence">[3]</a>), Question-Answering (QA, <a class="citation" href="#rajpurkar2016squad">[5]</a>), Visual Question Answering (VQA, <a class="citation" href="#antol2015vqa">[6, 7]</a>), Text Summarization (TS, <a class="citation" href="#rush2015neural">[8, 9]</a>) và Video-To-Text (VTT, <a class="citation" href="#venugopalan2015sequence">[10]</a>).
-Bài toán Image Captioning thì cũng có thể ứng dụng <code class="language-plaintext highlighter-rouge">seq2seq</code> nếu thông minh hơn một tí, sử dụng object detector để detect attributes và coi attribute sequence đó thành input vào <code class="language-plaintext highlighter-rouge">seq2seq</code> như trong bài <em>Semantic Attention (SA) <a class="citation" href="#you2016image">[11]</a></em> hay <em>Densecap <a class="citation" href="#johnson2016densecap">[12]</a></em>.
-Nên nhìn chung là <code class="language-plaintext highlighter-rouge">seq2seq</code> là 1 technique mà có thể dùng vào nhiều nhiệm vụ và rất hữu dụng <a class="citation" href="#luong2015multi">[13]</a>.
-<!--more--></p>
+<!--more-->
 
 <h1 id="giới-thiệu-model-seq2seq">Giới thiệu model Seq2Seq</h1>
 
@@ -386,7 +378,7 @@ Cái gọi là <code class="language-plaintext highlighter-rouge">ngắn gọn, 
 Thì NMT có bộ WMT2014 <a class="citation" href="#bojar2014findings">[14]</a>, WMT2017 <a class="citation" href="#bojar2017findings">[15]</a>, còn TS thì có bộ DUC <a class="citation" href="#paul2004introduc">[16]</a>.
 Còn bài toán QA thì chuỗi đầu vào là một câu hỏi còn đầu ra là 1 câu trả lời.
 Cái hay của QA là đôi khi có thêm chuỗi context (hay gọi là gợi ý), ví dụ như hỏi <code class="language-plaintext highlighter-rouge">Bạn sống ở đâu?</code> thì có thêm context là <code class="language-plaintext highlighter-rouge">Tôi sống ở Nhật</code> thì máy sẽ trả lời luôn là <code class="language-plaintext highlighter-rouge">Nhật</code>.
-QA thì có bộ SQuAD v1 <a class="citation" href="#rajpurkar2016squad">[5]</a> và v2 <a class="citation" href="#rajpurkar2018know">[17]</a> với hơn trăm ngàn bộ câu hỏi (nghe như luyện thì TOEIC).
+QA thì có bộ SQuAD v1 <a class="citation" href="#rajpurkar2016squad">[4]</a> và v2 <a class="citation" href="#rajpurkar2018know">[17]</a> với hơn trăm ngàn bộ câu hỏi (nghe như luyện thì TOEIC).
 Metrics đánh giá thì có cái BLUE-4 score, CIDEr, ROGUE <a class="citation" href="#lin2004rouge">[18]</a> là có thể dùng để đánh giá chuỗi đầu ra có phù hợp không.
 Chúng ta sẽ đi sâu thêm vào từng chi tiết sau.</p>
 
@@ -507,7 +499,7 @@ Mà có khi nó còn thành dịch vụ đem bán khắp nơi rồi ấy chứ (
 
 <h2 id="transformers-và-bert">Transformers và BERT</h2>
 
-<h3 id="transformer-1">Transformer <a class="citation" href="#vaswani2017attention">[1]</a></h3>
+<h3 id="transformer-13">Transformer <a class="citation" href="#vaswani2017attention">[13]</a></h3>
 
 <p><img src="/assets/images/transformer.png" style="float: right; margin: 10px; width: 25%;" />
 Deep Networks nhưng không có RNNs hay CNNs gì cả!
@@ -737,7 +729,7 @@ Vấn đề tài nguyên để kết thúc quá trình train thì như thảo lu
 Có khá nhiều bộ dữ liệu hỗ trợ việc training một model như vậy <a class="citation" href="#metatext2022summary">[38]</a>.
 Trong bài này, tôi chọn 1 bộ nhỏ vừa là bộ WikiHow <a class="citation" href="#koupaee2018wikihow">[39]</a> với tầm 240,000 cặp bài báo-tóm tắt.</p>
 
-<p>Về mặt model, thì có khá nhiều hệ thống state-of-the-art và là <code class="language-plaintext highlighter-rouge">seq2seq</code> cho abstractive TS như NAM <a class="citation" href="#rush2015neural">[8]</a>, Encoder-Decoder RNN <a class="citation" href="#nallapati2016abstractive">[40]</a> hay BART <a class="citation" href="#lewis2020bart">[31]</a>.</p>
+<p>Về mặt model, thì có khá nhiều hệ thống state-of-the-art và là <code class="language-plaintext highlighter-rouge">seq2seq</code> cho abstractive TS như NAM <a class="citation" href="#rush2015neural">[7]</a>, Encoder-Decoder RNN <a class="citation" href="#nallapati2016abstractive">[40]</a> hay BART <a class="citation" href="#lewis2020bart">[31]</a>.</p>
 
 <noscript><pre>400: Invalid request</pre></noscript>
 <script src="https://gist.github.com/08fb46dd6f03981287c5d3155bf7d6fa.js"> </script>
@@ -762,7 +754,7 @@ Answer: Japan.</p>
 <p><img src="https://tweetqa.github.io/image/example.png" style="float: left; margin: 10px; width: 50%;" />
 Dạng đơn giản nhất là như vậy chỉ cần đọc kỹ và <strong>paraphrasing</strong> lại cụm từ có sẵn trong context thôi.
 Đây là dạng <strong>extractive QA</strong> tức là chỉ đơn giản skim bài viết và quote lại thôi.
-Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 <a class="citation" href="#rajpurkar2016squad">[5]</a> và v2 <a class="citation" href="#rajpurkar2018know">[17]</a>.
+Bộ dữ liệu đại diện cho kiểu extractive QA này là SQuAD v1 <a class="citation" href="#rajpurkar2016squad">[4]</a> và v2 <a class="citation" href="#rajpurkar2018know">[17]</a>.
 Tuy nhiên, nếu bạn làm bài thi TOEIC bạn sẽ hiểu là có cả những câu hỏi mà không chỉ paraphrasing mà phải suy luận.
 Đây gọi là <strong>abstractive QA</strong>, điển hình cho dạng này là bộ TweetQA <a class="citation" href="#xiong2019tweetqa">[41]</a>.
 Như ở ví dụ bên tay trái, bạn có thể thấy cần phải để ý chi tiết và suy luận thì mới trả lời được.
@@ -774,7 +766,7 @@ Ví dụ bên dưới là 1 model Abstractive QA dựa trên AlBERT:</p>
 <p>Để đánh giá, có thể dùng các metric như ROUGE-L hoặc METEOR.</p>
 
 <p><img src="/assets/images/how-and-why.png" style="float: left; margin: 10px; width: 40%;" />
-<strong>V</strong>isual <strong>Q</strong>uestion <strong>A</strong>nswering (VQA, <a class="citation" href="#antol2015vqa">[6, 7]</a>) thay context bởi 1 hình ảnh hoặc video.
+<strong>V</strong>isual <strong>Q</strong>uestion <strong>A</strong>nswering (VQA, <a class="citation" href="#antol2015vqa">[5, 6]</a>) thay context bởi 1 hình ảnh hoặc video.
 Tức là giống câu hỏi bài nghe thứ nhất trong thi TOEIC (nhưng TOEIC thì không có xem video).
 Thì nói chung cũng đa dạng đấy!
 Vì câu hỏi thì cũng tùy vào mức độ hình ảnh mà đánh đố hay không đánh đố.
@@ -974,8 +966,7 @@ Tôi nghĩ vẫn có nhiều điều đáng lưu ý để thế hệ sau không 
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="vaswani2017attention">Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. 2017. Attention is all you need. <i>Advances in neural information processing systems</i> (2017), 5998–6008.</span><a class="details" href="https://wanted2.github.io/bibliography/vaswani2017attention/">Details</a></li>
-<li><span id="kalchbrenner2013recurrent">Kalchbrenner, N. and Blunsom, P. 2013. Recurrent continuous translation models. <i>Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP), Seattle, USA. Association for Computational Linguistics</i> (2013).</span><a class="details" href="https://wanted2.github.io/bibliography/kalchbrenner2013recurrent/">Details</a></li>
+<ol class="bibliography"><li><span id="kalchbrenner2013recurrent">Kalchbrenner, N. and Blunsom, P. 2013. Recurrent continuous translation models. <i>Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing (EMNLP), Seattle, USA. Association for Computational Linguistics</i> (2013).</span><a class="details" href="https://wanted2.github.io/bibliography/kalchbrenner2013recurrent/">Details</a></li>
 <li><span id="sutskever2014sequence">Sutskever, I., Vinyals, O. and Le, Q.V.V. 2014. Sequence to sequence learning with neural networks. <i>Advances in Neural Information Processing Systems</i> (2014), 3104–3112.</span><a class="details" href="https://wanted2.github.io/bibliography/sutskever2014sequence/">Details</a></li>
 <li><span id="cho2014learning">Cho, K., Merrienboer, B. van, Gulcehre, C., Bougares, F., Schwenk, H. and Bengio, Y. 2014. Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation. <i>arXiv preprint arXiv:1406.1078</i>. (2014).</span><a class="details" href="https://wanted2.github.io/bibliography/cho2014learning/">Details</a></li>
 <li><span id="rajpurkar2016squad">Rajpurkar, P., Zhang, J., Lopyrev, K. and Liang, P. 2016. SQuAD: 100,000+ Questions for Machine Comprehension of Text. <i>Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing</i> (2016), 2383–2392.</span><a class="details" href="https://wanted2.github.io/bibliography/rajpurkar2016squad/">Details</a></li>
@@ -987,6 +978,7 @@ Tôi nghĩ vẫn có nhiều điều đáng lưu ý để thế hệ sau không 
 <li><span id="you2016image">You, Q., Jin, H., Wang, Z., Fang, C. and Luo, J. 2016. Image captioning with semantic attention. <i>Proceedings of the IEEE conference on computer vision and pattern recognition</i> (2016), 4651–4659.</span><a class="details" href="https://wanted2.github.io/bibliography/you2016image/">Details</a></li>
 <li><span id="johnson2016densecap">Johnson, J., Karpathy, A. and Fei-Fei, L. 2016. Densecap: Fully convolutional localization networks for dense captioning. <i>Proceedings of the IEEE conference on computer vision and pattern recognition</i> (2016), 4565–4574.</span><a class="details" href="https://wanted2.github.io/bibliography/johnson2016densecap/">Details</a></li>
 <li><span id="luong2015multi">Luong, M.-T., Le, Q.V., Sutskever, I., Vinyals, O. and Kaiser, L. 2015. Multi-task sequence to sequence learning. <i>arXiv preprint arXiv:1511.06114</i>. (2015).</span><a class="details" href="https://wanted2.github.io/bibliography/luong2015multi/">Details</a></li>
+<li><span id="vaswani2017attention">Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. 2017. Attention is all you need. <i>Advances in neural information processing systems</i> (2017), 5998–6008.</span><a class="details" href="https://wanted2.github.io/bibliography/vaswani2017attention/">Details</a></li>
 <li><span id="bojar2014findings">Bojar, O., Buck, C., Federmann, C., Haddow, B., Koehn, P., Leveling, J., Monz, C., Pecina, P., Post, M., Saint-Amand, H. and others 2014. Findings of the 2014 workshop on statistical machine translation. <i>Proceedings of the ninth workshop on statistical machine translation</i> (2014), 12–58.</span><a class="details" href="https://wanted2.github.io/bibliography/bojar2014findings/">Details</a></li>
 <li><span id="bojar2017findings">Bojar, O., Chatterjee, R., Federmann, C., Graham, Y., Haddow, B., Huang, S., Huck, M., Koehn, P., Liu, Q., Logacheva, V. and others 2017. Findings of the 2017 conference on machine translation (wmt17). <i>Proceedings of the Second Conference on Machine Translation</i> (2017), 169–214.</span><a class="details" href="https://wanted2.github.io/bibliography/bojar2017findings/">Details</a></li>
 <li><span id="paul2004introduc">Over, P. and Yen, J. 2014. An Introduction to DUC-2004. https://duc.nist.gov/pubs/2004slides/duc2004.intro.pdf.</span><a class="details" href="https://wanted2.github.io/bibliography/paul2004introduc/">Details</a></li>
@@ -1025,6 +1017,13 @@ Tôi nghĩ vẫn có nhiều điều đáng lưu ý để thế hệ sau không 
 <li><span id="krishna2017visual">Krishna, R., Zhu, Y., Groth, O., Johnson, J., Hata, K., Kravitz, J., Chen, S., Kalantidis, Y., Li, L.-J., Shamma, D.A. and others 2017. Visual genome: Connecting language and vision using crowdsourced dense image annotations. <i>International journal of computer vision</i>. 123, 1 (2017), 32–73.</span><a class="details" href="https://wanted2.github.io/bibliography/krishna2017visual/">Details</a></li>
 <li><span id="goyal2017accurate">Goyal, P., Dollár, P., Girshick, R., Noordhuis, P., Wesolowski, L., Kyrola, A., Tulloch, A., Jia, Y. and He, K. 2017. Accurate, large minibatch sgd: Training imagenet in 1 hour. <i>arXiv preprint arXiv:1706.02677</i>. (2017).</span><a class="details" href="https://wanted2.github.io/bibliography/goyal2017accurate/">Details</a></li>
 <li><span id="carreira2017quo">Carreira, J. and Zisserman, A. 2017. Quo vadis, action recognition? a new model and the kinetics dataset. <i>proceedings of the IEEE Conference on Computer Vision and Pattern Recognition</i> (2017), 6299–6308.</span><a class="details" href="https://wanted2.github.io/bibliography/carreira2017quo/">Details</a></li></ol>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="/aws-account/">Hôm trước ngồi đọc về GAN thấy nhiều bài trên vài ngàn tới 20,000 trích dẫn</a>, hôm nay đọc tiếp cái <code class="language-plaintext highlighter-rouge">sequence-to-sequence</code> (<code class="language-plaintext highlighter-rouge">Seq2Seq</code>) cũng thấy có cả 30k-40k cũng có. Thế nên là cái <code class="language-plaintext highlighter-rouge">Seq2Seq</code> này cũng phải theo bài cũ: chỉ đọc những cái có trung bình trên 300 citations/năm (GAN thì ngưỡng threshold là 200 citations/năm, nhưng sang cái <code class="language-plaintext highlighter-rouge">Seq2Seq</code> này là chỉ cần tìm hiểu những bài có độ tăng trưởng trên 300 trích dẫn/năm). Chứ đọc làm sao mà hết được? Ví dụ mấy bài từ năm 2018 mà tính đến nay 2022 là 4 năm mà dưới 1200 trích dẫn là nhìn chung độ tăng trưởng thấp. Tập hợp lại những papers có độ tăng trưởng mạnh từ tầm 2013 trở lại thì liên quan tới chủ để này tầm hơn trăm tấm, nói chung thượng vàng hạ cám. Có bài như bài gốc Transformer (Attention is all you need, <a class="citation" href="#vaswani2017attention">[13]</a>) mới ra đời từ 2017 mà đã hơn 35k trích dẫn! <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
             </div>
 
@@ -1098,8 +1097,6 @@ Tôi nghĩ vẫn có nhiều điều đáng lưu ý để thế hệ sau không 
             
             <a class="prev d-block col-md-6" href="https://wanted2.github.io//ml-ids/"> &laquo; Machine Learning for Network Intrusion Detection: From Local to Production</a>
             
-            
-            <a class="next d-block col-md-6 text-lg-right" href="https://wanted2.github.io//object-detection/">Object Detection Pricing &raquo; </a>
             
             <div class="clearfix"></div>
             </div>
@@ -1178,17 +1175,15 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (16)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (7)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (4)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (3)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (19)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (3)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (37)</a>
-                
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (34)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (3)</a>
                 
             
             
