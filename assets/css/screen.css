@@ -945,3 +945,11 @@ tbody tr:nth-child(odd) th {
     width: 16px!important;
     height: 16px!important;
 }
+
+.footnotes {
+    font-size: 60% !important;
+}
+
+.bibliography {
+    font-size: small !important;
+}

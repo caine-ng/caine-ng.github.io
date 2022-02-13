@@ -28,8 +28,8 @@
 <meta property="og:title" content="Speech and Sequence-to-sequence" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;" />
-<meta property="og:description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;" />
+<meta name="description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [9] và BERT [9, 9]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [9, 9] và x-vector [9] là các biểu diễn nổi bật trong speaker identification/speech recognition, nhưng xem ra mảng speech recognition cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [9, 9] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;" />
+<meta property="og:description" content="Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [9] và BERT [9, 9]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [9, 9] và x-vector [9] là các biểu diễn nổi bật trong speaker identification/speech recognition, nhưng xem ra mảng speech recognition cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [9, 9] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg" />
 <meta property="twitter:title" content="Speech and Sequence-to-sequence" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-02-06T00:00:00+09:00","datePublished":"2022-02-06T00:00:00+09:00","description":"Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [7] và BERT [7, 7]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [7] và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [7, 7] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;","headline":"Speech and Sequence-to-sequence","image":"https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/speech/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/speech/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-02-06T00:00:00+09:00","datePublished":"2022-02-06T00:00:00+09:00","description":"Như trong bài viết trước thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì seq2seq đều đang làm chủ. Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà seq2seq và các hậu duệ (thuộc dòng dõi Transformer [9] và BERT [9, 9]) cũng đang nắm thế chủ động. Khởi đầu bài viết, tôi định viết lại về i-vector [9, 9] và x-vector [9] là các biểu diễn nổi bật trong speaker identification/speech recognition, nhưng xem ra mảng speech recognition cũng bị seq2seq chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer [9, 9] 1. Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &#8617;","headline":"Speech and Sequence-to-sequence","image":"https://fosspost.org/wp-content/uploads/2019/02/rendered.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/speech/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/speech/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        579
+        654
      words</li>
         <li class="small">3 minutes</li>
     </ul>
@@ -300,7 +300,7 @@
                         <ul>
   <li><a href="#giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan">Giới thiệu chung về ASR và các bài toán liên quan</a>
     <ul>
-      <li><a href="#automatic-speech-recognition-7">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[7]</a></a></li>
+      <li><a href="#automatic-speech-recognition-9">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[9]</a></a></li>
       <li><a href="#sound-classification">Sound classification</a></li>
       <li><a href="#voice-conversion">Voice Conversion</a></li>
       <li><a href="#text-to-speech">Text-To-Speech</a></li>
@@ -324,13 +324,13 @@
                 <!-- End Toc -->
                 <p>Như trong <a href="/seq2seq/">bài viết trước</a> thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì <code class="language-plaintext highlighter-rouge">seq2seq</code> đều đang làm chủ.
 Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà <code class="language-plaintext highlighter-rouge">seq2seq</code> và các hậu duệ (thuộc dòng dõi Transformer <a class="citation" href="#vaswani2017attention">[1]</a> và BERT <a class="citation" href="#devlin2019bert">[2, 3]</a>) cũng đang nắm thế chủ động.
-Khởi đầu bài viết, tôi định viết lại về i-vector <a class="citation" href="#kenny2007joint">[4]</a> và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị <code class="language-plaintext highlighter-rouge">seq2seq</code> chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer <a class="citation" href="#gulati2020conformer">[5, 6]</a> <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+Khởi đầu bài viết, tôi định viết lại về i-vector <a class="citation" href="#kenny2007joint">[4, 5]</a> và x-vector <a class="citation" href="#snyder2018x">[6]</a> là các biểu diễn nổi bật trong speaker identification/speech recognition, nhưng xem ra mảng speech recognition cũng bị <code class="language-plaintext highlighter-rouge">seq2seq</code> chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer <a class="citation" href="#gulati2020conformer">[7, 8]</a> <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
 
 <!--more-->
 
 <h1 id="giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan">Giới thiệu chung về ASR và các bài toán liên quan</h1>
 
-<h2 id="automatic-speech-recognition-7">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[7]</a></h2>
+<h2 id="automatic-speech-recognition-9">Automatic Speech Recognition <a class="citation" href="#yu2016automatic">[9]</a></h2>
 
 <h2 id="sound-classification">Sound classification</h2>
 
@@ -349,7 +349,7 @@ Khởi đầu bài viết, tôi định viết lại về i-vector <a class="cit
 <h2 id="giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</h2>
 
 <p>Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của <code class="language-plaintext highlighter-rouge">seq2seq</code> nên chắc mẩm là giá sẽ không mềm rồi.
-Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain <a class="citation" href="#zhang2020pushing">[6]</a>.
+Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain <a class="citation" href="#zhang2020pushing">[8]</a>.
 Giá cả của TPU thì v3 mà trên 32 cores thì chỉ mới hỗ trợ tài Hà Lan nên các bạn chú ý nhé.
 Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi chả hạn là cũng tốn vài chục ngàn Mỹ kim rồi.
 Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
@@ -362,6 +362,8 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
 <li><span id="devlin2019bert">Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. <i>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)</i> (2019), 4171–4186.</span><a class="details" href="https://wanted2.github.io/bibliography/devlin2019bert/">Details</a></li>
 <li><span id="hsu2021hubert">Hsu, W.-N., Bolte, B., Tsai, Y.-H.H., Lakhotia, K., Salakhutdinov, R. and Mohamed, A. 2021. Hubert: Self-supervised speech representation learning by masked prediction of hidden units. <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing</i>. 29, (2021), 3451–3460.</span><a class="details" href="https://wanted2.github.io/bibliography/hsu2021hubert/">Details</a></li>
 <li><span id="kenny2007joint">Kenny, P., Boulianne, G., Ouellet, P. and Dumouchel, P. 2007. Joint factor analysis versus eigenchannels in speaker recognition. <i>IEEE Transactions on Audio, Speech, and Language Processing</i>. 15, 4 (2007), 1435–1447.</span><a class="details" href="https://wanted2.github.io/bibliography/kenny2007joint/">Details</a></li>
+<li><span id="dehak2011frontend">Dehak, N., Kenny, P.J., Dehak, R., Dumouchel, P. and Ouellet, P. 2011. Front-End Factor Analysis for Speaker Verification. <i>IEEE Transactions on Audio, Speech, and Language Processing</i>. 19, 4 (2011), 788–798. DOI:https://doi.org/10.1109/TASL.2010.2064307.</span><a class="details" href="https://wanted2.github.io/bibliography/dehak2011frontend/">Details</a></li>
+<li><span id="snyder2018x">Snyder, D., Garcia-Romero, D., Sell, G., Povey, D. and Khudanpur, S. 2018. X-vectors: Robust dnn embeddings for speaker recognition. <i>2018 IEEE international conference on acoustics, speech and signal processing (ICASSP)</i> (2018), 5329–5333.</span><a class="details" href="https://wanted2.github.io/bibliography/snyder2018x/">Details</a></li>
 <li><span id="gulati2020conformer">Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. <i>Proc. Interspeech 2020</i>. (2020), 5036–5040.</span><a class="details" href="https://wanted2.github.io/bibliography/gulati2020conformer/">Details</a></li>
 <li><span id="zhang2020pushing">Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. <i>arXiv preprint arXiv:2010.10504</i>. (2020).</span><a class="details" href="https://wanted2.github.io/bibliography/zhang2020pushing/">Details</a></li>
 <li><span id="yu2016automatic">Yu, D. and Deng, L. 2016. <i>Automatic speech recognition</i>. Springer.</span><a class="details" href="https://wanted2.github.io/bibliography/yu2016automatic/">Details</a></li></ol>
@@ -421,6 +423,18 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
                     </li>
                     
                     <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#speaker-diarization">#speaker diarization</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#speaker-identification">#speaker identification</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#speaker-verification">#speaker verification</a>
+                    </li>
+                    
+                    <li>
                         <a class="smoothscroll" href="https://wanted2.github.io/tags#speech-recognition">#speech recognition</a>
                     </li>
                     
@@ -430,6 +444,10 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
                     
                     <li>
                         <a class="smoothscroll" href="https://wanted2.github.io/tags#voice-conversion">#voice conversion</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#話者同定">#話者同定</a>
                     </li>
                     
                     <li>

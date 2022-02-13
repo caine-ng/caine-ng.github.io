@@ -5,21 +5,21 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 13 Feb 2022 06:42:05 +0900</pubDate>
-    <lastBuildDate>Sun, 13 Feb 2022 06:42:05 +0900</lastBuildDate>
+    <pubDate>Sun, 13 Feb 2022 14:36:54 +0900</pubDate>
+    <lastBuildDate>Sun, 13 Feb 2022 14:36:54 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Speech and Sequence-to-sequence</title>
         <description>&lt;p&gt;Như trong &lt;a href=&quot;/seq2seq/&quot;&gt;bài viết trước&lt;/a&gt; thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; đều đang làm chủ.
 Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các hậu duệ (thuộc dòng dõi Transformer &lt;a class=&quot;citation&quot; href=&quot;#vaswani2017attention&quot;&gt;[1]&lt;/a&gt; và BERT &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[2, 3]&lt;/a&gt;) cũng đang nắm thế chủ động.
-Khởi đầu bài viết, tôi định viết lại về i-vector &lt;a class=&quot;citation&quot; href=&quot;#kenny2007joint&quot;&gt;[4]&lt;/a&gt; và x-vector là các biểu diễn nổi bật trong speech recognition, nhưng xem ra mảng này cũng bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[5, 6]&lt;/a&gt; &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+Khởi đầu bài viết, tôi định viết lại về i-vector &lt;a class=&quot;citation&quot; href=&quot;#kenny2007joint&quot;&gt;[4, 5]&lt;/a&gt; và x-vector &lt;a class=&quot;citation&quot; href=&quot;#snyder2018x&quot;&gt;[6]&lt;/a&gt; là các biểu diễn nổi bật trong speaker identification/speech recognition, nhưng xem ra mảng speech recognition cũng bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[7, 8]&lt;/a&gt; &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
 &lt;h1 id=&quot;giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan&quot;&gt;Giới thiệu chung về ASR và các bài toán liên quan&lt;/h1&gt;
 
-&lt;h2 id=&quot;automatic-speech-recognition-7&quot;&gt;Automatic Speech Recognition &lt;a class=&quot;citation&quot; href=&quot;#yu2016automatic&quot;&gt;[7]&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;automatic-speech-recognition-9&quot;&gt;Automatic Speech Recognition &lt;a class=&quot;citation&quot; href=&quot;#yu2016automatic&quot;&gt;[9]&lt;/a&gt;&lt;/h2&gt;
 
 &lt;h2 id=&quot;sound-classification&quot;&gt;Sound classification&lt;/h2&gt;
 
@@ -38,7 +38,7 @@ Khởi đầu bài viết, tôi định viết lại về i-vector &lt;a class=&
 &lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
 
 &lt;p&gt;Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nên chắc mẩm là giá sẽ không mềm rồi.
-Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain &lt;a class=&quot;citation&quot; href=&quot;#zhang2020pushing&quot;&gt;[6]&lt;/a&gt;.
+Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain &lt;a class=&quot;citation&quot; href=&quot;#zhang2020pushing&quot;&gt;[8]&lt;/a&gt;.
 Giá cả của TPU thì v3 mà trên 32 cores thì chỉ mới hỗ trợ tài Hà Lan nên các bạn chú ý nhé.
 Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi chả hạn là cũng tốn vài chục ngàn Mỹ kim rồi.
 Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
@@ -51,6 +51,8 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;devlin2019bert&quot;&gt;Devlin, J., Chang, M.-W., Lee, K. and Toutanova, K. 2019. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. &lt;i&gt;Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)&lt;/i&gt; (2019), 4171–4186.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/devlin2019bert/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;hsu2021hubert&quot;&gt;Hsu, W.-N., Bolte, B., Tsai, Y.-H.H., Lakhotia, K., Salakhutdinov, R. and Mohamed, A. 2021. Hubert: Self-supervised speech representation learning by masked prediction of hidden units. &lt;i&gt;IEEE/ACM Transactions on Audio, Speech, and Language Processing&lt;/i&gt;. 29, (2021), 3451–3460.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hsu2021hubert/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;kenny2007joint&quot;&gt;Kenny, P., Boulianne, G., Ouellet, P. and Dumouchel, P. 2007. Joint factor analysis versus eigenchannels in speaker recognition. &lt;i&gt;IEEE Transactions on Audio, Speech, and Language Processing&lt;/i&gt;. 15, 4 (2007), 1435–1447.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kenny2007joint/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;dehak2011frontend&quot;&gt;Dehak, N., Kenny, P.J., Dehak, R., Dumouchel, P. and Ouellet, P. 2011. Front-End Factor Analysis for Speaker Verification. &lt;i&gt;IEEE Transactions on Audio, Speech, and Language Processing&lt;/i&gt;. 19, 4 (2011), 788–798. DOI:https://doi.org/10.1109/TASL.2010.2064307.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dehak2011frontend/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;snyder2018x&quot;&gt;Snyder, D., Garcia-Romero, D., Sell, G., Povey, D. and Khudanpur, S. 2018. X-vectors: Robust dnn embeddings for speaker recognition. &lt;i&gt;2018 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2018), 5329–5333.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/snyder2018x/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;gulati2020conformer&quot;&gt;Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. &lt;i&gt;Proc. Interspeech 2020&lt;/i&gt;. (2020), 5036–5040.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gulati2020conformer/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;zhang2020pushing&quot;&gt;Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. &lt;i&gt;arXiv preprint arXiv:2010.10504&lt;/i&gt;. (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/zhang2020pushing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;yu2016automatic&quot;&gt;Yu, D. and Deng, L. 2016. &lt;i&gt;Automatic speech recognition&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/yu2016automatic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
@@ -72,6 +74,8 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
         
         <category>音声変換</category>
         
+        <category>話者同定</category>
+        
         <category>Sequence-to-sequence</category>
         
         <category>Transformer</category>
@@ -83,6 +87,12 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
         <category>speech synthesis</category>
         
         <category>voice conversion</category>
+        
+        <category>speaker verification</category>
+        
+        <category>speaker identification</category>
+        
+        <category>speaker diarization</category>
         
         
         <category>Tiếng Việt, 日本語</category>
