@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 14 Feb 2022 00:41:43 +0900</pubDate>
-    <lastBuildDate>Mon, 14 Feb 2022 00:41:43 +0900</lastBuildDate>
+    <pubDate>Mon, 14 Feb 2022 00:56:41 +0900</pubDate>
+    <lastBuildDate>Mon, 14 Feb 2022 00:56:41 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -41,7 +41,7 @@ Ta sẽ phải tính thêm những quãng &lt;code class=&quot;language-plaintex
 &lt;strong&gt;Vậy xác suất của một chuỗi phoneme như \(W=\left[\mathbf{w}_{i_1},\mathbf{w}_{i_2},\ldots,\mathbf{w}_{i_M}\right], M\leq T, 1\leq i_j\leq N\) là bao nhiêu?&lt;/strong&gt;
 Chúng ta cần hiểu là từ chuỗi \(P=\left[\mathbf{p}_1,\ldots,\mathbf{p}_T\right]\) để chuyển sang chuỗi \(W\) thì đã thêm từ rỗng \(\phi\) xen kẽ vào \(W\) để có độ dài \(T\).
 Ta định nghĩa một ánh xạ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;many-to-one&lt;/code&gt; \(f: V^T\rightarrow V^{\leq T}\) là một phép toán xóa bỏ tất cả các từ rỗng khỏi từ có độ dài \(T\).
-Vậy phép toán ngược &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;one-to-many&lt;/code&gt; \(f^{-1}: V^{\leq T}\rightarrow V^T\).
+Vậy phép toán ngược &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;one-to-many&lt;/code&gt; \(f^{-1}: V^{\leq T}\rightarrow 2^{V^T}\).
 Và \(f^{-1}(W)\) là tập các từ có độ dài \(T\) mà loại bỏ hết từ rỗng đi thì còn lại \(W\).
 Xác xuất của 1 từ \(\pi = \left[\mathbf{w}_{l_1},\mathbf{w}_{l_2},\ldots,\mathbf{w}_{l_T}\right]\in f^{-1}(W) \subset V^T\) là&lt;/p&gt;
 
@@ -65,7 +65,13 @@ Vậy xác xuất để model output ra cụm từ \(W\) là&lt;/p&gt;
 
 &lt;p&gt;Transducer thì nhanh hơn rất nhiều so với dynamic programming, và vì xác suất của từng chuỗi \(p\left(\pi\mid \mathbf{\theta};X\right)\) được mô hình bằng neural network nên tính toán có tính thích ứng cao hơn với dữ liệu.&lt;/p&gt;
 
-&lt;p&gt;Nhìn chung, task ASR khá thuận lợi cho việc ứng dụng mô hình &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; như Transformer hay BERT.&lt;/p&gt;
+&lt;p&gt;Nhìn chung, task ASR khá thuận lợi cho việc ứng dụng mô hình &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; như Transformer hay BERT.
+Dữ liệu thì cũng dồi dào nhất là tiếng Anh với hàng ngàn giờ đọc cuả đủ loại speech như audio books &lt;a class=&quot;citation&quot; href=&quot;#panayotov2015librispeech&quot;&gt;[15]&lt;/a&gt;, báo chí Wall Street Journal &lt;a class=&quot;citation&quot; href=&quot;#paul1992design&quot;&gt;[16]&lt;/a&gt;, phát âm &lt;a class=&quot;citation&quot; href=&quot;#garofolo1993darpa&quot;&gt;[17]&lt;/a&gt;, .v.v…
+Thì những bộ dữ liệu trên thuộc nhóm task &lt;strong&gt;conversational speech recognition&lt;/strong&gt;.
+Những task này đòi hỏi phải transcribe ngay khi âm thanh phát ra.
+Ngoài ra cũng có nhóm task &lt;strong&gt;command speech recognition&lt;/strong&gt; tức là kiểu như người dùng nói vào loa Echo và câu lệnh được ghi nhận.
+Đó thường là các câu lệnh ngắn.
+Với tiếng Anh, có bộ dữ liệu Speech Commands &lt;a class=&quot;citation&quot; href=&quot;#warden2018speech&quot;&gt;[18]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;sound-classification-và-speaker-identification&quot;&gt;Sound classification và Speaker Identification&lt;/h2&gt;
 
@@ -106,7 +112,11 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;hinton2012deep&quot;&gt;Hinton, G., Deng, L., Yu, D., Dahl, G.E., Mohamed, A.-rahman, Jaitly, N., Senior, A., Vanhoucke, V., Nguyen, P., Sainath, T.N. and others 2012. Deep neural networks for acoustic modeling in speech recognition: The shared views of four research groups. &lt;i&gt;IEEE Signal processing magazine&lt;/i&gt;. 29, 6 (2012), 82–97.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hinton2012deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;yu2016automatic&quot;&gt;Yu, D. and Deng, L. 2016. &lt;i&gt;Automatic speech recognition&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/yu2016automatic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;graves2013speech&quot;&gt;Graves, A., Mohamed, A.-rahman and Hinton, G. 2013. Speech recognition with deep recurrent neural networks. &lt;i&gt;2013 IEEE international conference on acoustics, speech and signal processing&lt;/i&gt; (2013), 6645–6649.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/graves2013speech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;graves2013hybrid&quot;&gt;Graves, A., Jaitly, N. and Mohamed, A.-rahman 2013. Hybrid speech recognition with deep bidirectional LSTM. &lt;i&gt;2013 IEEE workshop on automatic speech recognition and understanding&lt;/i&gt; (2013), 273–278.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/graves2013hybrid/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;graves2013hybrid&quot;&gt;Graves, A., Jaitly, N. and Mohamed, A.-rahman 2013. Hybrid speech recognition with deep bidirectional LSTM. &lt;i&gt;2013 IEEE workshop on automatic speech recognition and understanding&lt;/i&gt; (2013), 273–278.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/graves2013hybrid/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;panayotov2015librispeech&quot;&gt;Panayotov, V., Chen, G., Povey, D. and Khudanpur, S. 2015. Librispeech: an asr corpus based on public domain audio books. &lt;i&gt;2015 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2015), 5206–5210.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/panayotov2015librispeech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;paul1992design&quot;&gt;Paul, D.B. and Baker, J. 1992. The design for the Wall Street Journal-based CSR corpus. &lt;i&gt;Speech and Natural Language: Proceedings of a Workshop Held at Harriman, New York, February 23-26, 1992&lt;/i&gt; (1992).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/paul1992design/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;garofolo1993darpa&quot;&gt;Garofolo, J.S., Lamel, L.F., Fisher, W.M., Fiscus, J.G. and Pallett, D.S. 1993. DARPA TIMIT acoustic-phonetic continous speech corpus CD-ROM. NIST speech disc 1-1.1. &lt;i&gt;NASA STI/Recon technical report n&lt;/i&gt;. 93, (1993), 27403.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/garofolo1993darpa/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;warden2018speech&quot;&gt;Warden, P. 2018. Speech commands: A dataset for limited-vocabulary speech recognition. &lt;i&gt;arXiv preprint arXiv:1804.03209&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/warden2018speech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
