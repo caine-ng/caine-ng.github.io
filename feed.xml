@@ -5,35 +5,81 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 13 Feb 2022 14:36:54 +0900</pubDate>
-    <lastBuildDate>Sun, 13 Feb 2022 14:36:54 +0900</lastBuildDate>
+    <pubDate>Mon, 14 Feb 2022 00:41:43 +0900</pubDate>
+    <lastBuildDate>Mon, 14 Feb 2022 00:41:43 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Speech and Sequence-to-sequence</title>
         <description>&lt;p&gt;Như trong &lt;a href=&quot;/seq2seq/&quot;&gt;bài viết trước&lt;/a&gt; thì chúng ta đã tìm hiểu và biết trong mảng NLP cũng như Vision-Language (VL) thì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; đều đang làm chủ.
 Trong bài viết này chúng ta sẽ tìm hiểu 1 mảng khác mà &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các hậu duệ (thuộc dòng dõi Transformer &lt;a class=&quot;citation&quot; href=&quot;#vaswani2017attention&quot;&gt;[1]&lt;/a&gt; và BERT &lt;a class=&quot;citation&quot; href=&quot;#devlin2019bert&quot;&gt;[2, 3]&lt;/a&gt;) cũng đang nắm thế chủ động.
-Khởi đầu bài viết, tôi định viết lại về i-vector &lt;a class=&quot;citation&quot; href=&quot;#kenny2007joint&quot;&gt;[4, 5]&lt;/a&gt; và x-vector &lt;a class=&quot;citation&quot; href=&quot;#snyder2018x&quot;&gt;[6]&lt;/a&gt; là các biểu diễn nổi bật trong speaker identification/speech recognition, nhưng xem ra mảng speech recognition cũng bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[7, 8]&lt;/a&gt; &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+Khởi đầu bài viết, tôi định viết lại về i-vector &lt;a class=&quot;citation&quot; href=&quot;#kenny2007joint&quot;&gt;[4, 5]&lt;/a&gt; và x-vector &lt;a class=&quot;citation&quot; href=&quot;#snyder2018x&quot;&gt;[6]&lt;/a&gt; là các biểu diễn nổi bật trong speaker identification (SI)/ automatic speech recognition (ASR), nhưng xem ra mảng speech recognition cũng bị &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; chiếm hết rồi nên chúng ta sẽ nói thêm về một số state-of-the-art thuộc dạng này như Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[7, 8]&lt;/a&gt; &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.
+Với bài toán SI thì cách làm cổ điển sẽ là dùng &lt;strong&gt;Gaussian Mixture Models (GMM, &lt;a class=&quot;citation&quot; href=&quot;#reynolds1995robust&quot;&gt;[9, 10, 4, 5]&lt;/a&gt;)&lt;/strong&gt;, còn với ASR thì dùng GMM để classify HMM states (GMM-HMM), tuy nhiên là như kết quả của nhiều nhóm nghiên cứu về SI/ASR thì &lt;strong&gt;Deep Neural Networks (DNN)&lt;/strong&gt; với đạt kết quả tốt hơn hẳn cho cả SI (DNN embeddings, &lt;a class=&quot;citation&quot; href=&quot;#snyder2018x&quot;&gt;[6]&lt;/a&gt;) lẫn ASR (DNN-HMM, &lt;a class=&quot;citation&quot; href=&quot;#hinton2012deep&quot;&gt;[11]&lt;/a&gt;).
+Do vậy về mặt lịch sử thì GMM/GMM-HMM là cách làm truyền thống, từ khoảng 2012 thì DNN/DNN-HMM chứng tỏ DNN tốt hơn hẳn HMM về mặt representations lẫn accuracy.
+Gần đây thì đến lượt những tiến bộ bắt nguồn từ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; DNN-RNN, rồi đến những model end-to-end, transformers.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
-&lt;h1 id=&quot;giới-thiệu-chung-về-asr-và-các-bài-toán-liên-quan&quot;&gt;Giới thiệu chung về ASR và các bài toán liên quan&lt;/h1&gt;
+&lt;h1 id=&quot;giới-thiệu-chung-về-asrsi-và-các-bài-toán-liên-quan&quot;&gt;Giới thiệu chung về ASR/SI và các bài toán liên quan&lt;/h1&gt;
 
-&lt;h2 id=&quot;automatic-speech-recognition-9&quot;&gt;Automatic Speech Recognition &lt;a class=&quot;citation&quot; href=&quot;#yu2016automatic&quot;&gt;[9]&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;automatic-speech-recognition&quot;&gt;Automatic Speech Recognition&lt;/h2&gt;
+&lt;p&gt;Automatic Speech Recognition (ASR, &lt;a class=&quot;citation&quot; href=&quot;#yu2016automatic&quot;&gt;[12]&lt;/a&gt;) là nhiệm vụ chuyển một chuỗi âm thanh giọng nói (waveform) sang một chuỗi văn bản được chứa trong âm thanh đó.
+Cách làm truyền thống nhất là sử dụng &lt;strong&gt;Hidden Markov Model (HMM)&lt;/strong&gt; để mô hình thông tin chuỗi, và dùng GMM để fit lượng thông tin của các states trong HMM vào 1 phân bố có sẵn và đưa ra nhận dạng cho âm thanh trong time window tương ứng.
+Tuy nhiên, GMM có nhược điểm là khó có thể mô hình được dữ liệu phi tuyến tính (non-linear manifold) dẫn đến nếu lượng dữ liệu ít có thể xảy ra tình trạng overfit hoặc model HMM không mô tả hết manifold dữ liệu (ếch ngồi đáy giếng).
+Do đó, thông qua kết quả thực nghiệm &lt;a class=&quot;citation&quot; href=&quot;#hinton2012deep&quot;&gt;[11]&lt;/a&gt;, thì nếu thay GMM bởi DNN để xuất ra xác suất của từng âm một từ states của HMM thì kết quả outperform GMM-HMM trong nhiều bộ dữ liệu lớn.
+Và quan trọng là càng train nhiều dữ liệu thì model DNN-HMM càng stable.&lt;/p&gt;
 
-&lt;h2 id=&quot;sound-classification&quot;&gt;Sound classification&lt;/h2&gt;
+&lt;p&gt;Nhìn chung DNN-HMM thì cũng là một kiểu model &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; tức là chuyển chuỗi (audio) thành chuỗi (text hoặc phoneme &lt;a class=&quot;citation&quot; href=&quot;#graves2013speech&quot;&gt;[13, 14]&lt;/a&gt;).
+Vì vậy khá đơn giản để ứng dụng model &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; vào ASR.
+Chuỗi âm thanh (waveform) được chuyển thành chuỗi đặc trưng MFCC và rồi input vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.
+Và việc này cũng giúp chúng ta loại bỏ luôn HMM để thực hiện training &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;end-to-end&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id=&quot;voice-conversion&quot;&gt;Voice Conversion&lt;/h2&gt;
+&lt;p&gt;Khi decode output của end-to-end (E2E) network, với giả thiết chúng ta có input là chuỗi \(X=\left\{\mathbf{x}_t\right\}_{t=1}^T\subset\mathbb{R}^d\) và output của E2E network là vector xác suất \(\mathbf{p}_t=\left[p_{t,0},p_{t,2},\ldots,p_{t,N}\right]^\top\in [0,1]^N\) với \(p_{t,i}\) là xác suất của từ thứ \(i\) trong vocabulary ở bước thứ \(t\).
+Và hiển nhiên \(\sum_{i=1}^Np_{t,i}=1\).
+Ở đây ta có vocabulary \(V=\left\{\mathbf{w}_1, \mathbf{w}_2, \ldots, \mathbf{w}_N\right\}\) gồm \(N\) từ.
+Ta sẽ phải tính thêm những quãng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ngừng&lt;/code&gt; trong output, nên ta thêm từ rỗng vào vocabulary \(\overline{V}=V\cup\phi\).
+&lt;strong&gt;Vậy xác suất của một chuỗi phoneme như \(W=\left[\mathbf{w}_{i_1},\mathbf{w}_{i_2},\ldots,\mathbf{w}_{i_M}\right], M\leq T, 1\leq i_j\leq N\) là bao nhiêu?&lt;/strong&gt;
+Chúng ta cần hiểu là từ chuỗi \(P=\left[\mathbf{p}_1,\ldots,\mathbf{p}_T\right]\) để chuyển sang chuỗi \(W\) thì đã thêm từ rỗng \(\phi\) xen kẽ vào \(W\) để có độ dài \(T\).
+Ta định nghĩa một ánh xạ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;many-to-one&lt;/code&gt; \(f: V^T\rightarrow V^{\leq T}\) là một phép toán xóa bỏ tất cả các từ rỗng khỏi từ có độ dài \(T\).
+Vậy phép toán ngược &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;one-to-many&lt;/code&gt; \(f^{-1}: V^{\leq T}\rightarrow V^T\).
+Và \(f^{-1}(W)\) là tập các từ có độ dài \(T\) mà loại bỏ hết từ rỗng đi thì còn lại \(W\).
+Xác xuất của 1 từ \(\pi = \left[\mathbf{w}_{l_1},\mathbf{w}_{l_2},\ldots,\mathbf{w}_{l_T}\right]\in f^{-1}(W) \subset V^T\) là&lt;/p&gt;
 
-&lt;h2 id=&quot;text-to-speech&quot;&gt;Text-To-Speech&lt;/h2&gt;
+\[p\left(\pi \mid \mathbf{\theta};X\right) = \sum_{t=1}^T p\left(\mathbf{w}_{l_t}\mid \mathbf{\theta};\mathbf{x}_t\right)=\sum_{t=1}^Tp_{t,l_t}\]
+
+&lt;p&gt;trong đó \(\mathbf{\theta}\) là parameters của model E2E.
+Vậy xác xuất để model output ra cụm từ \(W\) là&lt;/p&gt;
+
+\[p\left(W\mid \mathbf{\theta};X\right)=\sum_{\pi\in f^{-1}(W)}p\left(\pi\mid \mathbf{\theta};X\right)\]
+
+&lt;p&gt;&lt;strong&gt;Vấn đề bây giờ rút gọn lại thành tìm ứng với model \(\mathbf{\theta}\) và chuỗi đầu vào \(X\) thì cần phải decode ra cụm output \(W\) có độ dài không quá \(T\) tức là tìm ra \(W\) thỏa mãn:&lt;/strong&gt;&lt;/p&gt;
+
+\[W=\mbox{argmax}_{W\in V^{\leq T}}p\left(W\mid \mathbf{\theta};X\right)=\mbox{argmax}_{W\in V^{\leq T}}\sum_{\pi\in f^{-1}(W)}p\left(\pi\mid \mathbf{\theta};X\right)\]
+
+&lt;p&gt;Bài toán đặt ra là số lượng khả năng cần phải tính toán là vô cùng nhiều, do đó cách làm hiệu quả rơi vào 1 trong hai cách:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dùng &lt;strong&gt;dynamic programming&lt;/strong&gt; để tìm ra &lt;strong&gt;alignment&lt;/strong&gt; dựa theo công thức ở trên. Phương pháp này thi thoảng gọi là &lt;strong&gt;Connectionist Temporal Segmentation (CTC)&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Dùng &lt;strong&gt;transducer&lt;/strong&gt;: tạo ra một network để học &lt;strong&gt;alignment&lt;/strong&gt; thông qua backpropagation và dựa vào phoneme ở step trước.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Transducer thì nhanh hơn rất nhiều so với dynamic programming, và vì xác suất của từng chuỗi \(p\left(\pi\mid \mathbf{\theta};X\right)\) được mô hình bằng neural network nên tính toán có tính thích ứng cao hơn với dữ liệu.&lt;/p&gt;
+
+&lt;p&gt;Nhìn chung, task ASR khá thuận lợi cho việc ứng dụng mô hình &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; như Transformer hay BERT.&lt;/p&gt;
+
+&lt;h2 id=&quot;sound-classification-và-speaker-identification&quot;&gt;Sound classification và Speaker Identification&lt;/h2&gt;
+
+&lt;h2 id=&quot;voice-conversion-text-to-speech-và-speech-synthesis&quot;&gt;Voice Conversion, Text-To-Speech và Speech Synthesis&lt;/h2&gt;
 
 &lt;h1 id=&quot;công-nghệ-chính&quot;&gt;Công nghệ chính&lt;/h1&gt;
 
-&lt;h2 id=&quot;i-vector-và-x-vector&quot;&gt;i-vector và x-vector&lt;/h2&gt;
+&lt;h2 id=&quot;i-vector-và-x-vector-cho-bài-toán-speaker-identification&quot;&gt;i-vector và x-vector cho bài toán Speaker Identification&lt;/h2&gt;
 
-&lt;h2 id=&quot;seq2seq-và-các-transformers&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các Transformers&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/i-vector-timeline.jpg&quot; alt=&quot;speaker&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;lưu-ý-khi-train-model-asr&quot;&gt;Lưu ý khi train model ASR&lt;/h1&gt;
+&lt;h2 id=&quot;seq2seq-và-các-transformers-cho-bài-toán-asr&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các Transformers cho bài toán ASR&lt;/h2&gt;
+
+&lt;h1 id=&quot;lưu-ý-khi-train-model-asrsi&quot;&gt;Lưu ý khi train model ASR/SI&lt;/h1&gt;
 
 &lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
 
@@ -55,11 +101,19 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;snyder2018x&quot;&gt;Snyder, D., Garcia-Romero, D., Sell, G., Povey, D. and Khudanpur, S. 2018. X-vectors: Robust dnn embeddings for speaker recognition. &lt;i&gt;2018 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2018), 5329–5333.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/snyder2018x/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;gulati2020conformer&quot;&gt;Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. &lt;i&gt;Proc. Interspeech 2020&lt;/i&gt;. (2020), 5036–5040.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gulati2020conformer/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;zhang2020pushing&quot;&gt;Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. &lt;i&gt;arXiv preprint arXiv:2010.10504&lt;/i&gt;. (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/zhang2020pushing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;yu2016automatic&quot;&gt;Yu, D. and Deng, L. 2016. &lt;i&gt;Automatic speech recognition&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/yu2016automatic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;reynolds1995robust&quot;&gt;Reynolds, D.A. and Rose, R.C. 1995. Robust text-independent speaker identification using Gaussian mixture speaker models. &lt;i&gt;IEEE transactions on speech and audio processing&lt;/i&gt;. 3, 1 (1995), 72–83.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/reynolds1995robust/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;reynolds2000speaker&quot;&gt;Reynolds, D.A., Quatieri, T.F. and Dunn, R.B. 2000. Speaker verification using adapted Gaussian mixture models. &lt;i&gt;Digital signal processing&lt;/i&gt;. 10, 1 (2000), 19–41.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/reynolds2000speaker/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hinton2012deep&quot;&gt;Hinton, G., Deng, L., Yu, D., Dahl, G.E., Mohamed, A.-rahman, Jaitly, N., Senior, A., Vanhoucke, V., Nguyen, P., Sainath, T.N. and others 2012. Deep neural networks for acoustic modeling in speech recognition: The shared views of four research groups. &lt;i&gt;IEEE Signal processing magazine&lt;/i&gt;. 29, 6 (2012), 82–97.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hinton2012deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;yu2016automatic&quot;&gt;Yu, D. and Deng, L. 2016. &lt;i&gt;Automatic speech recognition&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/yu2016automatic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;graves2013speech&quot;&gt;Graves, A., Mohamed, A.-rahman and Hinton, G. 2013. Speech recognition with deep recurrent neural networks. &lt;i&gt;2013 IEEE international conference on acoustics, speech and signal processing&lt;/i&gt; (2013), 6645–6649.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/graves2013speech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;graves2013hybrid&quot;&gt;Graves, A., Jaitly, N. and Mohamed, A.-rahman 2013. Hybrid speech recognition with deep bidirectional LSTM. &lt;i&gt;2013 IEEE workshop on automatic speech recognition and understanding&lt;/i&gt; (2013), 273–278.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/graves2013hybrid/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;Nguyên tắc vẫn như cũ, chọn những bài top nhiều citations và có độ tăng trưởng tốt thôi nhé. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Bài viết này chủ yếu là giới thiệu công nghệ thôi. Chứ còn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;đồ ăn sẵn&lt;/code&gt; thì các bạn có thể tham khảo &lt;a href=&quot;https://docs.aws.amazon.com/lexv2/latest/dg/what-is.html&quot;&gt;Amazon Lex&lt;/a&gt;. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -93,6 +147,10 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
         <category>speaker identification</category>
         
         <category>speaker diarization</category>
+        
+        <category>metric learning</category>
+        
+        <category>deep metric learning</category>
         
         
         <category>Tiếng Việt, 日本語</category>
