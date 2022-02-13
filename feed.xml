@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 14 Feb 2022 01:13:16 +0900</pubDate>
-    <lastBuildDate>Mon, 14 Feb 2022 01:13:16 +0900</lastBuildDate>
+    <pubDate>Mon, 14 Feb 2022 01:18:02 +0900</pubDate>
+    <lastBuildDate>Mon, 14 Feb 2022 01:18:02 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -73,7 +73,7 @@ Ngoài ra cũng có nhóm task &lt;strong&gt;command speech recognition&lt;/stro
 Đó thường là các câu lệnh ngắn.
 Với tiếng Anh, có bộ dữ liệu Speech Commands &lt;a class=&quot;citation&quot; href=&quot;#warden2018speech&quot;&gt;[18]&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Code kiếc, tool thiếc cũng nói chung sẵn có dồi dào: ESPNet (missing reference), Microsoft ASR (missing reference), DeepSpeech v1 &amp;amp; v2 (missing reference) hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fairseq&lt;/code&gt; (missing reference).
+&lt;p&gt;Code kiếc, tool thiếc cũng nói chung sẵn có dồi dào: ESPNet &lt;a class=&quot;citation&quot; href=&quot;#watanabe2018espnet&quot;&gt;[19]&lt;/a&gt;, Microsoft ASR &lt;a class=&quot;citation&quot; href=&quot;#deng2013recent&quot;&gt;[20]&lt;/a&gt;, DeepSpeech v1 &amp;amp; v2 &lt;a class=&quot;citation&quot; href=&quot;#hannun2014deepspeech&quot;&gt;[21, 22]&lt;/a&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fairseq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#ott2019fairseq&quot;&gt;[23]&lt;/a&gt;.
 Mà những công việc chuẩn bị dữ liệu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;recipes&lt;/code&gt; các cái là có sẵn trong các framework trên rồi như là với ESPNet bạn có thể tham khảo tại:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/espnet/espnet/tree/master/egs2&quot;&gt;https://github.com/espnet/espnet/tree/master/egs2&lt;/a&gt;&lt;/li&gt;
@@ -125,7 +125,12 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;panayotov2015librispeech&quot;&gt;Panayotov, V., Chen, G., Povey, D. and Khudanpur, S. 2015. Librispeech: an asr corpus based on public domain audio books. &lt;i&gt;2015 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2015), 5206–5210.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/panayotov2015librispeech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;paul1992design&quot;&gt;Paul, D.B. and Baker, J. 1992. The design for the Wall Street Journal-based CSR corpus. &lt;i&gt;Speech and Natural Language: Proceedings of a Workshop Held at Harriman, New York, February 23-26, 1992&lt;/i&gt; (1992).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/paul1992design/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;garofolo1993darpa&quot;&gt;Garofolo, J.S., Lamel, L.F., Fisher, W.M., Fiscus, J.G. and Pallett, D.S. 1993. DARPA TIMIT acoustic-phonetic continous speech corpus CD-ROM. NIST speech disc 1-1.1. &lt;i&gt;NASA STI/Recon technical report n&lt;/i&gt;. 93, (1993), 27403.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/garofolo1993darpa/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;warden2018speech&quot;&gt;Warden, P. 2018. Speech commands: A dataset for limited-vocabulary speech recognition. &lt;i&gt;arXiv preprint arXiv:1804.03209&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/warden2018speech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;warden2018speech&quot;&gt;Warden, P. 2018. Speech commands: A dataset for limited-vocabulary speech recognition. &lt;i&gt;arXiv preprint arXiv:1804.03209&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/warden2018speech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;watanabe2018espnet&quot;&gt;Watanabe, S., Hori, T., Karita, S., Hayashi, T., Nishitoba, J., Unno, Y., Soplin, N.-E.Y., Heymann, J., Wiesner, M., Chen, N. and others 2018. ESPnet: End-to-End Speech Processing Toolkit. &lt;i&gt;Proc. Interspeech 2018&lt;/i&gt;. (2018), 2207–2211.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/watanabe2018espnet/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;deng2013recent&quot;&gt;Deng, L., Li, J., Huang, J.-T., Yao, K., Yu, D., Seide, F., Seltzer, M., Zweig, G., He, X., Williams, J. and others 2013. Recent advances in deep learning for speech research at Microsoft. &lt;i&gt;2013 IEEE International Conference on Acoustics, Speech and Signal Processing&lt;/i&gt; (2013), 8604–8608.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/deng2013recent/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hannun2014deepspeech&quot;&gt;Hannun, A., Case, C., Casper, J., Catanzaro, B., Diamos, G., Elsen, E., Prenger, R., Satheesh, S., Sengupta, S., Coates, A. and others 2014. DeepSpeech: Scaling up end-to-end speech recognition. &lt;i&gt;arXiv preprint arXiv:1412.5567&lt;/i&gt;. (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hannun2014deepspeech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;amodei2016deep&quot;&gt;Amodei, D., Ananthanarayanan, S., Anubhai, R., Bai, J., Battenberg, E., Case, C., Casper, J., Catanzaro, B., Cheng, Q., Chen, G. and others 2016. Deep speech 2: End-to-end speech recognition in english and mandarin. &lt;i&gt;International conference on machine learning&lt;/i&gt; (2016), 173–182.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/amodei2016deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ott2019fairseq&quot;&gt;Ott, M., Edunov, S., Baevski, A., Fan, A., Gross, S., Ng, N., Grangier, D. and Auli, M. 2019. fairseq: A Fast, Extensible Toolkit for Sequence Modeling. &lt;i&gt;Proceedings of NAACL-HLT 2019: Demonstrations&lt;/i&gt; (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ott2019fairseq/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
