@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Feb 2022 03:44:43 +0900</pubDate>
-    <lastBuildDate>Tue, 15 Feb 2022 03:44:43 +0900</lastBuildDate>
+    <pubDate>Tue, 15 Feb 2022 03:49:46 +0900</pubDate>
+    <lastBuildDate>Tue, 15 Feb 2022 03:49:46 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -80,7 +80,7 @@ Mà những công việc chuẩn bị dữ liệu &lt;code class=&quot;language-
 &lt;/ul&gt;
 
 &lt;p&gt;Nên nói chung là cũng chả cần code mấy đâu, chủ yếu là code vài dòng thể hiện ý tưởng.
-Nếu bạn thích ăn sẵn hơn nữa thì đấy lại có cái Amazon Lex v2&lt;sup id=&quot;fnref:2:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+Nếu bạn thích &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ăn sẵn&lt;/code&gt; hơn nữa thì đấy lại có cái Amazon Lex v2&lt;sup id=&quot;fnref:2:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;sound-classification-và-speaker-identification&quot;&gt;Sound classification và Speaker Identification&lt;/h2&gt;
 
