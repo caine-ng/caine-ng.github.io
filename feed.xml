@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 14 Feb 2022 01:25:35 +0900</pubDate>
-    <lastBuildDate>Mon, 14 Feb 2022 01:25:35 +0900</lastBuildDate>
+    <pubDate>Tue, 15 Feb 2022 02:41:30 +0900</pubDate>
+    <lastBuildDate>Tue, 15 Feb 2022 02:41:30 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -73,7 +73,7 @@ Ngoài ra cũng có nhóm task &lt;strong&gt;command speech recognition&lt;/stro
 Đó thường là các câu lệnh ngắn.
 Với tiếng Anh, có bộ dữ liệu Speech Commands &lt;a class=&quot;citation&quot; href=&quot;#warden2018speech&quot;&gt;[18]&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Code kiếc, tool thiếc cũng nói chung sẵn có dồi dào: ESPNet &lt;a class=&quot;citation&quot; href=&quot;#watanabe2018espnet&quot;&gt;[19]&lt;/a&gt;, Microsoft ASR &lt;a class=&quot;citation&quot; href=&quot;#deng2013recent&quot;&gt;[20]&lt;/a&gt;, DeepSpeech v1 &amp;amp; v2 &lt;a class=&quot;citation&quot; href=&quot;#hannun2014deepspeech&quot;&gt;[21, 22]&lt;/a&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fairseq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#ott2019fairseq&quot;&gt;[23]&lt;/a&gt;.
+&lt;p&gt;Code kiếc, tool thiếc cũng nói chung sẵn có dồi dào: ESPNet &lt;a class=&quot;citation&quot; href=&quot;#watanabe2018espnet&quot;&gt;[19]&lt;/a&gt;, Microsoft ASR &lt;a class=&quot;citation&quot; href=&quot;#deng2013recent&quot;&gt;[20]&lt;/a&gt;, DeepSpeech v1 &amp;amp; v2 &lt;a class=&quot;citation&quot; href=&quot;#hannun2014deepspeech&quot;&gt;[21, 22]&lt;/a&gt;, PaddlePaddle &lt;a class=&quot;citation&quot; href=&quot;#ao2021end&quot;&gt;[23, 24]&lt;/a&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fairseq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#ott2019fairseq&quot;&gt;[25]&lt;/a&gt;.
 Mà những công việc chuẩn bị dữ liệu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;recipes&lt;/code&gt; các cái là có sẵn trong các framework trên rồi như là với ESPNet bạn có thể tham khảo tại:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/espnet/espnet/tree/master/egs2&quot;&gt;https://github.com/espnet/espnet/tree/master/egs2&lt;/a&gt;&lt;/li&gt;
@@ -84,7 +84,7 @@ Nếu bạn thích ăn sẵn hơn nữa thì đấy lại có cái Amazon Lex v2
 
 &lt;h2 id=&quot;sound-classification-và-speaker-identification&quot;&gt;Sound classification và Speaker Identification&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Sound classification.&lt;/strong&gt; Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một &lt;a class=&quot;citation&quot; href=&quot;#gemmeke2017audioset&quot;&gt;[24]&lt;/a&gt; hoặc nhiều labels &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[25]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sound classification.&lt;/strong&gt; Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một &lt;a class=&quot;citation&quot; href=&quot;#gemmeke2017audioset&quot;&gt;[26]&lt;/a&gt; hoặc nhiều labels &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[27]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;voice-conversion-text-to-speech-và-speech-synthesis&quot;&gt;Voice Conversion, Text-To-Speech và Speech Synthesis&lt;/h2&gt;
 
@@ -132,6 +132,8 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;deng2013recent&quot;&gt;Deng, L., Li, J., Huang, J.-T., Yao, K., Yu, D., Seide, F., Seltzer, M., Zweig, G., He, X., Williams, J. and others 2013. Recent advances in deep learning for speech research at Microsoft. &lt;i&gt;2013 IEEE International Conference on Acoustics, Speech and Signal Processing&lt;/i&gt; (2013), 8604–8608.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/deng2013recent/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;hannun2014deepspeech&quot;&gt;Hannun, A., Case, C., Casper, J., Catanzaro, B., Diamos, G., Elsen, E., Prenger, R., Satheesh, S., Sengupta, S., Coates, A. and others 2014. DeepSpeech: Scaling up end-to-end speech recognition. &lt;i&gt;arXiv preprint arXiv:1412.5567&lt;/i&gt;. (2014).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hannun2014deepspeech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;amodei2016deep&quot;&gt;Amodei, D., Ananthanarayanan, S., Anubhai, R., Bai, J., Battenberg, E., Case, C., Casper, J., Catanzaro, B., Cheng, Q., Chen, G. and others 2016. Deep speech 2: End-to-end speech recognition in english and mandarin. &lt;i&gt;International conference on machine learning&lt;/i&gt; (2016), 173–182.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/amodei2016deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;ao2021end&quot;&gt;Ao, Y., Wu, Z., Yu, D., Gong, W., Kui, Z., Zhang, M., Ye, Z., Shen, L., Ma, Y., Wu, T. and others 2021. End-to-end Adaptive Distributed Training on PaddlePaddle. &lt;i&gt;arXiv preprint arXiv:2112.02752&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ao2021end/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;paddlepaddle_github&quot;&gt;Guides-Document-PaddlePaddle Deep Learning Platform.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/paddlepaddle_github/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ott2019fairseq&quot;&gt;Ott, M., Edunov, S., Baevski, A., Fan, A., Gross, S., Ng, N., Grangier, D. and Auli, M. 2019. fairseq: A Fast, Extensible Toolkit for Sequence Modeling. &lt;i&gt;Proceedings of NAACL-HLT 2019: Demonstrations&lt;/i&gt; (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ott2019fairseq/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;gemmeke2017audioset&quot;&gt;Gemmeke, J.F., Ellis, D.P.W., Freedman, D., Jansen, A., Lawrence, W., Moore, R.C., Plakal, M. and Ritter, M. 2017. Audio Set: An ontology and human-labeled dataset for audio events. &lt;i&gt;2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)&lt;/i&gt; (2017), 776–780.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gemmeke2017audioset/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;fonseca2019audio&quot;&gt;Fonseca, E., Plakal, M., Font, F., Ellis, D.P.W. and Serra, X. 2019. AUDIO TAGGING WITH NOISY LABELS AND MINIMAL SUPERVISION. &lt;i&gt;Acoustic Scenes and Events 2019 Workshop (DCASE2019)&lt;/i&gt; (2019), 69.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/fonseca2019audio/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
