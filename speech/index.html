@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        2353
+        2690
      words</li>
-        <li class="small">13 minutes</li>
+        <li class="small">14 minutes</li>
     </ul>
 </div>
 
@@ -394,7 +394,25 @@ Nếu bạn thích ăn sẵn hơn nữa thì đấy lại có cái Amazon Lex v2
 
 <h2 id="sound-classification-và-speaker-identification">Sound classification và Speaker Identification</h2>
 
-<p><strong>Sound classification.</strong> Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một <a class="citation" href="#gemmeke2017audioset">[26]</a> hoặc nhiều labels <a class="citation" href="#fonseca2019audio">[27]</a></p>
+<p><strong>Sound classification.</strong> Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một <a class="citation" href="#gemmeke2017audioset">[26]</a> hoặc nhiều labels <a class="citation" href="#fonseca2019audio">[27]</a>.</p>
+
+<p><img src="https://storage.googleapis.com/kaggle-media/competitions/freesound/task2_freesound_audio_tagging.png" alt="FAT2019" /></p>
+
+<p>Một vấn đề xuất phát từ community này là vấn đề <em>label noise</em>.
+Ví dụ như Freesound Audio Taggings 2019 (FAT 2019, <a class="citation" href="#fonseca2019audio">[27]</a>) cung cấp 1 bộ dữ liệu noise mở ra nhiều hướng đi mới như unsupervised/semi-supervised và learning from noisy data.
+Nhìn chung ngoài xử lý dữ liệu mel spectrogram để lấy ra features thì hầu như phần còn lại như 1 bài toán classification bình thường.
+Kiến trúc thì có thể dùng recurrent neural network và <code class="language-plaintext highlighter-rouge">seq2seq</code> để học.</p>
+
+<p><strong>Speaker Identification.</strong> Nhìn chung thì xử lý lấy features mel spectrogram xong thì có thể sử dụng để nhận dạng người dùng, giống như nhận dạng khuôn mặt hay vân tay.
+Những cách làm truyền thống của bài toán SI thì chủ yếu dùng GMM <a class="citation" href="#reynolds1995robust">[9, 10, 4, 5]</a>.
+Một model background sẽ được extract từ toàn bộ tập train (không phân biệt cá thể, identity), sau đó thì ứng với mỗi identity thì mình lại xây dựng <em>supervector</em>.
+Nói chung tôi cũng không thấy có gì mới trong hướng đi này.
+Gần đây thì có thêm cái DNN embeddings <a class="citation" href="#snyder2018x">[6]</a> thì vẫn chỉ là thay bởi DNN và chứng tỏ DNN tốt hơn GMM supervectors.
+Ngoài ra thì có những hướng đi như contrastive metric learning, deep metric learning, .v.v…
+Nói chung trừ cái chỗ extract MFCC ra thì tôi thấy cũng không khác mấy bài toán identification trong các dữ liệu hình ảnh (face và fingerprint).
+Mảng này chắc có cái bài thú vị là <strong>Speaker Diarization</strong> thì trong 1 đoạn hội thoại của nhiều người, thì segment ra từng đoạn xem là ai nói.
+Nhìn chung cách làm truyền thống vẫn là GMM và supervector, nhưng gần đây chúng tôi có thêm mấy cái temporal segment networks.
+Nói chung so với bên hình ảnh thì ngoài cái phần features âm thanh ra, phần còn lại (machine learning và pattern recognition) thì cũng không quá khác biệt (dùng chung công nghệ).</p>
 
 <h2 id="voice-conversion-text-to-speech-và-speech-synthesis">Voice Conversion, Text-To-Speech và Speech Synthesis</h2>
 

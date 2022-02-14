@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Feb 2022 02:41:30 +0900</pubDate>
-    <lastBuildDate>Tue, 15 Feb 2022 02:41:30 +0900</lastBuildDate>
+    <pubDate>Tue, 15 Feb 2022 03:44:43 +0900</pubDate>
+    <lastBuildDate>Tue, 15 Feb 2022 03:44:43 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -84,7 +84,25 @@ Nếu bạn thích ăn sẵn hơn nữa thì đấy lại có cái Amazon Lex v2
 
 &lt;h2 id=&quot;sound-classification-và-speaker-identification&quot;&gt;Sound classification và Speaker Identification&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Sound classification.&lt;/strong&gt; Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một &lt;a class=&quot;citation&quot; href=&quot;#gemmeke2017audioset&quot;&gt;[26]&lt;/a&gt; hoặc nhiều labels &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[27]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sound classification.&lt;/strong&gt; Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một &lt;a class=&quot;citation&quot; href=&quot;#gemmeke2017audioset&quot;&gt;[26]&lt;/a&gt; hoặc nhiều labels &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[27]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://storage.googleapis.com/kaggle-media/competitions/freesound/task2_freesound_audio_tagging.png&quot; alt=&quot;FAT2019&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Một vấn đề xuất phát từ community này là vấn đề &lt;em&gt;label noise&lt;/em&gt;.
+Ví dụ như Freesound Audio Taggings 2019 (FAT 2019, &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[27]&lt;/a&gt;) cung cấp 1 bộ dữ liệu noise mở ra nhiều hướng đi mới như unsupervised/semi-supervised và learning from noisy data.
+Nhìn chung ngoài xử lý dữ liệu mel spectrogram để lấy ra features thì hầu như phần còn lại như 1 bài toán classification bình thường.
+Kiến trúc thì có thể dùng recurrent neural network và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; để học.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Speaker Identification.&lt;/strong&gt; Nhìn chung thì xử lý lấy features mel spectrogram xong thì có thể sử dụng để nhận dạng người dùng, giống như nhận dạng khuôn mặt hay vân tay.
+Những cách làm truyền thống của bài toán SI thì chủ yếu dùng GMM &lt;a class=&quot;citation&quot; href=&quot;#reynolds1995robust&quot;&gt;[9, 10, 4, 5]&lt;/a&gt;.
+Một model background sẽ được extract từ toàn bộ tập train (không phân biệt cá thể, identity), sau đó thì ứng với mỗi identity thì mình lại xây dựng &lt;em&gt;supervector&lt;/em&gt;.
+Nói chung tôi cũng không thấy có gì mới trong hướng đi này.
+Gần đây thì có thêm cái DNN embeddings &lt;a class=&quot;citation&quot; href=&quot;#snyder2018x&quot;&gt;[6]&lt;/a&gt; thì vẫn chỉ là thay bởi DNN và chứng tỏ DNN tốt hơn GMM supervectors.
+Ngoài ra thì có những hướng đi như contrastive metric learning, deep metric learning, .v.v…
+Nói chung trừ cái chỗ extract MFCC ra thì tôi thấy cũng không khác mấy bài toán identification trong các dữ liệu hình ảnh (face và fingerprint).
+Mảng này chắc có cái bài thú vị là &lt;strong&gt;Speaker Diarization&lt;/strong&gt; thì trong 1 đoạn hội thoại của nhiều người, thì segment ra từng đoạn xem là ai nói.
+Nhìn chung cách làm truyền thống vẫn là GMM và supervector, nhưng gần đây chúng tôi có thêm mấy cái temporal segment networks.
+Nói chung so với bên hình ảnh thì ngoài cái phần features âm thanh ra, phần còn lại (machine learning và pattern recognition) thì cũng không quá khác biệt (dùng chung công nghệ).&lt;/p&gt;
 
 &lt;h2 id=&quot;voice-conversion-text-to-speech-và-speech-synthesis&quot;&gt;Voice Conversion, Text-To-Speech và Speech Synthesis&lt;/h2&gt;
 
