@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Feb 2022 03:49:46 +0900</pubDate>
-    <lastBuildDate>Tue, 15 Feb 2022 03:49:46 +0900</lastBuildDate>
+    <pubDate>Sat, 19 Feb 2022 17:27:08 +0900</pubDate>
+    <lastBuildDate>Sat, 19 Feb 2022 17:27:08 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -24,12 +24,12 @@ Gần đây thì đến lượt những tiến bộ bắt nguồn từ &lt;code 
 
 &lt;h2 id=&quot;automatic-speech-recognition&quot;&gt;Automatic Speech Recognition&lt;/h2&gt;
 &lt;p&gt;Automatic Speech Recognition (ASR, &lt;a class=&quot;citation&quot; href=&quot;#yu2016automatic&quot;&gt;[12]&lt;/a&gt;) là nhiệm vụ chuyển một chuỗi âm thanh giọng nói (waveform) sang một chuỗi văn bản được chứa trong âm thanh đó.
-Cách làm truyền thống nhất là sử dụng &lt;strong&gt;Hidden Markov Model (HMM)&lt;/strong&gt; để mô hình thông tin chuỗi, và dùng GMM để fit lượng thông tin của các states trong HMM vào 1 phân bố có sẵn và đưa ra nhận dạng cho âm thanh trong time window tương ứng.
+Cách làm truyền thống nhất là sử dụng &lt;strong&gt;Hidden Markov Model (HMM)&lt;/strong&gt; để mô hình thông tin chuỗi, và dùng GMM để fit lượng thông tin của các states trong HMM &lt;a class=&quot;citation&quot; href=&quot;#young2008hmms&quot;&gt;[13]&lt;/a&gt; vào 1 phân bố có sẵn và đưa ra nhận dạng cho âm thanh trong time window tương ứng.
 Tuy nhiên, GMM có nhược điểm là khó có thể mô hình được dữ liệu phi tuyến tính (non-linear manifold) dẫn đến nếu lượng dữ liệu ít có thể xảy ra tình trạng overfit hoặc model HMM không mô tả hết manifold dữ liệu (ếch ngồi đáy giếng).
 Do đó, thông qua kết quả thực nghiệm &lt;a class=&quot;citation&quot; href=&quot;#hinton2012deep&quot;&gt;[11]&lt;/a&gt;, thì nếu thay GMM bởi DNN để xuất ra xác suất của từng âm một từ states của HMM thì kết quả outperform GMM-HMM trong nhiều bộ dữ liệu lớn.
 Và quan trọng là càng train nhiều dữ liệu thì model DNN-HMM càng stable.&lt;/p&gt;
 
-&lt;p&gt;Nhìn chung DNN-HMM thì cũng là một kiểu model &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; tức là chuyển chuỗi (audio) thành chuỗi (text hoặc phoneme &lt;a class=&quot;citation&quot; href=&quot;#graves2013speech&quot;&gt;[13, 14]&lt;/a&gt;).
+&lt;p&gt;Nhìn chung DNN-HMM thì cũng là một kiểu model &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; tức là chuyển chuỗi (audio) thành chuỗi (text hoặc phoneme &lt;a class=&quot;citation&quot; href=&quot;#graves2013speech&quot;&gt;[14, 15]&lt;/a&gt;).
 Vì vậy khá đơn giản để ứng dụng model &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; vào ASR.
 Chuỗi âm thanh (waveform) được chuyển thành chuỗi đặc trưng MFCC và rồi input vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.
 Và việc này cũng giúp chúng ta loại bỏ luôn HMM để thực hiện training &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;end-to-end&lt;/code&gt;.&lt;/p&gt;
@@ -66,14 +66,14 @@ Vậy xác xuất để model output ra cụm từ \(W\) là&lt;/p&gt;
 &lt;p&gt;Transducer thì nhanh hơn rất nhiều so với dynamic programming, và vì xác suất của từng chuỗi \(p\left(\pi\mid \mathbf{\theta};X\right)\) được mô hình bằng neural network nên tính toán có tính thích ứng cao hơn với dữ liệu.&lt;/p&gt;
 
 &lt;p&gt;Nhìn chung, task ASR khá thuận lợi cho việc ứng dụng mô hình &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; như Transformer hay BERT.
-Dữ liệu thì cũng dồi dào nhất là tiếng Anh với hàng ngàn giờ đọc cuả đủ loại speech như audio books &lt;a class=&quot;citation&quot; href=&quot;#panayotov2015librispeech&quot;&gt;[15]&lt;/a&gt;, báo chí Wall Street Journal &lt;a class=&quot;citation&quot; href=&quot;#paul1992design&quot;&gt;[16]&lt;/a&gt;, phát âm &lt;a class=&quot;citation&quot; href=&quot;#garofolo1993darpa&quot;&gt;[17]&lt;/a&gt;, .v.v…
+Dữ liệu thì cũng dồi dào nhất là tiếng Anh với hàng ngàn giờ đọc cuả đủ loại speech như audio books &lt;a class=&quot;citation&quot; href=&quot;#panayotov2015librispeech&quot;&gt;[16]&lt;/a&gt;, báo chí Wall Street Journal &lt;a class=&quot;citation&quot; href=&quot;#paul1992design&quot;&gt;[17]&lt;/a&gt;, phát âm &lt;a class=&quot;citation&quot; href=&quot;#garofolo1993darpa&quot;&gt;[18]&lt;/a&gt;, .v.v…
 Thì những bộ dữ liệu trên thuộc nhóm task &lt;strong&gt;conversational speech recognition&lt;/strong&gt;.
 Những task này đòi hỏi phải transcribe ngay khi âm thanh phát ra.
 Ngoài ra cũng có nhóm task &lt;strong&gt;command speech recognition&lt;/strong&gt; tức là kiểu như người dùng nói vào loa Echo và câu lệnh được ghi nhận.
 Đó thường là các câu lệnh ngắn.
-Với tiếng Anh, có bộ dữ liệu Speech Commands &lt;a class=&quot;citation&quot; href=&quot;#warden2018speech&quot;&gt;[18]&lt;/a&gt;.&lt;/p&gt;
+Với tiếng Anh, có bộ dữ liệu Speech Commands &lt;a class=&quot;citation&quot; href=&quot;#warden2018speech&quot;&gt;[19]&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Code kiếc, tool thiếc cũng nói chung sẵn có dồi dào: ESPNet &lt;a class=&quot;citation&quot; href=&quot;#watanabe2018espnet&quot;&gt;[19]&lt;/a&gt;, Microsoft ASR &lt;a class=&quot;citation&quot; href=&quot;#deng2013recent&quot;&gt;[20]&lt;/a&gt;, DeepSpeech v1 &amp;amp; v2 &lt;a class=&quot;citation&quot; href=&quot;#hannun2014deepspeech&quot;&gt;[21, 22]&lt;/a&gt;, PaddlePaddle &lt;a class=&quot;citation&quot; href=&quot;#ao2021end&quot;&gt;[23, 24]&lt;/a&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fairseq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#ott2019fairseq&quot;&gt;[25]&lt;/a&gt;.
+&lt;p&gt;Code kiếc, tool thiếc cũng nói chung sẵn có dồi dào: ESPNet &lt;a class=&quot;citation&quot; href=&quot;#watanabe2018espnet&quot;&gt;[20]&lt;/a&gt;, Microsoft ASR &lt;a class=&quot;citation&quot; href=&quot;#deng2013recent&quot;&gt;[21]&lt;/a&gt;, DeepSpeech v1 &amp;amp; v2 &lt;a class=&quot;citation&quot; href=&quot;#hannun2014deepspeech&quot;&gt;[22, 23]&lt;/a&gt;, PaddlePaddle &lt;a class=&quot;citation&quot; href=&quot;#ao2021end&quot;&gt;[24, 25]&lt;/a&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fairseq&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#ott2019fairseq&quot;&gt;[26]&lt;/a&gt;.
 Mà những công việc chuẩn bị dữ liệu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;recipes&lt;/code&gt; các cái là có sẵn trong các framework trên rồi như là với ESPNet bạn có thể tham khảo tại:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/espnet/espnet/tree/master/egs2&quot;&gt;https://github.com/espnet/espnet/tree/master/egs2&lt;/a&gt;&lt;/li&gt;
@@ -84,12 +84,12 @@ Nếu bạn thích &lt;code class=&quot;language-plaintext highlighter-rouge&quo
 
 &lt;h2 id=&quot;sound-classification-và-speaker-identification&quot;&gt;Sound classification và Speaker Identification&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Sound classification.&lt;/strong&gt; Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một &lt;a class=&quot;citation&quot; href=&quot;#gemmeke2017audioset&quot;&gt;[26]&lt;/a&gt; hoặc nhiều labels &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[27]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sound classification.&lt;/strong&gt; Ứng với một âm thanh bất kỳ, tag âm thanh đó bởi một &lt;a class=&quot;citation&quot; href=&quot;#gemmeke2017audioset&quot;&gt;[27]&lt;/a&gt; hoặc nhiều labels &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[28]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://storage.googleapis.com/kaggle-media/competitions/freesound/task2_freesound_audio_tagging.png&quot; alt=&quot;FAT2019&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Một vấn đề xuất phát từ community này là vấn đề &lt;em&gt;label noise&lt;/em&gt;.
-Ví dụ như Freesound Audio Taggings 2019 (FAT 2019, &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[27]&lt;/a&gt;) cung cấp 1 bộ dữ liệu noise mở ra nhiều hướng đi mới như unsupervised/semi-supervised và learning from noisy data.
+Ví dụ như Freesound Audio Taggings 2019 (FAT 2019, &lt;a class=&quot;citation&quot; href=&quot;#fonseca2019audio&quot;&gt;[28]&lt;/a&gt;) cung cấp 1 bộ dữ liệu noise mở ra nhiều hướng đi mới như unsupervised/semi-supervised và learning from noisy data.
 Nhìn chung ngoài xử lý dữ liệu mel spectrogram để lấy ra features thì hầu như phần còn lại như 1 bài toán classification bình thường.
 Kiến trúc thì có thể dùng recurrent neural network và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; để học.&lt;/p&gt;
 
@@ -105,6 +105,9 @@ Nhìn chung cách làm truyền thống vẫn là GMM và supervector, nhưng g�
 Nói chung so với bên hình ảnh thì ngoài cái phần features âm thanh ra, phần còn lại (machine learning và pattern recognition) thì cũng không quá khác biệt (dùng chung công nghệ).&lt;/p&gt;
 
 &lt;h2 id=&quot;voice-conversion-text-to-speech-và-speech-synthesis&quot;&gt;Voice Conversion, Text-To-Speech và Speech Synthesis&lt;/h2&gt;
+&lt;p&gt;Cái mảng Voice Transformation (VT, &lt;a class=&quot;citation&quot; href=&quot;#stylianou2008voice&quot;&gt;[29]&lt;/a&gt;) thì phần cổ điển ở trong SGK &lt;a class=&quot;citation&quot; href=&quot;#benesty2008springer&quot;&gt;[30, 31]&lt;/a&gt; rồi, nên mình chỉ tập hợp xem mảng này gần đây họ làm cái gì thôi nhé.
+Đứng về phía ứng dụng bảo mật mà nói thì nói chung mấy cái speech synthesis với voice conversion này là xếp vào hạng mục &lt;strong&gt;spoofing attacks&lt;/strong&gt; vào hệ thống thông tin.
+Tức là mình tìm cách bắt chước giọng nói với tạo ra giọng nói giống thật thì mình là kẻ tấn công rồi!&lt;/p&gt;
 
 &lt;h1 id=&quot;công-nghệ-chính&quot;&gt;Công nghệ chính&lt;/h1&gt;
 
@@ -116,7 +119,7 @@ Nói chung so với bên hình ảnh thì ngoài cái phần features âm thanh 
 
 &lt;h1 id=&quot;lưu-ý-khi-train-model-asrsi&quot;&gt;Lưu ý khi train model ASR/SI&lt;/h1&gt;
 
-&lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
+&lt;h2 id=&quot;giá-thành-khi-train-model-gbbsstate-of-the-art-sota&quot;&gt;Giá thành khi train model gbbsState-of-the-art (SOTA)&lt;/h2&gt;
 
 &lt;p&gt;Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nên chắc mẩm là giá sẽ không mềm rồi.
 Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain &lt;a class=&quot;citation&quot; href=&quot;#zhang2020pushing&quot;&gt;[8]&lt;/a&gt;.
@@ -140,6 +143,7 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;reynolds2000speaker&quot;&gt;Reynolds, D.A., Quatieri, T.F. and Dunn, R.B. 2000. Speaker verification using adapted Gaussian mixture models. &lt;i&gt;Digital signal processing&lt;/i&gt;. 10, 1 (2000), 19–41.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/reynolds2000speaker/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;hinton2012deep&quot;&gt;Hinton, G., Deng, L., Yu, D., Dahl, G.E., Mohamed, A.-rahman, Jaitly, N., Senior, A., Vanhoucke, V., Nguyen, P., Sainath, T.N. and others 2012. Deep neural networks for acoustic modeling in speech recognition: The shared views of four research groups. &lt;i&gt;IEEE Signal processing magazine&lt;/i&gt;. 29, 6 (2012), 82–97.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hinton2012deep/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;yu2016automatic&quot;&gt;Yu, D. and Deng, L. 2016. &lt;i&gt;Automatic speech recognition&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/yu2016automatic/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;young2008hmms&quot;&gt;Young, S. 2008. HMMs and related speech recognition technologies. &lt;i&gt;Springer Handbook of Speech Processing&lt;/i&gt;. Springer. 539–558.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/young2008hmms/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;graves2013speech&quot;&gt;Graves, A., Mohamed, A.-rahman and Hinton, G. 2013. Speech recognition with deep recurrent neural networks. &lt;i&gt;2013 IEEE international conference on acoustics, speech and signal processing&lt;/i&gt; (2013), 6645–6649.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/graves2013speech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;graves2013hybrid&quot;&gt;Graves, A., Jaitly, N. and Mohamed, A.-rahman 2013. Hybrid speech recognition with deep bidirectional LSTM. &lt;i&gt;2013 IEEE workshop on automatic speech recognition and understanding&lt;/i&gt; (2013), 273–278.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/graves2013hybrid/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;panayotov2015librispeech&quot;&gt;Panayotov, V., Chen, G., Povey, D. and Khudanpur, S. 2015. Librispeech: an asr corpus based on public domain audio books. &lt;i&gt;2015 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2015), 5206–5210.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/panayotov2015librispeech/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
@@ -154,7 +158,10 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;paddlepaddle_github&quot;&gt;Guides-Document-PaddlePaddle Deep Learning Platform.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/paddlepaddle_github/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ott2019fairseq&quot;&gt;Ott, M., Edunov, S., Baevski, A., Fan, A., Gross, S., Ng, N., Grangier, D. and Auli, M. 2019. fairseq: A Fast, Extensible Toolkit for Sequence Modeling. &lt;i&gt;Proceedings of NAACL-HLT 2019: Demonstrations&lt;/i&gt; (2019).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ott2019fairseq/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;gemmeke2017audioset&quot;&gt;Gemmeke, J.F., Ellis, D.P.W., Freedman, D., Jansen, A., Lawrence, W., Moore, R.C., Plakal, M. and Ritter, M. 2017. Audio Set: An ontology and human-labeled dataset for audio events. &lt;i&gt;2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)&lt;/i&gt; (2017), 776–780.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gemmeke2017audioset/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;fonseca2019audio&quot;&gt;Fonseca, E., Plakal, M., Font, F., Ellis, D.P.W. and Serra, X. 2019. AUDIO TAGGING WITH NOISY LABELS AND MINIMAL SUPERVISION. &lt;i&gt;Acoustic Scenes and Events 2019 Workshop (DCASE2019)&lt;/i&gt; (2019), 69.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/fonseca2019audio/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;fonseca2019audio&quot;&gt;Fonseca, E., Plakal, M., Font, F., Ellis, D.P.W. and Serra, X. 2019. AUDIO TAGGING WITH NOISY LABELS AND MINIMAL SUPERVISION. &lt;i&gt;Acoustic Scenes and Events 2019 Workshop (DCASE2019)&lt;/i&gt; (2019), 69.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/fonseca2019audio/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;stylianou2008voice&quot;&gt;Stylianou, Y. 2008. Voice transformation. &lt;i&gt;Springer handbook of speech processing&lt;/i&gt;. Springer. 489–504.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/stylianou2008voice/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;benesty2008springer&quot;&gt;Benesty, J., Sondhi, M.M., Huang, Y. and others 2008. &lt;i&gt;Springer handbook of speech processing&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/benesty2008springer/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;rabiner2007introduction&quot;&gt;Rabiner, L.R. and Schafer, R.W. 2007. &lt;i&gt;Introduction to digital speech processing&lt;/i&gt;. Now Publishers Inc.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rabiner2007introduction/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
