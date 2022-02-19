@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 19 Feb 2022 17:27:08 +0900</pubDate>
-    <lastBuildDate>Sat, 19 Feb 2022 17:27:08 +0900</lastBuildDate>
+    <pubDate>Sat, 19 Feb 2022 20:00:04 +0900</pubDate>
+    <lastBuildDate>Sat, 19 Feb 2022 20:00:04 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -109,6 +109,28 @@ Nói chung so với bên hình ảnh thì ngoài cái phần features âm thanh 
 Đứng về phía ứng dụng bảo mật mà nói thì nói chung mấy cái speech synthesis với voice conversion này là xếp vào hạng mục &lt;strong&gt;spoofing attacks&lt;/strong&gt; vào hệ thống thông tin.
 Tức là mình tìm cách bắt chước giọng nói với tạo ra giọng nói giống thật thì mình là kẻ tấn công rồi!&lt;/p&gt;
 
+&lt;p&gt;Nhìn chung cũng có ứng dụng khác như lồng tiếng nhân vật hoạt hình, game, … nhưng nói chung mấy cái tạo dữ liệu giả mạo kiểu synthesis với voice clone này thì có vẻ là nhiều về mảng bảo vệ hệ thống thông tin.
+Thì về hướng này có thể kể đến các chuỗi challenges như ASVspoof &lt;a class=&quot;citation&quot; href=&quot;#wu2015asvspoof&quot;&gt;[32, 33, 34, 35, 36]&lt;/a&gt; hoặc Voice Conversion Challenge &lt;a class=&quot;citation&quot; href=&quot;#toda2016voice&quot;&gt;[37, 38, 39]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/spoof-voice.png&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Bức tranh lớn về mảng anti-spoofing&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Nhìn vào bức tranh lớn trên thì trong chuỗi challenge ASVspoof từ năm 2015, mọi người đã tập trung giải quyết các vấn đề như các đòn tấn công &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;speech synthesis&lt;/code&gt; hay &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;voice conversion&lt;/code&gt;, đến 2017 thì chúng ta làm thêm đòn tấn công &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;replay&lt;/code&gt;, năm 2019 thì cũng không có đòn nào mới, nhưng mình mở rộng bộ dữ liệu của các đòn tấn công lên.
+Bản thân tôi thấy cái mảng này có vẻ cũng thích tấn công hơn là phòng thủ, nên là có vẻ lại bài toán phân biệt thật giả nhãn hiệu Goodfellow.
+Thế là lại hai bên tấn công phòng thủ đuổi bắt lẫn nhau, bên tấn công càng tinh vi thì bên phòng thủ cũng lại nâng cấp vũ trang.
+Kết cục là đuổi bắt không có hồi kết mà ông Goodfellow ông ấy viết mấy cái mô hình neuralnetwork với mấy cái chuyên gia làm hàng giả.
+Thì bây giờ cái này là bên tấn công thì cần phải xem đòn tấn công phải tạo ra sản phẩm “nhái” giống hệt, càng giống, càng tự nhiên càng tốt.
+Rồi nảy sinh cái cycle consitency loss để check xem nhái giống chưa?
+Tuy nhiên vấn đề speech thì có một cái là người phải nghe giống thì mới OK, nên lại phải có &lt;strong&gt;subjective evaluation&lt;/strong&gt; tức là bỏ tiền ra thuê mấy đối tượng thí nghiệm nghe và đánh giá chất lượng âm thanh.
+Thì họ lại nghĩ cái metric là &lt;strong&gt;Mean Opinion Score (MOS)&lt;/strong&gt; tức là lấy ý kiến những người đánh giá, rồi cộng điểm lấy trung bình, xem đoạn âm thanh đã được nhái ổn thỏa chưa.&lt;/p&gt;
+
+&lt;p&gt;Đấy nên tôi thấy mấy cái ứng dụng TTS với synthesis, voice conversion nhìn thì hay hay, xem mấy cái demo cũng này kia phết, nhưng chắc chủ yếu là quay lại chỗ detect &lt;strong&gt;hàng nhái&lt;/strong&gt; là chủ yếu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/spoof-det.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Trên đây là một hệ thống phát hiện hàng nhái âm thanh, mà tức là classifier mang tính phòng thủ.
+Thì bây giờ có vẻ có nhiều hệ thống tấn công rồi, chắc sắp tới cũng phải nâng cấp hệ thống phòng thủ cho nó tương xứng.&lt;/p&gt;
+
 &lt;h1 id=&quot;công-nghệ-chính&quot;&gt;Công nghệ chính&lt;/h1&gt;
 
 &lt;h2 id=&quot;i-vector-và-x-vector-cho-bài-toán-speaker-identification&quot;&gt;i-vector và x-vector cho bài toán Speaker Identification&lt;/h2&gt;
@@ -161,7 +183,15 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;fonseca2019audio&quot;&gt;Fonseca, E., Plakal, M., Font, F., Ellis, D.P.W. and Serra, X. 2019. AUDIO TAGGING WITH NOISY LABELS AND MINIMAL SUPERVISION. &lt;i&gt;Acoustic Scenes and Events 2019 Workshop (DCASE2019)&lt;/i&gt; (2019), 69.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/fonseca2019audio/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;stylianou2008voice&quot;&gt;Stylianou, Y. 2008. Voice transformation. &lt;i&gt;Springer handbook of speech processing&lt;/i&gt;. Springer. 489–504.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/stylianou2008voice/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;benesty2008springer&quot;&gt;Benesty, J., Sondhi, M.M., Huang, Y. and others 2008. &lt;i&gt;Springer handbook of speech processing&lt;/i&gt;. Springer.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/benesty2008springer/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;rabiner2007introduction&quot;&gt;Rabiner, L.R. and Schafer, R.W. 2007. &lt;i&gt;Introduction to digital speech processing&lt;/i&gt;. Now Publishers Inc.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rabiner2007introduction/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;rabiner2007introduction&quot;&gt;Rabiner, L.R. and Schafer, R.W. 2007. &lt;i&gt;Introduction to digital speech processing&lt;/i&gt;. Now Publishers Inc.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/rabiner2007introduction/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;wu2015asvspoof&quot;&gt;Wu, Z., Kinnunen, T., Evans, N., Yamagishi, J., Hanilçi, C., Sahidullah, M. and Sizov, A. 2015. ASVspoof 2015: the first automatic speaker verification spoofing and countermeasures challenge. &lt;i&gt;Sixteenth annual conference of the international speech communication association&lt;/i&gt; (2015).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wu2015asvspoof/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;kinnunen2017asvspoof&quot;&gt;Kinnunen, T., Sahidullah, M., Delgado, H., Todisco, M., Evans, N., Yamagishi, J. and Lee, K.A. 2017. The ASVspoof 2017 challenge: Assessing the limits of replay spoofing attack detection. (2017).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kinnunen2017asvspoof/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;delgado2018asvspoof&quot;&gt;Delgado, H., Todisco, M., Sahidullah, M., Evans, N., Kinnunen, T., Lee, K.A. and Yamagishi, J. 2018. ASVspoof 2017 Version 2.0: meta-data analysis and baseline enhancements. &lt;i&gt;Odyssey 2018-The Speaker and Language Recognition Workshop&lt;/i&gt; (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/delgado2018asvspoof/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;wang2020asvspoof&quot;&gt;Wang, X., Yamagishi, J., Todisco, M., Delgado, H., Nautsch, A., Evans, N., Sahidullah, M., Vestman, V., Kinnunen, T., Lee, K.A. and others 2020. ASVspoof 2019: A large-scale public database of synthesized, converted and replayed speech. &lt;i&gt;Computer Speech &amp;amp; Language&lt;/i&gt;. 64, (2020), 101114.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wang2020asvspoof/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;kamble2020advances&quot;&gt;Kamble, M.R., Sailor, H.B., Patil, H.A. and Li, H. 2020. Advances in anti-spoofing: from the perspective of ASVspoof challenges. &lt;i&gt;APSIPA Transactions on Signal and Information Processing&lt;/i&gt;. 9, (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kamble2020advances/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;toda2016voice&quot;&gt;Toda, T., Chen, L.-H., Saito, D., Villavicencio, F., Wester, M., Wu, Z. and Yamagishi, J. 2016. The Voice Conversion Challenge 2016. &lt;i&gt;Interspeech&lt;/i&gt; (2016), 1632–1636.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/toda2016voice/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;lorenzo2018voice&quot;&gt;Lorenzo-Trueba, J., Yamagishi, J., Toda, T., Saito, D., Villavicencio, F., Kinnunen, T. and Ling, Z. 2018. The Voice Conversion Challenge 2018: Promoting Development of Parallel and Nonparallel Methods. &lt;i&gt;Proc. Odyssey 2018 The Speaker and Language Recognition Workshop&lt;/i&gt; (2018), 195–202.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lorenzo2018voice/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Yi2020vcc&quot;&gt;Yi, Z., Huang, W.-C., Tian, X., Yamagishi, J., Das, R., Kinnunen, T., Ling, Z.-H. and Toda, T. 2020. Voice Conversion Challenge 2020 –- Intra-lingual semi-parallel and cross-lingual voice conversion –-. (Oct. 2020), 80–98.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/Yi2020vcc/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
