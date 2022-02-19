@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 19 Feb 2022 20:00:04 +0900</pubDate>
-    <lastBuildDate>Sat, 19 Feb 2022 20:00:04 +0900</lastBuildDate>
+    <pubDate>Sun, 20 Feb 2022 00:04:59 +0900</pubDate>
+    <lastBuildDate>Sun, 20 Feb 2022 00:04:59 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -130,6 +130,12 @@ Thì họ lại nghĩ cái metric là &lt;strong&gt;Mean Opinion Score (MOS)&lt;
 
 &lt;p&gt;Trên đây là một hệ thống phát hiện hàng nhái âm thanh, mà tức là classifier mang tính phòng thủ.
 Thì bây giờ có vẻ có nhiều hệ thống tấn công rồi, chắc sắp tới cũng phải nâng cấp hệ thống phòng thủ cho nó tương xứng.&lt;/p&gt;
+
+&lt;p&gt;Nếu theo dõi kết quả của VCC2020 &lt;a class=&quot;citation&quot; href=&quot;#Yi2020vcc&quot;&gt;[39]&lt;/a&gt; thì có vẻ là những team sử dụng mô hình encoder-decoder (tức là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;) đạt kết quả tốt hơn các team dùng GAN.
+Ngoài đánh giá bằng MOS thì để đánh giá chất lượng giọng “nhái” cũng sử dụng similarity scores.
+Với task VCC sẽ có 2 kiểu bài toán là parallel (target audio cũng nói cùng 1 câu với source audio, chỉ khác giọng) hoặc non-parallel (target audio và source khác nhau cả giọng lẫn nội dung).
+ASVspoof thì cũng là challenge sản xuất hàng nhái nhưng có nhiều attacks hơn mỗi voice cloning.
+Nhìn chung, method dẫn đầu cũng là 1 hệ thống end-to-end TTS nốt.&lt;/p&gt;
 
 &lt;h1 id=&quot;công-nghệ-chính&quot;&gt;Công nghệ chính&lt;/h1&gt;
 

@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        3601
+        3721
      words</li>
         <li class="small">20 minutes</li>
     </ul>
@@ -440,6 +440,12 @@ Thì họ lại nghĩ cái metric là <strong>Mean Opinion Score (MOS)</strong> 
 
 <p>Trên đây là một hệ thống phát hiện hàng nhái âm thanh, mà tức là classifier mang tính phòng thủ.
 Thì bây giờ có vẻ có nhiều hệ thống tấn công rồi, chắc sắp tới cũng phải nâng cấp hệ thống phòng thủ cho nó tương xứng.</p>
+
+<p>Nếu theo dõi kết quả của VCC2020 <a class="citation" href="#Yi2020vcc">[39]</a> thì có vẻ là những team sử dụng mô hình encoder-decoder (tức là <code class="language-plaintext highlighter-rouge">seq2seq</code>) đạt kết quả tốt hơn các team dùng GAN.
+Ngoài đánh giá bằng MOS thì để đánh giá chất lượng giọng “nhái” cũng sử dụng similarity scores.
+Với task VCC sẽ có 2 kiểu bài toán là parallel (target audio cũng nói cùng 1 câu với source audio, chỉ khác giọng) hoặc non-parallel (target audio và source khác nhau cả giọng lẫn nội dung).
+ASVspoof thì cũng là challenge sản xuất hàng nhái nhưng có nhiều attacks hơn mỗi voice cloning.
+Nhìn chung, method dẫn đầu cũng là 1 hệ thống end-to-end TTS nốt.</p>
 
 <h1 id="công-nghệ-chính">Công nghệ chính</h1>
 
