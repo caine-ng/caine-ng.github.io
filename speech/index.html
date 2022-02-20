@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        3721
+        4193
      words</li>
-        <li class="small">20 minutes</li>
+        <li class="small">23 minutes</li>
     </ul>
 </div>
 
@@ -313,7 +313,7 @@
   </li>
   <li><a href="#lưu-ý-khi-train-model-asrsi">Lưu ý khi train model ASR/SI</a>
     <ul>
-      <li><a href="#giá-thành-khi-train-model-gbbsstate-of-the-art-sota">Giá thành khi train model gbbsState-of-the-art (SOTA)</a></li>
+      <li><a href="#giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</a></li>
     </ul>
   </li>
   <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
@@ -449,15 +449,80 @@ Nhìn chung, method dẫn đầu cũng là 1 hệ thống end-to-end TTS nốt.<
 
 <h1 id="công-nghệ-chính">Công nghệ chính</h1>
 
+<p>Để extract được feature MFCC thì các bạn có thể dùng thư viện <a href="https://librosa.org/doc/main/generated/librosa.feature.mfcc.html#librosa.feature.mfcc"><code class="language-plaintext highlighter-rouge">librosa</code></a> hoặc <a href="https://projets-lium.univ-lemans.fr/sidekit/api/featuresextractor.html"><code class="language-plaintext highlighter-rouge">sidekit</code></a>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1"># Dùng librosa
+</span><span class="n">librosa</span><span class="p">.</span><span class="n">feature</span><span class="p">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> 
+    <span class="n">sr</span><span class="o">=</span><span class="mi">44100</span><span class="p">,</span> 
+    <span class="n">n_mfcc</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> 
+    <span class="n">lifter</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> 
+    <span class="n">hop_length</span><span class="o">=</span><span class="mi">441</span><span class="p">,</span> 
+    <span class="n">win_length</span><span class="o">=</span><span class="mi">1102</span><span class="p">,</span> 
+    <span class="n">n_fft</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> 
+    <span class="n">window</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">x</span><span class="p">,),</span> 
+    <span class="n">n_mels</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="s">'ortho'</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Trong ví dụ trên tôi extract MFCC từ audio với độ rộng window là 25ms và bước rộng là 10ms (ví dụ, bước thứ nhất sẽ là 25ms + 10ms = 35ms).
+Audio được sample ở 44kHz.
+Xử lý extract MFCC thì quá quen thuộc rồi, các bạn cần chia audio thành các frames theo từng bước 10ms, và độ rộng 25ms nói trên.
+Sau đó trong từng frame, các bạn tính biểu diễn Fourier rời rạc cũng như spectrogram của window.
+Vì tai người khó phân biệt được thay đổi ở tần số thấp nên các bạn cần lọc tín trong không gian tần số theo filter bank để có được feature tốt.
+Sau đó các bạn tính hệ số MFCC, và chỉ cần giữ lại 13 hệ số đầu (thường chỉ dùng 13 hệ số đâù là đủ).
+Như vậy mỗi frame window sẽ được biểu diễn bởi 1 vector 13 chiều, và audio có 489 frames thì sẽ được biểu diễn bởi ma trận \(489\times 13\).</p>
+
 <h2 id="i-vector-và-x-vector-cho-bài-toán-speaker-identification">i-vector và x-vector cho bài toán Speaker Identification</h2>
+<p>Thư viện <code class="language-plaintext highlighter-rouge">sidekit</code> cung cấp implementations tối ưu (song song hóa đa nhiệm) cho cả <a href="https://projets-lium.univ-lemans.fr/sidekit/api/factoranalyser.html">i-vector</a> và <a href="https://projets-lium.univ-lemans.fr/sidekit/api/nnet/xvector.html">x-vector</a>.</p>
+
+<p>Mô hình i-vector như các bạn đã biết:</p>
+
+\[\begin{eqnarray}
+\underbrace{\mathbf{S}}_{\mbox{super-vector}}&amp;=&amp;\underbrace{\mathbf{u}}_{\mbox{speaker-independent UBM vector}}\\\newline
+&amp;+&amp;\underbrace{\mathbf{T}}_{\mbox{total variability matrix}}\underbrace{\mathbf{m}}_{\mbox{i-vector}}\sim \mathcal{N}\left(\mathbf{0};\mathbf{T}\mathbf{T}^\top\right)
+\end{eqnarray}\]
+
+<p>i-vector được giả định là \(\mathbf{m}\sim\mathcal{N}\left(\mathbf{0};\mathbf{I}\right)\) tức là tuân theo phân bố chuẩn. Như vậy, để có thể extract i-vector, các bạn cần train 2 models:</p>
+<ul>
+  <li>Universal Background Model (GMM)</li>
+  <li>Total Variability (TV)</li>
+</ul>
+
+<p>Cả 2 đều train bằng thuật toán EM cả nên rất là <code class="language-plaintext highlighter-rouge">OK EM</code>.
+Ví dụ, các bạn có thể train model UBM với 32 components (thường nên chọn từ 32 components trở lên):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GMM</span>
+<span class="n">gmm</span> <span class="o">=</span> <span class="n">GMM</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">gmm</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>Thì ta cứ lấy hết đặc trưng MFCC của tất cả audio files trong bộ train là có ma trận \(X\) thôi.
+Training Total Variability đòi hỏi phải tính toán zero-order và first-order statistics như trong <a href="https://projets-lium.univ-lemans.fr/sidekit/tutorial/tv_estimation.html">tutorial</a> của sidekit.</p>
 
 <p><img src="/assets/images/i-vector-timeline.jpg" alt="speaker" /></p>
+
+<p>Implementation của <a href="https://projets-lium.univ-lemans.fr/sidekit/_modules/nnet/xvector.html">x-vector</a>.</p>
 
 <h2 id="seq2seq-và-các-transformers-cho-bài-toán-asr"><code class="language-plaintext highlighter-rouge">seq2seq</code> và các Transformers cho bài toán ASR</h2>
 
 <h1 id="lưu-ý-khi-train-model-asrsi">Lưu ý khi train model ASR/SI</h1>
 
-<h2 id="giá-thành-khi-train-model-gbbsstate-of-the-art-sota">Giá thành khi train model gbbsState-of-the-art (SOTA)</h2>
+<h2 id="giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</h2>
 
 <p>Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của <code class="language-plaintext highlighter-rouge">seq2seq</code> nên chắc mẩm là giá sẽ không mềm rồi.
 Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain <a class="citation" href="#zhang2020pushing">[8]</a>.

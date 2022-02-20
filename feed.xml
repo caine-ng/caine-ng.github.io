@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Feb 2022 00:04:59 +0900</pubDate>
-    <lastBuildDate>Sun, 20 Feb 2022 00:04:59 +0900</lastBuildDate>
+    <pubDate>Sun, 20 Feb 2022 16:25:58 +0900</pubDate>
+    <lastBuildDate>Sun, 20 Feb 2022 16:25:58 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -139,15 +139,80 @@ Nhìn chung, method dẫn đầu cũng là 1 hệ thống end-to-end TTS nốt.&
 
 &lt;h1 id=&quot;công-nghệ-chính&quot;&gt;Công nghệ chính&lt;/h1&gt;
 
+&lt;p&gt;Để extract được feature MFCC thì các bạn có thể dùng thư viện &lt;a href=&quot;https://librosa.org/doc/main/generated/librosa.feature.mfcc.html#librosa.feature.mfcc&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;librosa&lt;/code&gt;&lt;/a&gt; hoặc &lt;a href=&quot;https://projets-lium.univ-lemans.fr/sidekit/api/featuresextractor.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sidekit&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;# Dùng librosa
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;librosa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mfcc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;sr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;44100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;n_mfcc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;lifter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;hop_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;441&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;win_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1102&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;n_fft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2048&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,),&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;n_mels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;ortho&apos;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Trong ví dụ trên tôi extract MFCC từ audio với độ rộng window là 25ms và bước rộng là 10ms (ví dụ, bước thứ nhất sẽ là 25ms + 10ms = 35ms).
+Audio được sample ở 44kHz.
+Xử lý extract MFCC thì quá quen thuộc rồi, các bạn cần chia audio thành các frames theo từng bước 10ms, và độ rộng 25ms nói trên.
+Sau đó trong từng frame, các bạn tính biểu diễn Fourier rời rạc cũng như spectrogram của window.
+Vì tai người khó phân biệt được thay đổi ở tần số thấp nên các bạn cần lọc tín trong không gian tần số theo filter bank để có được feature tốt.
+Sau đó các bạn tính hệ số MFCC, và chỉ cần giữ lại 13 hệ số đầu (thường chỉ dùng 13 hệ số đâù là đủ).
+Như vậy mỗi frame window sẽ được biểu diễn bởi 1 vector 13 chiều, và audio có 489 frames thì sẽ được biểu diễn bởi ma trận \(489\times 13\).&lt;/p&gt;
+
 &lt;h2 id=&quot;i-vector-và-x-vector-cho-bài-toán-speaker-identification&quot;&gt;i-vector và x-vector cho bài toán Speaker Identification&lt;/h2&gt;
+&lt;p&gt;Thư viện &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sidekit&lt;/code&gt; cung cấp implementations tối ưu (song song hóa đa nhiệm) cho cả &lt;a href=&quot;https://projets-lium.univ-lemans.fr/sidekit/api/factoranalyser.html&quot;&gt;i-vector&lt;/a&gt; và &lt;a href=&quot;https://projets-lium.univ-lemans.fr/sidekit/api/nnet/xvector.html&quot;&gt;x-vector&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Mô hình i-vector như các bạn đã biết:&lt;/p&gt;
+
+\[\begin{eqnarray}
+\underbrace{\mathbf{S}}_{\mbox{super-vector}}&amp;amp;=&amp;amp;\underbrace{\mathbf{u}}_{\mbox{speaker-independent UBM vector}}\\\newline
+&amp;amp;+&amp;amp;\underbrace{\mathbf{T}}_{\mbox{total variability matrix}}\underbrace{\mathbf{m}}_{\mbox{i-vector}}\sim \mathcal{N}\left(\mathbf{0};\mathbf{T}\mathbf{T}^\top\right)
+\end{eqnarray}\]
+
+&lt;p&gt;i-vector được giả định là \(\mathbf{m}\sim\mathcal{N}\left(\mathbf{0};\mathbf{I}\right)\) tức là tuân theo phân bố chuẩn. Như vậy, để có thể extract i-vector, các bạn cần train 2 models:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Universal Background Model (GMM)&lt;/li&gt;
+  &lt;li&gt;Total Variability (TV)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cả 2 đều train bằng thuật toán EM cả nên rất là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OK EM&lt;/code&gt;.
+Ví dụ, các bạn có thể train model UBM với 32 components (thường nên chọn từ 32 components trở lên):&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.mixture&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GMM&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gmm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GMM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gmm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Thì ta cứ lấy hết đặc trưng MFCC của tất cả audio files trong bộ train là có ma trận \(X\) thôi.
+Training Total Variability đòi hỏi phải tính toán zero-order và first-order statistics như trong &lt;a href=&quot;https://projets-lium.univ-lemans.fr/sidekit/tutorial/tv_estimation.html&quot;&gt;tutorial&lt;/a&gt; của sidekit.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/i-vector-timeline.jpg&quot; alt=&quot;speaker&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Implementation của &lt;a href=&quot;https://projets-lium.univ-lemans.fr/sidekit/_modules/nnet/xvector.html&quot;&gt;x-vector&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;seq2seq-và-các-transformers-cho-bài-toán-asr&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các Transformers cho bài toán ASR&lt;/h2&gt;
 
 &lt;h1 id=&quot;lưu-ý-khi-train-model-asrsi&quot;&gt;Lưu ý khi train model ASR/SI&lt;/h1&gt;
 
-&lt;h2 id=&quot;giá-thành-khi-train-model-gbbsstate-of-the-art-sota&quot;&gt;Giá thành khi train model gbbsState-of-the-art (SOTA)&lt;/h2&gt;
+&lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
 
 &lt;p&gt;Quay lại với mảng ASR, nhìn đi nhìn lại cũng lại hậu duệ của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; nên chắc mẩm là giá sẽ không mềm rồi.
 Như hình dưới tôi đưa ra ví dụ dựa trên mô tả của một nhóm làm về ASR trong Google Brain &lt;a class=&quot;citation&quot; href=&quot;#zhang2020pushing&quot;&gt;[8]&lt;/a&gt;.
