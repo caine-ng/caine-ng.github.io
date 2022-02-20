@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 21 Feb 2022 03:08:04 +0900</pubDate>
-    <lastBuildDate>Mon, 21 Feb 2022 03:08:04 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Feb 2022 04:11:06 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Feb 2022 04:11:06 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -43,8 +43,8 @@ Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\
 &lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 12 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/object-detection/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/object-detection/</guid>
+        <link>https://wanted2.github.io/seq2seq-cv/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/seq2seq-cv/</guid>
         
         <category>Object Detection</category>
         
