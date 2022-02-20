@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Feb 2022 23:06:14 +0900</pubDate>
-    <lastBuildDate>Sun, 20 Feb 2022 23:06:14 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Feb 2022 01:30:04 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Feb 2022 01:30:04 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -211,7 +211,26 @@ Training Total Variability đòi hỏi phải tính toán zero-order và first-o
 
 &lt;h2 id=&quot;seq2seq-và-các-transformers-cho-bài-toán-asr&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các Transformers cho bài toán ASR&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Listen, Attend and Spell (LAS, &lt;a class=&quot;citation&quot; href=&quot;#chan2016listen&quot;&gt;[40]&lt;/a&gt;).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Listen, Attend and Spell (LAS, &lt;a class=&quot;citation&quot; href=&quot;#chan2016listen&quot;&gt;[40]&lt;/a&gt;).&lt;/strong&gt; LAS là 1 kiến trúc kiểu encoder-decoder (listener-speller).
+Phần listener được biểu hiện bằng 1 stacked Bidirectional LSTM (BiLSTM).
+Tuy nhiên, có cải tiến là cho nhỏ size của hidden layers ở mỗi tầng cao hơn.
+Thì nói chung nó là 1 cái BiLSTM (tôi nghĩ cũng không cần giảm size khi lên tầng cao hơn đâu, cứ để nguyên size ấy cũng được! Cứ tầm 256k/năm là ok rồi.)
+Thì công thức chung của BiLSTM với \(\mathbf{h}^j_i\) là biểu diễn &lt;em&gt;ẩn&lt;/em&gt; của tầng \(j\) cho step thứ \(i\).&lt;/p&gt;
+
+\[\mathbf{h}^j_i=\mbox{BiLSTM}\left(\mathbf{h}^j_{i-1},\mathbf{h}^{j-1}_i\right)\]
+
+&lt;p&gt;Còn như LAS thì giảm size khi “thăng chức” lên tầng cao thì sẽ là:&lt;/p&gt;
+
+\[\mathbf{h}^j_i=\mbox{pyramid-BiLSTM}\left(\mathbf{h}^j_{i-1},[\mathbf{h}^{j-1}_{2i}; \mathbf{h}^{j-1}_{2i+1}]\right)\]
+
+&lt;p&gt;Tức là concat (nối) biểu diễn ở tầng dưới nhưng là 2 biểu diễn liên tiếp \(\mathbf{h}^{j-1}_{2i}; \mathbf{h}^{j-1}_{2i+1}\) nhờ vậy mà độ dài của chuỗi output giảm đi một nửa sau mỗi tầng.
+Trong bài báo họ có 3 tầng cao, nên độ dài chuỗi biểu diễn ẩn output cuối của listener sẽ giảm đi chỉ còn bằng 1/8.&lt;/p&gt;
+
+&lt;p&gt;Speller thì họ xài một cái transducer bằng encoder LSTM: attention dùng trạng thái ẩn của encoder và output của listener để tính, và output ra xác suất.&lt;/p&gt;
+
+&lt;p&gt;Các tác giả lý luận tại sao thăng chức thì lại giảm size (tức là tại sao phải dùng cái pyramid?) thì là vì input có thể có hàng ngàn frames, mà nội dung có khi chỉ là câu văn có vài chục âm (phone).
+Thực ra nếu không giảm size có thể dùng CTC hoặc transducer kiểu như của Graves.
+&lt;em&gt;Learning&lt;/em&gt; thì lại dùng hàm loss là log probability, còn decode thì lại dùng beam search.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;SpecAugment &lt;a class=&quot;citation&quot; href=&quot;#park2019specaugment&quot;&gt;[41]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 

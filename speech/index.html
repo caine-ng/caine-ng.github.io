@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        4402
+        4673
      words</li>
-        <li class="small">24 minutes</li>
+        <li class="small">25 minutes</li>
     </ul>
 </div>
 
@@ -521,7 +521,26 @@ Training Total Variability đòi hỏi phải tính toán zero-order và first-o
 
 <h2 id="seq2seq-và-các-transformers-cho-bài-toán-asr"><code class="language-plaintext highlighter-rouge">seq2seq</code> và các Transformers cho bài toán ASR</h2>
 
-<p><strong>Listen, Attend and Spell (LAS, <a class="citation" href="#chan2016listen">[40]</a>).</strong></p>
+<p><strong>Listen, Attend and Spell (LAS, <a class="citation" href="#chan2016listen">[40]</a>).</strong> LAS là 1 kiến trúc kiểu encoder-decoder (listener-speller).
+Phần listener được biểu hiện bằng 1 stacked Bidirectional LSTM (BiLSTM).
+Tuy nhiên, có cải tiến là cho nhỏ size của hidden layers ở mỗi tầng cao hơn.
+Thì nói chung nó là 1 cái BiLSTM (tôi nghĩ cũng không cần giảm size khi lên tầng cao hơn đâu, cứ để nguyên size ấy cũng được! Cứ tầm 256k/năm là ok rồi.)
+Thì công thức chung của BiLSTM với \(\mathbf{h}^j_i\) là biểu diễn <em>ẩn</em> của tầng \(j\) cho step thứ \(i\).</p>
+
+\[\mathbf{h}^j_i=\mbox{BiLSTM}\left(\mathbf{h}^j_{i-1},\mathbf{h}^{j-1}_i\right)\]
+
+<p>Còn như LAS thì giảm size khi “thăng chức” lên tầng cao thì sẽ là:</p>
+
+\[\mathbf{h}^j_i=\mbox{pyramid-BiLSTM}\left(\mathbf{h}^j_{i-1},[\mathbf{h}^{j-1}_{2i}; \mathbf{h}^{j-1}_{2i+1}]\right)\]
+
+<p>Tức là concat (nối) biểu diễn ở tầng dưới nhưng là 2 biểu diễn liên tiếp \(\mathbf{h}^{j-1}_{2i}; \mathbf{h}^{j-1}_{2i+1}\) nhờ vậy mà độ dài của chuỗi output giảm đi một nửa sau mỗi tầng.
+Trong bài báo họ có 3 tầng cao, nên độ dài chuỗi biểu diễn ẩn output cuối của listener sẽ giảm đi chỉ còn bằng 1/8.</p>
+
+<p>Speller thì họ xài một cái transducer bằng encoder LSTM: attention dùng trạng thái ẩn của encoder và output của listener để tính, và output ra xác suất.</p>
+
+<p>Các tác giả lý luận tại sao thăng chức thì lại giảm size (tức là tại sao phải dùng cái pyramid?) thì là vì input có thể có hàng ngàn frames, mà nội dung có khi chỉ là câu văn có vài chục âm (phone).
+Thực ra nếu không giảm size có thể dùng CTC hoặc transducer kiểu như của Graves.
+<em>Learning</em> thì lại dùng hàm loss là log probability, còn decode thì lại dùng beam search.</p>
 
 <p><strong>SpecAugment <a class="citation" href="#park2019specaugment">[41]</a>.</strong></p>
 
