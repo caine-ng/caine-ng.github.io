@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Feb 2022 21:53:44 +0900</pubDate>
-    <lastBuildDate>Sun, 20 Feb 2022 21:53:44 +0900</lastBuildDate>
+    <pubDate>Sun, 20 Feb 2022 23:06:14 +0900</pubDate>
+    <lastBuildDate>Sun, 20 Feb 2022 23:06:14 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -215,7 +215,9 @@ Training Total Variability đòi hỏi phải tính toán zero-order và first-o
 
 &lt;p&gt;&lt;strong&gt;SpecAugment &lt;a class=&quot;citation&quot; href=&quot;#park2019specaugment&quot;&gt;[41]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;TERA &lt;a class=&quot;citation&quot; href=&quot;#liu2021tera&quot;&gt;[42]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wav2vec&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#schneider2019wav2vec&quot;&gt;[42, 43]&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TERA &lt;a class=&quot;citation&quot; href=&quot;#liu2021tera&quot;&gt;[44]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;HuBERT &lt;a class=&quot;citation&quot; href=&quot;#hsu2021hubert&quot;&gt;[3]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
 
@@ -276,6 +278,8 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;Yi2020vcc&quot;&gt;Yi, Z., Huang, W.-C., Tian, X., Yamagishi, J., Das, R., Kinnunen, T., Ling, Z.-H. and Toda, T. 2020. Voice Conversion Challenge 2020 –- Intra-lingual semi-parallel and cross-lingual voice conversion –-. (Oct. 2020), 80–98.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/Yi2020vcc/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;chan2016listen&quot;&gt;Chan, W., Jaitly, N., Le, Q. and Vinyals, O. 2016. Listen, attend and spell: A neural network for large vocabulary conversational speech recognition. &lt;i&gt;2016 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2016), 4960–4964.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/chan2016listen/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;park2019specaugment&quot;&gt;Park, D.S., Chan, W., Zhang, Y., Chiu, C.-C., Zoph, B., Cubuk, E.D. and Le, Q.V. 2019. SpecAugment: A Simple Data Augmentation Method for Automatic Speech Recognition. &lt;i&gt;Proc. Interspeech 2019&lt;/i&gt; (2019), 2613–2617.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/park2019specaugment/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;schneider2019wav2vec&quot;&gt;Schneider, S., Baevski, A., Collobert, R. and Auli, M. 2019. wav2vec: Unsupervised Pre-Training for Speech Recognition. &lt;i&gt;Proc. Interspeech 2019&lt;/i&gt; (2019), 3465–3469.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/schneider2019wav2vec/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;baevski2020wav2vec&quot;&gt;Baevski, A., Zhou, Y., Mohamed, A. and Auli, M. 2020. wav2vec 2.0: A framework for self-supervised learning of speech representations. &lt;i&gt;Advances in Neural Information Processing Systems&lt;/i&gt; (2020), 12449–12460.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/baevski2020wav2vec/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;liu2021tera&quot;&gt;Liu, A.T., Li, S.-W. and Lee, H.-yi 2021. Tera: Self-supervised learning of transformer encoder representation for speech. &lt;i&gt;IEEE/ACM Transactions on Audio, Speech, and Language Processing&lt;/i&gt;. 29, (2021), 2351–2366.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2021tera/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
