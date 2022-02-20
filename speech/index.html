@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        4986
+        5234
      words</li>
-        <li class="small">27 minutes</li>
+        <li class="small">29 minutes</li>
     </ul>
 </div>
 
@@ -314,8 +314,11 @@
   <li><a href="#lưu-ý-khi-train-model-asrsi">Lưu ý khi train model ASR/SI</a>
     <ul>
       <li><a href="#giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</a></li>
+      <li><a href="#dữ-liệu">Dữ liệu</a></li>
+      <li><a href="#đánh-giá-chủ-quan">Đánh giá chủ quan</a></li>
     </ul>
   </li>
+  <li><a href="#kết-luận">Kết luận</a></li>
   <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ul>
                     </div>
@@ -579,6 +582,28 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
 <p>Nhìn vào bảng giá trên chắc các bạn cũng thấy là Conformer có sử dụng pretraining của <code class="language-plaintext highlighter-rouge">wav2vec 2.0</code> nên giá pretraining cũng kha khá.
 Trend của mảng này cũng như NLP (mà chắc là cả Computer Vision luôn) là vẫn có pretraining thì độ chính xác cao hơn.
 Tuy nhiên, với mức giá này thì rõ ràng là độ chính xác cao không hề rẻ!</p>
+
+<h2 id="dữ-liệu">Dữ liệu</h2>
+
+<p>Các cụ nói “thiên thời, địa lợi, nhân hòa” là các yếu tố làm nên thành công.
+Thì tức là thời điểm, vật tư và con người.
+Về vật tư thì ngoài máy móc giá thành hơi “chát” như mình đã nói mục trước thì còn vấn đề dữ liệu.
+Nếu các bạn muốn build ứng dụng cho một mảng người dùng nào đó, buộc phải thu thập dữ liệu âm thanh người dùng thì chắc chắn phải chú ý các vấn đề luật pháp, thông tin cá nhân (luật bảo hộ thông tin cá nhân riêng tư, …).
+Ấy vừa là thiên thời mà cũng là nhân hòa.</p>
+
+<h2 id="đánh-giá-chủ-quan">Đánh giá chủ quan</h2>
+<p>Mà nhân hòa còn một vấn đề nữa là đánh giá chủ quan (subjective evaluation) tức là tính điểm MOS (Mean Opinion Score).</p>
+
+<blockquote>
+  <p>Mean Opinion Score (MOS) tức là dựa trên đánh giá của hội đồng.
+Làm sao thuyết phục được hội đồng lại thành ra vấn đề nhân hòa.</p>
+</blockquote>
+
+<h1 id="kết-luận">Kết luận</h1>
+<p>Nói chung, chúng ta với tầm nhìn quản lý dự án đã loop qua hầu hết các chi tiết trong cái mảng này.
+Tôi nghĩ về mặt cũng không có gì khó khăn lắm.
+Vấn đề là những cái opinion, dữ liệu cá nhân người dùng và giá cả.
+Nên tôi nghĩ cái mảng này cũng lại kiểu ngạn ngữ Trung Quốc: muốn thành công cần hội đủ <code class="language-plaintext highlighter-rouge">thiên thời, địa lợi, nhân hòa</code>.</p>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
