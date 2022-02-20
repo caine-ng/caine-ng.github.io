@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        4878
+        4986
      words</li>
         <li class="small">27 minutes</li>
     </ul>
@@ -559,7 +559,10 @@ Vì vậy mình có thể combine lại thành score mới khi làm beam search:
 <strong>HuBERT <a class="citation" href="#hsu2021hubert">[3]</a></strong> cũng là một biểu diễn kiểu self-supervised khác cũng dùng kiểu pretext là masking và đạt hiệu suất cao.
 <strong><code class="language-plaintext highlighter-rouge">wav2vec</code> <a class="citation" href="#schneider2019wav2vec">[43, 44]</a></strong> cũng là pretraining để learn biểu diễn kiểu self-supervised, nhưng task pretext không phải masking/reconstruction mà là predict next words.</p>
 
-<p><strong>Conformer <a class="citation" href="#gulati2020conformer">[7, 8]</a>.</strong></p>
+<p><strong>Conformer <a class="citation" href="#gulati2020conformer">[7, 8]</a>.</strong> thì kết hợp cả SpecAugment và wav2vec 2.0 cho pretraining, cộng thêm cải tạo cái Transformer block thành Conformer block (mang convolution trở lại!).
+Mà nói chung là train tốn kém (xem mục bên dưới nha!).</p>
+
+<p><img src="/assets/images/conformer.png" alt="TERA" /></p>
 
 <h1 id="lưu-ý-khi-train-model-asrsi">Lưu ý khi train model ASR/SI</h1>
 
@@ -572,6 +575,10 @@ Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi c
 Tóm lại là cuộc chơi của người giàu các bạn ạ!</p>
 
 <p><img src="/assets/images/asr-price-deep-models.jpg" alt="pricing" /></p>
+
+<p>Nhìn vào bảng giá trên chắc các bạn cũng thấy là Conformer có sử dụng pretraining của <code class="language-plaintext highlighter-rouge">wav2vec 2.0</code> nên giá pretraining cũng kha khá.
+Trend của mảng này cũng như NLP (mà chắc là cả Computer Vision luôn) là vẫn có pretraining thì độ chính xác cao hơn.
+Tuy nhiên, với mức giá này thì rõ ràng là độ chính xác cao không hề rẻ!</p>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 

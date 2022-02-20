@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 21 Feb 2022 01:47:36 +0900</pubDate>
-    <lastBuildDate>Mon, 21 Feb 2022 01:47:36 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Feb 2022 02:13:44 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Feb 2022 02:13:44 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -249,7 +249,10 @@ Vì vậy mình có thể combine lại thành score mới khi làm beam search:
 &lt;strong&gt;HuBERT &lt;a class=&quot;citation&quot; href=&quot;#hsu2021hubert&quot;&gt;[3]&lt;/a&gt;&lt;/strong&gt; cũng là một biểu diễn kiểu self-supervised khác cũng dùng kiểu pretext là masking và đạt hiệu suất cao.
 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wav2vec&lt;/code&gt; &lt;a class=&quot;citation&quot; href=&quot;#schneider2019wav2vec&quot;&gt;[43, 44]&lt;/a&gt;&lt;/strong&gt; cũng là pretraining để learn biểu diễn kiểu self-supervised, nhưng task pretext không phải masking/reconstruction mà là predict next words.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[7, 8]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[7, 8]&lt;/a&gt;.&lt;/strong&gt; thì kết hợp cả SpecAugment và wav2vec 2.0 cho pretraining, cộng thêm cải tạo cái Transformer block thành Conformer block (mang convolution trở lại!).
+Mà nói chung là train tốn kém (xem mục bên dưới nha!).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/conformer.png&quot; alt=&quot;TERA&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;lưu-ý-khi-train-model-asrsi&quot;&gt;Lưu ý khi train model ASR/SI&lt;/h1&gt;
 
@@ -262,6 +265,10 @@ Kết luận chung là để mà train vài ngày trên bộ Librispeech thôi c
 Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/asr-price-deep-models.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nhìn vào bảng giá trên chắc các bạn cũng thấy là Conformer có sử dụng pretraining của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wav2vec 2.0&lt;/code&gt; nên giá pretraining cũng kha khá.
+Trend của mảng này cũng như NLP (mà chắc là cả Computer Vision luôn) là vẫn có pretraining thì độ chính xác cao hơn.
+Tuy nhiên, với mức giá này thì rõ ràng là độ chính xác cao không hề rẻ!&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
