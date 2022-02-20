@@ -5,9 +5,55 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 21 Feb 2022 02:22:15 +0900</pubDate>
-    <lastBuildDate>Mon, 21 Feb 2022 02:22:15 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Feb 2022 02:44:45 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Feb 2022 02:44:45 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Object Detection Pricing</title>
+        <description>&lt;h1 id=&quot;lưu-ý-khi-train-model-object-detection&quot;&gt;Lưu ý khi train model object detection&lt;/h1&gt;
+
+&lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
+
+&lt;p&gt;Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO &lt;a class=&quot;citation&quot; href=&quot;#lin2014microsoft&quot;&gt;[1]&lt;/a&gt; tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim.
+Mà các bạn cũng nhớ giá này là giá &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; tức là có thể bị interrupt giữa chừng nên mới rẻ thế.
+Chứ nếu bạn mà chọn &lt;a href=&quot;https://aws.amazon.com/ec2/pricing/on-demand/&quot;&gt;&lt;strong&gt;on-demand&lt;/strong&gt;&lt;/a&gt; thì có mà gấp 10 lần.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/detr-cost-analysis.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé.
+Bộ Open Images &lt;a class=&quot;citation&quot; href=&quot;#kuznetsova2020open&quot;&gt;[2]&lt;/a&gt; với 1.7 triệu ảnh thì còn máu nữa.
+Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): &lt;a href=&quot;https://www.kaggle.com/c/open-images-2019-object-detection/discussion/110953&quot;&gt;Kaggle Open Images 2019 challenge 6th place solution&lt;/a&gt;.
+Thì kết quả là đồng chí ấy báo cáo:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; để làm phân tích giá nhé) rồi ensemble.&lt;/li&gt;
+  &lt;li&gt;mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau.&lt;/li&gt;
+  &lt;li&gt;sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS).&lt;/li&gt;
+  &lt;li&gt;Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/open-images-price.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; thì giá mềm nhất là &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; cũng tầm $0.918/h.
+Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train.&lt;/p&gt;
+
+&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;lin2014microsoft&quot;&gt;Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. &lt;i&gt;European conference on computer vision&lt;/i&gt; (2014), 740–755.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lin2014microsoft/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sat, 12 Feb 2022 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/object-detection/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/object-detection/</guid>
+        
+        <category>Object detection</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Artificial Intelligence</category>
+        
+      </item>
     
       <item>
         <title>Speech and Sequence-to-sequence</title>
@@ -2635,136 +2681,6 @@ Do đó, phần lớn các công ty giống nhau cả về sản phẩm lẫn st
         <category>Tiếng Việt, 日本語</category>
         
         <category>Project Management</category>
-        
-      </item>
-    
-      <item>
-        <title>Chia tay 2021!</title>
-        <description>&lt;p&gt;Đây là bài post thứ 61 của blog AiFi trong năm 2021, cũng là bài viết chia tay 2021, trong tâm thế đón chờ 2022 tươi mới hơn.
-Theo quan điểm làm việc scrum, thì coi như đây là thời điểm kết thúc 1 chu kỳ, cũng là lúc làm một số việc để nhìn lại một năm đã qua (bao gồm cả GKPT hay &lt;em&gt;Good, Keep, Problem, Try&lt;/em&gt;).
-2021年中61番目の投稿です．
-2021年と別れて，2022年を迎える時期の投稿です．
-一年間を1スプリントとすると，いろいろなことができたと思いますので，スクラムの行事として，レビューとレトロ会をここで開催したいと思います．
-&lt;em&gt;Good, Keep, Problem, Try&lt;/em&gt; も含めてやります．
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;nhìn-lại-năm-2021-của-blog-aifi&quot;&gt;Nhìn lại năm 2021 của blog AiFi&lt;/h1&gt;
-
-&lt;h2 id=&quot;nhìn-từ-thống-kê-người-dùng&quot;&gt;Nhìn từ thống kê người dùng&lt;/h2&gt;
-
-&lt;p&gt;Hiện tại AiFi blog sử dụng Google Analytics để track và lấy thống kê người dùng.
-Các sự kiện như view, scroll, referal, … được báo cáo theo phút lên server của Google.&lt;/p&gt;
-
-&lt;p&gt;Đầu tiên là thống kê về người dùng và nguồn giới thiệu.
-Trong năm 2021, blog tuy mới ra mắt và còn nhiều khó khăn vất vả nhưng đã thu hút được 552 user mới từ khắp nơi trên thế giới.
-&lt;strong&gt;552 người dùng này đã ghi lại 7309 sự kiện.&lt;/strong&gt;
-Một con số đáng khích lệ với blog mới 1 năm tuổi đời.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Một điểm đáng chú ý là dù facebook.com là nơi tác giả hay chia sẻ bài viết, nhưng &lt;strong&gt;user lại phần lớn đến từ 2 nguồn: google và direct&lt;/strong&gt;.
-Về yếu tố địa lý thì đa phần người dùng đến từ &lt;strong&gt;Việt Nam, Mỹ và Nhật Bản&lt;/strong&gt;.
-Các nước khác vẫn chưa đóng tỷ trọng lớn trong cơ cấu người dùng của AiFi.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Tỷ lệ người dùng của AiFi gia tăng tính từ tháng &lt;strong&gt;7&lt;/strong&gt;.
-Trong năm 2021, &lt;strong&gt;số lượng sự kiện &lt;em&gt;user engagement&lt;/em&gt; là 1852, và số &lt;em&gt;page view&lt;/em&gt; là 2622 lượt&lt;/strong&gt;.
-Ngoài ra, 3 bài viết đạt số lượng truy cập cao nhất (không tính trang chủ) là:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/mOCR-mlkit-androidx-example/&quot;&gt;mOCR: A real-time application of OCR with Google MLKit and Android CameraX&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/adobe-creative-cloud/&quot;&gt;Adobe Creative Cloud: An All-in-One Platform for Creators&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/aws-lambda-spacy-mxnet-possible-but-shouldnt/&quot;&gt;Implementing a complex system in AWS Lambda: Should or shouldn’t?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sự “vùng lên” của bài viết &lt;a href=&quot;/adobe-creative-cloud/&quot;&gt;Adobe Creative Cloud: An All-in-One Platform for Creators&lt;/a&gt; thật thú vị vì bài viết được xuất bản trên blog AiFi vào tháng cuối năm nhưng lại đứng thứ nhì.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-03.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Về hệ điều hành, trình duyệt và ngôn ngữ đầu vẫn là &lt;strong&gt;Windows, Chrome và English&lt;/strong&gt;.
-Theo sau lần lượt là &lt;strong&gt;MacOS, Safari và tiếng Nhật&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;nhìn-từ-kết-quả-tìm-kiếm&quot;&gt;Nhìn từ kết quả tìm kiếm&lt;/h2&gt;
-
-&lt;p&gt;Kết quả tìm kiếm về “AiFi Caineng” trên google.com và Bing Search trong ngày 31 tháng 12 năm 2021 như sau:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/aifi-search-engines-2021.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Kết quả tìm kiếm từ khóa “aifi” và thậm chí “aifi caineng” quả là hơi nghèo nàn và dễ bị lẫn vào các từ khóa tìm kiếm khác như “wifi” chẳng hạn.
-Đây cũng là 1 thiếu sót do blog mới chỉ 1 năm, và tác giả vẫn đang bận bịu công việc chính cuả tác giả.
-Tuy nhiên, từ năm 2022, ở mức độ nhất định việc nâng rank trong các cỗ máy tìm kiếm từ khóa sẽ được &lt;strong&gt;tối ưu hóa&lt;/strong&gt; nhằm đưa tri thức của AiFi đến với đông đảo bạn đọc và nâng cao chất lượng phục vụ.&lt;/p&gt;
-
-&lt;h1 id=&quot;good-keep-problem-try&quot;&gt;Good, Keep, Problem, Try&lt;/h1&gt;
-
-&lt;p&gt;Việc chạy sprint kéo dài 1 năm quả là hơi lạ, tuy nhiên là cũng dễ hiểu vì viết blog chỉ là việc phụ làm trong thời gian rảnh rỗi của tác giả.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Good&lt;/th&gt;
-      &lt;th&gt;Keep&lt;/th&gt;
-      &lt;th&gt;Problem&lt;/th&gt;
-      &lt;th&gt;Try&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Đã tạo được và thu hút lượng người dùng nhất định.&lt;/td&gt;
-      &lt;td&gt;Duy trì tần suất chia sẻ bài viết.&lt;/td&gt;
-      &lt;td&gt;Thứ hạng trên search engine chưa cao.&lt;/td&gt;
-      &lt;td&gt;Tối ưu hóa SEO&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Tối ưu hóa từ khóa&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Tối ưu thẻ HTML, …&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Chưa tạo ra thu nhập từ blog&lt;/td&gt;
-      &lt;td&gt;Xem xét đưa vào và tối ưu hóa quảng cáo.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Các nguồn Google và Facebook đã đem đến lượng người dùng nhất định.&lt;/td&gt;
-      &lt;td&gt;Tiếp tục duy trì quảng bá trên Google và Facebook.&lt;/td&gt;
-      &lt;td&gt;Nguồn Facebook chưa đem lại nhiều người dùng mới.&lt;/td&gt;
-      &lt;td&gt;Tối ưu hóa quảng bá blog trên Facebook.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Một số nguồn cấp khác như Twitter và LinkedIn vẫn chưa đem lại nhiều người dùng.&lt;/td&gt;
-      &lt;td&gt;Lên chiến lược quảng bá trên các nền tảng này.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&quot;tổng-kết&quot;&gt;Tổng kết&lt;/h1&gt;
-
-&lt;p&gt;Kết thúc Sprint 2021, hướng tới Sprint 2022, blog AiFi xin cám ơn đông đảo bạn đọc, đặc biệt là 552 người dùng đã có, vì sự quan tâm và thịnh tình trong năm qua.
-Trong năm 2022, AiFi sẽ tiếp tục cập nhật và mong muốn lan tỏa tri thức cho anh em, với phương châm, troll trước học sau.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 31 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/year-end/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/year-end/</guid>
-        
-        <category>Event</category>
-        
-        <category>Year-end event</category>
-        
-        
-        <category>Tiếng Việt, 日本語</category>
         
       </item>
     
