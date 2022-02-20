@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Feb 2022 16:25:58 +0900</pubDate>
-    <lastBuildDate>Sun, 20 Feb 2022 16:25:58 +0900</lastBuildDate>
+    <pubDate>Sun, 20 Feb 2022 21:53:44 +0900</pubDate>
+    <lastBuildDate>Sun, 20 Feb 2022 21:53:44 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -156,7 +156,7 @@ Nhìn chung, method dẫn đầu cũng là 1 hệ thống end-to-end TTS nốt.&
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;# Dùng librosa
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;librosa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;feature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mfcc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;signal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
     &lt;span class=&quot;n&quot;&gt;sr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;44100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;n_mfcc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;n&quot;&gt;n_mfcc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
     &lt;span class=&quot;n&quot;&gt;lifter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
     &lt;span class=&quot;n&quot;&gt;hop_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;441&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
     &lt;span class=&quot;n&quot;&gt;win_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1102&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
@@ -172,8 +172,9 @@ Audio được sample ở 44kHz.
 Xử lý extract MFCC thì quá quen thuộc rồi, các bạn cần chia audio thành các frames theo từng bước 10ms, và độ rộng 25ms nói trên.
 Sau đó trong từng frame, các bạn tính biểu diễn Fourier rời rạc cũng như spectrogram của window.
 Vì tai người khó phân biệt được thay đổi ở tần số thấp nên các bạn cần lọc tín trong không gian tần số theo filter bank để có được feature tốt.
-Sau đó các bạn tính hệ số MFCC, và chỉ cần giữ lại 13 hệ số đầu (thường chỉ dùng 13 hệ số đâù là đủ).
-Như vậy mỗi frame window sẽ được biểu diễn bởi 1 vector 13 chiều, và audio có 489 frames thì sẽ được biểu diễn bởi ma trận \(489\times 13\).&lt;/p&gt;
+Sau đó các bạn tính hệ số MFCC, và chỉ cần giữ lại 13-20 hệ số đầu (thường chỉ dùng 13 hệ số đâù là đủ).
+Như vậy mỗi frame window sẽ được biểu diễn bởi 1 vector 13-20 chiều, và audio có 489 frames thì sẽ được biểu diễn bởi ma trận \(489\times d\). 
+Sau khi sử dụng filter bank, bạn cũng cần dùng Discrete Cosine Transform để lấy được feature robust.&lt;/p&gt;
 
 &lt;h2 id=&quot;i-vector-và-x-vector-cho-bài-toán-speaker-identification&quot;&gt;i-vector và x-vector cho bài toán Speaker Identification&lt;/h2&gt;
 &lt;p&gt;Thư viện &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sidekit&lt;/code&gt; cung cấp implementations tối ưu (song song hóa đa nhiệm) cho cả &lt;a href=&quot;https://projets-lium.univ-lemans.fr/sidekit/api/factoranalyser.html&quot;&gt;i-vector&lt;/a&gt; và &lt;a href=&quot;https://projets-lium.univ-lemans.fr/sidekit/api/nnet/xvector.html&quot;&gt;x-vector&lt;/a&gt;.&lt;/p&gt;
@@ -210,6 +211,16 @@ Training Total Variability đòi hỏi phải tính toán zero-order và first-o
 
 &lt;h2 id=&quot;seq2seq-và-các-transformers-cho-bài-toán-asr&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; và các Transformers cho bài toán ASR&lt;/h2&gt;
 
+&lt;p&gt;&lt;strong&gt;Listen, Attend and Spell (LAS, &lt;a class=&quot;citation&quot; href=&quot;#chan2016listen&quot;&gt;[40]&lt;/a&gt;).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SpecAugment &lt;a class=&quot;citation&quot; href=&quot;#park2019specaugment&quot;&gt;[41]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TERA &lt;a class=&quot;citation&quot; href=&quot;#liu2021tera&quot;&gt;[42]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HuBERT &lt;a class=&quot;citation&quot; href=&quot;#hsu2021hubert&quot;&gt;[3]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conformer &lt;a class=&quot;citation&quot; href=&quot;#gulati2020conformer&quot;&gt;[7, 8]&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;lưu-ý-khi-train-model-asrsi&quot;&gt;Lưu ý khi train model ASR/SI&lt;/h1&gt;
 
 &lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
@@ -230,7 +241,7 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;kenny2007joint&quot;&gt;Kenny, P., Boulianne, G., Ouellet, P. and Dumouchel, P. 2007. Joint factor analysis versus eigenchannels in speaker recognition. &lt;i&gt;IEEE Transactions on Audio, Speech, and Language Processing&lt;/i&gt;. 15, 4 (2007), 1435–1447.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kenny2007joint/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;dehak2011frontend&quot;&gt;Dehak, N., Kenny, P.J., Dehak, R., Dumouchel, P. and Ouellet, P. 2011. Front-End Factor Analysis for Speaker Verification. &lt;i&gt;IEEE Transactions on Audio, Speech, and Language Processing&lt;/i&gt;. 19, 4 (2011), 788–798. DOI:https://doi.org/10.1109/TASL.2010.2064307.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dehak2011frontend/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;snyder2018x&quot;&gt;Snyder, D., Garcia-Romero, D., Sell, G., Povey, D. and Khudanpur, S. 2018. X-vectors: Robust dnn embeddings for speaker recognition. &lt;i&gt;2018 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2018), 5329–5333.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/snyder2018x/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;gulati2020conformer&quot;&gt;Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. &lt;i&gt;Proc. Interspeech 2020&lt;/i&gt;. (2020), 5036–5040.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gulati2020conformer/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;gulati2020conformer&quot;&gt;Gulati, A., Qin, J., Chiu, C.-C., Parmar, N., Zhang, Y., Yu, J., Han, W., Wang, S., Zhang, Z., Wu, Y. and others 2020. Conformer: Convolution-augmented Transformer for Speech Recognition. &lt;i&gt;Proc. Interspeech 2020&lt;/i&gt; (2020), 5036–5040.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gulati2020conformer/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;zhang2020pushing&quot;&gt;Zhang, Y., Qin, J., Park, D.S., Han, W., Chiu, C.-C., Pang, R., Le, Q.V. and Wu, Y. 2020. Pushing the limits of semi-supervised learning for automatic speech recognition. &lt;i&gt;arXiv preprint arXiv:2010.10504&lt;/i&gt;. (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/zhang2020pushing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;reynolds1995robust&quot;&gt;Reynolds, D.A. and Rose, R.C. 1995. Robust text-independent speaker identification using Gaussian mixture speaker models. &lt;i&gt;IEEE transactions on speech and audio processing&lt;/i&gt;. 3, 1 (1995), 72–83.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/reynolds1995robust/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;reynolds2000speaker&quot;&gt;Reynolds, D.A., Quatieri, T.F. and Dunn, R.B. 2000. Speaker verification using adapted Gaussian mixture models. &lt;i&gt;Digital signal processing&lt;/i&gt;. 10, 1 (2000), 19–41.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/reynolds2000speaker/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
@@ -262,7 +273,10 @@ Tóm lại là cuộc chơi của người giàu các bạn ạ!&lt;/p&gt;
 &lt;li&gt;&lt;span id=&quot;kamble2020advances&quot;&gt;Kamble, M.R., Sailor, H.B., Patil, H.A. and Li, H. 2020. Advances in anti-spoofing: from the perspective of ASVspoof challenges. &lt;i&gt;APSIPA Transactions on Signal and Information Processing&lt;/i&gt;. 9, (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kamble2020advances/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;toda2016voice&quot;&gt;Toda, T., Chen, L.-H., Saito, D., Villavicencio, F., Wester, M., Wu, Z. and Yamagishi, J. 2016. The Voice Conversion Challenge 2016. &lt;i&gt;Interspeech&lt;/i&gt; (2016), 1632–1636.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/toda2016voice/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;lorenzo2018voice&quot;&gt;Lorenzo-Trueba, J., Yamagishi, J., Toda, T., Saito, D., Villavicencio, F., Kinnunen, T. and Ling, Z. 2018. The Voice Conversion Challenge 2018: Promoting Development of Parallel and Nonparallel Methods. &lt;i&gt;Proc. Odyssey 2018 The Speaker and Language Recognition Workshop&lt;/i&gt; (2018), 195–202.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lorenzo2018voice/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Yi2020vcc&quot;&gt;Yi, Z., Huang, W.-C., Tian, X., Yamagishi, J., Das, R., Kinnunen, T., Ling, Z.-H. and Toda, T. 2020. Voice Conversion Challenge 2020 –- Intra-lingual semi-parallel and cross-lingual voice conversion –-. (Oct. 2020), 80–98.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/Yi2020vcc/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;Yi2020vcc&quot;&gt;Yi, Z., Huang, W.-C., Tian, X., Yamagishi, J., Das, R., Kinnunen, T., Ling, Z.-H. and Toda, T. 2020. Voice Conversion Challenge 2020 –- Intra-lingual semi-parallel and cross-lingual voice conversion –-. (Oct. 2020), 80–98.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/Yi2020vcc/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;chan2016listen&quot;&gt;Chan, W., Jaitly, N., Le, Q. and Vinyals, O. 2016. Listen, attend and spell: A neural network for large vocabulary conversational speech recognition. &lt;i&gt;2016 IEEE international conference on acoustics, speech and signal processing (ICASSP)&lt;/i&gt; (2016), 4960–4964.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/chan2016listen/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;park2019specaugment&quot;&gt;Park, D.S., Chan, W., Zhang, Y., Chiu, C.-C., Zoph, B., Cubuk, E.D. and Le, Q.V. 2019. SpecAugment: A Simple Data Augmentation Method for Automatic Speech Recognition. &lt;i&gt;Proc. Interspeech 2019&lt;/i&gt; (2019), 2613–2617.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/park2019specaugment/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;liu2021tera&quot;&gt;Liu, A.T., Li, S.-W. and Lee, H.-yi 2021. Tera: Self-supervised learning of transformer encoder representation for speech. &lt;i&gt;IEEE/ACM Transactions on Audio, Speech, and Language Processing&lt;/i&gt;. 29, (2021), 2351–2366.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2021tera/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
