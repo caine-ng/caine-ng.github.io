@@ -5,12 +5,12 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 21 Feb 2022 02:44:45 +0900</pubDate>
-    <lastBuildDate>Mon, 21 Feb 2022 02:44:45 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Feb 2022 03:08:04 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Feb 2022 03:08:04 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
-        <title>Object Detection Pricing</title>
+        <title>Seq2Seq for Computer Vision</title>
         <description>&lt;h1 id=&quot;lưu-ý-khi-train-model-object-detection&quot;&gt;Lưu ý khi train model object detection&lt;/h1&gt;
 
 &lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
@@ -46,12 +46,32 @@ Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\
         <link>https://wanted2.github.io/object-detection/</link>
         <guid isPermaLink="true">https://wanted2.github.io/object-detection/</guid>
         
-        <category>Object detection</category>
+        <category>Object Detection</category>
+        
+        <category>Object Recognition</category>
+        
+        <category>Image Segmentation</category>
+        
+        <category>Temporal Segmentation</category>
+        
+        <category>Sequence-to-sequence</category>
+        
+        <category>seq2seq</category>
+        
+        <category>Transformer</category>
+        
+        <category>Self-supervised learning</category>
+        
+        <category>BERT</category>
+        
+        <category>Vision Transformer</category>
         
         
         <category>Tiếng Việt, 日本語</category>
         
         <category>Artificial Intelligence</category>
+        
+        <category>Computer Vision</category>
         
       </item>
     
