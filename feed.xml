@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Feb 2022 03:55:30 +0900</pubDate>
-    <lastBuildDate>Wed, 23 Feb 2022 03:55:30 +0900</lastBuildDate>
+    <pubDate>Wed, 23 Feb 2022 03:59:02 +0900</pubDate>
+    <lastBuildDate>Wed, 23 Feb 2022 03:59:02 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -308,7 +308,7 @@ Trong năm 2022, AiFi sẽ tiếp tục cập nhật và mong muốn lan tỏa t
     
       <item>
         <title>Nghịch ngợm Svelte và câu chuyện code JS thuần 10 năm trước</title>
-        <description>&lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#DocsSve0:online&quot;&gt;[1]&lt;/a&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
+        <description>&lt;p&gt;&lt;strong&gt;Svelte&lt;/strong&gt;&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; là một framework của ngôn ngữ Javascript, với mô hình &lt;strong&gt;bi-direction data binding&lt;/strong&gt; (MVVM) khiến cho trạng thái và hiển thị luôn đồng bộ, cũng giống như những người anh em khác như Vue.js, ReactJS hay AngularJS.
 Tuy nhiên, một ưu điểm của Svelte là cấu trúc ngôn ngữ rất thanh thoát, khiến cho lượng code mà người lập trình cần viết rất ít.
 Lật lại lịch sử của các JS Framework, có thể lần lại từ khoảng 2006, khi JQuery ra đời với một bước tiến trong xử lý JS dạng embedding (nhúng) vào trong trang HTML.
 Với JQuery, mô hình lập trình là bạn có thể nhúng những snippet code JS vào trong HTML một cách thuận tiện và control hiển thị cũng như xử lý tại frontend.
@@ -323,8 +323,9 @@ Nhưng cùng lúc đó, 2013, Facebook, gã nhà giàu mới nổi, bắt đầu
 Và cùng năm 2013, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReactJS&lt;/code&gt;, cũng là một JS framework được FB o bế cũng ra đời và làm mưa làm gió.
 Hồi đó cũng có tranh luận là lên tiếp tục &lt;strong&gt;chịu đựng JQuery&lt;/strong&gt; hay chuyển sang data binding là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AngularJS&lt;/code&gt; hoặc &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ReactJS&lt;/code&gt; mà cuối cùng có vẻ là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AngularJS&lt;/code&gt; đã được chọn.
 Bẵng đi ít lâu, 2013, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VueJS&lt;/code&gt; ra đời và nhanh chóng được chào đón.
-Sau đó gần đây là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Svelte&lt;/code&gt;.
-&lt;!--more--&gt;&lt;/p&gt;
+Sau đó gần đây là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Svelte&lt;/code&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
 
 &lt;h1 id=&quot;một-ví-dụ-hộp-checkbox-check-alluncheck-all-và-bài-toán-reset-hiển-thị-đúng-cách&quot;&gt;Một ví dụ: hộp checkbox &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Check All/Uncheck All&lt;/code&gt; và bài toán reset hiển thị đúng cách&lt;/h1&gt;
 
@@ -438,7 +439,14 @@ Sử dụng Svelte để &lt;strong&gt;trừu tượng hóa&lt;/strong&gt; trạ
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;DocsSve0:online&quot;&gt;Docs • SvelteKit.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/DocsSve0_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://kit.svelte.dev/docs&quot;&gt;Docs • SvelteKit&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Fri, 10 Dec 2021 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/svelte-and-reset-checkboxes-10years-ago/</link>
@@ -474,13 +482,14 @@ Năm 1979, Feige và Pearce &lt;a class=&quot;citation&quot; href=&quot;#feige19
 Năm 1988, Thurman và Fisher &lt;a class=&quot;citation&quot; href=&quot;#thurman1988chickens&quot;&gt;[3]&lt;/a&gt; nghiên cứu chuỗi thời gian về sản lượng trứng cũng như chuỗi dữ liệu về số lượng gà trên toàn nước Mỹ để tìm ra quan hệ nhân quả giữa trứng và gà.
 Họ sử dụng công thức của Granger và lần đầu tiên kết luận mang tính thống kê rằng &lt;strong&gt;trứng có trước và là nguyên nhân sinh ra gà&lt;/strong&gt;.
 Phân tích các chuỗi sự kiện thời gian (time series analysis) và nhân quả/luân hồi giữa các chuỗi là một chủ đề truyền thống của thống kê và kinh tế học.
-Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa &lt;strong&gt;sản lượng lao động và bất bình đăng thu nhập&lt;/strong&gt; hay bài toán &lt;strong&gt;Productivity-Pay Gap&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#TheProdu24:online&quot;&gt;[4]&lt;/a&gt;.
+Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa &lt;strong&gt;sản lượng lao động và bất bình đăng thu nhập&lt;/strong&gt; hay bài toán &lt;strong&gt;Productivity-Pay Gap&lt;/strong&gt;[^1].
 Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).
+[^1]: &lt;a href=&quot;https://www.epi.org/productivity-pay-gap/&quot;&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/a&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;granger-verification&quot;&gt;Granger verification&lt;/h1&gt;
 
-&lt;p&gt;Con gà và quả trứng &lt;a class=&quot;citation&quot; href=&quot;#thurman1988chickens&quot;&gt;[3]&lt;/a&gt;, cũng như Productivity-Pay gap &lt;a class=&quot;citation&quot; href=&quot;#TheProdu24:online&quot;&gt;[4]&lt;/a&gt; là hai ứng dụng cơ bản của Granger method &lt;a class=&quot;citation&quot; href=&quot;#granger1969investigating&quot;&gt;[1]&lt;/a&gt;.
+&lt;p&gt;Con gà và quả trứng &lt;a class=&quot;citation&quot; href=&quot;#thurman1988chickens&quot;&gt;[3]&lt;/a&gt;, cũng như Productivity-Pay gap[^1] là hai ứng dụng cơ bản của Granger method &lt;a class=&quot;citation&quot; href=&quot;#granger1969investigating&quot;&gt;[1]&lt;/a&gt;.
 Giả sử ta có chuỗi thời gian $\mathbf{X}=\{X_t\}_{t=-\infty}^{+\infty}$ với thời điểm $t=0$ là thời điểm bắt đầu quan sát.&lt;/p&gt;
 
 &lt;p&gt;Ta kí hiệu chuỗi tín hiệu quá khứ của thời điểm $t$ là $\overline{\mathbf{X_t}}=\{X_{t-i}\}_{i=1}^{+\infty}$.&lt;/p&gt;
@@ -554,7 +563,7 @@ Tựu chung lại là &lt;em&gt;trứng Mỹ có trước và sinh ra gà Mỹ&l
 &lt;h1 id=&quot;productivity-pay-gap&quot;&gt;Productivity-Pay Gap&lt;/h1&gt;
 
 &lt;p&gt;Hầu hết người Mỹ đều tin rằng &lt;strong&gt;kinh tế phát triển thì người lao động sẽ nhận được reward&lt;/strong&gt;.
-Nhưng theo 1 nghiên cứu gần đây &lt;a class=&quot;citation&quot; href=&quot;#TheProdu24:online&quot;&gt;[4]&lt;/a&gt; thì có vẻ tình hình thu nhập của người lao động Mỹ không phải như vậy.
+Nhưng theo 1 nghiên cứu gần đây[^1] thì có vẻ tình hình thu nhập của người lao động Mỹ không phải như vậy.
 Từ năm 1979, nước Mỹ đã có những thay đổi lớn về chính sách kinh tế, trong đó có nhiều chính sách phục vụ cho người giàu:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -591,8 +600,7 @@ Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Gra
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;granger1969investigating&quot;&gt;Granger, C.W.J. 1969. Investigating causal relations by econometric models and cross-spectral methods. &lt;i&gt;Econometrica: journal of the Econometric Society&lt;/i&gt;. (1969), 424–438.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/granger1969investigating/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;feige1979casual&quot;&gt;Feige, E.L. and Pearce, D.K. 1979. The casual causal relationship between money and income: Some caveats for time series analysis. &lt;i&gt;The Review of Economics and Statistics&lt;/i&gt;. (1979), 521–533.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/feige1979casual/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;thurman1988chickens&quot;&gt;Thurman, W.N., Fisher, M.E. and others 1988. Chickens, eggs, and causality, or which came first. &lt;i&gt;American journal of agricultural economics&lt;/i&gt;. 70, 2 (1988), 237–238.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/thurman1988chickens/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;TheProdu24:online&quot;&gt;The Productivity–Pay Gap | Economic Policy Institute.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/TheProdu24_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;thurman1988chickens&quot;&gt;Thurman, W.N., Fisher, M.E. and others 1988. Chickens, eggs, and causality, or which came first. &lt;i&gt;American journal of agricultural economics&lt;/i&gt;. 70, 2 (1988), 237–238.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/thurman1988chickens/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 20 Nov 2021 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/chicken-and-egg-problem/</link>
@@ -901,7 +909,7 @@ Thêm nữa, đây là migrate &lt;strong&gt;tính năng&lt;/strong&gt; chứ kh
 Such conventional methodologies can be sufficient for small architecture with few components.
 When the software system scales and changes frequently, maintaining records of the architecture by documents can be tedious.
 Hence, the lack of interaction in conventional document methods may present a stiff learning curve for a new member to the project team.
-To cope with these challenges, the &lt;strong&gt;C4 diagram model &lt;a class=&quot;citation&quot; href=&quot;#TheC4mod76:online&quot;&gt;[1]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#ArchiOp50:online&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#brown2013software&quot;&gt;[3]&lt;/a&gt;&lt;/strong&gt; was created to give interactive views of the software architectures.
+To cope with these challenges, the &lt;strong&gt;C4 diagram model&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;, &lt;a class=&quot;citation&quot; href=&quot;#brown2013software&quot;&gt;[1]&lt;/a&gt;&lt;/strong&gt; was created to give interactive views of the software architectures.
 Systems are modeled at four different levels: system context, containers, components, and code.
 These levels are represented by diagrams.
 Intuitively, we can see the C4 diagrams as large visualization systems in which engineers can zoom in and out to see the details and the big picture.&lt;/p&gt;
@@ -1123,7 +1131,7 @@ It illustrates how software systems and/or containers in the static model are ma
 For only diagramming, I would like to recommend the &lt;a href=&quot;https://www.diagrams.net/&quot;&gt;Diagrams.net&lt;/a&gt;, which is very convenient for drawing system architecture.
 It has many toolboxes for drawing deployment diagrams, AWS/GCP/Azure Cloud architectures, etc.&lt;/p&gt;
 
-&lt;p&gt;For modeling the software architectures with diagramming, one can refer to Archi &lt;a class=&quot;citation&quot; href=&quot;#ArchiOp50:online&quot;&gt;[2]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For modeling the software architectures with diagramming, one can refer to Archi&lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;a-tutorial&quot;&gt;A tutorial&lt;/h2&gt;
 
@@ -1139,9 +1147,17 @@ The model was designed for Agile projects and to keep the team communicating bet
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;TheC4mod76:online&quot;&gt;The C4 model for visualising software architecture. https://c4model.com/.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/TheC4mod76_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ArchiOp50:online&quot;&gt;Archi – Open Source ArchiMate Modelling. https://www.archimatetool.com/.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ArchiOp50_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;brown2013software&quot;&gt;Brown, S. 2013. Software architecture for developers. &lt;i&gt;Coding the Architecture&lt;/i&gt;. (2013).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/brown2013software/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;brown2013software&quot;&gt;Brown, S. 2013. Software architecture for developers. &lt;i&gt;Coding the Architecture&lt;/i&gt;. (2013).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/brown2013software/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://c4model.com/&quot;&gt;The C4 model for visualising software architecture&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.archimatetool.com/&quot;&gt;Archi – Open Source ArchiMate Modelling&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Fri, 03 Sep 2021 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/c4-diagrams-software-design/</link>
@@ -2034,7 +2050,7 @@ With this model, AWS Batch jobs requiring two or fewer vCPUs could be immediatel
 &lt;p&gt;Actually, this answer always keeps an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m4.large&lt;/code&gt; instance to be run without being modified and having another group of resources that can be scaled up and down according to the situations.
 Nevertheless, on the trade-off of response time and cost, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus=2&lt;/code&gt; was kept, but the type of the instance was preserved to reduce cost.&lt;/p&gt;
 
-&lt;p&gt;To find more about the parameters of AWS Batch, one can consult with &lt;a class=&quot;citation&quot; href=&quot;#WhatIsAW85:online&quot;&gt;[6]&lt;/a&gt;.
+&lt;p&gt;To find more about the parameters of AWS Batch, one can consult with&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.
 AWS Batch is a batch computing platform with stateful jobs, job queues, GPU jobs, …
 Jobs are the unit of work invoked by AWS Batch.
 Jobs can be invoked as containerized applications running on Amazon ECS container instances in an ECS cluster.&lt;/p&gt;
@@ -2094,8 +2110,14 @@ Future works will direct to the practices of GPU-enabled serverless architecture
 &lt;li&gt;&lt;span id=&quot;witte2019event&quot;&gt;Witte, P.A., Louboutin, M., Modzelewski, H., Jones, C., Selvage, J. and Herrmann, F.J. 2019. Event-driven workflows for large-scale seismic imaging in the cloud. &lt;i&gt;SEG Technical Program Expanded Abstracts 2019&lt;/i&gt;. Society of Exploration Geophysicists. 3984–3988.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/witte2019event/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;balaji2018benchmarking&quot;&gt;Balaji, A. and Allen, A. 2018. Benchmarking automatic machine learning frameworks. &lt;i&gt;arXiv preprint arXiv:1808.06492&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/balaji2018benchmarking/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;qureshi2019reduce&quot;&gt;Qureshi, A.N. 2019. Reduce Cost of Batch Processing Microsoft Azure Cloud. &lt;i&gt;JETIR-International Journal of Emerging Technologies and Innovative Research&lt;/i&gt;. (2019), 2349–5162.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/qureshi2019reduce/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;risco2021gpu&quot;&gt;Risco, S. and Moltó, G. 2021. GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. &lt;i&gt;Applied Sciences&lt;/i&gt;. 11, 4 (2021), 1438.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/risco2021gpu/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;WhatIsAW85:online&quot;&gt;What Is AWS Batch? - AWS Batch. https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/WhatIsAW85_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;risco2021gpu&quot;&gt;Risco, S. and Moltó, G. 2021. GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. &lt;i&gt;Applied Sciences&lt;/i&gt;. 11, 4 (2021), 1438.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/risco2021gpu/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html&quot;&gt;What Is AWS Batch? - AWS Batch&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Thu, 19 Aug 2021 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/idle-time-pricing-models/</link>

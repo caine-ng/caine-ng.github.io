@@ -28,8 +28,8 @@
 <meta property="og:title" content="Pythonによる責任の連鎖" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="責任の連鎖 [1]はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。" />
-<meta property="og:description" content="責任の連鎖 [1]はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。" />
+<meta name="description" content="責任の連鎖1はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。 3. Data model — Python 3.9.6 documentation - Metaclasses &#8617;" />
+<meta property="og:description" content="責任の連鎖1はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。 3. Data model — Python 3.9.6 documentation - Metaclasses &#8617;" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg" />
 <meta property="twitter:title" content="Pythonによる責任の連鎖" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2021-07-15T00:00:00+09:00","datePublished":"2021-07-15T00:00:00+09:00","description":"責任の連鎖 [1]はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。","headline":"Pythonによる責任の連鎖","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-chain-of-responsibility/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/python-chain-of-responsibility/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2021-07-15T00:00:00+09:00","datePublished":"2021-07-15T00:00:00+09:00","description":"責任の連鎖1はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。 もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。 3. Data model — Python 3.9.6 documentation - Metaclasses &#8617;","headline":"Pythonによる責任の連鎖","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Kettenvergleich.jpg/800px-Kettenvergleich.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-chain-of-responsibility/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/python-chain-of-responsibility/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        1685
+        1698
      words</li>
         <li class="small">9 minutes</li>
     </ul>
@@ -311,10 +311,11 @@
                     </div>
                 
                 <!-- End Toc -->
-                <p><strong>責任の連鎖</strong> <a class="citation" href="#3Datamod65:online">[1]</a>はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。
+                <p><strong>責任の連鎖</strong><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>はオブジェクト思考のデザインパターンで、送信者に対して複数の受信者を順次にデータを渡してあげます。
 受信側の処理を一連の部品に分けてして部品化いくため、独立性が高められ、コードの記述も簡略化されます。
-もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。
-<!--more--></p>
+もちろん、処理が長くなるか、デバッグが困難になるというデメリットはあるけれども、連鎖を避けれない場合、ぜひなれたいパターンです。</p>
+
+<!--more-->
 <h1 id="責任の連鎖">責任の連鎖</h1>
 
 <h2 id="責任の連鎖-1">責任の連鎖</h2>
@@ -535,7 +536,14 @@
 
 <h1 id="参考文献">参考文献</h1>
 
-<ol class="bibliography"><li><span id="3Datamod65:online">3. Data model – Python 3.9.6 documentation - Metaclasses. https://docs.python.org/3/reference/datamodel.html#metaclasses.</span><a class="details" href="https://wanted2.github.io/bibliography/3Datamod65_online/">Details</a></li></ol>
+<ol class="bibliography"></ol>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://docs.python.org/3/reference/datamodel.html#metaclasses">3. Data model — Python 3.9.6 documentation - Metaclasses</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
             </div>
 

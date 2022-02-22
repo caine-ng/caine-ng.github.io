@@ -28,8 +28,8 @@
 <meta property="og:title" content="The Humble Object Pattern" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Clean architecture is always the goal for any software design. The Humble Object [2], [2] is a design pattern that is helpful for software testing. It is often characterized as the separability between testable and non-testable parts. The Presenter/View model is an example of a clear boundary between hard-to-test and easy-to-test components." />
-<meta property="og:description" content="Clean architecture is always the goal for any software design. The Humble Object [2], [2] is a design pattern that is helpful for software testing. It is often characterized as the separability between testable and non-testable parts. The Presenter/View model is an example of a clear boundary between hard-to-test and easy-to-test components." />
+<meta name="description" content="Clean architecture is always the goal for any software design. The Humble Object[^1], [1] is a design pattern that is helpful for software testing. It is often characterized as the separability between testable and non-testable parts. The Presenter/View model is an example of a clear boundary between hard-to-test and easy-to-test components. [^1]: Humble Object at XUnitPatterns.com" />
+<meta property="og:description" content="Clean architecture is always the goal for any software design. The Humble Object[^1], [1] is a design pattern that is helpful for software testing. It is often characterized as the separability between testable and non-testable parts. The Presenter/View model is an example of a clear boundary between hard-to-test and easy-to-test components. [^1]: Humble Object at XUnitPatterns.com" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://wiki.opensourceecology.org/images/5/59/Egoequalsoneoverknowledge.jpeg" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="https://wiki.opensourceecology.org/images/5/59/Egoequalsoneoverknowledge.jpeg" />
 <meta property="twitter:title" content="The Humble Object Pattern" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2021-08-04T00:00:00+09:00","datePublished":"2021-08-04T00:00:00+09:00","description":"Clean architecture is always the goal for any software design. The Humble Object [2], [2] is a design pattern that is helpful for software testing. It is often characterized as the separability between testable and non-testable parts. The Presenter/View model is an example of a clear boundary between hard-to-test and easy-to-test components.","headline":"The Humble Object Pattern","image":"https://wiki.opensourceecology.org/images/5/59/Egoequalsoneoverknowledge.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/the-humble-object/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/the-humble-object/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2021-08-04T00:00:00+09:00","datePublished":"2021-08-04T00:00:00+09:00","description":"Clean architecture is always the goal for any software design. The Humble Object[^1], [1] is a design pattern that is helpful for software testing. It is often characterized as the separability between testable and non-testable parts. The Presenter/View model is an example of a clear boundary between hard-to-test and easy-to-test components. [^1]: Humble Object at XUnitPatterns.com","headline":"The Humble Object Pattern","image":"https://wiki.opensourceecology.org/images/5/59/Egoequalsoneoverknowledge.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/the-humble-object/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/the-humble-object/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        1080
+        1075
      words</li>
-        <li class="small">6 minutes</li>
+        <li class="small">5 minutes</li>
     </ul>
 </div>
 
@@ -298,8 +298,8 @@
                     <div class="toc mt-4 mb-4 lead">
                         <h3 class="font-weight-bold">Summary</h3>
                         <ul>
-  <li><a href="#the-humble-object-2">The Humble Object <a class="citation" href="#cleanarch">[2]</a></a></li>
-  <li><a href="#the-presenterview-model-2">The Presenter/View model <a class="citation" href="#cleanarch">[2]</a></a></li>
+  <li><a href="#the-humble-object-1">The Humble Object <a class="citation" href="#cleanarch">[1]</a></a></li>
+  <li><a href="#the-presenterview-model-1">The Presenter/View model <a class="citation" href="#cleanarch">[1]</a></a></li>
   <li><a href="#examples">Examples</a>
     <ul>
       <li><a href="#a-humble-view">A humble view</a></li>
@@ -312,13 +312,14 @@
                 
                 <!-- End Toc -->
                 <p>Clean architecture is always the goal for any software design.
-<strong>The Humble Object <a class="citation" href="#HumbleOb26:online">[1]</a>, <a class="citation" href="#cleanarch">[2]</a></strong> is a design pattern that is helpful for software testing.
+<strong>The Humble Object[^1], <a class="citation" href="#cleanarch">[1]</a></strong> is a design pattern that is helpful for software testing.
 It is often characterized as the separability between <em>testable and non-testable parts</em>.
-The Presenter/View model is an example of a <strong>clear boundary</strong> between hard-to-test and easy-to-test components.</p>
+The Presenter/View model is an example of a <strong>clear boundary</strong> between hard-to-test and easy-to-test components.
+[^1]: <a href="http://xunitpatterns.com/Humble%20Object.html">Humble Object at XUnitPatterns.com</a></p>
 
 <!--more-->
 
-<h1 id="the-humble-object-2">The Humble Object <a class="citation" href="#cleanarch">[2]</a></h1>
+<h1 id="the-humble-object-1">The Humble Object <a class="citation" href="#cleanarch">[1]</a></h1>
 <blockquote>
   <p>The idea is very simple: split the behaviors into two modules or classes.
 One of those modules is <strong>humble</strong>; it contains all the hard-to-test behaviors stripped down to their barest essence.
@@ -331,7 +332,7 @@ However, most of the behavior of a GUI is, in fact, easy-to-test.
 Using the Humble Object pattern, we can separate these two kinds of behaviors into two different classes called <em>the Presenter and the View</em>.</p>
 </blockquote>
 
-<h1 id="the-presenterview-model-2">The Presenter/View model <a class="citation" href="#cleanarch">[2]</a></h1>
+<h1 id="the-presenterview-model-1">The Presenter/View model <a class="citation" href="#cleanarch">[1]</a></h1>
 <blockquote>
   <ul>
     <li>The View is the humble object that is hard to test.
@@ -541,8 +542,7 @@ Due to the lack of humility, this code may be hard to test!</p>
 
 <h1 id="references">References</h1>
 
-<ol class="bibliography"><li><span id="HumbleOb26:online">Humble Object at XUnitPatterns.com. http://xunitpatterns.com/Humble%20Object.html.</span><a class="details" href="https://wanted2.github.io/bibliography/HumbleOb26_online/">Details</a></li>
-<li><span id="cleanarch">Martin, R.C. 2017. <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span><a class="details" href="https://wanted2.github.io/bibliography/cleanarch/">Details</a></li></ol>
+<ol class="bibliography"><li><span id="cleanarch">Martin, R.C. 2017. <i>Clean Architecture - A Craftman’s Guide to Software Structure and Design</i>. Prentice Hall.</span><a class="details" href="https://wanted2.github.io/bibliography/cleanarch/">Details</a></li></ol>
 
             </div>
 
