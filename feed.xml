@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Feb 2022 23:34:35 +0900</pubDate>
-    <lastBuildDate>Tue, 22 Feb 2022 23:34:35 +0900</lastBuildDate>
+    <pubDate>Tue, 22 Feb 2022 23:53:42 +0900</pubDate>
+    <lastBuildDate>Tue, 22 Feb 2022 23:53:42 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -776,6 +776,280 @@ One downside is that it is not free, with a price of €288 per year!&lt;/p&gt;
         
         
         <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>So sánh git merge và git rebase</title>
+        <description>&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt; là 2 câu lệnh quen thuộc với lập trình viên chỉ để giải quyết cùng 1 bài toán: với 2 branches được phát triển song song, nay cần migrate các tính năng của branch feature vào branch chính (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;).
+Vấn đề là làm thế nào? Một cách chi tiết thì chỉ có 2 cách tương ứng với 2 câu lệnh ở trên tiêu đề bài viết mà chúng ta sẽ đi sâu trong bài này.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;đôi-lời-mở&quot;&gt;Đôi lời mở&lt;/h1&gt;
+
+&lt;p&gt;Có khá nhiều hướng dẫn về cách tích hợp 2 nhánh công việc khác nhau, với nhiều cái tên “mỹ miều” như migration, integration và những tài liệu dài hàng trang chỉ để giải thích các cách làm.
+Nhưng nếu là LTV lâu năm đều nhìn ra “tư duy” đằng sau và biết câu lệnh đơn thuần nhất để giải quyết: người mới có khi phải làm “bằng tay” cả khối công việc đó trong một vài tháng để chỉ hiểu được “tư duy” ẩn giấu, nhưng người đã biết thì chỉ cần 1 câu lệnh như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; là giải quyết xong công việc.&lt;/p&gt;
+
+&lt;p&gt;Bạn thử nghĩ xem, nếu chỉ cần 1 vài giây là chạy xong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; nhưng nếu bạn không biết và phải làm theo nguyên tắc: tức là chi tiết hóa và làm toàn bộ chi tiết của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; bằng tay thì liệu 1 tháng có đủ không?&lt;/p&gt;
+
+&lt;p&gt;Vì vậy cách suy nghĩ đúng là &lt;strong&gt;chi tiết hóa rồi trừu tượng hóa&lt;/strong&gt;. Chi tiết hóa giúp nhận ra vấn đề là gì, sau khi nắm rõ vấn đề, trừu tượng hóa giúp nhận ra “à với công việc này, thì sử dụng công cụ này sẽ chỉ cần 1 vài dòng lệnh là giải quyết vấn đề”.&lt;/p&gt;
+
+&lt;p&gt;Chỉ chi tiết hóa thôi thì sẽ bị sa đà vào tiểu tiết, lãng phí công số.
+Chỉ trừu tượng hóa thôi thì sẽ có rủi ro là bị sai hướng vì không nắm rõ chi tiết.
+Trừu tượng hóa trước thì sẽ bị sai hướng dẫn đến chi tiết hóa hoàn toàn sai lệch.&lt;/p&gt;
+
+&lt;p&gt;Vì vậy chỉ có cách suy nghĩ đúng là &lt;strong&gt;chi tiết hóa rồi trừu tượng hóa&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-devil-is-in-the-details&quot;&gt;The devil is in the details&lt;/h1&gt;
+
+&lt;p&gt;Tại sao trừu tượng hóa trước thì không tốt? Đơn giản thôi: bởi để migrate tính năng, ngoài &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;merge&lt;/code&gt; thì còn có &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rebase&lt;/code&gt;, nếu không chi tiết bài toán cũng như sự khác biệt giữa 2 câu lệnh thì có thể đi sai hướng và dùng sai công cụ.&lt;/p&gt;
+
+&lt;h2 id=&quot;git-merge&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/git-merge.svg&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;
+Đầu tiên chúng ta sẽ tìm hiểu cách thông dụng nhất và hay được khuyến khích dùng nhất để giải bài toán của chúng ta.
+Bản chất của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; thì cũng như hình vẽ bên: tạo 1 commit mới hẳn và chuyển tất cả tính năng của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/1&lt;/code&gt; vào đó.
+Đây là lựa chọn mặc định của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt;, bạn có thể thay đổi bằng thêm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--squash&lt;/code&gt;.
+Chi tiết câu lệnh &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;merge&lt;/code&gt; thì như bên dưới có 2 options mặc định là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ff&lt;/code&gt; cho fast-forward và &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--commit&lt;/code&gt; (tức là tạo commit mới hay là merge commit).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git merge &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;
+usage: git merge &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;options&amp;gt;] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;commit&amp;gt;...]
+   or: git merge &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt;
+   or: git merge &lt;span class=&quot;nt&quot;&gt;--continue&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt;                    &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not show a diffstat at the end of the merge
+    &lt;span class=&quot;nt&quot;&gt;--stat&lt;/span&gt;                show a diffstat at the end of the merge       
+    &lt;span class=&quot;nt&quot;&gt;--summary&lt;/span&gt;             &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;synonym to &lt;span class=&quot;nt&quot;&gt;--stat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[=&lt;/span&gt;&amp;lt;n&amp;gt;]           add &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;at most &amp;lt;n&amp;gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; entries from shortlog to merge commit message
+    &lt;span class=&quot;nt&quot;&gt;--squash&lt;/span&gt;              create a single commit instead of doing a merge
+    &lt;span class=&quot;nt&quot;&gt;--commit&lt;/span&gt;              perform a commit &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;the merge succeeds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--edit&lt;/span&gt;            edit message before committing
+    &lt;span class=&quot;nt&quot;&gt;--cleanup&lt;/span&gt; &amp;lt;mode&amp;gt;      how to strip spaces and &lt;span class=&quot;c&quot;&gt;#comments from message&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--ff&lt;/span&gt;                  allow fast-forward &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--ff-only&lt;/span&gt;             abort &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;fast-forward is not possible
+    &lt;span class=&quot;nt&quot;&gt;--rerere-autoupdate&lt;/span&gt;   update the index with reused conflict resolution &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;possible
+    &lt;span class=&quot;nt&quot;&gt;--verify-signatures&lt;/span&gt;   verify that the named commit has a valid GPG signature
+    &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--strategy&lt;/span&gt; &amp;lt;strategy&amp;gt;
+                          merge strategy to use
+    &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--strategy-option&lt;/span&gt; &amp;lt;&lt;span class=&quot;nv&quot;&gt;option&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;value&amp;gt;
+                          option &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;selected merge strategy
+    &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--message&lt;/span&gt; &amp;lt;message&amp;gt;
+                          merge commit message &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;a non-fast-forward merge&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--file&lt;/span&gt; &amp;lt;path&amp;gt;     &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;message from file
+    &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;         be more verbose
+    &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--quiet&lt;/span&gt;           be more quiet
+    &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt;               abort the current &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-progress&lt;/span&gt; merge
+    &lt;span class=&quot;nt&quot;&gt;--quit&lt;/span&gt;                &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt; but leave index and working tree alone
+    &lt;span class=&quot;nt&quot;&gt;--continue&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;continue &lt;/span&gt;the current &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-progress&lt;/span&gt; merge
+    &lt;span class=&quot;nt&quot;&gt;--allow-unrelated-histories&lt;/span&gt;
+                          allow merging unrelated histories
+    &lt;span class=&quot;nt&quot;&gt;--progress&lt;/span&gt;            force progress reporting
+    &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--gpg-sign&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[=&lt;/span&gt;&amp;lt;key-id&amp;gt;]
+                          GPG sign commit
+    &lt;span class=&quot;nt&quot;&gt;--autostash&lt;/span&gt;           automatically stash/stash pop before and after
+    &lt;span class=&quot;nt&quot;&gt;--overwrite-ignore&lt;/span&gt;    update ignored files &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--signoff&lt;/span&gt;             add a Signed-off-by trailer
+    &lt;span class=&quot;nt&quot;&gt;--no-verify&lt;/span&gt;           bypass pre-merge-commit and commit-msg hooks
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Vậy quá trình sẽ xảy ra suôn sẻ? Đương nhiên conflict có thể xảy ra và dev sẽ phải resolve bằng tay, sau đó thì dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge --continue&lt;/code&gt; để tiếp tục merge.
+Trong trường hợp đang merge mà gặp phải tình huống conflict không thể giải quyết được thì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge --abort&lt;/code&gt; sẽ đưa bạn về thời điểm trước khi merge.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--abort&lt;/code&gt; đương nhiên là điều không mong muốn, mà điều mong muốn là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--continue&lt;/code&gt; đến khi xong.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; nhìn chung là 1 quy trình an toàn &lt;strong&gt;nếu bạn chịu khó làm đến cùng&lt;/strong&gt;. 
+Nếu mới gặp conflict đầu tiên bạn đã sợ hãi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--abort&lt;/code&gt; ngay thì sẽ không bao giờ đi đến cùng được.
+Đồng thời quy trình sẽ rất tự động nếu 2 branches không conflict nhiều.
+Vì vậy, trước khi quyết định có merge hay không thì tốt nhất nên điều tra sơ xem có nhiều file trùng nhau giữa lịch sử 2 branches với base không?
+Nếu nhìn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git diff&lt;/code&gt; sơ mà thấy khác nhau nhiều quá là có lẽ … không nên cho phép merge.
+Bởi như vậy không khác gì làm bằng tay (cứ tí lại gặp conflict phải resolve)!&lt;/p&gt;
+
+&lt;p&gt;Tuy nhiên, so với giải pháp tiếp theo mà chúng ta giới thiệu thì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; có ít rủi ro gặp conflict hơn và nhìn chung số lần resolve chỉ là $\leq 1$, nên &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; luôn luôn là giải pháp ưu tiên cho bài toán của chúng ta.&lt;/p&gt;
+
+&lt;h2 id=&quot;git-rebase&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/git-rebase.svg&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;
+Một lựa chọn khác cho bài toán của chúng ta là &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt;.
+&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt; sẽ không tạo ra commit mới nào cả mà sẽ sửa lại lịch sử git của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;.&lt;/strong&gt;
+Như hình vẽ bên trái, bạn thấy rõ là các commit của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/1&lt;/code&gt; sẽ được bố trí xen kẽ theo thứ tự thời gian vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;.
+Bắt đầu từ commit đầu tiên của feature branch thì thực hiện merge và nếu gặp conflict thì dev phải resolve bằng tay rồi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--continue&lt;/code&gt;.
+Cũng như &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; bạn có thể &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--abort&lt;/code&gt; để quay lại trạng thái ban đầu nếu … sợ!
+Bạn cũng có thể &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--quit&lt;/code&gt;, nhưng nhớ là nếu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--abort&lt;/code&gt; dọn dẹp để đưa branch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; về trạng thái ban đầu thì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--quit&lt;/code&gt; sẽ để lại mớ hỗn độn nguyên xi đó.&lt;/p&gt;
+
+&lt;p&gt;Trong &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; thì dù 2 branches conflict nhiều thế nào thì cũng chỉ cần 1 merge commit để chứa tất cả.
+Nhưng bạn thấy đấy với &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase&lt;/code&gt; số lần conflict có thể tỷ lệ thuận với số commit của hai branches.
+Và công việc sẽ không khác gì bằng tay nếu hai branches conflict nhiều!
+&lt;strong&gt;Nhìn chung đây là cách làm nguy hiểm hơn &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; rất nhiều.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Bạn có thể dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git rebase -i&lt;/code&gt; để chọn lựa những commit muốn bỏ vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; nếu không phải tất cả mọi commit trên &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/1&lt;/code&gt; đều có giá trị với bạn.
+Sau khi chỉnh sửa lịch sử thì bạn có thể cập nhật branch bằng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push -f&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;
+usage: git rebase &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--exec&lt;/span&gt; &amp;lt;cmd&amp;gt;] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--onto&lt;/span&gt; &amp;lt;newbase&amp;gt; | &lt;span class=&quot;nt&quot;&gt;--keep-base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;upstream&amp;gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;branch&amp;gt;]]
+   or: git rebase &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--exec&lt;/span&gt; &amp;lt;cmd&amp;gt;] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--onto&lt;/span&gt; &amp;lt;newbase&amp;gt;] &lt;span class=&quot;nt&quot;&gt;--root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&amp;lt;branch&amp;gt;]
+   or: git rebase &lt;span class=&quot;nt&quot;&gt;--continue&lt;/span&gt; | &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt; | &lt;span class=&quot;nt&quot;&gt;--skip&lt;/span&gt; | &lt;span class=&quot;nt&quot;&gt;--edit-todo&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;--onto&lt;/span&gt; &amp;lt;revision&amp;gt;     rebase onto given branch instead of upstream
+    &lt;span class=&quot;nt&quot;&gt;--keep-base&lt;/span&gt;           use the merge-base of upstream and branch as the current base
+    &lt;span class=&quot;nt&quot;&gt;--no-verify&lt;/span&gt;           allow pre-rebase hook to run
+    &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--quiet&lt;/span&gt;           be quiet. implies &lt;span class=&quot;nt&quot;&gt;--no-stat&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;         display a diffstat of what changed upstream
+    &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--no-stat&lt;/span&gt;         &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;not show diffstat of what changed upstream
+    &lt;span class=&quot;nt&quot;&gt;--signoff&lt;/span&gt;             add a Signed-off-by trailer to each commit
+    &lt;span class=&quot;nt&quot;&gt;--committer-date-is-author-date&lt;/span&gt;
+                          make committer &lt;span class=&quot;nb&quot;&gt;date &lt;/span&gt;match author &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--reset-author-date&lt;/span&gt;   ignore author &lt;span class=&quot;nb&quot;&gt;date &lt;/span&gt;and use current &lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &amp;lt;n&amp;gt;                passed to &lt;span class=&quot;s1&quot;&gt;&apos;git apply&apos;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--ignore-whitespace&lt;/span&gt;   ignore changes &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;whitespace
+    &lt;span class=&quot;nt&quot;&gt;--whitespace&lt;/span&gt; &amp;lt;action&amp;gt;
+                          passed to &lt;span class=&quot;s1&quot;&gt;&apos;git apply&apos;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--force-rebase&lt;/span&gt;    cherry-pick all commits, even &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;unchanged
+    &lt;span class=&quot;nt&quot;&gt;--no-ff&lt;/span&gt;               cherry-pick all commits, even &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;unchanged
+    &lt;span class=&quot;nt&quot;&gt;--continue&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--skip&lt;/span&gt;                skip current patch and &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt;               abort and check out the original branch
+    &lt;span class=&quot;nt&quot;&gt;--quit&lt;/span&gt;                abort but keep HEAD where it is
+    &lt;span class=&quot;nt&quot;&gt;--edit-todo&lt;/span&gt;           edit the todo list during an interactive rebase
+    &lt;span class=&quot;nt&quot;&gt;--show-current-patch&lt;/span&gt;  show the patch file being applied or merged
+    &lt;span class=&quot;nt&quot;&gt;--apply&lt;/span&gt;               use apply strategies to rebase
+    &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--merge&lt;/span&gt;           use merging strategies to rebase
+    &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--interactive&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;let &lt;/span&gt;the user edit the list of commits to rebase
+    &lt;span class=&quot;nt&quot;&gt;--rerere-autoupdate&lt;/span&gt;   update the index with reused conflict resolution &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;possible
+    &lt;span class=&quot;nt&quot;&gt;--empty&lt;/span&gt; &amp;lt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;drop,keep,ask&lt;span class=&quot;o&quot;&gt;}&amp;gt;&lt;/span&gt;
+                          how to handle commits that become empty
+    &lt;span class=&quot;nt&quot;&gt;--autosquash&lt;/span&gt;          move commits that begin with squash!/fixup! under &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--gpg-sign&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[=&lt;/span&gt;&amp;lt;key-id&amp;gt;]
+                          GPG-sign commits
+    &lt;span class=&quot;nt&quot;&gt;--autostash&lt;/span&gt;           automatically stash/stash pop before and after
+    &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--exec&lt;/span&gt; &amp;lt;&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;     add &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;lines after each commit of the editable list
+    &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--rebase-merges&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[=&lt;/span&gt;&amp;lt;mode&amp;gt;]
+                          try to rebase merges instead of skipping them
+    &lt;span class=&quot;nt&quot;&gt;--fork-point&lt;/span&gt;          use &lt;span class=&quot;s1&quot;&gt;&apos;merge-base --fork-point&apos;&lt;/span&gt; to refine upstream
+    &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--strategy&lt;/span&gt; &amp;lt;strategy&amp;gt;
+                          use the given merge strategy
+    &lt;span class=&quot;nt&quot;&gt;-X&lt;/span&gt;, &lt;span class=&quot;nt&quot;&gt;--strategy-option&lt;/span&gt; &amp;lt;option&amp;gt;
+                          pass the argument through to the merge strategy
+    &lt;span class=&quot;nt&quot;&gt;--root&lt;/span&gt;                rebase all reachable commits up to the root&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;--reschedule-failed-exec&lt;/span&gt;
+                          automatically re-schedule any &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; that fails
+    &lt;span class=&quot;nt&quot;&gt;--reapply-cherry-picks&lt;/span&gt;
+                          apply all changes, even those already present upstream
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nói chung chỉnh sửa lịch sử là quá trình rất nguy hiểm!
+Vì vậy cần chi tiết hóa trước để tránh đi theo những cách bất thường, sau đó trừu tượng hóa để tìm ra công cụ tối ưu.&lt;/p&gt;
+
+&lt;h1 id=&quot;lời-kết&quot;&gt;Lời kết&lt;/h1&gt;
+
+&lt;p&gt;Bài viết lấy ví dụ về bài toán migrate tính năng từ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/1&lt;/code&gt; vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;.
+Bạn nên nhớ những Gitflow thực tế sẽ còn phức tạp hơn với những quy tắc như chỉ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;develop&lt;/code&gt; mới được merge vào &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;, tuy nhiên đó là chủ đề khác.
+Ngoài ra, nếu bài toán của bạn là bất thường, đòi hỏi phải edit history thì có thể bạn phải dùng rebase.
+Nhưng nhìn chung trong các trường hợp &lt;strong&gt;bình thường&lt;/strong&gt;, tôi thấy hầu như đều dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git merge&lt;/code&gt; tức là tạo ra merge &lt;strong&gt;commit mới hẳn&lt;/strong&gt; và chuyển hết tính năng cần thiết vào.
+Thêm nữa, đây là migrate &lt;strong&gt;tính năng&lt;/strong&gt; chứ không chỉ là files hay tài nguyên, tức là các tính năng được implement trên &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;feature/1&lt;/code&gt; phải tái hiện như thế trên &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Nói chung tạo cái mới thì tốt hơn!&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 08 Oct 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/git-merge-rebase/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/git-merge-rebase/</guid>
+        
+        <category>git</category>
+        
+        <category>gitflow</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
         
       </item>
     
@@ -1833,184 +2107,6 @@ Tuy nhiên, cái chúng ta học được ở đây đó là &lt;strong&gt;tối
         
         
         <category>Tiếng Việt, 日本語</category>
-        
-      </item>
-    
-      <item>
-        <title>Idle Time Pricing Models in the Cloud</title>
-        <description>&lt;p&gt;&lt;strong&gt;Batch processing (JP: バッチ処理, VI: Xu Lý Lô)&lt;/strong&gt; is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit.
-A program that reads a large file and generates a report, for example, is considered to be a batch job.
-Services such as Azure Batch &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt; and AWS Batch &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#balaji2018benchmarking&quot;&gt;[3]&lt;/a&gt; support runs of batch jobs with VMs/EC2 instances and serverless container backend.
-However, running batch jobs requires VMs and instances to run continuously in production with almost &lt;strong&gt;zero downtime&lt;/strong&gt;.
-It also means that there will be &lt;strong&gt;idle time&lt;/strong&gt; to keep batch jobs running in the background.
-We review and estimate the idle time pricing of several cloud-based batch processing services. 
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;batch-processing-and-idle-time&quot;&gt;Batch processing and idle time&lt;/h1&gt;
-&lt;p&gt;With the advent of cloud computing with virtualization, more and more workloads have been offloaded from conventional private clouds to public clouds in recent years.
-The greatest issue of these approaches is the &lt;strong&gt;pricing models&lt;/strong&gt;.
-Virtual machines often use the pay-per-use model, which requires running the VMs continuously, and non-working hours are begin paid.
-For example, AWS EC2 instances are billed for running durations on an hourly basis.
-Because the distribution of coming requests is unknown or probabilistic, then the instances must be kept running without downtime.
-This results in hours without requests are being paid with the same price as hours with requests (real working hours).
-The issue is called &lt;strong&gt;idle time issue&lt;/strong&gt;, which is well-known in cloud computing &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#balaji2018benchmarking&quot;&gt;[3]&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Batch jobs&lt;/strong&gt; are scheduled jobs with minimal user interactions.
-It is possible to have some jobs in the systems which cannot be answered in real-time then users want to submit for processing in the background.
-The submitted jobs are queued and scheduled to process later when the application does not require them to give results soon.
-Scheduled jobs are popped from the queue and run automatically with interactions to computations resources such as VMs and databases.
-Due to a large number of jobs, a Massive Parallel Processing (MPP) system can be used for batch jobs when the number of data is too big (1TB or more)!
-Azure Batch &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt; and AWS Batch &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt; are fully managed cloud services for batch jobs which give highly scalable without extensive programming efforts.
-Azure Batch supports Azure VMs while AWS Batch supports EC2 instances based Elastic Container Service (ECS), Fargate-based ECS, and Lambda.
-Reducing &lt;strong&gt;idle time&lt;/strong&gt; while deploying to these services is a demand, and it requires careful designs.
-For example, in &lt;a class=&quot;citation&quot; href=&quot;#qureshi2019reduce&quot;&gt;[4]&lt;/a&gt;, Qureshi described a design that reduces Azure Batch cost using dynamic allocation and relocation of resources with lookahead technique for deallocating nodes.
-Their results showed that 30% of the total cost was reduced with the proposed techniques.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Graphical Processing Unit (GPU)&lt;/strong&gt; has helped to accelerate the latest Artificial Intelligence workloads.
-Many Deep Learning applications require GPUs or even thousands of GPUs for training and inference.
-Building such a massive GPU system requires tedious setups, maintenance, and oversized budgets.
-Many public clouds such as Azure and AWS have more flexible pricing models which bill for milliseconds.
-Their flagship services are AWS Lambda and Azure Functions.
-In AWS Lambda and Azure Functions, computations are billed for running time only, which is calculated from when the resources are loaded into function memory to when the computation is finished with results is returned to an integration service like AWS API Gateway.
-However, &lt;strong&gt;Lambda and Functions do not support GPU!&lt;/strong&gt;
-Hence, the normal uses of these serverless computing mechanisms are often API calls, i. e., calling to other APIs, not any massive computations.
-Therefore, deploying GPU-required batch jobs to the cloud often use VM-based approaches.
-In &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt;, Risco and Moltó designed a batch processing system using AWS Batch with GPU-enabled ECS.
-They used 12 vGPUs of type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g3s.xlarge&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;In summary, batch processing in the cloud relies on the pricing models that have idle time if we do not keep the system busy 24 hours per day.
-AWS Batch supports some serverless mechanisms like Lambda and Fargate-based ECS but only supports CPUs.
-For the need of GPUs, one must switch to instance-based or VM-based approaches, which turns us back to the idle time problem indeed.
-&lt;strong&gt;The choice of pricing models is whether billing for milliseconds or not?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cloud-based-batch-processing&quot;&gt;Cloud-based batch processing&lt;/h1&gt;
-
-&lt;h2 id=&quot;aws-batch&quot;&gt;AWS Batch&lt;/h2&gt;
-
-&lt;h3 id=&quot;a-mistake-in-scale-out-design&quot;&gt;A mistake in scale-out design&lt;/h3&gt;
-
-&lt;p&gt;One of the most interesting examples of how the scale-out and scale-up of instances are done in AWS Batch was this &lt;a href=&quot;https://forums.aws.amazon.com/thread.jspa?messageID=809896&amp;amp;threadID=265573&amp;amp;tstart=0&quot;&gt;QA&lt;/a&gt;.
-A user &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ulsa9983&lt;/code&gt; asked for their tough situation of managing EC2 instances in 2017 as follows:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;We have low-traffic, but want to keep some spot CPU available for quick response.
-We set min CPU to 2, which initially starts a reasonably small instance, e. g. an m4.large.
-However, after some batch requests with varying CPU and memory requirements, the cluster has grown to an m4.16xlarge, and it stays there day in and day out.
-This costs us plenty more than we anticipated with the min CPU=2 setting.&lt;/p&gt;
-
-  &lt;p&gt;Is there any way to make it scale down, or is the only alternative to set min CPU=0?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The question was actually somewhat practical: there is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; parameter in the AWS Batch template [6], for which when the system goes into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DISABLED&lt;/code&gt; mode, then idle instances will be scale down to keep only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; running.
-Setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; lower will reduce idle cost but increase the time for starting up, loading, provisioning new vCPUs.
-That’s why even though there is an option to scale down &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus=0&lt;/code&gt;, but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ulsa9983&lt;/code&gt; wanted to find another solution.
-Their service is &lt;strong&gt;low traffic, but (we) want to keep some spot CPU available for quick response&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;The most interesting solution came from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jamie@AWS&lt;/code&gt; included the following script:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Alternatively, you could achieve your goal by &lt;strong&gt;creating two managed to compute environments&lt;/strong&gt; which are both associated with your job queue.
-For the first compute environment (with the lowest integer value for order), set min/desired/max vCPUs=2, ensuring that it always has a single EC2 instance with 2vCPUs in it. 
-The second one computes environment could have min vCPUs=0 and max vCPUs set to whatever upper limit you like.
-With this model, AWS Batch jobs requiring two or fewer vCPUs could be immediately scheduled to the always-on instance while additional capacity is scaled up/down as needed when you have a larger number of concurrent jobs to run.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Actually, this answer always keeps an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m4.large&lt;/code&gt; instance to be run without being modified and having another group of resources that can be scaled up and down according to the situations.
-Nevertheless, on the trade-off of response time and cost, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus=2&lt;/code&gt; was kept, but the type of the instance was preserved to reduce cost.&lt;/p&gt;
-
-&lt;p&gt;To find more about the parameters of AWS Batch, one can consult with &lt;a class=&quot;citation&quot; href=&quot;#WhatIsAW85:online&quot;&gt;[6]&lt;/a&gt;.
-AWS Batch is a batch computing platform with stateful jobs, job queues, GPU jobs, …
-Jobs are the unit of work invoked by AWS Batch.
-Jobs can be invoked as containerized applications running on Amazon ECS container instances in an ECS cluster.&lt;/p&gt;
-
-&lt;h3 id=&quot;scar&quot;&gt;SCAR&lt;/h3&gt;
-
-&lt;p&gt;SCAR &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt; is a serverless system for GPU-enabled computing.
-They have their own Functional Definition Language (FDL) for serverless workflows.
-Their work helps to design a batch system faster and easier.
-One example can be found below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow/workflow.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This system does object detection and speech transcription for automatic captioning.
- Some examplar results can be seen as follows.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow/result.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The above two images are from &lt;a href=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow&quot;&gt;https://github.com/grycap/scar/raw/master/examples/av-workflow&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;azure-batch&quot;&gt;Azure Batch&lt;/h2&gt;
-
-&lt;p&gt;Azure Batch [1, 8] creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes.
-There’s no cluster or job scheduler software to install, manage, or scale.
-Instead, you use Batch APIs and tools, command-line scripts, or the Azure portal to configure, manage, and monitor your jobs.&lt;/p&gt;
-
-&lt;p&gt;Some important practices for designing a good batch system with Azure Batch:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/high-availability-disaster-recovery&quot;&gt;Always design your Batch application for high availability&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/error-handling&quot;&gt;Always define error handling&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/security-best-practices&quot;&gt;Always care about security&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/best-practices&quot;&gt;Best practices&lt;/a&gt;, .etc.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;idle-time-pricing-options&quot;&gt;Idle time pricing options&lt;/h1&gt;
-
-&lt;p&gt;We summarize the pricing options.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;First, container-based serverless options like Fargate ECS are available but do not really support GPU use cases.&lt;/strong&gt;
-This is somewhat a pity for deep learning deployments because these options provide millisecond-based billing.
-We will wait for GPU supports in the near future.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Second, even with some parametric methodologies like setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; VMs/instance-based options still need to face the trade-off between idle time and cost&lt;/strong&gt;.
-An example of the use case was given in which a mistake in scale-out design has led to a scale-up option that doubled the bills.
-Typically, we will need to keep &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt;$\geq 2$ to have quick responses, but we still do not have scaledown of GPU (no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minvGpus&lt;/code&gt; parameters in AWS Batch template).
-Then the idle cost is mostly unavoidable (SCAR &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt; described their approach on scaling down with zero resources when no workload, then the startup time and loading time will increase in return, and they are idle costs).&lt;/p&gt;
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;Finally, we want to cut down our bills every month (but want to increase the income). :yum:
-This article provides some guidance to help the readers to design their approaches for cloud-based batch processing systems.
-Future works will direct to the practices of GPU-enabled serverless architecture with less idle time and high efficiency.&lt;/p&gt;
-
-&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;soh2020overview&quot;&gt;Soh, J., Copeland, M., Puca, A. and Harris, M. 2020. Overview of Azure Platform as a Service. &lt;i&gt;Microsoft Azure&lt;/i&gt;. Springer. 43–55.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/soh2020overview/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;witte2019event&quot;&gt;Witte, P.A., Louboutin, M., Modzelewski, H., Jones, C., Selvage, J. and Herrmann, F.J. 2019. Event-driven workflows for large-scale seismic imaging in the cloud. &lt;i&gt;SEG Technical Program Expanded Abstracts 2019&lt;/i&gt;. Society of Exploration Geophysicists. 3984–3988.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/witte2019event/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;balaji2018benchmarking&quot;&gt;Balaji, A. and Allen, A. 2018. Benchmarking automatic machine learning frameworks. &lt;i&gt;arXiv preprint arXiv:1808.06492&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/balaji2018benchmarking/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;qureshi2019reduce&quot;&gt;Qureshi, A.N. 2019. Reduce Cost of Batch Processing Microsoft Azure Cloud. &lt;i&gt;JETIR-International Journal of Emerging Technologies and Innovative Research&lt;/i&gt;. (2019), 2349–5162.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/qureshi2019reduce/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;risco2021gpu&quot;&gt;Risco, S. and Moltó, G. 2021. GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. &lt;i&gt;Applied Sciences&lt;/i&gt;. 11, 4 (2021), 1438.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/risco2021gpu/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;WhatIsAW85:online&quot;&gt;What Is AWS Batch? - AWS Batch. https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/WhatIsAW85_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Thu, 19 Aug 2021 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/idle-time-pricing-models/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/idle-time-pricing-models/</guid>
-        
-        <category>mlops</category>
-        
-        <category>machine learning</category>
-        
-        <category>gpu</category>
-        
-        <category>serverless computing</category>
-        
-        <category>cloud computing</category>
-        
-        <category>idle time</category>
-        
-        <category>aws</category>
-        
-        <category>azure</category>
-        
-        <category>aws batch</category>
-        
-        <category>batch computing</category>
-        
-        <category>azure batch</category>
-        
-        
-        <category>Artificial Intelligence</category>
-        
-        <category>Site Reliable Engineering</category>
         
       </item>
     
