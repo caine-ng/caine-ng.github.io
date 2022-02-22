@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Feb 2022 04:13:20 +0900</pubDate>
-    <lastBuildDate>Wed, 23 Feb 2022 04:13:20 +0900</lastBuildDate>
+    <pubDate>Wed, 23 Feb 2022 04:19:30 +0900</pubDate>
+    <lastBuildDate>Wed, 23 Feb 2022 04:19:30 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -482,14 +482,14 @@ Năm 1979, Feige và Pearce &lt;a class=&quot;citation&quot; href=&quot;#feige19
 Năm 1988, Thurman và Fisher &lt;a class=&quot;citation&quot; href=&quot;#thurman1988chickens&quot;&gt;[3]&lt;/a&gt; nghiên cứu chuỗi thời gian về sản lượng trứng cũng như chuỗi dữ liệu về số lượng gà trên toàn nước Mỹ để tìm ra quan hệ nhân quả giữa trứng và gà.
 Họ sử dụng công thức của Granger và lần đầu tiên kết luận mang tính thống kê rằng &lt;strong&gt;trứng có trước và là nguyên nhân sinh ra gà&lt;/strong&gt;.
 Phân tích các chuỗi sự kiện thời gian (time series analysis) và nhân quả/luân hồi giữa các chuỗi là một chủ đề truyền thống của thống kê và kinh tế học.
-Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa &lt;strong&gt;sản lượng lao động và bất bình đăng thu nhập&lt;/strong&gt; hay bài toán &lt;strong&gt;Productivity-Pay Gap&lt;/strong&gt;[^1].
-Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).
-[^1]: &lt;a href=&quot;https://www.epi.org/productivity-pay-gap/&quot;&gt;The Productivity–Pay Gap | Economic Policy Institute&lt;/a&gt;
-&lt;!--more--&gt;&lt;/p&gt;
+Gần đây, những nghiên cứu cũng cho thấy sự tồn tại nhân quả giữa &lt;strong&gt;sản lượng lao động và bất bình đăng thu nhập&lt;/strong&gt; hay bài toán &lt;strong&gt;Productivity-Pay Gap&lt;/strong&gt;&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.
+Thật thú vị rằng trong 40 năm qua, mặc dù sản lượng lao động bình quân năm tăng 61.8%, nhưng lương của người lao động không hề tăng cao, dẫn tới bất bình đẳng thu nhập gia tăng (giá trị tạo ra thay vì đi vào túi người lao động lại tập trung vào túi của tầng lớp chóp bu trong xã hội Mỹ).&lt;/p&gt;
+
+&lt;!--more--&gt;
 
 &lt;h1 id=&quot;granger-verification&quot;&gt;Granger verification&lt;/h1&gt;
 
-&lt;p&gt;Con gà và quả trứng &lt;a class=&quot;citation&quot; href=&quot;#thurman1988chickens&quot;&gt;[3]&lt;/a&gt;, cũng như Productivity-Pay gap[^1] là hai ứng dụng cơ bản của Granger method &lt;a class=&quot;citation&quot; href=&quot;#granger1969investigating&quot;&gt;[1]&lt;/a&gt;.
+&lt;p&gt;Con gà và quả trứng &lt;a class=&quot;citation&quot; href=&quot;#thurman1988chickens&quot;&gt;[3]&lt;/a&gt;, cũng như Productivity-Pay gap&lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; là hai ứng dụng cơ bản của Granger method &lt;a class=&quot;citation&quot; href=&quot;#granger1969investigating&quot;&gt;[1]&lt;/a&gt;.
 Giả sử ta có chuỗi thời gian $\mathbf{X}=\{X_t\}_{t=-\infty}^{+\infty}$ với thời điểm $t=0$ là thời điểm bắt đầu quan sát.&lt;/p&gt;
 
 &lt;p&gt;Ta kí hiệu chuỗi tín hiệu quá khứ của thời điểm $t$ là $\overline{\mathbf{X_t}}=\{X_{t-i}\}_{i=1}^{+\infty}$.&lt;/p&gt;
@@ -563,7 +563,7 @@ Tựu chung lại là &lt;em&gt;trứng Mỹ có trước và sinh ra gà Mỹ&l
 &lt;h1 id=&quot;productivity-pay-gap&quot;&gt;Productivity-Pay Gap&lt;/h1&gt;
 
 &lt;p&gt;Hầu hết người Mỹ đều tin rằng &lt;strong&gt;kinh tế phát triển thì người lao động sẽ nhận được reward&lt;/strong&gt;.
-Nhưng theo 1 nghiên cứu gần đây[^1] thì có vẻ tình hình thu nhập của người lao động Mỹ không phải như vậy.
+Nhưng theo 1 nghiên cứu gần đây&lt;sup id=&quot;fnref:1:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; thì có vẻ tình hình thu nhập của người lao động Mỹ không phải như vậy.
 Từ năm 1979, nước Mỹ đã có những thay đổi lớn về chính sách kinh tế, trong đó có nhiều chính sách phục vụ cho người giàu:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -601,6 +601,13 @@ Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Gra
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;granger1969investigating&quot;&gt;Granger, C.W.J. 1969. Investigating causal relations by econometric models and cross-spectral methods. &lt;i&gt;Econometrica: journal of the Econometric Society&lt;/i&gt;. (1969), 424–438.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/granger1969investigating/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;feige1979casual&quot;&gt;Feige, E.L. and Pearce, D.K. 1979. The casual causal relationship between money and income: Some caveats for time series analysis. &lt;i&gt;The Review of Economics and Statistics&lt;/i&gt;. (1979), 521–533.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/feige1979casual/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;thurman1988chickens&quot;&gt;Thurman, W.N., Fisher, M.E. and others 1988. Chickens, eggs, and causality, or which came first. &lt;i&gt;American journal of agricultural economics&lt;/i&gt;. 70, 2 (1988), 237–238.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/thurman1988chickens/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.epi.org/productivity-pay-gap/&quot;&gt;The Productivity–Pay Gap - Economic Policy Institute&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; &lt;a href=&quot;#fnref:1:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Sat, 20 Nov 2021 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/chicken-and-egg-problem/</link>
