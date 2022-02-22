@@ -22,7 +22,7 @@
     
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Code audit processes and the new feature of Python 3.8 - sys.audit | AiFi</title>
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="Code audit processes and the new feature of Python 3.8 - sys.audit" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png" />
 <meta property="twitter:title" content="Code audit processes and the new feature of Python 3.8 - sys.audit" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"description":"Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [6] and PEP 551 [6].","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png","headline":"Code audit processes and the new feature of Python 3.8 - sys.audit","dateModified":"2021-07-17T00:00:00+09:00","datePublished":"2021-07-17T00:00:00+09:00","url":"/https://wanted2.github.io/python-38-sys-audit/","author":{"@type":"Person","name":"tuan"},"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-38-sys-audit/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2021-07-17T00:00:00+09:00","datePublished":"2021-07-17T00:00:00+09:00","description":"Auditing is actually a quality assurance feature. The purpose of audits is to identify and report problems, not to respond, prevent or act on them. If you are using Python 2.x or even Python 3.7, this feature may not be available. Calls like sys.audit and sys.addaudithook are only available from version 3.8. The new feature allows the audits to run at runtime level, or in other words, to keep track of changes in system calls and standard libraries while the application’s running. Two proposals that made this available are PEP 578 [6] and PEP 551 [6].","headline":"Code audit processes and the new feature of Python 3.8 - sys.audit","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/800px-Python_logo_and_wordmark.svg.png","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/python-38-sys-audit/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/python-38-sys-audit/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -219,6 +219,16 @@
         </li>
     </ul>
     
+    
+    <div class="sep">
+
+    </div>
+    <ul>
+        <li class="small">
+        2200
+     words</li>
+        <li class="small">12 minutes</li>
+    </ul>
 </div>
 
         </div>
@@ -507,10 +517,10 @@ An example is the <a href="https://github.com/zooba/spython/tree/master/NetworkP
 60
 61
 62
-</pre></td><td class="rouge-code"><pre><span class="cp">#include &lt;Python.h&gt;
-#include &lt;opcode.h&gt;
-#include &lt;string.h&gt;
-#include &lt;locale.h&gt;
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;Python.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;opcode.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;locale.h&gt;</span><span class="cp">
 </span>
 <span class="k">static</span> <span class="kt">int</span> <span class="nf">my_hook</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">event</span><span class="p">,</span> <span class="n">PyObject</span><span class="o">*</span> <span class="n">args</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">userData</span><span class="p">)</span> <span class="p">{</span>
     <span class="cm">/* Only care about 'socket.' events */</span>
@@ -783,7 +793,7 @@ Benchmark in PEP 578 <a class="citation" href="#PEP578Py66:online">[1]</a> showe
             <a class="prev d-block col-md-6" href="https://wanted2.github.io//python-chain-of-responsibility/"> &laquo; Pythonによる責任の連鎖</a>
             
             
-            <a class="next d-block col-md-6 text-lg-right" href="https://wanted2.github.io//xops/">Tản mạn về XOps &raquo; </a>
+            <a class="next d-block col-md-6 text-lg-right" href="https://wanted2.github.io//python-amazon-lex-chatbot-elasticsearch/">Amazon Lexと文章連想検索を用いた音声検索チャットボットの実現 &raquo; </a>
             
             <div class="clearfix"></div>
             </div>
@@ -862,17 +872,17 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (16)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (6)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (21)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (4)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (19)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (11)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (18)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (34)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (29)</a>
                 
             
             

@@ -22,7 +22,7 @@
     
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Aggregation and Segregation | AiFi</title>
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="Aggregation and Segregation" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9oekgoz7fvmh1yz7fsw.png" />
 <meta property="twitter:title" content="Aggregation and Segregation" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"description":"Interface Segregation Principle (ISP) [1] is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted.","image":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9oekgoz7fvmh1yz7fsw.png","headline":"Aggregation and Segregation","dateModified":"2021-08-28T00:00:00+09:00","datePublished":"2021-08-28T00:00:00+09:00","url":"/https://wanted2.github.io/aggregation-segregation/","author":{"@type":"Person","name":"tuan"},"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aggregation-segregation/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2021-08-28T00:00:00+09:00","datePublished":"2021-08-28T00:00:00+09:00","description":"Interface Segregation Principle (ISP) [1] is one of the five pillars in SOLID design principles. The main spirit of ISP is that user interfaces shouldn’t rely on features or operations they don’t need. Therefore, instead of designing an aggregated interface that contains functions for various member classes, we should segregate the functions into several sub-interfaces, for which each type of user only needs to a specific feature. When other features change, the current feature is not affected, and the user service will not be interrupted.","headline":"Aggregation and Segregation","image":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9oekgoz7fvmh1yz7fsw.png","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/aggregation-segregation/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/aggregation-segregation/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -219,6 +219,16 @@
         </li>
     </ul>
     
+    
+    <div class="sep">
+
+    </div>
+    <ul>
+        <li class="small">
+        1468
+     words</li>
+        <li class="small">8 minutes</li>
+    </ul>
 </div>
 
         </div>
@@ -369,8 +379,8 @@ The implementation of this aggregation can be found below:</p>
 </pre></td><td class="rouge-code"><pre><span class="cp">#ifndef _AGGREGATION_H_
 #define _AGGREGATION_H_
 </span>
-<span class="cp">#include &lt;iostream&gt;
-#include &lt;string&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
 </span>
 <span class="k">class</span> <span class="nc">Human</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -436,7 +446,7 @@ The implementation of this aggregation can be found below:</p>
 9
 10
 11
-</pre></td><td class="rouge-code"><pre><span class="cp">#include "aggregation.hpp"
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">"aggregation.hpp"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">PoliceInst</span> <span class="n">police</span><span class="p">;</span>
@@ -539,8 +549,8 @@ Let’s see the implementation:</p>
 </pre></td><td class="rouge-code"><pre><span class="cp">#ifndef _SEGREGRATION_HPP_
 #define _SEGREGRATION_HPP_
 </span>
-<span class="cp">#include &lt;iostream&gt;
-#include &lt;string&gt;
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
 </span>
 <span class="k">class</span> <span class="nc">Police</span> <span class="p">{</span>
 <span class="nl">public:</span>
@@ -618,7 +628,7 @@ Let’s see the implementation:</p>
 15
 16
 17
-</pre></td><td class="rouge-code"><pre><span class="cp">#include "segregation.hpp"
+</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">"segregation.hpp"</span><span class="cp">
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">PoliceInst</span> <span class="n">police</span><span class="p">;</span>
@@ -829,17 +839,17 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (16)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (6)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (21)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (4)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (19)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (11)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (18)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (34)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (29)</a>
                 
             
             
