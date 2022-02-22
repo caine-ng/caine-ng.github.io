@@ -5,75 +5,9 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Feb 2022 00:16:33 +0900</pubDate>
-    <lastBuildDate>Wed, 23 Feb 2022 00:16:33 +0900</lastBuildDate>
+    <pubDate>Wed, 23 Feb 2022 01:15:33 +0900</pubDate>
+    <lastBuildDate>Wed, 23 Feb 2022 01:15:33 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
-    
-      <item>
-        <title>Seq2Seq for Computer Vision</title>
-        <description>&lt;h1 id=&quot;lưu-ý-khi-train-model-object-detection&quot;&gt;Lưu ý khi train model object detection&lt;/h1&gt;
-
-&lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
-
-&lt;p&gt;Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO &lt;a class=&quot;citation&quot; href=&quot;#lin2014microsoft&quot;&gt;[1]&lt;/a&gt; tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim.
-Mà các bạn cũng nhớ giá này là giá &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; tức là có thể bị interrupt giữa chừng nên mới rẻ thế.
-Chứ nếu bạn mà chọn &lt;a href=&quot;https://aws.amazon.com/ec2/pricing/on-demand/&quot;&gt;&lt;strong&gt;on-demand&lt;/strong&gt;&lt;/a&gt; thì có mà gấp 10 lần.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/detr-cost-analysis.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé.
-Bộ Open Images &lt;a class=&quot;citation&quot; href=&quot;#kuznetsova2020open&quot;&gt;[2]&lt;/a&gt; với 1.7 triệu ảnh thì còn máu nữa.
-Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): &lt;a href=&quot;https://www.kaggle.com/c/open-images-2019-object-detection/discussion/110953&quot;&gt;Kaggle Open Images 2019 challenge 6th place solution&lt;/a&gt;.
-Thì kết quả là đồng chí ấy báo cáo:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; để làm phân tích giá nhé) rồi ensemble.&lt;/li&gt;
-  &lt;li&gt;mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau.&lt;/li&gt;
-  &lt;li&gt;sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS).&lt;/li&gt;
-  &lt;li&gt;Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/open-images-price.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; thì giá mềm nhất là &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; cũng tầm $0.918/h.
-Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train.&lt;/p&gt;
-
-&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;lin2014microsoft&quot;&gt;Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. &lt;i&gt;European conference on computer vision&lt;/i&gt; (2014), 740–755.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lin2014microsoft/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sat, 12 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/seq2seq-cv/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/seq2seq-cv/</guid>
-        
-        <category>Object Detection</category>
-        
-        <category>Object Recognition</category>
-        
-        <category>Image Segmentation</category>
-        
-        <category>Temporal Segmentation</category>
-        
-        <category>Sequence-to-sequence</category>
-        
-        <category>seq2seq</category>
-        
-        <category>Transformer</category>
-        
-        <category>Self-supervised learning</category>
-        
-        <category>BERT</category>
-        
-        <category>Vision Transformer</category>
-        
-        
-        <category>Tiếng Việt, 日本語</category>
-        
-        <category>Artificial Intelligence</category>
-        
-        <category>Computer Vision</category>
-        
-      </item>
     
       <item>
         <title>RapidAPI and RapidAPI Hub</title>
@@ -684,164 +618,6 @@ Một điểm lưu ý là các chuỗi thời gian trong giả thiết của Gra
         <category>Project Management</category>
         
         <category>Artificial Intelligence</category>
-        
-      </item>
-    
-      <item>
-        <title>Three extensions for a better Azure Boards: Define-of-Done, Product Vision and Backlog Essentials</title>
-        <description>&lt;p&gt;&lt;strong&gt;Azure Boards (AB)&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#AzureBoa68:online&quot;&gt;[1]&lt;/a&gt; is an essential tool for Project Management &lt;a class=&quot;citation&quot; href=&quot;#meredith2017project&quot;&gt;[2]&lt;/a&gt; in software development projects.
-It provides enough capabilities to the PM to manage the software projects with work items, agile boards, and backlog/sprints for each agile team.
-Linking commits and PRs to working items in Azure Repos &lt;a class=&quot;citation&quot; href=&quot;#AzureRep87:online&quot;&gt;[3]&lt;/a&gt;, Azure Pipelines &lt;a class=&quot;citation&quot; href=&quot;#AzurePip74:online&quot;&gt;[4]&lt;/a&gt;, and Azure Artifacts &lt;a class=&quot;citation&quot; href=&quot;#AzureArt12:online&quot;&gt;[5]&lt;/a&gt;, Azure Boards also supports enhanced code analytics.
-By integrating with Azure Test Plans &lt;a class=&quot;citation&quot; href=&quot;#AzureTes7:online&quot;&gt;[6]&lt;/a&gt; (however, it is not free &lt;a class=&quot;citation&quot; href=&quot;#AzureDev1:online&quot;&gt;[7]&lt;/a&gt;, 52$ per user per month for all above with test plans) to track the whole quality assurance processes, it provides an excellent user experience for development teams.
-Some recent features like Analytics views also give the PM more confidence in making decisions.
-However, the Azure Boards also lacks several important features of a perfect backlog:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;First, there is no &lt;strong&gt;Define-of-Done (DoD)&lt;/strong&gt; checklist in AB by default.&lt;/li&gt;
-  &lt;li&gt;Second, there is not a clear feature to demonstrate the &lt;strong&gt;Product Vision&lt;/strong&gt; to teams. (There is a Delivery Plan to show the roadmap towards a specific release goal).&lt;/li&gt;
-  &lt;li&gt;Finally, if users are already familiar with other tools like JIRA, then AB has a poor backlog view.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This post introduces several extensions to solve these problems: &lt;strong&gt;Define-of-Done&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#Definiti31:online&quot;&gt;[8]&lt;/a&gt;, &lt;strong&gt;Product Vision&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#ProductV55:online&quot;&gt;[9]&lt;/a&gt;, and &lt;strong&gt;Backlog Essentials&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#BacklogE28:online&quot;&gt;[10]&lt;/a&gt;.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;define-of-done-extension-the-perfectionist-for-software&quot;&gt;Define-of-Done extension: The perfectionist for software&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://agile-extensions.gallerycdn.vsassets.io/extensions/agile-extensions/dod/3.0.40/1599210825590/dist/images/screenshot-dod.png&quot; style=&quot;float: right; margin: 10px; width: 50%;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;are-you-really-understanding-the-role-of-managers-in-a-software-project&quot;&gt;Are you really understanding the role of managers in a software project?&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Define-of-Done (DoD)&lt;/strong&gt; perfects software!
-Development teams will not acknowledge a bug if there is no feedback or tests.
-Testers and QA helps to ensure technical bugs don’t happen.
-However, logical bugs (wrong business flows, unfriendly or difficult-to-use UX, …) can be found only by users and product owners (PO).
-PO must feedback development teams about logical bugs, and customer support (CS) teams must feedback development teams about claims from end-users.&lt;/p&gt;
-
-&lt;p&gt;Many wrong perceptions that PO, SM, and Product Managers (PdM) are close to testers and QA!
-It is completely wrong!
-Testers and QAs are bug finders, although they only find and report technical bugs.
-PO/SM/PM don’t find bugs (please remember this).
-What they actually do are &lt;strong&gt;APPROVE GOOD PRODUCTS&lt;/strong&gt; and &lt;strong&gt;DENY DEFECTIVE PRODUCTS&lt;/strong&gt;.
-They don’t find bugs because they already have a &lt;strong&gt;checklist&lt;/strong&gt; to classify what is a good product and what is a defective product!&lt;/p&gt;
-
-&lt;p&gt;So the right actions in a perfect development team are like Testers/QA &lt;strong&gt;report&lt;/strong&gt; bugs, Developers &lt;strong&gt;develop products and fix bugs&lt;/strong&gt;, but the product won’t launch without &lt;strong&gt;approval&lt;/strong&gt; from PO/SM/PM.
-If PO/SM/PM &lt;strong&gt;deny&lt;/strong&gt; a thing, don’t even think about launching!&lt;/p&gt;
-
-&lt;p&gt;Then the checklist PO/SM/PdM needs to consult when deciding the launching is a part of DoD.
-Perhaps it contains a list of features that must be completed, a check of flow, UI/UX, …&lt;/p&gt;
-
-&lt;p&gt;But remember that this is only one of the missions that PO/SM/PdM must complete.
-There are many other things to make the development smoothly that they need to do.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;In many software projects, developers and testers miss the task of reporting and obtaining approvals from managers, and &lt;strong&gt;such incidents often lead to serious consequences&lt;/strong&gt;!&lt;/em&gt;
-&lt;em&gt;I observed several young developers in my experience: they were overconfident about their code and sometimes skipped the approval processes when deploying and launching.&lt;/em&gt;
-&lt;em&gt;These behaviors are classified as &lt;strong&gt;bad behaviors (thái độ kém)&lt;/strong&gt; in all software projects!&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;dod-and-acceptance-criteria-ac&quot;&gt;DoD and Acceptance Criteria (AC)&lt;/h2&gt;
-
-&lt;p&gt;If you’re beginning to wonder why this is a product management issue and not a quality control topic for the technical team, that’s in part due to the difference between a general Definition of Done and the specific acceptance criteria for a particular user story.&lt;/p&gt;
-
-&lt;p&gt;DoD is universally applied (with a few exceptions) to everything the engineering organization is attempting to ship.
-While a product management &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OK&lt;/code&gt; might be one of the items on the checklist, it’s a fairly generic definition.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Acceptance criteria&lt;/strong&gt;, however, are unique to the user story or feature in question. 
-These criteria should be defined by product management, with input from the technical team on any specific use cases or parameters that must be met to green light this item before it’s considered done.&lt;/p&gt;
-
-&lt;p&gt;Since DoD is considered for everything, product management should review the definition and make sure they agree that it is comprehensive enough. 
-However, the ownership and management of the definition doesn’t necessarily need to be the responsibility of product management. 
-As long as product is satisfied that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;done&lt;/code&gt; items pass the tests spelled out in the DoD, they can largely leave it be.&lt;/p&gt;
-
-&lt;p&gt;But a shipped product or feature can hardly be considered done in the eyes of product, either.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;For a product manager, you&apos;re not done with a product (or feature) until you&apos;ve put it out to pasture,&lt;/code&gt; says Adam Sigel of Hometap &lt;a class=&quot;citation&quot; href=&quot;#mediumco31:online&quot;&gt;[11]&lt;/a&gt;. 
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Once it&apos;s launched, you begin the long tail of customer support, price changes, bug fixes, and compatibility updates. Once you&apos;re done supporting it, it&apos;s time to sunset it. Then, and only then, are you done with a product.&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;dod-extension-in-ab&quot;&gt;DoD extension in AB&lt;/h2&gt;
-
-&lt;p&gt;So for a specific user story, testers, developers and QA must ensure that specific AC are implemented.
-But managers need to ensure that members DONE the AC correcly, at least in terms of workflow.
-A typical DoD checklist is as follows:&lt;/p&gt;
-
-&lt;ul class=&quot;task-list&quot;&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is peer-reviewed&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is checked in&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is deployed to test environment&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code/feature passes regression testing&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code/feature passes smoke testing&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Code is documented&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Help documentation is updated&lt;/li&gt;
-  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; /&gt;Feature is OK’d by stakeholders&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Without a fulfilled DoD, then the product was launch without a correct workflow and there might be bugs inside.
-A perfect DoD is ensured and a continuous delivery is possible!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;AB&lt;/strong&gt; by default doesn’t provide a checklist feature, however, user can use a items list like &lt;strong&gt;Define-of-Done&lt;/strong&gt; [8].
-It helps a lot in ensuring the quality of a product.&lt;/p&gt;
-
-&lt;h1 id=&quot;product-vision-to-know-what-you-are-working-for-in-long-term&quot;&gt;Product Vision: To know what you are working for in long-term&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://agile-extensions.gallerycdn.vsassets.io/extensions/agile-extensions/product-vision/2.0.26/1588400179018/assets/images/screenshot-product-vision-workhub.png&quot; style=&quot;float: left; margin: 10px; width: 50%;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Product Vision (PV)&lt;/strong&gt; is a slogan or motto of a product which describes the value that the product will give to end-users.
-In Agile development, for a short-term, you will hear sprint goals, task descriptions, acceptance criteria, .etc.
-All of them are for short durations, and you will see a part of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;big picture&lt;/code&gt;.
-Such a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;big picture&lt;/code&gt; can be huge, and the owner may need to survey for a long time to give.
-However, once the vision is clear, the owner can describe it in a short sentence, or a photo, a video, or anything which can represents the vision compactly.&lt;/p&gt;
-
-&lt;p&gt;The Product Vision sheds light on the direction the development will working towards.
-Let’s see the PV of SpaceX:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not.
-&lt;a href=&quot;https://www.spacex.com/careers/index.html?department=Food%2520Services&quot;&gt;Elon Musk&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;backlog-essentials-bringing-jira-back-to-azure-devops&quot;&gt;Backlog essentials: Bringing JIRA back to Azure DevOps&lt;/h1&gt;
-
-&lt;iframe style=&quot;float: right; margin: 10px; width: 50%;&quot; src=&quot;https://www.youtube-nocookie.com/embed/q6n6nb7w3kU&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;If you are familiar with JIRA, some of the following features may comfort you:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Quick editting in backlog&lt;/li&gt;
-  &lt;li&gt;Progressbar in issue views&lt;/li&gt;
-  &lt;li&gt;Dynamic backlog charts (Insights)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And when you switch to AB, you find that those features are not there.
-&lt;strong&gt;Backlog essentials (BE, &lt;a class=&quot;citation&quot; href=&quot;#BacklogE28:online&quot;&gt;[10]&lt;/a&gt;)&lt;/strong&gt; add them back to AB.
-One downside is that it is not free, with a price of €288 per year!&lt;/p&gt;
-&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;AzureBoa68:online&quot;&gt;Azure Boards | Microsoft Azure.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/AzureBoa68_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;meredith2017project&quot;&gt;Meredith, J.R., Shafer, S.M. and Mantel Jr, S.J. 2017. &lt;i&gt;Project management: a strategic managerial approach&lt;/i&gt;. John Wiley &amp;amp; Sons.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/meredith2017project/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureRep87:online&quot;&gt;Azure Repos – Git Repositories | Microsoft Azure.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/AzureRep87_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzurePip74:online&quot;&gt;Azure Pipelines | Microsoft Azure.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/AzurePip74_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureArt12:online&quot;&gt;Azure Artifacts | Microsoft Azure.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/AzureArt12_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureTes7:online&quot;&gt;Azure Test Plans | Microsoft Azure.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/AzureTes7_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;AzureDev1:online&quot;&gt;Azure DevOps Services Pricing | Microsoft Azure.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/AzureDev1_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Definiti31:online&quot;&gt;Definition of Done - Visual Studio Marketplace.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/Definiti31_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;ProductV55:online&quot;&gt;Product Vision - Visual Studio Marketplace.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ProductV55_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;BacklogE28:online&quot;&gt;Backlog Essentials - Visual Studio Marketplace.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/BacklogE28_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;mediumco31:online&quot;&gt;medium.com.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/mediumco31_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/azure-boards-pm-extensions/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/azure-boards-pm-extensions/</guid>
-        
-        <category>programming</category>
-        
-        <category>project management</category>
-        
-        <category>dod</category>
-        
-        <category>define-of-done</category>
-        
-        <category>backlog</category>
-        
-        
-        <category>Project Management</category>
         
       </item>
     
@@ -2006,6 +1782,351 @@ Riding ...
         <category>Project Management</category>
         
         <category>Software Engineering</category>
+        
+      </item>
+    
+      <item>
+        <title>Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile?</title>
+        <description>&lt;p&gt;Cũng phải 9-10 năm trước đây, khi mới bắt đầu làm các nền tảng với mong muốn xây dựng “một phút huy hoàng rồi vụt tắt”, tôi hay thấy các nhà phát triển lựa chọn cùng lúc phát triển 3 phiên bản: Web, mobile (Android/iOS) và một bản có thể desktop.
+Đó là những năm 2012 và việc đó chủ yếu để tăng độ phủ của dịch vụ.
+Nhưng năm nay là năm 2021, và chúng ta không thể hướng dẫn các em trẻ bằng bộ não của những “ông già” mà thời huy hoàng từ những năm 2012.
+Năm 2021, chúng ta cũng cần cập nhật và nhìn lại những ứng dụng thành công trong 2 năm qua của kỷ nguyên COVID, tôi chợt nhận ra:
+ứng dụng ClubHouse thành công gọi vốn vòng C tương đương 100 triệu đô lẻ nhưng không hề cung cấp giao diện web, chỉ toàn ứng dụng mobile.
+Ứng dụng na ná thế của Việt Nam là onMic cũng không thèm chơi với web luôn!
+Ồ, chúng ta đã già rồi với giới trẻ có lẽ đã không còn mặn mà với việc xây một phiên bản cho desktop browser nữa.
+&lt;strong&gt;Năm 2021 phải là thời đại của mobile&lt;/strong&gt;.
+Chúng ta có lẽ đã sai, và cũng nên nhìn nhận lại khả năng của mobile apps (native chứ không phải nhúng mấy cái Javascript vớ vẩn)!&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;responsive-web-apps-và-mobile-apps&quot;&gt;Responsive web apps và mobile apps&lt;/h1&gt;
+
+&lt;h2 id=&quot;tổng-quan&quot;&gt;Tổng quan&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2014/11/Smartphone_subs_ericsson.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;By 2020, 90% dân số thế giới trên 6 tuổi (6,1 tỷ người) có sử dụng điện thoại di động. Nguồn: &lt;a href=&quot;http://thenextweb.com/insider/2014/11/18/2020-90-worlds-population-aged-6-will-mobile-phone-report/&quot;&gt;TheNextWeb&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Chúng ta luôn tự hỏi tại sao ngày nay lại phải học làm những thứ có thể hiển thị và hoạt động được trên mobile?
+Câu trả lời là vì chỉ trong vài năm, số lượng thuê bao di động trên thế giới đã phủ khắp đến 90% dân số thế giới, tính tới 2020.
+Điện thoại di động không phải quá khứ hay tương lai mà là hiện tại ngay trước mắt.
+Giải pháp để khiến dịch vụ của bạn phủ rộng tới tất cả người dùng di động hiện tại chỉ có hai nhánh chính: &lt;strong&gt;responsive web apps và mobile apps&lt;/strong&gt;.
+Những năm 2012, chúng ta, những “ông già” phải phát triển song song 3 phiên bản vì lúc đó tỷ lệ mobile chỉ tầm 1.3 tỷ/6 tỷ dân, tức là khoảng 23% hơn.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Responsive web apps&lt;/strong&gt; thì chủ yếu là HTML5/CSS3 có những tinh chỉnh để vừa vặn vào màn hình mobile.
+Lợi thế cũng khả rõ ràng:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Một phiên bản cho tất cả người dùng&lt;/strong&gt;. cách làm web apps thì chỉ cần browser và quan trọng nhất là kết nối Internet.
+Ngắt mạng là … giải tán!&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vận hành và bảo trì đơn giản hơn vì trang web dễ nâng cấp, bảo trì và fix lỗi&lt;/strong&gt;. Người dùng thậm chí còn không nhận được thông báo khi xảy ra nâng cấp.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Phiên bản web rẻ hơn&lt;/strong&gt;. SEO cũng dễ dàng hơn, và bảo trì cũng sẽ rẻ hơn.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Mobile apps&lt;/strong&gt; là những ứng dụng có thể &lt;strong&gt;cài đặt&lt;/strong&gt; lên điện thoại di động và máy tính bảng.
+Ứng dụng di động ưu thế nổi trội sẽ là &lt;strong&gt;trải nghiệm người dùng tốt hơn&lt;/strong&gt;.
+Nếu như trang web nhắm tới tìm kiếm người dùng mới (vì vậy không tạo barrier trong cài đặt nâng cấp), thì ứng dụng mobile tập trung vào &lt;strong&gt;người dùng trung thành&lt;/strong&gt;.
+Thường không nên nghĩ ứng dụng mobile chỉ là bản clone của web app, nó sẽ là một suy nghĩ sai lầm!
+Và cuối cùng cái quan trọng là &lt;strong&gt;push notification&lt;/strong&gt;, đó là ưu thế không thể từ chối của mobile apps.
+Ưu thế của mobile apps tập trung vào:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tập trung vào tính năng đặc biệt của nền tảng mobile&lt;/strong&gt;. Ví dụ người dùng Instagram có thể xem ảnh trên web vô tư nhưng để upload họ phải dùng mobile apps.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mobile apps hoạt động trực tiếp với nền tảng, đòi hỏi cài đặt và nhận được những hỗ trợ tốt hơn về security cũng như tình năng nền tảng OS&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mobile apps có thể hoạt động offline&lt;/strong&gt;. Còn nói thực, tôi cũng làm nhiều với đủ kiểu web apps, web socket, mà nói chung cứ ngắt net là phiền! Không có Internet, đám webapps chỉ để nhìn.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tối ưu hóa trải nghiệm người dùng&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cung cấp các component native của mobile phone như network, voice, …&lt;/strong&gt;. Lập trình web hiện đại với Vue.JS hay reactJS có khá nhiều web component, nhưng nhìn chung cũng có giới hạn và hoạt động cũng không tốt ví dụ khi ngắt net!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Tạo tạm một bảng so sánh tính năng giữ hai sự lựa chọn để bạn đọc tham khảo.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Perspective&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Responsive website&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Mobile app&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Compatibility&lt;/td&gt;
+      &lt;td&gt;Mobile version of the site is equally displayed in all browsers, despite the device model.&lt;/td&gt;
+      &lt;td&gt;Requires development of several applications for various platforms.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Audience&lt;/td&gt;
+      &lt;td&gt;All devices that have access to the Internet.&lt;/td&gt;
+      &lt;td&gt;Only smartphones and tablets.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cost of entering the market&lt;/td&gt;
+      &lt;td&gt;Payments for domain and hosting.&lt;/td&gt;
+      &lt;td&gt;Developer licenses in the app stores.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ease of use&lt;/td&gt;
+      &lt;td&gt;Doesn’t require download and installation.&lt;/td&gt;
+      &lt;td&gt;Requires downloading and installation.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Working offline&lt;/td&gt;
+      &lt;td&gt;Not all devices support.&lt;/td&gt;
+      &lt;td&gt;Possible.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Support, updates and bug fixing&lt;/td&gt;
+      &lt;td&gt;Easy to update, maintain and fix bugs.&lt;/td&gt;
+      &lt;td&gt;Difficult to update and monitor the application after it’s downloaded. Bugs will be fixed only in the next version.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Convenience of regular using&lt;/td&gt;
+      &lt;td&gt;Average.&lt;/td&gt;
+      &lt;td&gt;Good for regular using.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Personalization&lt;/td&gt;
+      &lt;td&gt;Average. Mobile site is more focused on the service.&lt;/td&gt;
+      &lt;td&gt;Good. App is more aimed at the individual user.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;giới-thiệu-ứng-dụng-voice-chat-room-clubhouse&quot;&gt;Giới thiệu ứng dụng voice chat room ClubHouse&lt;/h1&gt;
+
+&lt;p&gt;Thế giới đang chuyển dần từ service-centric sang user-centric, từ web-based sang mobile-based.
+Hiện tượng ClubHouse nổi lên từ thàng 4/2020, tức là mới hơn 1 năm.
+Chúng ta sẽ nhìn nhận lại giá trị của ClubHouse trong ngành dọc: tức là các mạng xã hội âm thanh.&lt;/p&gt;
+
+&lt;h2 id=&quot;mạng-xã-hội-âm-thanh&quot;&gt;Mạng xã hội âm thanh&lt;/h2&gt;
+
+&lt;p&gt;Mạng xã hội âm thanh là mạng xã hội dựa trên việc chia sẻ âm thanh chứ không phải hình ảnh hay video.
+Các mạng xã hội chia sẻ âm nhạc như Zing MP3, hay Spotify đã tồn tại từ lâu và với hình thức &lt;strong&gt;chia sẻ file&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Một đặc điểm của ClubHouse chính là việc chia sẻ thông qua nói chuyện tức là âm thanh cuộc nói chuyện được chia sẻ.
+Người tham gia không nhìn thấy mặt nhau là đặc điểm khiến cho người dùng có thể tập trung vào nội dung nói chuyện hơn là nhìn sắc mặt nhau.&lt;/p&gt;
+
+&lt;h2 id=&quot;hiện-tượng-clubhouse&quot;&gt;Hiện tượng ClubHouse&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Tại sao ClubHouse lại thành hiện tượng như vậy?&lt;/strong&gt;
+Bạn nên nhớ khi đạt giá trị 100 triệu đô, Facebook đã sở hữu 5,5 triệu người dùng vào năm 2005.
+Nhưng cùng mức giá ấy, ClubHouse chỉ có vỏn vẹn &lt;strong&gt;5000 người dùng vào năm 2020&lt;/strong&gt;.
+Thời cổ đại nếu một đội quân 5000 người dù dũng mãnh thế nào mà được xếp ngang hàng với đội quân 5,5 triệu người thì đó cũng là chuyện khá hiếm.
+Twitter khi đạt giá trị 100 triệu đô cũng có 1,2 triệu người dùng, và Instagram cũng có 1,7 triệu MAU.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/fomo.png&quot; alt=&quot;FOMO&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vậy cái gì làm nên giá trị của ClubHouse?&lt;/strong&gt;
+ClubHouse đã thiết kế UX tức là trải nghiệm người dùng theo nguyên lý FOMO (Fear of missing out, tức là cảm giác bị lãng quên), khiến cho engagement của người dùng được nâng cao.
+Thiết kế này đòi hỏi 3 tính năng nhất quyết bị loại bỏ (không được implement) là: chức năng mời, chức năng lưu trữ archive, và chức năng nhận xét comment.
+Việc thiếu 3 chức năng, cùng với việc thiết kế room chat để chỉ có thể nghe người mình muốn nói chuyện vào lúc nửa đêm khiến người dùng càng gắn bó với app.
+Bởi vì họ luôn ở trạng thái cảm thấy bị miss mất cái gì đó nên sẽ không dám đóng app.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vậy tiềm năng của ClubHouse có thực sự đáng giá?&lt;/strong&gt;
+Cái này có lẽ phải để thời gian trả lời.
+Cá nhân tôi khi dùng thử phát hiện ra một điểm tuyệt vời là thiết kế UX rất đơn giả và ưu việt.
+Họ không thiết kế kiểu ôm đồm mọi tính năng, mà tất cả đều tuân theo một thiết kế UX có trọng tâm.
+FOMO là một ví dụ về việc: không phải cứ implement hết mọi tính năng thì sẽ tốt mà đôi khi bỏ đi không thèm implement một số tính năng lại đem lại trải nghiệm tuyệt vời.
+Thế nên cũng không cần làm hết đâu!
+Ví dụ họ cũng không cần web vì đúng là với chiến thuật của họ thì mấy cái Vue với React cũng chả để làm gì cả (90% dân số thế giới đã có mobile trên tay và native app thì còn lo gì ngắt mạng) :yum:&lt;/p&gt;
+
+&lt;p&gt;Tại thời điểm ClubHouse gọi được 100 triệu đô vốn đầu tư thì cũng có nhiều ý kiến phản hồi là tại sao lại giá cao thể trong khi chỉ có 5000 users?
+Hãy để thời gian minh chứng cho kết cục của startup này.
+Tuy nhiên, cái chúng ta học được ở đây đó là &lt;strong&gt;tối ưu trải nghiệm người dùng trên mobile đang là xu hướng&lt;/strong&gt;, và web sẽ không làm được việc đó.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 26 Aug 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/mobile-and-web/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/mobile-and-web/</guid>
+        
+        <category>business</category>
+        
+        <category>mobile apps</category>
+        
+        <category>web apps</category>
+        
+        <category>single page app</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+      </item>
+    
+      <item>
+        <title>Idle Time Pricing Models in the Cloud</title>
+        <description>&lt;p&gt;&lt;strong&gt;Batch processing (JP: バッチ処理, VI: Xu Lý Lô)&lt;/strong&gt; is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit.
+A program that reads a large file and generates a report, for example, is considered to be a batch job.
+Services such as Azure Batch &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt; and AWS Batch &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#balaji2018benchmarking&quot;&gt;[3]&lt;/a&gt; support runs of batch jobs with VMs/EC2 instances and serverless container backend.
+However, running batch jobs requires VMs and instances to run continuously in production with almost &lt;strong&gt;zero downtime&lt;/strong&gt;.
+It also means that there will be &lt;strong&gt;idle time&lt;/strong&gt; to keep batch jobs running in the background.
+We review and estimate the idle time pricing of several cloud-based batch processing services. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;batch-processing-and-idle-time&quot;&gt;Batch processing and idle time&lt;/h1&gt;
+&lt;p&gt;With the advent of cloud computing with virtualization, more and more workloads have been offloaded from conventional private clouds to public clouds in recent years.
+The greatest issue of these approaches is the &lt;strong&gt;pricing models&lt;/strong&gt;.
+Virtual machines often use the pay-per-use model, which requires running the VMs continuously, and non-working hours are begin paid.
+For example, AWS EC2 instances are billed for running durations on an hourly basis.
+Because the distribution of coming requests is unknown or probabilistic, then the instances must be kept running without downtime.
+This results in hours without requests are being paid with the same price as hours with requests (real working hours).
+The issue is called &lt;strong&gt;idle time issue&lt;/strong&gt;, which is well-known in cloud computing &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#balaji2018benchmarking&quot;&gt;[3]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Batch jobs&lt;/strong&gt; are scheduled jobs with minimal user interactions.
+It is possible to have some jobs in the systems which cannot be answered in real-time then users want to submit for processing in the background.
+The submitted jobs are queued and scheduled to process later when the application does not require them to give results soon.
+Scheduled jobs are popped from the queue and run automatically with interactions to computations resources such as VMs and databases.
+Due to a large number of jobs, a Massive Parallel Processing (MPP) system can be used for batch jobs when the number of data is too big (1TB or more)!
+Azure Batch &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt; and AWS Batch &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt; are fully managed cloud services for batch jobs which give highly scalable without extensive programming efforts.
+Azure Batch supports Azure VMs while AWS Batch supports EC2 instances based Elastic Container Service (ECS), Fargate-based ECS, and Lambda.
+Reducing &lt;strong&gt;idle time&lt;/strong&gt; while deploying to these services is a demand, and it requires careful designs.
+For example, in &lt;a class=&quot;citation&quot; href=&quot;#qureshi2019reduce&quot;&gt;[4]&lt;/a&gt;, Qureshi described a design that reduces Azure Batch cost using dynamic allocation and relocation of resources with lookahead technique for deallocating nodes.
+Their results showed that 30% of the total cost was reduced with the proposed techniques.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graphical Processing Unit (GPU)&lt;/strong&gt; has helped to accelerate the latest Artificial Intelligence workloads.
+Many Deep Learning applications require GPUs or even thousands of GPUs for training and inference.
+Building such a massive GPU system requires tedious setups, maintenance, and oversized budgets.
+Many public clouds such as Azure and AWS have more flexible pricing models which bill for milliseconds.
+Their flagship services are AWS Lambda and Azure Functions.
+In AWS Lambda and Azure Functions, computations are billed for running time only, which is calculated from when the resources are loaded into function memory to when the computation is finished with results is returned to an integration service like AWS API Gateway.
+However, &lt;strong&gt;Lambda and Functions do not support GPU!&lt;/strong&gt;
+Hence, the normal uses of these serverless computing mechanisms are often API calls, i. e., calling to other APIs, not any massive computations.
+Therefore, deploying GPU-required batch jobs to the cloud often use VM-based approaches.
+In &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt;, Risco and Moltó designed a batch processing system using AWS Batch with GPU-enabled ECS.
+They used 12 vGPUs of type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g3s.xlarge&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In summary, batch processing in the cloud relies on the pricing models that have idle time if we do not keep the system busy 24 hours per day.
+AWS Batch supports some serverless mechanisms like Lambda and Fargate-based ECS but only supports CPUs.
+For the need of GPUs, one must switch to instance-based or VM-based approaches, which turns us back to the idle time problem indeed.
+&lt;strong&gt;The choice of pricing models is whether billing for milliseconds or not?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;cloud-based-batch-processing&quot;&gt;Cloud-based batch processing&lt;/h1&gt;
+
+&lt;h2 id=&quot;aws-batch&quot;&gt;AWS Batch&lt;/h2&gt;
+
+&lt;h3 id=&quot;a-mistake-in-scale-out-design&quot;&gt;A mistake in scale-out design&lt;/h3&gt;
+
+&lt;p&gt;One of the most interesting examples of how the scale-out and scale-up of instances are done in AWS Batch was this &lt;a href=&quot;https://forums.aws.amazon.com/thread.jspa?messageID=809896&amp;amp;threadID=265573&amp;amp;tstart=0&quot;&gt;QA&lt;/a&gt;.
+A user &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ulsa9983&lt;/code&gt; asked for their tough situation of managing EC2 instances in 2017 as follows:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We have low-traffic, but want to keep some spot CPU available for quick response.
+We set min CPU to 2, which initially starts a reasonably small instance, e. g. an m4.large.
+However, after some batch requests with varying CPU and memory requirements, the cluster has grown to an m4.16xlarge, and it stays there day in and day out.
+This costs us plenty more than we anticipated with the min CPU=2 setting.&lt;/p&gt;
+
+  &lt;p&gt;Is there any way to make it scale down, or is the only alternative to set min CPU=0?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The question was actually somewhat practical: there is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; parameter in the AWS Batch template [6], for which when the system goes into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DISABLED&lt;/code&gt; mode, then idle instances will be scale down to keep only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; running.
+Setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; lower will reduce idle cost but increase the time for starting up, loading, provisioning new vCPUs.
+That’s why even though there is an option to scale down &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus=0&lt;/code&gt;, but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ulsa9983&lt;/code&gt; wanted to find another solution.
+Their service is &lt;strong&gt;low traffic, but (we) want to keep some spot CPU available for quick response&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The most interesting solution came from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jamie@AWS&lt;/code&gt; included the following script:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Alternatively, you could achieve your goal by &lt;strong&gt;creating two managed to compute environments&lt;/strong&gt; which are both associated with your job queue.
+For the first compute environment (with the lowest integer value for order), set min/desired/max vCPUs=2, ensuring that it always has a single EC2 instance with 2vCPUs in it. 
+The second one computes environment could have min vCPUs=0 and max vCPUs set to whatever upper limit you like.
+With this model, AWS Batch jobs requiring two or fewer vCPUs could be immediately scheduled to the always-on instance while additional capacity is scaled up/down as needed when you have a larger number of concurrent jobs to run.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Actually, this answer always keeps an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m4.large&lt;/code&gt; instance to be run without being modified and having another group of resources that can be scaled up and down according to the situations.
+Nevertheless, on the trade-off of response time and cost, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus=2&lt;/code&gt; was kept, but the type of the instance was preserved to reduce cost.&lt;/p&gt;
+
+&lt;p&gt;To find more about the parameters of AWS Batch, one can consult with &lt;a class=&quot;citation&quot; href=&quot;#WhatIsAW85:online&quot;&gt;[6]&lt;/a&gt;.
+AWS Batch is a batch computing platform with stateful jobs, job queues, GPU jobs, …
+Jobs are the unit of work invoked by AWS Batch.
+Jobs can be invoked as containerized applications running on Amazon ECS container instances in an ECS cluster.&lt;/p&gt;
+
+&lt;h3 id=&quot;scar&quot;&gt;SCAR&lt;/h3&gt;
+
+&lt;p&gt;SCAR &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt; is a serverless system for GPU-enabled computing.
+They have their own Functional Definition Language (FDL) for serverless workflows.
+Their work helps to design a batch system faster and easier.
+One example can be found below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow/workflow.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This system does object detection and speech transcription for automatic captioning.
+ Some examplar results can be seen as follows.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow/result.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The above two images are from &lt;a href=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow&quot;&gt;https://github.com/grycap/scar/raw/master/examples/av-workflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;azure-batch&quot;&gt;Azure Batch&lt;/h2&gt;
+
+&lt;p&gt;Azure Batch [1, 8] creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes.
+There’s no cluster or job scheduler software to install, manage, or scale.
+Instead, you use Batch APIs and tools, command-line scripts, or the Azure portal to configure, manage, and monitor your jobs.&lt;/p&gt;
+
+&lt;p&gt;Some important practices for designing a good batch system with Azure Batch:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/high-availability-disaster-recovery&quot;&gt;Always design your Batch application for high availability&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/error-handling&quot;&gt;Always define error handling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/security-best-practices&quot;&gt;Always care about security&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/best-practices&quot;&gt;Best practices&lt;/a&gt;, .etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;idle-time-pricing-options&quot;&gt;Idle time pricing options&lt;/h1&gt;
+
+&lt;p&gt;We summarize the pricing options.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First, container-based serverless options like Fargate ECS are available but do not really support GPU use cases.&lt;/strong&gt;
+This is somewhat a pity for deep learning deployments because these options provide millisecond-based billing.
+We will wait for GPU supports in the near future.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Second, even with some parametric methodologies like setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; VMs/instance-based options still need to face the trade-off between idle time and cost&lt;/strong&gt;.
+An example of the use case was given in which a mistake in scale-out design has led to a scale-up option that doubled the bills.
+Typically, we will need to keep &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt;$\geq 2$ to have quick responses, but we still do not have scaledown of GPU (no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minvGpus&lt;/code&gt; parameters in AWS Batch template).
+Then the idle cost is mostly unavoidable (SCAR &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt; described their approach on scaling down with zero resources when no workload, then the startup time and loading time will increase in return, and they are idle costs).&lt;/p&gt;
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Finally, we want to cut down our bills every month (but want to increase the income). :yum:
+This article provides some guidance to help the readers to design their approaches for cloud-based batch processing systems.
+Future works will direct to the practices of GPU-enabled serverless architecture with less idle time and high efficiency.&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;soh2020overview&quot;&gt;Soh, J., Copeland, M., Puca, A. and Harris, M. 2020. Overview of Azure Platform as a Service. &lt;i&gt;Microsoft Azure&lt;/i&gt;. Springer. 43–55.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/soh2020overview/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;witte2019event&quot;&gt;Witte, P.A., Louboutin, M., Modzelewski, H., Jones, C., Selvage, J. and Herrmann, F.J. 2019. Event-driven workflows for large-scale seismic imaging in the cloud. &lt;i&gt;SEG Technical Program Expanded Abstracts 2019&lt;/i&gt;. Society of Exploration Geophysicists. 3984–3988.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/witte2019event/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;balaji2018benchmarking&quot;&gt;Balaji, A. and Allen, A. 2018. Benchmarking automatic machine learning frameworks. &lt;i&gt;arXiv preprint arXiv:1808.06492&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/balaji2018benchmarking/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;qureshi2019reduce&quot;&gt;Qureshi, A.N. 2019. Reduce Cost of Batch Processing Microsoft Azure Cloud. &lt;i&gt;JETIR-International Journal of Emerging Technologies and Innovative Research&lt;/i&gt;. (2019), 2349–5162.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/qureshi2019reduce/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;risco2021gpu&quot;&gt;Risco, S. and Moltó, G. 2021. GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. &lt;i&gt;Applied Sciences&lt;/i&gt;. 11, 4 (2021), 1438.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/risco2021gpu/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;WhatIsAW85:online&quot;&gt;What Is AWS Batch? - AWS Batch. https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/WhatIsAW85_online/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 19 Aug 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/idle-time-pricing-models/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/idle-time-pricing-models/</guid>
+        
+        <category>mlops</category>
+        
+        <category>machine learning</category>
+        
+        <category>gpu</category>
+        
+        <category>serverless computing</category>
+        
+        <category>cloud computing</category>
+        
+        <category>idle time</category>
+        
+        <category>aws</category>
+        
+        <category>azure</category>
+        
+        <category>aws batch</category>
+        
+        <category>batch computing</category>
+        
+        <category>azure batch</category>
+        
+        
+        <category>Artificial Intelligence</category>
+        
+        <category>Site Reliable Engineering</category>
         
       </item>
     
