@@ -28,8 +28,8 @@
 <meta property="og:title" content="Seq2Seq for Computer Vision" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Lưu ý khi train model object detection Giá thành khi train model State-of-the-art (SOTA) Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO [2] tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim. Mà các bạn cũng nhớ giá này là giá Spot tức là có thể bị interrupt giữa chừng nên mới rẻ thế. Chứ nếu bạn mà chọn on-demand thì có mà gấp 10 lần. Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé. Bộ Open Images [2] với 1.7 triệu ảnh thì còn máu nữa. Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): Kaggle Open Images 2019 challenge 6th place solution. Thì kết quả là đồng chí ấy báo cáo: train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng p3.xlarge để làm phân tích giá nhé) rồi ensemble. mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau. sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS). Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train. p3.xlarge thì giá mềm nhất là Spot cũng tầm $0.918/h. Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train. Tài liệu tham khảo Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. European conference on computer vision (2014), 740–755.Details Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. International Journal of Computer Vision. 128, 7 (2020), 1956–1981.Details" />
-<meta property="og:description" content="Lưu ý khi train model object detection Giá thành khi train model State-of-the-art (SOTA) Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO [2] tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim. Mà các bạn cũng nhớ giá này là giá Spot tức là có thể bị interrupt giữa chừng nên mới rẻ thế. Chứ nếu bạn mà chọn on-demand thì có mà gấp 10 lần. Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé. Bộ Open Images [2] với 1.7 triệu ảnh thì còn máu nữa. Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): Kaggle Open Images 2019 challenge 6th place solution. Thì kết quả là đồng chí ấy báo cáo: train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng p3.xlarge để làm phân tích giá nhé) rồi ensemble. mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau. sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS). Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train. p3.xlarge thì giá mềm nhất là Spot cũng tầm $0.918/h. Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train. Tài liệu tham khảo Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. European conference on computer vision (2014), 740–755.Details Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. International Journal of Computer Vision. 128, 7 (2020), 1956–1981.Details" />
+<meta name="description" content="Vision Transformers ViT DETR YOLOX Xây dựng tài nguyên GPU Giá thành khi train model State-of-the-art (SOTA) Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO [2] tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim. Mà các bạn cũng nhớ giá này là giá Spot tức là có thể bị interrupt giữa chừng nên mới rẻ thế. Chứ nếu bạn mà chọn on-demand thì có mà gấp 10 lần. Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé. Bộ Open Images [2] với 1.7 triệu ảnh thì còn máu nữa. Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): Kaggle Open Images 2019 challenge 6th place solution. Thì kết quả là đồng chí ấy báo cáo: train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng p3.xlarge để làm phân tích giá nhé) rồi ensemble. mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau. sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS). Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train. p3.xlarge thì giá mềm nhất là Spot cũng tầm $0.918/h. Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train. Xây dựng hệ thống 8~16 GPU Các cloud solutions Còn lời giải nào khác? Kết luận Tài liệu tham khảo Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. European conference on computer vision (2014), 740–755.Details Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. International Journal of Computer Vision. 128, 7 (2020), 1956–1981.Details" />
+<meta property="og:description" content="Vision Transformers ViT DETR YOLOX Xây dựng tài nguyên GPU Giá thành khi train model State-of-the-art (SOTA) Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO [2] tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim. Mà các bạn cũng nhớ giá này là giá Spot tức là có thể bị interrupt giữa chừng nên mới rẻ thế. Chứ nếu bạn mà chọn on-demand thì có mà gấp 10 lần. Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé. Bộ Open Images [2] với 1.7 triệu ảnh thì còn máu nữa. Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): Kaggle Open Images 2019 challenge 6th place solution. Thì kết quả là đồng chí ấy báo cáo: train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng p3.xlarge để làm phân tích giá nhé) rồi ensemble. mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau. sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS). Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train. p3.xlarge thì giá mềm nhất là Spot cũng tầm $0.918/h. Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train. Xây dựng hệ thống 8~16 GPU Các cloud solutions Còn lời giải nào khác? Kết luận Tài liệu tham khảo Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. European conference on computer vision (2014), 740–755.Details Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. International Journal of Computer Vision. 128, 7 (2020), 1956–1981.Details" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="https://media.giphy.com/media/ATsWtUsuuFRfq8OhZ7/source.gif" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="https://media.giphy.com/media/ATsWtUsuuFRfq8OhZ7/source.gif" />
 <meta property="twitter:title" content="Seq2Seq for Computer Vision" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-02-12T00:00:00+09:00","datePublished":"2022-02-12T00:00:00+09:00","description":"Lưu ý khi train model object detection Giá thành khi train model State-of-the-art (SOTA) Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO [2] tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\\(6\\times 24\\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim. Mà các bạn cũng nhớ giá này là giá Spot tức là có thể bị interrupt giữa chừng nên mới rẻ thế. Chứ nếu bạn mà chọn on-demand thì có mà gấp 10 lần. Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé. Bộ Open Images [2] với 1.7 triệu ảnh thì còn máu nữa. Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): Kaggle Open Images 2019 challenge 6th place solution. Thì kết quả là đồng chí ấy báo cáo: train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng p3.xlarge để làm phân tích giá nhé) rồi ensemble. mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau. sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS). Vậy tổng thể đã tiêu tốn \\(36\\times 8+1\\times 8+1=297\\) ngày train, tức là \\(297\\times 24=7128\\) giờ train. p3.xlarge thì giá mềm nhất là Spot cũng tầm $0.918/h. Tức là để train được accuracy tầm 60% đã mất \\(7128\\times 0.918\\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train. Tài liệu tham khảo Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. European conference on computer vision (2014), 740–755.Details Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. International Journal of Computer Vision. 128, 7 (2020), 1956–1981.Details","headline":"Seq2Seq for Computer Vision","image":"https://media.giphy.com/media/ATsWtUsuuFRfq8OhZ7/source.gif","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq-cv/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/seq2seq-cv/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-02-12T00:00:00+09:00","datePublished":"2022-02-12T00:00:00+09:00","description":"Vision Transformers ViT DETR YOLOX Xây dựng tài nguyên GPU Giá thành khi train model State-of-the-art (SOTA) Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO [2] tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\\(6\\times 24\\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim. Mà các bạn cũng nhớ giá này là giá Spot tức là có thể bị interrupt giữa chừng nên mới rẻ thế. Chứ nếu bạn mà chọn on-demand thì có mà gấp 10 lần. Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé. Bộ Open Images [2] với 1.7 triệu ảnh thì còn máu nữa. Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): Kaggle Open Images 2019 challenge 6th place solution. Thì kết quả là đồng chí ấy báo cáo: train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng p3.xlarge để làm phân tích giá nhé) rồi ensemble. mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau. sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS). Vậy tổng thể đã tiêu tốn \\(36\\times 8+1\\times 8+1=297\\) ngày train, tức là \\(297\\times 24=7128\\) giờ train. p3.xlarge thì giá mềm nhất là Spot cũng tầm $0.918/h. Tức là để train được accuracy tầm 60% đã mất \\(7128\\times 0.918\\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train. Xây dựng hệ thống 8~16 GPU Các cloud solutions Còn lời giải nào khác? Kết luận Tài liệu tham khảo Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. European conference on computer vision (2014), 740–755.Details Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. International Journal of Computer Vision. 128, 7 (2020), 1956–1981.Details","headline":"Seq2Seq for Computer Vision","image":"https://media.giphy.com/media/ATsWtUsuuFRfq8OhZ7/source.gif","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/seq2seq-cv/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/seq2seq-cv/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        411
+        438
      words</li>
         <li class="small">2 minutes</li>
     </ul>
@@ -298,17 +298,36 @@
                     <div class="toc mt-4 mb-4 lead">
                         <h3 class="font-weight-bold">Summary</h3>
                         <ul>
-  <li><a href="#lưu-ý-khi-train-model-object-detection">Lưu ý khi train model object detection</a>
+  <li><a href="#vision-transformers">Vision Transformers</a>
     <ul>
-      <li><a href="#giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</a></li>
+      <li><a href="#vit">ViT</a></li>
+      <li><a href="#detr">DETR</a></li>
+      <li><a href="#yolox">YOLOX</a></li>
     </ul>
   </li>
+  <li><a href="#xây-dựng-tài-nguyên-gpu">Xây dựng tài nguyên GPU</a>
+    <ul>
+      <li><a href="#giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</a></li>
+      <li><a href="#xây-dựng-hệ-thống-816-gpu">Xây dựng hệ thống 8~16 GPU</a></li>
+      <li><a href="#các-cloud-solutions">Các cloud solutions</a></li>
+      <li><a href="#còn-lời-giải-nào-khác">Còn lời giải nào khác?</a></li>
+    </ul>
+  </li>
+  <li><a href="#kết-luận">Kết luận</a></li>
   <li><a href="#tài-liệu-tham-khảo">Tài liệu tham khảo</a></li>
 </ul>
                     </div>
                 
                 <!-- End Toc -->
-                <h1 id="lưu-ý-khi-train-model-object-detection">Lưu ý khi train model object detection</h1>
+                <h1 id="vision-transformers">Vision Transformers</h1>
+
+<h2 id="vit">ViT</h2>
+
+<h2 id="detr">DETR</h2>
+
+<h2 id="yolox">YOLOX</h2>
+
+<h1 id="xây-dựng-tài-nguyên-gpu">Xây dựng tài nguyên GPU</h1>
 
 <h2 id="giá-thành-khi-train-model-state-of-the-art-sota">Giá thành khi train model State-of-the-art (SOTA)</h2>
 
@@ -331,8 +350,17 @@ Thì kết quả là đồng chí ấy báo cáo:</p>
 
 <p><img src="/assets/images/open-images-price.jpg" alt="pricing" /></p>
 
-<p><code class="language-plaintext highlighter-rouge">p3.xlarge</code> thì giá mềm nhất là <a href="https://aws.amazon.com/ec2/spot/pricing/"><strong>Spot</strong></a> cũng tầm $0.918/h.
-Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train.</p>
+<p><code class="language-plaintext highlighter-rouge">p3.xlarge</code> thì giá mềm nhất là <a href="https://aws.amazon.com/ec2/spot/pricing/"><strong>Spot</strong></a> cũng tầm $0.918/h.</p>
+
+<p>Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train.</p>
+
+<h2 id="xây-dựng-hệ-thống-816-gpu">Xây dựng hệ thống 8~16 GPU</h2>
+
+<h2 id="các-cloud-solutions">Các cloud solutions</h2>
+
+<h2 id="còn-lời-giải-nào-khác">Còn lời giải nào khác?</h2>
+
+<h1 id="kết-luận">Kết luận</h1>
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
