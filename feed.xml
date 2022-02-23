@@ -5,75 +5,9 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Feb 2022 21:12:50 +0900</pubDate>
-    <lastBuildDate>Wed, 23 Feb 2022 21:12:50 +0900</lastBuildDate>
+    <pubDate>Wed, 23 Feb 2022 22:09:30 +0900</pubDate>
+    <lastBuildDate>Wed, 23 Feb 2022 22:09:30 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
-    
-      <item>
-        <title>Seq2Seq for Computer Vision</title>
-        <description>&lt;h1 id=&quot;lưu-ý-khi-train-model-object-detection&quot;&gt;Lưu ý khi train model object detection&lt;/h1&gt;
-
-&lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
-
-&lt;p&gt;Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO &lt;a class=&quot;citation&quot; href=&quot;#lin2014microsoft&quot;&gt;[1]&lt;/a&gt; tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim.
-Mà các bạn cũng nhớ giá này là giá &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; tức là có thể bị interrupt giữa chừng nên mới rẻ thế.
-Chứ nếu bạn mà chọn &lt;a href=&quot;https://aws.amazon.com/ec2/pricing/on-demand/&quot;&gt;&lt;strong&gt;on-demand&lt;/strong&gt;&lt;/a&gt; thì có mà gấp 10 lần.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/detr-cost-analysis.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé.
-Bộ Open Images &lt;a class=&quot;citation&quot; href=&quot;#kuznetsova2020open&quot;&gt;[2]&lt;/a&gt; với 1.7 triệu ảnh thì còn máu nữa.
-Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): &lt;a href=&quot;https://www.kaggle.com/c/open-images-2019-object-detection/discussion/110953&quot;&gt;Kaggle Open Images 2019 challenge 6th place solution&lt;/a&gt;.
-Thì kết quả là đồng chí ấy báo cáo:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;train 8 models trên V100 (chắc lại EC2 P3 thôi thì mình cứ dùng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; để làm phân tích giá nhé) rồi ensemble.&lt;/li&gt;
-  &lt;li&gt;mỗi model train mất 18-36 ngày (tùy model). Thì đồng chí này train 8 GPUs khác nhau.&lt;/li&gt;
-  &lt;li&gt;sau khi train xong các model thì mất thêm 1 ngày nữa để inference và 1 ngày nữa để ensemble (dùng NMS).&lt;/li&gt;
-  &lt;li&gt;Vậy tổng thể đã tiêu tốn \(36\times 8+1\times 8+1=297\) ngày train, tức là \(297\times 24=7128\) giờ train.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/open-images-price.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;p3.xlarge&lt;/code&gt; thì giá mềm nhất là &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; cũng tầm $0.918/h.
-Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train.&lt;/p&gt;
-
-&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;lin2014microsoft&quot;&gt;Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. &lt;i&gt;European conference on computer vision&lt;/i&gt; (2014), 740–755.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lin2014microsoft/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sat, 12 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/seq2seq-cv/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/seq2seq-cv/</guid>
-        
-        <category>Object Detection</category>
-        
-        <category>Object Recognition</category>
-        
-        <category>Image Segmentation</category>
-        
-        <category>Temporal Segmentation</category>
-        
-        <category>Sequence-to-sequence</category>
-        
-        <category>seq2seq</category>
-        
-        <category>Transformer</category>
-        
-        <category>Self-supervised learning</category>
-        
-        <category>BERT</category>
-        
-        <category>Vision Transformer</category>
-        
-        
-        <category>Tiếng Việt, 日本語</category>
-        
-        <category>Artificial Intelligence</category>
-        
-        <category>Computer Vision</category>
-        
-      </item>
     
       <item>
         <title>RapidAPI and RapidAPI Hub</title>
@@ -2038,6 +1972,190 @@ Tuy nhiên, cái chúng ta học được ở đây đó là &lt;strong&gt;tối
         
         
         <category>Tiếng Việt, 日本語</category>
+        
+      </item>
+    
+      <item>
+        <title>Idle Time Pricing Models in the Cloud</title>
+        <description>&lt;p&gt;&lt;strong&gt;Batch processing (JP: バッチ処理, VI: Xu Lý Lô)&lt;/strong&gt; is the processing of jobs that can run without end-user interaction or can be scheduled to run as resources permit.
+A program that reads a large file and generates a report, for example, is considered to be a batch job.
+Services such as Azure Batch &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt; and AWS Batch &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#balaji2018benchmarking&quot;&gt;[3]&lt;/a&gt; support runs of batch jobs with VMs/EC2 instances and serverless container backend.
+However, running batch jobs requires VMs and instances to run continuously in production with almost &lt;strong&gt;zero downtime&lt;/strong&gt;.
+It also means that there will be &lt;strong&gt;idle time&lt;/strong&gt; to keep batch jobs running in the background.
+We review and estimate the idle time pricing of several cloud-based batch processing services. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;batch-processing-and-idle-time&quot;&gt;Batch processing and idle time&lt;/h1&gt;
+&lt;p&gt;With the advent of cloud computing with virtualization, more and more workloads have been offloaded from conventional private clouds to public clouds in recent years.
+The greatest issue of these approaches is the &lt;strong&gt;pricing models&lt;/strong&gt;.
+Virtual machines often use the pay-per-use model, which requires running the VMs continuously, and non-working hours are begin paid.
+For example, AWS EC2 instances are billed for running durations on an hourly basis.
+Because the distribution of coming requests is unknown or probabilistic, then the instances must be kept running without downtime.
+This results in hours without requests are being paid with the same price as hours with requests (real working hours).
+The issue is called &lt;strong&gt;idle time issue&lt;/strong&gt;, which is well-known in cloud computing &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt;, &lt;a class=&quot;citation&quot; href=&quot;#balaji2018benchmarking&quot;&gt;[3]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Batch jobs&lt;/strong&gt; are scheduled jobs with minimal user interactions.
+It is possible to have some jobs in the systems which cannot be answered in real-time then users want to submit for processing in the background.
+The submitted jobs are queued and scheduled to process later when the application does not require them to give results soon.
+Scheduled jobs are popped from the queue and run automatically with interactions to computations resources such as VMs and databases.
+Due to a large number of jobs, a Massive Parallel Processing (MPP) system can be used for batch jobs when the number of data is too big (1TB or more)!
+Azure Batch &lt;a class=&quot;citation&quot; href=&quot;#soh2020overview&quot;&gt;[1]&lt;/a&gt; and AWS Batch &lt;a class=&quot;citation&quot; href=&quot;#witte2019event&quot;&gt;[2]&lt;/a&gt; are fully managed cloud services for batch jobs which give highly scalable without extensive programming efforts.
+Azure Batch supports Azure VMs while AWS Batch supports EC2 instances based Elastic Container Service (ECS), Fargate-based ECS, and Lambda.
+Reducing &lt;strong&gt;idle time&lt;/strong&gt; while deploying to these services is a demand, and it requires careful designs.
+For example, in &lt;a class=&quot;citation&quot; href=&quot;#qureshi2019reduce&quot;&gt;[4]&lt;/a&gt;, Qureshi described a design that reduces Azure Batch cost using dynamic allocation and relocation of resources with lookahead technique for deallocating nodes.
+Their results showed that 30% of the total cost was reduced with the proposed techniques.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graphical Processing Unit (GPU)&lt;/strong&gt; has helped to accelerate the latest Artificial Intelligence workloads.
+Many Deep Learning applications require GPUs or even thousands of GPUs for training and inference.
+Building such a massive GPU system requires tedious setups, maintenance, and oversized budgets.
+Many public clouds such as Azure and AWS have more flexible pricing models which bill for milliseconds.
+Their flagship services are AWS Lambda and Azure Functions.
+In AWS Lambda and Azure Functions, computations are billed for running time only, which is calculated from when the resources are loaded into function memory to when the computation is finished with results is returned to an integration service like AWS API Gateway.
+However, &lt;strong&gt;Lambda and Functions do not support GPU!&lt;/strong&gt;
+Hence, the normal uses of these serverless computing mechanisms are often API calls, i. e., calling to other APIs, not any massive computations.
+Therefore, deploying GPU-required batch jobs to the cloud often use VM-based approaches.
+In &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt;, Risco and Moltó designed a batch processing system using AWS Batch with GPU-enabled ECS.
+They used 12 vGPUs of type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g3s.xlarge&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In summary, batch processing in the cloud relies on the pricing models that have idle time if we do not keep the system busy 24 hours per day.
+AWS Batch supports some serverless mechanisms like Lambda and Fargate-based ECS but only supports CPUs.
+For the need of GPUs, one must switch to instance-based or VM-based approaches, which turns us back to the idle time problem indeed.
+&lt;strong&gt;The choice of pricing models is whether billing for milliseconds or not?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;cloud-based-batch-processing&quot;&gt;Cloud-based batch processing&lt;/h1&gt;
+
+&lt;h2 id=&quot;aws-batch&quot;&gt;AWS Batch&lt;/h2&gt;
+
+&lt;h3 id=&quot;a-mistake-in-scale-out-design&quot;&gt;A mistake in scale-out design&lt;/h3&gt;
+
+&lt;p&gt;One of the most interesting examples of how the scale-out and scale-up of instances are done in AWS Batch was this &lt;a href=&quot;https://forums.aws.amazon.com/thread.jspa?messageID=809896&amp;amp;threadID=265573&amp;amp;tstart=0&quot;&gt;QA&lt;/a&gt;.
+A user &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ulsa9983&lt;/code&gt; asked for their tough situation of managing EC2 instances in 2017 as follows:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We have low-traffic, but want to keep some spot CPU available for quick response.
+We set min CPU to 2, which initially starts a reasonably small instance, e. g. an m4.large.
+However, after some batch requests with varying CPU and memory requirements, the cluster has grown to an m4.16xlarge, and it stays there day in and day out.
+This costs us plenty more than we anticipated with the min CPU=2 setting.&lt;/p&gt;
+
+  &lt;p&gt;Is there any way to make it scale down, or is the only alternative to set min CPU=0?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The question was actually somewhat practical: there is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; parameter in the AWS Batch template [6], for which when the system goes into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DISABLED&lt;/code&gt; mode, then idle instances will be scale down to keep only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; running.
+Setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; lower will reduce idle cost but increase the time for starting up, loading, provisioning new vCPUs.
+That’s why even though there is an option to scale down &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus=0&lt;/code&gt;, but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ulsa9983&lt;/code&gt; wanted to find another solution.
+Their service is &lt;strong&gt;low traffic, but (we) want to keep some spot CPU available for quick response&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The most interesting solution came from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jamie@AWS&lt;/code&gt; included the following script:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Alternatively, you could achieve your goal by &lt;strong&gt;creating two managed to compute environments&lt;/strong&gt; which are both associated with your job queue.
+For the first compute environment (with the lowest integer value for order), set min/desired/max vCPUs=2, ensuring that it always has a single EC2 instance with 2vCPUs in it. 
+The second one computes environment could have min vCPUs=0 and max vCPUs set to whatever upper limit you like.
+With this model, AWS Batch jobs requiring two or fewer vCPUs could be immediately scheduled to the always-on instance while additional capacity is scaled up/down as needed when you have a larger number of concurrent jobs to run.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Actually, this answer always keeps an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m4.large&lt;/code&gt; instance to be run without being modified and having another group of resources that can be scaled up and down according to the situations.
+Nevertheless, on the trade-off of response time and cost, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus=2&lt;/code&gt; was kept, but the type of the instance was preserved to reduce cost.&lt;/p&gt;
+
+&lt;p&gt;To find more about the parameters of AWS Batch, one can consult with&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.
+AWS Batch is a batch computing platform with stateful jobs, job queues, GPU jobs, …
+Jobs are the unit of work invoked by AWS Batch.
+Jobs can be invoked as containerized applications running on Amazon ECS container instances in an ECS cluster.&lt;/p&gt;
+
+&lt;h3 id=&quot;scar&quot;&gt;SCAR&lt;/h3&gt;
+
+&lt;p&gt;SCAR &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt; is a serverless system for GPU-enabled computing.
+They have their own Functional Definition Language (FDL) for serverless workflows.
+Their work helps to design a batch system faster and easier.
+One example can be found below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow/workflow.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This system does object detection and speech transcription for automatic captioning.
+ Some examplar results can be seen as follows.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow/result.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The above two images are from &lt;a href=&quot;https://github.com/grycap/scar/raw/master/examples/av-workflow&quot;&gt;https://github.com/grycap/scar/raw/master/examples/av-workflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;azure-batch&quot;&gt;Azure Batch&lt;/h2&gt;
+
+&lt;p&gt;Azure Batch [1, 8] creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes.
+There’s no cluster or job scheduler software to install, manage, or scale.
+Instead, you use Batch APIs and tools, command-line scripts, or the Azure portal to configure, manage, and monitor your jobs.&lt;/p&gt;
+
+&lt;p&gt;Some important practices for designing a good batch system with Azure Batch:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/high-availability-disaster-recovery&quot;&gt;Always design your Batch application for high availability&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/error-handling&quot;&gt;Always define error handling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/security-best-practices&quot;&gt;Always care about security&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/azure/batch/best-practices&quot;&gt;Best practices&lt;/a&gt;, .etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;idle-time-pricing-options&quot;&gt;Idle time pricing options&lt;/h1&gt;
+
+&lt;p&gt;We summarize the pricing options.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First, container-based serverless options like Fargate ECS are available but do not really support GPU use cases.&lt;/strong&gt;
+This is somewhat a pity for deep learning deployments because these options provide millisecond-based billing.
+We will wait for GPU supports in the near future.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Second, even with some parametric methodologies like setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt; VMs/instance-based options still need to face the trade-off between idle time and cost&lt;/strong&gt;.
+An example of the use case was given in which a mistake in scale-out design has led to a scale-up option that doubled the bills.
+Typically, we will need to keep &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minVcpus&lt;/code&gt;$\geq 2$ to have quick responses, but we still do not have scaledown of GPU (no &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minvGpus&lt;/code&gt; parameters in AWS Batch template).
+Then the idle cost is mostly unavoidable (SCAR &lt;a class=&quot;citation&quot; href=&quot;#risco2021gpu&quot;&gt;[5]&lt;/a&gt; described their approach on scaling down with zero resources when no workload, then the startup time and loading time will increase in return, and they are idle costs).&lt;/p&gt;
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Finally, we want to cut down our bills every month (but want to increase the income). :yum:
+This article provides some guidance to help the readers to design their approaches for cloud-based batch processing systems.
+Future works will direct to the practices of GPU-enabled serverless architecture with less idle time and high efficiency.&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;soh2020overview&quot;&gt;Soh, J., Copeland, M., Puca, A. and Harris, M. 2020. Overview of Azure Platform as a Service. &lt;i&gt;Microsoft Azure&lt;/i&gt;. Springer. 43–55.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/soh2020overview/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;witte2019event&quot;&gt;Witte, P.A., Louboutin, M., Modzelewski, H., Jones, C., Selvage, J. and Herrmann, F.J. 2019. Event-driven workflows for large-scale seismic imaging in the cloud. &lt;i&gt;SEG Technical Program Expanded Abstracts 2019&lt;/i&gt;. Society of Exploration Geophysicists. 3984–3988.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/witte2019event/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;balaji2018benchmarking&quot;&gt;Balaji, A. and Allen, A. 2018. Benchmarking automatic machine learning frameworks. &lt;i&gt;arXiv preprint arXiv:1808.06492&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/balaji2018benchmarking/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;qureshi2019reduce&quot;&gt;Qureshi, A.N. 2019. Reduce Cost of Batch Processing Microsoft Azure Cloud. &lt;i&gt;JETIR-International Journal of Emerging Technologies and Innovative Research&lt;/i&gt;. (2019), 2349–5162.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/qureshi2019reduce/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;risco2021gpu&quot;&gt;Risco, S. and Moltó, G. 2021. GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. &lt;i&gt;Applied Sciences&lt;/i&gt;. 11, 4 (2021), 1438.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/risco2021gpu/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html&quot;&gt;What Is AWS Batch? - AWS Batch&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 19 Aug 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/idle-time-pricing-models/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/idle-time-pricing-models/</guid>
+        
+        <category>mlops</category>
+        
+        <category>machine learning</category>
+        
+        <category>gpu</category>
+        
+        <category>serverless computing</category>
+        
+        <category>cloud computing</category>
+        
+        <category>idle time</category>
+        
+        <category>aws</category>
+        
+        <category>azure</category>
+        
+        <category>aws batch</category>
+        
+        <category>batch computing</category>
+        
+        <category>azure batch</category>
+        
+        
+        <category>Artificial Intelligence</category>
+        
+        <category>Site Reliable Engineering</category>
         
       </item>
     
