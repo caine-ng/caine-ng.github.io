@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Feb 2022 23:55:50 +0900</pubDate>
-    <lastBuildDate>Wed, 23 Feb 2022 23:55:50 +0900</lastBuildDate>
+    <pubDate>Wed, 23 Feb 2022 23:59:12 +0900</pubDate>
+    <lastBuildDate>Wed, 23 Feb 2022 23:59:12 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -57,7 +57,7 @@ Thì kết quả là đồng chí ấy báo cáo:&lt;/p&gt;
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;lin2014microsoft&quot;&gt;Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. &lt;i&gt;European conference on computer vision&lt;/i&gt; (2014), 740–755.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lin2014microsoft/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A. and others 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A., Duerig, T. and Ferrari, V. 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 12 Feb 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/seq2seq-cv/</link>
