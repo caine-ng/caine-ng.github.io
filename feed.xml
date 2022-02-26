@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 26 Feb 2022 03:00:14 +0900</pubDate>
-    <lastBuildDate>Sat, 26 Feb 2022 03:00:14 +0900</lastBuildDate>
+    <pubDate>Sat, 26 Feb 2022 20:41:08 +0900</pubDate>
+    <lastBuildDate>Sat, 26 Feb 2022 20:41:08 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -52,6 +52,8 @@ Thì kết quả là đồng chí ấy báo cáo:&lt;/p&gt;
 &lt;p&gt;Tức là để train được accuracy tầm 60% đã mất \(7128\times 0.918\) tức là tầm 6543 Mỹ kim và hơn tháng ngồi monitor màn hình train.&lt;/p&gt;
 
 &lt;h2 id=&quot;xây-dựng-hệ-thống-816-gpu&quot;&gt;Xây dựng hệ thống 8~16 GPU&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ampere.png&quot; alt=&quot;ampere&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;các-cloud-solutions&quot;&gt;Các cloud solutions&lt;/h2&gt;
 
