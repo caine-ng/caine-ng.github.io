@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Feb 2022 17:51:57 +0900</pubDate>
-    <lastBuildDate>Sun, 27 Feb 2022 17:51:57 +0900</lastBuildDate>
+    <pubDate>Sun, 27 Feb 2022 17:55:21 +0900</pubDate>
+    <lastBuildDate>Sun, 27 Feb 2022 17:55:21 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -56,7 +56,7 @@ Cái con số &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt
 
 &lt;h2 id=&quot;yolox&quot;&gt;YOLOX&lt;/h2&gt;
 
-&lt;p&gt;So với phiên bản cũ (missing reference) thì YOLOX &lt;a class=&quot;citation&quot; href=&quot;#ge2021yolox&quot;&gt;[4]&lt;/a&gt; ứng dụng khá nhiều kỹ thuật mới như decoupled heads, strong augmentation (Moáic và Mixup), anchor-free, pulti-positives, và SimOTA.
+&lt;p&gt;So với phiên bản cũ &lt;a class=&quot;citation&quot; href=&quot;#redmon2018yolov3&quot;&gt;[4]&lt;/a&gt; thì YOLOX &lt;a class=&quot;citation&quot; href=&quot;#ge2021yolox&quot;&gt;[5]&lt;/a&gt; ứng dụng khá nhiều kỹ thuật mới như decoupled heads, strong augmentation (Moáic và Mixup), anchor-free, pulti-positives, và SimOTA.
 Backbone thì ngoài Darknet ra cũng dùng thêm những backbone nhỏ hơn như Tiny.&lt;/p&gt;
 
 &lt;p&gt;Dưới đây là kết quả inference của model YOLOX-Tiny:&lt;/p&gt;
@@ -66,14 +66,14 @@ Backbone thì ngoài Darknet ra cũng dùng thêm những backbone nhỏ hơn nh
 
 &lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
 
-&lt;p&gt;Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO &lt;a class=&quot;citation&quot; href=&quot;#lin2014microsoft&quot;&gt;[5]&lt;/a&gt; tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim.
+&lt;p&gt;Nhìn chung là nếu chỉ hình ảnh với bộ dữ liệu nhỏ nhỏ như COCO &lt;a class=&quot;citation&quot; href=&quot;#lin2014microsoft&quot;&gt;[6]&lt;/a&gt; tầm trăm ngàn ảnh thì có bảng giá dưới đây: chúng ta lấy ví dụ từ báo cáo của 1 state-of-the-art thì họ dùng 8 cái V100, train tầm 6 ngày liên tục (\(6\times 24\) giờ) thì tổng tiền cho một lượt trên tầm ngàn Mỹ kim cho 6 ngày, 1 tháng cứ tầm 5 ngàn Mỹ kim.
 Mà các bạn cũng nhớ giá này là giá &lt;a href=&quot;https://aws.amazon.com/ec2/spot/pricing/&quot;&gt;&lt;strong&gt;Spot&lt;/strong&gt;&lt;/a&gt; tức là có thể bị interrupt giữa chừng nên mới rẻ thế.
 Chứ nếu bạn mà chọn &lt;a href=&quot;https://aws.amazon.com/ec2/pricing/on-demand/&quot;&gt;&lt;strong&gt;on-demand&lt;/strong&gt;&lt;/a&gt; thì có mà gấp 10 lần.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/detr-cost-analysis.jpg&quot; alt=&quot;pricing&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Nhưng ở trên mới chỉ là giá bộ COCO có hơn 100k ảnh nhé.
-Bộ Open Images &lt;a class=&quot;citation&quot; href=&quot;#kuznetsova2020open&quot;&gt;[6]&lt;/a&gt; với 1.7 triệu ảnh thì còn máu nữa.
+Bộ Open Images &lt;a class=&quot;citation&quot; href=&quot;#kuznetsova2020open&quot;&gt;[7]&lt;/a&gt; với 1.7 triệu ảnh thì còn máu nữa.
 Search trên Kaggle mà có đồng chí chịu khó bỏ tiền ra ngồi train và báo cáo kết quả cho anh biết (xin cám ơn đồng chí): &lt;a href=&quot;https://www.kaggle.com/c/open-images-2019-object-detection/discussion/110953&quot;&gt;Kaggle Open Images 2019 challenge 6th place solution&lt;/a&gt;.
 Thì kết quả là đồng chí ấy báo cáo:&lt;/p&gt;
 &lt;ul&gt;
@@ -141,6 +141,10 @@ Mà vấn đề với Spot là &lt;strong&gt;nó không có luôn ấy (phải c
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;Hơi buồn nhưng &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;đầu tiên vẫn là ... tiền đâu&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;Như vậy chúng ta đã điểm qua một số SOTAs của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; cho Vision và nhìn chung các &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; vẫn đang nắm vị trí số 1.
 Tuy vậy, vấn đề lớn khi “đua đòi” vào mảng này thì vẫn là tài nguyên thôi.
 Nếu chuẩn bị được budget và plan nghiên cứu nghiêm chỉnh (mà đầu tiên là tiền đâu) thì về mặt nghiệp vụ PM tôi nghĩ không nên triển khai làm gì mất time anh em.
@@ -151,6 +155,7 @@ Nếu chuẩn bị được budget và plan nghiên cứu nghiêm chỉnh (mà �
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;dosovitskiy2020image&quot;&gt;Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uskoreit, J. and Houlsby, N. 2020. An image is worth 16x16 words: Transformers for image recognition at scale. &lt;i&gt;arXiv preprint arXiv:2010.11929&lt;/i&gt;. (2020).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dosovitskiy2020image/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;carion2020end&quot;&gt;Carion, N., Massa, F., Synnaeve, G., Usunier, N., Kirillov, A. and Zagoruyko, S. 2020. End-to-end object detection with transformers. &lt;i&gt;European conference on computer vision&lt;/i&gt; (2020), 213–229.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/carion2020end/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;gao2021fast&quot;&gt;Gao, P., Zheng, M., Wang, X., Dai, J. and Li, H. 2021. Fast convergence of detr with spatially modulated co-attention. &lt;i&gt;Proceedings of the IEEE/CVF International Conference on Computer Vision&lt;/i&gt; (2021), 3621–3630.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/gao2021fast/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;redmon2018yolov3&quot;&gt;Redmon, J. and Farhadi, A. 2018. Yolov3: An incremental improvement. &lt;i&gt;arXiv preprint arXiv:1804.02767&lt;/i&gt;. (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/redmon2018yolov3/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;ge2021yolox&quot;&gt;Ge, Z., Liu, S., Wang, F., Li, Z. and Sun, J. 2021. Yolox: Exceeding yolo series in 2021. &lt;i&gt;arXiv preprint arXiv:2107.08430&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/ge2021yolox/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;lin2014microsoft&quot;&gt;Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dollár, P. and Zitnick, C.L. 2014. Microsoft coco: Common objects in context. &lt;i&gt;European conference on computer vision&lt;/i&gt; (2014), 740–755.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/lin2014microsoft/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A., Duerig, T. and Ferrari, V. 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
