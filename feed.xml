@@ -5,13 +5,16 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Feb 2022 16:14:38 +0900</pubDate>
-    <lastBuildDate>Sun, 27 Feb 2022 16:14:38 +0900</lastBuildDate>
+    <pubDate>Sun, 27 Feb 2022 16:33:58 +0900</pubDate>
+    <lastBuildDate>Sun, 27 Feb 2022 16:33:58 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
-        <title>Seq2Seq for Computer Vision: Some state-of-the-arts and a thought on how to have a good GPU server</title>
-        <description>&lt;h1 id=&quot;vision-transformers&quot;&gt;Vision Transformers&lt;/h1&gt;
+        <title>Seq2Seq for Computer Vision: Three SOTAs and 8x GPU server choices</title>
+        <description>&lt;p&gt;Trong các bài viết trước, chúng ta đã xem xét kha khá về &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; cho NLP/Vision-Language&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; và âm thanh&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.
+Trong bài viết này, ta sẽ tập trung vào 2 vấn đề: một vài SOTA của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; trong computer vision và vấn đề giá thành xây dựng tài nguyên cho dự án cần &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;vision-transformers&quot;&gt;Vision Transformers&lt;/h1&gt;
 
 &lt;h2 id=&quot;vit-1&quot;&gt;ViT &lt;a class=&quot;citation&quot; href=&quot;#dosovitskiy2020image&quot;&gt;[1]&lt;/a&gt;&lt;/h2&gt;
 
@@ -79,7 +82,7 @@ Giả định chung là hệ thống được xây dựng tối thiểu 4x GPU v
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/ampere.png&quot; alt=&quot;ampere&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Nói chung tự build thì các bạn có thể tham khảo cấu hình của DGX-1&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, DGX-2&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;, và DGX-A100&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; để mua các bộ phận về tự ráp thì sẽ tiết kiệm công lắp ráp, nhưng nhìn chung tôi nghĩ cũng phải 50 ngàn Mỹ Kim.&lt;/p&gt;
+&lt;p&gt;Nói chung tự build thì các bạn có thể tham khảo cấu hình của DGX-1&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;, DGX-2&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;, và DGX-A100&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt; để mua các bộ phận về tự ráp thì sẽ tiết kiệm công lắp ráp, nhưng nhìn chung tôi nghĩ cũng phải 50 ngàn Mỹ Kim.&lt;/p&gt;
 
 &lt;h2 id=&quot;các-cloud-solutions&quot;&gt;Các cloud solutions&lt;/h2&gt;
 &lt;p&gt;Trong trường hợp bạn có bài toán train dữ liệu mà mất hàng tháng trời train với GTX/RTX thì bạn sẽ nghĩ phải thuê GPUs trên data center (8x-16x GPU).
@@ -90,13 +93,19 @@ Như kết quả tìm kiếm của AIFI thì hiện tại có trang &lt;a href=&
 
 &lt;p&gt;Nhìn chung tự build thì có hai khả năng:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Mua đồ sẵn&lt;/strong&gt; như DGX&lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:2:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:3:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; thì các bạn cứ chuẩn bị 100k Mỹ kim trở lên.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Mua đồ sẵn&lt;/strong&gt; như DGX&lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:2:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:3:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt; thì các bạn cứ chuẩn bị 100k Mỹ kim trở lên.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Mua bộ phận về tự ráp&lt;/strong&gt; thì các bác tham khảo cấu hình của DGX rồi độ lại tùy theo nhu cầu. Tuy nhiên, chắc chỉ giảm được tiền công, và tối ưu một chút kiểu DGX dùng nhiều RAM thì mình giảm RAM xuống. Nói chung chắc cũng phải 50K Mỹ Kim.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Về cá nhân, tôi thiên về thuê!
 Nếu tự build thì mua mấy cái RTX/GTX dòng Ti là ổn rồi.
 Tuy nhiên nếu bài toán lớn thì bạn bắt buộc phải dùng data center GPU thì lúc ấy phải có &lt;strong&gt;TIỀN&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Vấn đề của đi thuê là tiền tính theo giờ nên bạn cần phải ước lượng được số giờ sử dụng.&lt;/strong&gt; Nếu tầm trên 200h/tháng, tôi nghĩ nên thuê theo năm hoặc 3 năm.
+Spot price thì cũng tàm tạm thôi, vì mất công chờ với nó ngắt điện (interupt) mình cũng phải chịu ấy, nên là rẻ nhưng lại mất thời gian chờ và bị ngắt.
+Mà vấn đề với Spot là &lt;strong&gt;nó không có luôn ấy (phải chờ đến khi cái server ấy nó open mình mới được dùng)&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 
@@ -110,6 +119,12 @@ Tuy nhiên nếu bài toán lớn thì bạn bắt buộc phải dùng data cent
 &lt;li&gt;&lt;span id=&quot;kuznetsova2020open&quot;&gt;Kuznetsova, A., Rom, H., Alldrin, N., Uijlings, J., Krasin, I., Pont-Tuset, J., Kamali, S., Popov, S., Malloci, M., Kolesnikov, A., Duerig, T. and Ferrari, V. 2020. The open images dataset v4. &lt;i&gt;International Journal of Computer Vision&lt;/i&gt;. 128, 7 (2020), 1956–1981.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kuznetsova2020open/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
+    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://wanted2.github.io/seq2seq/&quot;&gt;https://wanted2.github.io/seq2seq/&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://wanted2.github.io/speech/&quot;&gt;https://wanted2.github.io/speech/&lt;/a&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://www.nvidia.com/en-us/data-center/dgx-1/&quot;&gt;https://www.nvidia.com/en-us/data-center/dgx-1/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
