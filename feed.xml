@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Feb 2022 17:09:17 +0900</pubDate>
-    <lastBuildDate>Sun, 27 Feb 2022 17:09:17 +0900</lastBuildDate>
+    <pubDate>Sun, 27 Feb 2022 17:47:57 +0900</pubDate>
+    <lastBuildDate>Sun, 27 Feb 2022 17:47:57 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -38,16 +38,31 @@ Nếu các bạn đã quen &lt;code class=&quot;language-plaintext highlighter-r
 &lt;p&gt;Các tác giả báo cáo cải tiến trên khá nhiều bộ dữ liệu lớn, và ngoài ra cả con số &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TPUv3-core-days = số lượng TPUv3 cores x sô lượng ngày train&lt;/code&gt;.
 Cái con số &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TPUv3-core-days&lt;/code&gt; thì cứ mỗi thí nghiệm là vài ngàn tới vài chục ngàn, mà mỗi core thì cứ 10$/ngày thì các bạn cứ nhẩm tính xem budget của hội &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;con nhà giàu&lt;/code&gt; này đầu tư vào nó lớn cỡ nào đấy.&lt;/p&gt;
 
-&lt;h2 id=&quot;detr-2-3&quot;&gt;DETR &lt;a class=&quot;citation&quot; href=&quot;#carion2020end&quot;&gt;[2, 3]&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;detr&quot;&gt;DETR&lt;/h2&gt;
 
-&lt;h2 id=&quot;yolox-4&quot;&gt;YOLOX &lt;a class=&quot;citation&quot; href=&quot;#ge2021yolox&quot;&gt;[4]&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;DETR &lt;a class=&quot;citation&quot; href=&quot;#carion2020end&quot;&gt;[2, 3]&lt;/a&gt; tiếp tục ứng dụng transformer vào Object Detection và Segmentation.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;/assets/images/detr.png&quot; alt=&quot;detr&quot; /&gt;
+&lt;em&gt;Source: &lt;a class=&quot;citation&quot; href=&quot;#carion2020end&quot;&gt;[2]&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Backbone&lt;/strong&gt;: DETR dùng CNN quen thuộc như resnet-50 hoặc 101.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Encoder&lt;/strong&gt;: DETR dùng \(1\times 1\) convolution để dimention reduction các feature maps rồi input vào. Position embedding là cố định vì transformer là không phụ thuộc vào permutation.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Decoder&lt;/strong&gt;: thay vì decode từng object query, thì DETR decode song song cùng lúc tất cả các queries.&lt;/li&gt;
+  &lt;li&gt;Sau khi decode thì dùng FFN để predict vị trí và class. Để tính hàm loss thì dùng thuật toán Hungarian để matching.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Về mặt giá cả thì DETR tốn 300 epochs để hội tụ trên COCO, nên về sau gần đây có khá nhiều nghiên cứu để giảm giá thành hộ tụ (chỉ cần 50 epochs thôi chả hạn).&lt;/p&gt;
+
+&lt;h2 id=&quot;yolox&quot;&gt;YOLOX&lt;/h2&gt;
+
+&lt;p&gt;So với phiên bản cũ (missing reference) thì YOLOX &lt;a class=&quot;citation&quot; href=&quot;#ge2021yolox&quot;&gt;[4]&lt;/a&gt; ứng dụng khá nhiều kỹ thuật mới như decoupled heads, strong augmentation (Moáic và Mixup), anchor-free, pulti-positives, và SimOTA.
+Backbone thì ngoài Darknet ra cũng dùng thêm những backbone nhỏ hơn như Tiny.&lt;/p&gt;
+
+&lt;p&gt;Dưới đây là kết quả inference của model YOLOX-Tiny:&lt;/p&gt;
 &lt;iframe width=&quot;100%&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/_5inpa6ruUY&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h1 id=&quot;xây-dựng-tài-nguyên-gpu&quot;&gt;Xây dựng tài nguyên GPU&lt;/h1&gt;
-
-&lt;p&gt;Đầu tiên chúng ta sẽ xem SOTA ở mảng này xài máy móc thế nào?
-Rồi mình lại xem giá thành bộ đó qua đủ các phương án: tự xây và thuê xem có “vừa túi tiền” không nhá.&lt;/p&gt;
 
 &lt;h2 id=&quot;giá-thành-khi-train-model-state-of-the-art-sota&quot;&gt;Giá thành khi train model State-of-the-art (SOTA)&lt;/h2&gt;
 
@@ -125,6 +140,11 @@ Mà vấn đề với Spot là &lt;strong&gt;nó không có luôn ấy (phải c
 &lt;/blockquote&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+
+&lt;p&gt;Như vậy chúng ta đã điểm qua một số SOTAs của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; cho Vision và nhìn chung các &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; vẫn đang nắm vị trí số 1.
+Tuy vậy, vấn đề lớn khi “đua đòi” vào mảng này thì vẫn là tài nguyên thôi.
+Nếu chuẩn bị được budget và plan nghiên cứu nghiêm chỉnh (mà đầu tiên là tiền đâu) thì về mặt nghiệp vụ PM tôi nghĩ không nên triển khai làm gì mất time anh em.
+Ít nhất là cần vốn 200k Mỹ Kim thì cũng phải có tầm 100k trong túi hãy nghĩ!&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
