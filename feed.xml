@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Feb 2022 16:33:58 +0900</pubDate>
-    <lastBuildDate>Sun, 27 Feb 2022 16:33:58 +0900</lastBuildDate>
+    <pubDate>Sun, 27 Feb 2022 17:09:17 +0900</pubDate>
+    <lastBuildDate>Sun, 27 Feb 2022 17:09:17 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -16,10 +16,27 @@ Trong bài viết này, ta sẽ tập trung vào 2 vấn đề: một vài SOTA 
 
 &lt;h1 id=&quot;vision-transformers&quot;&gt;Vision Transformers&lt;/h1&gt;
 
-&lt;h2 id=&quot;vit-1&quot;&gt;ViT &lt;a class=&quot;citation&quot; href=&quot;#dosovitskiy2020image&quot;&gt;[1]&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;vit&quot;&gt;ViT&lt;/h2&gt;
+
+&lt;p&gt;Về nguyên lý chung của &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thì chúng ta có hai bài viết trước nói khá nhiều rồi&lt;sup id=&quot;fnref:4:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:5:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; nên các bạn tham khảo nhé.
+Nhà cũng đang có cái “eo hẹp” là chỉ được tối đa 7 citations và 9 phút đọc thôi nên các bạn cần thì đọc lại hai bài viết&lt;sup id=&quot;fnref:4:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:5:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; để xem thêm kiến thức về attention, Transformer, …
+Vision Transformer (ViT, &lt;a class=&quot;citation&quot; href=&quot;#dosovitskiy2020image&quot;&gt;[1]&lt;/a&gt;) đưa khái niệm &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; vào vision.
+Nếu các bạn đã quen &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;seq2seq&lt;/code&gt; thì hiểu ngay là ta cần chuyển hình ảnh thành 1 chuỗi:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/ATsWtUsuuFRfq8OhZ7/source.gif&quot; alt=&quot;&quot; /&gt;
 &lt;em&gt;Source: Google&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Để làm được việc này, các tác giả đề xuất:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Image patches&lt;/strong&gt;: Hình ảnh được chia ra thành patches và đánh số thự tự để input vào transformer.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Position embedding&lt;/strong&gt;: thứ tự chỉ đơn giản là chuỗi 1D.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;MLP với GELU activation&lt;/strong&gt;: MLP sử dụng GELU để kích hoạt. Model không chứa CNN, có tối thiểu 12 tầng, với kích cỡ hidden size từ 768, ngoài ra có 12-16 heads.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Large-scale pre-training and fine-tuning&lt;/strong&gt;: Một điểm đáng chú ý khác là pre-training dạng supervised trên một dataset 300 triệu ảnh tạo ra 1 model rất mạnh.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Các tác giả báo cáo cải tiến trên khá nhiều bộ dữ liệu lớn, và ngoài ra cả con số &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TPUv3-core-days = số lượng TPUv3 cores x sô lượng ngày train&lt;/code&gt;.
+Cái con số &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TPUv3-core-days&lt;/code&gt; thì cứ mỗi thí nghiệm là vài ngàn tới vài chục ngàn, mà mỗi core thì cứ 10$/ngày thì các bạn cứ nhẩm tính xem budget của hội &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;con nhà giàu&lt;/code&gt; này đầu tư vào nó lớn cỡ nào đấy.&lt;/p&gt;
 
 &lt;h2 id=&quot;detr-2-3&quot;&gt;DETR &lt;a class=&quot;citation&quot; href=&quot;#carion2020end&quot;&gt;[2, 3]&lt;/a&gt;&lt;/h2&gt;
 
@@ -120,10 +137,10 @@ Mà vấn đề với Spot là &lt;strong&gt;nó không có luôn ấy (phải c
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://wanted2.github.io/seq2seq/&quot;&gt;https://wanted2.github.io/seq2seq/&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://wanted2.github.io/seq2seq/&quot;&gt;https://wanted2.github.io/seq2seq/&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:4:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; &lt;a href=&quot;#fnref:4:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://wanted2.github.io/speech/&quot;&gt;https://wanted2.github.io/speech/&lt;/a&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://wanted2.github.io/speech/&quot;&gt;https://wanted2.github.io/speech/&lt;/a&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:5:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; &lt;a href=&quot;#fnref:5:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://www.nvidia.com/en-us/data-center/dgx-1/&quot;&gt;https://www.nvidia.com/en-us/data-center/dgx-1/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
