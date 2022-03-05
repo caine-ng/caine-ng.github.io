@@ -5,17 +5,26 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 04:00:16 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 04:00:16 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 04:27:35 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 04:27:35 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>About TPU resources</title>
-        <description>&lt;h1 id=&quot;pricing&quot;&gt;Pricing&lt;/h1&gt;
+        <description>&lt;p&gt;&lt;strong&gt;Tensor Processing Unit (TPU)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;cpu-gpu-and-tpu&quot;&gt;CPU, GPU and TPU&lt;/h1&gt;
+
+&lt;h1 id=&quot;pricing&quot;&gt;Pricing&lt;/h1&gt;
 
 &lt;h2 id=&quot;cloud-tpu&quot;&gt;Cloud TPU&lt;/h2&gt;
 
 &lt;h2 id=&quot;edge-tpu&quot;&gt;Edge TPU&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/4AseEI_s6QWM75QwncKhPgMPi0P7YHume5O7Njx8FovMze22nblcLP8zOU-s5qhpwMgzVmYe9VPLiwrHecNYbjtNCKgHLOSO_w9X1NkEzEDjxdWRM7g=w2000-rw&quot; alt=&quot;edge tpu&quot; /&gt;
+&lt;em&gt;Source: &lt;a href=&quot;https://coral.ai/products/&quot;&gt;Google Coral&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
