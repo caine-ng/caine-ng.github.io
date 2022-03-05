@@ -22,7 +22,7 @@
     
 
 
-<!-- Begin Jekyll SEO tag v2.7.1 -->
+<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Học cách viết log nghiêm chỉnh | AiFi</title>
 <meta name="generator" content="Jekyll v4.2.1" />
 <meta property="og:title" content="Học cách viết log nghiêm chỉnh" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png" />
 <meta property="twitter:title" content="Học cách viết log nghiêm chỉnh" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"description":"Viết log nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ. Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư học cách viết log cho nó OK em. Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công. Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ cần thiết nhưng ít thì tốt hơn. Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”. Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi. Và như vậy đòi hỏi phải có chuẩn (standard) cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh. Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!","image":"https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png","headline":"Học cách viết log nghiêm chỉnh","dateModified":"2021-12-05T00:00:00+09:00","datePublished":"2021-12-05T00:00:00+09:00","url":"/https://wanted2.github.io/write-logs/","author":{"@type":"Person","name":"tuan"},"mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/write-logs/"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2021-12-05T00:00:00+09:00","datePublished":"2021-12-05T00:00:00+09:00","description":"Viết log nghe như một việc tưởng chừng vô cùng đơn giản, với kỹ sư SRE thì có khi chỉ 2-3 giờ đồng hồ là có thể cấu hình chuẩn chỉnh được ngay một hệ thống log ngon nghẻ. Thế nhưng cũng có những dự án chiến lược cấp tập đoàn mà đôi khi phải dành hẳn cả 6 tháng 1 năm để cho các kỹ sư học cách viết log cho nó OK em. Và quản lý log, bao gồm cả cấu hình một hệ thống log nghiêm chỉnh để có thể audit và đối ứng sự cố tốt không phải là 1 việc đơn giản: tức là tốn công. Nhưng các bạn biết đấy, audit hay đối ứng sự cố là những nghiệp vụ không tạo ra dịch vụ sản phẩm gì mới cả, mà tập trung hơn vào việc fix lỗi, chỉ lỗi, tức là một thứ cần thiết nhưng ít thì tốt hơn. Và lại còn bới lông tìm vết nữa thì lại còn vấn đề mất lòng đồng nghiệp các cái, tóm lại là một thứ nghiệp vụ vô cùng “nửa nạc nửa mỡ”, “bỏ thì thương mà vương thì tội (trích Tam quốc diễn nghĩa)”. Và cũng chính vì vậy, trong nghiệp vụ quản lý dự án nói chung, thay vì để PM hay quản lý phải làm hết những nghiệp vụ “mất lòng” này, thì tốt nhất vẫn là nên bắt các ông dev tự mà quản lý log, tự audit và tự đối ứng sự cố thì sẽ tránh cãi vã mất thời gian mà tóm lại, code ông nào thì tự ông ấy audit log và đối ứng đi. Và như vậy đòi hỏi phải có chuẩn (standard) cho việc quản lý log, đối ứng sự cố, cũng như tutorials và training để các em dev viết log cho nó nghiêm chỉnh. Và cũng thú thực luôn là chuyện dành ra 6 tháng đến 1 năm bắt các kỹ sư chỉ học cách viết log cho nghiêm chỉnh là chuyện có thật, mà không phải ở cấp vớ vấn mà ngay cấp doanh nghiệp tập đoàn!","headline":"Học cách viết log nghiêm chỉnh","image":"https://i2.wp.com/gbhackers.com/wp-content/uploads/2017/01/siem-log.png","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/write-logs/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/write-logs/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -166,7 +166,7 @@
 <div class="mainheading">
     <h1 class="sitetitle">AiFi</h1>
     <p class="lead">
-        An AI Engineer's blog
+        An AI Engineer's blog (This is a staging site, so the content may be imprecise, refer to official AiFi)
     </p>
 </div>
 
@@ -219,6 +219,16 @@
         </li>
     </ul>
     
+    
+    <div class="sep">
+
+    </div>
+    <ul>
+        <li class="small">
+        4796
+     words</li>
+        <li class="small">26 minutes</li>
+    </ul>
 </div>
 
         </div>
@@ -354,7 +364,7 @@ Log đã trở thành 1 phần không thể thiếu của mọi hệ thống ph�
 </ul>
 
 <p>Trên đây là 2 nhánh quan trọng nhất trong các hệ thống ứng dụng có liên quan tới Log Management.
-Một dự án của Cơ quan Tiêu chuẩn Kỹ thuật Hoa Kỳ (NIST) có liên quan tới Log Management <a class="citation" href="#LogManag44:online">[1]</a> cũng đang cố gắng cải thiện nền tảng phân tích log tập trung trong các cơ quan thuộc khối chính phủ Hoa Kỳ.</p>
+Một dự án của Cơ quan Tiêu chuẩn Kỹ thuật Hoa Kỳ (NIST) có liên quan tới Log Management<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">1</a></sup> cũng đang cố gắng cải thiện nền tảng phân tích log tập trung trong các cơ quan thuộc khối chính phủ Hoa Kỳ.</p>
 
 <p>Nhìn như trên chúng ta có thể thấy ở cấp <strong>quân sự và chính phủ, hoặc các tập đoàn kinh tế lớn</strong> việc lưu trữ và quản lý log quan trọng đến chừng nào.
 Dựa trên đó mà các khối này đang cải tiến và xây dựng nền tảng quản lý dữ liệu của chính phủ Hoa Kỳ ngày càng hoàn thiện và tiên tiến hơn.
@@ -414,7 +424,7 @@ Và nếu bây giờ mà tự dưng phát sinh ra dự án thu thập dữ liệ
 
 <h2 id="các-cấp-độ-quản-lý-log">Các cấp độ quản lý log</h2>
 
-<p>Theo <strong>Bản ghi nhớ <a href="https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf">M-21-31</a> Improving the Federal Government’s Investigative and Remediation Capabilities Related to Cybersecurity Incidents <a class="citation" href="#M213156:online">[2]</a></strong> giữa các lãnh đạo cấp cao các cơ quan chính phủ Hoa Kỳ liên quan tới điều tra và nâng cấp khả năng ứng phó liên quan tới các sự cố an ninh mạng, các cấp độ quản lý log được chia làm 4 cấp độ từ <strong>không hiệu quả</strong> tới cấp <strong>advanced</strong> như sau:</p>
+<p>Theo <strong>Bản ghi nhớ <a href="https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf">M-21-31</a> Improving the Federal Government’s Investigative and Remediation Capabilities Related to Cybersecurity Incidents<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">2</a></sup></strong> giữa các lãnh đạo cấp cao các cơ quan chính phủ Hoa Kỳ liên quan tới điều tra và nâng cấp khả năng ứng phó liên quan tới các sự cố an ninh mạng, các cấp độ quản lý log được chia làm 4 cấp độ từ <strong>không hiệu quả</strong> tới cấp <strong>advanced</strong> như sau:</p>
 
 <table>
   <thead>
@@ -463,7 +473,7 @@ Ngoài ra, lộ trình tính từ ngày ký vào bản ghi nhớ được thốn
 
 <h2 id="phân-loại-nguy-cơ">Phân loại nguy cơ</h2>
 
-<p>Trong tài liệu tiêu chuẩn của NIST <a class="citation" href="#kent2006guide">[3]</a> và thậm chí trong bản ghi nhớ <a class="citation" href="#M213156:online">[2]</a> thì ít nhất ở cấp <em>EL1</em> là phải quản lý log <strong>đầy đủ</strong> với mọi nguy cơ ở cấp (highest criticality) hay <em>Criticality 0</em>.</p>
+<p>Trong tài liệu tiêu chuẩn của NIST <a class="citation" href="#kent2006guide">[1]</a> và thậm chí trong bản ghi nhớ<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">2</a></sup> thì ít nhất ở cấp <em>EL1</em> là phải quản lý log <strong>đầy đủ</strong> với mọi nguy cơ ở cấp (highest criticality) hay <em>Criticality 0</em>.</p>
 
 <p>Những thông tin ở các cấp như sau:</p>
 
@@ -808,9 +818,17 @@ Thế nên có cơ hội các bạn nên trau dồi, vì thực sự cái tổng
 
 <h1 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h1>
 
-<ol class="bibliography"><li><span id="LogManag44:online">US Department of Commerce, Technology Administration, National Institute of Standards and Technology Log Management | CSRC.</span><a class="details" href="https://wanted2.github.io/bibliography/LogManag44_online/">Details</a></li>
-<li><span id="M213156:online">Executive Office of the President Office of Management and Budget 2021. M-21-31: Memorandum for the Heads of Executive Departments and Agencies.</span><a class="details" href="https://wanted2.github.io/bibliography/M213156_online/">Details</a></li>
-<li><span id="kent2006guide">Kent, K.A. and Souppaya, M. 2006. <i>Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology</i>. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.</span><a class="details" href="https://wanted2.github.io/bibliography/kent2006guide/">Details</a></li></ol>
+<ol class="bibliography"><li><span id="kent2006guide">Kent, K.A. and Souppaya, M. 2006. <i>Guide to Computer Security Log Management: Recommendations of the National Institute of Standards and Technology</i>. US Department of Commerce, Technology Administration, National Institute of Standards and Technology.</span><a class="details" href="https://wanted2.github.io/bibliography/kent2006guide/">Details</a></li></ol>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://csrc.nist.gov/Projects/log-management">https://csrc.nist.gov/Projects/log-management</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf">M-21-31</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>
 
             </div>
 
@@ -952,17 +970,17 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (16)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (36)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (6)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (19)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (16)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (37)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (32)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (34)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (32)</a>
                 
             
             

@@ -10,6 +10,16 @@
 
  
     
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6" crossorigin="anonymous"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2CDTCF0EP6');
+        </script>
+    
 
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
@@ -215,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        1777
+        1805
      words</li>
-        <li class="small">9 minutes</li>
+        <li class="small">10 minutes</li>
     </ul>
 </div>
 
@@ -242,7 +252,7 @@
                         <!-- <a target="_blank" href="" class="btn follow">Follow</a> -->
                         <!-- LikeBtn.com BEGIN -->
                         <span class="likebtn-wrapper" 
-                            data-site_id=""
+                            data-site_id="61cfccd36fd08b2d68c1929e"
                             data-theme="custom" 
                             data-icon_l_url="/assets/images/OK_EM.png" 
                             data-icon_l_url_v="/assets/images/OK_EM_clicked.png" 
@@ -370,7 +380,7 @@ This costs us plenty more than we anticipated with the min CPU=2 setting.</p>
   <p>Is there any way to make it scale down, or is the only alternative to set min CPU=0?</p>
 </blockquote>
 
-<p>The question was actually somewhat practical: there is a <code class="language-plaintext highlighter-rouge">minVcpus</code> parameter in the AWS Batch template [6], for which when the system goes into <code class="language-plaintext highlighter-rouge">DISABLED</code> mode, then idle instances will be scale down to keep only <code class="language-plaintext highlighter-rouge">minVcpus</code> running.
+<p>The question was actually somewhat practical: there is a <code class="language-plaintext highlighter-rouge">minVcpus</code> parameter in the AWS Batch template<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">1</a></sup>, for which when the system goes into <code class="language-plaintext highlighter-rouge">DISABLED</code> mode, then idle instances will be scale down to keep only <code class="language-plaintext highlighter-rouge">minVcpus</code> running.
 Setting <code class="language-plaintext highlighter-rouge">minVcpus</code> lower will reduce idle cost but increase the time for starting up, loading, provisioning new vCPUs.
 That’s why even though there is an option to scale down <code class="language-plaintext highlighter-rouge">minVcpus=0</code>, but <code class="language-plaintext highlighter-rouge">ulsa9983</code> wanted to find another solution.
 Their service is <strong>low traffic, but (we) want to keep some spot CPU available for quick response</strong>.</p>
@@ -387,7 +397,7 @@ With this model, AWS Batch jobs requiring two or fewer vCPUs could be immediatel
 <p>Actually, this answer always keeps an <code class="language-plaintext highlighter-rouge">m4.large</code> instance to be run without being modified and having another group of resources that can be scaled up and down according to the situations.
 Nevertheless, on the trade-off of response time and cost, <code class="language-plaintext highlighter-rouge">minVcpus=2</code> was kept, but the type of the instance was preserved to reduce cost.</p>
 
-<p>To find more about the parameters of AWS Batch, one can consult with<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.
+<p>To find more about the parameters of AWS Batch, one can consult with<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">2</a></sup>.
 AWS Batch is a batch computing platform with stateful jobs, job queues, GPU jobs, …
 Jobs are the unit of work invoked by AWS Batch.
 Jobs can be invoked as containerized applications running on Amazon ECS container instances in an ECS cluster.</p>
@@ -410,7 +420,7 @@ One example can be found below.</p>
 
 <h2 id="azure-batch">Azure Batch</h2>
 
-<p>Azure Batch [1, 8] creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes.
+<p>Azure Batch <a class="citation" href="#soh2020overview">[1]</a><sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes.
 There’s no cluster or job scheduler software to install, manage, or scale.
 Instead, you use Batch APIs and tools, command-line scripts, or the Azure portal to configure, manage, and monitor your jobs.</p>
 
@@ -450,8 +460,14 @@ Future works will direct to the practices of GPU-enabled serverless architecture
 <li><span id="risco2021gpu">Risco, S. and Moltó, G. 2021. GPU-Enabled Serverless Workflows for Efficient Multimedia Processing. <i>Applied Sciences</i>. 11, 4 (2021), 1438.</span><a class="details" href="https://wanted2.github.io/bibliography/risco2021gpu/">Details</a></li></ol>
 <div class="footnotes" role="doc-endnotes">
   <ol>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html">https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
     <li id="fn:1" role="doc-endnote">
       <p><a href="https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html">What Is AWS Batch? - AWS Batch</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://azure.microsoft.com/en-us/services/batch/">https://azure.microsoft.com/en-us/services/batch/</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -545,7 +561,7 @@ Future works will direct to the practices of GPU-enabled serverless architecture
             <a class="prev d-block col-md-6" href="https://wanted2.github.io//software-maintenance-technical-debt/"> &laquo; Software maintenance and technical debt - Bảo trì phần mềm và 'nợ công nghệ'</a>
             
             
-            <a class="next d-block col-md-6 text-lg-right" href="https://wanted2.github.io//mobile-and-web/">Phân tích xu hướng: Tại sao các hiện tượng thành công gần đây lại ít có phiên bản web hơn ứng dụng mobile? &raquo; </a>
+            <a class="next d-block col-md-6 text-lg-right" href="https://wanted2.github.io//synchronized-and-diversity-detail-and-abstract/">Đồng bộ và đa dạng, cũng như chi tiết và chung chung &raquo; </a>
             
             <div class="clearfix"></div>
             </div>
@@ -624,17 +640,17 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (5)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (17)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (36)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (5)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (6)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (11)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (16)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (11)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (32)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (23)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (32)</a>
                 
             
             

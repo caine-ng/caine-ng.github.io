@@ -166,7 +166,7 @@
 <div class="mainheading">
     <h1 class="sitetitle">AiFi</h1>
     <p class="lead">
-        An AI Engineer's blog
+        An AI Engineer's blog (This is a staging site, so the content may be imprecise, refer to official AiFi)
     </p>
 </div>
 
@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        4897
+        4914
      words</li>
         <li class="small">27 minutes</li>
     </ul>
@@ -357,7 +357,7 @@
 
 <p>ここで、インテグレーションのために重要な概念を説明します。
 インテントはスクリプトのことですが、インテントの構成と作成方法です。
-Pythonでコーディングするなら、<code class="language-plaintext highlighter-rouge">boto3</code>ライブラリ <a class="citation" href="#LexModel37:online">[1]</a>の<a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot"><code class="language-plaintext highlighter-rouge">create_bot</code>メソッド</a>を参考すれば良いでしょう。
+Pythonでコーディングするなら、<code class="language-plaintext highlighter-rouge">boto3</code>ライブラリ<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>の<a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html#LexModelsV2.Client.create_bot"><code class="language-plaintext highlighter-rouge">create_bot</code>メソッド</a>を参考すれば良いでしょう。
 会話フローを実現するために、重要な要素は<strong>コンテキスト、サンプル、プロムプト、スロットとフック</strong>です。</p>
 
 <table>
@@ -463,7 +463,7 @@ Elasticsearch本番では<strong>全文検索</strong>など、キーワード�
 <p>PDFデータやOfficeデータをS3にアップして、Elasticsearchのエンドポイントへ送信するフローを自動化したいです。
 つまり、<code class="language-plaintext highlighter-rouge">Document Storage S3 ---&gt; Indexing Lambda ---&gt; Elasticsearch Service</code>のフローを自動化します。</p>
 
-<p>この部分の設計は下記になります <a class="citation" href="#Buildado59:online">[2]</a>。</p>
+<p>この部分の設計は下記になります<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -711,7 +711,7 @@ Elasticsearch本番では<strong>全文検索</strong>など、キーワード�
 <p>リソースアクセスのためのロールとポリシーも記述されていますが、大まかに<code class="language-plaintext highlighter-rouge">Document Storage S3 ---&gt; Indexing Lambda ---&gt; Elasticsearch Service</code>の処理を記述します。
 毎回PDF文章データが<code class="language-plaintext highlighter-rouge">S3DocumentStoreBucket</code>にアップされると、<code class="language-plaintext highlighter-rouge">IndexDocumentLambda</code>というラムダ関数が起動されます。</p>
 
-<p>索引作成処理にはElasticsearchのエンドポイントにドキュメントを送信する処理ですが、下記になります <a class="citation" href="#Buildado59:online">[2]</a>。</p>
+<p>索引作成処理にはElasticsearchのエンドポイントにドキュメントを送信する処理ですが、下記になります<sup id="fnref:2:1" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>。</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -963,8 +963,17 @@ ElasticsearchとLexの課金量はかなりかかります。また、UltraWarm�
 
 <h1 id="参考文献">参考文献</h1>
 
-<ol class="bibliography"><li><span id="LexModel37:online">LexModelsV2 – Boto3 Docs 1.18.6 documentation. https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html.</span><a class="details" href="https://wanted2.github.io/bibliography/LexModel37_online/">Details</a></li>
-<li><span id="Buildado59:online">Jain, A. and Kulkarni, R. Build a document search bot using Amazon Lex and Amazon Elasticsearch Service | AWS Machine Learning Blog. https://aws.amazon.com/jp/blogs/machine-learning/build-a-document-search-bot-using-amazon-lex-and-amazon-elasticsearch-service/.</span><a class="details" href="https://wanted2.github.io/bibliography/Buildado59_online/">Details</a></li></ol>
+<ol class="bibliography"></ol>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html">https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lexv2-models.html</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://aws.amazon.com/jp/blogs/machine-learning/build-a-document-search-bot-using-amazon-lex-and-amazon-elasticsearch-service/">Build a document search bot using Amazon Lex and Amazon Elasticsearch Service - AWS Machine Learning Blog</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:2:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>
 
             </div>
 
@@ -1048,7 +1057,7 @@ ElasticsearchとLexの課金量はかなりかかります。また、UltraWarm�
             <!-- Prev/Next -->
             <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
             
-            <a class="prev d-block col-md-6" href="https://wanted2.github.io//python-38-sys-audit/"> &laquo; Code audit processes and the new feature of Python 3.8 - sys.audit</a>
+            <a class="prev d-block col-md-6" href="https://wanted2.github.io//bitbucket-pipelines-runners/"> &laquo; Bitbucket pipelines for small teams: Bitbucket Cloud or Self-hosted Runners?</a>
             
             
             <a class="next d-block col-md-6 text-lg-right" href="https://wanted2.github.io//python38-sys-exit/">Termination in Python &raquo; </a>
@@ -1130,17 +1139,17 @@ https://search.google.com/structured-data/testing-tool/u/0/
             
             
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (6)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (21)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (36)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (4)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (6)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (11)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (16)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (18)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (32)</a>
                 
-                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (29)</a>
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (32)</a>
                 
             
             
