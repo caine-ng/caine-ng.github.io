@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 14:29:13 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 14:29:13 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 19:53:29 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 19:53:29 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -14,7 +14,7 @@
         <description>&lt;p&gt;&lt;strong&gt;Edge-Cloud (EC) architectures&lt;/strong&gt; is an emerging computing paradigm recently, which takes the AI computation to the edge devices and only aggregates processed important data to the cloud.
 &lt;strong&gt;Tensor Processing Unit (TPU)&lt;/strong&gt; is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software.
 Google started selling the Cloud TPUv3 in 2018 for third-party users.
-Their edge TPU version (Coral) was started in the same year.
+Their edge TPU version (Coral)&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; was started in the same year.
 Both cloud and edge TPU support Tensorflow and its Lite version but do not support other deep learning frameworks like PyTorch or MXNet.
 TPU is useful for EC architectures.&lt;/p&gt;
 
@@ -81,7 +81,7 @@ It has both cloud and edge versions that make it possible for new end-edge-cloud
 &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/4AseEI_s6QWM75QwncKhPgMPi0P7YHume5O7Njx8FovMze22nblcLP8zOU-s5qhpwMgzVmYe9VPLiwrHecNYbjtNCKgHLOSO_w9X1NkEzEDjxdWRM7g=w2000-rw&quot; alt=&quot;edge tpu&quot; /&gt;
 &lt;em&gt;Source: &lt;a href=&quot;https://coral.ai/products/&quot;&gt;Google Coral&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;In Vietnam, I can buy a 1GB RAM DevBoard with the budget approximately 5 millions (tax included)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;In Vietnam, I can buy a 1GB RAM DevBoard with the budget approximately 5 millions bucks (tax included)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
@@ -90,6 +90,9 @@ It has both cloud and edge versions that make it possible for new end-edge-cloud
 &lt;li&gt;&lt;span id=&quot;cass2019taking&quot;&gt;Cass, S. 2019. Taking AI to the edge: Google’s TPU now comes in a maker-friendly package. &lt;i&gt;IEEE Spectrum&lt;/i&gt;. 56, 5 (2019), 16–17.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cass2019taking/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://cloud.google.com/edge-tpu/&quot;&gt;https://cloud.google.com/edge-tpu/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://pivietnam.com.vn/coral-dev-board-edge-tpu-module-som-pivietnam-com-vn.html&quot;&gt;Coral DevBoard Edge TPU SoM at PiVietnam&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
