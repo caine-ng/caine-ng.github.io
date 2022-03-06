@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 22:27:44 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 22:27:44 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 22:37:54 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 22:37:54 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -123,6 +123,11 @@ The smallest gain perhaps is when TPU does fully-connected computations (FC).&lt
 
 &lt;h1 id=&quot;pricing&quot;&gt;Pricing&lt;/h1&gt;
 
+&lt;p&gt;Now, we already understand that TPU is fast and has been designed for neural nets.
+We may want to add these resources to our project, but the question here is &lt;strong&gt;how does it cost?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Google somewhat offers two different choices for computing: a cloud version&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; and an edge version&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
 &lt;h2 id=&quot;cloud-tpu&quot;&gt;Cloud TPU&lt;/h2&gt;
 
 &lt;h2 id=&quot;edge-tpu&quot;&gt;Edge TPU&lt;/h2&gt;
@@ -132,7 +137,7 @@ The smallest gain perhaps is when TPU does fully-connected computations (FC).&lt
 &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/4AseEI_s6QWM75QwncKhPgMPi0P7YHume5O7Njx8FovMze22nblcLP8zOU-s5qhpwMgzVmYe9VPLiwrHecNYbjtNCKgHLOSO_w9X1NkEzEDjxdWRM7g=w2000-rw&quot; alt=&quot;edge tpu&quot; /&gt;
 &lt;em&gt;Source: &lt;a href=&quot;https://coral.ai/products/&quot;&gt;Google Coral&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;In Vietnam, I can buy a 1GB RAM DevBoard with a budget that approximates five million bucks (tax included)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;In Vietnam, I can buy a 1GB RAM DevBoard with a budget that approximates five million bucks (tax included)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
@@ -144,6 +149,12 @@ The smallest gain perhaps is when TPU does fully-connected computations (FC).&lt
   &lt;ol&gt;
     &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://cloud.google.com/edge-tpu/&quot;&gt;https://cloud.google.com/edge-tpu/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://cloud.google.com/tpu/pricing&quot;&gt;https://cloud.google.com/tpu/pricing&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://coral.ai/products/&quot;&gt;https://coral.ai/products/&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://pivietnam.com.vn/coral-dev-board-edge-tpu-module-som-pivietnam-com-vn.html&quot;&gt;Coral DevBoard Edge TPU SoM at PiVietnam&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
