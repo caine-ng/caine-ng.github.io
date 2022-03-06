@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 21:40:54 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 21:40:54 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 21:44:43 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 21:44:43 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -81,7 +81,7 @@ It takes control of the computation and does arithmetic/logic computations.&lt;/
 &lt;p&gt;&lt;i&gt;How CPU works (Source: Tinhte.vn)&lt;/i&gt;&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;CPU in the von-Neumann architectures stores computation results in L1 cache or register, due to the fact that the next computation is unknown (thus, the current results must be stored somewhere for future computing).
+&lt;p&gt;CPU in the von-Neumann architectures stores computation results in L1 cache or register due to the fact that the next computation is unknown (thus, the current results must be stored somewhere for future computing).
 However, such L1 cache and registers are limited in their memory capacity, and sometimes, cache misses happen, which we call as &lt;em&gt;von-Neumann bottleneck&lt;/em&gt;.
 Because there are many matrix computations (multiplication and addition) in deep learning, bottleneck problems arise more and more.&lt;/p&gt;
 
@@ -96,7 +96,7 @@ Because there are many matrix computations (multiplication and addition) in deep
 &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/4AseEI_s6QWM75QwncKhPgMPi0P7YHume5O7Njx8FovMze22nblcLP8zOU-s5qhpwMgzVmYe9VPLiwrHecNYbjtNCKgHLOSO_w9X1NkEzEDjxdWRM7g=w2000-rw&quot; alt=&quot;edge tpu&quot; /&gt;
 &lt;em&gt;Source: &lt;a href=&quot;https://coral.ai/products/&quot;&gt;Google Coral&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;In Vietnam, I can buy a 1GB RAM DevBoard with the budget approximately 5 millions bucks (tax included)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;In Vietnam, I can buy a 1GB RAM DevBoard with a budget that approximates five million bucks (tax included)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
