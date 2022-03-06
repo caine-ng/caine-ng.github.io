@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        323
+        499
      words</li>
-        <li class="small">1 minutes</li>
+        <li class="small">2 minutes</li>
     </ul>
 </div>
 
@@ -330,6 +330,24 @@ Thus, a machine learning (ML) system is used to aggregate such data.
 But the IoT devices have only low resources, which makes almost all on-device ML systems is impossible.
 A typical solution for this problem is to offload them into an external data processing system like cloud computing.
 It worsens latency, increases communication costs, and introduces additional privacy concerns.</p>
+
+<div style="width:50%; float: right; margin: 0.5em;">
+<img src="/assets/images/edge-server.png" />
+<p><i>Edge servers. (Source: Murshed et al., 2021)</i></p>
+</div>
+<p>The solution requires allocation of a new <strong>edge server</strong> near the IoT devices, which aggregates local information and makes quick decisions at the local edge (<strong>distributed inference</strong>).
+Only processed and meaningful information, which is advantageous to the global model, is sent to cloud computing servers to update global model parameters (<strong>distributed training</strong>).
+This decentralized architecture has many advantages:</p>
+
+<ul>
+  <li><em>Reducing cost</em>: The volume of data needed to be transferred to a central computing location is reduced because some of it is processed by
+edge-devices.</li>
+  <li><em>Improving latency</em>: The physical proximity of edge-devices to the data sources makes it possible to achieve lower latency which improves real-time
+data processing performance.</li>
+  <li><em>Better privacy</em>: For the cases where data must be processed remotely, edge devices can be used to discard personally identifiable information
+(PII) prior to data transfer, thus enhancing user privacy and security.</li>
+  <li><em>Better failure handling</em>: Decentralization can make systems more robust by providing transient services during network failures or cyberattacks.</li>
+</ul>
 
 <h1 id="cpu-gpu-and-tpu">CPU, GPU, and TPU</h1>
 

@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 13:15:58 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 13:15:58 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 13:43:09 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 13:43:09 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -30,6 +30,24 @@ Thus, a machine learning (ML) system is used to aggregate such data.
 But the IoT devices have only low resources, which makes almost all on-device ML systems is impossible.
 A typical solution for this problem is to offload them into an external data processing system like cloud computing.
 It worsens latency, increases communication costs, and introduces additional privacy concerns.&lt;/p&gt;
+
+&lt;div style=&quot;width:50%; float: right; margin: 0.5em;&quot;&gt;
+&lt;img src=&quot;/assets/images/edge-server.png&quot; /&gt;
+&lt;p&gt;&lt;i&gt;Edge servers. (Source: Murshed et al., 2021)&lt;/i&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The solution requires allocation of a new &lt;strong&gt;edge server&lt;/strong&gt; near the IoT devices, which aggregates local information and makes quick decisions at the local edge (&lt;strong&gt;distributed inference&lt;/strong&gt;).
+Only processed and meaningful information, which is advantageous to the global model, is sent to cloud computing servers to update global model parameters (&lt;strong&gt;distributed training&lt;/strong&gt;).
+This decentralized architecture has many advantages:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Reducing cost&lt;/em&gt;: The volume of data needed to be transferred to a central computing location is reduced because some of it is processed by
+edge-devices.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Improving latency&lt;/em&gt;: The physical proximity of edge-devices to the data sources makes it possible to achieve lower latency which improves real-time
+data processing performance.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Better privacy&lt;/em&gt;: For the cases where data must be processed remotely, edge devices can be used to discard personally identifiable information
+(PII) prior to data transfer, thus enhancing user privacy and security.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Better failure handling&lt;/em&gt;: Decentralization can make systems more robust by providing transient services during network failures or cyberattacks.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;cpu-gpu-and-tpu&quot;&gt;CPU, GPU, and TPU&lt;/h1&gt;
 
