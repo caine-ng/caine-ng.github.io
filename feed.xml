@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 04:33:59 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 04:33:59 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 13:15:58 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 13:15:58 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -18,6 +18,19 @@ Both cloud and edge TPU support Tensorflow and its Lite version but do not suppo
 
 &lt;!--more--&gt;
 
+&lt;h1 id=&quot;edge-computing&quot;&gt;Edge computing&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Edge computing&lt;/strong&gt; is a new paradigm of distributed computing on resource-constrained IoT devices, such as sensors and actuators, which has become ubiquitous recently &lt;a class=&quot;citation&quot; href=&quot;#murshed2021machine&quot;&gt;[1, 2]&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;More than 25 billion IoT devices all over the world have been used by 2020.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;One crucial need is to aggregate the information from these devices and make decisions from the data.
+Thus, a machine learning (ML) system is used to aggregate such data.
+But the IoT devices have only low resources, which makes almost all on-device ML systems is impossible.
+A typical solution for this problem is to offload them into an external data processing system like cloud computing.
+It worsens latency, increases communication costs, and introduces additional privacy concerns.&lt;/p&gt;
+
 &lt;h1 id=&quot;cpu-gpu-and-tpu&quot;&gt;CPU, GPU, and TPU&lt;/h1&gt;
 
 &lt;h1 id=&quot;pricing&quot;&gt;Pricing&lt;/h1&gt;
@@ -26,12 +39,16 @@ Both cloud and edge TPU support Tensorflow and its Lite version but do not suppo
 
 &lt;h2 id=&quot;edge-tpu&quot;&gt;Edge TPU&lt;/h2&gt;
 
+&lt;p&gt;Edge TPU has been a new device for edge recently &lt;a class=&quot;citation&quot; href=&quot;#murshed2021machine&quot;&gt;[1, 3]&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/4AseEI_s6QWM75QwncKhPgMPi0P7YHume5O7Njx8FovMze22nblcLP8zOU-s5qhpwMgzVmYe9VPLiwrHecNYbjtNCKgHLOSO_w9X1NkEzEDjxdWRM7g=w2000-rw&quot; alt=&quot;edge tpu&quot; /&gt;
 &lt;em&gt;Source: &lt;a href=&quot;https://coral.ai/products/&quot;&gt;Google Coral&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;murshed2021machine&quot;&gt;Murshed, M.G.S., Murphy, C., Hou, D., Khan, N., Ananthanarayanan, G. and Hussain, F. 2021. Machine learning at the network edge: A survey. &lt;i&gt;ACM Computing Surveys (CSUR)&lt;/i&gt;. 54, 8 (2021), 1–37.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/murshed2021machine/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;shi2020communication&quot;&gt;Shi, Y., Yang, K., Jiang, T., Zhang, J. and Letaief, K.B. 2020. Communication-efficient edge AI: Algorithms and systems. &lt;i&gt;IEEE Communications Surveys &amp;amp; Tutorials&lt;/i&gt;. 22, 4 (2020), 2167–2191.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/shi2020communication/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;cass2019taking&quot;&gt;Cass, S. 2019. Taking AI to the edge: Google’s TPU now comes in a maker-friendly package. &lt;i&gt;IEEE Spectrum&lt;/i&gt;. 56, 5 (2019), 16–17.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cass2019taking/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sat, 05 Mar 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/about-tpu/</link>
