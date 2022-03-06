@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 22:51:30 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 22:51:30 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 22:55:18 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 22:55:18 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -160,6 +160,13 @@ If you already knew NVIDIA Jetson Nano&lt;sup id=&quot;fnref:5&quot; role=&quot;
 &lt;p&gt;In Vietnam, I can buy a 1GB RAM DevBoard with a budget that approximates five million bucks (tax included)&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;.
 Google Coral announced the price is 129.99USD/board. 
 It is equipped with 4TOPS and only favors Tensorflow Lite models.&lt;/p&gt;
+
+&lt;h1 id=&quot;conslusion&quot;&gt;Conslusion&lt;/h1&gt;
+
+&lt;p&gt;Edge-Cloud architectures will be the next generation of computing platforms.
+TPUs are good for neural network computations and then are good for ML as well.
+We need to allocate the budget for our project first, and it is good to know both cloud and edge versions of TPU.
+They differ about 1100x in terms of annual cost (Edge TPU 129.99USD/lifetime vs. 132,000USD?year Cloud Pod TPUv2)!&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
