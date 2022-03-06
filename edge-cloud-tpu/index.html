@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        899
+        1026
      words</li>
-        <li class="small">4 minutes</li>
+        <li class="small">5 minutes</li>
     </ul>
 </div>
 
@@ -384,6 +384,20 @@ It takes control of the computation and does arithmetic/logic computations.</p>
 <p>CPU in the von-Neumann architectures stores computation results in L1 cache or register due to the fact that the next computation is unknown (thus, the current results must be stored somewhere for future computing).
 However, such L1 cache and registers are limited in their memory capacity, and sometimes, cache misses happen, which we call as <em>von-Neumann bottleneck</em>.
 Because there are many matrix computations (multiplication and addition) in deep learning, bottleneck problems arise more and more.</p>
+
+<p><img src="https://photo2.tinhte.vn/data/attachment-files/2021/01/5321867_main-qimg-ee7d4757d5c7cdd1105f9e4aa267db22.png" style="width: 50%; margin: 0.5em; float: left;" /></p>
+
+<p><strong>Graphical Processing Unit (GPU)</strong> can compute more than one arithmetic logic at a time, then it has higher parallelism than CPU (which is a sequential processing unit).
+While a CPU only has a few <em>Arithmetic Logic Unit (ALU)</em>, a GPU can have some thousands of ALUs, making GPU parallel computing is fast, especially for <strong>arithmetic computations</strong>.
+GPU maybe is not good for non-arithmetic computations such as Office tasks, but in the case of deep learning, it is a dominant choice by now.</p>
+
+<p>However, although GPU is faster for deep learning, it does not solve the <em>bottleneck</em> problem!
+That’s why Google had to design TPU!</p>
+
+<div style="width: 100%; margin: 0.5em;">
+<img src="https://photo2.tinhte.vn/data/attachment-files/2021/01/5321851_22.gif" />
+<p><i>How GPU works (Source: Tinhte.vn)</i></p>
+</div>
 
 <h1 id="pricing">Pricing</h1>
 

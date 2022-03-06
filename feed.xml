@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 21:44:43 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 21:44:43 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 22:07:32 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 22:07:32 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -84,6 +84,20 @@ It takes control of the computation and does arithmetic/logic computations.&lt;/
 &lt;p&gt;CPU in the von-Neumann architectures stores computation results in L1 cache or register due to the fact that the next computation is unknown (thus, the current results must be stored somewhere for future computing).
 However, such L1 cache and registers are limited in their memory capacity, and sometimes, cache misses happen, which we call as &lt;em&gt;von-Neumann bottleneck&lt;/em&gt;.
 Because there are many matrix computations (multiplication and addition) in deep learning, bottleneck problems arise more and more.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://photo2.tinhte.vn/data/attachment-files/2021/01/5321867_main-qimg-ee7d4757d5c7cdd1105f9e4aa267db22.png&quot; style=&quot;width: 50%; margin: 0.5em; float: left;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Graphical Processing Unit (GPU)&lt;/strong&gt; can compute more than one arithmetic logic at a time, then it has higher parallelism than CPU (which is a sequential processing unit).
+While a CPU only has a few &lt;em&gt;Arithmetic Logic Unit (ALU)&lt;/em&gt;, a GPU can have some thousands of ALUs, making GPU parallel computing is fast, especially for &lt;strong&gt;arithmetic computations&lt;/strong&gt;.
+GPU maybe is not good for non-arithmetic computations such as Office tasks, but in the case of deep learning, it is a dominant choice by now.&lt;/p&gt;
+
+&lt;p&gt;However, although GPU is faster for deep learning, it does not solve the &lt;em&gt;bottleneck&lt;/em&gt; problem!
+That’s why Google had to design TPU!&lt;/p&gt;
+
+&lt;div style=&quot;width: 100%; margin: 0.5em;&quot;&gt;
+&lt;img src=&quot;https://photo2.tinhte.vn/data/attachment-files/2021/01/5321851_22.gif&quot; /&gt;
+&lt;p&gt;&lt;i&gt;How GPU works (Source: Tinhte.vn)&lt;/i&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;h1 id=&quot;pricing&quot;&gt;Pricing&lt;/h1&gt;
 
