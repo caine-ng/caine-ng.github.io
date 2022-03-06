@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        1124
+        1222
      words</li>
         <li class="small">6 minutes</li>
     </ul>
@@ -413,6 +413,13 @@ It cannot do Office tasks, control rockets, or monitor bank transactions.
 Then for each multiplication, the result is passed to the next multiplication when performing the additions at the same time.
 Therefore, no more memory access is needed.
 This is how TPU solved the von-Neumann bottleneck!</p>
+<div style="width: 50%; margin: 0.5em;float: right;">
+<img src="/assets/images/tpu-gpu-comparison.png" />
+<p><i>Source: Wang et al., 2019</i></p>
+</div>
+<p>In a recent benchmark <a class="citation" href="#wang2019benchmarking">[3]</a>, TPU showed that it is a better choice than GPU for large CNNs, suggesting that TPU is highly-optimized for CNNs.
+While TPU is a better choice for Recurrent Neural Networks (RNNs), it is not as flexible as GPU for embedding computations.
+The smallest gain perhaps is when TPU does fully-connected computations (FC).</p>
 
 <h1 id="pricing">Pricing</h1>
 
@@ -420,7 +427,7 @@ This is how TPU solved the von-Neumann bottleneck!</p>
 
 <h2 id="edge-tpu">Edge TPU</h2>
 
-<p>Edge TPU has been a new device for edge recently <a class="citation" href="#murshed2021machine">[1, 3]</a></p>
+<p>Edge TPU has been a new device for edge recently <a class="citation" href="#murshed2021machine">[1, 4]</a></p>
 
 <p><img src="https://lh3.googleusercontent.com/4AseEI_s6QWM75QwncKhPgMPi0P7YHume5O7Njx8FovMze22nblcLP8zOU-s5qhpwMgzVmYe9VPLiwrHecNYbjtNCKgHLOSO_w9X1NkEzEDjxdWRM7g=w2000-rw" alt="edge tpu" />
 <em>Source: <a href="https://coral.ai/products/">Google Coral</a></em></p>
@@ -431,6 +438,7 @@ This is how TPU solved the von-Neumann bottleneck!</p>
 
 <ol class="bibliography"><li><span id="murshed2021machine">Murshed, M.G.S., Murphy, C., Hou, D., Khan, N., Ananthanarayanan, G. and Hussain, F. 2021. Machine learning at the network edge: A survey. <i>ACM Computing Surveys (CSUR)</i>. 54, 8 (2021), 1–37.</span><a class="details" href="https://wanted2.github.io/bibliography/murshed2021machine/">Details</a></li>
 <li><span id="shi2020communication">Shi, Y., Yang, K., Jiang, T., Zhang, J. and Letaief, K.B. 2020. Communication-efficient edge AI: Algorithms and systems. <i>IEEE Communications Surveys &amp; Tutorials</i>. 22, 4 (2020), 2167–2191.</span><a class="details" href="https://wanted2.github.io/bibliography/shi2020communication/">Details</a></li>
+<li><span id="wang2019benchmarking">Wang, Y.E., Wei, G.-Y. and Brooks, D. 2019. Benchmarking tpu, gpu, and cpu platforms for deep learning. <i>arXiv preprint arXiv:1907.10701</i>. (2019).</span><a class="details" href="https://wanted2.github.io/bibliography/wang2019benchmarking/">Details</a></li>
 <li><span id="cass2019taking">Cass, S. 2019. Taking AI to the edge: Google’s TPU now comes in a maker-friendly package. <i>IEEE Spectrum</i>. 56, 5 (2019), 16–17.</span><a class="details" href="https://wanted2.github.io/bibliography/cass2019taking/">Details</a></li></ol>
 <div class="footnotes" role="doc-endnotes">
   <ol>
