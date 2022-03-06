@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 19:53:29 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 19:53:29 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 21:36:59 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 21:36:59 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -106,6 +106,22 @@ It has both cloud and edge versions that make it possible for new end-edge-cloud
         <category>Machine learning</category>
         
         <category>TPU</category>
+        
+        <category>edge computing</category>
+        
+        <category>edge server</category>
+        
+        <category>edge devices</category>
+        
+        <category>edge-cloud architectures</category>
+        
+        <category>cloud computing</category>
+        
+        <category>6g</category>
+        
+        <category>federated learning</category>
+        
+        <category>distributed computing</category>
         
         
         <category>Software Engineering</category>
