@@ -225,9 +225,9 @@
     </div>
     <ul>
         <li class="small">
-        499
+        677
      words</li>
-        <li class="small">2 minutes</li>
+        <li class="small">3 minutes</li>
     </ul>
 </div>
 
@@ -331,7 +331,7 @@ But the IoT devices have only low resources, which makes almost all on-device ML
 A typical solution for this problem is to offload them into an external data processing system like cloud computing.
 It worsens latency, increases communication costs, and introduces additional privacy concerns.</p>
 
-<div style="width:50%; float: right; margin: 0.5em;">
+<div style="width: 50%; float: right; margin: 0.5em;">
 <img src="/assets/images/edge-server.png" />
 <p><i>Edge servers. (Source: Murshed et al., 2021)</i></p>
 </div>
@@ -348,6 +348,23 @@ data processing performance.</li>
 (PII) prior to data transfer, thus enhancing user privacy and security.</li>
   <li><em>Better failure handling</em>: Decentralization can make systems more robust by providing transient services during network failures or cyberattacks.</li>
 </ul>
+
+<blockquote>
+  <p>But everything comes with a cost.</p>
+</blockquote>
+
+<p>And edge computing is no exception!
+While the applications range from real-time video analytics, image recognition, automatic speech recognition, user privacy, fraud detection, creating new datasets, autonomous vehicles, smart home/cities, human safety to augmented reality, the power to run has many problems:</p>
+
+<ul>
+  <li><strong>How to adapt existing ML algorithms to edge devices?</strong>: For this problem, we need to consider more distributed-computing specific algorithms, care about hardware constraints, and build lighter/faster model architectures (which also requires pruning techniques and compression).</li>
+  <li><strong>How to improve latency of distributed training and inference systems while preserving privacy?</strong></li>
+  <li><strong>What are the common hardware devices used to enable edge intelligence?</strong></li>
+  <li><strong>What is the nature of the emerging software ecosystem that supports this new end-edge-cloud architecture for real-time intelligent systems?</strong>.</li>
+</ul>
+
+<p>For the third question, we will consider a choice in the art: the <strong>Tensor Processing Unit (TPU)</strong> along with other options like <strong>Central Processing Unit (CPU)</strong> and <strong>Graphical Processing Unit (GPU)</strong>.
+It has both cloud and edge versions that make it possible for new end-edge-cloud architecture.</p>
 
 <h1 id="cpu-gpu-and-tpu">CPU, GPU, and TPU</h1>
 

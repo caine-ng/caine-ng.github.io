@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 13:43:09 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 13:43:09 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 13:53:25 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 13:53:25 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -31,7 +31,7 @@ But the IoT devices have only low resources, which makes almost all on-device ML
 A typical solution for this problem is to offload them into an external data processing system like cloud computing.
 It worsens latency, increases communication costs, and introduces additional privacy concerns.&lt;/p&gt;
 
-&lt;div style=&quot;width:50%; float: right; margin: 0.5em;&quot;&gt;
+&lt;div style=&quot;width: 50%; float: right; margin: 0.5em;&quot;&gt;
 &lt;img src=&quot;/assets/images/edge-server.png&quot; /&gt;
 &lt;p&gt;&lt;i&gt;Edge servers. (Source: Murshed et al., 2021)&lt;/i&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -48,6 +48,23 @@ data processing performance.&lt;/li&gt;
 (PII) prior to data transfer, thus enhancing user privacy and security.&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Better failure handling&lt;/em&gt;: Decentralization can make systems more robust by providing transient services during network failures or cyberattacks.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;But everything comes with a cost.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And edge computing is no exception!
+While the applications range from real-time video analytics, image recognition, automatic speech recognition, user privacy, fraud detection, creating new datasets, autonomous vehicles, smart home/cities, human safety to augmented reality, the power to run has many problems:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;How to adapt existing ML algorithms to edge devices?&lt;/strong&gt;: For this problem, we need to consider more distributed-computing specific algorithms, care about hardware constraints, and build lighter/faster model architectures (which also requires pruning techniques and compression).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;How to improve latency of distributed training and inference systems while preserving privacy?&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;What are the common hardware devices used to enable edge intelligence?&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;What is the nature of the emerging software ecosystem that supports this new end-edge-cloud architecture for real-time intelligent systems?&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For the third question, we will consider a choice in the art: the &lt;strong&gt;Tensor Processing Unit (TPU)&lt;/strong&gt; along with other options like &lt;strong&gt;Central Processing Unit (CPU)&lt;/strong&gt; and &lt;strong&gt;Graphical Processing Unit (GPU)&lt;/strong&gt;.
+It has both cloud and edge versions that make it possible for new end-edge-cloud architecture.&lt;/p&gt;
 
 &lt;h1 id=&quot;cpu-gpu-and-tpu&quot;&gt;CPU, GPU, and TPU&lt;/h1&gt;
 
