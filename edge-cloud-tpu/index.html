@@ -225,7 +225,7 @@
     </div>
     <ul>
         <li class="small">
-        1299
+        1429
      words</li>
         <li class="small">7 minutes</li>
     </ul>
@@ -430,6 +430,24 @@ We may want to add these resources to our project, but the question here is <str
 
 <h2 id="cloud-tpu">Cloud TPU</h2>
 
+<p>You have two choices: you can rent a single TPU or a cluster of TPUs (TPU Pod)<sup id="fnref:3:1" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">2</a></sup>.
+Unfortunately, TPU is only available in three zones:</p>
+
+<ul>
+  <li>Iowa (<code class="language-plaintext highlighter-rouge">us-central1</code>);</li>
+  <li>Netherlands (<code class="language-plaintext highlighter-rouge">europe-west4</code>); and</li>
+  <li>Taiwan (<code class="language-plaintext highlighter-rouge">asia-east1</code>).</li>
+</ul>
+
+<p>And Taiwan zone does not have Pods, while the Iowa zone does not have TPUv3 Pods!</p>
+
+<p>For a single GPU device with 8 TPUv3 cores, you must pay 8USD/hour for on-demand options or 2.4USD/hour for spot options.
+Pods with 32 TPUv3 cores require a 1-year or 3-year commitment with an <strong>Evaluation price</strong> is 32USD/hour.
+If you afford a 3-year plan, then the monthly pricing is <strong>10,512USD/month</strong>.
+The total price for annual options in the Netherlands is as follows:</p>
+
+<p><img src="/assets/images/pod-pricing.png" alt="pods" /></p>
+
 <h2 id="edge-tpu">Edge TPU</h2>
 
 <p>Edge TPU has been a new device for edge recently <a class="citation" href="#murshed2021machine">[1, 4]</a></p>
@@ -451,7 +469,7 @@ We may want to add these resources to our project, but the question here is <str
       <p><a href="https://cloud.google.com/edge-tpu/">https://cloud.google.com/edge-tpu/</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
     <li id="fn:3" role="doc-endnote">
-      <p><a href="https://cloud.google.com/tpu/pricing">https://cloud.google.com/tpu/pricing</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p><a href="https://cloud.google.com/tpu/pricing">https://cloud.google.com/tpu/pricing</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:3:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
     </li>
     <li id="fn:4" role="doc-endnote">
       <p><a href="https://coral.ai/products/">https://coral.ai/products/</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>

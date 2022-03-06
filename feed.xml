@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 22:37:54 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 22:37:54 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 22:44:45 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 22:44:45 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -130,6 +130,24 @@ We may want to add these resources to our project, but the question here is &lt;
 
 &lt;h2 id=&quot;cloud-tpu&quot;&gt;Cloud TPU&lt;/h2&gt;
 
+&lt;p&gt;You have two choices: you can rent a single TPU or a cluster of TPUs (TPU Pod)&lt;sup id=&quot;fnref:3:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.
+Unfortunately, TPU is only available in three zones:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Iowa (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;us-central1&lt;/code&gt;);&lt;/li&gt;
+  &lt;li&gt;Netherlands (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;europe-west4&lt;/code&gt;); and&lt;/li&gt;
+  &lt;li&gt;Taiwan (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;asia-east1&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And Taiwan zone does not have Pods, while the Iowa zone does not have TPUv3 Pods!&lt;/p&gt;
+
+&lt;p&gt;For a single GPU device with 8 TPUv3 cores, you must pay 8USD/hour for on-demand options or 2.4USD/hour for spot options.
+Pods with 32 TPUv3 cores require a 1-year or 3-year commitment with an &lt;strong&gt;Evaluation price&lt;/strong&gt; is 32USD/hour.
+If you afford a 3-year plan, then the monthly pricing is &lt;strong&gt;10,512USD/month&lt;/strong&gt;.
+The total price for annual options in the Netherlands is as follows:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/pod-pricing.png&quot; alt=&quot;pods&quot; /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;edge-tpu&quot;&gt;Edge TPU&lt;/h2&gt;
 
 &lt;p&gt;Edge TPU has been a new device for edge recently &lt;a class=&quot;citation&quot; href=&quot;#murshed2021machine&quot;&gt;[1, 4]&lt;/a&gt;&lt;/p&gt;
@@ -151,7 +169,7 @@ We may want to add these resources to our project, but the question here is &lt;
       &lt;p&gt;&lt;a href=&quot;https://cloud.google.com/edge-tpu/&quot;&gt;https://cloud.google.com/edge-tpu/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://cloud.google.com/tpu/pricing&quot;&gt;https://cloud.google.com/tpu/pricing&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://cloud.google.com/tpu/pricing&quot;&gt;https://cloud.google.com/tpu/pricing&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:3:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://coral.ai/products/&quot;&gt;https://coral.ai/products/&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
