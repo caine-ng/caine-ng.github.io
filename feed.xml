@@ -5,16 +5,18 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 06 Mar 2022 14:00:12 +0900</pubDate>
-    <lastBuildDate>Sun, 06 Mar 2022 14:00:12 +0900</lastBuildDate>
+    <pubDate>Sun, 06 Mar 2022 14:15:28 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Mar 2022 14:15:28 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Edge-Cloud architectures &amp; TPU resources</title>
-        <description>&lt;p&gt;&lt;strong&gt;Tensor Processing Unit (TPU)&lt;/strong&gt; is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software.
+        <description>&lt;p&gt;&lt;strong&gt;Edge-Cloud (EC) architectures&lt;/strong&gt; is an emerging computing paradigm recently, which take the AI computation to edge devices, and only aggregate processed and important data to the cloud.
+&lt;strong&gt;Tensor Processing Unit (TPU)&lt;/strong&gt; is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software.
 Google started selling the Cloud TPUv3 in 2018 for third-party users.
 Their edge TPU version (Coral) was started in the same year.
-Both cloud and edge TPU support Tensorflow and its Lite version but do not support other deep learning frameworks like PyTorch or MXNet.&lt;/p&gt;
+Both cloud and edge TPU support Tensorflow and its Lite version but do not support other deep learning frameworks like PyTorch or MXNet.
+TPU is useful for EC architectures.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
