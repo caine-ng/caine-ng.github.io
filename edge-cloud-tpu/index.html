@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="https://wanted2.github.io/assets/images/favicon.ico">
+
+<title>Egde-Cloud architectures & TPU resources | AiFi</title>
+
+ 
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CDTCF0EP6" crossorigin="anonymous"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-2CDTCF0EP6');
+        </script>
+    
+
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Egde-Cloud architectures &amp; TPU resources | AiFi</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Egde-Cloud architectures &amp; TPU resources" />
+<meta name="author" content="tuan" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tensor Processing Unit (TPU) is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software. Google started selling the Cloud TPUv3 in 2018 for third-party users. Their edge TPU version (Coral) was started in the same year. Both cloud and edge TPU support Tensorflow and its Lite version but do not support other deep learning frameworks like PyTorch or MXNet." />
+<meta property="og:description" content="Tensor Processing Unit (TPU) is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software. Google started selling the Cloud TPUv3 in 2018 for third-party users. Their edge TPU version (Coral) was started in the same year. Both cloud and edge TPU support Tensorflow and its Lite version but do not support other deep learning frameworks like PyTorch or MXNet." />
+<meta property="og:site_name" content="AiFi" />
+<meta property="og:image" content="/https://wanted2.github.io/assets/images/edge-computing.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-05T00:00:00+09:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/https://wanted2.github.io/assets/images/edge-computing.png" />
+<meta property="twitter:title" content="Egde-Cloud architectures &amp; TPU resources" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-03-05T00:00:00+09:00","datePublished":"2022-03-05T00:00:00+09:00","description":"Tensor Processing Unit (TPU) is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software. Google started selling the Cloud TPUv3 in 2018 for third-party users. Their edge TPU version (Coral) was started in the same year. Both cloud and edge TPU support Tensorflow and its Lite version but do not support other deep learning frameworks like PyTorch or MXNet.","headline":"Egde-Cloud architectures &amp; TPU resources","image":"/https://wanted2.github.io/assets/images/edge-computing.png","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/edge-cloud-tpu/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/edge-cloud-tpu/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<link href="https://wanted2.github.io/assets/css/screen.css" rel="stylesheet">
+
+<link href="https://wanted2.github.io/assets/css/main.css" rel="stylesheet">
+
+<script src="https://wanted2.github.io/assets/js/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/d0b91d895e.js" crossorigin="anonymous"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+    }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.js" crossorigin="anonymous"></script>
+<!-- <script src="https://bl.ocks.org/mbostock/raw/4061502/0a200ddf998aa75dfdb1ff32e16b680a15e5cb01/box.js" crossorigin="anonymous"></script> -->
+</head>
+
+
+<body class="layout-post">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="https://wanted2.github.io/">
+    <img src="https://wanted2.github.io/assets/images/favicon.ico" alt="AiFi">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="https://wanted2.github.io/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="https://wanted2.github.io/about">About</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="https://wanted2.github.io/projects">Projects</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://bootstrapstarter.com/bootstrap-templates/template-mediumish-bootstrap-jekyll/"> Docs</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-wordpress/"><i class="fab fa-wordpress-simple"></i> WP Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://www.wowthemes.net/themes/mediumish-ghost/"><i class="fab fa-snapchat-ghost"></i> Ghost Version</a>
+                </li>
+
+                <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/wowthemesnet/mediumish-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+                </li> -->
+
+                <!-- <script src="https://wanted2.github.io/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="https://wanted2.github.io/assets/js/lunrsearchengine.js"></script> -->
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+<div class="mainheading">
+    <h1 class="sitetitle">AiFi</h1>
+    <p class="lead">
+        An AI Engineer's blog (This is a staging site, so the content may be imprecise, refer to official AiFi)
+    </p>
+</div>
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Egde-Cloud architectures & TPU resources&url=https://wanted2.github.io/edge-cloud-tpu/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=https://wanted2.github.io/edge-cloud-tpu/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wanted2.github.io/edge-cloud-tpu/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="mailto:?subject=Egde-Cloud architectures & TPU resources&body=https://wanted2.github.io/edge-cloud-tpu/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+    
+    <div class="sep">
+
+    </div>
+    <ul>
+        <li class="small">
+        677
+     words</li>
+        <li class="small">3 minutes</li>
+    </ul>
+</div>
+
+        </div>
+
+        <!-- Post -->
+        
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-2 col-lg-2 text-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://wanted2.github.io/assets/images/favicon.png" alt="AiFi">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-10 col-lg-10 text-right">
+                        <a target="_blank" class="link-dark" href="">AiFi</a>
+                        <!-- <a target="_blank" href="" class="btn follow">Follow</a> -->
+                        <!-- LikeBtn.com BEGIN -->
+                        <span class="likebtn-wrapper" 
+                            data-site_id="61cfccd36fd08b2d68c1929e"
+                            data-theme="custom" 
+                            data-icon_l_url="/assets/images/OK_EM.png" 
+                            data-icon_l_url_v="/assets/images/OK_EM_clicked.png" 
+                            data-identifier="/edge-cloud-tpu/" 
+                            data-show_like_label="false" 
+                            data-like_enabled="false" 
+                            data-dislike_enabled="false" 
+                            data-icon_dislike_show="false" 
+                            data-voting_cancelable="false" 
+                            data-counter_show="true"
+                            data-counter_frmt="comma"></span>
+                        <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+                        <!-- LikeBtn.com END -->
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                
+
+                <!-- Post Title -->
+                <h1 class="posttitle">Egde-Cloud architectures & TPU resources</h1>
+
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://wanted2.github.io/assets/images/edge-computing.png" alt="Egde-Cloud architectures & TPU resources">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                    
+                    <div class="toc mt-4 mb-4 lead">
+                        <h3 class="font-weight-bold">Summary</h3>
+                        <ul>
+  <li><a href="#edge-computing">Edge computing</a></li>
+  <li><a href="#cpu-gpu-and-tpu">CPU, GPU, and TPU</a></li>
+  <li><a href="#pricing">Pricing</a>
+    <ul>
+      <li><a href="#cloud-tpu">Cloud TPU</a></li>
+      <li><a href="#edge-tpu">Edge TPU</a></li>
+    </ul>
+  </li>
+  <li><a href="#references">References</a></li>
+</ul>
+                    </div>
+                
+                <!-- End Toc -->
+                <p><strong>Tensor Processing Unit (TPU)</strong> is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software.
+Google started selling the Cloud TPUv3 in 2018 for third-party users.
+Their edge TPU version (Coral) was started in the same year.
+Both cloud and edge TPU support Tensorflow and its Lite version but do not support other deep learning frameworks like PyTorch or MXNet.</p>
+
+<!--more-->
+
+<h1 id="edge-computing">Edge computing</h1>
+
+<p><strong>Edge computing</strong> is a new paradigm of distributed computing on resource-constrained IoT devices, such as sensors and actuators, which has become ubiquitous recently <a class="citation" href="#murshed2021machine">[1, 2]</a>.</p>
+<blockquote>
+  <p>More than 25 billion IoT devices all over the world have been used by 2020.</p>
+</blockquote>
+
+<p>One crucial need is to aggregate the information from these devices and make decisions from the data.
+Thus, a machine learning (ML) system is used to aggregate such data.
+But the IoT devices have only low resources, which makes almost all on-device ML systems is impossible.
+A typical solution for this problem is to offload them into an external data processing system like cloud computing.
+It worsens latency, increases communication costs, and introduces additional privacy concerns.</p>
+
+<div style="width: 50%; float: right; margin: 0.5em;">
+<img src="/assets/images/edge-server.png" />
+<p><i>Edge servers. (Source: Murshed et al., 2021)</i></p>
+</div>
+<p>The solution requires allocation of a new <strong>edge server</strong> near the IoT devices, which aggregates local information and makes quick decisions at the local edge (<strong>distributed inference</strong>).
+Only processed and meaningful information, which is advantageous to the global model, is sent to cloud computing servers to update global model parameters (<strong>distributed training</strong>).
+This decentralized architecture has many advantages:</p>
+
+<ul>
+  <li><em>Reducing cost</em>: The volume of data needed to be transferred to a central computing location is reduced because some of it is processed by
+edge-devices.</li>
+  <li><em>Improving latency</em>: The physical proximity of edge-devices to the data sources makes it possible to achieve lower latency which improves real-time
+data processing performance.</li>
+  <li><em>Better privacy</em>: For the cases where data must be processed remotely, edge devices can be used to discard personally identifiable information
+(PII) prior to data transfer, thus enhancing user privacy and security.</li>
+  <li><em>Better failure handling</em>: Decentralization can make systems more robust by providing transient services during network failures or cyberattacks.</li>
+</ul>
+
+<blockquote>
+  <p>But everything comes with a cost.</p>
+</blockquote>
+
+<p>And edge computing is no exception!
+While the applications range from real-time video analytics, image recognition, automatic speech recognition, user privacy, fraud detection, creating new datasets, autonomous vehicles, smart home/cities, human safety to augmented reality, the power to run has many problems:</p>
+
+<ul>
+  <li><strong>How to adapt existing ML algorithms to edge devices?</strong>: For this problem, we need to consider more distributed-computing specific algorithms, care about hardware constraints, and build lighter/faster model architectures (which also requires pruning techniques and compression).</li>
+  <li><strong>How to improve latency of distributed training and inference systems while preserving privacy?</strong></li>
+  <li><strong>What are the common hardware devices used to enable edge intelligence?</strong></li>
+  <li><strong>What is the nature of the emerging software ecosystem that supports this new end-edge-cloud architecture for real-time intelligent systems?</strong>.</li>
+</ul>
+
+<p>For the third question, we will consider a choice in the art: the <strong>Tensor Processing Unit (TPU)</strong> along with other options like <strong>Central Processing Unit (CPU)</strong> and <strong>Graphical Processing Unit (GPU)</strong>.
+It has both cloud and edge versions that make it possible for new end-edge-cloud architecture.</p>
+
+<h1 id="cpu-gpu-and-tpu">CPU, GPU, and TPU</h1>
+
+<h1 id="pricing">Pricing</h1>
+
+<h2 id="cloud-tpu">Cloud TPU</h2>
+
+<h2 id="edge-tpu">Edge TPU</h2>
+
+<p>Edge TPU has been a new device for edge recently <a class="citation" href="#murshed2021machine">[1, 3]</a></p>
+
+<p><img src="https://lh3.googleusercontent.com/4AseEI_s6QWM75QwncKhPgMPi0P7YHume5O7Njx8FovMze22nblcLP8zOU-s5qhpwMgzVmYe9VPLiwrHecNYbjtNCKgHLOSO_w9X1NkEzEDjxdWRM7g=w2000-rw" alt="edge tpu" />
+<em>Source: <a href="https://coral.ai/products/">Google Coral</a></em></p>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><span id="murshed2021machine">Murshed, M.G.S., Murphy, C., Hou, D., Khan, N., Ananthanarayanan, G. and Hussain, F. 2021. Machine learning at the network edge: A survey. <i>ACM Computing Surveys (CSUR)</i>. 54, 8 (2021), 1–37.</span><a class="details" href="https://wanted2.github.io/bibliography/murshed2021machine/">Details</a></li>
+<li><span id="shi2020communication">Shi, Y., Yang, K., Jiang, T., Zhang, J. and Letaief, K.B. 2020. Communication-efficient edge AI: Algorithms and systems. <i>IEEE Communications Surveys &amp; Tutorials</i>. 22, 4 (2020), 2167–2191.</span><a class="details" href="https://wanted2.github.io/bibliography/shi2020communication/">Details</a></li>
+<li><span id="cass2019taking">Cass, S. 2019. Taking AI to the edge: Google’s TPU now comes in a maker-friendly package. <i>IEEE Spectrum</i>. 56, 5 (2019), 16–17.</span><a class="details" href="https://wanted2.github.io/bibliography/cass2019taking/">Details</a></li></ol>
+
+            </div>
+
+            <!-- Rating -->
+            
+
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2022-03-05">05 Mar 2022</time></span>           
+                
+                </small>
+            </p>
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#Machine-learning">#Machine learning</a>
+                    </li>
+                    
+                    <li>
+                        <a class="smoothscroll" href="https://wanted2.github.io/tags#TPU">#TPU</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+            
+            <a class="prev d-block col-md-6" href="https://wanted2.github.io//seq2seq-cv/"> &laquo; Seq2Seq for Computer Vision: Three SOTAs and 8x GPU server choices</a>
+            
+            
+            <div class="clearfix"></div>
+            </div>
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'caineng'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+<!-- Bottom Alert Bar
+================================================== -->
+<div class="alertbar">
+	<div class="container text-center">
+		<span><img src="https://wanted2.github.io/assets/images/favicon.ico" alt="AiFi" style="max-height: 48px;" /> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+        <form action="https://caineng.us20.list-manage.com/subscribe/post?u=76342d3d74a6807aac5aec0d7&id=b5645e19be" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
+            <div class="mc-field-group">
+            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
+            <input type="submit" value="Subscribe" name="subscribe" class="heart">
+            </div>
+        </form>
+	</div>
+</div>
+
+    
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Site-Reliable-Engineering">Site Reliable Engineering (13)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Software-Engineering">Software Engineering (37)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Computer-Vision">Computer Vision (6)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Artificial-Intelligence">Artificial Intelligence (17)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Tiếng-Việt,-日本語">Tiếng Việt, 日本語 (32)</a>
+                
+                    <a class="mt-1 mb-1" href="https://wanted2.github.io/categories#Project-Management">Project Management (32)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                Copyright © 2022 AiFi 
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="https://wanted2.github.io/assets/js/mediumish.js"></script>
+
+
+<script src="https://wanted2.github.io/assets/js/lazyload.js"></script>
+
+
+<script src="https://wanted2.github.io/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//caineng.disqus.com/count.js"></script>
+
+
+</body>
+</html>
