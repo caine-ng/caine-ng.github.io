@@ -298,7 +298,7 @@ var documents = [{
     "id": 59,
     "url": "https://wanted2.github.io/house-price/",
     "title": "House Price Prediction using Machine Learning",
-    "body": "2022/04/01 - References"
+    "body": "2022/04/01 -  References"
     }, {
     "id": 60,
     "url": "https://wanted2.github.io/edge-cloud-tpu/",
