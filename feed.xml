@@ -5,15 +5,31 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Apr 2022 23:47:53 +0900</pubDate>
-    <lastBuildDate>Wed, 27 Apr 2022 23:47:53 +0900</lastBuildDate>
+    <pubDate>Thu, 28 Apr 2022 00:01:14 +0900</pubDate>
+    <lastBuildDate>Thu, 28 Apr 2022 00:01:14 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>ハノイではリモートワークが本当に人気でしょうか？</title>
-        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#nguyen2021factors&quot;&gt;[1, 2, 3, 4]&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;ちらほら海外からのお誘いがありました．
+「どうかリモートワークをしましょうか」という誘いです．
+なんかコロナ禍で海外では皆がよくリモートワークをしているかと思います．
+おー，本当にベトナムでもリモートワークが人気だろうなと思っていたが，周りを見ると&lt;strong&gt;ハノイではそうではない&lt;/strong&gt;気もしました．
+業界はそれぞれで，現場にいかないと仕事を行えない土木系の仕事なども多いという原因があります．
+IT業界でも実際はコロナ禍は主要な原因でリモートワークをしているが，コロナ禍がなくなると，IT業界もみんな本気でオフィスに戻っている気もしています．
+そういう疑問を持ちながら，解答を探しております．&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;コロナ禍の後にハノイではリモートワークが生きるか？&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;リモートワークを促進する要因は何か？支障する要因は何か？&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+&lt;p&gt;結論としては，ハノイではコロナ禍後リモートワークが基本的になくなるだろう．&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#nguyen2021factors&quot;&gt;[1, 2, 3, 4]&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;nguyen2021factors&quot;&gt;Nguyen, M.H. 2021. Factors influencing home-based telework in Hanoi (Vietnam) during and after the COVID-19 era. &lt;i&gt;Transportation&lt;/i&gt;. 48, 6 (2021), 3207–3238.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021factors/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;nguyen2021perception&quot;&gt;Nguyen, M.H. and Armoogum, J. 2021. Perception and preference for home-based telework in the covid-19 era: A gender-based analysis in Hanoi, Vietnam. &lt;i&gt;Sustainability&lt;/i&gt;. 13, 6 (2021), 3179.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021perception/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
