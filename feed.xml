@@ -5,18 +5,20 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Apr 2022 23:41:24 +0900</pubDate>
-    <lastBuildDate>Wed, 27 Apr 2022 23:41:24 +0900</lastBuildDate>
+    <pubDate>Wed, 27 Apr 2022 23:47:53 +0900</pubDate>
+    <lastBuildDate>Wed, 27 Apr 2022 23:47:53 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>ハノイではリモートワークが本当に人気でしょうか？</title>
-        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#nguyen2021factors&quot;&gt;[1, 2]&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#nguyen2021factors&quot;&gt;[1, 2, 3, 4]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;nguyen2021factors&quot;&gt;Nguyen, M.H. 2021. Factors influencing home-based telework in Hanoi (Vietnam) during and after the COVID-19 era. &lt;i&gt;Transportation&lt;/i&gt;. 48, 6 (2021), 3207–3238.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021factors/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;nguyen2021perception&quot;&gt;Nguyen, M.H. and Armoogum, J. 2021. Perception and preference for home-based telework in the covid-19 era: A gender-based analysis in Hanoi, Vietnam. &lt;i&gt;Sustainability&lt;/i&gt;. 13, 6 (2021), 3179.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021perception/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;nguyen2021perception&quot;&gt;Nguyen, M.H. and Armoogum, J. 2021. Perception and preference for home-based telework in the covid-19 era: A gender-based analysis in Hanoi, Vietnam. &lt;i&gt;Sustainability&lt;/i&gt;. 13, 6 (2021), 3179.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021perception/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;nguyen2021factorsaffecting&quot;&gt;Nguyen, M.H., Armoogum, J. and Nguyen Thi, B. 2021. Factors affecting the growth of e-shopping over the covid-19 era in hanoi, vietnam. &lt;i&gt;Sustainability&lt;/i&gt;. 13, 16 (2021), 9205.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021factorsaffecting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;nguyen2021impact&quot;&gt;Nguyen, M.H., Pojani, D., Nguyen, T.C. and Ha, T.T. 2021. The impact of Covid-19 on children’s active travel to school in Vietnam. &lt;i&gt;Journal of Transport Geography&lt;/i&gt;. 96, (2021), 103191.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021impact/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Wed, 27 Apr 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/hanoi-remote-work/</link>
