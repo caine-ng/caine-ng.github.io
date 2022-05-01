@@ -28,8 +28,8 @@
 <meta property="og:title" content="House Price Prediction using Machine Learning" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="[1] References Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. Advances in neural information processing systems. 31, (2018).Details" />
-<meta property="og:description" content="[1] References Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. Advances in neural information processing systems. 31, (2018).Details" />
+<meta name="description" content="House Price Prediction problem Common Regressors Linear Regressors Tree-based Regressors Boosting Regressors (BR) Original AdaBoost XGBoost and LightGBM CatBoost CatBoost [1] demonstrates the Ordered Boosting (OB). Others Code References Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. Advances in neural information processing systems. 31, (2018).Details" />
+<meta property="og:description" content="House Price Prediction problem Common Regressors Linear Regressors Tree-based Regressors Boosting Regressors (BR) Original AdaBoost XGBoost and LightGBM CatBoost CatBoost [1] demonstrates the Ordered Boosting (OB). Others Code References Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. Advances in neural information processing systems. 31, (2018).Details" />
 <meta property="og:site_name" content="AiFi" />
 <meta property="og:image" content="http://file4.batdongsan.com.vn/2015/07/23/akCJKkFO/20150723165951-6e0d.jpg" />
 <meta property="og:type" content="article" />
@@ -38,7 +38,7 @@
 <meta property="twitter:image" content="http://file4.batdongsan.com.vn/2015/07/23/akCJKkFO/20150723165951-6e0d.jpg" />
 <meta property="twitter:title" content="House Price Prediction using Machine Learning" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-04-01T00:00:00+09:00","datePublished":"2022-04-01T00:00:00+09:00","description":"[1] References Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. Advances in neural information processing systems. 31, (2018).Details","headline":"House Price Prediction using Machine Learning","image":"http://file4.batdongsan.com.vn/2015/07/23/akCJKkFO/20150723165951-6e0d.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/house-price/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/house-price/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-04-01T00:00:00+09:00","datePublished":"2022-04-01T00:00:00+09:00","description":"House Price Prediction problem Common Regressors Linear Regressors Tree-based Regressors Boosting Regressors (BR) Original AdaBoost XGBoost and LightGBM CatBoost CatBoost [1] demonstrates the Ordered Boosting (OB). Others Code References Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. Advances in neural information processing systems. 31, (2018).Details","headline":"House Price Prediction using Machine Learning","image":"http://file4.batdongsan.com.vn/2015/07/23/akCJKkFO/20150723165951-6e0d.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/house-price/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/house-price/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -229,7 +229,7 @@
     </div>
     <ul>
         <li class="small">
-        39
+        76
      words</li>
         <li class="small">0 minutes</li>
     </ul>
@@ -302,6 +302,22 @@
                     <div class="toc mt-4 mb-4 lead">
                         <h3 class="font-weight-bold">Summary</h3>
                         <ul>
+  <li><a href="#house-price-prediction-problem">House Price Prediction problem</a></li>
+  <li><a href="#common-regressors">Common Regressors</a>
+    <ul>
+      <li><a href="#linear-regressors">Linear Regressors</a></li>
+      <li><a href="#tree-based-regressors">Tree-based Regressors</a></li>
+      <li><a href="#boosting-regressors-br">Boosting Regressors (BR)</a>
+        <ul>
+          <li><a href="#original-adaboost">Original AdaBoost</a></li>
+          <li><a href="#xgboost-and-lightgbm">XGBoost and LightGBM</a></li>
+          <li><a href="#catboost">CatBoost</a></li>
+        </ul>
+      </li>
+      <li><a href="#others">Others</a></li>
+    </ul>
+  </li>
+  <li><a href="#code">Code</a></li>
   <li><a href="#references">References</a></li>
 </ul>
                     </div>
@@ -309,7 +325,24 @@
                 <!-- End Toc -->
                 <p><img src="https://i.ytimg.com/vi/tjPd1ICl8Xo/maxresdefault.jpg" alt="10000" /></p>
 
-<p><a class="citation" href="#prokhorenkova2018catboost">[1]</a></p>
+<h1 id="house-price-prediction-problem">House Price Prediction problem</h1>
+
+<h1 id="common-regressors">Common Regressors</h1>
+<h2 id="linear-regressors">Linear Regressors</h2>
+
+<h2 id="tree-based-regressors">Tree-based Regressors</h2>
+
+<h2 id="boosting-regressors-br">Boosting Regressors (BR)</h2>
+
+<h3 id="original-adaboost">Original AdaBoost</h3>
+
+<h3 id="xgboost-and-lightgbm">XGBoost and LightGBM</h3>
+<h3 id="catboost">CatBoost</h3>
+<p>CatBoost <a class="citation" href="#prokhorenkova2018catboost">[1]</a> demonstrates the <em>Ordered Boosting (OB)</em>.</p>
+
+<h2 id="others">Others</h2>
+
+<h1 id="code">Code</h1>
 
 <h1 id="references">References</h1>
 

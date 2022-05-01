@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 May 2022 02:33:48 +0900</pubDate>
-    <lastBuildDate>Mon, 02 May 2022 02:33:48 +0900</lastBuildDate>
+    <pubDate>Mon, 02 May 2022 02:38:23 +0900</pubDate>
+    <lastBuildDate>Mon, 02 May 2022 02:38:23 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -103,7 +103,24 @@ IT業界でも実際はコロナ禍は主要な原因でリモートワークを
         <title>House Price Prediction using Machine Learning</title>
         <description>&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/tjPd1ICl8Xo/maxresdefault.jpg&quot; alt=&quot;10000&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#prokhorenkova2018catboost&quot;&gt;[1]&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;house-price-prediction-problem&quot;&gt;House Price Prediction problem&lt;/h1&gt;
+
+&lt;h1 id=&quot;common-regressors&quot;&gt;Common Regressors&lt;/h1&gt;
+&lt;h2 id=&quot;linear-regressors&quot;&gt;Linear Regressors&lt;/h2&gt;
+
+&lt;h2 id=&quot;tree-based-regressors&quot;&gt;Tree-based Regressors&lt;/h2&gt;
+
+&lt;h2 id=&quot;boosting-regressors-br&quot;&gt;Boosting Regressors (BR)&lt;/h2&gt;
+
+&lt;h3 id=&quot;original-adaboost&quot;&gt;Original AdaBoost&lt;/h3&gt;
+
+&lt;h3 id=&quot;xgboost-and-lightgbm&quot;&gt;XGBoost and LightGBM&lt;/h3&gt;
+&lt;h3 id=&quot;catboost&quot;&gt;CatBoost&lt;/h3&gt;
+&lt;p&gt;CatBoost &lt;a class=&quot;citation&quot; href=&quot;#prokhorenkova2018catboost&quot;&gt;[1]&lt;/a&gt; demonstrates the &lt;em&gt;Ordered Boosting (OB)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;others&quot;&gt;Others&lt;/h2&gt;
+
+&lt;h1 id=&quot;code&quot;&gt;Code&lt;/h1&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
