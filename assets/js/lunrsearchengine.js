@@ -28,7 +28,7 @@ var documents = [{
     "id": 5,
     "url": "https://wanted2.github.io/service",
     "title": "Services",
-    "body": "I also provide consultancy service for clients who need supports in their development projects. BookingBuy Me A CoffeeYou can also buy me a coffee if you want: "
+    "body": "I also provide consultancy service for clients who need supports in their development projects. Consulting servicesI can advise on the design and development of outsourcing projects which carry out formal development from high-level design, development to testing, deployment and maintenance. I also help to plot out the research ideas and proposals. Just reach me for talking ;-) My domain includes:  Information Systems incl. Intelligent Systems Software Development methodologies Aritificial Intelligence, Machine Learning, Computer Vision and Natural Language Processing. BookingTo book a session, you need to follow the instructions below. Buy Me A CoffeeYou can also buy me a coffee if you want: "
     }, {
     "id": 6,
     "url": "https://wanted2.github.io/bibliography/abstraction1988hierarchy/",
