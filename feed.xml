@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 May 2022 02:13:45 +0900</pubDate>
-    <lastBuildDate>Tue, 03 May 2022 02:13:45 +0900</lastBuildDate>
+    <pubDate>Tue, 03 May 2022 02:19:35 +0900</pubDate>
+    <lastBuildDate>Tue, 03 May 2022 02:19:35 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -116,7 +116,7 @@ IT業界でも実際はコロナ禍は主要な原因でリモートワークを
 
 &lt;h3 id=&quot;xgboost-and-lightgbm&quot;&gt;XGBoost and LightGBM&lt;/h3&gt;
 &lt;h3 id=&quot;catboost&quot;&gt;CatBoost&lt;/h3&gt;
-&lt;p&gt;CatBoost &lt;a class=&quot;citation&quot; href=&quot;#prokhorenkova2018catboost&quot;&gt;[1, 2]&lt;/a&gt; demonstrates the &lt;em&gt;Ordered Boosting (OB)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;CatBoost &lt;a class=&quot;citation&quot; href=&quot;#prokhorenkova2018catboost&quot;&gt;[1, 2, 3, 4]&lt;/a&gt; demonstrates the &lt;em&gt;Ordered Boosting (OB)&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;others&quot;&gt;Others&lt;/h2&gt;
 
@@ -125,7 +125,9 @@ IT業界でも実際はコロナ禍は主要な原因でリモートワークを
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;prokhorenkova2018catboost&quot;&gt;Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. &lt;i&gt;Advances in neural information processing systems&lt;/i&gt;. 31, (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/prokhorenkova2018catboost/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;hancock2020catboost&quot;&gt;Hancock, J.T. and Khoshgoftaar, T.M. 2020. CatBoost for big data: an interdisciplinary review. &lt;i&gt;Journal of big data&lt;/i&gt;. 7, 1 (2020), 1–45.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hancock2020catboost/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;hancock2020catboost&quot;&gt;Hancock, J.T. and Khoshgoftaar, T.M. 2020. CatBoost for big data: an interdisciplinary review. &lt;i&gt;Journal of big data&lt;/i&gt;. 7, 1 (2020), 1–45.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hancock2020catboost/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hancock2021gradient&quot;&gt;Hancock, J.T. and Khoshgoftaar, T.M. 2021. Gradient boosted decision tree algorithms for medicare fraud detection. &lt;i&gt;SN Computer Science&lt;/i&gt;. 2, 4 (2021), 1–12.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hancock2021gradient/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;leevy2021detecting&quot;&gt;Leevy, J.L., Hancock, J., Zuech, R. and Khoshgoftaar, T.M. 2021. Detecting cybersecurity attacks across different network features and learners. &lt;i&gt;Journal of Big Data&lt;/i&gt;. 8, 1 (2021), 1–29.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/leevy2021detecting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Fri, 01 Apr 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/house-price/</link>
