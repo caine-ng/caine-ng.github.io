@@ -5,15 +5,17 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 May 2022 09:28:16 +0900</pubDate>
-    <lastBuildDate>Sun, 08 May 2022 09:28:16 +0900</lastBuildDate>
+    <pubDate>Sun, 08 May 2022 09:31:04 +0900</pubDate>
+    <lastBuildDate>Sun, 08 May 2022 09:31:04 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Ăn gì ở Hà Nội: Luận về thói quen người Hà Nội</title>
-        <description>&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#liu2020evaluation&quot;&gt;[1]&lt;/a&gt;&lt;/p&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;/ol&gt;
+&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;liu2020evaluation&quot;&gt;Liu, C. and Nguyen, T.T. 2020. Evaluation of household food waste generation in hanoi and policy implications towards SDGs target 12.3. &lt;i&gt;Sustainability&lt;/i&gt;. 12, 16 (2020), 6565.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2020evaluation/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/hanoi-eating-habits/</link>
