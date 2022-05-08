@@ -5,9 +5,46 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 May 2022 04:45:08 +0900</pubDate>
-    <lastBuildDate>Sun, 08 May 2022 04:45:08 +0900</lastBuildDate>
+    <pubDate>Sun, 08 May 2022 09:28:16 +0900</pubDate>
+    <lastBuildDate>Sun, 08 May 2022 09:28:16 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>Ăn gì ở Hà Nội: Luận về thói quen người Hà Nội</title>
+        <description>&lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/hanoi-eating-habits/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/hanoi-eating-habits/</guid>
+        
+        <category>Hà Nội</category>
+        
+        <category>Ẩm thực</category>
+        
+        <category>Thói quen hàng ngày</category>
+        
+        <category>Ăn uống</category>
+        
+        <category>Thói quen ăn uống</category>
+        
+        <category>Eating habits</category>
+        
+        <category>Eat-out</category>
+        
+        <category>Eat-in</category>
+        
+        <category>Ready-made meals</category>
+        
+        <category>Food</category>
+        
+        <category>Street foods</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+      </item>
     
       <item>
         <title>ハノイではリモートワークが本当に人気でしょうか？</title>
@@ -96,55 +133,6 @@ IT業界でも実際はコロナ禍は主要な原因でリモートワークを
         <category>Tiếng Việt, 日本語</category>
         
         <category>Project Management</category>
-        
-      </item>
-    
-      <item>
-        <title>House Price Prediction using Machine Learning</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/tjPd1ICl8Xo/maxresdefault.jpg&quot; alt=&quot;10000&quot; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;house-price-prediction-problem&quot;&gt;House Price Prediction problem&lt;/h1&gt;
-
-&lt;h1 id=&quot;common-regressors&quot;&gt;Common Regressors&lt;/h1&gt;
-&lt;h2 id=&quot;linear-regressors&quot;&gt;Linear Regressors&lt;/h2&gt;
-
-&lt;h2 id=&quot;tree-based-regressors&quot;&gt;Tree-based Regressors&lt;/h2&gt;
-
-&lt;h2 id=&quot;boosting-regressors-br&quot;&gt;Boosting Regressors (BR)&lt;/h2&gt;
-
-&lt;h3 id=&quot;original-adaboost&quot;&gt;Original AdaBoost&lt;/h3&gt;
-
-&lt;h3 id=&quot;xgboost-and-lightgbm&quot;&gt;XGBoost and LightGBM&lt;/h3&gt;
-&lt;h3 id=&quot;catboost&quot;&gt;CatBoost&lt;/h3&gt;
-&lt;p&gt;CatBoost &lt;a class=&quot;citation&quot; href=&quot;#prokhorenkova2018catboost&quot;&gt;[1, 2, 3, 4]&lt;/a&gt; demonstrates the &lt;em&gt;Ordered Boosting (OB)&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;others&quot;&gt;Others&lt;/h2&gt;
-
-&lt;h1 id=&quot;code&quot;&gt;Code&lt;/h1&gt;
-
-&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;prokhorenkova2018catboost&quot;&gt;Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. &lt;i&gt;Advances in neural information processing systems&lt;/i&gt;. 31, (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/prokhorenkova2018catboost/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;hancock2020catboost&quot;&gt;Hancock, J.T. and Khoshgoftaar, T.M. 2020. CatBoost for big data: an interdisciplinary review. &lt;i&gt;Journal of big data&lt;/i&gt;. 7, 1 (2020), 1–45.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hancock2020catboost/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;hancock2021gradient&quot;&gt;Hancock, J.T. and Khoshgoftaar, T.M. 2021. Gradient boosted decision tree algorithms for medicare fraud detection. &lt;i&gt;SN Computer Science&lt;/i&gt;. 2, 4 (2021), 1–12.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hancock2021gradient/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;leevy2021detecting&quot;&gt;Leevy, J.L., Hancock, J., Zuech, R. and Khoshgoftaar, T.M. 2021. Detecting cybersecurity attacks across different network features and learners. &lt;i&gt;Journal of Big Data&lt;/i&gt;. 8, 1 (2021), 1–29.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/leevy2021detecting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Fri, 01 Apr 2022 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/house-price/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/house-price/</guid>
-        
-        <category>Machine learning</category>
-        
-        <category>regression</category>
-        
-        <category>linear regression</category>
-        
-        <category>logistic regression</category>
-        
-        <category>house price prediction</category>
-        
-        
-        <category>Artificial Intelligence</category>
         
       </item>
     
