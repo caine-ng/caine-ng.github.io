@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 May 2022 18:27:02 +0900</pubDate>
-    <lastBuildDate>Sun, 08 May 2022 18:27:02 +0900</lastBuildDate>
+    <pubDate>Sun, 08 May 2022 19:16:34 +0900</pubDate>
+    <lastBuildDate>Sun, 08 May 2022 19:16:34 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -70,9 +70,65 @@ Còn nếu muốn tìm hiểu cho biết thì đi tham quan chợ truyền thố
 Chẳng may cứ khách nước ngoài mà cố ra chợ cóc mua nhầm cái gì về ăn đi bệnh viện ngộ độc thực phẩm thì có &lt;strong&gt;nhục cả nước, nhục cả quốc thể Việt Nam&lt;/strong&gt;, nên tóm lại là thôi cứ recommend các ông cứ ra siêu thị cho chúng con nhờ.&lt;/p&gt;
 
 &lt;h2 id=&quot;ăn-ngoài-hay-ăn-tại-nhà-hay-đặt-đồ-ăn-sẵn&quot;&gt;Ăn ngoài, hay ăn tại nhà, hay đặt đồ ăn sẵn?&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#nguyen2015factors&quot;&gt;[3, 4]&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Muốn biết người ta ăn gì thì cách tốt nhất là phân tích rác của người ta.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Không hiểu có phải vì cái “lý” này mà khi tìm hiểu các bài khảo sát về thói quen ăn uống lại thấy khá nhiều bài về rác thải sinh hoạt &lt;a class=&quot;citation&quot; href=&quot;#liu2020evaluation&quot;&gt;[3]&lt;/a&gt;.
+Thì bài báo nghiên cứu về thói quen rác thải sinh hoạt (A) đương nhiên cũng phải nghiên cứu về thói quen ăn uống (B) vì cái (B) nó ảnh hưởng đến cái (A)!&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#liu2020evaluation&quot;&gt;[3]&lt;/a&gt; thực hiện khảo sát về thói quen rác thải sinh hoạt và chỉ ra rằng, ở vùng đô thị Hà Nội, trung bình 1 hộ thải ra 1192 gram rác thải ăn uống 1 ngày.
+Nhưng các hộ ở vùng nông thôn lại thải ra tới 1694 gram/ngày, và tổng tất cả lại lấy trung bình thì toàn Hà Nội, mỗi hộ thải ra 1443 gram/ngày.
+Tức là sống ở nông thôn lại thải ra đồ rác ăn uống nhiều hơn ở đô thị!
+Thì vì (B) nó ảnh hưởng đến (A) nên tác giả cũng thực hiện điều tra về địa điểm ăn uống của người Hà Nội.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Hình thức ăn&lt;/th&gt;
+      &lt;th&gt;Đô thị&lt;/th&gt;
+      &lt;th&gt;Nông thôn&lt;/th&gt;
+      &lt;th&gt;Trung bình&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ăn ngoài (eat-out)&lt;/td&gt;
+      &lt;td&gt;0.5 lần/ngày&lt;/td&gt;
+      &lt;td&gt;0.3&lt;/td&gt;
+      &lt;td&gt;0.4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Order đồ ăn sẵn&lt;/td&gt;
+      &lt;td&gt;0.3&lt;/td&gt;
+      &lt;td&gt;0.2&lt;/td&gt;
+      &lt;td&gt;0.2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ăn ở nhà riêng (eat-in)&lt;/td&gt;
+      &lt;td&gt;1.7&lt;/td&gt;
+      &lt;td&gt;2.3&lt;/td&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Rõ ràng, hiện tại thì người Hà Nội ở các quận đô thị lẫn các huyện nông thôn đều thích &lt;strong&gt;eat-in (ăn ở nhà)&lt;/strong&gt; hơn với tần suất gấp 4-6 lần so với ăn ngoài hay mua đồ ăn sẵn.&lt;/p&gt;
+
+&lt;p&gt;Ngoài ra nghiên cứu cũng chỉ ra người trả lời cũng có khuynh hướng duy trì thói quen ăn uống &lt;strong&gt;tại nhà&lt;/strong&gt; trong tương lai:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;More than half of the respondents plan to maintain their current eating habits in the future. In particular, a greater number of people in the urban area plan to cook and eat in more often. This indicates that most people intend to continue eating in more often in both urban and rural areas.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Phần còn lại của bài báo thì tập trung phân tích vấn đề rác thải ăn uống, không trả lời câu hỏi của chúng ta, và chúng ta cũng đã có câu trả lời cho mình: &lt;strong&gt;người Hà Nội ăn ở nhà&lt;/strong&gt;!
+Tuy nhiên, tần suất ăn ngoài 0.4 lần/ngày (tức là 2.8 lần/tuần/người), và order đồ ăn sẵn là 0.2 lần/ngày (hay 1.4 lần/tuần/người), cho thấy là thị trường quán ăn với ship đồ là vẫn có chỗ.
+Tổng lại là 0.4 + 0.2 + 2.0 = 2.6 lần/ngày, tức là &lt;strong&gt;trung bình người Hà Nội ăn 2.6 bữa/ngày&lt;/strong&gt; (có người ngày ăn 2 bữa, có người ăn 3 bữa chứ cũng không phải ai cũng ăn 3 bữa).&lt;/p&gt;
 
 &lt;h2 id=&quot;ra-quán-ăn-gì&quot;&gt;Ra quán ăn gì?&lt;/h2&gt;
+&lt;p&gt;Cái này thì hơi khó tìm bài nghiên cứu, vì nếu câu hỏi nghiên cứu chỉ là lên danh sách các món hay quán tại Hà Nội thì không phải là câu hỏi nghiên cứu tốt.
+Vì đơn giản là có hàng sa số những quảng cáo, thông tin trên Internet.
+Tôi xin đưa ra một trang web có giới thiệu nhiều quán tốt tại mà vệ sinh an toàn thực phẩm yên tâm hơn tại Hà Nội: https://www.foody.vn/ha-noi/dia-diem
+Tuy nhiên, nên có thêm recommend của người Hà Nội thì sẽ tốt hơn.&lt;/p&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
 
@@ -80,7 +136,6 @@ Chẳng may cứ khách nước ngoài mà cố ra chợ cóc mua nhầm cái g�
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;jensen2007food&quot;&gt;Jensen, R.W. and Peppard, D. 2007. Food-buying habits in Hanoi. &lt;i&gt;Sojourn: Journal of Social Issues in Southeast Asia&lt;/i&gt;. 22, 2 (2007), 230–254.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/jensen2007food/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;tran2020shopping&quot;&gt;Tran, V.H. and Sirieix, L. 2020. Shopping and cross-shopping practices in Hanoi Vietnam: An emerging urban market context. &lt;i&gt;Journal of Retailing and Consumer Services&lt;/i&gt;. 56, (2020), 102178.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/tran2020shopping/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;nguyen2015factors&quot;&gt;Nguyen, T.T.P., Zhu, D. and Le, N.P. 2015. Factors influencing waste separation intention of residential households in a developing country: Evidence from Hanoi, Vietnam. &lt;i&gt;Habitat International&lt;/i&gt;. 48, (2015), 169–176.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2015factors/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;liu2020evaluation&quot;&gt;Liu, C. and Nguyen, T.T. 2020. Evaluation of household food waste generation in hanoi and policy implications towards SDGs target 12.3. &lt;i&gt;Sustainability&lt;/i&gt;. 12, 16 (2020), 6565.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2020evaluation/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
