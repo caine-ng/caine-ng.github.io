@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 May 2022 10:01:35 +0900</pubDate>
-    <lastBuildDate>Sun, 08 May 2022 10:01:35 +0900</lastBuildDate>
+    <pubDate>Sun, 08 May 2022 10:05:21 +0900</pubDate>
+    <lastBuildDate>Sun, 08 May 2022 10:05:21 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -46,10 +46,10 @@ Vì về cơ bản, thì cũng là du khách thôi nên không ép, có lòng t�
 
 &lt;h2 id=&quot;người-hà-nội-đi-chợ-ở-đâu&quot;&gt;Người Hà Nội đi chợ ở đâu?&lt;/h2&gt;
 
-&lt;p&gt;(missing reference)&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#jensen2007food&quot;&gt;[1, 2]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;ăn-ngoài-hay-ăn-tại-nhà-hay-đặt-đồ-ăn-sẵn&quot;&gt;Ăn ngoài, hay ăn tại nhà, hay đặt đồ ăn sẵn?&lt;/h2&gt;
-&lt;p&gt;(missing reference)&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#nguyen2015factors&quot;&gt;[3, 4]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;ra-quán-ăn-gì&quot;&gt;Ra quán ăn gì?&lt;/h2&gt;
 
@@ -57,7 +57,10 @@ Vì về cơ bản, thì cũng là du khách thôi nên không ép, có lòng t�
 
 &lt;h1 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;jensen2007food&quot;&gt;Jensen, R.W. and Peppard, D. 2007. Food-buying habits in Hanoi. &lt;i&gt;Sojourn: Journal of Social Issues in Southeast Asia&lt;/i&gt;. 22, 2 (2007), 230–254.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/jensen2007food/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;tran2020shopping&quot;&gt;Tran, V.H. and Sirieix, L. 2020. Shopping and cross-shopping practices in Hanoi Vietnam: An emerging urban market context. &lt;i&gt;Journal of Retailing and Consumer Services&lt;/i&gt;. 56, (2020), 102178.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/tran2020shopping/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;nguyen2015factors&quot;&gt;Nguyen, T.T.P., Zhu, D. and Le, N.P. 2015. Factors influencing waste separation intention of residential households in a developing country: Evidence from Hanoi, Vietnam. &lt;i&gt;Habitat International&lt;/i&gt;. 48, (2015), 169–176.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2015factors/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;liu2020evaluation&quot;&gt;Liu, C. and Nguyen, T.T. 2020. Evaluation of household food waste generation in hanoi and policy implications towards SDGs target 12.3. &lt;i&gt;Sustainability&lt;/i&gt;. 12, 16 (2020), 6565.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2020evaluation/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/hanoi-eating-habits/</link>
