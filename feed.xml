@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 May 2022 23:16:32 +0900</pubDate>
-    <lastBuildDate>Tue, 10 May 2022 23:16:32 +0900</lastBuildDate>
+    <pubDate>Wed, 11 May 2022 01:45:06 +0900</pubDate>
+    <lastBuildDate>Wed, 11 May 2022 01:45:06 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -185,8 +185,8 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 あとは，顧客折衝などのモノづくりの現場以外の仕事です．（でも，オーナーとマネージャーも同じくそういう業務をやっていますね．むしろ，現場にない役割になっています．）&lt;/p&gt;
 
 &lt;p&gt;最も重要な仕事なんですが，すでに&lt;strong&gt;Requirement Engineering (RE，要件工学)&lt;/strong&gt;という応用分野があって，それが近年活発に発展しております．
-近年，多くのユーザーに製品とサービスを提供したいというアジャイルソフトウエア開発の仕事が多くなっているので，そのユーザーの集団からフィードバックを要件として，開発陣を走らせるオーナーとマネージャーも多いでしょうか？
-ですので，特に最近&lt;strong&gt;Crowd Requirement Engineering（CrowdRE，集合知要件工学）&lt;/strong&gt;という分野もできました．
+また，多くのユーザーに製品とサービスを提供したいというアジャイルソフトウエア開発の仕事が多くなっているので，そのユーザーの集団からフィードバックを要件として，開発陣を走らせるオーナーとマネージャーも多いでしょうか？
+ですので，特に最近&lt;strong&gt;Crowd Requirement Engineering（CrowdRE，集合知要件工学 &lt;a class=&quot;citation&quot; href=&quot;#groen2017crowd&quot;&gt;[1]&lt;/a&gt;）&lt;/strong&gt;という分野もできました．
 本稿では，CrowdREの最新動向について少し述べます．&lt;/p&gt;
 
 &lt;h1 id=&quot;requirement-engineeringとcrowd-requirement-engineering&quot;&gt;Requirement EngineeringとCrowd Requirement Engineering&lt;/h1&gt;
@@ -197,7 +197,7 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 
 &lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;/ol&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;groen2017crowd&quot;&gt;Groen, E.C., Seyff, N., Ali, R., Dalpiaz, F., Doerr, J., Guzman, E., Hosseini, M., Marco, J., Oriol, M., Perini, A. and others 2017. The crowd in requirements engineering: The landscape and challenges. &lt;i&gt;IEEE software&lt;/i&gt;. 34, 2 (2017), 44–52.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/groen2017crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/crowdre/</link>
