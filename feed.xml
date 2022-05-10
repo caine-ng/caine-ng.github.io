@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 May 2022 02:47:22 +0900</pubDate>
-    <lastBuildDate>Wed, 11 May 2022 02:47:22 +0900</lastBuildDate>
+    <pubDate>Wed, 11 May 2022 07:37:22 +0900</pubDate>
+    <lastBuildDate>Wed, 11 May 2022 07:37:22 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -190,8 +190,9 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 本稿では，CrowdREの最新動向について少し述べます．&lt;/p&gt;
 
 &lt;h1 id=&quot;requirement-engineeringとcrowd-requirement-engineering&quot;&gt;Requirement EngineeringとCrowd Requirement Engineering&lt;/h1&gt;
-
-&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#dhinakaran2018app&quot;&gt;[6]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Requirement Engineering (RE，要件工学）は工学の中で歴史の長い分野です．
+今年で&lt;a href=&quot;https://conf.researchr.org/home/RE-2022&quot;&gt;30th IEEE International Requirements Engineering 2022 conference&lt;/a&gt;があるので，少なくても30年間の歴史を持っています．
+&lt;a class=&quot;citation&quot; href=&quot;#dhinakaran2018app&quot;&gt;[6]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
 
