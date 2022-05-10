@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 May 2022 02:21:41 +0900</pubDate>
-    <lastBuildDate>Wed, 11 May 2022 02:21:41 +0900</lastBuildDate>
+    <pubDate>Wed, 11 May 2022 02:26:47 +0900</pubDate>
+    <lastBuildDate>Wed, 11 May 2022 02:26:47 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -191,7 +191,11 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 
 &lt;h1 id=&quot;requirement-engineeringとcrowd-requirement-engineering&quot;&gt;Requirement EngineeringとCrowd Requirement Engineering&lt;/h1&gt;
 
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#dhinakaran2018app&quot;&gt;[5]&lt;/a&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
+
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#wouters2021crowdre&quot;&gt;[6]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;結論&quot;&gt;結論&lt;/h1&gt;
 
@@ -200,7 +204,9 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;dalpiaz2019re&quot;&gt;Dalpiaz, F. and Parente, M. 2019. RE-SWOT: from user feedback to requirements via competitor analysis. &lt;i&gt;International working conference on requirements engineering: foundation for software quality&lt;/i&gt; (2019), 55–70.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dalpiaz2019re/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;morales2017exploiting&quot;&gt;Morales-Ramirez, I., Munante, D., Kifetew, F., Perini, A., Susi, A. and Siena, A. 2017. Exploiting user feedback in tool-supported multi-criteria requirements prioritization. &lt;i&gt;2017 IEEE 25th International Requirements Engineering Conference (RE)&lt;/i&gt; (2017), 424–429.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/morales2017exploiting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;groen2017crowd&quot;&gt;Groen, E.C., Seyff, N., Ali, R., Dalpiaz, F., Doerr, J., Guzman, E., Hosseini, M., Marco, J., Oriol, M., Perini, A. and others 2017. The crowd in requirements engineering: The landscape and challenges. &lt;i&gt;IEEE software&lt;/i&gt;. 34, 2 (2017), 44–52.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/groen2017crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;khan2019crowd&quot;&gt;Khan, J.A., Liu, L., Wen, L. and Ali, R. 2019. Crowd intelligence in requirements engineering: Current status and future directions. &lt;i&gt;International working conference on requirements engineering: Foundation for software quality&lt;/i&gt; (2019), 245–261.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2019crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;khan2019crowd&quot;&gt;Khan, J.A., Liu, L., Wen, L. and Ali, R. 2019. Crowd intelligence in requirements engineering: Current status and future directions. &lt;i&gt;International working conference on requirements engineering: Foundation for software quality&lt;/i&gt; (2019), 245–261.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2019crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;dhinakaran2018app&quot;&gt;Dhinakaran, V.T., Pulle, R., Ajmeri, N. and Murukannaiah, P.K. 2018. App review analysis via active learning: reducing supervision effort without compromising classification accuracy. &lt;i&gt;2018 IEEE 26th international requirements engineering conference (RE)&lt;/i&gt; (2018), 170–181.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dhinakaran2018app/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;wouters2021crowdre&quot;&gt;Wouters, J., Janssen, R., Hulst, B. van, Veenhuizen, J. van, Dalpiaz, F. and Brinkkemper, S. 2021. CrowdRE in a Governmental Setting: Lessons from Two Case Studies. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference (RE)&lt;/i&gt; (2021), 312–322.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wouters2021crowdre/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/crowdre/</link>
