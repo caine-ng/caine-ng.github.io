@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 May 2022 07:37:22 +0900</pubDate>
-    <lastBuildDate>Wed, 11 May 2022 07:37:22 +0900</lastBuildDate>
+    <pubDate>Thu, 12 May 2022 01:55:35 +0900</pubDate>
+    <lastBuildDate>Thu, 12 May 2022 01:55:35 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -171,63 +171,6 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
         
         
         <category>Tiếng Việt, 日本語</category>
-        
-      </item>
-    
-      <item>
-        <title>CrowdRE</title>
-        <description>&lt;p&gt;ビジネスアナリティクスのスキルは，ソフトウェア開発の現場（モノづくりの現場）でどこに使うか，なかなか面白い疑問です．
-データ解析や業務理解などのスキルがあると思います．
-しかし，オーナーとマネージャーはすでにいるから，彼らもビジネスのスキルを持っています．
-オーナーとマネージャー以外でも，自分の経験でいうと，おそらく&lt;strong&gt;主に要件解析などの業務に従事することが多いです．&lt;/strong&gt;
-なぜなら，残りのタスクはすべて開発・品質保証と（技術的な）研究ばかりあって，唯一にビジネスのスキルがソフトウェア開発の現場に役に立つのが，要件の理解を促進する仕事です．
-それ以外の業務は，オーナー，マネージャーと研究開発陣が理解できたら，彼らが自分で行えるからです．
-あとは，顧客折衝などのモノづくりの現場以外の仕事です．（でも，オーナーとマネージャーも同じくそういう業務をやっていますね．むしろ，現場にない役割になっています．）&lt;/p&gt;
-
-&lt;p&gt;最も重要な仕事なんですが，すでに&lt;strong&gt;Requirement Engineering (RE，要件工学)&lt;/strong&gt;という応用分野があって，それが近年活発に発展しております．
-また，多くのユーザーに製品とサービスを提供したいというアジャイルソフトウエア開発の仕事が多くなっているので，そのユーザーの集団からフィードバックを要件として &lt;a class=&quot;citation&quot; href=&quot;#dalpiaz2019re&quot;&gt;[1, 2]&lt;/a&gt;，開発陣を走らせるオーナーとマネージャーも多いでしょうか？
-ですので，特に最近&lt;strong&gt;Crowd Requirement Engineering（CrowdRE，集合知要件工学 &lt;a class=&quot;citation&quot; href=&quot;#groen2017crowd&quot;&gt;[3, 4, 5]&lt;/a&gt;）&lt;/strong&gt;という分野もできました．
-本稿では，CrowdREの最新動向について少し述べます．&lt;/p&gt;
-
-&lt;h1 id=&quot;requirement-engineeringとcrowd-requirement-engineering&quot;&gt;Requirement EngineeringとCrowd Requirement Engineering&lt;/h1&gt;
-&lt;p&gt;Requirement Engineering (RE，要件工学）は工学の中で歴史の長い分野です．
-今年で&lt;a href=&quot;https://conf.researchr.org/home/RE-2022&quot;&gt;30th IEEE International Requirements Engineering 2022 conference&lt;/a&gt;があるので，少なくても30年間の歴史を持っています．
-&lt;a class=&quot;citation&quot; href=&quot;#dhinakaran2018app&quot;&gt;[6]&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
-
-&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#wouters2021crowdre&quot;&gt;[7]&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;結論&quot;&gt;結論&lt;/h1&gt;
-
-&lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;dalpiaz2019re&quot;&gt;Dalpiaz, F. and Parente, M. 2019. RE-SWOT: from user feedback to requirements via competitor analysis. &lt;i&gt;International working conference on requirements engineering: foundation for software quality&lt;/i&gt; (2019), 55–70.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dalpiaz2019re/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;morales2017exploiting&quot;&gt;Morales-Ramirez, I., Munante, D., Kifetew, F., Perini, A., Susi, A. and Siena, A. 2017. Exploiting user feedback in tool-supported multi-criteria requirements prioritization. &lt;i&gt;2017 IEEE 25th International Requirements Engineering Conference (RE)&lt;/i&gt; (2017), 424–429.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/morales2017exploiting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;groen2017crowd&quot;&gt;Groen, E.C., Seyff, N., Ali, R., Dalpiaz, F., Doerr, J., Guzman, E., Hosseini, M., Marco, J., Oriol, M., Perini, A. and others 2017. The crowd in requirements engineering: The landscape and challenges. &lt;i&gt;IEEE software&lt;/i&gt;. 34, 2 (2017), 44–52.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/groen2017crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;khan2019crowd&quot;&gt;Khan, J.A., Liu, L., Wen, L. and Ali, R. 2019. Crowd intelligence in requirements engineering: Current status and future directions. &lt;i&gt;International working conference on requirements engineering: Foundation for software quality&lt;/i&gt; (2019), 245–261.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2019crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;dalpiaz2021value&quot;&gt;Dalpiaz, F. 2021. On the Value of CrowdRE in Research and Practice. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference Workshops (REW)&lt;/i&gt; (2021), 291–292.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dalpiaz2021value/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;dhinakaran2018app&quot;&gt;Dhinakaran, V.T., Pulle, R., Ajmeri, N. and Murukannaiah, P.K. 2018. App review analysis via active learning: reducing supervision effort without compromising classification accuracy. &lt;i&gt;2018 IEEE 26th international requirements engineering conference (RE)&lt;/i&gt; (2018), 170–181.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dhinakaran2018app/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;wouters2021crowdre&quot;&gt;Wouters, J., Janssen, R., Hulst, B. van, Veenhuizen, J. van, Dalpiaz, F. and Brinkkemper, S. 2021. CrowdRE in a Governmental Setting: Lessons from Two Case Studies. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference (RE)&lt;/i&gt; (2021), 312–322.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wouters2021crowdre/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/crowdre/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/crowdre/</guid>
-        
-        <category>Business Analytics in Development</category>
-        
-        <category>Requirement Engineering</category>
-        
-        <category>Crowd Requirement Engineering</category>
-        
-        <category>要件工学</category>
-        
-        <category>集合知要件工学</category>
-        
-        
-        <category>Tiếng Việt, 日本語</category>
-        
-        <category>Project Management</category>
         
       </item>
     
@@ -1893,6 +1836,399 @@ Tốt nhất là nên lên kế hoạch thí nghiệm và chốt thời gian t�
         <category>Software Engineering</category>
         
         <category>Project Management</category>
+        
+      </item>
+    
+      <item>
+        <title>Adobe Creative Cloud: An All-in-One Platform for Creators</title>
+        <description>&lt;p&gt;Adobe provides three different cloud solutions for customers: Adobe Creative Cloud for creators, Adobe Experience Cloud for marketers, and Adobe Document Cloud for business.
+Creative Cloud is a collection of 20+ apps for photography, video, design, web, UX, and social media — plus integrated essentials like font families and the power to collaborate with anyone, anywhere. 
+Many things can be done with this solution.
+We take a look at the features.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;adobe-creative-cloud&quot;&gt;Adobe Creative Cloud&lt;/h1&gt;
+
+&lt;p&gt;Adobe Creative Cloud (ACC) is an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all-in-one&lt;/code&gt; platform for creators, marketers, visual artists, and designers.
+Let’s hear words about the roadmap of ACC from Scott Belsky.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/BzFY4pzb8cA?start=730&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This was highlighted in Adobe MAX 2020, a trade show event for creative users held by Adobe from October 20 to 22, 2020.
+You can access the online tutorials from &lt;a href=&quot;https://experienceleague.adobe.com/docs/creative-cloud-enterprise-learn/cce-learning-hub/max2020/tutorials/maxtutorials.html?lang=en&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Creativity for All&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;3-goals-of-adobe-creative-cloud&quot;&gt;3 Goals of Adobe Creative Cloud&lt;/h2&gt;
+
+&lt;h3 id=&quot;enable-connected-creativity&quot;&gt;Enable Connected Creativity&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Creativity $\times$ Organization = Impact&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Putting creativity into an organization makes an impact!
+Three pillars of your organization are: &lt;strong&gt;Assets, Apps, and Team&lt;/strong&gt;.
+Let’s talk about the assets first.
+How can you share your assets with your collaborators?
+Adobe Behance, Adobe Bridge, and Adobe Stock make your assets sharable and organized.
+You can share your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.psd&lt;/code&gt; files with your teammates, and you can search for your interested images from million of shared assets in Adobe Stock and Bridge.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Bringing 30 years of Photoshop features and code to a new platform like the web is a journey.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Photoshop has more than 30 years of history.
+That is so long to have an impact, but now Adobe Photoshop is not only a desktop app.
+Adobe Photoshop for Web is in Beta now and will be available in ACC soon.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Work better together with Adobe Creative Cloud.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Finally, let’s talk about the team, the last pillar.
+Adobe provides Spaces and Canvas for collaboration.
+You can not only share the PSD and AI files with your collaborators but also work with them directly in ACC.
+Adobe Cloud Canvases provide an overview of the whole team’s work.
+Users can make comments, can get &lt;strong&gt;real-time&lt;/strong&gt; feedbacks in Canvases.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;And don’t forget the devices. &lt;strong&gt;Adobe apps like Photoshop in Apple’s M1 chip run twice faster than in older chips.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;With ACC, your assets and apps can be synchronized between your devices.
+You can start your design from your iPhone and then grab it on your iPad or other devices.
+And you can collaborate with your co-workers from any device as well.&lt;/p&gt;
+
+&lt;h3 id=&quot;unleash-creative-potential&quot;&gt;Unleash Creative Potential&lt;/h3&gt;
+
+&lt;p&gt;Web designers can use Adobe XD, Illustrators, and so on to create ideas.
+Artists can use Fresco, Design to create a lot of drawings.
+Photographers and video makers can capture and use Adobe Photoshop and After Effects to create images and videos for social posts.
+Cartoon artists can use Character Animator to create a live anime.
+Other people can use Lightroom or Premiere Rush to edit photos/videos on the mobile phone.
+Other people can search for photos, AI files, videos, and even anime and manga in Stock and Behance.
+Some can scan document images and get the content indexed and managed in Adobe Acrobat.
+So many possibilities can be done with this suite of apps.&lt;/p&gt;
+
+&lt;p&gt;And now, all of them are available in the Cloud.&lt;/p&gt;
+
+&lt;h3 id=&quot;empower-creative-careers&quot;&gt;Empower Creative Careers&lt;/h3&gt;
+
+&lt;p&gt;Adobe also launched &lt;strong&gt;Content Authenticity Initiate (CAI)&lt;/strong&gt; in 2018 to ensure artists get credits for their work.
+Any content made in Adobe today will be attached metadata about the project they belong to, and the credits always go to the creators.
+&lt;strong&gt;Non Fungible Tokens (NFT)&lt;/strong&gt; are generally used by artists recently to access marketplaces of collectors.
+However, many artists have seen their works were minted without attribution to the original artists.
+Adobe has worked with many NFT partners such as OpenSea, KnownOrigin, SuperRare, and so on to ensure the credits will be given to the right people.
+When an artist creates a project in Photoshop with Content Credentials, then that information will be displayed in any related NFT partners.&lt;/p&gt;
+
+&lt;h1 id=&quot;toolsets&quot;&gt;Toolsets&lt;/h1&gt;
+
+&lt;p&gt;Now, we understand the goals and roles of ACC in creative activities.
+We will take a closer look at each of the app in this section.&lt;/p&gt;
+
+&lt;h2 id=&quot;image-editing&quot;&gt;Image editing&lt;/h2&gt;
+
+&lt;h3 id=&quot;photoshop-vs-lightroom-lightroom-classic&quot;&gt;Photoshop vs. Lightroom (Lightroom classic)&lt;/h3&gt;
+
+&lt;p&gt;Photoshop has more than 30 years of history.
+A brief overview of released versions can be found &lt;a href=&quot;https://adobe.fandom.com/wiki/Adobe_Photoshop_release_history&quot;&gt;here&lt;/a&gt;.
+The latest version is CC 2021, and we mostly use it.
+Adobe Photoshop is specialized to photo enthusiasts who want to make beautiful images from camera-captured inputs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://learningavphotoshop.weebly.com/uploads/2/6/4/6/26460741/4580840_orig.jpg&quot; alt=&quot;pscc&quot; /&gt;
+&lt;em&gt;Source: &lt;a href=&quot;https://learningavphotoshop.weebly.com/uploads/2/6/4/6/26460741/4580840_orig.jpg&quot;&gt;learningavphotoshop&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There are some resources in YouTube for you to learn Photoshop (especially, CC 2020):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLyGOksFjYo-nzGtyi6wFs68NpDic1lg9a&quot;&gt;Adobe Photoshop CC 2020 Tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL9pkETrdJ0rb-BsDHwE0gmsj0duEXqbQ3&quot;&gt;Adobe Photoshop Tutorials&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLttcEXjN1UcFpeLZXSLtNU5iT2OxkO2nF&quot;&gt;Photoshop CC Essentials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Based on a rough estimation, there is a requirement of at least two years to comprehend this Photoshop CC.
+There are too many features to learn, but think about the 30-year history of Photoshop: you only spend two years to learn 30 years of Photoshop features and code.
+What a benefit!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Photoshop is a comprehensive photo editing app for photographers, web designers, visual artists, and photo enthusiasts.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, what’s about Lightroom?
+While &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tools&lt;/code&gt; is essential in Photoshop, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Presets&lt;/code&gt; is primary in Lightroom.
+In Photoshop, you can tune your images at a detailed level using fine-grained tools.
+But it is completely different in Lightroom, where the presets hold only common features which are known to sufficiently produce good quality images.
+Because Photoshop is specific for details, it is often used by professional photographers.
+But with Lightroom, the user segment can be large.
+Because presets were tuned by professionals, and the tuned parameters can be huge (millions to billions of parameters).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Photoshop is best for professionals who want to tune every detail of a single photo, while Lightroom presets are good for unknowledgeable users who want to tune a batch of hundred images without specialized knowledge about graphics.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/Adobe-Lightroom.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;While Lightroom Classic is a desktop app, Lightroom is a web app with the address: &lt;a href=&quot;https://lightroom.adobe.com/&quot;&gt;lightroom.adobe.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;illustrator&quot;&gt;Illustrator&lt;/h3&gt;
+
+&lt;p&gt;If Photoshop CC is a graphic editing app, Illustrator CC is a creator app.
+It can be used to create industry-standard vector artworks like logos, illustrations, and posters.
+A beginner course is available on YouTube:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLYfCBK8IplO4X-jM1Rp43wAIdpP2XNGwP&quot;&gt;Learn Adobe Illustrator&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLwnXQvUxjbNsvCG_rJJ8vzhbqtEjphKsf&quot;&gt;Adobe Illustrator Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://clubsintel.weebly.com/uploads/1/2/3/8/123847818/575683558.jpg&quot; alt=&quot;illustrator cs 5 tools&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Based on a rough estimation, it may take six months to a year to comprehend Adobe Illustrator (AI).
+Then you can create professional artworks which can be used in web designs or anywhere they need AI.&lt;/p&gt;
+
+&lt;h3 id=&quot;fresco-for-fun-drawing&quot;&gt;Fresco for fun drawing&lt;/h3&gt;
+
+&lt;p&gt;Similar to Adobe Illustrator but with a friendlier interface and limited toolset, Fresco provides basic features for drawing raster artworks.
+Fresco can be used in mobile devices like the iPhone and iPad.
+Because it drops the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;presets&lt;/code&gt; notion, Fresco is close to end-users who are unknowledgeable about art.
+In contrast, Illustrator is closer to artists and graphics professionals.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/YmPZtFl_j50&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;There are some free courses available on YouTube about Fresco.
+If you are a normal end-user, you should like Lightroom and Fresco.
+But if you are a professional, you may need Photoshop and Illustrator.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL_dhPga7ruufKDzs1yCPfNUb6Ud5M58so&quot;&gt;Adobe Fresco Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dimension-for-3d-photography&quot;&gt;Dimension for 3D photography&lt;/h3&gt;
+
+&lt;p&gt;In this era of VR/AR applications, artists and producers need a tool to create 3D graphical models.
+The models can be saved and viewed from different perspectives.&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/bM-3PydkMBg&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL431Fy2ZWI6fqRGdUsKT5KBCmmI3A55dR&quot;&gt;Adobe Dimension Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Needless to say, you take advantage if you are already familiar with &lt;strong&gt;object-oriented design (OOD)&lt;/strong&gt;, because everything here is only 3D &lt;strong&gt;objects&lt;/strong&gt;!
+Then you can be quite familiar with the workflow like selecting a template object, changing the &lt;strong&gt;Properties&lt;/strong&gt; of the object, then defining its &lt;strong&gt;Scene&lt;/strong&gt; and &lt;strong&gt;Actions&lt;/strong&gt;.
+Adobe Dimension integrates Adobe Stock and Behance as its cloud storage and management solutions.
+You can save your models to Stock or share assets to Behance.&lt;/p&gt;
+
+&lt;h2 id=&quot;video-editing&quot;&gt;Video editing&lt;/h2&gt;
+
+&lt;p&gt;Unlike photos, videos need care about motions, perspectives, and so on.&lt;/p&gt;
+
+&lt;h3 id=&quot;premiere-pro-and-rush&quot;&gt;Premiere Pro and Rush&lt;/h3&gt;
+&lt;p&gt;With Premiere Pro, users can edit their video durations, change replaying orders, image processing, edit audio, and so on with videos.
+Rush is for mobile.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/f7prDfwtMCo&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLttcEXjN1UcGF_PCDUcQw2WOoh6MZtvWt&quot;&gt;Adobe Premiere Pro Course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some nice features can be &lt;strong&gt;multi-perspective videos&lt;/strong&gt; and &lt;strong&gt;video-audio alignment&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;after-effects&quot;&gt;After Effects&lt;/h3&gt;
+
+&lt;p&gt;Unlike Premiere Pro is for professionals, After Effects has a smaller video editing toolset but yet enough for non-professional users.
+Some straight modifications can be quite clunky with Premiere Pro.
+In these scenarios, After Effects seems to be a better fit.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d2436y6oj07al2.cloudfront.net/assets/vbblog/2016/09/4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/FuJMHF510mc&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib&quot;&gt;Affter Effects course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;audio-editing&quot;&gt;Audio editing&lt;/h2&gt;
+
+&lt;p&gt;We had a look on image/video editing softwares.
+But now we want to edit, mix, enhance audio, we should think about Adobe Audition.
+Adobe Audition can be integrated into After Effects or Premiere Pro.
+The output audios can be published to Behance and Stock.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/adobe-audition.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0njJIOjxS4c&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL-ssKAXBXMQRzqN5sc1eaR_Q6nACRQDF3&quot;&gt;Adobe Audition course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;storage-and-management&quot;&gt;Storage and Management&lt;/h2&gt;
+
+&lt;h3 id=&quot;adobe-stock-and-adobe-bridge&quot;&gt;Adobe Stock and Adobe Bridge&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Adobe Stock&lt;/strong&gt;, formerly known as Adobe Stock Photos, is a stock image database that was originally integrated with Adobe Bridge in Adobe Creative Suite 2 and 3. It is presently available through certain subscription packages from Adobe Creative Cloud.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Users can access Adobe Stock from &lt;a href=&quot;https://stock.adobe.com/&quot;&gt;https://stock.adobe.com/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Adobe Bridge&lt;/strong&gt; is a digital asset management tool developed by Adobe. It is freely included as part of Adobe Creative Cloud and was first made available with Creative Suite 2. Its primary purpose is to link the parts of the Creative Suite together using a format similar to the file browser found in previous versions of Adobe Photoshop. It is accessible from all other components of the Creative Suite (except for the standalone version of Adobe Acrobat 8).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bridge is also included with the stand-alone Photoshop application, and can perform certain Photoshop processing functions separately (and simultaneously) with Photoshop itself.&lt;/p&gt;
+
+&lt;h3 id=&quot;media-encoder&quot;&gt;Media Encoder&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Adobe Media Encoder (AME)&lt;/strong&gt; is a video media transcoding utility developed and marketed by Adobe through Adobe Creative Cloud. 
+It is designed for integration into workflows with other video applications such as Adobe Premiere Pro and After Effects.&lt;/p&gt;
+
+&lt;h2 id=&quot;animation&quot;&gt;Animation&lt;/h2&gt;
+
+&lt;h3 id=&quot;adobe-animate-cc&quot;&gt;Adobe Animate CC&lt;/h3&gt;
+
+&lt;p&gt;Adobe Animate CC, formerly Adobe Flash Professional CC, is the current series of the Animate application offered by subscription through Adobe Creative Cloud.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fFRtT-wDZlE&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PL3atG_J6wz0Vv9AoXqXOgc63X_8D5OBHE&quot;&gt;2D Animation - Free Course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;adobe-character-animator&quot;&gt;Adobe Character Animator&lt;/h3&gt;
+
+&lt;p&gt;Adobe Character Animator is a 2D puppet animation program developed by Adobe that is included with Adobe After Effects CC through Adobe Creative Cloud.
+It uses a &lt;strong&gt;multi-track motion capture recording system&lt;/strong&gt; to apply behaviors to puppets.&lt;/p&gt;
+
+&lt;p&gt;Some nice thing can be done with Character Animator:&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/gWBLAcTWH5Q&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;web-design-tools&quot;&gt;Web design tools&lt;/h2&gt;
+
+&lt;h3 id=&quot;adobe-dreamweaver&quot;&gt;Adobe Dreamweaver&lt;/h3&gt;
+
+&lt;p&gt;Adobe Dreamweaver, formerly Macromedia Dreamweaver, is a web development application originally based on the codebase of Backstage, which was acquired by Macromedia in March 1996.
+Dreamweaver has been owned and marketed by Adobe since December 2005.&lt;/p&gt;
+
+&lt;p&gt;Dreamweaver is available for both Mac and Windows. Recent versions have incorporated support for web technologies such as CSS, JavaScript, and various server-side scripting languages and frameworks, including ASP.NET, ColdFusion, JavaServer Pages, and PHP.&lt;/p&gt;
+
+&lt;p&gt;As a WYSIWYG Presto-based editor, Dreamweaver can hide the HTML code details of pages from the user, &lt;strong&gt;making it possible for non-coders to create web pages and sites&lt;/strong&gt;. One criticism of this approach is that it can produce HTML pages whose file size and amount of HTML code can be larger than an optimally hand-coded page would be, which can cause web browsers to perform poorly. This can be particularly true because the application makes it very straightforward to create table-based layouts. In addition, some website developers have criticized Dreamweaver in the past for producing code that often does not comply with W3C standards, though recent versions have been more compliant. Dreamweaver 8.0 performed poorly on the Acid2 Test, developed by the Web Standards Project. However, Adobe has increased the support for CSS and other ways to layout a page without tables in later versions of the application, with the ability to convert tables to layers and vice versa.&lt;/p&gt;
+
+&lt;p&gt;Dreamweaver allows users to preview websites in many browsers, provided that they are installed on their computers.
+It also has some site management tools, such as the ability to find and replace lines of text or code by whatever parameters specified across the entire site and a templatization feature for creating multiple pages with similar structures. 
+The behaviors panel also enables the use of basic JavaScript without any coding knowledge.&lt;/p&gt;
+
+&lt;p&gt;Dreamweaver can use “Extensions” – small programs, which any web developer can write (usually in HTML and JavaScript). Extensions provide added functionality to the software for whoever wants to download and install them. Dreamweaver is supported by a large community of extension developers who make extensions available (both commercial and free) for most web development tasks, from straight rollover effects to full-featured shopping carts.&lt;/p&gt;
+
+&lt;p&gt;Like other HTML editors, Dreamweaver edits files locally, then uploads all edited files to the remote web server using FTP, SFTP, or WebDAV. Dreamweaver CS4 now supports the Subversion (software) (SVN) version control system.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Ok60gdJif0U&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLttcEXjN1UcHi3Rc-FSNZOaFSsSjFWCBS&quot;&gt;Dreamweaver Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;adobe-xd&quot;&gt;Adobe XD&lt;/h3&gt;
+&lt;p&gt;Adobe XD is a vector-based user experience design and prototyping system.
+It is also a presentation tool for web apps and mobile apps, which is developed and published by Adobe.
+It is available for free but requires an account registered through Adobe Creative Cloud.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/68w2VwalD5w&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLOTakqGKI6lcIRHkjCsVyxmg8lweyewmR&quot;&gt;Adobe XD Course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;content-creation&quot;&gt;Content Creation&lt;/h2&gt;
+&lt;h3 id=&quot;adobe-indesign&quot;&gt;Adobe InDesign&lt;/h3&gt;
+&lt;p&gt;Adobe InDesign is a desktop publishing and page layout designing software application produced by Adobe Inc. It can be used to create works such as posters, flyers, brochures, magazines, newspapers, presentations, books, and ebooks. InDesign can also publish content suitable for tablet devices in conjunction with Adobe Digital Publishing Suite. Graphic designers and production artists are the principal users, creating and laying out periodical publications, posters, and print media. It also supports export to EPUB and SWF formats to create ebooks and digital publications, including digital magazines and content suitable for consumption on tablet computers. In addition, InDesign supports XML, style sheets, and other coding markups, making it suitable for exporting tagged text content for use in other digital and online formats. The Adobe InCopy word processor uses the same formatting engine as InDesign.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/RXRT3dHu6_o&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;adobe-incopy&quot;&gt;Adobe InCopy&lt;/h3&gt;
+&lt;p&gt;Adobe InCopy is a professional word processor made by Adobe Inc. that integrates with Adobe InDesign. While InDesign is used to publish printed material, including newspapers and magazines, InCopy is used for general word processing. The software enables editors to write, edit, and design documents. The software includes standard word processing features such as spell check, track changes, and word count and has various viewing modes that allow editors to visually inspect design elements — only as it looks to the designer working in Adobe InDesign.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/zq5YpOIA13E&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
+
+&lt;h3 id=&quot;acrobat&quot;&gt;Acrobat&lt;/h3&gt;
+&lt;p&gt;Adobe Acrobat is a family of computer programs developed by Adobe Systems, designed to view, create, manipulate and manage files in Adobe’s Portable Document Format (PDF). Some software in the family is commercial, and some are free of charge. Adobe Reader (formerly Acrobat Reader) is available as a no-charge download from Adobe’s website and allows the viewing and printing of PDF files. Acrobat and Reader are widely used as a way to present information with a fixed layout similar to a paper publication.&lt;/p&gt;
+
+&lt;p&gt;As of June 2020, the main members of the Adobe Acrobat family are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Adobe Acrobat DC, sold only by subscription through Adobe Document Cloud with mobile app support.
+    &lt;ul&gt;
+      &lt;li&gt;Adobe Acrobat Standard DC&lt;/li&gt;
+      &lt;li&gt;Adobe Acrobat Pro DC includes the ability to convert scanned documents and add media files&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adobe Acrobat 2020, the last version sold through a one-time perpetual license, but without cloud features.
+    &lt;ul&gt;
+      &lt;li&gt;Adobe Acrobat Standard 2020&lt;/li&gt;
+      &lt;li&gt;Adobe Acrobat Pro 2020&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adobe Acrobat Reader DC, a free client version with the ability to print, sign, and annotate.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;aero&quot;&gt;Aero&lt;/h3&gt;
+&lt;p&gt;Adobe Aero is an augmented reality authoring and publishing tool developed by Adobe and marketed through Adobe Creative Cloud.
+Aero was originally announced as a private beta for iOS users at Adobe MAX 2018.
+It was officially launched during Adobe MAX 2019.&lt;/p&gt;
+
+&lt;p&gt;Aero is part of Adobe’s 3D &amp;amp; AR series, which includes Adobe Dimension, Fuse, and Substance.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/fo8aG0vCY7k&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&quot;adobe-sensei-the-graphical-ai&quot;&gt;Adobe Sensei: the graphical AI&lt;/h1&gt;
+&lt;p&gt;Adobe Sensei is an artificial intelligence and machine learning technology being developed by Adobe. It is being applied to Adobe Analytics, Campaign, and Target. Sensei technology is also used in subject selection and removal, as seen in recent versions of Adobe Photoshop and Photoshop on iPad.&lt;/p&gt;
+
+&lt;p&gt;Many Adobe products like Photoshop, Premiere Pro, Illustrator, and Stock use somewhat Sensei’s insight to enhance user experience.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/r9E0_lM5l48&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;We took a look at the Adobe Creative Cloud ecosystem.
+Like most other commercial clouds like Oracle Cloud, AWS, Google GCP, or M$ Azure, it has many products and services which make our life better.
+And Adobe Sensei AI is impressive as it integrates many of the latest technologies in Computer Vision, Machine Learning, and Artificial Intelligence.
+Hope to use it in our own products soon.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/adobe-creative-cloud/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/adobe-creative-cloud/</guid>
+        
+        <category>adobe acrobat</category>
+        
+        <category>adobe creative cloud</category>
+        
+        <category>design</category>
+        
+        <category>illustrator</category>
+        
+        <category>adobe sensei</category>
+        
+        <category>adobe photoshop</category>
+        
+        <category>adobe lightroom</category>
+        
+        <category>adobe premiere pro</category>
+        
+        <category>premiere rush</category>
+        
+        <category>charactor animation</category>
+        
+        
+        <category>Software Engineering</category>
+        
+        <category>Artificial Intelligence</category>
+        
+        <category>Computer Vision</category>
         
       </item>
     
