@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 03:36:19 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 03:36:19 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 03:57:12 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 03:57:12 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -213,8 +213,12 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 &lt;p&gt;&lt;img src=&quot;/assets/images/requirements_file.png&quot; style=&quot;width: 50%; float:right; margin: 10px;&quot; /&gt;
 要件を定める際には，要件ファイルを作成することがあります．
 用語説明とか，スコープ，ユースケース，ステークホルダー，テクノロジーや法律の話なども記載が必要なものがよく用いられるでしょう．
-下記にCockburn氏の本&lt;a class=&quot;citation&quot; href=&quot;#cockburn2001writing&quot;&gt;[6]&lt;/a&gt;から引用した一例を記載します．
-長さは6章ぐらいですが，十分でしょう．&lt;/p&gt;
+下記にCockburn氏の本&lt;a class=&quot;citation&quot; href=&quot;#cockburn2001writing&quot;&gt;[6]&lt;/a&gt;から引用した一例を掲載します．
+長さは6章ぐらいですが，十分でしょう．
+まあ，これがエクセルで書くときに，機能要件（functional requirements）と非機能要件（non-functional requirements）を別れて記述した書類もあったと思うけど，いくつかの章で書いてもほとんど同じ構造になっている書類でしょう．（ユーザストーリー一覧や要望一覧とは違うものです）．
+実務では，要件書はこんなイメージで，皆さんにわかりやすく説明しました．
+これから，要件工学のお話にします．
+ビッグデータやデータマイニングや自然言語処理などを使って，要件を集めたり，モデリングしたりすることで，オーナーやマネージャーの仕事をよくするお話になれるかと思います．&lt;/p&gt;
 
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
 
