@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 May 2022 02:10:52 +0900</pubDate>
-    <lastBuildDate>Thu, 12 May 2022 02:10:52 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 03:16:40 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 03:16:40 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -196,14 +196,14 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 
 &lt;blockquote&gt;
   &lt;p&gt;chạy hơn chục đơn giao hàng khắp thành phố như vậy thì chỉ có ứng dụng là vừa có lãi, vừa kéo được người dùng, tài xế chúng tôi thì chịu thiệt．
-訳：ドライバーによると，「4時間に十個のタスクをアサインして，俺らを過労させるでしょう．（十個の場所を4時間に訪れるのも大変ですし，燃料料も自腹なんだけど，配達料金が3万ドンしかないという事態があったそうです）．アプリ運営局しかお金が設けないだろう．ドライバー達には損しか見えない．&lt;/p&gt;
+訳：ドライバーによると，「4時間に十個のタスクをアサインして，俺らを過労させるでしょう．（十個の場所を4時間に訪れるのも大変ですし，燃料料も自腹なんだけど，配達料金が3万ドンしかないという事態があったそうです）．お金が設けたのがアプリ運営局だけだろう．ドライバー達には損しか見えない．&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;私の友達が荷物を送れないということをほっといて，じゃ，「アプリ運営局にはお金が払っているユーザ（注文者）だけがユーザだと考えるなら，実際に仕事を行っているドライバー達はユーザではないから，&lt;strong&gt;ドライバーのフィードバックを聞かなくてもいい&lt;/strong&gt;？」&lt;/p&gt;
 
 &lt;p&gt;「格安の4時間」キャンペーンはおそらくユーザをもっと引き取れるための手段ですが，ドライバーにはキャンセルの権限を持たせるべきでしょうか？&lt;/p&gt;
 
-&lt;p&gt;そのキャンペーンを実施する前に，ユーザの声，ドライバーの声をきちんと聴かせた聞けたのでしょうか？&lt;/p&gt;
+&lt;p&gt;そのキャンペーンを実施する前に，ユーザの声，ドライバーの声をきちんと聞けたのでしょうか？&lt;/p&gt;
 
 &lt;h1 id=&quot;requirement-engineeringとcrowd-requirement-engineering&quot;&gt;Requirement EngineeringとCrowd Requirement Engineering&lt;/h1&gt;
 &lt;p&gt;Requirement Engineering (RE，要件工学）は工学の中で歴史の長い分野です．
