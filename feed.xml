@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 10:08:39 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 10:08:39 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 10:17:10 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 10:17:10 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -228,6 +228,8 @@ c) A documented representation of a condition or capability as in definition (a)
   &lt;li&gt;&lt;strong&gt;Concise（単純）&lt;/strong&gt;：あまりに余計な情報が要件に入らないように要件を定めるべきでしょう．&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Verifiable（検証可能性）&lt;/strong&gt;：実装可能性とは違って，テストやQA時で検証できること．&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;もちろん，現場においては，100点満点の中で80点60点などの要件もあるから，顧客の要望を聞いて，進める必要があります．例えば，現状は実装が無理だけど，顧客がもっと早く開始してほしいという要望があり，100点中70点程度の要件を記入して，開発中にどんどん完成させるというアジャイル開発の進め方もありでしょう．&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/requirements_file.png&quot; style=&quot;width: 50%; float:right; margin: 10px;&quot; /&gt;
 また，要件は要件書で書く必要があります．
