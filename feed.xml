@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 14:29:51 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 14:29:51 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 18:07:16 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 18:07:16 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -240,7 +240,7 @@ c) A documented representation of a condition or capability as in definition (a)
 まあ，これをエクセルで書くときに，機能要件（functional requirements）と非機能要件（non-functional requirements）を分けて記述した書類もあったと思うけど，いくつかの章で書いてもほとんど同じ構造になっている書類でしょう．（ユーザストーリー一覧や要望一覧とは違うものです）．
 実務では，要件書はこんなイメージで，皆さんにわかりやすく説明しました．
 これから，要件工学のお話にします．
-ビッグデータやデータマイニングや自然言語処理などを使って，要件を集めたり，モデリングしたりすることで，オーナーやマネージャーの仕事をよくするお話になれるかと思います．&lt;/p&gt;
+ビッグデータやデータマイニングや自然言語処理などを使って，要件を集めたり，モデリングしたりすることで，オーナーとマネージャーの仕事をよくするお話になれるかと思います．&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;要件策定プロセス&lt;/strong&gt;は様々にあります．下記に典型的な一例を示します．左側にダイアグラムを示し，右側に &lt;a class=&quot;citation&quot; href=&quot;#khan2019crowd&quot;&gt;[3]&lt;/a&gt;から引用した表を示しています．
 左側のダイアグラムを使ってFeasibilityStudyから要件書（RequirementsDocument）の策定まで述べていきましょう．
@@ -267,17 +267,22 @@ FeasibilityStudyで必要な場合，既存テクノロジーを調査し，実�
 CrowdREの場合，自社製品に対するユーザレビューや競合他社の製品に対するコメントなどの情報源から要望を集めて，それらに自社の優位性を確保するのに，要望から良い要件に書き直します．
 いっぱい要件がでてくると思うけど，すべてやる必要がないですね．
 Specificationのステップで，皆で話し合って有望な要件を選択して，優先順位もつけることがあります．
-Validationで残っている要件を検証して，もう一度要件の品質を上げることができます．
+ValidationでSpecificationの後に残っている要件を検証して，もう一度要件の品質を上げることができます．
 システムモデリングも行う必要があります．
 要件に合わせるシステムはどんな形かを検討するべきで，要件書に記述することにしましょう．
 要件には，ユーザ要件とシステム要件を分けて，Specificationからの要件をさらに分類します．
-システムモデルの情報，分類済み要件と要件の検証結果をベースにして要件書を書いて要件定義の段階が終了します．
+システムモデルの情報，分類済み要件と要件の検証結果をベースにして要件書を書き終わらせてから要件定義の段階が完了になれます．
 最終的の成果物は&lt;strong&gt;要件書（要件定義書）&lt;/strong&gt;になります．&lt;/p&gt;
 
 &lt;p&gt;右側の表も説明しましょう．左側の各ステップで行ってくれるツールと手法です．
 まあ，BAの人がやってくれたほうがうまいかもしれないが，オーナーとマネージャーのほうでRun-timeまでモニタリングする必要があるため，要件書作成からオーナーとマネージャーが指導することも多いと思います．
-因みに．右側の表で「Run-time」も書いてくれるけど，要件書の次の実施の段階で要件がきちんと実施されたかと，要件が変更する必要な場合，要件を更新するとかの作業です．
-オーナーとマネージャーは要件書までフォローすると思わないで，Run-timeの時にもずっとフォローしてくれると思うべきであろう．&lt;/p&gt;
+因みに，右側の表で「Run-time」も書いてくれるけど，要件書の次の実施の段階で要件がきちんと実施されたかと，要件が変更する必要な場合，要件を更新するとかの作業です．
+オーナーとマネージャーは要件書までフォローするだけだと思わないで，Run-timeの時にもずっとフォローしてくれると思うべきであろう．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Elicitation（データ準備）&lt;/strong&gt;というステップで，目的に合わせて要件のデータを収集し，要件のデータを標準化し，ETLのような作業になります．
+ここで，データ収集というと，オンラインフォーラムとかレビューサイトからデータをスクレイピングするなどの作業も含めます．
+アンケート調査を作成し，MTurkのように多くの回答者を求める仕事もあるので，単純に収集するだけではなく，勧誘の仕事もあります．
+一般に言うと，複数の情報源からデータを取得してデータレイクに置く作業ですね．&lt;/p&gt;
 
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
 
