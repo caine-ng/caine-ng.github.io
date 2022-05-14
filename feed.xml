@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 23:38:18 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 23:38:18 +0900</lastBuildDate>
+    <pubDate>Sun, 15 May 2022 00:07:36 +0900</pubDate>
+    <lastBuildDate>Sun, 15 May 2022 00:07:36 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -276,12 +276,14 @@ ValidationでSpecificationの後に残っている要件を検証して，もう
 システムモデルの情報，分類済み要件と要件の検証結果をベースにして要件書を書き終わらせてから要件定義の段階が完了になれます．
 最終的の成果物は&lt;strong&gt;要件書（要件定義書）&lt;/strong&gt;になります．&lt;/p&gt;
 
+&lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
+
 &lt;p&gt;右側の表も説明しましょう．左側の各ステップで行ってくれるツールと手法です．
 まあ，BAの人がやってくれたほうがうまいかもしれないが，オーナーとマネージャーのほうでRun-timeまでモニタリングする必要があるため，要件書作成からオーナーとマネージャーが指導することも多いと思います．
 因みに，右側の表で「Run-time」も書いてくれるけど，要件書の次の実施の段階で要件がきちんと実施されたかと，要件が変更する必要な場合，要件を更新するとかの作業です．
 オーナーとマネージャーは要件書作成までフォローするだけだと思わないで，Run-timeの時にもずっとフォローしてくれると思うべきであろう．&lt;/p&gt;
 
-&lt;h3 id=&quot;elicitation&quot;&gt;Elicitation&lt;/h3&gt;
+&lt;h2 id=&quot;elicitation&quot;&gt;Elicitation&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Elicitation（データ準備）&lt;/strong&gt;というステップで，目的に合わせて要件のデータを収集し，要件のデータを標準化し，ETLのような作業になります．
 ここで，データ収集というと，オンラインフォーラムとかレビューサイトからデータをスクレイピングするなどの作業も含めます．
 アンケート調査を作成し，MTurkのように多くの回答者を求める仕事もあるので，単純に収集するだけではなく，勧誘の仕事もあります．
@@ -289,7 +291,7 @@ ValidationでSpecificationの後に残っている要件を検証して，もう
 &lt;strong&gt;目的&lt;/strong&gt;は事前に決めておくもので，一般的要件か特定の機能に関する要件が求められます．
 事前に決めれない目的の場合，Run-timeFeedback（運用時で得たフィードバックで改善する）やトレンド解析などによって求められる要件もあります．&lt;/p&gt;
 
-&lt;h3 id=&quot;modelingspecification&quot;&gt;Modeling/Specification&lt;/h3&gt;
+&lt;h2 id=&quot;modelingspecification&quot;&gt;Modeling/Specification&lt;/h2&gt;
 &lt;p&gt;システムモデリングと要件策定については，要件に基づいて適切なシステムモデルを組み合わせて，再度要件を改善することもできます．
 システムモデルにはドメインドリブンデベロップメント（D3）というもので，&lt;strong&gt;ユースケースモデル&lt;/strong&gt;がよく用いられます．
 &lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;（アイアステリア）モデルを利用することもあります．
@@ -309,7 +311,7 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 詳細は&lt;a class=&quot;citation&quot; href=&quot;#khan2019crowd&quot;&gt;[3]&lt;/a&gt;を参照してほしいです．
 本稿で，7個の参考文献までしか引用できないので，短縮させていただきます．&lt;/p&gt;
 
-&lt;h3 id=&quot;analysisvalidation&quot;&gt;Analysis/Validation&lt;/h3&gt;
+&lt;h2 id=&quot;analysisvalidation&quot;&gt;Analysis/Validation&lt;/h2&gt;
 &lt;p&gt;解析と評価ですね．
 解析は，データレイクに収集した要件をパーシングして，理解する作業です．
 評価は，解析した要件をステークホルダーのニーズにアラインメントする（合わせる）作業です．
@@ -324,18 +326,24 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
   &lt;li&gt;&lt;strong&gt;SentimentAnalysis&lt;/strong&gt;：レビューデータのセンティメントを解析することで，潜在的要件を発見することもできます．&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;priorization&quot;&gt;Priorization&lt;/h3&gt;
+&lt;h2 id=&quot;priorization&quot;&gt;Priorization&lt;/h2&gt;
 &lt;p&gt;要件に優先順位をつけるために，ポイント制ゲーム，統計解析法，投票とユーザの評価を使った手法があります．&lt;/p&gt;
 
-&lt;h3 id=&quot;run-time-handling&quot;&gt;Run-time handling&lt;/h3&gt;
+&lt;h2 id=&quot;run-time-handling&quot;&gt;Run-time handling&lt;/h2&gt;
 
 &lt;p&gt;運用時で，定期的に調査を行い，要件とコンテキストを監視しながら，ユーザ層の変化に要件を適応させることができます．
 また，状況によって，要件を進化させていくこともできます．
 新たに新規要件を発見し，よりユーザのニーズを先読みして，サービスを改善することもできます．&lt;/p&gt;
 
-&lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
+&lt;h2 id=&quot;crowdreにおけるaiの応用&quot;&gt;CrowdREにおけるAIの応用&lt;/h2&gt;
 
-&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#wouters2021crowdre&quot;&gt;[6, 7]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;機械学習やデータマイニングを使って，解析を行うことができます．
+要件はArgumentationから生成されたとすると，AIによるArgumentationマイニングは役に立つそうです．
+運用時に，監視データとユーザフィードバックの関係を解析することで，より新たな知見を得ることもできます．&lt;/p&gt;
+
+&lt;p&gt;では，最も重要なのは&lt;strong&gt;AIによる自動化 &lt;a class=&quot;citation&quot; href=&quot;#dalpiaz2021value&quot;&gt;[4]&lt;/a&gt;&lt;/strong&gt;の話ですね．&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/automation_crowdre.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;結論&quot;&gt;結論&lt;/h1&gt;
 
@@ -345,9 +353,7 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 &lt;li&gt;&lt;span id=&quot;morales2017exploiting&quot;&gt;Morales-Ramirez, I., Munante, D., Kifetew, F., Perini, A., Susi, A. and Siena, A. 2017. Exploiting user feedback in tool-supported multi-criteria requirements prioritization. &lt;i&gt;2017 IEEE 25th International Requirements Engineering Conference (RE)&lt;/i&gt; (2017), 424–429.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/morales2017exploiting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;khan2019crowd&quot;&gt;Khan, J.A., Liu, L., Wen, L. and Ali, R. 2019. Crowd intelligence in requirements engineering: Current status and future directions. &lt;i&gt;International working conference on requirements engineering: Foundation for software quality&lt;/i&gt; (2019), 245–261.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2019crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;dalpiaz2021value&quot;&gt;Dalpiaz, F. 2021. On the Value of CrowdRE in Research and Practice. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference Workshops (REW)&lt;/i&gt; (2021), 291–292.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dalpiaz2021value/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;cockburn2001writing&quot;&gt;Cockburn, A. 2001. &lt;i&gt;Writing effective use cases&lt;/i&gt;. Pearson Education India.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cockburn2001writing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;wouters2021crowdre&quot;&gt;Wouters, J., Janssen, R., Hulst, B. van, Veenhuizen, J. van, Dalpiaz, F. and Brinkkemper, S. 2021. CrowdRE in a Governmental Setting: Lessons from Two Case Studies. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference (RE)&lt;/i&gt; (2021), 312–322.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wouters2021crowdre/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;dhinakaran2018app&quot;&gt;Dhinakaran, V.T., Pulle, R., Ajmeri, N. and Murukannaiah, P.K. 2018. App review analysis via active learning: reducing supervision effort without compromising classification accuracy. &lt;i&gt;2018 IEEE 26th international requirements engineering conference (RE)&lt;/i&gt; (2018), 170–181.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dhinakaran2018app/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;cockburn2001writing&quot;&gt;Cockburn, A. 2001. &lt;i&gt;Writing effective use cases&lt;/i&gt;. Pearson Education India.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cockburn2001writing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
