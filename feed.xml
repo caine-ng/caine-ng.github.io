@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 13:50:43 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 13:50:43 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 14:09:21 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 14:09:21 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -252,7 +252,9 @@ Feasibilityを検討するため，要件になりうる方向性，ストーリ
 きちんとやっているから，FeasibilityStudyも行っていますね．
 この段階で明瞭な要件は要らず，可能性があればいいです．
 上部の人たちはまた再検討するため，Priorization（優先順位）をつける処理もあります．
-また，上部の人が「何をやるかやらないか」を検討するため，この段階で「必ずやるよ」と思わないでください．&lt;/p&gt;
+また，上部の人が「何をやるかやらないか」を検討するため，この段階で「必ずやるよ」と思わないでください．
+例えば，自分でチャンスが非常にあるというビジネスだと思っても，積極的に実施を進めてしまうが，皆で話し合ってから，もうやらないよと言われて，せっかく準備したのに無駄になることも多いです．
+ですので，この段階の出力は，&lt;strong&gt;Feasibilityレポートだけ&lt;/strong&gt;と考え，それのために必要十分な作業だけに取り込んで問題ないはずです．&lt;strong&gt;エクセル一枚で数行を書けば十分です．&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/crowdre_activities.png&quot; alt=&quot;activities&quot; /&gt;&lt;/p&gt;
 
