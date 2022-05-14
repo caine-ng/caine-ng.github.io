@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 04:08:00 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 04:08:00 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 09:55:19 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 09:55:19 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -216,6 +216,18 @@ a) A condition or capability needed by a user to solve a problem or achieve an o
 b) A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification or other formally imposed document; and
 c) A documented representation of a condition or capability as in definition (a) or (b).&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;良い要件を書くためには，いくつか準備調査，プロトタイプ作成が必要です．また，良い要件にはいくつか求める質があります．&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Correct（正確性）&lt;/strong&gt;：多くの場合，正確性を保証するのが顧客の専門家になります．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Feasibility（実装可能性）&lt;/strong&gt;：開発陣が求める要件ですね．実装可能な要件じゃないと難しいです．また，実装可能性は，現状のツールやテクノロジーなどで判断する想定です．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Necessary（必要性）&lt;/strong&gt;：本当に必要な要件でしょうか？いらないもんに開発陣のエフォートや顧客のコストを配分する必要がありません．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Prioritized（優先順位）&lt;/strong&gt;：スプリントの計画時に，VeryImportant/Important/Optionalなどの段階的に分けて，要件を分類する必要があります．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Unambiguous（明瞭）&lt;/strong&gt;：CLEARでないと開発陣や顧客でもっとクリアになるために余計なコストをかけることになってしまいます．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Concise（単純）&lt;/strong&gt;：あまりに余計な情報が要件に入らないように要件を定めるべきでしょう．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Verifiable（検証可能性）&lt;/strong&gt;：実装可能性とは違って，テストやQA時で検証できること．&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/requirements_file.png&quot; style=&quot;width: 50%; float:right; margin: 10px;&quot; /&gt;
 また，要件は要件書で書く必要があります．
