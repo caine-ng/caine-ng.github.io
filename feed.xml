@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 18:07:16 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 18:07:16 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 18:41:01 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 18:41:01 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -210,6 +210,7 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 今年で&lt;a href=&quot;https://conf.researchr.org/home/RE-2022&quot;&gt;30th IEEE International Requirements Engineering 2022 conference&lt;/a&gt;があるので，少なくても30年間の歴史を持っています．
 &lt;a class=&quot;citation&quot; href=&quot;#dhinakaran2018app&quot;&gt;[5]&lt;/a&gt;&lt;/p&gt;
 
+&lt;h2 id=&quot;reの定義&quot;&gt;REの定義&lt;/h2&gt;
 &lt;blockquote&gt;
   &lt;p&gt;IEEEの要件の定義
 a) A condition or capability needed by a user to solve a problem or achieve an objective;
@@ -231,6 +232,7 @@ c) A documented representation of a condition or capability as in definition (a)
 
 &lt;p&gt;もちろん，現場においては，100点満点の中で80点60点などの要件もあるから，顧客の要望を聞いて，進める必要があります．例えば，現状は実装が無理だけど，顧客がもっと早く開始してほしいという要望があって，100点中70点程度の要件を記入して，開発中にどんどん完成させるというアジャイル開発の進め方もありでしょう．&lt;/p&gt;
 
+&lt;h2 id=&quot;要件書&quot;&gt;要件書&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/requirements_file.png&quot; style=&quot;width: 50%; float:right; margin: 10px;&quot; /&gt;
 また，要件は&lt;strong&gt;要件書&lt;/strong&gt;で書く必要があります．
 なので，要件を定める際には，要件ファイルを作成することがあります．
@@ -242,6 +244,7 @@ c) A documented representation of a condition or capability as in definition (a)
 これから，要件工学のお話にします．
 ビッグデータやデータマイニングや自然言語処理などを使って，要件を集めたり，モデリングしたりすることで，オーナーとマネージャーの仕事をよくするお話になれるかと思います．&lt;/p&gt;
 
+&lt;h2 id=&quot;要件策定プロセス&quot;&gt;要件策定プロセス&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;要件策定プロセス&lt;/strong&gt;は様々にあります．下記に典型的な一例を示します．左側にダイアグラムを示し，右側に &lt;a class=&quot;citation&quot; href=&quot;#khan2019crowd&quot;&gt;[3]&lt;/a&gt;から引用した表を示しています．
 左側のダイアグラムを使ってFeasibilityStudyから要件書（RequirementsDocument）の策定まで述べていきましょう．
 要件を確定する前に4カ月から半年ぐらいで実施可能性を検討するFeasibilityStudyを行います．
@@ -277,13 +280,21 @@ ValidationでSpecificationの後に残っている要件を検証して，もう
 &lt;p&gt;右側の表も説明しましょう．左側の各ステップで行ってくれるツールと手法です．
 まあ，BAの人がやってくれたほうがうまいかもしれないが，オーナーとマネージャーのほうでRun-timeまでモニタリングする必要があるため，要件書作成からオーナーとマネージャーが指導することも多いと思います．
 因みに，右側の表で「Run-time」も書いてくれるけど，要件書の次の実施の段階で要件がきちんと実施されたかと，要件が変更する必要な場合，要件を更新するとかの作業です．
-オーナーとマネージャーは要件書までフォローするだけだと思わないで，Run-timeの時にもずっとフォローしてくれると思うべきであろう．&lt;/p&gt;
+オーナーとマネージャーは要件書作成までフォローするだけだと思わないで，Run-timeの時にもずっとフォローしてくれると思うべきであろう．&lt;/p&gt;
 
+&lt;h3 id=&quot;elicitation&quot;&gt;Elicitation&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Elicitation（データ準備）&lt;/strong&gt;というステップで，目的に合わせて要件のデータを収集し，要件のデータを標準化し，ETLのような作業になります．
 ここで，データ収集というと，オンラインフォーラムとかレビューサイトからデータをスクレイピングするなどの作業も含めます．
 アンケート調査を作成し，MTurkのように多くの回答者を求める仕事もあるので，単純に収集するだけではなく，勧誘の仕事もあります．
-一般に言うと，複数の情報源からデータを取得してデータレイクに置く作業ですね．&lt;/p&gt;
+一般に言うと，複数の情報源からデータを取得してデータレイクに置く作業ですね．
+&lt;strong&gt;目的&lt;/strong&gt;は事前に決めておくもので，一般的要件か特定の機能に関する要件があります．
+事前に決めれない目的の場合，Run-timeFeedback（運用時で得たフィードバックで改善する）やトレンド解析などによって求められる要件もあります．&lt;/p&gt;
 
+&lt;h3 id=&quot;modelinganalysis&quot;&gt;Modeling/Analysis&lt;/h3&gt;
+&lt;p&gt;システムモデリングと要件解析については，要件に基づいて適切なシステムモデルを組み合わせて，再度要件を解析できるのです．
+システムモデルにはドメインドリブンデベロップメント（D3）というもので，ユースケースモデルがよく用いられます．&lt;/p&gt;
+
+&lt;p&gt;###&lt;/p&gt;
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
 
 &lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#wouters2021crowdre&quot;&gt;[7]&lt;/a&gt;&lt;/p&gt;
