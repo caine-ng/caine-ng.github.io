@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 15 May 2022 00:07:36 +0900</pubDate>
-    <lastBuildDate>Sun, 15 May 2022 00:07:36 +0900</lastBuildDate>
+    <pubDate>Sun, 15 May 2022 00:33:14 +0900</pubDate>
+    <lastBuildDate>Sun, 15 May 2022 00:33:14 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -341,7 +341,8 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 要件はArgumentationから生成されたとすると，AIによるArgumentationマイニングは役に立つそうです．
 運用時に，監視データとユーザフィードバックの関係を解析することで，より新たな知見を得ることもできます．&lt;/p&gt;
 
-&lt;p&gt;では，最も重要なのは&lt;strong&gt;AIによる自動化 &lt;a class=&quot;citation&quot; href=&quot;#dalpiaz2021value&quot;&gt;[4]&lt;/a&gt;&lt;/strong&gt;の話ですね．&lt;/p&gt;
+&lt;p&gt;では，最も重要なのは&lt;strong&gt;AIによる自動化 &lt;a class=&quot;citation&quot; href=&quot;#dalpiaz2021value&quot;&gt;[4]&lt;/a&gt;&lt;/strong&gt;の話ですね．
+ビジネスアナリティクスの方で，手でやる作業が多いけど，まあ，開発の現場で役に立つのが，この要件工学の話については，自動化してもらえるといいですね．&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/automation_crowdre.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
