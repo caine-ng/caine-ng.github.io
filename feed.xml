@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 10:17:10 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 10:17:10 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 10:20:38 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 10:20:38 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -205,7 +205,7 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 
 &lt;p&gt;そのキャンペーンを実施する前に，ユーザの声，ドライバーの声をきちんと聞けたのでしょうか？&lt;/p&gt;
 
-&lt;h1 id=&quot;requirement-engineeringとcrowd-requirement-engineering&quot;&gt;Requirement EngineeringとCrowd Requirement Engineering&lt;/h1&gt;
+&lt;h1 id=&quot;requirements-engineeringとcrowd-requirements-engineering&quot;&gt;Requirements EngineeringとCrowd Requirements Engineering&lt;/h1&gt;
 &lt;p&gt;Requirement Engineering (RE，要件工学）は工学の中で歴史の長い分野です．
 今年で&lt;a href=&quot;https://conf.researchr.org/home/RE-2022&quot;&gt;30th IEEE International Requirements Engineering 2022 conference&lt;/a&gt;があるので，少なくても30年間の歴史を持っています．
 &lt;a class=&quot;citation&quot; href=&quot;#dhinakaran2018app&quot;&gt;[5]&lt;/a&gt;&lt;/p&gt;
@@ -229,7 +229,7 @@ c) A documented representation of a condition or capability as in definition (a)
   &lt;li&gt;&lt;strong&gt;Verifiable（検証可能性）&lt;/strong&gt;：実装可能性とは違って，テストやQA時で検証できること．&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;もちろん，現場においては，100点満点の中で80点60点などの要件もあるから，顧客の要望を聞いて，進める必要があります．例えば，現状は実装が無理だけど，顧客がもっと早く開始してほしいという要望があり，100点中70点程度の要件を記入して，開発中にどんどん完成させるというアジャイル開発の進め方もありでしょう．&lt;/p&gt;
+&lt;p&gt;もちろん，現場においては，100点満点の中で80点60点などの要件もあるから，顧客の要望を聞いて，進める必要があります．例えば，現状は実装が無理だけど，顧客がもっと早く開始してほしいという要望があって，100点中70点程度の要件を記入して，開発中にどんどん完成させるというアジャイル開発の進め方もありでしょう．&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/requirements_file.png&quot; style=&quot;width: 50%; float:right; margin: 10px;&quot; /&gt;
 また，要件は要件書で書く必要があります．
@@ -237,7 +237,7 @@ c) A documented representation of a condition or capability as in definition (a)
 用語説明とか，スコープ，ユースケース，ステークホルダー，テクノロジーや法律の話など記載が必要なものがよく用いられるでしょう．
 下記にCockburn氏の本&lt;a class=&quot;citation&quot; href=&quot;#cockburn2001writing&quot;&gt;[6]&lt;/a&gt;から引用した一例を掲載します．
 長さは6章ぐらいですが，十分でしょう．
-まあ，これがエクセルで書くときに，機能要件（functional requirements）と非機能要件（non-functional requirements）を分けて記述した書類もあったと思うけど，いくつかの章で書いてもほとんど同じ構造になっている書類でしょう．（ユーザストーリー一覧や要望一覧とは違うものです）．
+まあ，これをエクセルで書くときに，機能要件（functional requirements）と非機能要件（non-functional requirements）を分けて記述した書類もあったと思うけど，いくつかの章で書いてもほとんど同じ構造になっている書類でしょう．（ユーザストーリー一覧や要望一覧とは違うものです）．
 実務では，要件書はこんなイメージで，皆さんにわかりやすく説明しました．
 これから，要件工学のお話にします．
 ビッグデータやデータマイニングや自然言語処理などを使って，要件を集めたり，モデリングしたりすることで，オーナーやマネージャーの仕事をよくするお話になれるかと思います．&lt;/p&gt;
