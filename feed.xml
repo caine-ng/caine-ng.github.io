@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 19:15:30 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 19:15:30 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 20:22:08 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 20:22:08 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -286,13 +286,22 @@ ValidationでSpecificationの後に残っている要件を検証して，もう
 ここで，データ収集というと，オンラインフォーラムとかレビューサイトからデータをスクレイピングするなどの作業も含めます．
 アンケート調査を作成し，MTurkのように多くの回答者を求める仕事もあるので，単純に収集するだけではなく，勧誘の仕事もあります．
 一般に言うと，複数の情報源からデータを取得してデータレイクに置く作業ですね．
-&lt;strong&gt;目的&lt;/strong&gt;は事前に決めておくもので，一般的要件か特定の機能に関する要件があります．
+&lt;strong&gt;目的&lt;/strong&gt;は事前に決めておくもので，一般的要件か特定の機能に関する要件が求められます．
 事前に決めれない目的の場合，Run-timeFeedback（運用時で得たフィードバックで改善する）やトレンド解析などによって求められる要件もあります．&lt;/p&gt;
 
 &lt;h3 id=&quot;modelingspecification&quot;&gt;Modeling/Specification&lt;/h3&gt;
 &lt;p&gt;システムモデリングと要件策定については，要件に基づいて適切なシステムモデルを組み合わせて，再度要件を改善することもできます．
-システムモデルにはドメインドリブンデベロップメント（D3）というもので，ユースケースモデルがよく用いられます．
-&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;（アイアステリア）モデルを利用することもあります．&lt;/p&gt;
+システムモデルにはドメインドリブンデベロップメント（D3）というもので，&lt;strong&gt;ユースケースモデル&lt;/strong&gt;がよく用いられます．
+&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;（アイアステリア）モデルを利用することもあります．
+&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;について，何がいいかちょっと説明しましょう．
+下記の図のように，OpenOME&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;ツールを使って&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを生成する作業を紹介します．
+&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルでは，ユーザストーリーを書くときに必ず&lt;em&gt;who, what, why, how&lt;/em&gt;を答える必要があります．
+収集した数千件以上の要件をステークホルダーにリンクして，依存関係を解析できます．
+そのために，要件の不完全性と血管を発見することができます．
+ですので，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルはシステムと要件モデリングには相性良いモデルとなります．
+OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを評価するために&lt;em&gt;forward&lt;/em&gt;解析でwhat-if分析を利用して，代替案を日はくすることができます．
+一方，&lt;em&gt;backward&lt;/em&gt;解析で達成度を推定できます．
+このような&lt;em&gt;forward-backward&lt;/em&gt;解析で，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを最適化し，要件も一緒に向上できます．&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/i-asterick-model.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -317,6 +326,13 @@ ValidationでSpecificationの後に残っている要件を検証して，もう
 &lt;li&gt;&lt;span id=&quot;cockburn2001writing&quot;&gt;Cockburn, A. 2001. &lt;i&gt;Writing effective use cases&lt;/i&gt;. Pearson Education India.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cockburn2001writing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;wouters2021crowdre&quot;&gt;Wouters, J., Janssen, R., Hulst, B. van, Veenhuizen, J. van, Dalpiaz, F. and Brinkkemper, S. 2021. CrowdRE in a Governmental Setting: Lessons from Two Case Studies. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference (RE)&lt;/i&gt; (2021), 312–322.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wouters2021crowdre/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;dhinakaran2018app&quot;&gt;Dhinakaran, V.T., Pulle, R., Ajmeri, N. and Murukannaiah, P.K. 2018. App review analysis via active learning: reducing supervision effort without compromising classification accuracy. &lt;i&gt;2018 IEEE 26th international requirements engineering conference (RE)&lt;/i&gt; (2018), 170–181.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dhinakaran2018app/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.cs.toronto.edu/km/openome&quot;&gt;http://www.cs.toronto.edu/km/openome/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/crowdre/</link>
