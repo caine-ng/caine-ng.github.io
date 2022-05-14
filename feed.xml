@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 20:22:08 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 20:22:08 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 20:32:55 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 20:32:55 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -304,6 +304,10 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 このような&lt;em&gt;forward-backward&lt;/em&gt;解析で，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを最適化し，要件も一緒に向上できます．&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/i-asterick-model.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;他には，業務フローをベースにしたモデリングや目的をベースにしたモデリングなどもあります．
+詳細は&lt;a class=&quot;citation&quot; href=&quot;#khan2019crowd&quot;&gt;[3]&lt;/a&gt;を参照してほしいです．
+本稿で，7個までしか引用できないので，短縮させていただきます．&lt;/p&gt;
 
 &lt;h3 id=&quot;analysisvalidation&quot;&gt;Analysis/Validation&lt;/h3&gt;
 
