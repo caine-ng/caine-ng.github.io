@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 20:32:55 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 20:32:55 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 21:47:14 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 21:47:14 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -307,9 +307,22 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 
 &lt;p&gt;他には，業務フローをベースにしたモデリングや目的をベースにしたモデリングなどもあります．
 詳細は&lt;a class=&quot;citation&quot; href=&quot;#khan2019crowd&quot;&gt;[3]&lt;/a&gt;を参照してほしいです．
-本稿で，7個までしか引用できないので，短縮させていただきます．&lt;/p&gt;
+本稿で，7個の参考文献までしか引用できないので，短縮させていただきます．&lt;/p&gt;
 
 &lt;h3 id=&quot;analysisvalidation&quot;&gt;Analysis/Validation&lt;/h3&gt;
+&lt;p&gt;解析と評価ですね．
+解析は，データレイクに収集した要件をパーシングして，理解する作業です．
+評価は，解析した要件をステークホルダーのニーズにアラインメントする（合わせる）作業です．
+さらに，解析した要件の正確性，一貫性と検証可能性も確保します．
+いくつかの方法があります．&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;クラウドソーシング&lt;/strong&gt;：クラウドのエフォートを利用して，解析と評価を行う．例えば，「この要件を改善しようとしたら，あなたがどう書き直しますか？」のようなちょすあをネットで意見を集めることで，解析が可能です．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;テキストデータ解析&lt;/strong&gt;：自然言語処理，データマイニング，統計解析と機械学習を使って，自動解析を可能にする方法です．メリットとしては，潜在的要件を発見することが可能になることです．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;画像と音声解析&lt;/strong&gt;：テキスト以外のデータ解析&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;プロトタイプ&lt;/strong&gt;：デモを作成して，デモからわかった要件もあります．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;SentimentAnalysis&lt;/strong&gt;：レビューデータのセンティメントを解析することで，潜在的要件を発見することもできます．&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;priorization&quot;&gt;Priorization&lt;/h3&gt;
 
