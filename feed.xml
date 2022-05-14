@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 21:47:14 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 21:47:14 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 23:38:18 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 23:38:18 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -258,7 +258,7 @@ Feasibilityを検討するため，要件になりうる方向性，ストーリ
 例えば，自分でチャンスが非常にあるというビジネスだと思っても，積極的に実施を進めてしまうが，皆で話し合ってから，もうやらないよと言われて，せっかく準備したのに無駄になることも多いです．
 ですので，この段階の出力は，&lt;strong&gt;Feasibilityレポートだけ&lt;/strong&gt;と考え，それのために必要十分な作業だけに取り込んで問題ないはずです．&lt;strong&gt;エクセル一枚で数行を書けば十分です．&lt;/strong&gt;
 FeasibilityStudyで必要な場合，既存テクノロジーを調査し，実現可能性が見えれば十分で，現在，クラウド基盤が多く存在するため，それで実現できることが多いので，ほぼ確実に実現できるといっても間違いないが，稀に実現不能な技術もあります．
-今，AWSなどを使っていればほぼ確実に実現できるため，FeasibilityStudyというところはAWSのどのサービスを使って実現できるかシンプルなレポートになると思います．
+今，AWSなどを使っていればほぼ確実に実現できるため，FeasibilityStudyというところはAWSのサービスを使って実現できるかシンプルなレポートになると思います．
 また，少しデータを見せるために自分のPCで予備実験を行っても面白いと思います．
 経験的に，本当に変な（要件ではなく）要望ではない，かつ，十分に技術を持っている研究開発集団だと，問題ないでしょう．&lt;/p&gt;
 
@@ -317,7 +317,7 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 いくつかの方法があります．&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;クラウドソーシング&lt;/strong&gt;：クラウドのエフォートを利用して，解析と評価を行う．例えば，「この要件を改善しようとしたら，あなたがどう書き直しますか？」のようなちょすあをネットで意見を集めることで，解析が可能です．&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;クラウドソーシング&lt;/strong&gt;：クラウドのエフォートを利用して，解析と評価を行う．例えば，「この要件を改善しようとしたら，あなたがどう書き直しますか？」のような調査をネットで意見を集めることで，解析が可能です．&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;テキストデータ解析&lt;/strong&gt;：自然言語処理，データマイニング，統計解析と機械学習を使って，自動解析を可能にする方法です．メリットとしては，潜在的要件を発見することが可能になることです．&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;画像と音声解析&lt;/strong&gt;：テキスト以外のデータ解析&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;プロトタイプ&lt;/strong&gt;：デモを作成して，デモからわかった要件もあります．&lt;/li&gt;
@@ -325,8 +325,13 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;priorization&quot;&gt;Priorization&lt;/h3&gt;
+&lt;p&gt;要件に優先順位をつけるために，ポイント制ゲーム，統計解析法，投票とユーザの評価を使った手法があります．&lt;/p&gt;
 
 &lt;h3 id=&quot;run-time-handling&quot;&gt;Run-time handling&lt;/h3&gt;
+
+&lt;p&gt;運用時で，定期的に調査を行い，要件とコンテキストを監視しながら，ユーザ層の変化に要件を適応させることができます．
+また，状況によって，要件を進化させていくこともできます．
+新たに新規要件を発見し，よりユーザのニーズを先読みして，サービスを改善することもできます．&lt;/p&gt;
 
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
 
