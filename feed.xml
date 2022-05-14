@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 14:09:21 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 14:09:21 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 14:15:51 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 14:15:51 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -254,9 +254,25 @@ Feasibilityを検討するため，要件になりうる方向性，ストーリ
 上部の人たちはまた再検討するため，Priorization（優先順位）をつける処理もあります．
 また，上部の人が「何をやるかやらないか」を検討するため，この段階で「必ずやるよ」と思わないでください．
 例えば，自分でチャンスが非常にあるというビジネスだと思っても，積極的に実施を進めてしまうが，皆で話し合ってから，もうやらないよと言われて，せっかく準備したのに無駄になることも多いです．
-ですので，この段階の出力は，&lt;strong&gt;Feasibilityレポートだけ&lt;/strong&gt;と考え，それのために必要十分な作業だけに取り込んで問題ないはずです．&lt;strong&gt;エクセル一枚で数行を書けば十分です．&lt;/strong&gt;&lt;/p&gt;
+ですので，この段階の出力は，&lt;strong&gt;Feasibilityレポートだけ&lt;/strong&gt;と考え，それのために必要十分な作業だけに取り込んで問題ないはずです．&lt;strong&gt;エクセル一枚で数行を書けば十分です．&lt;/strong&gt;
+FeasibilityStudyで必要な場合，既存テクノロジーを調査し，実現可能性が見えれば十分で，現在，クラウド基盤が多く存在するため，それで実現できることが多いので，ほぼ確実に実現できるといっても間違いないが，稀に実現不能な技術もあります．
+今，AWSなどを使っていればほぼ確実に実現できるため，FeasibilityStudyというところはAWSのどのサービスを使って実現できるかシンプルなレポートになると思います．
+また，少しデータを見せるために自分のPCで予備実験を行っても面白いと思います．
+経験的に，本当に変な（要件ではなく）要望，かつ，十分に技術を持っている研究開発集団だと，問題ないでしょう．&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/crowdre_activities.png&quot; alt=&quot;activities&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;FeasibilityStudyでうまく「やる」方針になったときに，&lt;strong&gt;要件書&lt;/strong&gt;作成に入ります．
+まず，要件を集めて解析する必要があります．ElicitationとAnalysisですね．
+CrowdREの場合，自社製品に対するユーザレビューや競合他社の製品に対するコメントなどの情報源から要望を集めて，それらに自社の優位性を確保するのに，要望から良い要件に書き直します．
+いっぱい要件がでてくると思うけど，すべてやる必要がないですね．
+Specificationのステップで，皆で話し合って有望な要件を選択して，優先順位もつけることがあります．
+Validationで残っている要件を検証して，もう一度要件の品質を上げることができます．
+システムモデリングも行う必要があります．
+要件に合わせるシステムはどんな形かを検討するべきで，要件書に記述することにしましょう．
+要件には，ユーザ要件とシステム要件を分けて，Specificationからの要件をさらに分類します．
+システムモデルの情報，分類済み要件と要件の検証結果をベースにして要件書を書いて要件定義の段階が終了します．
+最終的の成果物は&lt;strong&gt;要件書（要件定義書）&lt;/strong&gt;になります．&lt;/p&gt;
 
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
 
