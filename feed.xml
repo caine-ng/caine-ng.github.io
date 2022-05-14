@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 14 May 2022 18:41:01 +0900</pubDate>
-    <lastBuildDate>Sat, 14 May 2022 18:41:01 +0900</lastBuildDate>
+    <pubDate>Sat, 14 May 2022 19:15:30 +0900</pubDate>
+    <lastBuildDate>Sat, 14 May 2022 19:15:30 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -205,10 +205,9 @@ Thì thôi, &lt;strong&gt;khách&lt;/strong&gt; thì mình cũng không ép, là
 
 &lt;p&gt;そのキャンペーンを実施する前に，ユーザの声，ドライバーの声をきちんと聞けたのでしょうか？&lt;/p&gt;
 
-&lt;h1 id=&quot;requirements-engineeringとcrowd-requirements-engineering&quot;&gt;Requirements EngineeringとCrowd Requirements Engineering&lt;/h1&gt;
+&lt;h1 id=&quot;requirements-engineering&quot;&gt;Requirements Engineering&lt;/h1&gt;
 &lt;p&gt;Requirement Engineering (RE，要件工学）は工学の中で歴史の長い分野です．
-今年で&lt;a href=&quot;https://conf.researchr.org/home/RE-2022&quot;&gt;30th IEEE International Requirements Engineering 2022 conference&lt;/a&gt;があるので，少なくても30年間の歴史を持っています．
-&lt;a class=&quot;citation&quot; href=&quot;#dhinakaran2018app&quot;&gt;[5]&lt;/a&gt;&lt;/p&gt;
+今年で&lt;a href=&quot;https://conf.researchr.org/home/RE-2022&quot;&gt;30th IEEE International Requirements Engineering 2022 conference&lt;/a&gt;があるので，少なくても30年間の歴史を持っています．&lt;/p&gt;
 
 &lt;h2 id=&quot;reの定義&quot;&gt;REの定義&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -237,7 +236,7 @@ c) A documented representation of a condition or capability as in definition (a)
 また，要件は&lt;strong&gt;要件書&lt;/strong&gt;で書く必要があります．
 なので，要件を定める際には，要件ファイルを作成することがあります．
 用語説明とか，スコープ，ユースケース，ステークホルダー，テクノロジーや法律の話など記載が必要なものがよく用いられるでしょう．
-下記にCockburn氏の本&lt;a class=&quot;citation&quot; href=&quot;#cockburn2001writing&quot;&gt;[6]&lt;/a&gt;から引用した一例を掲載します．
+下記にCockburn氏の本&lt;a class=&quot;citation&quot; href=&quot;#cockburn2001writing&quot;&gt;[5]&lt;/a&gt;から引用した一例を掲載します．
 長さは6章だけですが，十分でしょう．
 まあ，これをエクセルで書くときに，機能要件（functional requirements）と非機能要件（non-functional requirements）を分けて記述した書類もあったと思うけど，いくつかの章で書いてもほとんど同じ構造になっている書類でしょう．（ユーザストーリー一覧や要望一覧とは違うものです）．
 実務では，要件書はこんなイメージで，皆さんにわかりやすく説明しました．
@@ -290,14 +289,22 @@ ValidationでSpecificationの後に残っている要件を検証して，もう
 &lt;strong&gt;目的&lt;/strong&gt;は事前に決めておくもので，一般的要件か特定の機能に関する要件があります．
 事前に決めれない目的の場合，Run-timeFeedback（運用時で得たフィードバックで改善する）やトレンド解析などによって求められる要件もあります．&lt;/p&gt;
 
-&lt;h3 id=&quot;modelinganalysis&quot;&gt;Modeling/Analysis&lt;/h3&gt;
-&lt;p&gt;システムモデリングと要件解析については，要件に基づいて適切なシステムモデルを組み合わせて，再度要件を解析できるのです．
-システムモデルにはドメインドリブンデベロップメント（D3）というもので，ユースケースモデルがよく用いられます．&lt;/p&gt;
+&lt;h3 id=&quot;modelingspecification&quot;&gt;Modeling/Specification&lt;/h3&gt;
+&lt;p&gt;システムモデリングと要件策定については，要件に基づいて適切なシステムモデルを組み合わせて，再度要件を改善することもできます．
+システムモデルにはドメインドリブンデベロップメント（D3）というもので，ユースケースモデルがよく用いられます．
+&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;（アイアステリア）モデルを利用することもあります．&lt;/p&gt;
 
-&lt;p&gt;###&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/i-asterick-model.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;analysisvalidation&quot;&gt;Analysis/Validation&lt;/h3&gt;
+
+&lt;h3 id=&quot;priorization&quot;&gt;Priorization&lt;/h3&gt;
+
+&lt;h3 id=&quot;run-time-handling&quot;&gt;Run-time handling&lt;/h3&gt;
+
 &lt;h1 id=&quot;crowdreの最新動向&quot;&gt;CrowdREの最新動向&lt;/h1&gt;
 
-&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#wouters2021crowdre&quot;&gt;[7]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#wouters2021crowdre&quot;&gt;[6, 7]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;結論&quot;&gt;結論&lt;/h1&gt;
 
@@ -307,9 +314,9 @@ ValidationでSpecificationの後に残っている要件を検証して，もう
 &lt;li&gt;&lt;span id=&quot;morales2017exploiting&quot;&gt;Morales-Ramirez, I., Munante, D., Kifetew, F., Perini, A., Susi, A. and Siena, A. 2017. Exploiting user feedback in tool-supported multi-criteria requirements prioritization. &lt;i&gt;2017 IEEE 25th International Requirements Engineering Conference (RE)&lt;/i&gt; (2017), 424–429.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/morales2017exploiting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;khan2019crowd&quot;&gt;Khan, J.A., Liu, L., Wen, L. and Ali, R. 2019. Crowd intelligence in requirements engineering: Current status and future directions. &lt;i&gt;International working conference on requirements engineering: Foundation for software quality&lt;/i&gt; (2019), 245–261.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2019crowd/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;dalpiaz2021value&quot;&gt;Dalpiaz, F. 2021. On the Value of CrowdRE in Research and Practice. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference Workshops (REW)&lt;/i&gt; (2021), 291–292.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dalpiaz2021value/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;dhinakaran2018app&quot;&gt;Dhinakaran, V.T., Pulle, R., Ajmeri, N. and Murukannaiah, P.K. 2018. App review analysis via active learning: reducing supervision effort without compromising classification accuracy. &lt;i&gt;2018 IEEE 26th international requirements engineering conference (RE)&lt;/i&gt; (2018), 170–181.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dhinakaran2018app/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;cockburn2001writing&quot;&gt;Cockburn, A. 2001. &lt;i&gt;Writing effective use cases&lt;/i&gt;. Pearson Education India.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/cockburn2001writing/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;wouters2021crowdre&quot;&gt;Wouters, J., Janssen, R., Hulst, B. van, Veenhuizen, J. van, Dalpiaz, F. and Brinkkemper, S. 2021. CrowdRE in a Governmental Setting: Lessons from Two Case Studies. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference (RE)&lt;/i&gt; (2021), 312–322.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wouters2021crowdre/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;wouters2021crowdre&quot;&gt;Wouters, J., Janssen, R., Hulst, B. van, Veenhuizen, J. van, Dalpiaz, F. and Brinkkemper, S. 2021. CrowdRE in a Governmental Setting: Lessons from Two Case Studies. &lt;i&gt;2021 IEEE 29th International Requirements Engineering Conference (RE)&lt;/i&gt; (2021), 312–322.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/wouters2021crowdre/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;dhinakaran2018app&quot;&gt;Dhinakaran, V.T., Pulle, R., Ajmeri, N. and Murukannaiah, P.K. 2018. App review analysis via active learning: reducing supervision effort without compromising classification accuracy. &lt;i&gt;2018 IEEE 26th international requirements engineering conference (RE)&lt;/i&gt; (2018), 170–181.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/dhinakaran2018app/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 08 May 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/crowdre/</link>
