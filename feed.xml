@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 15 May 2022 13:05:01 +0900</pubDate>
-    <lastBuildDate>Sun, 15 May 2022 13:05:01 +0900</lastBuildDate>
+    <pubDate>Sun, 15 May 2022 13:08:43 +0900</pubDate>
+    <lastBuildDate>Sun, 15 May 2022 13:08:43 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -329,7 +329,7 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 &lt;h2 id=&quot;priorization&quot;&gt;Priorization&lt;/h2&gt;
 &lt;p&gt;要件に優先順位をつけるために，ポイント制ゲーム，統計解析法，投票とユーザの評価を使った手法があります．
 要件がいっぱい来ている時に，固い内容ですし，読むだけで順位を決定するのはつまらないですね．
-なんで，ゲームをやるとか，投票するとか，つまらない作業をもっと面白くするというのもオーナーとマネージャーのお仕事です．&lt;/p&gt;
+なんで，ゲームをやらせるとか，投票させるとか，つまらない作業をもっと面白い方にするというのもオーナーとマネージャーのお仕事です．&lt;/p&gt;
 
 &lt;h2 id=&quot;run-time-handling&quot;&gt;Run-time handling&lt;/h2&gt;
 
@@ -349,6 +349,11 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 &lt;p&gt;&lt;img src=&quot;/assets/images/automation_crowdre.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;結論&quot;&gt;結論&lt;/h1&gt;
+
+&lt;p&gt;まあ，ビジネスアナリティクスといってもオーナーとマネージャーのアシスタントの仕事に近いですね．
+本稿で，もっとも現場に役に立つそうなRequirements Engineering（RE，要件工学）を軽く紹介しました．
+興味がある方は，この方向性でもっと調べて自分の業務をもっと充実できるじゃないかと思います．
+そのような思いで書き届きました．&lt;/p&gt;
 
 &lt;h1 id=&quot;参考文献&quot;&gt;参考文献&lt;/h1&gt;
 
