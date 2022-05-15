@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 15 May 2022 01:26:54 +0900</pubDate>
-    <lastBuildDate>Sun, 15 May 2022 01:26:54 +0900</lastBuildDate>
+    <pubDate>Sun, 15 May 2022 13:05:01 +0900</pubDate>
+    <lastBuildDate>Sun, 15 May 2022 13:05:01 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -327,7 +327,9 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;priorization&quot;&gt;Priorization&lt;/h2&gt;
-&lt;p&gt;要件に優先順位をつけるために，ポイント制ゲーム，統計解析法，投票とユーザの評価を使った手法があります．&lt;/p&gt;
+&lt;p&gt;要件に優先順位をつけるために，ポイント制ゲーム，統計解析法，投票とユーザの評価を使った手法があります．
+要件がいっぱい来ている時に，固い内容ですし，読むだけで順位を決定するのはつまらないですね．
+なんで，ゲームをやるとか，投票するとか，つまらない作業をもっと面白くするというのもオーナーとマネージャーのお仕事です．&lt;/p&gt;
 
 &lt;h2 id=&quot;run-time-handling&quot;&gt;Run-time handling&lt;/h2&gt;
 
