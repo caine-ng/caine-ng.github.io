@@ -5,8 +5,8 @@
     <description>An AI Engineer&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 15 May 2022 19:05:37 +0900</pubDate>
-    <lastBuildDate>Sun, 15 May 2022 19:05:37 +0900</lastBuildDate>
+    <pubDate>Sun, 15 May 2022 19:38:48 +0900</pubDate>
+    <lastBuildDate>Sun, 15 May 2022 19:38:48 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -347,7 +347,10 @@ OpenOMEでは，&lt;strong&gt;&lt;em&gt;i*&lt;/em&gt;&lt;/strong&gt;モデルを
 
 &lt;p&gt;機械学習やデータマイニングを使って，解析を行うことができます．
 要件は議論から生成されたので，AIによる議論マイニング&lt;sup id=&quot;fnref:7&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;は役に立つそうです．
-運用時に，監視データとユーザフィードバックの関係を解析することで，より新たな知見を得ることもできます．&lt;/p&gt;
+運用時に，監視データとユーザフィードバックの関係を解析することで，より新たな知見を得ることもできます．
+新聞を毎日読んで，&lt;strong&gt;世界知識&lt;/strong&gt;を充実している方と特定の&lt;strong&gt;コンテキスト知識&lt;/strong&gt;が精通している方と議論すると，とてもいいけど，自然言語処理による議論マイニングの場合，機械学習モデルはそんなに精通できるかという疑問です．
+世界知識はおそらくCommonSenseの知識で，米大統領選挙のデベイトで，ある話が出るとそんなに理解しているでしょうか？
+コンテキスト知識というのが，この建物を監視した結果でその建物の来客について議論できるかという狭いコンテキスト（CommonSenseより狭い）で議論することです．&lt;/p&gt;
 
 &lt;p&gt;では，最も重要なのは&lt;strong&gt;AIによる自動化 &lt;a class=&quot;citation&quot; href=&quot;#dalpiaz2021value&quot;&gt;[4]&lt;/a&gt;&lt;/strong&gt;の話ですね．
 ビジネスアナリティクスの方で，手でやる作業が多いけど，開発の現場で役に立つのに，この要件工学の知見を使って自動化してもらえるといいですね．&lt;/p&gt;
