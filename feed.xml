@@ -5,12 +5,12 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 05 Jun 2022 16:38:21 +0900</pubDate>
-    <lastBuildDate>Sun, 05 Jun 2022 16:38:21 +0900</lastBuildDate>
+    <pubDate>Sun, 05 Jun 2022 16:45:04 +0900</pubDate>
+    <lastBuildDate>Sun, 05 Jun 2022 16:45:04 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
-        <title>Federated Learning</title>
+        <title>Federated Learning: technologies and concerns about user data privacy and security</title>
         <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
