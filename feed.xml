@@ -5,19 +5,20 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 05 Jun 2022 17:21:22 +0900</pubDate>
-    <lastBuildDate>Sun, 05 Jun 2022 17:21:22 +0900</lastBuildDate>
+    <pubDate>Mon, 06 Jun 2022 00:33:25 +0900</pubDate>
+    <lastBuildDate>Mon, 06 Jun 2022 00:33:25 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Federated Learning: concerns about user data privacy and security</title>
-        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3]&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;aledhari2020federated&quot;&gt;Aledhari, M., Razzak, R., Parizi, R.M. and Saeed, F. 2020. Federated learning: A survey on enabling technologies, protocols, and applications. &lt;i&gt;IEEE Access&lt;/i&gt;. 8, (2020), 140699–140725.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/aledhari2020federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;liu2020federated&quot;&gt;Liu, Y., Yuan, X., Xiong, Z., Kang, J., Wang, X. and Niyato, D. 2020. Federated learning for 6G communications: Challenges, methods, and future directions. &lt;i&gt;China Communications&lt;/i&gt;. 17, 9 (2020), 105–118.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2020federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;khan2021federated&quot;&gt;Khan, L.U., Saad, W., Han, Z., Hossain, E. and Hong, C.S. 2021. Federated learning for internet of things: Recent advances, taxonomy, and open challenges. &lt;i&gt;IEEE Communications Surveys &amp;amp; Tutorials&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2021federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;khan2021federated&quot;&gt;Khan, L.U., Saad, W., Han, Z., Hossain, E. and Hong, C.S. 2021. Federated learning for internet of things: Recent advances, taxonomy, and open challenges. &lt;i&gt;IEEE Communications Surveys &amp;amp; Tutorials&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2021federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;kaissis2020secure&quot;&gt;Kaissis, G.A., Makowski, M.R., Rückert, D. and Braren, R.F. 2020. Secure, privacy-preserving and federated machine learning in medical imaging. &lt;i&gt;Nature Machine Intelligence&lt;/i&gt;. 2, 6 (2020), 305–311.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kaissis2020secure/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
 </description>
         <pubDate>Sun, 05 Jun 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/federated-learning/</link>
