@@ -5,55 +5,9 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Jun 2022 01:35:55 +0900</pubDate>
-    <lastBuildDate>Mon, 06 Jun 2022 01:35:55 +0900</lastBuildDate>
+    <pubDate>Thu, 09 Jun 2022 21:24:10 +0900</pubDate>
+    <lastBuildDate>Thu, 09 Jun 2022 21:24:10 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
-    
-      <item>
-        <title>Federated Learning: concerns about user data privacy and security</title>
-        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
-
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;aledhari2020federated&quot;&gt;Aledhari, M., Razzak, R., Parizi, R.M. and Saeed, F. 2020. Federated learning: A survey on enabling technologies, protocols, and applications. &lt;i&gt;IEEE Access&lt;/i&gt;. 8, (2020), 140699–140725.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/aledhari2020federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;liu2020federated&quot;&gt;Liu, Y., Yuan, X., Xiong, Z., Kang, J., Wang, X. and Niyato, D. 2020. Federated learning for 6G communications: Challenges, methods, and future directions. &lt;i&gt;China Communications&lt;/i&gt;. 17, 9 (2020), 105–118.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/liu2020federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;khan2021federated&quot;&gt;Khan, L.U., Saad, W., Han, Z., Hossain, E. and Hong, C.S. 2021. Federated learning for internet of things: Recent advances, taxonomy, and open challenges. &lt;i&gt;IEEE Communications Surveys &amp;amp; Tutorials&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/khan2021federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kaissis2020secure&quot;&gt;Kaissis, G.A., Makowski, M.R., Rückert, D. and Braren, R.F. 2020. Secure, privacy-preserving and federated machine learning in medical imaging. &lt;i&gt;Nature Machine Intelligence&lt;/i&gt;. 2, 6 (2020), 305–311.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kaissis2020secure/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;nguyen2021federated&quot;&gt;Nguyen, D.C., Ding, M., Pathirana, P.N., Seneviratne, A., Li, J. and Poor, H.V. 2021. Federated learning for internet of things: A comprehensive survey. &lt;i&gt;IEEE Communications Surveys &amp;amp; Tutorials&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;kaissis2021end&quot;&gt;Kaissis, G., Ziller, A., Passerat-Palmbach, J., Ryffel, T., Usynin, D., Trask, A., Lima, I., Mancuso, J., Jungmann, F., Steinborn, M.-M. and others 2021. End-to-end privacy preserving deep learning on multi-institutional medical imaging. &lt;i&gt;Nature Machine Intelligence&lt;/i&gt;. 3, 6 (2021), 473–484.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kaissis2021end/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
-</description>
-        <pubDate>Sun, 05 Jun 2022 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/federated-learning/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/federated-learning/</guid>
-        
-        <category>Machine learning</category>
-        
-        <category>TPU</category>
-        
-        <category>edge computing</category>
-        
-        <category>edge server</category>
-        
-        <category>edge devices</category>
-        
-        <category>edge-cloud architectures</category>
-        
-        <category>cloud computing</category>
-        
-        <category>6g</category>
-        
-        <category>federated learning</category>
-        
-        <category>distributed computing</category>
-        
-        <category>internet of things</category>
-        
-        <category>iot</category>
-        
-        
-        <category>Artificial Intelligence</category>
-        
-      </item>
     
       <item>
         <title>Ăn gì ở Hà Nội: Luận về thói quen ăn uống của người Hà Nội</title>
@@ -1825,6 +1779,309 @@ Trong năm 2022, AiFi sẽ tiếp tục cập nhật và mong muốn lan tỏa t
         
         
         <category>Tiếng Việt, 日本語</category>
+        
+      </item>
+    
+      <item>
+        <title>Nên chọn gói subscription Adobe/Games nào cho nhóm phát triển và nghiên cứu?</title>
+        <description>&lt;p&gt;Ở các quốc gia tôn trọng và thực thi nghiêm chỉnh luật bản quyền, thì vị trí leader có một “đặc sản” khá thú vị là &lt;strong&gt;kỹ năng quản lý license&lt;/strong&gt;, hay là &lt;strong&gt;tối ưu hóa license (サブスクリプションの最適化, optimize subscriptions)&lt;/strong&gt;.
+Giải thích thì cũng mất thời gian, tôi xin lấy ví dụ bài toán như sau:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Giả sử bạn là chủ nhiệm (hoặc người đứng đầu) một phòng nghiên cứu và phát triển có lượng nhân sự ổn định là 40 người.
+Hàng năm có 20 người tốt nghiệp và đi chỗ khác, và bạn sẽ lại đón khoảng 20 người mới vào để phân đề tài hướng dẫn.
+Và vì vậy nhân sự luôn ổn định tầm 40 người.
+Thế mạnh của phòng là xử lý đồ họa, thiết kế web, và mấy cái game ghiếc, truyền hình (TV).
+Những gì trong thế mạnh thì là cái bạn sẽ hướng dẫn (chứ không có chuyện là nhận vào rồi cho làm mấy cái text tiếc vớ vẩn hay mấy cái random là không có đâu).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Vậy bây giờ là phát sinh ra trong hướng nghiên cứu của phòng bạn, sẽ phải mua máy móc như màn hình cỡ lớn, màn hình đặc dụng cho ngành truyền hình, … và đăng ký mua license phần mềm như Adobe Photoshop, Illustrator, XD, … rồi lại còn games, …&lt;/strong&gt;.
+&lt;strong&gt;Thế kế hoạch quản lý license của bạn như thế nào? Với giả định bạn là đứng đầu lab và trách nhiệm quản lý sẽ thuộc về bạn.&lt;/strong&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;bản-chất-của-bài-toán-quản-lý-license-software-license-management&quot;&gt;Bản chất của bài toán quản lý license (Software License Management)&lt;/h1&gt;
+
+&lt;p&gt;Thực ra nói là tôn trọng bản quyền là 1 vấn đề nhưng nó chỉ là một cái mang tính chất bề nổi của tảng băng chìm.
+&lt;strong&gt;Ẩn đằng sau kỹ năng quản lý license chính là vấn đề cost (giá thành) và security (bảo mật).&lt;/strong&gt;
+6 bước cần phải làm với quản lý license (SLM) chính là:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Quy trình&lt;/th&gt;
+      &lt;th&gt;Mô tả&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Usage analysis&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Phân tích nhu cầu sử dụng của nhóm phát triển, tổ chức dưới quyền, nhân viên. Nhóm đứng đầu sẽ phải phân tích nhu cầu sử dụng thực sự của nhân viên là gì. Ở bước này chưa cần tối ưu ngay, nhưng cần phải ngăn chặn những request mua đồ không cần thiết.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;License optimization&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sau khi đã tối ưu hóa requests từ phía end-users, thì việc tiếp theo là với bộ request đã tối ưu ấy rồi, thì phải lựa chọn mua (hay không mua) những phần mềm, thiết bị nào. License nào sẽ bỏ tiền ra để subscribe, và sẽ subscribe theo gói nào?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Maintenance analysis&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Cái này cũng nói đi nói lại nhiều lần rồi, nếu bước này không tính toán dài hạn dựa trên usage analysis thì ví dụ phiên bản phần mềm nâng cấp thì lại phải mua lại license, dẫn đến tốn tiền nâng cấp license. Ngoài ra, nếu không kịp thời nâng cấp mua mới license thì khi hết hạn nhân viên lại phải chờ sếp mua license mới, rất tốn công.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Standardized data collection&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Với các tổ chức lớn như viện nghiên cứu hay trường đại học có hàng trăm thậm chí hàng ngàn nhân viên, việc quản lý tập trung, thu thập thông tin sử dụng phần mềm của nhân viên (cài phiên bản nào, license thế nào) là vô cùng quan trọng. Về mặt bảo mật, thì khi có license hết hạn, người dùng vi phạm license agreement, nhà quản lý sẽ được thông báo trực tiếp từ data, và như thế đối ứng sự cố bảo mật mới tốt.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cyber-threat detection&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Thực ra thì thu thập dữ liệu mà muốn lên cảnh báo thì phải có một feature là threat detection. Tức là phát hiện nguy cơ liên quan tới license ngay từ dữ liệu usage của nhân viên.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Audit Prevention&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Phòng chống các vấn đề khi đã phát hiện ra từ dữ liệu ra là cần thiết. Auditor sẽ phải đưa ra những suggestions để tổ chức và nhà quản lý đưa thành policy để implement trong tổ chức.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Đấy, nghe thì có vẻ đơn giản là làm 1 bảng Excel để quản lý license một cách thủ công, nhưng breakdown ra thì cũng đủ thứ.
+Làm nhà quản lý cho 1 team nhỏ tầm 5-6 người, hay dù quản lý cả 1 department hay là hiệu trưởng một trường đại học danh tiếng có hàng vạn sinh viên thì những vấn đề như thế này không được lơ là.&lt;/p&gt;
+
+&lt;p&gt;Theo kinh nghiệm của tôi thì cứ tốt nhất mua luôn gói nào nó có sẵn hết các chức năng trên.
+Ví dụ thu thập dữ liệu và detect nguy cơ là Adobe nó cũng có hết trong gói Business rồi đấy.
+Tuy nhiên, nếu trong nhóm chỉ có 1-2 người cần mua thì bài toán giá thành cân đối bảo mật sẽ phát sinh vì ít nhu cầu dùng quá (cost vs. security trade-off).
+Tuy nhiên, nếu là lãnh đạo của 1 department hàng trăm nhân khẩu dưới quyền thì cứ thoải mái thôi, vì khi số lượng đặt hàng lên đến hàng trăm, hàng ngàn thì chắc chắn Adobe sẽ có discount.
+Vào mấy cái viện ít người mới lo chứ còn vào những chỗ quân đông tướng lắm như trường đại học, tập đoàn, cty lớn thì chủ yếu là kỹ năng quản lý thôi.&lt;/p&gt;
+
+&lt;h1 id=&quot;quay-lại-ví-dụ-lab-40-người&quot;&gt;Quay lại ví dụ lab 40 người&lt;/h1&gt;
+
+&lt;h2 id=&quot;đại-học-lớn-vs-đại-học-nhỏ-và-viện-ít-người&quot;&gt;Đại học lớn vs. đại học nhỏ (và viện ít người)&lt;/h2&gt;
+
+&lt;p&gt;Ví dụ nhân sự 40 người nói ở trên là một trường đại học và tập đoàn lớn, nơi cứ mỗi năm có hàng ngàn người mới, hết thế hệ này tới thế hệ khác.
+Vì vậy làm giáo sư hay teamlead ở một tập đoàn hay trường đại học lớn, thì vấn đề nhân sự lại không phải việc khó.
+Cứ lên làm lead thì thiếu người muốn nhận bao nhiêu chả được.
+&lt;strong&gt;Cái quan trọng là năng lực quản lý của anh được bao nhiêu người?&lt;/strong&gt;
+Thường thì chuyện quản 40 người thậm chí hàng trăm người là chuyện bình thường ở các cơ sở lớn như vậy.&lt;/p&gt;
+
+&lt;p&gt;Còn đối với các viện nhỏ, đại học nhỏ thì đôi khi mỗi leader một năm chỉ quản có vài ba nhân viên.
+Chuyện quản lý có khi dễ dàng, người đứng đầu chả thèm quan tâm xây dựng văn hóa đội nhóm, văn hóa team, …
+Nếu là nhà nghiên cứu thì đi vào những nơi này họ sẽ có nhiều thời gian làm chuyên môn hơn là lo quản lý hàng trăm hàng ngàn miệng ăn phía dưới.
+&lt;strong&gt;Chỉ cần lo cho bản thân mình và mấy cậu phía dưới thôi.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Tuy nhiên, cái gì cũng có mặt trái của nó, nếu cái kiểu vài cơ sở nhỏ như trên thì gánh nặng quản lý không có nhưng giá thành sẽ đắt vì hầu như các gói subscription của các phần mềm như Office hay Adobe thì chỉ rẻ khi có nhiều trên 100 người dùng.
+Ông làm nghiên cứu mà lab ông chỉ có 2 anh postdocs thì dù là viện nghiên cứu cấp quốc gia thì khi mua license thì cũng chỉ tính được cho 3 người (ông và 2 anh postdocs).
+Mà thế thì hầu như muốn mua phần mềm gì cũng chỉ có vài khả năng:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;là mua gói personal subscription, giá sẽ đắt trên đầu người. Ngoài ra, sẽ phải mua đứng tên từng cá nhân nên control của tổ chức sẽ không có. Tức là như đại học lớn họ mua hàng loạt cho ngàn người dùng thì họ sẽ được tặng kèm gói audit để thực hiện thu thập dữ liệu, detect nguy cơ và prevention.&lt;/li&gt;
+  &lt;li&gt;là ông phải chung với các lab lớn khác. Nhiều lab nhỏ cùng có nhu cầu dùng hợp với nhau để mua. Thì nó lại có cái dở là ông admin ở lab khác cũng sẽ quản lý được dữ liệu thu thập được từ nhân viên lab ông. Thành ra là có vấn đề về riêng tư.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Thế nên là vào mấy cái startups hay đội nhóm nhỏ, đại học nhỏ ấy thì thường mọi người chấp nhận không dùng bản có phí, dùng &lt;strong&gt;open source&lt;/strong&gt; để tránh việc phải xài những cái đòi licenses như MATLAB, Office, Adobe, …
+Cái này cũng có cái hay cái dở.
+Thì thực ra tình huống nó bắt buộc là mình ít người mình chịu.
+Nhưng nó lại dở vì đa số người ta dùng Adobe, MATLAB, … mình lại không mua được thì thành ra là lại outliers.
+Ví dụ nghiên cứu của lĩnh vực đều dùng Adobe Photoshop, thì mình lại tái hiện trên GIMP thì ôi thôi!&lt;/p&gt;
+
+&lt;p&gt;Mà cái quan trọng nhất lại không chỉ giá tiền mà là &lt;strong&gt;audit&lt;/strong&gt;. Dù ông nhà nghiên cứu ở viện nhỏ, ông có mua personal subscription hay open source thì chắc chắn sẽ không có control của tổ chức.
+Nên nếu ông đề nghị mua phần mềm cho 2 cậu postdocs thì chắc chắn ông lãnh đạo viện sẽ bắt ông phải mua theo option 2.
+Mà như thế là dữ liệu của nhóm ông tự dưng lại phải chia sẻ ra cho các nhóm khác trong viện mà thậm chí ngoài viện.
+Còn nếu ông không đề nghị mua, tức là ông giấu lãnh đạo viện thì sẽ không cân đối kế toán được.
+Còn ông mà bảo postdocs nó dùng open source thì lại xảy ra vấn đề là không minh bạch vì không có control trong audit.&lt;/p&gt;
+
+&lt;p&gt;Nên lúc cân nhắc làm việc ở viện lớn hay viện nhỏ, đại học danh tiếng hay ít danh tiếng, tập cty lớn hay mấy startups, theo kinh nghiệm của tôi nên cân nhắc bài toán &lt;strong&gt;quản lý license&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;lựa-chọn-subscription-cho-phần-mềm-đồ-họa-adobe-software&quot;&gt;Lựa chọn subscription cho phần mềm đồ họa: Adobe software&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Bây giờ chúng ta sẽ bắt đầu thực chiến quản lý license.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Đầu tiên, về nhu cầu sử dụng, &lt;strong&gt;usage analysis&lt;/strong&gt;, thì quan điểm là người đứng đầu có quyền chỉ định đề tài nghiên cứu cho nhân viên.
+Đặc biệt nếu là công ty lớn, đại học lớn thì chuyện này là hiển nhiên.
+&lt;strong&gt;Bạn nghĩ (a) nhân viên tự đề xuất đề tài nghiên cứu rồi tự ý làm hay (b) lãnh đạo chỉ đạo chọn đề tài nghiên cứu thì tốt hơn?&lt;/strong&gt;
+Về mặt quản lý license, chắc chắn (b) sẽ tốt hơn với trường hợp có tới 40 nhân viên như chúng ta đang giả định.
+Vì sao? bởi vì là công nghệ lõi của lab vẫn là xử lý đồ họa, nên chắc chắn lúc đầu năm lúc xin kinh phí, lãnh đạo phải có kế hoạch để mua license nào phục vụ hướng nghiên cứu của lab.
+Thế giờ tự cho nhân viên tự tìm đề tài, nó lại tìm ra cái đề tài lệch 180 độ so với hướng đi của lab, rồi đòi mua 1 cái license mà ko có tác dụng gì cho nhóm nghiên cứu thì kế hoạch kinh phí đã xin là phá sản?
+Thế nên những trường hợp cũng không làm gì được vì tự do nghiên cứu phát triển, chống harrassment thì không thể bắt ép được.
+Lại phải delay thôi vì &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;em đánh đố thế thì thày cũng chịu nhá&lt;/code&gt;.
+Ngoài ra không chỉ vấn đề tiền mà cả về bảo mật thì nhân viên tự ý chọn đề tài ra ngoài rồi đòi mua license ngoài dự tính như vậy, thì chắc chắn là nếu đề xuất mua lên trên, thì lãnh đạo trường chắc chắn bắt mua chung với 1 lab khác, cho đủ con số người dùng để được giảm giá, thì lại xuất hiện bài toán phải chia sẻ dữ liệu với lab khác.
+Mà hợp tác với lab khác mà chuyện chia sẻ dữ liệu nhập nhằng cũng sẽ nhiều vấn đề.
+Nên cái thằng nhân viên nó chọn đề tài mang tính &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;outliers&lt;/code&gt; là phải xử lý.&lt;/p&gt;
+
+&lt;p&gt;Thì thực ra cái gì cũng có thể giải quyết được, đề tài lệch 180 độ mà hai bên thống nhất thì cũng “bẻ lái” được thôi, nên thày trò lãnh đạo nhân viên chịu khó nói chuyện rồi mà giải quyết với nhau là êm đẹp nhất.
+Còn nếu vướng mắc quá thì lại phải thuyên chuyển sang nơi khác mà nhiều nhân viên dùng cái license ấy thôi.&lt;/p&gt;
+
+&lt;p&gt;Theo kinh nghiệm của tôi, thì lãnh đạo &lt;strong&gt;mát tay&lt;/strong&gt; là có khi ông ấy control luôn cả usage của 40 nhân viên.
+Tức là không nói thẳng ra là chỉ đạo nhưng mà nhìn chung là cứ có cái gì lệch lạc tổ chức họp “bẻ lái”, làm sao cho cả 40 nhân viên đều làm đồ họa.
+Thằng nào thích làm NLP thì chủ động dùng open source đi vì NLP phần lớn open source chứ ít kiểu license nhiều như bên đồ họa, vision.
+Tôi từng gặp một trường hợp lãnh đạo rất &lt;strong&gt;mát tay&lt;/strong&gt;: chọn đề tài từ trên xuống dưới cách thể hiện qua ngôn ngữ thì nhìn qua tên đề tài thấy chả có liên quan tới vision đồ họa mấy, nhưng đến lúc bóc tách ra thì toàn các tính năng của Adobe Creative Suite.
+Thế là 40 con người vẫn đều phải phụ thuộc vào Adobe, mà thế thì cả phòng dùng Adobe thì viết đơn xin mua Adobe cho 40 người bên trên làm sao từ chối được?
+&lt;strong&gt;Cả phòng làm về Adobe thì mua sản phẩm Adobe là đúng rồi còn gì.&lt;/strong&gt;
+Thế nên, nếu mà control usage ngay từ đầu thì lúc đề xuất mua cái gì cũng dễ pass, cái bước usage analysis cũng chả phải làm vì cả phòng làm Adobe thì còn phân tích cái gì nữa.
+&lt;strong&gt;Mát tay&lt;/strong&gt; nó là như thế đấy.&lt;/p&gt;
+
+&lt;p&gt;Bây giờ, thày trò họp hành, rồi thảo luận trao đổi, “bẻ lái” thế nào đó để cả 40 con người đồng bộ nhu cầu rồi nhé.
+Bước tiếp theo là &lt;strong&gt;License optimization&lt;/strong&gt;, tức là chúng ta sẽ phải lựa chọn gói tối ưu nhất của Adobe để mua đảm bảo 40 con người có đồ mà dùng.
+Thực ra bước này làm cùng với phân tích nhu cầu sử dụng cũng được.
+Thì cứ giả định là thời gian sử dụng là 24/7 luôn đi.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tham khảo các gói sử dụng của Adobe Creative Cloud tại &lt;a href=&quot;https://www.adobe.com/creativecloud/plans.html&quot;&gt;https://www.adobe.com/creativecloud/plans.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bây giờ có 40 người thì có hai cases:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Chúng ta là phòng nghiên cứu phát triển của 1 cty lớn và cả 40 nhân viên đều chính thức&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Nếu mua cho 40 nhân viên 40 gói individuals thì sẽ tốn mỗi tháng là $40\times 52.99=2199.6$ USD. Một năm sẽ tốn tầm 25k USD.
+        &lt;ul&gt;
+          &lt;li&gt;Bất lợi: là không có quản lý license đi kèm.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Nếu mua theo gói Business thì
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.adobe.com/creativecloud/business/teams.html&quot;&gt;https://www.adobe.com/creativecloud/business/teams.html&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;Bạn sẽ trả 79.99 đô/tháng cho mỗi license, thì nhu cầu thay đổi chỉ cần hủy license và lấy license mới.&lt;/li&gt;
+          &lt;li&gt;Tuy nhiên là nếu license dừng lại giữa tháng thì sẽ xuất hiện lãng phí và lại phải chia sẻ account để đỡ phí. Mà về mặt bảo mật thì chia sẻ account lại không nên. Thế nên là lại phải quản lý nhân viên để không có ai bỏ việc giữa tháng.&lt;/li&gt;
+          &lt;li&gt;Lợi điểm là các tính năng để collaborate và quản lý license có đi kèm.&lt;/li&gt;
+          &lt;li&gt;Trong trường hợp không chia sẻ tài khoản thì tốn $79.99\times 40=3199.6$ đô môĩ tháng, 1 năm mất 38-39K.&lt;/li&gt;
+          &lt;li&gt;Trong trường hợp chia sẻ tài khoản thì có quy định sau:
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;https://helpx.adobe.com/download-install/using/install-apps-number-of-computers.html&quot;&gt;Số lượng máy có thể cùng lúc dùng cho 1 license&lt;/a&gt; thì chỉ tối đa 2 máy được login cùng license.&lt;/li&gt;
+              &lt;li&gt;Thế nên coi như giảm đi 1 nửa so với không chia sẻ tài khoản thì mỗi tháng mất 1600 đô và mỗi năm tầm 19k đô. &lt;strong&gt;Vẫn rẻ hơn so với mua gói cá nhân hoặc không chia sẻ tài khoản&lt;/strong&gt;.&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chúng ta là ở trong đại học lớn và cả 40 nhân viên đều là students&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Thì kể cả gói cá nhân cho 40 sinh viên cũng chỉ mất 19.99 đô/tháng. vậy mỗi tháng mất $19.99\times 40=800$ đô. Mỗi năm mất dưới 10k.
+        &lt;ul&gt;
+          &lt;li&gt;Tuy nhiên cũng sẽ không có chức năng quản lý đi kèm hoặc team nhóm.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Nếu mua theo đơn vị department hoặc institution.
+        &lt;ul&gt;
+          &lt;li&gt;Nếu mua theo department thì vì chỉ có 40 người mà yêu cầu là 100 người nên sẽ phải mua chung với nhóm khác. Trong trường hợp có mua chung thì mỗi sinh viên chỉ tốn 12 đô, 1 tháng 40 sinh viên mất có 480 đô, 1 năm mất có 5-6k.&lt;/li&gt;
+          &lt;li&gt;Nếu mua theo named-user license thì cứ mỗi user mỗi tháng mất 34.99 đô, 1 tháng 40 users mất $34.99\times 40=1399.6$ đô, 1 năm mất tầm 16-17k.&lt;/li&gt;
+          &lt;li&gt;&lt;strong&gt;Nếu mua theo device thì giả sử cứ 5 người dùng chung 1 device (1 tuần luân phiên nhau dùng) thì cần 8 máy, mỗi máy 1 năm mất 330 đô, cả nhóm phải chi cho 8 máy 1 năm tầm $330\times 8=2640$ đô.&lt;/strong&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nhìn chung là nếu cài theo máy thì sẽ rẻ nhất (cả năm mất có dưới 3k đô).
+Thì vì có người cần dùng khi đi công tác nên sẽ phải có cả máy bàn và máy laptop: 4 máy bàn và 4 máy laptop có cài Adobe Creative Cloud.
+Một máy giờ mua cũng tầm 2500 đô, dùng tầm 5 năm thì thay. Thì tổng tiền máy cần đầu tư là $2500\times 8=20000$ đô cho 5 năm.
+Vấn đề là sẽ phát sinh thêm công quản lý máy móc: ví dụ khi đi công tác mượn máy lap có cài Adobe thì quy chế ra sao, …
+Thì vì lab có 40 sinh viên, năm nào cũng có sinh viên mới nên chuyện có 4-5 cái máy bàn và mỗi sinh viên có 1 cái laptop là chuyện bình thường.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ca khó khăn là trường hợp lab trong cty thôi&lt;/strong&gt; vì Adobe không cung cấp gói device cho bên cty nên phòng nghiên cứu bên cty mà 40 người đều dùng thì mất 20k/năm là chuyện bình thường.
+Thế nên lại đòi hỏi giải pháp ở đây:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Đẩy phần nghiên cứu đồ họa này về các trường đại học để giảm giá&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Thì nếu đẩy được thì trong phòng bạn lãnh đạo chỉ cần giữ lại khoảng 4-5 ông làm về đồ họa nhưng cũng chỉ là các ông kiểu PM/Techlead chứ dev là để bên đại học họ lấy sinh viên làm cho (có khi các em nó còn làm không công để tốt nghiệp ấy chứ), còn lại cho đi làm dự án khác.&lt;/li&gt;
+      &lt;li&gt;Phần dự án cần nhiều license của Adobe thì thôi đẩy cho mấy ông thày bên đại học lo. Mình hợp tác thôi vì bên đại học họ mua license được số lượng lớn giá rẻ.&lt;/li&gt;
+      &lt;li&gt;Chuyện hợp tác đương nhiên cũng phải có trả lương nhất định cho các bên, nhưng chắc chắn bên đại học thì mình sẽ phải chi ít hơn (sinh viên bỏ vào thì có phải trả đâu mà có trả cũng ít hơn nhân viên chuyên nghiệp trong các cty tập đoàn).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tóm lại là nên đẩy những mảng nghiên cứu này về phía đại học vì nhiều lý do&lt;/strong&gt; và phương châm là thúc đẩy hợp tác giữa hai giới cty và học thuật.
+Vầ tất nhiên người được lợi cuối cùng chỉ có bên giới công nghiệp và các sếp thôi.
+Các bạn thử ngẫm mà xem:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bên Adobe bán license thì dù thế nào tiền vẫn vào túi họ nhé.&lt;/li&gt;
+  &lt;li&gt;Bên cty muốn hợp tác thì tiền chắc chắn họ tiết kiệm được một khoản khá nhờ đẩy việc vào đại học nhé.&lt;/li&gt;
+  &lt;li&gt;Các sếp cũng được thêm tiền dự án.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thế nên là tốt nhất cứ đi làm, còn đi nghiên cứu thì phải đòi thù lao nó xứng đáng các em ạ.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Về mặt maintain thì nhìn chung nên dùng gói Cloud, có gì nó cập nhật luôn mà vẫn tính trong tiền hàng tháng như vậy.&lt;/strong&gt;
+Còn các mục audit quản lý khác thì nằm trong gói do Adobe cung cấp rồi.&lt;/p&gt;
+
+&lt;h2 id=&quot;lựa-chọn-gói-nào-cho-games&quot;&gt;Lựa chọn gói nào cho games&lt;/h2&gt;
+&lt;p&gt;Thi thoảng vẫn có một số nghiên cứu liên quan tới games.
+Ví dụ như nghiên cứu để tìm ra 1 framework mới giúp việc thiết kế games trở nên mô phỏng gần với hành vi người dùng hơn:&lt;/p&gt;
+
+&lt;iframe src=&quot;https://view.officeapps.live.com/op/embed.aspx?src=http%3A%2F%2Falgorithmancy%2E8kindsoffun%2Ecom%3A80%2FMDAnwu%2Eppt&amp;amp;wdAr=1.3333333333333333&quot; width=&quot;100%&quot; height=&quot;480px&quot; frameborder=&quot;0&quot;&gt;This is an embedded &lt;a target=&quot;_blank&quot; href=&quot;https://office.com&quot;&gt;Microsoft Office&lt;/a&gt; presentation, powered by &lt;a target=&quot;_blank&quot; href=&quot;https://office.com/webapps&quot;&gt;Office&lt;/a&gt;.&lt;/iframe&gt;
+
+&lt;p&gt;Thì về phân tích nhu cầu thì nó lại thế này: nhân viên của mình thì không dùng mà mua về để cho &lt;strong&gt;những người tham gia thí nghiệm&lt;/strong&gt; dùng.
+Những người tham gia thí nghiệm sẽ được tuyển chọn dựa trên base của thí nghiệm thôi.
+Thì lại phải mua cho những người tham gia ấy chơi.
+Tức là không phải mua cho nhân viên mình chơi mà là cho &lt;strong&gt;đối tượng thí nghiệm chơi&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thì tùy vào &lt;strong&gt;setup của thí nghiệm&lt;/strong&gt; mà có khi phải mua cả bộ Xbox hoặc Playstation.
+Có khi phải mua bản Gold hoặc bản Ultimate chứ bản Standard cũng ko được.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://store.ubi.com/us/game/?lang=en_US&amp;amp;pid=5e84a5065cdf9a21c0b4e737&amp;amp;dwvar_5e84a5065cdf9a21c0b4e737_Platform=pcdl&amp;amp;edition=Ultimate%20Edition&amp;amp;source=detail&quot;&gt;Bảng giá Assassin’s Creed Valhalla&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tuy nhiên, cũng cần nhớ nếu mình chọn đối tượng thí nghiệm là students ấy thì sẽ được discount 15%: &lt;a href=&quot;https://store.ubi.com/us/student-discount.html?lang=en_US&quot;&gt;https://store.ubi.com/us/student-discount.html?lang=en_US&lt;/a&gt;
+Bao giờ student cũng được discount nên chọn loại đối tượng này thì sẽ tốt hơn.
+Hoặc có khi mình có thể setup thí nghiệm là chỉ khảo sát &lt;strong&gt;những đối tượng nào đã chơi game trên thôi&lt;/strong&gt; thì chuyện mua game là của họ, mình chỉ cần tìm ra họ thôi.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tuy nhiên là đôi khi là nhu cầu thí nghiệm đòi monitor cả quá trình chơi game của đối tượng thì lại phải mua cho họ games để họ chơi.&lt;/strong&gt;
+Trong trường hợp phải mua cho họ chơi ấy, thì nên chọn student để có discount.&lt;/p&gt;
+
+&lt;h2 id=&quot;lựa-chọn-gói-truyền-hình-gì&quot;&gt;Lựa chọn gói truyền hình gì?&lt;/h2&gt;
+
+&lt;p&gt;Đồ họa và games coi như là hai nhánh chính thống của Computer Vision.
+Một phần nào đó thì cũng là nơi mà CV thực sự được ứng dụng nghiêm chỉnh.&lt;/p&gt;
+
+&lt;p&gt;Chúng ta ít khi nghĩ đến những đề tài nghiên cứu về truyền hình nhưng thực ra là cũng liên quan kha khá đấy.
+Đơn cử là có những nghiên cứu về &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;interactive television&lt;/code&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Truyền hình tương tác&lt;/strong&gt; là một dạng truyền hình cho phép người xem tham gia, điều khiển các chương trình truyền hình. Với dạng truyền hình truyền thống, đường truyền truyền hình là một chiều. Các nhà đài cho phép khán giả xem gì, vào giờ nào, trên kênh nào là quyền của họ.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://b-i.forbesimg.com/onmarketing/files/2013/05/300x201.jpg&quot; alt=&quot;interactive TV&quot; /&gt;
+&lt;em&gt;Source: &lt;a href=&quot;https://www.forbes.com/sites/onmarketing/2013/05/20/guess-what-marketers-interactive-tv-is-actually-here/?sh=2ac8a4f0778a&quot;&gt;Forbes&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Thì cũng như đồ họa và games, chủ yếu là nghiên cứu nhận kinh phí từ các nguồn dồi dào có sẵn, được đặt hàng hẳn hoi.
+Và họ cũng chủ yếu nghiên cứu về &lt;strong&gt;trải nghiệm người dùng&lt;/strong&gt; thôi.
+Không cần code kiếc gì đâu, chỉ cần làm mấy thí nghiệm để kiểm chứng giả thuyết về trải nghiệm người dùng.&lt;/p&gt;
+
+&lt;p&gt;Sẽ phải mua sắm màn hình cảm ứng touch, có kết nối truyền hình.
+Sau đó là setup một căn phòng và cho người dùng trải nghiệm theo kịch bản cho sẵn.
+Thế là sẽ phải mua một gói truyền hình cho thí nghiệm, nhưng như thế thì sẽ không dùng thường xuyên, và phải trả theo tháng thì mua kèm Internet cáp.
+Tốt nhất là nên lên kế hoạch thí nghiệm và chốt thời gian tổ chức để chỉ mua gói truyền hình tại tháng ấy thôi.&lt;/p&gt;
+
+&lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+&lt;p&gt;Nhìn chung, &lt;strong&gt;kỹ năng quản lý license&lt;/strong&gt; là một kỹ năng không thể thiếu để quản trị một nhóm tầm trong quy mô 50-100 nhân viên.
+Ở quy mô này trở lên, bắt đầu phải có những điểm lưu ý và thảo luận để quản lý linh hoạt chủ động mà lại tối ưu.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 25 Dec 2021 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/subcription-optimize/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/subcription-optimize/</guid>
+        
+        <category>Adobe</category>
+        
+        <category>Adobe Creative Cloud</category>
+        
+        <category>Games</category>
+        
+        <category>Subscriptions</category>
+        
+        <category>teamlead</category>
+        
+        <category>techlead</category>
+        
+        <category>supervisor</category>
+        
+        <category>assistant</category>
+        
+        
+        <category>Tiếng Việt, 日本語</category>
+        
+        <category>Software Engineering</category>
+        
+        <category>Project Management</category>
         
       </item>
     
