@@ -8,7 +8,7 @@ var documents = [{
     "id": 1,
     "url": "https://wanted2.github.io/about",
     "title": "Tuan Nguyen-Anh",
-    "body": "Contacts: tuan. nguyenanh. brse@gmail. com| Curriculum Vitae: English Experience: Bridge System Engineer/Project Management/Product Owner/Scrum Master/Techlead/TeamleadSystem engineering/Web development      Backend: Java SpringBoot, Scala Playframework, PHP Laravel, Python Flask/Django, . etc.     Frontend: VueJS, ReactJS, AngularJS, Svelte, jQuery, . etc.     Cloud: AWS, Google GCP, Azure    DevOps, SRE, . etc.     Artificial Intelligence/Internet of Things/Computer Vision/Machine Learning Hobbies: I love $$In the weekend, I love to think about dollars $! ^^"
+    "body": "Contacts: tuan. nguyenanh. brse@gmail. com| Curriculum Vitae: English Experience: Bridge System Engineer/Project Management/Product Owner/Scrum Master/Techlead/TeamleadSystem engineering/Web development      Backend: Java SpringBoot, Scala Playframework, PHP Laravel, Python Flask/Django, . etc.     Frontend: VueJS, ReactJS, AngularJS, Svelte, jQuery, . etc.     Cloud: AWS, Google GCP, Azure    DevOps, SRE, . etc.     Artificial Intelligence/Internet of Things/Computer Vision/Machine Learning Hobbies: I love $$In the weekend, I love to think about US dollars $! ^^"
     }, {
     "id": 2,
     "url": "https://wanted2.github.io/categories",
