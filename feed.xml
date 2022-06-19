@@ -5,12 +5,12 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 15:13:36 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 15:13:36 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 15:18:49 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 15:18:49 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
-        <title>Federated Learning: Best practices from Edge and AWS</title>
+        <title>Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)</title>
         <description>&lt;blockquote&gt;
   &lt;p&gt;Federated learning (FL) is a machine learning (ML) scenario with two distinct characteristics. First, training occurs on multiple machines. Second, each machine involved in training keeps training data locally; the only information shared between machines is the ML model and its parameters. FL solves challenges related to data privacy and scalability in scenarios such as mobile devices and IoT.&lt;/p&gt;
 &lt;/blockquote&gt;

@@ -6,7 +6,7 @@
 
 <link rel="icon" href="https://wanted2.github.io/assets/images/favicon.ico">
 
-<title>Federated Learning: Best practices from Edge and AWS | AiFi</title>
+<title>Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS) | AiFi</title>
 
  
     
@@ -23,9 +23,9 @@
 
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Federated Learning: Best practices from Edge and AWS | AiFi</title>
+<title>Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS) | AiFi</title>
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Federated Learning: Best practices from Edge and AWS" />
+<meta property="og:title" content="Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)" />
 <meta name="author" content="tuan" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Federated learning (FL) is a machine learning (ML) scenario with two distinct characteristics. First, training occurs on multiple machines. Second, each machine involved in training keeps training data locally; the only information shared between machines is the ML model and its parameters. FL solves challenges related to data privacy and scalability in scenarios such as mobile devices and IoT. By Amazon Web Service (AWS) Theo định nghĩa của AWS, thì Federated Machine Learning (FedML) là một hình thức (scenario) máy học có 2 đặc trưng nổi bật là: 1. quá trình học diễn ra trên nhiều máy.; 2. mỗi máy thực hiện học (training) sẽ giữ kín dữ liệu training ở local; dữ liệu duy nhất mà các máy chia sẻ với nhau chỉ là mô hình (model) máy học và các thông số model (parameters). [6, 6, 6, 6, 6, 6] References Aledhari, M., Razzak, R., Parizi, R.M. and Saeed, F. 2020. Federated learning: A survey on enabling technologies, protocols, and applications. IEEE Access. 8, (2020), 140699–140725.Details Liu, Y., Yuan, X., Xiong, Z., Kang, J., Wang, X. and Niyato, D. 2020. Federated learning for 6G communications: Challenges, methods, and future directions. China Communications. 17, 9 (2020), 105–118.Details Khan, L.U., Saad, W., Han, Z., Hossain, E. and Hong, C.S. 2021. Federated learning for internet of things: Recent advances, taxonomy, and open challenges. IEEE Communications Surveys &amp; Tutorials. (2021).Details Kaissis, G.A., Makowski, M.R., Rückert, D. and Braren, R.F. 2020. Secure, privacy-preserving and federated machine learning in medical imaging. Nature Machine Intelligence. 2, 6 (2020), 305–311.Details Nguyen, D.C., Ding, M., Pathirana, P.N., Seneviratne, A., Li, J. and Poor, H.V. 2021. Federated learning for internet of things: A comprehensive survey. IEEE Communications Surveys &amp; Tutorials. (2021).Details Kaissis, G., Ziller, A., Passerat-Palmbach, J., Ryffel, T., Usynin, D., Trask, A., Lima, I., Mancuso, J., Jungmann, F., Steinborn, M.-M. and others 2021. End-to-end privacy preserving deep learning on multi-institutional medical imaging. Nature Machine Intelligence. 3, 6 (2021), 473–484.Details" />
@@ -36,9 +36,9 @@
 <meta property="article:published_time" content="2022-06-05T00:00:00+09:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig3-fed-ml.png" />
-<meta property="twitter:title" content="Federated Learning: Best practices from Edge and AWS" />
+<meta property="twitter:title" content="Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-06-05T00:00:00+09:00","datePublished":"2022-06-05T00:00:00+09:00","description":"Federated learning (FL) is a machine learning (ML) scenario with two distinct characteristics. First, training occurs on multiple machines. Second, each machine involved in training keeps training data locally; the only information shared between machines is the ML model and its parameters. FL solves challenges related to data privacy and scalability in scenarios such as mobile devices and IoT. By Amazon Web Service (AWS) Theo định nghĩa của AWS, thì Federated Machine Learning (FedML) là một hình thức (scenario) máy học có 2 đặc trưng nổi bật là: 1. quá trình học diễn ra trên nhiều máy.; 2. mỗi máy thực hiện học (training) sẽ giữ kín dữ liệu training ở local; dữ liệu duy nhất mà các máy chia sẻ với nhau chỉ là mô hình (model) máy học và các thông số model (parameters). [6, 6, 6, 6, 6, 6] References Aledhari, M., Razzak, R., Parizi, R.M. and Saeed, F. 2020. Federated learning: A survey on enabling technologies, protocols, and applications. IEEE Access. 8, (2020), 140699–140725.Details Liu, Y., Yuan, X., Xiong, Z., Kang, J., Wang, X. and Niyato, D. 2020. Federated learning for 6G communications: Challenges, methods, and future directions. China Communications. 17, 9 (2020), 105–118.Details Khan, L.U., Saad, W., Han, Z., Hossain, E. and Hong, C.S. 2021. Federated learning for internet of things: Recent advances, taxonomy, and open challenges. IEEE Communications Surveys &amp; Tutorials. (2021).Details Kaissis, G.A., Makowski, M.R., Rückert, D. and Braren, R.F. 2020. Secure, privacy-preserving and federated machine learning in medical imaging. Nature Machine Intelligence. 2, 6 (2020), 305–311.Details Nguyen, D.C., Ding, M., Pathirana, P.N., Seneviratne, A., Li, J. and Poor, H.V. 2021. Federated learning for internet of things: A comprehensive survey. IEEE Communications Surveys &amp; Tutorials. (2021).Details Kaissis, G., Ziller, A., Passerat-Palmbach, J., Ryffel, T., Usynin, D., Trask, A., Lima, I., Mancuso, J., Jungmann, F., Steinborn, M.-M. and others 2021. End-to-end privacy preserving deep learning on multi-institutional medical imaging. Nature Machine Intelligence. 3, 6 (2021), 473–484.Details","headline":"Federated Learning: Best practices from Edge and AWS","image":"https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig3-fed-ml.png","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/federated-learning/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/federated-learning/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"tuan"},"dateModified":"2022-06-05T00:00:00+09:00","datePublished":"2022-06-05T00:00:00+09:00","description":"Federated learning (FL) is a machine learning (ML) scenario with two distinct characteristics. First, training occurs on multiple machines. Second, each machine involved in training keeps training data locally; the only information shared between machines is the ML model and its parameters. FL solves challenges related to data privacy and scalability in scenarios such as mobile devices and IoT. By Amazon Web Service (AWS) Theo định nghĩa của AWS, thì Federated Machine Learning (FedML) là một hình thức (scenario) máy học có 2 đặc trưng nổi bật là: 1. quá trình học diễn ra trên nhiều máy.; 2. mỗi máy thực hiện học (training) sẽ giữ kín dữ liệu training ở local; dữ liệu duy nhất mà các máy chia sẻ với nhau chỉ là mô hình (model) máy học và các thông số model (parameters). [6, 6, 6, 6, 6, 6] References Aledhari, M., Razzak, R., Parizi, R.M. and Saeed, F. 2020. Federated learning: A survey on enabling technologies, protocols, and applications. IEEE Access. 8, (2020), 140699–140725.Details Liu, Y., Yuan, X., Xiong, Z., Kang, J., Wang, X. and Niyato, D. 2020. Federated learning for 6G communications: Challenges, methods, and future directions. China Communications. 17, 9 (2020), 105–118.Details Khan, L.U., Saad, W., Han, Z., Hossain, E. and Hong, C.S. 2021. Federated learning for internet of things: Recent advances, taxonomy, and open challenges. IEEE Communications Surveys &amp; Tutorials. (2021).Details Kaissis, G.A., Makowski, M.R., Rückert, D. and Braren, R.F. 2020. Secure, privacy-preserving and federated machine learning in medical imaging. Nature Machine Intelligence. 2, 6 (2020), 305–311.Details Nguyen, D.C., Ding, M., Pathirana, P.N., Seneviratne, A., Li, J. and Poor, H.V. 2021. Federated learning for internet of things: A comprehensive survey. IEEE Communications Surveys &amp; Tutorials. (2021).Details Kaissis, G., Ziller, A., Passerat-Palmbach, J., Ryffel, T., Usynin, D., Trask, A., Lima, I., Mancuso, J., Jungmann, F., Steinborn, M.-M. and others 2021. End-to-end privacy preserving deep learning on multi-institutional medical imaging. Nature Machine Intelligence. 3, 6 (2021), 473–484.Details","headline":"Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)","image":"https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig3-fed-ml.png","mainEntityOfPage":{"@type":"WebPage","@id":"/https://wanted2.github.io/federated-learning/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/https://wanted2.github.io/assets/images/favicon.ico"},"name":"tuan"},"url":"/https://wanted2.github.io/federated-learning/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -190,7 +190,7 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-            <a target="_blank" href="https://twitter.com/intent/tweet?text=Federated Learning: Best practices from Edge and AWS&url=https://wanted2.github.io/federated-learning/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)&url=https://wanted2.github.io/federated-learning/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fab fa-twitter"></i>
             </a>
         </li>
@@ -208,7 +208,7 @@
         </li>
 
         <li class="ml-1 mr-1">
-            <a target="_blank" href="mailto:?subject=Federated Learning: Best practices from Edge and AWS&body=https://wanted2.github.io/federated-learning/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+            <a target="_blank" href="mailto:?subject=Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)&body=https://wanted2.github.io/federated-learning/" onclick="window.open(this.href, 'width=550,height=435');return false;">
                 <i class="fas fa-envelope"></i>
             </a>
         </li>
@@ -276,7 +276,7 @@
                 
 
                 <!-- Post Title -->
-                <h1 class="posttitle">Federated Learning: Best practices from Edge and AWS</h1>
+                <h1 class="posttitle">Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)</h1>
 
             </div>
 
@@ -288,7 +288,7 @@
             
 
             
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig3-fed-ml.png" alt="Federated Learning: Best practices from Edge and AWS">
+            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig3-fed-ml.png" alt="Best practices for Federated Machine Learning (FedML) with Amazon Web Services (AWS)">
             
 
             
