@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 15:21:53 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 15:21:53 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 15:50:48 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 15:50:48 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -26,11 +26,23 @@ Tuy nhiên, học đi đôi với hành, nên chúng ta cũng sẽ lấy ví d�
 
 &lt;h1 id=&quot;giới-thiệu-về-fedml&quot;&gt;Giới thiệu về FedML&lt;/h1&gt;
 
+&lt;h2 id=&quot;machine-learning-truyền-thống-vs-fedml&quot;&gt;Machine Learning truyền thống vs. FedML&lt;/h2&gt;
+
+&lt;p&gt;ML truyền thống (hay là Machine Learning cơ bản) thì chủ yếu dựa vào nguồn dữ liệu, kiến trúc mô hình và thuật toán máy học cơ bản (xem hình dưới).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig1-1.png&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;Machine Learning cơ bản&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;FedML &lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig2-2.png&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;FedML&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ưu-nhược-điểm-của-fedml&quot;&gt;Ưu nhược điểm của FedML&lt;/h2&gt;
+
 &lt;h1 id=&quot;đôi-dòng-về-aws-sagemaker&quot;&gt;Đôi dòng về AWS SageMaker&lt;/h1&gt;
 
 &lt;h1 id=&quot;ví-dụ-triển-khai-fedml-trên-sagemaker&quot;&gt;Ví dụ triển khai FedML trên SageMaker&lt;/h1&gt;
-
-&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
