@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 17:02:04 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 17:02:04 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 17:17:37 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 17:17:37 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -50,6 +50,8 @@ Dưới đây là biểu đồ luồng thông tin của 1 hệ thống FedML (c�
 &lt;p&gt;Luồng FedML ở trên đây có 2 nhóm thiết bị chính: &lt;strong&gt;devices và coordinators (người điều phối)&lt;/strong&gt;.
 Devices có thể là các thiết bị IoT, smartphones, sensors, PCs, .v.v…
 &lt;strong&gt;Người điều phối (co-ordinator)&lt;/strong&gt; là nhóm những servers thực hiện aggregate thông số mô hình và phát tán cho các thiết bị.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Chú ý: &lt;strong&gt;Người điều phối không cần truy cập hay tiếp xúc với dữ liệu&lt;/strong&gt;, việc duy nhất của người điều phối là phát tán mô hình (bao gồm cả thông số), nhận mô hình được train ở các thiết bị local và aggregate.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;ưu-nhược-điểm-của-fedml&quot;&gt;Ưu nhược điểm của FedML&lt;/h2&gt;
 
