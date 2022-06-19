@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 16:32:20 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 16:32:20 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 17:02:04 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 17:02:04 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -41,10 +41,15 @@ Các bạn thấy đấy, ML cơ bản có khá nhiều giới hạn và vấn �
 Ngoài ra, nhu cầu về bảo mật dữ liệu cấp công nghiệp ngày càng cao, dẫn đến các hệ thống ML cơ bản chỉ dừng ở mức độ lý thuyết chứ khó triển khai vào sản phẩm thực tế.
 Khi triển khai vận hành vào sản phẩm thực tế, chúng ta cần 1 mô hình kiến trúc học tối tân hơn, và đó chính là lúc chúng ta cần FedML.&lt;/p&gt;
 
-&lt;p&gt;FedML &lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt; giải quyết một phát cả 2 vấn đề trên, thậm chí còn cải thiện cả băng thông (vì không phải chia sẻ data nữa).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;FedML&lt;/strong&gt; &lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt; giải quyết một phát cả 2 vấn đề trên, thậm chí còn cải thiện cả băng thông (vì không phải chia sẻ data nữa).
+Dưới đây là biểu đồ luồng thông tin của 1 hệ thống FedML (cũng cơ bản thôi).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig2-2.png&quot; alt=&quot;&quot; /&gt;
 &lt;em&gt;FedML&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Luồng FedML ở trên đây có 2 nhóm thiết bị chính: &lt;strong&gt;devices và coordinators (người điều phối)&lt;/strong&gt;.
+Devices có thể là các thiết bị IoT, smartphones, sensors, PCs, .v.v…
+&lt;strong&gt;Người điều phối (co-ordinator)&lt;/strong&gt; là nhóm những servers thực hiện aggregate thông số mô hình và phát tán cho các thiết bị.&lt;/p&gt;
 
 &lt;h2 id=&quot;ưu-nhược-điểm-của-fedml&quot;&gt;Ưu nhược điểm của FedML&lt;/h2&gt;
 
