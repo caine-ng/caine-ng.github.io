@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 18:48:43 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 18:48:43 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 18:59:32 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 18:59:32 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -92,13 +92,15 @@ Thường thì sẽ phải kết hợp với &lt;em&gt;weight monitoring&lt;/em&
 FedML giải quyết các vấn đề của ML cơ bản, và chúng ta lại tiếp tục giải quyết các vấn đề của FedML.&lt;/p&gt;
 
 &lt;p&gt;Vấn đề &lt;strong&gt;&lt;em&gt;người ra người vào liên tục&lt;/em&gt;&lt;/strong&gt; thì có chuyện gì ở đây là cấu hình của tập thiết bị sẽ thay đổi, chúng ta không thể kỳ vọng thiết bị mới vào sẽ lại có cấu hình và năng lực tương tự như các thiết bị đang có và đã bỏ ra.
+Và vấn đề là không chỉ năng lực không đồng bộ mà còn là những thiết bị mới tuyển vào có thể “lái” việc huấn luyện mô hình đi theo hướng mà chúng mong muốn.
+Tức là những thiết bị “xấu”: vào chỉ để ảnh hưởng xấu đến mô hình, hoặc vào một tí lại bỏ việc chả đóng góp gì cho việc học của mô hình, hoặc vào chỉ để nghe ngóng chứ không phải để đóng góp vào việc tính toán huấn luyện mô hình.
 Vấn đề &lt;strong&gt;&lt;em&gt;liên lạc bất đồng bộ&lt;/em&gt;&lt;/strong&gt; thì chủ yếu là giao tiếp giữa thiết bị và người điều phối: thiết bị do không đồng bộ nên có thể bắt người điều phối chờ.
 Thì nói chung 2 cái vấn đề này tôi nghĩ cũng là những vấn đề “muôn thuở” của FedML.
 Bây giờ cũng có nhiều hướng giải quyết.&lt;/p&gt;
 
 &lt;p&gt;Vấn đề &lt;strong&gt;&lt;em&gt;băng thông&lt;/em&gt;&lt;/strong&gt; thì chủ yếu là tối ưu size của mô hình thì giờ cũng nhiều hướng giải quyết mở ra như Distilation, Prunning, Binary Neural Nets, Compression, …&lt;/p&gt;
 
-&lt;p&gt;Vấn đề &lt;strong&gt;&lt;em&gt;frameworks&lt;/em&gt;&lt;/strong&gt; thì cũng dần dần có những phát triển mới nhưu PySyft hay Flower.&lt;/p&gt;
+&lt;p&gt;Vấn đề &lt;strong&gt;&lt;em&gt;frameworks&lt;/em&gt;&lt;/strong&gt; thì cũng dần dần có những phát triển mới như PySyft&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt; hay Flower&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;đôi-dòng-về-aws-sagemaker&quot;&gt;Đôi dòng về AWS SageMaker&lt;/h1&gt;
 
@@ -122,6 +124,12 @@ Bây giờ cũng có nhiều hướng giải quyết.&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/&quot;&gt;https://www.tensorflow.org/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://github.com/OpenMined/PySyft&quot;&gt;https://github.com/OpenMined/PySyft&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://flower.dev/&quot;&gt;https://flower.dev/&lt;/a&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
