@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 22:31:45 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 22:31:45 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 23:01:58 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 23:01:58 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -114,6 +114,7 @@ Chọn những con đường khác cũng được nhưng mất công quá vào n
 
 &lt;h1 id=&quot;đôi-dòng-về-aws-sagemaker&quot;&gt;Đôi dòng về AWS SageMaker&lt;/h1&gt;
 
+&lt;h2 id=&quot;nền-tảng-điện-toán-đám-mây-của-amazon&quot;&gt;Nền tảng điện toán đám mây của Amazon&lt;/h2&gt;
 &lt;p&gt;Amazon Web Services (AWS) là tên một công ty con của Amazon chuyên về cung cấp các dịch vụ điện toán đám mây.
 Bắt đầu từ năm 2006, công ty hiện là nhà cung cấp hàng đầu trong mảng dịch vụ điện toán đám mây, bao gồm 3 nhóm dịch vụ điện toán đám mây chính:&lt;/p&gt;
 
@@ -135,6 +136,12 @@ Thế bây giờ cùng nghĩ nhé,&lt;/p&gt;
 Rốt cuộc là chỉ còn những giải pháp kiểu &lt;strong&gt;PaaS&lt;/strong&gt; là hợp lý nhất: nhà nghiên cứu tập trung vào đúng phần có giá trị &lt;strong&gt;lõi&lt;/strong&gt;, mà không phải lan man đi ra những chỗ vớ vẩn chả liên quan gì tới anh!&lt;/p&gt;
 
 &lt;p&gt;Đấy nên là chọn PaaS là ông vẫn được ngồi viết vài dòng code (cần thiết nhất, chứ những code không cần thiết không phải viết dòng nào) gọi là code chơi, vừa nhâm nhi cà phê vừa viết. Còn phần cứng các cái hệ thống nó lo hết! &lt;strong&gt;Mà thế nó mới đúng, thế mới sang xịn mịn, đẳng cấp product, chất lượng ngang với thung lũng Silicon&lt;/strong&gt;! Chứ giờ mà ngồi viết, kể cả thuê thợ code chất lượng nhất cái mảnh đất Đông Dương này, chắc cũng chỉ chất lượng tầm 30%. Mà đã không sang xịn mịn 100%, trong khi mục tiêu của mình là nghiên cứu thì mình cứ PaaS thôi!&lt;/p&gt;
+
+&lt;p&gt;Một lý do nữa nên dùng PaaS, là ví dụ so sánh với IaaS là ông suốt ngày ngồi code kiếc, cấu hình, trong khi với PaaS, ông tiết kiệm thời gian ấy, &lt;strong&gt;dùng thời gian ấy để lên kế hoạch, tìm kiếm ý tưởng, khách hàng mới.&lt;/strong&gt; Trong khi IaaS thì ông suốt ngày ngồi ỳ trước màn hình code, cái kiểu ấy là không ăn thua ở VN. Phải đi họp hành thảo luận, tìm kiếm ý tưởng, gặp mặt khách hàng, …&lt;/p&gt;
+
+&lt;p&gt;Nên chắc chắn cũng không cần suy nghĩ nhiều, PaaS là chắc chắn, và trong đó AWS SageMaker là một trong những người dẫn đầu thị trường!&lt;/p&gt;
+
+&lt;h2 id=&quot;sơ-lược-về-aws-sagemaker&quot;&gt;Sơ lược về AWS SageMaker&lt;/h2&gt;
 
 &lt;h1 id=&quot;ví-dụ-triển-khai-fedml-trên-sagemaker&quot;&gt;Ví dụ triển khai FedML trên SageMaker&lt;/h1&gt;
 
