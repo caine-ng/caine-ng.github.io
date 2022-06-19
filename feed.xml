@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jun 2022 00:52:20 +0900</pubDate>
-    <lastBuildDate>Mon, 20 Jun 2022 00:52:20 +0900</lastBuildDate>
+    <pubDate>Mon, 20 Jun 2022 00:59:03 +0900</pubDate>
+    <lastBuildDate>Mon, 20 Jun 2022 00:59:03 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -635,6 +635,11 @@ Proxy này cũng thực hiện lưu dữ liệu xuống S3: lý do cho việc n�
 &lt;em&gt;Triển khai giải pháp FedML trên Amazon SageMaker&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;kết-luận&quot;&gt;Kết luận&lt;/h1&gt;
+
+&lt;p&gt;Nhìn chung, qua bài viết này, chúng ta đã nhìn thấy tiềm năng cũng như sự cần thiết của FedML trong ứng dụng máy học thực tế.
+So với ML cơ bản thì FedML giải quyết khá nhiều vấn đề thực tế như bảo mật và bảo vệ dữ liệu người dùng, cải thiện băng thông.
+Và FedML cũng có những vấn đề riêng đang trong giai đoạn nghiên cứu.
+Chúng ta cũng điểm qua ứng dụng PoC thực tế của FedML bằng AWS SageMaker.&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
