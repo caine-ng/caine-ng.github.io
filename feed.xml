@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 15:18:49 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 15:18:49 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 15:21:53 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 15:21:53 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -19,7 +19,16 @@
   &lt;p&gt;By Amazon Web Service (AWS)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Theo định nghĩa của AWS, thì Federated Machine Learning (FedML) là một hình thức (scenario) máy học có 2 đặc trưng nổi bật là: 1. quá trình học diễn ra trên nhiều máy.; 2. mỗi máy thực hiện học (training) sẽ giữ kín dữ liệu training ở local; dữ liệu duy nhất mà các máy chia sẻ với nhau chỉ là mô hình (model) máy học và các thông số model (parameters).&lt;/p&gt;
+&lt;p&gt;Theo định nghĩa của AWS, thì Federated Machine Learning (FedML) là một hình thức (scenario) máy học có 2 đặc trưng nổi bật là: 1. quá trình học diễn ra trên &lt;strong&gt;nhiều máy&lt;/strong&gt;.; 2. mỗi máy thực hiện học (training) sẽ &lt;strong&gt;giữ kín&lt;/strong&gt; dữ liệu training ở local; dữ liệu duy nhất mà các máy chia sẻ với nhau chỉ là mô hình (model) máy học và các thông số model (parameters).
+Các bạn có thể thấy nếu chỉ có 1. thì FedML chỉ đơn giản là distributed learning (học phân tán) ra nhiều máy thiết bị, cái đặc trưng không kém phần quan trọng của FedML là 2. giấu kín dữ liệu của từng máy, tức là &lt;strong&gt;không có chuyện chia sẻ dữ liệu người dùng, tính bảo mật và tuân thủ privacy cao hơn&lt;/strong&gt;.
+Ngoài ra vì chỉ chia sẻ một “ít” dữ liệu là thông số mô hình nên độ ngốn băng thông là thấp, dẫn đến FedML là 1 hình thức học đang trở nên dần nhận được nhiều sự quan tâm.
+Tuy nhiên, học đi đôi với hành, nên chúng ta cũng sẽ lấy ví dụ về FedML trong thực tế qua một ví dụ triển khai trên AWS SageMaker.&lt;/p&gt;
+
+&lt;h1 id=&quot;giới-thiệu-về-fedml&quot;&gt;Giới thiệu về FedML&lt;/h1&gt;
+
+&lt;h1 id=&quot;đôi-dòng-về-aws-sagemaker&quot;&gt;Đôi dòng về AWS SageMaker&lt;/h1&gt;
+
+&lt;h1 id=&quot;ví-dụ-triển-khai-fedml-trên-sagemaker&quot;&gt;Ví dụ triển khai FedML trên SageMaker&lt;/h1&gt;
 
 &lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
 
