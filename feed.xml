@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 22:06:17 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 22:06:17 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 22:10:45 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 22:10:45 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -123,7 +123,16 @@ Bắt đầu từ năm 2006, công ty hiện là nhà cung cấp hàng đầu tr
   &lt;li&gt;&lt;strong&gt;Software-as-a-Service (SaaS)&lt;/strong&gt;: tức là người dùng chỉ dùng ứng dụng, tương tác và quản lý dữ liệu ở tầng ứng dụng, chứ không can thiệp tận tầng infra hay platform, và đương nhiên cũng không cần code hàm. Một ví dụ đơn giản là GMail, hoặc các hệ thống quản lý quan hệ khách hàng (CRM). Đơn giản chỉ “dùng” thôi!&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Thì tại sao nên dùng PaaS như SageMaker?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Thì tại sao nên dùng PaaS như SageMaker?&lt;/em&gt;&lt;/strong&gt; Lựa chọn loại hình điện toán đám mây còn phụ thuộc vào mục tiêu kinh doanh, cũng như yêu cầu khách hàng. Tuy nhiên, với một usecase đơn giản là bạn thực hiện một nghiên cứu máy học đơn thuần. Cũng chẳng có ai yêu cầu bạn phải làm product (ý tưởng nghiên cứu chưa có các thày review chẳng may nó có “độc” hoặc là vũ khí hạt nhân thì làm sao?), nên chắc chắn là đến khi &lt;strong&gt;được phép chuyển ý tưởng thành product&lt;/strong&gt; là sẽ phải trải qua 1 thời gian dài, và &lt;strong&gt;rủi ro&lt;/strong&gt; là không được phép làm ấy. Thế với rủi ro như vậy thì &lt;strong&gt;tư thế đúng nhất của người làm nghiên cứu là gì?&lt;/strong&gt; Là phải lựa chọn con đường &lt;strong&gt;thoáng nhất mà đi, dễ thành công nhất mà đi&lt;/strong&gt;.
+Thế bây giờ cùng nghĩ nhé,&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nếu chọn &lt;strong&gt;SaaS&lt;/strong&gt; thì nó có hết tính năng rồi, ông chỉ ngồi cấu hình thì không có ý tưởng mới thực sự -&amp;gt; thế còn làm làm gì?&lt;/li&gt;
+  &lt;li&gt;Nếu chọn &lt;strong&gt;IaaS&lt;/strong&gt; thì khối lượng công việc nó rất là lớn, &lt;strong&gt;không chỉ có viết code Flask đâu nhé&lt;/strong&gt;. Ông còn phải ngồi ông cấu hình, rồi đủ kiểu, mà kể cả có làm được thì nhìn chung cũng … không xịn! Mà kể cả làm demo mà so sánh với PaaS hoặc SaaS mà thấy không &lt;strong&gt;sang xịn mịn&lt;/strong&gt; thì … lượn còn gì nữa?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Đấy thế thì tại sao lại phải bỏ công vào những thứ không đóng góp gì vào việc hình thành ý tưởng như IaaS? tại sao lại đâm đầu vào mấy cái cấu hình như SaaS, trong khi đó là việc của người dùng?
+Rốt cuộc là chỉ còn những giải pháp kiểu &lt;strong&gt;PaaS&lt;/strong&gt; là hợp lý nhất: nhà nghiên cứu tập trung vào đúng phần có giá trị &lt;strong&gt;lõi&lt;/strong&gt;, mà không phải lan man đi ra những chỗ vớ vẩn chả liên quan gì tới anh!&lt;/p&gt;
 
 &lt;h1 id=&quot;ví-dụ-triển-khai-fedml-trên-sagemaker&quot;&gt;Ví dụ triển khai FedML trên SageMaker&lt;/h1&gt;
 
