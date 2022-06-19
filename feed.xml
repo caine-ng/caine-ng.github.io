@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 15:50:48 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 15:50:48 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 16:04:22 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 16:04:22 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -20,7 +20,7 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;Theo định nghĩa của AWS, thì Federated Machine Learning (FedML) là một hình thức (scenario) máy học có 2 đặc trưng nổi bật là: 1. quá trình học diễn ra trên &lt;strong&gt;nhiều máy&lt;/strong&gt;.; 2. mỗi máy thực hiện học (training) sẽ &lt;strong&gt;giữ kín&lt;/strong&gt; dữ liệu training ở local; dữ liệu duy nhất mà các máy chia sẻ với nhau chỉ là mô hình (model) máy học và các thông số model (parameters).
-Các bạn có thể thấy nếu chỉ có 1. thì FedML chỉ đơn giản là distributed learning (học phân tán) ra nhiều máy thiết bị, cái đặc trưng không kém phần quan trọng của FedML là 2. giấu kín dữ liệu của từng máy, tức là &lt;strong&gt;không có chuyện chia sẻ dữ liệu người dùng, tính bảo mật và tuân thủ privacy cao hơn&lt;/strong&gt;.
+Các bạn có thể thấy nếu chỉ có 1. thì FedML chỉ đơn giản là distributed learning (học phân tán) ra nhiều máy thiết bị, cái đặc trưng không kém phần quan trọng của FedML là 2. giấu kín dữ liệu của từng máy, tức là &lt;strong&gt;không có chuyện chia sẻ dữ liệu người dùng, và vì vậy nên tính bảo mật và tuân thủ privacy cao hơn&lt;/strong&gt;.
 Ngoài ra vì chỉ chia sẻ một “ít” dữ liệu là thông số mô hình nên độ ngốn băng thông là thấp, dẫn đến FedML là 1 hình thức học đang trở nên dần nhận được nhiều sự quan tâm.
 Tuy nhiên, học đi đôi với hành, nên chúng ta cũng sẽ lấy ví dụ về FedML trong thực tế qua một ví dụ triển khai trên AWS SageMaker.&lt;/p&gt;
 
@@ -28,10 +28,15 @@ Tuy nhiên, học đi đôi với hành, nên chúng ta cũng sẽ lấy ví d�
 
 &lt;h2 id=&quot;machine-learning-truyền-thống-vs-fedml&quot;&gt;Machine Learning truyền thống vs. FedML&lt;/h2&gt;
 
-&lt;p&gt;ML truyền thống (hay là Machine Learning cơ bản) thì chủ yếu dựa vào nguồn dữ liệu, kiến trúc mô hình và thuật toán máy học cơ bản (xem hình dưới).&lt;/p&gt;
+&lt;p&gt;ML truyền thống (hay là Machine Learning cơ bản) thì chủ yếu dựa vào nguồn dữ liệu, kiến trúc mô hình và thuật toán máy học cơ bản (xem hình dưới).
+Định nghĩa lý thuyết của ML tôi xin phép không bàn tới, mà điểm focus của bài viết là từ góc nhìn kỹ thuật, kiến trúc vận hành thực tế của ML.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig1-1.png&quot; alt=&quot;&quot; /&gt;
 &lt;em&gt;Machine Learning cơ bản&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Các bạn có thể thấy ngay, với kiến trúc ML cơ bản như trên, dữ liệu học (training data) sẽ được gửi về &lt;strong&gt;1 địa điểm tập trung&lt;/strong&gt; để thực hiện quá trình học.
+Và đây chính là vấn đề: &lt;strong&gt;việc gửi dữ liệu qua đường truyền mạng sẽ có khá nhiều vấn đề về tuân thủ dữ liệu người dùng cũng như bảo mật&lt;/strong&gt;.
+Ngoài ra, cái gọi là &lt;strong&gt;&lt;em&gt;địa điểm tập trung&lt;/em&gt;&lt;/strong&gt; ấy cũng có vấn đề: nếu địa điểm đó nằm ngoài phạm vi đất nước, tức là dữ liệu người dùng 1 quốc gia, ví dụ như Việt Nam, sẽ bị gửi sang 1 server ở Trung Quốc?&lt;/p&gt;
 
 &lt;p&gt;FedML &lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
 
