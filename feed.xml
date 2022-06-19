@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 17:17:37 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 17:17:37 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 17:55:09 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 17:55:09 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -47,11 +47,27 @@ Dưới đây là biểu đồ luồng thông tin của 1 hệ thống FedML (c�
 &lt;p&gt;&lt;img src=&quot;https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/08/Fig2-2.png&quot; alt=&quot;&quot; /&gt;
 &lt;em&gt;FedML&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Luồng FedML ở trên đây có 2 nhóm thiết bị chính: &lt;strong&gt;devices và coordinators (người điều phối)&lt;/strong&gt;.
+&lt;p&gt;Luồng FedML ở trên đây có 2 nhóm thiết bị chính: &lt;strong&gt;devices (thiết bị) và coordinators (người điều phối)&lt;/strong&gt;.
 Devices có thể là các thiết bị IoT, smartphones, sensors, PCs, .v.v…
 &lt;strong&gt;Người điều phối (co-ordinator)&lt;/strong&gt; là nhóm những servers thực hiện aggregate thông số mô hình và phát tán cho các thiết bị.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Chú ý: &lt;strong&gt;Người điều phối không cần truy cập hay tiếp xúc với dữ liệu&lt;/strong&gt;, việc duy nhất của người điều phối là phát tán mô hình (bao gồm cả thông số), nhận mô hình được train ở các thiết bị local và aggregate.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Người điều phối cũng không train gì cả, mà đó là việc của thiết bị (devices).
+Thiết bị cũng thu thập dữ liệu luôn, và người điều phối cũng không cần quan tâm tới dữ liệu ở local của thiết bị.
+Luồng xử lý của FedML cơ bản bao gồm:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Người điều phối gửi dữ liệu mô hình đến các thiết bị để khởi tạo mô hình trên từng thiết bị&lt;/strong&gt;. Về cơ bản, ở bước này, mô hình ở mọi thiết bị sẽ là đồng bộ.&lt;/li&gt;
+  &lt;li&gt;Khi các thiết bị đã “sẵn sàng”, &lt;strong&gt;người điều phối gửi tín hiệu bắt đầu train&lt;/strong&gt;. Sau hiệu lệnh này, các thiết bị bắt đầu chuyển sang trạng thái training, tức là bắt đầu thu thập dữ liệu và cập nhật thông số mô hình.&lt;/li&gt;
+  &lt;li&gt;Việc train được các thiết bị thực hiện với dữ liệu được thu thập ở local &lt;strong&gt;và không chia sẻ đi đâu cả.&lt;/strong&gt; Bộ dữ liệu local có thể có sẵn (và được cung cấp bởi bên thứ 3), hoặc có thể được thu thập online (ví dụ như camera giao thông).&lt;/li&gt;
+  &lt;li&gt;Khi việc học (train) kết thúc, các &lt;strong&gt;thiết bị tổng hợp dữ liệu mô hình&lt;/strong&gt; (thông số và trọng số weights) để &lt;strong&gt;gửi về cho người điều phối&lt;/strong&gt;. Ở đây có vấn đề là độ trễ giữa các thiết bị, nên người điều phối có thể xem xét để thực hiện bước tiếp theo khi chờ đủ khoảng bao nhiều \% mô hình chứ không nhất thiết chờ tới 100\%.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Người điều phối thực hiện thuật toán aggregate các thông tin mô hình được gửi về từ các thiết bị local&lt;/strong&gt;. Thuật toán đơn giản nhất là &lt;em&gt;FedAvg&lt;/em&gt; tức là đơn thuần là lấy trung bình mọi thông số làm thông số mới.&lt;/li&gt;
+  &lt;li&gt;Quay lại 1. tức là lại phát tán lại thông số mô hình cho các thiết bị.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vai trò của người điều phối tưởng đơn giản nhưng lại khá quan trọng.
+Thường thì sẽ phải kết hợp với &lt;em&gt;weight monitoring&lt;/em&gt; tức là giám sát trọng số, phát hiện trọng số bất thường, …&lt;/p&gt;
 
 &lt;h2 id=&quot;ưu-nhược-điểm-của-fedml&quot;&gt;Ưu nhược điểm của FedML&lt;/h2&gt;
 
