@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 17:55:09 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 17:55:09 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 18:30:57 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 18:30:57 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -61,7 +61,7 @@ Luồng xử lý của FedML cơ bản bao gồm:&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;Người điều phối gửi dữ liệu mô hình đến các thiết bị để khởi tạo mô hình trên từng thiết bị&lt;/strong&gt;. Về cơ bản, ở bước này, mô hình ở mọi thiết bị sẽ là đồng bộ.&lt;/li&gt;
   &lt;li&gt;Khi các thiết bị đã “sẵn sàng”, &lt;strong&gt;người điều phối gửi tín hiệu bắt đầu train&lt;/strong&gt;. Sau hiệu lệnh này, các thiết bị bắt đầu chuyển sang trạng thái training, tức là bắt đầu thu thập dữ liệu và cập nhật thông số mô hình.&lt;/li&gt;
   &lt;li&gt;Việc train được các thiết bị thực hiện với dữ liệu được thu thập ở local &lt;strong&gt;và không chia sẻ đi đâu cả.&lt;/strong&gt; Bộ dữ liệu local có thể có sẵn (và được cung cấp bởi bên thứ 3), hoặc có thể được thu thập online (ví dụ như camera giao thông).&lt;/li&gt;
-  &lt;li&gt;Khi việc học (train) kết thúc, các &lt;strong&gt;thiết bị tổng hợp dữ liệu mô hình&lt;/strong&gt; (thông số và trọng số weights) để &lt;strong&gt;gửi về cho người điều phối&lt;/strong&gt;. Ở đây có vấn đề là độ trễ giữa các thiết bị, nên người điều phối có thể xem xét để thực hiện bước tiếp theo khi chờ đủ khoảng bao nhiều \% mô hình chứ không nhất thiết chờ tới 100\%.&lt;/li&gt;
+  &lt;li&gt;Khi việc học (train) kết thúc, các &lt;strong&gt;thiết bị tổng hợp dữ liệu mô hình&lt;/strong&gt; (thông số và trọng số weights) để &lt;strong&gt;gửi về cho người điều phối&lt;/strong&gt;. Ở đây có vấn đề là độ trễ giữa các thiết bị, nên người điều phối có thể xem xét để thực hiện bước tiếp theo khi chờ đủ khoảng bao nhiều % mô hình chứ không nhất thiết chờ tới 100%.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Người điều phối thực hiện thuật toán aggregate các thông tin mô hình được gửi về từ các thiết bị local&lt;/strong&gt;. Thuật toán đơn giản nhất là &lt;em&gt;FedAvg&lt;/em&gt; tức là đơn thuần là lấy trung bình mọi thông số làm thông số mới.&lt;/li&gt;
   &lt;li&gt;Quay lại 1. tức là lại phát tán lại thông số mô hình cho các thiết bị.&lt;/li&gt;
 &lt;/ol&gt;
@@ -70,6 +70,23 @@ Luồng xử lý của FedML cơ bản bao gồm:&lt;/p&gt;
 Thường thì sẽ phải kết hợp với &lt;em&gt;weight monitoring&lt;/em&gt; tức là giám sát trọng số, phát hiện trọng số bất thường, …&lt;/p&gt;
 
 &lt;h2 id=&quot;ưu-nhược-điểm-của-fedml&quot;&gt;Ưu nhược điểm của FedML&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Ưu điểm&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Nâng cao tính bảo mật, bảo vệ dữ liệu người dùng tốt hơn.&lt;/li&gt;
+      &lt;li&gt;Cải thiện băng thông.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nhược điểm&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Tính bất định trong tập thiết bị&lt;/strong&gt;: số lượng thiết bị lên tới hàng triệu, chục triệu và bất cứ lúc nào cũng có thiết bị thêm vào hoặc bỏ ra. Nói nôm na là &lt;em&gt;người ra người vào liên tục&lt;/em&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Liên lạc bất đồng bộ&lt;/strong&gt;: các thiết bị giao tiếp với người điều phối thông qua giao thức bất đồng bộ (dựa trên pub/sub messaging) như MQTT&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Ví dụ như khi người điều phối muốn yêu cầu các thiết bị nộp thông số mô hình, thì call đó có thể không đồng bộ và xuất hiện độ trễ. Như đã nói ở trên, nếu chờ hết 100% thiết bị nộp bài sẽ rất lâu, người điều phối có thể phải set timeout.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Băng thông&lt;/strong&gt;: mặc dù việc không phải truyền tải dữ liệu là đã tiết kiệm rất lớn băng thông, dữ liệu mô hình vẫn có thể từ vài MB tới vài trăm MB/lần.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Frameworks&lt;/strong&gt;: cái này cũng là vấn đề vì những framework máy học truyền thống như PyTorch&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; hay Tensorflow&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; vẫn chưa chịu hỗ trợ FedML tối đa. Phần lớn các framework này vẫn đang dừng ở mức hỗ trợ EdgeML hơn là FedML.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;đôi-dòng-về-aws-sagemaker&quot;&gt;Đôi dòng về AWS SageMaker&lt;/h1&gt;
 
@@ -83,6 +100,19 @@ Thường thì sẽ phải kết hợp với &lt;em&gt;weight monitoring&lt;/em&
 &lt;li&gt;&lt;span id=&quot;kaissis2020secure&quot;&gt;Kaissis, G.A., Makowski, M.R., Rückert, D. and Braren, R.F. 2020. Secure, privacy-preserving and federated machine learning in medical imaging. &lt;i&gt;Nature Machine Intelligence&lt;/i&gt;. 2, 6 (2020), 305–311.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kaissis2020secure/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;nguyen2021federated&quot;&gt;Nguyen, D.C., Ding, M., Pathirana, P.N., Seneviratne, A., Li, J. and Poor, H.V. 2021. Federated learning for internet of things: A comprehensive survey. &lt;i&gt;IEEE Communications Surveys &amp;amp; Tutorials&lt;/i&gt;. (2021).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/nguyen2021federated/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;kaissis2021end&quot;&gt;Kaissis, G., Ziller, A., Passerat-Palmbach, J., Ryffel, T., Usynin, D., Trask, A., Lima, I., Mancuso, J., Jungmann, F., Steinborn, M.-M. and others 2021. End-to-end privacy preserving deep learning on multi-institutional medical imaging. &lt;i&gt;Nature Machine Intelligence&lt;/i&gt;. 3, 6 (2021), 473–484.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/kaissis2021end/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://mqtt.org/&quot;&gt;https://mqtt.org/&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://pytorch.org/&quot;&gt;https://pytorch.org/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/&quot;&gt;https://www.tensorflow.org/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Sun, 05 Jun 2022 00:00:00 +0900</pubDate>
         <link>https://wanted2.github.io/federated-learning/</link>
