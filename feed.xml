@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 16:04:22 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 16:04:22 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 16:14:19 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 16:14:19 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -36,7 +36,10 @@ Tuy nhiên, học đi đôi với hành, nên chúng ta cũng sẽ lấy ví d�
 
 &lt;p&gt;Các bạn có thể thấy ngay, với kiến trúc ML cơ bản như trên, dữ liệu học (training data) sẽ được gửi về &lt;strong&gt;1 địa điểm tập trung&lt;/strong&gt; để thực hiện quá trình học.
 Và đây chính là vấn đề: &lt;strong&gt;việc gửi dữ liệu qua đường truyền mạng sẽ có khá nhiều vấn đề về tuân thủ dữ liệu người dùng cũng như bảo mật&lt;/strong&gt;.
-Ngoài ra, cái gọi là &lt;strong&gt;&lt;em&gt;địa điểm tập trung&lt;/em&gt;&lt;/strong&gt; ấy cũng có vấn đề: nếu địa điểm đó nằm ngoài phạm vi đất nước, tức là dữ liệu người dùng 1 quốc gia, ví dụ như Việt Nam, sẽ bị gửi sang 1 server ở Trung Quốc?&lt;/p&gt;
+Ngoài ra, cái gọi là &lt;strong&gt;&lt;em&gt;địa điểm tập trung&lt;/em&gt;&lt;/strong&gt; ấy cũng có vấn đề: nếu địa điểm đó nằm ngoài phạm vi đất nước, tức là dữ liệu người dùng 1 quốc gia, ví dụ như Việt Nam, sẽ bị gửi sang 1 server ở Trung Quốc?
+Các bạn thấy đấy, ML cơ bản có khá nhiều giới hạn và vấn đề, đòi hỏi researcher lẫn kỹ sư máy học phải có sự cân nhắc kỹ càng khi thiết kế triển khai vận hành 1 hệ thống ML cơ bản.
+Ngoài ra, nhu cầu về bảo mật dữ liệu cấp công nghiệp ngày càng cao, dẫn đến các hệ thống ML cơ bản chỉ dừng ở mức độ lý thuyết chứ khó triển khai vào sản phẩm thực tế.
+Khi triển khai vận hành vào sản phẩm thực tế, chúng ta cần 1 mô hình kiến trúc học tối tân hơn, và đó chính là lúc chúng ta cần FedML.&lt;/p&gt;
 
 &lt;p&gt;FedML &lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
 
