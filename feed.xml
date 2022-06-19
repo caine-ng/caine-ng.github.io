@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 22:10:45 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 22:10:45 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 22:31:45 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 22:31:45 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -133,6 +133,8 @@ Thế bây giờ cùng nghĩ nhé,&lt;/p&gt;
 
 &lt;p&gt;Đấy thế thì tại sao lại phải bỏ công vào những thứ không đóng góp gì vào việc hình thành ý tưởng như IaaS? tại sao lại đâm đầu vào mấy cái cấu hình như SaaS, trong khi đó là việc của người dùng?
 Rốt cuộc là chỉ còn những giải pháp kiểu &lt;strong&gt;PaaS&lt;/strong&gt; là hợp lý nhất: nhà nghiên cứu tập trung vào đúng phần có giá trị &lt;strong&gt;lõi&lt;/strong&gt;, mà không phải lan man đi ra những chỗ vớ vẩn chả liên quan gì tới anh!&lt;/p&gt;
+
+&lt;p&gt;Đấy nên là chọn PaaS là ông vẫn được ngồi viết vài dòng code (cần thiết nhất, chứ những code không cần thiết không phải viết dòng nào) gọi là code chơi, vừa nhâm nhi cà phê vừa viết. Còn phần cứng các cái hệ thống nó lo hết! &lt;strong&gt;Mà thế nó mới đúng, thế mới sang xịn mịn, đẳng cấp product, chất lượng ngang với thung lũng Silicon&lt;/strong&gt;! Chứ giờ mà ngồi viết, kể cả thuê thợ code chất lượng nhất cái mảnh đất Đông Dương này, chắc cũng chỉ chất lượng tầm 30%. Mà đã không sang xịn mịn 100%, trong khi mục tiêu của mình là nghiên cứu thì mình cứ PaaS thôi!&lt;/p&gt;
 
 &lt;h1 id=&quot;ví-dụ-triển-khai-fedml-trên-sagemaker&quot;&gt;Ví dụ triển khai FedML trên SageMaker&lt;/h1&gt;
 
