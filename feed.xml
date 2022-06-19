@@ -5,13 +5,21 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 13:58:21 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 13:58:21 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 14:05:16 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 14:05:16 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Federated Learning: Best pratices from Edge and AWS</title>
-        <description>&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Federated learning (FL) is a machine learning (ML) scenario with two distinct characteristics. First, training occurs on multiple machines. Second, each machine involved in training keeps training data locally; the only information shared between machines is the ML model and its parameters. FL solves challenges related to data privacy and scalability in scenarios such as mobile devices and IoT.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;By Amazon Web Service&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a class=&quot;citation&quot; href=&quot;#aledhari2020federated&quot;&gt;[1, 2, 3, 4, 5, 6]&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
