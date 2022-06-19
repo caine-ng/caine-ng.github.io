@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jun 2022 00:59:03 +0900</pubDate>
-    <lastBuildDate>Mon, 20 Jun 2022 00:59:03 +0900</lastBuildDate>
+    <pubDate>Mon, 20 Jun 2022 01:43:17 +0900</pubDate>
+    <lastBuildDate>Mon, 20 Jun 2022 01:43:17 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -1219,6 +1219,55 @@ IT業界でも実際はコロナ禍は主要な原因でリモートワークを
       </item>
     
       <item>
+        <title>House Price Prediction using Machine Learning</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://i.ytimg.com/vi/tjPd1ICl8Xo/maxresdefault.jpg&quot; alt=&quot;10000&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;house-price-prediction-problem&quot;&gt;House Price Prediction problem&lt;/h1&gt;
+
+&lt;h1 id=&quot;common-regressors&quot;&gt;Common Regressors&lt;/h1&gt;
+&lt;h2 id=&quot;linear-regressors&quot;&gt;Linear Regressors&lt;/h2&gt;
+
+&lt;h2 id=&quot;tree-based-regressors&quot;&gt;Tree-based Regressors&lt;/h2&gt;
+
+&lt;h2 id=&quot;boosting-regressors-br&quot;&gt;Boosting Regressors (BR)&lt;/h2&gt;
+
+&lt;h3 id=&quot;original-adaboost&quot;&gt;Original AdaBoost&lt;/h3&gt;
+
+&lt;h3 id=&quot;xgboost-and-lightgbm&quot;&gt;XGBoost and LightGBM&lt;/h3&gt;
+&lt;h3 id=&quot;catboost&quot;&gt;CatBoost&lt;/h3&gt;
+&lt;p&gt;CatBoost &lt;a class=&quot;citation&quot; href=&quot;#prokhorenkova2018catboost&quot;&gt;[1, 2, 3, 4]&lt;/a&gt; demonstrates the &lt;em&gt;Ordered Boosting (OB)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;others&quot;&gt;Others&lt;/h2&gt;
+
+&lt;h1 id=&quot;code&quot;&gt;Code&lt;/h1&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;prokhorenkova2018catboost&quot;&gt;Prokhorenkova, L., Gusev, G., Vorobev, A., Dorogush, A.V. and Gulin, A. 2018. CatBoost: unbiased boosting with categorical features. &lt;i&gt;Advances in neural information processing systems&lt;/i&gt;. 31, (2018).&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/prokhorenkova2018catboost/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hancock2020catboost&quot;&gt;Hancock, J.T. and Khoshgoftaar, T.M. 2020. CatBoost for big data: an interdisciplinary review. &lt;i&gt;Journal of big data&lt;/i&gt;. 7, 1 (2020), 1–45.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hancock2020catboost/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;hancock2021gradient&quot;&gt;Hancock, J.T. and Khoshgoftaar, T.M. 2021. Gradient boosted decision tree algorithms for medicare fraud detection. &lt;i&gt;SN Computer Science&lt;/i&gt;. 2, 4 (2021), 1–12.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/hancock2021gradient/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;leevy2021detecting&quot;&gt;Leevy, J.L., Hancock, J., Zuech, R. and Khoshgoftaar, T.M. 2021. Detecting cybersecurity attacks across different network features and learners. &lt;i&gt;Journal of Big Data&lt;/i&gt;. 8, 1 (2021), 1–29.&lt;/span&gt;&lt;a class=&quot;details&quot; href=&quot;https://wanted2.github.io/bibliography/leevy2021detecting/&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 01 Apr 2022 00:00:00 +0900</pubDate>
+        <link>https://wanted2.github.io/house-price/</link>
+        <guid isPermaLink="true">https://wanted2.github.io/house-price/</guid>
+        
+        <category>Machine learning</category>
+        
+        <category>regression</category>
+        
+        <category>linear regression</category>
+        
+        <category>logistic regression</category>
+        
+        <category>house price prediction</category>
+        
+        
+        <category>Artificial Intelligence</category>
+        
+      </item>
+    
+      <item>
         <title>Edge-Cloud architectures &amp; TPU resources</title>
         <description>&lt;p&gt;&lt;strong&gt;Edge-Cloud (EC) architectures&lt;/strong&gt; is an emerging computing paradigm recently, which takes the AI computation to the edge devices and only aggregates processed important data to the cloud.
 &lt;strong&gt;Tensor Processing Unit (TPU)&lt;/strong&gt; is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google’s own TensorFlow software.
@@ -2357,136 +2406,6 @@ We did not touch &lt;a href=&quot;https://docs.rapidapi.com/docs/what-is-rapidap
         <category>Artificial Intelligence</category>
         
         <category>Site Reliable Engineering</category>
-        
-      </item>
-    
-      <item>
-        <title>Chia tay 2021!</title>
-        <description>&lt;p&gt;Đây là bài post thứ 61 của blog AiFi trong năm 2021, cũng là bài viết chia tay 2021, trong tâm thế đón chờ 2022 tươi mới hơn.
-Theo quan điểm làm việc scrum, thì coi như đây là thời điểm kết thúc 1 chu kỳ, cũng là lúc làm một số việc để nhìn lại một năm đã qua (bao gồm cả GKPT hay &lt;em&gt;Good, Keep, Problem, Try&lt;/em&gt;).
-2021年中61番目の投稿です．
-2021年と別れて，2022年を迎える時期の投稿です．
-一年間を1スプリントとすると，いろいろなことができたと思いますので，スクラムの行事として，レビューとレトロ会をここで開催したいと思います．
-&lt;em&gt;Good, Keep, Problem, Try&lt;/em&gt; も含めてやります．
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;nhìn-lại-năm-2021-của-blog-aifi&quot;&gt;Nhìn lại năm 2021 của blog AiFi&lt;/h1&gt;
-
-&lt;h2 id=&quot;nhìn-từ-thống-kê-người-dùng&quot;&gt;Nhìn từ thống kê người dùng&lt;/h2&gt;
-
-&lt;p&gt;Hiện tại AiFi blog sử dụng Google Analytics để track và lấy thống kê người dùng.
-Các sự kiện như view, scroll, referal, … được báo cáo theo phút lên server của Google.&lt;/p&gt;
-
-&lt;p&gt;Đầu tiên là thống kê về người dùng và nguồn giới thiệu.
-Trong năm 2021, blog tuy mới ra mắt và còn nhiều khó khăn vất vả nhưng đã thu hút được 552 user mới từ khắp nơi trên thế giới.
-&lt;strong&gt;552 người dùng này đã ghi lại 7309 sự kiện.&lt;/strong&gt;
-Một con số đáng khích lệ với blog mới 1 năm tuổi đời.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Một điểm đáng chú ý là dù facebook.com là nơi tác giả hay chia sẻ bài viết, nhưng &lt;strong&gt;user lại phần lớn đến từ 2 nguồn: google và direct&lt;/strong&gt;.
-Về yếu tố địa lý thì đa phần người dùng đến từ &lt;strong&gt;Việt Nam, Mỹ và Nhật Bản&lt;/strong&gt;.
-Các nước khác vẫn chưa đóng tỷ trọng lớn trong cơ cấu người dùng của AiFi.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Tỷ lệ người dùng của AiFi gia tăng tính từ tháng &lt;strong&gt;7&lt;/strong&gt;.
-Trong năm 2021, &lt;strong&gt;số lượng sự kiện &lt;em&gt;user engagement&lt;/em&gt; là 1852, và số &lt;em&gt;page view&lt;/em&gt; là 2622 lượt&lt;/strong&gt;.
-Ngoài ra, 3 bài viết đạt số lượng truy cập cao nhất (không tính trang chủ) là:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/mOCR-mlkit-androidx-example/&quot;&gt;mOCR: A real-time application of OCR with Google MLKit and Android CameraX&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/adobe-creative-cloud/&quot;&gt;Adobe Creative Cloud: An All-in-One Platform for Creators&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/aws-lambda-spacy-mxnet-possible-but-shouldnt/&quot;&gt;Implementing a complex system in AWS Lambda: Should or shouldn’t?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sự “vùng lên” của bài viết &lt;a href=&quot;/adobe-creative-cloud/&quot;&gt;Adobe Creative Cloud: An All-in-One Platform for Creators&lt;/a&gt; thật thú vị vì bài viết được xuất bản trên blog AiFi vào tháng cuối năm nhưng lại đứng thứ nhì.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-03.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Về hệ điều hành, trình duyệt và ngôn ngữ đầu vẫn là &lt;strong&gt;Windows, Chrome và English&lt;/strong&gt;.
-Theo sau lần lượt là &lt;strong&gt;MacOS, Safari và tiếng Nhật&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/analytics-2021-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;nhìn-từ-kết-quả-tìm-kiếm&quot;&gt;Nhìn từ kết quả tìm kiếm&lt;/h2&gt;
-
-&lt;p&gt;Kết quả tìm kiếm về “AiFi Caineng” trên google.com và Bing Search trong ngày 31 tháng 12 năm 2021 như sau:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/aifi-search-engines-2021.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Kết quả tìm kiếm từ khóa “aifi” và thậm chí “aifi caineng” quả là hơi nghèo nàn và dễ bị lẫn vào các từ khóa tìm kiếm khác như “wifi” chẳng hạn.
-Đây cũng là 1 thiếu sót do blog mới chỉ 1 năm, và tác giả vẫn đang bận bịu công việc chính cuả tác giả.
-Tuy nhiên, từ năm 2022, ở mức độ nhất định việc nâng rank trong các cỗ máy tìm kiếm từ khóa sẽ được &lt;strong&gt;tối ưu hóa&lt;/strong&gt; nhằm đưa tri thức của AiFi đến với đông đảo bạn đọc và nâng cao chất lượng phục vụ.&lt;/p&gt;
-
-&lt;h1 id=&quot;good-keep-problem-try&quot;&gt;Good, Keep, Problem, Try&lt;/h1&gt;
-
-&lt;p&gt;Việc chạy sprint kéo dài 1 năm quả là hơi lạ, tuy nhiên là cũng dễ hiểu vì viết blog chỉ là việc phụ làm trong thời gian rảnh rỗi của tác giả.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Good&lt;/th&gt;
-      &lt;th&gt;Keep&lt;/th&gt;
-      &lt;th&gt;Problem&lt;/th&gt;
-      &lt;th&gt;Try&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Đã tạo được và thu hút lượng người dùng nhất định.&lt;/td&gt;
-      &lt;td&gt;Duy trì tần suất chia sẻ bài viết.&lt;/td&gt;
-      &lt;td&gt;Thứ hạng trên search engine chưa cao.&lt;/td&gt;
-      &lt;td&gt;Tối ưu hóa SEO&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Tối ưu hóa từ khóa&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Tối ưu thẻ HTML, …&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Chưa tạo ra thu nhập từ blog&lt;/td&gt;
-      &lt;td&gt;Xem xét đưa vào và tối ưu hóa quảng cáo.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Các nguồn Google và Facebook đã đem đến lượng người dùng nhất định.&lt;/td&gt;
-      &lt;td&gt;Tiếp tục duy trì quảng bá trên Google và Facebook.&lt;/td&gt;
-      &lt;td&gt;Nguồn Facebook chưa đem lại nhiều người dùng mới.&lt;/td&gt;
-      &lt;td&gt;Tối ưu hóa quảng bá blog trên Facebook.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;Một số nguồn cấp khác như Twitter và LinkedIn vẫn chưa đem lại nhiều người dùng.&lt;/td&gt;
-      &lt;td&gt;Lên chiến lược quảng bá trên các nền tảng này.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&quot;tổng-kết&quot;&gt;Tổng kết&lt;/h1&gt;
-
-&lt;p&gt;Kết thúc Sprint 2021, hướng tới Sprint 2022, blog AiFi xin cám ơn đông đảo bạn đọc, đặc biệt là 552 người dùng đã có, vì sự quan tâm và thịnh tình trong năm qua.
-Trong năm 2022, AiFi sẽ tiếp tục cập nhật và mong muốn lan tỏa tri thức cho anh em, với phương châm, troll trước học sau.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 31 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://wanted2.github.io/year-end/</link>
-        <guid isPermaLink="true">https://wanted2.github.io/year-end/</guid>
-        
-        <category>Event</category>
-        
-        <category>Year-end event</category>
-        
-        
-        <category>Tiếng Việt, 日本語</category>
         
       </item>
     
