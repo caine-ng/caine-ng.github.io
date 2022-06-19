@@ -5,8 +5,8 @@
     <description>An AI Researcher&apos;s blog (This is a staging site, so the content may be imprecise, refer to official AiFi)</description>
     <link>https://wanted2.github.io/</link>
     <atom:link href="https://wanted2.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 19:27:17 +0900</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 19:27:17 +0900</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 22:06:17 +0900</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 22:06:17 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
@@ -75,14 +75,14 @@ Thường thì sẽ phải kết hợp với &lt;em&gt;weight monitoring&lt;/em&
   &lt;li&gt;&lt;strong&gt;Ưu điểm&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;Nâng cao tính bảo mật, bảo vệ dữ liệu người dùng tốt hơn.&lt;/li&gt;
-      &lt;li&gt;Cải thiện băng thông.&lt;/li&gt;
+      &lt;li&gt;Cải thiện băng thông dữ liệu.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Nhược điểm&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Tính bất định trong tập thiết bị&lt;/strong&gt;: số lượng thiết bị lên tới hàng triệu, chục triệu và bất cứ lúc nào cũng có thiết bị thêm vào hoặc bỏ ra. Nói nôm na là &lt;em&gt;người ra người vào liên tục&lt;/em&gt;.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;Liên lạc bất đồng bộ&lt;/strong&gt;: các thiết bị giao tiếp với người điều phối thông qua giao thức bất đồng bộ (dựa trên pub/sub messaging) như MQTT&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Ví dụ như khi người điều phối muốn yêu cầu các thiết bị nộp thông số mô hình, thì call đó có thể không đồng bộ và xuất hiện độ trễ. Như đã nói ở trên, nếu chờ hết 100% thiết bị nộp bài sẽ rất lâu, người điều phối có thể phải set timeout.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Băng thông&lt;/strong&gt;: mặc dù việc không phải truyền tải dữ liệu là đã tiết kiệm rất lớn băng thông, dữ liệu mô hình vẫn có thể từ vài MB tới vài trăm MB/lần.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Băng thông mô hình&lt;/strong&gt;: mặc dù việc không phải truyền tải dữ liệu là đã tiết kiệm rất lớn băng thông, dữ liệu mô hình vẫn có thể từ vài MB tới vài trăm MB/lần.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;Frameworks&lt;/strong&gt;: cái này cũng là vấn đề vì những framework máy học truyền thống như PyTorch&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; hay Tensorflow&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; vẫn chưa chịu hỗ trợ FedML tối đa. Phần lớn các framework này vẫn đang dừng ở mức hỗ trợ EdgeML hơn là FedML.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -98,7 +98,7 @@ Vấn đề &lt;strong&gt;&lt;em&gt;liên lạc bất đồng bộ&lt;/em&gt;&lt
 Thì nói chung 2 cái vấn đề này tôi nghĩ cũng là những vấn đề “muôn thuở” của FedML.
 Bây giờ cũng có nhiều hướng giải quyết.&lt;/p&gt;
 
-&lt;p&gt;Vấn đề &lt;strong&gt;&lt;em&gt;băng thông&lt;/em&gt;&lt;/strong&gt; thì chủ yếu là tối ưu size của mô hình thì giờ cũng nhiều hướng giải quyết mở ra như Distillation, Prunning, Binary Neural Nets, Quantization, …&lt;/p&gt;
+&lt;p&gt;Vấn đề &lt;strong&gt;&lt;em&gt;băng thông mô hình&lt;/em&gt;&lt;/strong&gt; thì chủ yếu là tối ưu size của mô hình thì giờ cũng nhiều hướng giải quyết mở ra như Distillation, Prunning, Binary Neural Nets, Quantization, …&lt;/p&gt;
 
 &lt;p&gt;Vấn đề &lt;strong&gt;&lt;em&gt;frameworks&lt;/em&gt;&lt;/strong&gt; thì cũng dần dần có những phát triển mới như PySyft&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt; hay Flower&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;.
 Flower là một frameworks hoàn thiện cho FedML với hỗ trợ dành cho cả PyTorch và Tensorflow.
@@ -109,10 +109,21 @@ Khá nhiều thuật toán tối ưu hóa (optimization algorithms) dành cho Fe
 
 &lt;p&gt;Tôi nghĩ khi mới bắt đầu nghiên cứu theo hướng này, việc lên stack công nghệ cho giả lập là quan trọng.
 Trong đó việc sử dụng Flower kết hợp với AWS (sẽ nói trong mục tiếp theo) là một cách dễ dàng hơn để các bạn tiếp cận vấn đề mà ít mất công sức.
-Cài cắm thì khá đơn giản mà Flower cũng hỗ trợ hết các thư viện/frameworks nổi như HuggingFace, Tensoflow, PyTorch, PyTorch-Lightning, MXNet, .v.v…
+Cài cắm thì khá đơn giản mà Flower cũng hỗ trợ hết các thư viện/frameworks nổi như HuggingFace&lt;sup id=&quot;fnref:8&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:8&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;, Tensorflow&lt;sup id=&quot;fnref:2:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;, PyTorch&lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;, PyTorch-Lightning&lt;sup id=&quot;fnref:6&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;, MXNet&lt;sup id=&quot;fnref:7&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;8&lt;/a&gt;&lt;/sup&gt;, .v.v…
 Chọn những con đường khác cũng được nhưng mất công quá vào những việc ngoài mục tiêu nghiên cứu thì không nên.&lt;/p&gt;
 
 &lt;h1 id=&quot;đôi-dòng-về-aws-sagemaker&quot;&gt;Đôi dòng về AWS SageMaker&lt;/h1&gt;
+
+&lt;p&gt;Amazon Web Services (AWS) là tên một công ty con của Amazon chuyên về cung cấp các dịch vụ điện toán đám mây.
+Bắt đầu từ năm 2006, công ty hiện là nhà cung cấp hàng đầu trong mảng dịch vụ điện toán đám mây, bao gồm 3 nhóm dịch vụ điện toán đám mây chính:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Infrastructure-as-a-Service (IaaS)&lt;/strong&gt;: tức là cung cấp người dùng hệ thống toàn quyền cấp phát khởi tạo và kiểm soát hệ thống điện toán đám mây. Người dùng nắm toàn quyền từ quản lý tài nguyên, ứng dụng, dữ liệu và kể cả các hệ điều hành. Một ví dụ đơn giản nhất là bạn viết một ứng dụng web và deploy lên EC2, sau đó dữ liệu được lưu vào Amazon RDS, file được lưu trữ trên S3. Một ví dụ đơn giản như vậy có thể thể hiện được tính năng IaaS của AWS.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Platform-as-a-Service (PaaS)&lt;/strong&gt;: tức là người dùng không quan tâm tới các vấn đề bên dưới như phần cứng (vCPU/vGPU), phần mềm (hệ điều hành) của hệ thống điện toán đám mây, mà chỉ tập trung vào viết ứng dụng. Việc cấp phát và khởi tạo tài nguyên đủ để ứng dụng người dùng chạy được do nền tảng lo hết. Tất nhiên, người dùng có thể viết cấu hình đơn giản bằng YAML hoặc JSON. Ví dụ đơn giản nhất chính là SageMaker mà chúng ta đang nói đến. Thay vì bạn phải khởi tạo và lựa chọn cấu hình máy ảo, instance của EC2, rồi login vào để cài đặt hệ điều hành, các gói hệ thống, ứng dụng thì SageMaker sẽ đảm nhiệm hết cho bạn. Một ví dụ khác là Lambda, bạn chỉ cần tập trung viết Lambda function bằng Python, rồi việc khởi tạo tài nguyên cũng như đảm bảo cho hàm được chạy trơn chu (khi có lỗi log lại hoặc bắn vào dead queue) thì Lambda sẽ lo hết những việc bên dưới ấy.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Software-as-a-Service (SaaS)&lt;/strong&gt;: tức là người dùng chỉ dùng ứng dụng, tương tác và quản lý dữ liệu ở tầng ứng dụng, chứ không can thiệp tận tầng infra hay platform, và đương nhiên cũng không cần code hàm. Một ví dụ đơn giản là GMail, hoặc các hệ thống quản lý quan hệ khách hàng (CRM). Đơn giản chỉ “dùng” thôi!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Thì tại sao nên dùng PaaS như SageMaker?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;ví-dụ-triển-khai-fedml-trên-sagemaker&quot;&gt;Ví dụ triển khai FedML trên SageMaker&lt;/h1&gt;
 
@@ -130,16 +141,25 @@ Chọn những con đường khác cũng được nhưng mất công quá vào n
       &lt;p&gt;&lt;a href=&quot;https://mqtt.org/&quot;&gt;https://mqtt.org/&lt;/a&gt; &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://pytorch.org/&quot;&gt;https://pytorch.org/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://pytorch.org/&quot;&gt;https://pytorch.org/&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/&quot;&gt;https://www.tensorflow.org/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/&quot;&gt;https://www.tensorflow.org/&lt;/a&gt; &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:2:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://github.com/OpenMined/PySyft&quot;&gt;https://github.com/OpenMined/PySyft&lt;/a&gt; &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;&lt;a href=&quot;https://flower.dev/&quot;&gt;https://flower.dev/&lt;/a&gt; &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:8&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://huggingface.co/&quot;&gt;https://huggingface.co/&lt;/a&gt; &lt;a href=&quot;#fnref:8&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:6&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.pytorchlightning.ai/&quot;&gt;https://www.pytorchlightning.ai/&lt;/a&gt; &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:7&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://mxnet.apache.org/versions/1.9.1/&quot;&gt;https://mxnet.apache.org/versions/1.9.1/&lt;/a&gt; &lt;a href=&quot;#fnref:7&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
